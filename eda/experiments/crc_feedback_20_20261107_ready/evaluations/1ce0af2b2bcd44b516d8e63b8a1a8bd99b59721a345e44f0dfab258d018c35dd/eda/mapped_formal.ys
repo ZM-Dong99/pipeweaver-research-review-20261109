@@ -1,0 +1,18 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/crc_feedback_20_20261107_ready/evaluations/1ce0af2b2bcd44b516d8e63b8a1a8bd99b59721a345e44f0dfab258d018c35dd/reference.v"
+hierarchy -check -top crc32_d8
+flatten
+rename crc32_d8 pw_gold
+design -stash pw_gold_design
+read_liberty -ignore_miss_func -ignore_miss_dir "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/crc_feedback_20_20261107_ready/evaluations/1ce0af2b2bcd44b516d8e63b8a1a8bd99b59721a345e44f0dfab258d018c35dd/eda/mapped.v"
+hierarchy -check -top crc32_d8
+flatten
+delete t:$scopeinfo
+rename crc32_d8 pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/crc_feedback_20_20261107_ready/evaluations/1ce0af2b2bcd44b516d8e63b8a1a8bd99b59721a345e44f0dfab258d018c35dd/eda/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 120

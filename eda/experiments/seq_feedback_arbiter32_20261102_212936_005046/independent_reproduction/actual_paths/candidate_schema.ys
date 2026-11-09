@@ -1,0 +1,11 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v"
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/selected/actual_paths/arbiter.v"
+chparam -set ARB_BLOCK 1 arbiter
+chparam -set ARB_BLOCK_ACK 1 arbiter
+chparam -set ARB_TYPE_ROUND_ROBIN 1 arbiter
+chparam -set PORTS 32 arbiter
+hierarchy -check -top arbiter
+proc
+flatten
+check -assert
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/independent_reproduction/actual_paths/candidate_schema.json"

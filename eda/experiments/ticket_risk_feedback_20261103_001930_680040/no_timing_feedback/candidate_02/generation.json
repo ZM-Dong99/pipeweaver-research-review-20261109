@@ -1,0 +1,34 @@
+{
+  "call_index": 6,
+  "arm": "no_timing_feedback",
+  "candidate_id": "candidate_02",
+  "candidate_sha256": "9a5dde05442e998ef302b4f12bd33b81a12113067040fecd88b6cb2efa278481",
+  "status": "GENERATED",
+  "explanation": {
+    "bottleneck": "The source describes full-vector state comparisons and case-based next-state selection. Unless synthesis already extracts and optimizes the FSM equivalently, those structures can introduce unnecessary decode and selection depth on state-to-state and state-to-output paths.",
+    "rewrite": "Retain six one-hot state bits, but express each next-state bit as a parallel sum of transition terms. Share the input classifications ten, twenty-without-ten, and neither-input. Decode outputs directly from state bits rather than full-vector equality comparisons.",
+    "functional_boundaries": "Preserves the module name, ports, parameter declarations and defaults, synchronous active-high clear, single positive-edge clock, and output latency. ten retains priority when both inputs are asserted. Reset establishes a one-hot state, and every transition preserves that invariant for all input combinations, including arbitrary later clear assertions. No startup assumption is added. Illegal-state recovery differs outside the reset-reachable state space; equivalence is required under the supplied fixed startup contract. The requested proof scope is ON=1 and OFF=0.",
+    "expected_timing_gain": "The rewrite targets shallower state decoding and next-state selection. Actual WNS improvement is unmeasured; synthesis may already perform similar optimization on the baseline. Accept this candidate only after equivalence checking and EDA confirm strictly better setup WNS, no TNS regression, and compliance with the area cap.",
+    "area_or_other_cost": "Uses six state flip-flops, shared input qualification, and small AND/OR networks, with no additional sequential storage. Mapped area and buffering costs remain unmeasured and must be checked against 278.01664000000005 um^2.",
+    "output_format_normalization": [
+      "Removed complete leading think wrapper before JSON parsing"
+    ]
+  },
+  "parameters": {
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "http_transport": "curl",
+    "response_format": "json_object",
+    "candidate_index": 6,
+    "response_id": "chatcmpl-2b36c8c9-35c5-433e-a121-508517fec7ee",
+    "response_created": 1793636852,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 1491,
+      "completion_tokens": 981,
+      "total_tokens": 2630
+    }
+  },
+  "response_model": "gpt-6.1-sol",
+  "seconds": 36.3013045000007
+}

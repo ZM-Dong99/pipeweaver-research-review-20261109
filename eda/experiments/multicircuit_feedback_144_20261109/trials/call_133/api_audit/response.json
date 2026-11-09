@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-2c90151d-2855-4951-b66f-e302d939b730",
+  "model": "gpt-6.1-sol",
+  "created": 1794220678,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Analyzing Galois LFSR reverse mapping**\n\n**Mapping output bits to data masks**\n\n**Clarifying CRC state bit reversal**\n\n**Verifying reversed state input-output mapping**\n\n**Mapping output bits to feedback loop**\n\n**Designing 32-bit LFSR next-state logic**\n\n**Planning LFSR optimization with parallel algebra**\n\n**Evaluating module preservation and parameter handling**\n\n**Defining crc32_d8 with Verilog functions**\n\n**Analyzing Galois LFSR feedback logic**\n\n**Planning LFSR XOR network optimization**\n\n</think>\n\n{\"candidate_rtl\":\"`default_nettype none\\nmodule crc32_d8(input wire [7:0] data_in, input wire [31:0] state_in, output wire [7:0] data_out, output wire [31:0] state_out);\\n\\nfunction [31:0] reverse32;\\n    input [31:0] value;\\n    integer i;\\n    begin\\n        for (i = 0; i < 32; i = i + 1)\\n            reverse32[i] = value[31-i];\\n    end\\nendfunction\\n\\nfunction [31:0] crc_step;\\n    input [31:0] state;\\n    input feedback;\\n    begin\\n        crc_step = {state[30:0], feedback} ^ ({32{feedback}} & 32'h04c11db6);\\n    end\\nendfunction\\n\\nwire [31:0] s0;\\nwire [31:0] s1;\\nwire [31:0] s2;\\nwire [31:0] s3;\\nwire [31:0] s4;\\nwire [31:0] s5;\\nwire [31:0] s6;\\nwire [31:0] s7;\\nwire [31:0] s8;\\nwire q0;\\nwire q1;\\nwire q2;\\nwire q3;\\nwire q4;\\nwire q5;\\nwire q6;\\nwire q7;\\n\\nassign s0 = reverse32(state_in);\\nassign q0 = s0[31] ^ data_in[7];\\nassign s1 = crc_step(s0, q0);\\nassign q1 = s1[31] ^ data_in[6];\\nassign s2 = crc_step(s1, q1);\\nassign q2 = s2[31] ^ data_in[5];\\nassign s3 = crc_step(s2, q2);\\nassign q3 = s3[31] ^ data_in[4];\\nassign s4 = crc_step(s3, q3);\\nassign q4 = s4[31] ^ data_in[3];\\nassign s5 = crc_step(s4, q4);\\nassign q5 = s5[31] ^ data_in[2];\\nassign s6 = crc_step(s5, q5);\\nassign q6 = s6[31] ^ data_in[1];\\nassign s7 = crc_step(s6, q6);\\nassign q7 = s7[31] ^ data_in[0];\\nassign s8 = crc_step(s7, q7);\\n\\nassign data_out[0] = q0;\\nassign data_out[1] = q1;\\nassign data_out[2] = q2;\\nassign data_out[3] = q3;\\nassign data_out[4] = q4;\\nassign data_out[5] = q5;\\nassign data_out[6] = q6;\\nassign data_out[7] = q7;\\nassign state_out = reverse32(s8);\\n\\nendmodule\\n`default_nettype wire\",\"bottleneck\":\"The original implementation creates 40 independent wide reduction-XOR cones from generated masks. The critical paths are the feedback-dependent CRC state bits and the wide XOR reductions feeding state_out and data_out.\",\"rewrite\":\"Replace elaboration-time mask generation and wide per-output reductions with an explicit eight-step Galois recurrence. Reverse state_in once, process data_in[7:0] in the exact MSB-first order, expose each feedback bit directly as data_out, and reverse the final state once.\",\"expected_timing_gain\":\"Expected lower mapped maximum arrival due to removal of wide reduction cones and simpler constant-tap XOR structure. ABC can propagate and rebalance the explicit recurrence while preserving the same eight-bit combinational transform.\",\"area_or_other_cost\":\"The recurrence uses eight stages of constant-tap XOR logic and two 32-bit bit-reversal wiring networks. It should remain substantially below the 2752.64um2 cap, with no storage, inferred latches, memories, or additional external logic.\",\"functional_boundaries\":\"Exact equivalence is maintained for every 8-bit data_in and 32-bit state_in value. The implementation preserves Galois polynomial 32'h04c11db7, reverse input/output behavior, MSB-first processing, all eight data_out feedback results, and the complete arbitrary-state state_out transform.\"}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5144,
+    "completion_tokens": 3425,
+    "total_tokens": 11034
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 967,
+    "usage_reported": true
+  }
+}

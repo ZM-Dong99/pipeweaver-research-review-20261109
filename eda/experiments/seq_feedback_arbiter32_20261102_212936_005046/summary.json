@@ -1,0 +1,434 @@
+{
+  "status": "COMPLETED",
+  "request_attempts": 6,
+  "protocol_sha256": "66d54ffee7289414a9b59f174da9a4026f6984b2696a8fd47f8dc01d65f8bc84",
+  "manifest_sha256": "31949d9ba535ba819467354bdd458f6bbf02e8d5bb694dda316de3ce154814be",
+  "groups": {
+    "no_timing_feedback": {
+      "scheduled": 3,
+      "returned": 3,
+      "valid_improvements": 0,
+      "selected_origin": "baseline_retained",
+      "selected_metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "mapped_formal": "PASS",
+        "ppa": "PASS",
+        "eligible": true,
+        "stage": "sta",
+        "mapped_area_um2": 4436.7552,
+        "mapped_cells": 625,
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "wns_ns": 7.8,
+        "tns_ns": 0.0,
+        "mapped_sha256": "c9eb421aa0540c2ba8f0ea263917352488feb916705c9efbdc0a9248f55f3e6b",
+        "sdc_sha256": "ac8d553567cead8777db869b7a22ac4dfa41a9b08b1edfcd2ad54e6315a268de",
+        "elapsed_seconds": 9.936
+      },
+      "selected_rtl_sha256": "d54d337db4812f927b2e9b5788dfa39f9bd578ad01b7846c5fa7f2610b0923fa",
+      "reported_tokens": 20652
+    },
+    "actual_paths": {
+      "scheduled": 3,
+      "returned": 3,
+      "valid_improvements": 0,
+      "selected_origin": "baseline_retained",
+      "selected_metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "mapped_formal": "PASS",
+        "ppa": "PASS",
+        "eligible": true,
+        "stage": "sta",
+        "mapped_area_um2": 4436.7552,
+        "mapped_cells": 625,
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "wns_ns": 7.8,
+        "tns_ns": 0.0,
+        "mapped_sha256": "c9eb421aa0540c2ba8f0ea263917352488feb916705c9efbdc0a9248f55f3e6b",
+        "sdc_sha256": "ac8d553567cead8777db869b7a22ac4dfa41a9b08b1edfcd2ad54e6315a268de",
+        "elapsed_seconds": 9.936
+      },
+      "selected_rtl_sha256": "d54d337db4812f927b2e9b5788dfa39f9bd578ad01b7846c5fa7f2610b0923fa",
+      "reported_tokens": 24603
+    }
+  },
+  "results": [
+    {
+      "call_index": 1,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_01",
+      "candidate_sha256": "40e6a144525096747594d0558d4c4b12782dfeca3c87e31b7cb7839f30c19107",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The original round-robin feedback path passes through priority encoding, index-dependent arithmetic and a variable shift before updating mask_reg. Its grant path also decodes the encoded winner back into a one-hot vector. These are plausible setup bottlenecks; no timing report was provided to establish the actual critical path.",
+        "area_or_other_cost": "Parallel reductions may add logic alongside the retained encoded-output trees, although synthesis can share reductions and remove unused decoder logic. No registers or pipeline stages are added. Mapped area must be checked against the 4880.43072 um2 cap; compliance has not been measured.",
+        "rewrite": "Retain the frozen priority_encoder instances for valid and encoded results, but disconnect their one-hot outputs. Compute one-hot winners directly using parallel higher-priority request reductions. Reuse those reductions as the next round-robin mask, eliminating index arithmetic and variable shifts. Preserve the original selection, blocking and sequential-update structure.",
+        "expected_timing_gain": "The mask feedback path should require fewer serial logic stages, and one-hot grants no longer depend on encoded-index decoding. Actual WNS improvement is unmeasured and must be established by synthesis and STA at the fixed settings; encoded-output or blocking-control paths may instead limit timing.",
+        "functional_boundaries": "For each nonempty request vector, the higher-priority reduction is exactly the mask permitting positions after the selected winner in the configured priority order. This holds for arbitrary simultaneous request bits and for masked requests. Empty-vector direct winners differ from the helper's unused invalid one-hot result, but the original valid guards prevent their selection. The candidate retains parameter names/defaults, native ports and widths, original register initialization semantics, synchronous active-high reset, blocking/acknowledge behavior, mask retention, and edge-sampled output latency. It adds no startup assumptions and does not redefine the dependency. Formal equivalence against the frozen original, including reset after startup, remains required for the specified parameter instance.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 1,
+        "response_id": "chatcmpl-0334963a-57de-4eb2-aa1c-8e887aeb2780",
+        "response_created": 1793626380,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 3167,
+          "completion_tokens": 2422,
+          "total_tokens": 5985
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 65.67953519999901,
+      "accepted": false,
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "mapped_formal": "PASS",
+        "ppa": "PASS",
+        "eligible": true,
+        "stage": "sta",
+        "mapped_area_um2": 5571.5936,
+        "mapped_cells": 843,
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "wns_ns": 8.2,
+        "tns_ns": 0.0,
+        "mapped_sha256": "fa470114110f6db6594a59f5beff608e8f939d339ff6a4d91ccc180a5fc379de",
+        "sdc_sha256": "ac8d553567cead8777db869b7a22ac4dfa41a9b08b1edfcd2ad54e6315a268de",
+        "elapsed_seconds": 14.578
+      },
+      "reason": "Exceeds fixed baseline-derived area cap"
+    },
+    {
+      "call_index": 2,
+      "arm": "actual_paths",
+      "candidate_id": "candidate_01",
+      "candidate_sha256": "4763986541d09399e2187c74ec5d98104a6a4fa9609245ffae266e2a735255b3",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The supplied STA shows approximately 2.07 ns arrival time on the worst register-to-register path, with substantial combinational depth and buffering. Exact source correspondence is unavailable. A likely structural contributor is the original round-robin feedback through priority encoding, index-dependent mask shifting, selection, and register control.",
+        "area_or_other_cost": "Overlapping prefix reductions may increase logic duplication, routing, or buffering, although synthesis can share reductions and removes the original mask-shift logic. Register count and output latency are unchanged. Mapped area must be checked against the 4880.43072 um2 cap; compliance has not been measured.",
+        "rewrite": "Replace the top-level encoder uses with parallel priority-prefix reductions. Derive one-hot winners directly from request bits and higher-priority prefixes. Reuse those prefixes as the next round-robin mask, eliminating the encoded-index arithmetic and variable shifts entirely. Generate grant_encoded with an OR encoding of the selected one-hot winner. Express hold and arbitration selection as mutually exclusive terms. The frozen helper module is neither modified nor redefined.",
+        "expected_timing_gain": "Unmeasured. The intended improvement is a shorter mask-register feedback path: masked request, prefix reduction, selection, and register input instead of priority encoding followed by index arithmetic and mask shifting. Prefix fanout, selection control, or the output encoding may become limiting. Compare mapped WNS against the supplied 7.80 ns baseline under the identical EDA settings before accepting the candidate.",
+        "functional_boundaries": "Preserves the original parameter names/defaults, port widths and signedness, declaration initialization, single positive-edge clock, and active-high synchronous reset. For arbitrary multi-bit requests, each winner is the highest-priority asserted bit. Its next mask equals the corresponding higher-priority-request prefix vector. Masked requests take precedence only in round-robin mode; blocking retains grant, validity, encoded grant, and mask exactly as before. No-request cycles clear the grant outputs unless held and retain the mask. Reset remains effective on every edge, including after startup. No added assumptions, state stages, helper definitions, or latency changes. Formal equivalence against the frozen original under the fixed startup contract and specified overrides remains required.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 2,
+        "response_id": "chatcmpl-85c620c9-613b-4c5e-895b-37e09f1d21eb",
+        "response_created": 1793626446,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5569,
+          "completion_tokens": 2354,
+          "total_tokens": 8295
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 70.75972400000319,
+      "accepted": false,
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "mapped_formal": "PASS",
+        "ppa": "PASS",
+        "eligible": true,
+        "stage": "sta",
+        "mapped_area_um2": 5074.8672,
+        "mapped_cells": 736,
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "wns_ns": 8.06,
+        "tns_ns": 0.0,
+        "mapped_sha256": "22cccc36f4f7df33b17fc616076790d6d44fe7b07459fb71ec752b9adc7a0e70",
+        "sdc_sha256": "ac8d553567cead8777db869b7a22ac4dfa41a9b08b1edfcd2ad54e6315a268de",
+        "elapsed_seconds": 11.625
+      },
+      "reason": "Exceeds fixed baseline-derived area cap"
+    },
+    {
+      "call_index": 3,
+      "arm": "actual_paths",
+      "candidate_id": "candidate_02",
+      "candidate_sha256": "c6500f1e7a5e32b8647ee4ff0ee999938b5052f8272a5e6b687436aaf8e3d308",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The reference constructs encoded priority results, decodes them into one-hot grants, and computes the next round-robin mask through index arithmetic and variable shifts. This creates potentially deep reconvergent feedback logic. The supplied mapped paths confirm substantial combinational depth and buffering, but do not identify an exact RTL cone.",
+        "area_or_other_cost": "Parallel overlapping reductions can increase wiring, fanout, or duplicated logic, although synthesis may share their terms. Removing the variable-shift mask logic may offset that cost. Mapped area must be checked against the fixed 4880.43072 um2 cap; neither area compliance nor timing improvement is measured.",
+        "rewrite": "Replace the two helper instances with top-local parallel priority reductions that directly produce one-hot winners. Select the masked winner when available, otherwise select the unrestricted winner. Compute grant_encoded with OR reductions and compute the next round-robin mask directly from winner prefixes or suffixes, eliminating the encoded-index-to-variable-shift mask computation. Keep blocking and synchronous reset behavior unchanged.",
+        "expected_timing_gain": "The intended improvement is a shorter mask/grant feedback path by removing encode/decode and arithmetic/shift stages. No candidate synthesis, equivalence check, or STA has been run here, so improvement over the measured baseline WNS of 7.80 ns is not established.",
+        "functional_boundaries": "Preserves the top interface, parameter names/defaults, register initialization values, single positive-edge clock, active-high synchronous reset, and output latency. Arbitrary multi-bit request and acknowledge inputs are handled without one-hot assumptions. The one-hot property used for encoding is produced internally by priority selection. During a blocked grant all output registers and the mask retain their previous values; without requests, outputs clear and the mask holds. Reset remains effective on every edge where rst is high. The frozen helper module is neither modified nor redefined. Formal equivalence against the original frozen RTL under the specified startup contract and parameter overrides remains required.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 3,
+        "response_id": "chatcmpl-4331a133-dbc0-4fd0-a0de-f58c14c7e0b5",
+        "response_created": 1793626517,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5569,
+          "completion_tokens": 2182,
+          "total_tokens": 8029
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 57.349029200002406,
+      "accepted": false,
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "mapped_formal": "PASS",
+        "ppa": "PASS",
+        "eligible": true,
+        "stage": "sta",
+        "mapped_area_um2": 5729.2448,
+        "mapped_cells": 864,
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "wns_ns": 8.19,
+        "tns_ns": 0.0,
+        "mapped_sha256": "f219e3906d42ebe8f60e290c81dd7cc1d71d74e79b82aca8d54762b6ea0155e6",
+        "sdc_sha256": "ac8d553567cead8777db869b7a22ac4dfa41a9b08b1edfcd2ad54e6315a268de",
+        "elapsed_seconds": 12.038
+      },
+      "reason": "Exceeds fixed baseline-derived area cap"
+    },
+    {
+      "call_index": 4,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_02",
+      "candidate_sha256": "ec209788ffad239f8e13d290e27ba116e00fdc2117da1d30aae524fd954ecdf4",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The original round-robin feedback path passes masked requests through a priority encoder and then derives mask_next using index arithmetic and a variable shift. The grant path also converts the encoded winner back to one-hot form. These dependent operations are plausible setup-critical paths; no timing report was provided to establish the actual critical endpoint.",
+        "area_or_other_cost": "Overlapping priority reductions and parallel encoding may increase logic duplication, routing, or fanout, depending on synthesis sharing. No mapped area result is available. Acceptance requires mapped area at or below 4880.43072 um2, as well as improved setup WNS and equivalence against the frozen original.",
+        "rewrite": "Replace the two helper instances with top-local parallel priority reductions. Generate each one-hot winner directly by suppressing requests with higher-priority competitors. Encode these internally one-hot vectors using parallel OR reductions. Compute each candidate round-robin mask directly from the higher-priority-request reductions, independently of the encoded index, then select masked or unmasked results. The frozen helper source is neither changed nor redefined.",
+        "expected_timing_gain": "The intended gain is removal of the priority-encode-to-index-arithmetic-to-variable-shift chain from the mask feedback path, and removal of binary decoding from the one-hot grant path. Actual setup WNS improvement remains unmeasured and must be established with the fixed EDA settings.",
+        "functional_boundaries": "Retains the top interface, parameter names/defaults, original register initialization values, single positive-edge clock, synchronous active-high reset, blocking rules, and registered output latency. Arbitrary multi-bit request and acknowledge inputs are supported without one-hot assumptions. For a nonempty priority-selected request set, the higher-priority-presence vector equals the original shifted round-robin mask. The mask holds during blocking and idle cycles. Reset retains priority on every edge, including resets after startup. No startup assumptions, pipeline stages, helper definitions, assertions, or new initialization semantics are introduced. Formal equivalence is still required for the specified PORTS=32 parameter instance.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 4,
+        "response_id": "chatcmpl-ea7f68bd-b85b-4668-805b-bce02f748f51",
+        "response_created": 1793626574,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 3167,
+          "completion_tokens": 2875,
+          "total_tokens": 6809
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 83.48341639999853,
+      "accepted": false,
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "mapped_formal": "PASS",
+        "ppa": "PASS",
+        "eligible": true,
+        "stage": "sta",
+        "mapped_area_um2": 5388.9184,
+        "mapped_cells": 841,
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "wns_ns": 8.25,
+        "tns_ns": 0.0,
+        "mapped_sha256": "6be1620fff9bdbc6b89c891440d8708065fe7edc024698dc0ea928ce5939d582",
+        "sdc_sha256": "ac8d553567cead8777db869b7a22ac4dfa41a9b08b1edfcd2ad54e6315a268de",
+        "elapsed_seconds": 10.421
+      },
+      "reason": "Exceeds fixed baseline-derived area cap"
+    },
+    {
+      "call_index": 5,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_03",
+      "candidate_sha256": "9cd0c45a1bc6e162655b946106e08b497bf8622be722cf5214b08970d79a7f47",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The original round-robin feedback path can traverse request masking, priority encoding, index arithmetic and variable shifting before reaching mask_reg. Its one-hot grant path also decodes the encoded winner. These are structural timing risks; no timing report was supplied to establish the actual critical path.",
+        "area_or_other_cost": "The prefix networks add combinational logic alongside the retained binary encoders, while removing their used one-hot decoders and the variable mask shifters. No registers or pipeline stages are added. Net mapped area, routing cost and compliance with the 4880.43072 um2 cap remain unmeasured.",
+        "rewrite": "Keep the frozen priority_encoder instances for valid and binary index generation. Compute one-hot winners and next round-robin masks directly with parallel priority-direction OR prefixes. For MSB-first arbitration, each strict-prefix bit indicates whether any higher-numbered request exists; for LSB-first arbitration it indicates whether any lower-numbered request exists. This strict prefix is exactly the mask following the winning request, and request AND NOT strict-prefix is exactly its one-hot grant. Preserve the original blocking, hold, idle and synchronous reset decisions.",
+        "expected_timing_gain": "Unmeasured. For PORTS=32, each prefix network has five constant-shift OR stages. The rewrite removes binary-index arithmetic and variable shifting from mask generation, and binary-to-one-hot decoding from grant generation. It is expected to shorten those feedback paths, but setup WNS improvement must be established by EDA at the fixed settings.",
+        "functional_boundaries": "Preserves top name, parameter names/defaults, native port widths and signedness, existing register initialization semantics, single positive-edge clock, synchronous active-high reset, and output latency. Blocking and mask-update conditions remain unchanged, including resets after startup. Prefix identities support arbitrary simultaneous request bits and do not assume one-hot requests or acknowledges. The frozen dependency is instantiated, not redefined. No additional startup assumptions are introduced. Formal equivalence against the original frozen RTL and timing/area validation are still required.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 5,
+        "response_id": "chatcmpl-4fb601dc-e91a-43a5-aa67-9448b35508de",
+        "response_created": 1793626658,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 3167,
+          "completion_tokens": 3420,
+          "total_tokens": 7858
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 107.80766869999934,
+      "accepted": false,
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "mapped_formal": "PASS",
+        "ppa": "PASS",
+        "eligible": true,
+        "stage": "sta",
+        "mapped_area_um2": 5415.1936,
+        "mapped_cells": 869,
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "wns_ns": 8.29,
+        "tns_ns": 0.0,
+        "mapped_sha256": "8dde1852d7349e33caf7788cce7553eac0b141e0a4ae3050bd0f4b26e9bd654d",
+        "sdc_sha256": "ac8d553567cead8777db869b7a22ac4dfa41a9b08b1edfcd2ad54e6315a268de",
+        "elapsed_seconds": 10.192
+      },
+      "reason": "Exceeds fixed baseline-derived area cap"
+    },
+    {
+      "call_index": 6,
+      "arm": "actual_paths",
+      "candidate_id": "candidate_03",
+      "candidate_sha256": "bbc7f008567d6913b35077dcb01d40424402636a3ee9b32eb1c41f4e4a073592",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The supplied mapped paths show substantial combinational depth and buffering between registers, but do not identify exact RTL endpoints. A plausible contributor in the reference is the masked priority-encoding path followed by encoded-index decoding or variable-shift mask generation and blocking/reset selection.",
+        "area_or_other_cost": "Parallel overlapping reductions can increase combinational area, routing, and fanout, although synthesis may share common terms. Register count is unchanged. Compliance with the 4880.43072 um2 mapped-area cap is not established without mapping.",
+        "rewrite": "Replace the helper instances with top-local parallel priority suppression. Produce each one-hot winner directly from its request bit and a reduction of higher-priority requests. Encode the selected winner with OR reductions. Most importantly, compute each next-mask bit directly from a reduction of higher-priority requests, independently of the encoded index: for MSB priority, mask bit i is the OR of requests above i; for LSB priority, it is the OR below i. Select between masked and unmasked results while retaining the original blocking and sequential update rules.",
+        "expected_timing_gain": "Unmeasured. The rewrite removes the encoded-index-to-one-hot decode and encoded-index-to-variable-shift dependencies, particularly shortening the prospective mask-register feedback path. Balanced reductions may also reduce priority-selection depth. Actual WNS improvement over the supplied 7.8 ns baseline requires synthesis and STA at the fixed settings.",
+        "functional_boundaries": "Preserves the top interface, parameter names/defaults, original register initialization values, single positive-edge clock, synchronous active-high reset, blocking conditions, and output latency. Handles arbitrary multi-bit request and acknowledge vectors without input one-hot assumptions. A held grant also holds the round-robin mask; an idle cycle clears grant outputs while retaining the mask. No helper module is redefined. Equivalence against the original frozen RTL under the unchanged startup contract, including later resets, remains to be verified.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 6,
+        "response_id": "chatcmpl-80abd156-cb22-4a25-b110-636fa05a6713",
+        "response_created": 1793626766,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 5569,
+          "completion_tokens": 2339,
+          "total_tokens": 8279
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 46.138712300002226,
+      "accepted": false,
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "mapped_formal": "PASS",
+        "ppa": "PASS",
+        "eligible": true,
+        "stage": "sta",
+        "mapped_area_um2": 5580.352,
+        "mapped_cells": 840,
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "wns_ns": 8.22,
+        "tns_ns": 0.0,
+        "mapped_sha256": "da228ae4f52b6abd392349ce464d4ca2d3c3dab599179eec4fb4707561a7cc89",
+        "sdc_sha256": "ac8d553567cead8777db869b7a22ac4dfa41a9b08b1edfcd2ad54e6315a268de",
+        "elapsed_seconds": 11.626
+      },
+      "reason": "Exceeds fixed baseline-derived area cap"
+    }
+  ]
+}

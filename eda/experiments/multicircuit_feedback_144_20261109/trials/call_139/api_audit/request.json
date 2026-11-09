@@ -1,0 +1,26 @@
+{
+  "endpoint": "https://apinebula.ai/v1/chat/completions",
+  "body": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "response_format": {
+      "type": "json_object"
+    },
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "max_completion_tokens": 16000,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Optimize the specified combinational RTL under its exact all-input equivalence contract. Return exactly the requested JSON object."
+      },
+      {
+        "role": "user",
+        "content": "Optimize module mul_subexpression, fixed parameter overrides {}. Minimize mapped maximum data arrival. Preserve module name, ports, widths, signedness, truncations, priority, default outputs and parameter declarations/defaults. All input bits are arbitrary binary values. Every output bit must match for all inputs. Do not rely on presumed typical operation or comments. No clocks, storage, latency, latches, memories, assumptions, assertions, external includes, file access, dependencies or undefined outputs. Return a complete synthesizable design including helper modules. Only this fixed parameter instance is assessed.\nEvaluation uses SKY130HD TT25C1.80V, Yosys source and mapped all-input equivalence, flatten/synth-noabc and ABC buffer_size with cleanup-before-buffer, OpenSTA, 0ns external IO delays, input transition0.10ns, output load0.010pF, 100ns virtual reporting clock and no physical wire parasitics. Zero reported max-slew and max-capacitance violations required. Original mapped area 3419.529600um2; area cap 3761.482560um2. CRC candidates use the same Slang frontend as their baseline. CRC state_in is arbitrary and data_out must also match exactly.\nReturn exactly one JSON object with six string fields candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.\nOriginal RTL:\nmodule mul_subexpression(\n    input [7:0] multiplicand,  // 8-bit multiplicand\n    input [7:0] multiplier,    // 8-bit multiplier\n    output [15:0] product      // 16-bit product output\n);\n\n// Two-dimensional array to hold all partial products\nwire [7:0] partial_products[7:0];\n\ngenvar i, j;\ngenerate\n    for (i = 0; i < 8; i = i + 1) begin: gen_rows\n        for (j = 0; j < 8; j = j + 1) begin: gen_cols\n            // Generate each partial product separately\n            assign partial_products[i][j] = multiplicand[i] & multiplier[j];\n        end\n    end\nendgenerate\n\n// Summing all partial products into the final product\nwire [15:0] sum[7:0]; // Intermediate sums\n\n// Initialize the first sum with the least significant partial product row\nassign sum[0] = {8'b0, partial_products[0]};\n\n// Accumulate each row of partial products into the sum\ngenerate\n    for (i = 1; i < 8; i = i + 1) begin: gen_sum\n        wire [15:0] shifted_partial = {8'b0, partial_products[i]} << i;\n        assign sum[i] = sum[i-1] + shifted_partial;\n    end\nendgenerate\n\n// The final product is the sum of the last accumulation\nassign product = sum[7];\n\nendmodule\nSecond round. Improve your previous candidate, keeping the original contract and area cap.\n\nYour previous candidate RTL:\nmodule mul_subexpression(\n    input [7:0] multiplicand,\n    input [7:0] multiplier,\n    output [15:0] product\n);\n    assign product = multiplicand * multiplier;\nendmodule\n"
+      }
+    ]
+  },
+  "credentials": "omitted"
+}

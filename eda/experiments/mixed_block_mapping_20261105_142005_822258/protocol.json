@@ -1,0 +1,100 @@
+{
+  "client_date": "2026-11-05",
+  "kind": "BLOCK_FIXED_MAPPING_LOCALIZATION_DEVELOPMENT",
+  "model_requests": 0,
+  "top": "mixed_datapath",
+  "parameters": {},
+  "inputs": 148,
+  "outputs": 79,
+  "origin": "Manual independent composition of public10x8 mux and64-way MSB encoder. Both components and rewrites already exposed during development, not a new natural benchmark or independent holdout.",
+  "earlier_failed_attempt": "mixed_localization_20261105_140731_693499: baseline mapping failed with foreign ABC script reference. No candidate/constraint substitution; rerun after per-output cwd/tmp isolation and Windows path normalization. Old records retained.",
+  "choices": {
+    "baseline": [
+      false,
+      false
+    ],
+    "rewrite_mux": [
+      true,
+      false
+    ],
+    "rewrite_priority": [
+      false,
+      true
+    ],
+    "rewrite_both": [
+      true,
+      true
+    ]
+  },
+  "profiles": {
+    "balanced": {
+      "mux": 0.0,
+      "priority": 0.0
+    },
+    "mux_delay050": {
+      "mux": 0.5,
+      "priority": 0.0
+    },
+    "mux_delay090": {
+      "mux": 0.9,
+      "priority": 0.0
+    },
+    "both_offset": {
+      "mux": 0.6,
+      "priority": 0.2
+    },
+    "priority_delay030": {
+      "mux": 0.0,
+      "priority": 0.3
+    }
+  },
+  "area_ratio_limit": 1.1,
+  "action_count_budget": 1,
+  "contract": "All148 two-state inputs unrestricted, all79 outputs preserved including encoder encoded/onehot values when valid0, mux sel10..15 default a. No latency/state/assumptions, no X/Z equivalence claim.",
+  "timing": "Controlled mapping-boundary followup: map each component version independently once, then compose exact gate-level blocks without whole-design ABC remapping. Unchanged block netlist remains bit-identical across actions. Same five profiles as flat parent. Gate-level composition proved against full original source. No physical parasitics.",
+  "mapping_boundary_adaptation": {
+    "parent": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\mixed_localization_20261105_141351_477871",
+    "parent_evidence_sha256": "0c90778b74eea42eb02d62bee0b28c07716fe8e57e7531b2c25c6f5ae128c700",
+    "reason": "Flat experiment had same best action in all profiles and nonlocal changes to untouched-region timing. This followup changes mapping boundary only, not RTL behavior, region actions or delay profiles. Post-hoc mechanism development, not independent validation."
+  },
+  "syntax_followup": "Prior block attempt mixed_block_mapping_20261105_141858_816593 passed component and composition proofs but OpenSTA rejected indexed part-selects in the wrapper. Render equivalent fixed bit ranges; preserve old failure, unchanged behavior/actions/constraints.",
+  "policies": [
+    "fixed_mux",
+    "fixed_priority",
+    "largest_input_delay",
+    "baseline_sta_endpoint"
+  ],
+  "tie_policy": "largest_input_delay chooses mux on ties; original retained if chosen action gives no strict eligible improvement",
+  "hypotheses": "At least one nonbalanced profile prefers mux and one prefers priority under one action. At least two profiles have STA endpoint policy >=0.05ns better than largest_input_delay. Primary is per-profile retained delay and >=5% gain counts, never statistical inference from five correlated configurations.",
+  "fairness": "Future both LLM arms must receive same full RTL, explicit delay/IO constraints, action semantics, action budget and area cap. STA arm only adds actual baseline paths. Simplistic rule failure does not prove no-STA LLM cannot infer internal depth. Do not buy API solely because one heuristic fails.",
+  "both_rewrite": "Diagnostic larger-budget reference only, excluded by action count even if lower area. Action budget is separate from area budget.",
+  "independent_replays": "Predeclared mux_delay050 and mux_delay090: repeat baseline and baseline-endpoint-policy selected mapping/constraints, not newly synthesized candidates.",
+  "source_sha256": {
+    "mux.v": "bd39d0a0b18687c21c710a8d6538283e51a6e05cb46d830773332e7b74902e4d",
+    "MUX_LICENSE": "7bd218334a79d058f1c10ed5705fb4f5f166b1c97a3db7d6f7f4b62102c43930",
+    "priority.v": "df28220d95b47df349a72803a9751aad331eb8e1435416e8686d00572a974dd5",
+    "PRIORITY_LICENSE": "8ea57f95365e9b16a5b516f422b71269183a1ae53bab5878ae6d69039e58fe77"
+  },
+  "design_sha256": {
+    "baseline": "d84d2436127c41493ca8fbb6bc204d8c3eb5f0eff67b0007f4d5d9ede93b8fba",
+    "rewrite_mux": "676cb1cb19a15a878d74bbf870a8f8fb30ca09fb280fb877ac711238d8fb0e37",
+    "rewrite_priority": "0cc7b656247bcabcf514b381c0a8cd57b15038da3bd59f70c94fb06e37592afb",
+    "rewrite_both": "ca218347433dddd505dda24f16e7a806aa1736c8a964569179fe730155be4d75"
+  },
+  "sdc_sha256": {
+    "balanced": "4b986f640785e976479935da014cefbbd47542fa60998b396d77e90b8b1465a7",
+    "mux_delay050": "7ca9b9f36c785b6873b8484acb9b645bbcc38ce90da73e7afc59bee481b0816e",
+    "mux_delay090": "056c96d0aa7bac9cadde8fb3b3b2dca191d6620804858a3d7f505c9ad0b77058",
+    "both_offset": "f4c65ff3a0a6ca9f999d81e14f340461af03b5a91082a65e6e6ce8ecfd490ff2",
+    "priority_delay030": "806eb0ab2f289da39bde7ff28cd7d9b3f8095f9f5370c5b3b07f80961c27bdb9"
+  },
+  "liberty_sha256": "92eb4e93a3d4c2563018ac81cdec2f02fdeaced9b39337ed5c141fa63e0ad8f8",
+  "code_sha256": {
+    "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\run_mixed_block_mapping.py": "64d921158fbd75e5a12077117d098567e592e6986a3e6a99fd10939a5991ea90",
+    "D:\\verilog_lab\\PipeWeaver\\agents\\action_loop.py": "cb80e34386e141b7935cf0d765d4b948de6af6ae60f85b6f7b233187f2d16e2a",
+    "D:\\verilog_lab\\PipeWeaver\\rewrite\\mux_rewrites.py": "37143b9a07182563c432417edb780bfd71ed93d92f916015952be779529a4437",
+    "D:\\verilog_lab\\PipeWeaver\\rewrite\\priority_rewrites.py": "8c20a52a2841a2f93e151d64660444f7f5b35d18adbd1e2de2de49c8b1679411",
+    "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\run_native_comb.py": "6d5533a0fabdaf0e97d16d6d3b35ca424387bb4ff07968a10aa27df34ed385f2",
+    "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\trace_sta_rtl_cone.py": "047c3b739a00bcba19d470ea3d043ef5a872dd0ded0f0ee41dc22ea3e41b920d"
+  }
+}

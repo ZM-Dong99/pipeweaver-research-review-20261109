@@ -1,0 +1,22 @@
+{
+  "endpoint": "https://apinebula.ai/v1/chat/completions",
+  "body": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Optimize synthesizable RTL conservatively. Preserve sequential behavior."
+      },
+      {
+        "role": "user",
+        "content": "Optimize this native combinational mux_large module for minimum mapped maximum data arrival while keeping area within the fixed cap. Give exactly one candidate RTL, not multiple alternatives.\nPreserve module name, all port names, directions and bit widths. All 84 input bits are unconstrained and all 8 output bits must match for every two-state input. sel=0..9 selects block_a..block_j respectively; sel=10..15 selects block_a. No clocks, state, latency, assumptions or don't-cares may be introduced. Use synthesizable Verilog-2001. Helper modules are allowed. No include files or external dependencies.\nBoth conditions use Yosys/OpenSTA, SKY130HD TT 25C 1.80V, input transition 0.10ns, output load 0.010pF, external IO delays 0ns and no physical wire parasitics. The 100ns virtual clock is only a reporting reference; optimize maximum data arrival.\nFixed mapping: hierarchy; flatten; synth -noabc; ABC script: strash; dretime; map; cleanup -i -o; buffer; upsize; dnsize; stime -p with fixed driver/output load.\nBaseline mapped area 914.627200 um^2; mapped-area cap 1006.089920 um^2. Complete source and mapped equivalence proofs and zero reported max-slew/max-capacitance violations are mandatory. No candidate PPA is supplied. Timing/area estimates are hypotheses to be measured by EDA.\nReturn a single JSON object with candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries. candidate_rtl must contain one complete design, not pseudocode.\nOriginal RTL:\nmodule mux_large (\n    input [7:0] block_a, block_b, block_c, block_d, block_e,\n    input [7:0] block_f, block_g, block_h, block_i, block_j,\n    input [3:0] sel,  // 4 bit select signal\n    output reg [7:0] block_out\n);\n\n    always @(*) begin\n        case (sel)\n            4'b0000: block_out = block_a;\n            4'b0001: block_out = block_b;\n            4'b0010: block_out = block_c;\n            4'b0011: block_out = block_d;\n            4'b0100: block_out = block_e;\n            4'b0101: block_out = block_f;\n            4'b0110: block_out = block_g;\n            4'b0111: block_out = block_h;\n            4'b1000: block_out = block_i;\n            4'b1001: block_out = block_j;\n            default: block_out = block_a; \n        endcase\n    end\nendmodule\n"
+      }
+    ]
+  },
+  "http_transport": "curl",
+  "credentials": "Authorization header omitted"
+}

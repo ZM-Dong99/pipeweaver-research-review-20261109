@@ -1,0 +1,34 @@
+{
+  "call_index": 10,
+  "arm": "structured_timing_feedback",
+  "candidate_id": "candidate_05",
+  "candidate_sha256": "0ab72fb393ba3548bfa9d16a43bea9a0bf32f85f7c353988a19befa729b51715",
+  "status": "GENERATED",
+  "explanation": {
+    "bottleneck": "The measured baseline worst path is a state flip-flop through a three-input OR to bill: 0.30 ns clock-to-Q plus 0.40 ns OR delay. The existing one-hot mapping therefore still incurs a comparatively expensive output decode.",
+    "area_or_other_cost": "Adds one logical flip-flop and its next-value logic, while simplifying the bill output path. Explicit transition logic may also change mapping and sharing. The resulting mapped area is unmeasured and must remain at or below 278.01664000000005 um^2.",
+    "functional_boundaries": "Preserves the module interface and parameter declarations, a single positive-edge clock, synchronous active-high clear, and output latency. Simultaneous ten and twenty retain ten priority. Every clear edge restores the ready state and clears bill_active, including arbitrary later clear assertions. Under the fixed startup reset, the six state bits remain one-hot and bill_active equals membership in BILL10, BILL20, or BILL30. No additional startup assumptions are introduced. Equivalence must be checked against the frozen original for the specified default ON/OFF values; behavior from arbitrary unreset illegal internal states is not claimed.",
+    "rewrite": "Use explicit one-hot transition equations and a redundant bill_active flip-flop. Compute bill_active from the current state and inputs at the same edge that advances the state, so it represents the new state's bill output without adding a cycle. Its equation is simplified directly from the original transitions. With the default parameters, bill is driven directly by this register rather than by the OR of three state registers.",
+    "expected_timing_gain": "The targeted benefit is removal of the measured 0.40 ns output OR stage. This is not a predicted net WNS gain: bill_active's input logic, register loading, and mapping may become limiting. No candidate timing measurements are available. Accept only after equivalence and EDA confirm WNS strictly above 9.30 ns, TNS no worse than 0.0 ns, and area within the fixed cap.",
+    "output_format_normalization": [
+      "Removed complete leading think wrapper before JSON parsing"
+    ]
+  },
+  "parameters": {
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "http_transport": "curl",
+    "response_format": "json_object",
+    "candidate_index": 10,
+    "response_id": "chatcmpl-48411ff8-f3da-4c52-b58a-a08a6041319a",
+    "response_created": 1793634955,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 3218,
+      "completion_tokens": 1440,
+      "total_tokens": 5131
+    }
+  },
+  "response_model": "gpt-6.1-sol",
+  "seconds": 61.28599459999896
+}

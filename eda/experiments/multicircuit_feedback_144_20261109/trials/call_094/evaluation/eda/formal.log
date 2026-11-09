@@ -1,0 +1,338 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\multicircuit_feedback_144_20261109\trials\call_094\evaluation\eda\formal.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/reference.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/reference.v' to AST representation.
+Generating RTLIL representation for module `\crc32_d8'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \crc32_d8
+
+2.2. Analyzing design hierarchy..
+Top module:  \crc32_d8
+Removed 0 unused modules.
+
+3. Executing FLATTEN pass (flatten design).
+Renaming module \crc32_d8 to \pw_gold.
+
+4. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v' to AST representation.
+Generating RTLIL representation for module `\crc32_d8'.
+Successfully finished Verilog frontend.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1. Analyzing design hierarchy..
+Top module:  \crc32_d8
+
+5.2. Analyzing design hierarchy..
+Top module:  \crc32_d8
+Removed 0 unused modules.
+
+6. Executing FLATTEN pass (flatten design).
+Renaming module \crc32_d8 to \pw_cand.
+
+7. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/eda/miter.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/eda/miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+8. Executing PREP pass.
+
+8.1. Executing HIERARCHY pass (managing design hierarchy).
+
+8.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+
+8.1.2. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+Removed 0 unused modules.
+
+8.2. Executing PROC pass (convert processes to netlists).
+
+8.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+8.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+8.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+8.2.4. Executing PROC_INIT pass (extract init attributes).
+
+8.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+8.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+8.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+8.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+8.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+8.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+8.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+8.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+Optimizing module pw_cand.
+Optimizing module pw_gold.
+
+8.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module pw_cand.
+Deleting now unused module pw_gold.
+<suppressed ~2 debug messages>
+
+8.4. Executing FUTURE pass.
+
+8.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 193 unused wires.
+<suppressed ~1 debug messages>
+
+8.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+8.8. Executing OPT pass (performing simple optimizations).
+
+8.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 197 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+8.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+8.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+8.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 197 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+8.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+8.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.8.8. Finished fast OPT passes. (There is nothing left to do.)
+
+8.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:379$192 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:379$192 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:379$192 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:375$188 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:375$188 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:375$188 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:370$183 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:370$183 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:370$183 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:365$178 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:365$178 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:365$178 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:357$170 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:357$170 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:357$170 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:356$169 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:356$169 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:356$169 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:345$158 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:345$158 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:345$158 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:338$151 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:338$151 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:338$151 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:334$147 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:334$147 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:334$147 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:329$142 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:329$142 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:329$142 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:323$136 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:323$136 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:323$136 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:319$132 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:319$132 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:319$132 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:315$128 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:315$128 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:315$128 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:313$126 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:313$126 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:313$126 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:311$124 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:311$124 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:311$124 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:309$122 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:309$122 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:309$122 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:308$121 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:308$121 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:308$121 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:303$116 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:303$116 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:303$116 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:298$111 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:298$111 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:298$111 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:296$109 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:296$109 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:296$109 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:290$103 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:290$103 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:290$103 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:284$97 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:284$97 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:284$97 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:283$96 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:283$96 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:283$96 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:278$91 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:278$91 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:278$91 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:276$89 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:276$89 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:276$89 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:275$88 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:275$88 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:275$88 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:274$87 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:274$87 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:274$87 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:273$86 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:273$86 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:273$86 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:272$85 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:272$85 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:272$85 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:271$84 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:271$84 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:271$84 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:268$81 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:268$81 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:268$81 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:265$78 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:265$78 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:265$78 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:261$74 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:261$74 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:261$74 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:258$71 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:258$71 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:258$71 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:253$66 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:253$66 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:253$66 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:247$60 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:247$60 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:247$60 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:241$54 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:241$54 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:241$54 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:235$48 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:235$48 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:235$48 ($xor).
+Removed top 39 bits (of 40) from port A of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:228$41 ($xor).
+Removed top 39 bits (of 40) from port B of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:228$41 ($xor).
+Removed top 39 bits (of 40) from port Y of cell pw_miter.$flatten\cand.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_094/evaluation/candidate_elaborated.v:228$41 ($xor).
+
+8.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+8.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+8.12. Executing OPT pass (performing simple optimizations).
+
+8.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 197 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+8.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+8.12.4. Finished fast OPT passes.
+
+8.13. Executing SORT pass.
+
+8.14. Printing statistics.
+
+=== pw_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      286 wires
+     9117 wire bits
+      284 public wires
+     9115 public wire bits
+        3 ports
+       41 port bits
+      197 cells
+        2   $ne
+        1   $or
+       39   $reduce_xor
+        2   $scopeinfo
+      153   $xor
+
+8.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+9. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 197 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+
+Solving problem with 1805 variables and 4939 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: e78d04d90c
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 6x read_verilog (0 sec), 3% 5x opt_expr (0 sec), ...

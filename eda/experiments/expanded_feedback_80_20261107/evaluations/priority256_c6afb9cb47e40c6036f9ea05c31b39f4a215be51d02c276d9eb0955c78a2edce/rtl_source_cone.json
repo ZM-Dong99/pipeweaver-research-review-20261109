@@ -1,0 +1,104 @@
+{
+  "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+  "meaning": "These RTLIL operator cells have structural bit dependencies from the STA start bit to the STA end bit. This is a conservative cone, not proof that every listed cell is on the exact mapped timing path.",
+  "top": "priority_encoder",
+  "sta_startpoint": "input_unencoded[59] (input port clocked by virtual_clk)",
+  "sta_endpoint": "output_unencoded[32] (output port clocked by virtual_clk)",
+  "start_net_aliases": [
+    "input_unencoded[59]"
+  ],
+  "end_net_aliases": [
+    "output_unencoded[32]"
+  ],
+  "rtl_operator_cells_on_possible_cone_paths": 3,
+  "source_attributed_selected_cells": 3,
+  "source_attribution_coverage": 1.0,
+  "coverage_scope": "Source attributes among the selected pre-ABC supported RTLIL cells only; this is not mapped-gate localization accuracy.",
+  "rtl_source_locations": [
+    "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:57.42-57.65",
+    "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:57.44-57.64",
+    "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:74.55-75.45"
+  ],
+  "candidate_cells": [
+    {
+      "cell": "$not$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:57$67",
+      "type": "$not",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:57.42-57.65",
+      "line": 57
+    },
+    {
+      "cell": "$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:57$66",
+      "type": "$reduce_or",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:57.44-57.64",
+      "line": 57
+    },
+    {
+      "cell": "$and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:74$69",
+      "type": "$and",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:74.55-75.45",
+      "line": 74
+    }
+  ],
+  "shortest_structural_dependency_path": [
+    {
+      "from_bit": 61,
+      "to_bit": 1162,
+      "cell": "$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:57$66",
+      "type": "$reduce_or",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:57.44-57.64",
+      "line": 57,
+      "input_port": "A",
+      "input_bit": 11,
+      "output_port": "Y",
+      "output_bit": 0,
+      "from_net_aliases": [
+        "input_unencoded[59]"
+      ],
+      "to_net_aliases": [
+        "$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:57$66_Y"
+      ]
+    },
+    {
+      "from_bit": 1162,
+      "to_bit": 559,
+      "cell": "$not$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:57$67",
+      "type": "$not",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:57.42-57.65",
+      "line": 57,
+      "input_port": "A",
+      "input_bit": 0,
+      "output_port": "Y",
+      "output_bit": 0,
+      "from_net_aliases": [
+        "$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:57$66_Y"
+      ],
+      "to_net_aliases": [
+        "fast_256.group_enable[2]"
+      ]
+    },
+    {
+      "from_bit": 559,
+      "to_bit": 299,
+      "cell": "$and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:74$69",
+      "type": "$and",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_004/candidate.v:74.55-75.45",
+      "line": 74,
+      "input_port": "A",
+      "input_bit": 0,
+      "output_port": "Y",
+      "output_bit": 0,
+      "from_net_aliases": [
+        "fast_256.group_enable[2]"
+      ],
+      "to_net_aliases": [
+        "output_unencoded[32]"
+      ]
+    }
+  ],
+  "structural_path_edge_count": 3,
+  "all_possible_cone_edge_count": 3,
+  "chain_warning": "One shortest structural dependency chain, not the longest mapped timing path. Synthesis may restructure the source arithmetic; do not infer mapped serial adder depth from RTL adder count.",
+  "supported_cells_modeled": 1115,
+  "unsupported_cell_types": {},
+  "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+}

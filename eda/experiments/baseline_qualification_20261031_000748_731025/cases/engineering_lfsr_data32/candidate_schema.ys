@@ -1,0 +1,8 @@
+read_verilog -sv "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-lfsr/rtl/lfsr.v"
+chparam -set DATA_WIDTH 32 lfsr
+hierarchy -check -top lfsr
+proc
+flatten
+opt
+check -assert
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/baseline_qualification_20261031_000748_731025/cases/engineering_lfsr_data32/candidate_schema.json"

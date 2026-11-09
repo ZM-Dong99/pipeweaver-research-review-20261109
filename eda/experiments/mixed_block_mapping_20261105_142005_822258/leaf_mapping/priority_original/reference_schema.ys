@@ -1,0 +1,9 @@
+read_verilog -sv "D:/verilog_lab/PipeWeaver/eda/experiments/mixed_block_mapping_20261105_142005_822258/inputs/priority_original.v"
+chparam -set LSB_HIGH_PRIORITY 0 priority_encoder
+chparam -set WIDTH 64 priority_encoder
+hierarchy -check -top priority_encoder
+proc
+flatten
+opt
+check -assert
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/mixed_block_mapping_20261105_142005_822258/leaf_mapping/priority_original/reference_schema.json"

@@ -1,0 +1,167 @@
+{
+  "creator": "Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+  "modules": {
+    "mul": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:1.1-12.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "a": {
+          "direction": "input",
+          "signed": 1,
+          "bits": [ 3, 4, 5, 6, 7, 8, 9, 10 ]
+        },
+        "b": {
+          "direction": "input",
+          "signed": 1,
+          "bits": [ 11, 12, 13, 14, 15, 16, 17, 18 ]
+        },
+        "z": {
+          "direction": "output",
+          "signed": 1,
+          "bits": [ 19, 20, 21, 22, 23, 24, 25, 26 ]
+        }
+      },
+      "cells": {
+        "$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:7$2": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000001",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000001",
+            "B_WIDTH": "00000000000000000000000000100000",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:7.16-7.30"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "Y": [ 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90 ]
+          }
+        },
+        "$mul$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:7$1": {
+          "hide_name": 1,
+          "type": "$mul",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000001",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000001",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:7.16-7.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+            "B": [ 11, 12, 13, 14, 15, 16, 17, 18 ],
+            "Y": [ 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58 ]
+          }
+        },
+        "$procdff$4": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:9.5-11.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 67, 68, 69, 70, 71, 72, 73, 74 ],
+            "Q": [ 19, 20, 21, 22, 23, 24, 25, 26 ]
+          }
+        }
+      },
+      "netnames": {
+        "$0\\z[7:0]": {
+          "hide_name": 1,
+          "bits": [ 67, 68, 69, 70, 71, 72, 73, 74 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:9.5-11.8"
+          }
+        },
+        "$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:7$2_Y": {
+          "hide_name": 1,
+          "bits": [ 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90 ],
+          "signed": 1,
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:7.16-7.30"
+          }
+        },
+        "$mul$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:7$1_Y": {
+          "hide_name": 1,
+          "bits": [ 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58 ],
+          "signed": 1,
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:7.16-7.21"
+          }
+        },
+        "a": {
+          "hide_name": 0,
+          "bits": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+          "signed": 1,
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:3.24-3.25"
+          }
+        },
+        "b": {
+          "hide_name": 0,
+          "bits": [ 11, 12, 13, 14, 15, 16, 17, 18 ],
+          "signed": 1,
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:3.27-3.28"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:2.11-2.14"
+          }
+        },
+        "t": {
+          "hide_name": 0,
+          "bits": [ 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74 ],
+          "signed": 1,
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:6.24-6.25"
+          }
+        },
+        "z": {
+          "hide_name": 0,
+          "bits": [ 19, 20, 21, 22, 23, 24, 25, 26 ],
+          "signed": 1,
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul/mul.v:4.29-4.30"
+          }
+        }
+      }
+    }
+  }
+}

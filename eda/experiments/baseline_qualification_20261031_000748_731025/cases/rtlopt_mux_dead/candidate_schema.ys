@@ -1,0 +1,7 @@
+read_verilog -sv "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mux_dead/mux_dead.v"
+hierarchy -check -top mux_dead
+proc
+flatten
+opt
+check -assert
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/baseline_qualification_20261031_000748_731025/cases/rtlopt_mux_dead/candidate_schema.json"

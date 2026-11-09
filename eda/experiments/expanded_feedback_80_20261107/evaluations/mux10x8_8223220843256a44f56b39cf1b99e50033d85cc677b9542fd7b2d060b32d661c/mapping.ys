@@ -1,0 +1,12 @@
+read_liberty -lib "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+read_verilog -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_011/candidate.v"
+hierarchy -check -top mux_large
+flatten
+delete t:$scopeinfo
+synth -top mux_large -noabc
+abc -script "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/evaluations/mux10x8_8223220843256a44f56b39cf1b99e50033d85cc677b9542fd7b2d060b32d661c/abc.script" -liberty "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" -constr "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/evaluations/mux10x8_8223220843256a44f56b39cf1b99e50033d85cc677b9542fd7b2d060b32d661c/abc.constr" -dont_use sky130_fd_sc_hd__lpflow_*
+clean
+check -assert
+stat -liberty "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/evaluations/mux10x8_8223220843256a44f56b39cf1b99e50033d85cc677b9542fd7b2d060b32d661c/mapped.json"
+write_verilog -noattr "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/evaluations/mux10x8_8223220843256a44f56b39cf1b99e50033d85cc677b9542fd7b2d060b32d661c/mapped.v"

@@ -1,0 +1,284 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\multicircuit_feedback_144_20261109\definedness_checks\call_033\definedness.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v' to AST representation.
+Generating RTLIL representation for module `\decoder_8bit'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/definedness_checks/call_033/definedness.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/definedness_checks/call_033/definedness.v' to AST representation.
+Generating RTLIL representation for module `\pw_definedness'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \pw_definedness
+Used module:     \decoder_8bit
+Parameter \N = 8
+
+3.1.2. Executing AST frontend in derive mode using pre-parsed AST for module `\decoder_8bit'.
+Parameter \N = 8
+Generating RTLIL representation for module `$paramod\decoder_8bit\N=s32'00000000000000000000000000001000'.
+
+3.1.3. Analyzing design hierarchy..
+Top module:  \pw_definedness
+Used module:     $paramod\decoder_8bit\N=s32'00000000000000000000000000001000
+
+3.1.4. Analyzing design hierarchy..
+Top module:  \pw_definedness
+Used module:     $paramod\decoder_8bit\N=s32'00000000000000000000000000001000
+Removing unused module `\decoder_8bit'.
+Removed 1 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$5 in module $paramod\decoder_8bit\N=s32'00000000000000000000000000001000.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$5 in module $paramod\decoder_8bit\N=s32'00000000000000000000000000001000.
+Removed a total of 1 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod\decoder_8bit\N=s32'00000000000000000000000000001000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$5'.
+     1/16: $1\out[255:0] [239:224]
+     2/16: $1\out[255:0] [223:208]
+     3/16: $1\out[255:0] [191:176]
+     4/16: $1\out[255:0] [159:144]
+     5/16: $1\out[255:0] [127:112]
+     6/16: $1\out[255:0] [95:80]
+     7/16: $1\out[255:0] [63:48]
+     8/16: $1\out[255:0] [31:16]
+     9/16: $1\out[255:0] [255:240]
+    10/16: $1\out[255:0] [175:160]
+    11/16: $1\out[255:0] [111:96]
+    12/16: $1\out[255:0] [47:32]
+    13/16: $1\out[255:0] [207:192]
+    14/16: $1\out[255:0] [79:64]
+    15/16: $1\out[255:0] [143:128]
+    16/16: $1\out[255:0] [15:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\decoder_8bit\N=s32'00000000000000000000000000001000.\out' from process `$paramod\decoder_8bit\N=s32'00000000000000000000000000001000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$5'.
+No latch inferred for signal `$paramod\decoder_8bit\N=s32'00000000000000000000000000001000.\low_onehot' from process `$paramod\decoder_8bit\N=s32'00000000000000000000000000001000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$5'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `$paramod\decoder_8bit\N=s32'00000000000000000000000000001000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$5'.
+Removing empty process `$paramod\decoder_8bit\N=s32'00000000000000000000000000001000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$5'.
+Cleaned up 1 empty switch.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+Optimizing module $paramod\decoder_8bit\N=s32'00000000000000000000000000001000.
+<suppressed ~16 debug messages>
+
+3.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\decoder_8bit\N=s32'00000000000000000000000000001000.
+<suppressed ~1 debug messages>
+
+3.4. Executing FUTURE pass.
+
+3.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+Removed 0 unused cells and 21 unused wires.
+<suppressed ~1 debug messages>
+
+3.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_definedness...
+Found and reported 0 problems.
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 276 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Computing hashes of 36 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+<suppressed ~720 debug messages>
+Removed a total of 240 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_definedness..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_definedness.
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$245: { $auto$opt_reduce.cc:137:opt_pmux$281 $flatten\dut.$procmux$15_CMP }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$41: { $auto$opt_reduce.cc:137:opt_pmux$283 $flatten\dut.$procmux$12_CMP }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$160: { $auto$opt_reduce.cc:137:opt_pmux$285 $flatten\dut.$procmux$13_CMP }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$109: { $auto$opt_reduce.cc:137:opt_pmux$287 $flatten\dut.$procmux$20_CMP }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$24: { $auto$opt_reduce.cc:137:opt_pmux$289 $flatten\dut.$procmux$10_CMP }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$7: { $auto$opt_reduce.cc:137:opt_pmux$291 $flatten\dut.$procmux$9_CMP }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$194: { $auto$opt_reduce.cc:137:opt_pmux$293 $flatten\dut.$procmux$21_CMP }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$92: { $auto$opt_reduce.cc:137:opt_pmux$295 $flatten\dut.$procmux$18_CMP }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$228: { $auto$opt_reduce.cc:137:opt_pmux$297 $flatten\dut.$procmux$19_CMP }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$262: { $auto$opt_reduce.cc:137:opt_pmux$299 $flatten\dut.$procmux$23_CMP }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$143: { $flatten\dut.$procmux$8_CMP $auto$opt_reduce.cc:137:opt_pmux$301 }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$75: { $auto$opt_reduce.cc:137:opt_pmux$303 $flatten\dut.$procmux$16_CMP }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$177: { $auto$opt_reduce.cc:137:opt_pmux$305 $flatten\dut.$procmux$17_CMP }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$126: { $auto$opt_reduce.cc:137:opt_pmux$307 $flatten\dut.$procmux$22_CMP }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$211: { $auto$opt_reduce.cc:137:opt_pmux$309 $flatten\dut.$procmux$11_CMP }
+    New ctrl vector for $pmux cell $flatten\dut.$procmux$58: { $auto$opt_reduce.cc:137:opt_pmux$311 $flatten\dut.$procmux$14_CMP }
+  Optimizing cells in module \pw_definedness.
+Performed a total of 16 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 52 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Removed a total of 0 cells.
+
+3.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+Removed 0 unused cells and 240 unused wires.
+<suppressed ~1 debug messages>
+
+3.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_definedness..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+3.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_definedness.
+Performed a total of 0 changes.
+
+3.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 52 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Removed a total of 0 cells.
+
+3.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+
+3.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 3 bits (of 4) from port B of cell pw_definedness.$flatten\dut.$procmux$22_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell pw_definedness.$flatten\dut.$procmux$21_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell pw_definedness.$flatten\dut.$procmux$20_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell pw_definedness.$flatten\dut.$procmux$19_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell pw_definedness.$flatten\dut.$procmux$18_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell pw_definedness.$flatten\dut.$procmux$17_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell pw_definedness.$flatten\dut.$procmux$16_CMP0 ($eq).
+Removed top 15 bits (of 16) from port A of cell pw_definedness.$flatten\dut.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:11$6 ($shl).
+
+3.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+
+3.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.12. Executing OPT pass (performing simple optimizations).
+
+3.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 52 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Removed a total of 0 cells.
+
+3.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+
+3.12.4. Finished fast OPT passes.
+
+3.13. Executing SORT pass.
+
+3.14. Printing statistics.
+
+=== pw_definedness ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       39 wires
+      578 wire bits
+        6 public wires
+      545 public wire bits
+        2 ports
+        9 port bits
+       52 cells
+       15   $eq
+        1   $logic_not
+        1   $nex
+       16   $pmux
+       16   $reduce_or
+        1   $reduce_xor
+        1   $scopeinfo
+        1   $shl
+
+3.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_definedness...
+Found and reported 0 problems.
+
+4. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \pw_signal_0
+Imported 52 cells to SAT database.
+Import proof-constraint: \defined = 1'1
+Final proof equation: \defined = 1'1
+Import show expression: \pw_signal_0
+
+Solving problem with 7904 variables and 22008 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: f485f2aded
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 6x opt_expr (0 sec), 3% 5x opt_clean (0 sec), ...

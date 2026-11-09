@@ -1,0 +1,180 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\multicircuit_feedback_144_20261109\trials\call_033\evaluation\candidate_schema.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v
+Parsing SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v' to AST representation.
+Generating RTLIL representation for module `\decoder_8bit'.
+Successfully finished Verilog frontend.
+Parameter \N = 8
+
+2. Executing AST frontend in derive mode using pre-parsed AST for module `\decoder_8bit'.
+Parameter \N = 8
+Generating RTLIL representation for module `$paramod\decoder_8bit\N=s32'00000000000000000000000000001000'.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \decoder_8bit
+
+3.2. Analyzing design hierarchy..
+Top module:  \decoder_8bit
+Removed 0 unused modules.
+
+4. Executing PROC pass (convert processes to netlists).
+
+4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$3 in module decoder_8bit.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$3 in module decoder_8bit.
+Removed a total of 1 dead cases.
+
+4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+4.4. Executing PROC_INIT pass (extract init attributes).
+
+4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\decoder_8bit.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$3'.
+     1/16: $1\out[255:0] [239:224]
+     2/16: $1\out[255:0] [223:208]
+     3/16: $1\out[255:0] [191:176]
+     4/16: $1\out[255:0] [159:144]
+     5/16: $1\out[255:0] [127:112]
+     6/16: $1\out[255:0] [95:80]
+     7/16: $1\out[255:0] [63:48]
+     8/16: $1\out[255:0] [31:16]
+     9/16: $1\out[255:0] [255:240]
+    10/16: $1\out[255:0] [175:160]
+    11/16: $1\out[255:0] [111:96]
+    12/16: $1\out[255:0] [47:32]
+    13/16: $1\out[255:0] [207:192]
+    14/16: $1\out[255:0] [79:64]
+    15/16: $1\out[255:0] [143:128]
+    16/16: $1\out[255:0] [15:0]
+
+4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\decoder_8bit.\out' from process `\decoder_8bit.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$3'.
+No latch inferred for signal `\decoder_8bit.\low_onehot' from process `\decoder_8bit.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$3'.
+
+4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\decoder_8bit.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$3'.
+Removing empty process `decoder_8bit.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$3'.
+Cleaned up 1 empty switch.
+
+4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+<suppressed ~16 debug messages>
+
+5. Executing FLATTEN pass (flatten design).
+
+6. Executing OPT pass (performing simple optimizations).
+
+6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+
+6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder_8bit'.
+Computing hashes of 273 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+Computing hashes of 33 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+<suppressed ~720 debug messages>
+Removed a total of 240 cells.
+
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \decoder_8bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \decoder_8bit.
+    New ctrl vector for $pmux cell $procmux$209: { $auto$opt_reduce.cc:137:opt_pmux$278 $procmux$264_CMP }
+    New ctrl vector for $pmux cell $procmux$90: { $auto$opt_reduce.cc:137:opt_pmux$280 $procmux$271_CMP }
+    New ctrl vector for $pmux cell $procmux$141: { $procmux$261_CMP $auto$opt_reduce.cc:137:opt_pmux$282 }
+    New ctrl vector for $pmux cell $procmux$226: { $auto$opt_reduce.cc:137:opt_pmux$284 $procmux$272_CMP }
+    New ctrl vector for $pmux cell $procmux$243: { $auto$opt_reduce.cc:137:opt_pmux$286 $procmux$268_CMP }
+    New ctrl vector for $pmux cell $procmux$56: { $auto$opt_reduce.cc:137:opt_pmux$288 $procmux$267_CMP }
+    New ctrl vector for $pmux cell $procmux$260: { $auto$opt_reduce.cc:137:opt_pmux$290 $procmux$276_CMP }
+    New ctrl vector for $pmux cell $procmux$158: { $auto$opt_reduce.cc:137:opt_pmux$292 $procmux$266_CMP }
+    New ctrl vector for $pmux cell $procmux$22: { $auto$opt_reduce.cc:137:opt_pmux$294 $procmux$263_CMP }
+    New ctrl vector for $pmux cell $procmux$107: { $auto$opt_reduce.cc:137:opt_pmux$296 $procmux$273_CMP }
+    New ctrl vector for $pmux cell $procmux$175: { $auto$opt_reduce.cc:137:opt_pmux$298 $procmux$270_CMP }
+    New ctrl vector for $pmux cell $procmux$73: { $auto$opt_reduce.cc:137:opt_pmux$300 $procmux$269_CMP }
+    New ctrl vector for $pmux cell $procmux$124: { $auto$opt_reduce.cc:137:opt_pmux$302 $procmux$275_CMP }
+    New ctrl vector for $pmux cell $procmux$39: { $auto$opt_reduce.cc:137:opt_pmux$304 $procmux$265_CMP }
+    New ctrl vector for $pmux cell $procmux$192: { $auto$opt_reduce.cc:137:opt_pmux$306 $procmux$274_CMP }
+    New ctrl vector for $pmux cell $procmux$5: { $auto$opt_reduce.cc:137:opt_pmux$308 $procmux$262_CMP }
+  Optimizing cells in module \decoder_8bit.
+Performed a total of 16 changes.
+
+6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder_8bit'.
+Computing hashes of 49 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+Removed a total of 0 cells.
+
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder_8bit..
+Removed 0 unused cells and 260 unused wires.
+<suppressed ~1 debug messages>
+
+6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+
+6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \decoder_8bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \decoder_8bit.
+Performed a total of 0 changes.
+
+6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder_8bit'.
+Computing hashes of 49 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+Removed a total of 0 cells.
+
+6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder_8bit..
+
+6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+
+6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+7. Executing CHECK pass (checking for obvious problems).
+Checking module decoder_8bit...
+Found and reported 0 problems.
+
+8. Executing JSON backend.
+
+End of script. Logfile hash: f38ef72903
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 4% 4x opt_expr (0 sec), 4% 3x opt_merge (0 sec), ...

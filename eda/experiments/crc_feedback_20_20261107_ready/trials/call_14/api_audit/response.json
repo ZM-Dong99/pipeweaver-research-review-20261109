@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-de487769-646f-43cf-b35f-01004e3d8839",
+  "model": "gpt-6.1-sol",
+  "created": 1794022309,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Generating the state table**\n\n**Implementing parity masks**\n\n**Preparing concise field explanations**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module crc32_d8 (\\n    input  wire [7:0]  data_in,\\n    input  wire [31:0] state_in,\\n    output wire [7:0]  data_out,\\n    output wire [31:0] state_out\\n);\\n\\n    // Factor the coincident data and low-state coefficients first.\\n    wire [7:0] q;\\n    assign q = data_in ^ state_in[7:0];\\n\\n    // Elaboration-only construction of a row of the byte-update matrix.\\n    // A basis vector in the low byte is advanced through eight reflected\\n    // Galois steps using the reversed representation of 0x04c11db7.\\n    function automatic [7:0] byte_row;\\n        input integer row;\\n        reg [31:0] basis;\\n        integer column;\\n        integer step;\\n        begin\\n            byte_row = 8'b0;\\n            for (column = 0; column < 8; column = column + 1) begin\\n                basis = 32'b1 << column;\\n                for (step = 0; step < 8; step = step + 1) begin\\n                    if (basis[0])\\n                        basis = (basis >> 1) ^ 32'hedb88320;\\n                    else\\n                        basis = basis >> 1;\\n                end\\n                byte_row[column] = basis[row];\\n            end\\n        end\\n    endfunction\\n\\n    // Explicit balanced parity topology; all zero mask inputs disappear\\n    // during constant propagation. No run-time table or memory is inferred.\\n    function automatic parity8;\\n        input [7:0] x;\\n        reg [3:0] p;\\n        reg [1:0] t;\\n        begin\\n            p[0] = x[0] ^ x[1];\\n            p[1] = x[2] ^ x[3];\\n            p[2] = x[4] ^ x[5];\\n            p[3] = x[6] ^ x[7];\\n            t[0] = p[0] ^ p[1];\\n            t[1] = p[2] ^ p[3];\\n            parity8 = t[0] ^ t[1];\\n        end\\n    endfunction\\n\\n    genvar n;\\n    generate\\n        for (n = 0; n < 32; n = n + 1) begin : g_state\\n            localparam [7:0] MASK = byte_row(n);\\n            wire contribution;\\n            assign contribution = parity8(q & MASK);\\n            if (n < 24) begin : g_shift\\n                assign state_out[n] = contribution ^ state_in[n+8];\\n            end else begin : g_no_shift\\n                assign state_out[n] = contribution;\\n            end\\n        end\\n    endgenerate\\n\\n    // The original data output is the sequence of feedback bits, not\\n    // a copy of the input byte. The reflected polynomial's lowest tap\\n    // is bit 5, which first affects feedback at step 6.\\n    assign data_out[5:0] = q[5:0];\\n    assign data_out[6] = q[6] ^ q[0];\\n    assign data_out[7] = q[7] ^ q[1];\\n\\nendmodule\\n\",\n  \"bottleneck\": \"The baseline critical paths combine buffered input fanout with several levels of parity logic. Independently expanding data and state terms in each output obscures the common data_in[i] XOR state_in[i] factors and can increase both logic depth and input loading.\",\n  \"rewrite\": \"Specialize the fixed reflected byte update into eight shared input XORs, a constant GF(2) byte-transform matrix, and the independently shifted upper state. Express each matrix parity as a balanced tree. Preserve data_out explicitly as the eight successive feedback bits, including the step-6 and step-7 polynomial corrections.\",\n  \"expected_timing_gain\": \"The intended gain is reduced parity depth and reduced loading on the original input ports relative to the 0.98 ns baseline. No synthesis, SAT, or STA tools were available here, so a numerical gain or minimum-arrival result is not established. Full mapped proof and zero-electrical-violation STA remain mandatory acceptance checks.\",\n  \"area_or_other_cost\": \"Uses eight shared input XORs plus constant-masked parity trees and final shifted-state XORs. Factoring should reduce duplicated logic, although shared-node buffering and mapping choices determine final area and timing. Compliance with the 2752.64 um^2 area cap is unmeasured.\",\n  \"functional_boundaries\": \"Combinational crc32_d8 with exactly the required port widths and directions. All 40 inputs remain arbitrary; all 40 outputs are defined. The transformation uses reflected polynomial 0xedb88320, equivalent to 0x04c11db7 in the original reversed configuration, with eight update steps and feed-forward disabled. No initialization, inversion, reset, framing, gating, storage, assumptions, or external dependencies are introduced. Other parameterizations are intentionally unsupported.\"\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 6650,
+    "completion_tokens": 1553,
+    "total_tokens": 8620
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 1135,
+    "usage_reported": true
+  }
+}

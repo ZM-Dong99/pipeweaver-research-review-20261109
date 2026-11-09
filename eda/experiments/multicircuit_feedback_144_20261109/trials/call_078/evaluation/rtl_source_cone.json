@@ -1,0 +1,131 @@
+{
+  "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+  "meaning": "These RTLIL operator cells have structural bit dependencies from the STA start bit to the STA end bit. This is a conservative cone, not proof that every listed cell is on the exact mapped timing path.",
+  "top": "decoder_8bit",
+  "sta_startpoint": "in[6] (input port clocked by virtual_clk)",
+  "sta_endpoint": "out[21] (output port clocked by virtual_clk)",
+  "start_net_aliases": [
+    "in[6]"
+  ],
+  "end_net_aliases": [
+    "out[21]",
+    "g_decode8.decoded[21]"
+  ],
+  "rtl_operator_cells_on_possible_cone_paths": 4,
+  "source_attributed_selected_cells": 4,
+  "source_attribution_coverage": 1.0,
+  "coverage_scope": "Source attributes among the selected pre-ABC supported RTLIL cells only; this is not mapped-gate localization accuracy.",
+  "rtl_source_locations": [
+    "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:17.39-17.58",
+    "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:17.41-17.57",
+    "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:22.46-22.75",
+    "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:22.48-22.74"
+  ],
+  "candidate_cells": [
+    {
+      "cell": "$not$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:17$588",
+      "type": "$not",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:17.39-17.58",
+      "line": 17
+    },
+    {
+      "cell": "$eq$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:17$587",
+      "type": "$eq",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:17.41-17.57",
+      "line": 17
+    },
+    {
+      "cell": "$not$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:22$688",
+      "type": "$not",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:22.46-22.75",
+      "line": 22
+    },
+    {
+      "cell": "$or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:22$687",
+      "type": "$or",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:22.48-22.74",
+      "line": 22
+    }
+  ],
+  "shortest_structural_dependency_path": [
+    {
+      "from_bit": 8,
+      "to_bit": 283,
+      "cell": "$eq$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:17$587",
+      "type": "$eq",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:17.41-17.57",
+      "line": 17,
+      "input_port": "A",
+      "input_bit": 2,
+      "output_port": "Y",
+      "output_bit": 0,
+      "from_net_aliases": [
+        "in[6]"
+      ],
+      "to_net_aliases": [
+        "$eq$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:17$587_Y"
+      ]
+    },
+    {
+      "from_bit": 283,
+      "to_bit": 315,
+      "cell": "$not$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:17$588",
+      "type": "$not",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:17.39-17.58",
+      "line": 17,
+      "input_port": "A",
+      "input_bit": 0,
+      "output_port": "Y",
+      "output_bit": 0,
+      "from_net_aliases": [
+        "$eq$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:17$587_Y"
+      ],
+      "to_net_aliases": [
+        "g_decode8.high_miss[1]"
+      ]
+    },
+    {
+      "from_bit": 315,
+      "to_bit": 430,
+      "cell": "$or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:22$687",
+      "type": "$or",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:22.48-22.74",
+      "line": 22,
+      "input_port": "A",
+      "input_bit": 0,
+      "output_port": "Y",
+      "output_bit": 0,
+      "from_net_aliases": [
+        "g_decode8.high_miss[1]"
+      ],
+      "to_net_aliases": [
+        "$or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:22$687_Y"
+      ]
+    },
+    {
+      "from_bit": 430,
+      "to_bit": 31,
+      "cell": "$not$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:22$688",
+      "type": "$not",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:22.46-22.75",
+      "line": 22,
+      "input_port": "A",
+      "input_bit": 0,
+      "output_port": "Y",
+      "output_bit": 0,
+      "from_net_aliases": [
+        "$or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v:22$687_Y"
+      ],
+      "to_net_aliases": [
+        "out[21]",
+        "g_decode8.decoded[21]"
+      ]
+    }
+  ],
+  "structural_path_edge_count": 4,
+  "all_possible_cone_edge_count": 4,
+  "chain_warning": "One shortest structural dependency chain, not the longest mapped timing path. Synthesis may restructure the source arithmetic; do not infer mapped serial adder depth from RTL adder count.",
+  "supported_cells_modeled": 576,
+  "unsupported_cell_types": {},
+  "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+}

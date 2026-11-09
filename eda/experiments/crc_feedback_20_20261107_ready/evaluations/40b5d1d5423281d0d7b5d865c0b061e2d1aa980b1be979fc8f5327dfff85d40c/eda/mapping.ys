@@ -1,0 +1,12 @@
+read_liberty -lib "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+read_verilog -sv "D:/verilog_lab/PipeWeaver/eda/experiments/crc_feedback_20_20261107_ready/evaluations/40b5d1d5423281d0d7b5d865c0b061e2d1aa980b1be979fc8f5327dfff85d40c/candidate_elaborated.v"
+hierarchy -check -top crc32_d8
+flatten
+delete t:$scopeinfo
+synth -top crc32_d8 -noabc
+abc -script "D:/verilog_lab/PipeWeaver/eda/experiments/crc_feedback_20_20261107_ready/evaluations/40b5d1d5423281d0d7b5d865c0b061e2d1aa980b1be979fc8f5327dfff85d40c/eda/abc.script" -liberty "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" -constr "D:/verilog_lab/PipeWeaver/eda/experiments/crc_feedback_20_20261107_ready/evaluations/40b5d1d5423281d0d7b5d865c0b061e2d1aa980b1be979fc8f5327dfff85d40c/eda/abc.constr" -dont_use sky130_fd_sc_hd__lpflow_*
+clean
+check -assert
+stat -liberty "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/crc_feedback_20_20261107_ready/evaluations/40b5d1d5423281d0d7b5d865c0b061e2d1aa980b1be979fc8f5327dfff85d40c/eda/mapped.json"
+write_verilog -noattr "D:/verilog_lab/PipeWeaver/eda/experiments/crc_feedback_20_20261107_ready/evaluations/40b5d1d5423281d0d7b5d865c0b061e2d1aa980b1be979fc8f5327dfff85d40c/eda/mapped.v"

@@ -1,0 +1,13 @@
+read_liberty -lib "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/no_timing_feedback/candidate_01/candidate.v"
+hierarchy -check -top ticket_machine
+flatten
+delete t:$scopeinfo
+synth -top ticket_machine -noabc
+dfflibmap -liberty "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+abc -script "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/no_timing_feedback/candidate_01/eda/abc.script" -constr "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/no_timing_feedback/candidate_01/eda/abc.constr" -liberty "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" -dont_use sky130_fd_sc_hd__lpflow_*
+clean
+check -assert
+stat -liberty "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/no_timing_feedback/candidate_01/eda/mapped.json"
+write_verilog -noattr "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/no_timing_feedback/candidate_01/eda/mapped.v"

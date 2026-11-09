@@ -1,0 +1,188 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\baseline_qualification_20261031_000748_731025\sequential_interface_survey\rtlopt_ticket_machine\inspect.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v
+Parsing SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v' to AST representation.
+Generating RTLIL representation for module `\ticket_machine'.
+Note: Assuming pure combinatorial block at D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:29.5-80.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:83.5-133.8 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ticket_machine
+
+2.2. Analyzing design hierarchy..
+Top module:  \ticket_machine
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 9 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:83$3 in module ticket_machine.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:29$2 in module ticket_machine.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:21$1 in module ticket_machine.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 5 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~11 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ticket_machine.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:83$3'.
+     1/9: $9\NextState[5:0]
+     2/9: $8\NextState[5:0]
+     3/9: $7\NextState[5:0]
+     4/9: $6\NextState[5:0]
+     5/9: $5\NextState[5:0]
+     6/9: $4\NextState[5:0]
+     7/9: $3\NextState[5:0]
+     8/9: $2\NextState[5:0]
+     9/9: $1\NextState[5:0]
+Creating decoders for process `\ticket_machine.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:29$2'.
+     1/4: $1\return_sig[0:0]
+     2/4: $1\dispense[0:0]
+     3/4: $1\bill[0:0]
+     4/4: $1\ready[0:0]
+Creating decoders for process `\ticket_machine.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:21$1'.
+     1/1: $0\State[5:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\ticket_machine.\NextState' from process `\ticket_machine.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:83$3'.
+No latch inferred for signal `\ticket_machine.\ready' from process `\ticket_machine.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:29$2'.
+No latch inferred for signal `\ticket_machine.\dispense' from process `\ticket_machine.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:29$2'.
+No latch inferred for signal `\ticket_machine.\return_sig' from process `\ticket_machine.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:29$2'.
+No latch inferred for signal `\ticket_machine.\bill' from process `\ticket_machine.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:29$2'.
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ticket_machine.\State' using process `\ticket_machine.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:21$1'.
+  created $dff cell `$procdff$129' with positive edge clock.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 9 empty switches in `\ticket_machine.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:83$3'.
+Removing empty process `ticket_machine.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:83$3'.
+Found and cleaned up 1 empty switch in `\ticket_machine.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:29$2'.
+Removing empty process `ticket_machine.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:29$2'.
+Found and cleaned up 1 empty switch in `\ticket_machine.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:21$1'.
+Removing empty process `ticket_machine.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:21$1'.
+Cleaned up 11 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ticket_machine.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ticket_machine.
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ticket_machine'.
+Computing hashes of 45 cells of `\ticket_machine'.
+Finding duplicate cells in `\ticket_machine'.
+Computing hashes of 33 cells of `\ticket_machine'.
+Finding duplicate cells in `\ticket_machine'.
+<suppressed ~36 debug messages>
+Removed a total of 12 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ticket_machine..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$90.
+    dead port 2/2 on $mux $procmux$79.
+    dead port 1/2 on $mux $procmux$77.
+    dead port 2/2 on $mux $procmux$65.
+    dead port 2/2 on $mux $procmux$55.
+    dead port 1/2 on $mux $procmux$53.
+    dead port 2/2 on $mux $procmux$42.
+    dead port 2/2 on $mux $procmux$33.
+    dead port 1/2 on $mux $procmux$31.
+    dead port 2/2 on $mux $procmux$21.
+    dead port 2/2 on $mux $procmux$13.
+    dead port 1/2 on $mux $procmux$11.
+Removed 12 multiplexer ports.
+<suppressed ~31 debug messages>
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ticket_machine.
+    New ctrl vector for $pmux cell $procmux$114: $auto$opt_reduce.cc:137:opt_pmux$131
+  Optimizing cells in module \ticket_machine.
+Performed a total of 1 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ticket_machine'.
+Computing hashes of 22 cells of `\ticket_machine'.
+Finding duplicate cells in `\ticket_machine'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$129 ($dff) from module ticket_machine (D = \NextState, Q = \State, rval = 6'000001).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ticket_machine..
+Removed 1 unused cells and 62 unused wires.
+<suppressed ~2 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ticket_machine.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ticket_machine..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ticket_machine.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ticket_machine'.
+Computing hashes of 21 cells of `\ticket_machine'.
+Finding duplicate cells in `\ticket_machine'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ticket_machine..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ticket_machine.
+
+5.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6. Executing CHECK pass (checking for obvious problems).
+Checking module ticket_machine...
+Found and reported 0 problems.
+
+7. Executing JSON backend.
+
+End of script. Logfile hash: 81507303e4
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 4% 4x opt_expr (0 sec), 4% 3x opt_merge (0 sec), ...

@@ -1,0 +1,33 @@
+{
+  "arm": "generic_llm",
+  "candidate_id": "candidate_02",
+  "prompt_sha256": "399fa300e0a7ec546b0563cb0fb146b31e3a7a4b0d2dd23265147b4471a30dff",
+  "prompt": "generic_llm/candidate_02/prompt.txt",
+  "requested_model": "deepseek-v4-pro",
+  "temperature": 0.2,
+  "status": "GENERATED",
+  "candidate_sha256": "f251e92652fc6ebba9b9f079500b32cf951abf58fdfbfa02e584b1eedf1664fa",
+  "formal_status": "NOT_RUN",
+  "ppa_status": "NOT_RUN",
+  "failure_reason": null,
+  "response_model_id": "deepseek-v4-pro",
+  "generation_parameters": {
+    "requested_model": "deepseek-v4-pro",
+    "temperature": 0.2,
+    "response_format": "json_object",
+    "candidate_index": 2,
+    "usage": {
+      "prompt_tokens": 405,
+      "completion_tokens": 24590,
+      "total_tokens": 24995
+    }
+  },
+  "explanation": {
+    "area_or_other_cost": "No additional registers or combinational logic; identical area and power.",
+    "functional_boundaries": "Cycle-by-cycle output behavior is identical; active-low asynchronous reset clears all registers to zero; arithmetic modulo 2^32 is preserved; latency unchanged.",
+    "bottleneck": "Two independent 32-bit carry-propagate adders (a+b and sum1+c) are grouped in a single always block, which can cause the synthesis tool to merge or share logic and create unbalanced timing paths.",
+    "rewrite": "Split the single sequential always block into three separate always blocks, one for each register (sum1, sum2, y), isolating the two adder paths and allowing independent timing optimization and placement.",
+    "expected_timing_gain": "0-5% cycle time improvement if the original single always block caused artificial logic merging or placement congestion; otherwise no change."
+  },
+  "generation_runtime_seconds": 308.785
+}

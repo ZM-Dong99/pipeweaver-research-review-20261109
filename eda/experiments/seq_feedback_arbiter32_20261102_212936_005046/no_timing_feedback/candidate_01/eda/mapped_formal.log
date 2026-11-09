@@ -1,0 +1,1749 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\seq_feedback_arbiter32_20261102_212936_005046\no_timing_feedback\candidate_01\eda\mapped_formal.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v' to AST representation.
+Generating RTLIL representation for module `\priority_encoder'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v' to AST representation.
+Generating RTLIL representation for module `\arbiter'.
+Successfully finished Verilog frontend.
+Parameter \ARB_BLOCK = 1
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\arbiter'.
+Parameter \ARB_BLOCK = 1
+Generating RTLIL representation for module `$paramod\arbiter\ARB_BLOCK=s32'00000000000000000000000000000001'.
+Parameter \ARB_BLOCK_ACK = 1
+
+4. Executing AST frontend in derive mode using pre-parsed AST for module `\arbiter'.
+Parameter \ARB_BLOCK_ACK = 1
+Generating RTLIL representation for module `$paramod\arbiter\ARB_BLOCK_ACK=s32'00000000000000000000000000000001'.
+Parameter \ARB_TYPE_ROUND_ROBIN = 1
+
+5. Executing AST frontend in derive mode using pre-parsed AST for module `\arbiter'.
+Parameter \ARB_TYPE_ROUND_ROBIN = 1
+Generating RTLIL representation for module `$paramod\arbiter\ARB_TYPE_ROUND_ROBIN=s32'00000000000000000000000000000001'.
+Parameter \PORTS = 32
+
+6. Executing AST frontend in derive mode using pre-parsed AST for module `\arbiter'.
+Parameter \PORTS = 32
+Generating RTLIL representation for module `$paramod\arbiter\PORTS=s32'00000000000000000000000000100000'.
+
+7. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     \priority_encoder
+Parameter \WIDTH = 32
+Parameter \LSB_HIGH_PRIORITY = 0
+
+7.2. Executing AST frontend in derive mode using pre-parsed AST for module `\priority_encoder'.
+Parameter \WIDTH = 32
+Parameter \LSB_HIGH_PRIORITY = 0
+Generating RTLIL representation for module `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder'.
+Parameter \WIDTH = 32
+Parameter \LSB_HIGH_PRIORITY = 0
+Found cached RTLIL representation for module `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder'.
+
+7.3. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder
+
+7.4. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder
+Removing unused module `\priority_encoder'.
+Removed 1 unused modules.
+
+8. Executing PROC pass (convert processes to netlists).
+
+8.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:100$69'.
+Cleaned up 3 empty switches.
+
+8.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:100$69 in module arbiter.
+Removed a total of 0 dead cases.
+
+8.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 70 assignments to connections.
+
+8.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:60$81'.
+  Set init value: \grant_reg = 0
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:61$82'.
+  Set init value: \grant_valid_reg = 1'0
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:62$83'.
+  Set init value: \grant_encoded_reg = 5'00000
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:83$84'.
+  Set init value: \mask_reg = 0
+
+8.5. Executing PROC_ARST pass (detect async resets in processes).
+
+8.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~5 debug messages>
+
+8.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:100$69'.
+     1/22: $7\mask_next[31:0]
+     2/22: $6\mask_next[31:0]
+     3/22: $5\mask_next[31:0]
+     4/22: $5\grant_encoded_next[4:0]
+     5/22: $5\grant_next[31:0]
+     6/22: $5\grant_valid_next[0:0]
+     7/22: $4\mask_next[31:0]
+     8/22: $4\grant_encoded_next[4:0]
+     9/22: $4\grant_valid_next[0:0]
+    10/22: $4\grant_next[31:0]
+    11/22: $3\mask_next[31:0]
+    12/22: $3\grant_encoded_next[4:0]
+    13/22: $3\grant_valid_next[0:0]
+    14/22: $3\grant_next[31:0]
+    15/22: $2\grant_encoded_next[4:0]
+    16/22: $2\grant_next[31:0]
+    17/22: $2\grant_valid_next[0:0]
+    18/22: $2\mask_next[31:0]
+    19/22: $1\grant_encoded_next[4:0]
+    20/22: $1\grant_next[31:0]
+    21/22: $1\grant_valid_next[0:0]
+    22/22: $1\mask_next[31:0]
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:145$80'.
+     1/4: $0\mask_reg[31:0]
+     2/4: $0\grant_encoded_reg[4:0]
+     3/4: $0\grant_valid_reg[0:0]
+     4/4: $0\grant_reg[31:0]
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:60$81'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:61$82'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:62$83'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:83$84'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$192'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$190'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$188'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$186'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$184'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$182'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$180'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$178'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$176'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$174'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$172'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$170'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$168'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$166'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$164'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$162'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$160'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$158'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$156'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$154'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$152'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$150'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$148'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$146'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$144'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$142'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$140'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$138'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$136'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$134'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$133'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$131'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$130'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$128'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$127'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$125'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$124'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$122'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$121'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$119'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$118'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$116'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$115'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$113'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$112'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$110'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$109'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$107'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$106'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$104'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$103'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$101'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$100'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$98'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$97'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$95'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$94'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$92'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$91'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$89'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$88'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$86'.
+
+8.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\arbiter.\grant_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:100$69'.
+No latch inferred for signal `\arbiter.\grant_valid_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:100$69'.
+No latch inferred for signal `\arbiter.\grant_encoded_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:100$69'.
+No latch inferred for signal `\arbiter.\mask_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:100$69'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[4] [4:0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$192'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[4] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$190'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[3] [7:4]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$188'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[3] [1]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$186'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[3] [3:0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$184'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[3] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$182'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[2] [11:9]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$180'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[2] [3]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$178'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[2] [8:6]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$176'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[2] [2]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$174'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[2] [5:3]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$172'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[2] [1]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$170'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[2] [2:0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$168'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[2] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$166'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [15:14]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$164'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [7]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$162'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [13:12]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$160'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [6]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$158'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [11:10]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$156'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [5]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$154'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [9:8]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$152'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [4]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$150'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [7:6]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$148'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [3]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$146'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [5:4]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$144'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [2]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$142'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [3:2]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$140'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [1]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$138'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [1:0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$136'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$134'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [15]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$133'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [15]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$131'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [14]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$130'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [14]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$128'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [13]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$127'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [13]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$125'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [12]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$124'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [12]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$122'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [11]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$121'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [11]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$119'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [10]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$118'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [10]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$116'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [9]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$115'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [9]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$113'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [8]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$112'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [8]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$110'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [7]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$109'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [7]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$107'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [6]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$106'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [6]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$104'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [5]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$103'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [5]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$101'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [4]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$100'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [4]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$98'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [3]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$97'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [3]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$95'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [2]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$94'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [2]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$92'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [1]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$91'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [1]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$89'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$88'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$86'.
+
+8.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\arbiter.\grant_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:145$80'.
+  created $dff cell `$procdff$381' with positive edge clock.
+Creating register for signal `\arbiter.\grant_valid_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:145$80'.
+  created $dff cell `$procdff$382' with positive edge clock.
+Creating register for signal `\arbiter.\grant_encoded_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:145$80'.
+  created $dff cell `$procdff$383' with positive edge clock.
+Creating register for signal `\arbiter.\mask_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:145$80'.
+  created $dff cell `$procdff$384' with positive edge clock.
+
+8.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+8.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 4 empty switches in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:100$69'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:100$69'.
+Found and cleaned up 1 empty switch in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:145$80'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:145$80'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:60$81'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:61$82'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:62$83'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:83$84'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$192'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$190'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$188'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$186'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$184'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$182'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$180'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$178'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$176'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$174'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$172'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$170'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$168'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$166'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$164'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$162'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$160'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$158'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$156'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$154'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$152'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$150'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$148'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$146'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$144'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$142'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$140'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$138'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:82$136'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$134'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$133'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$131'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$130'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$128'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$127'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$125'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$124'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$122'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$121'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$119'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$118'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$116'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$115'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$113'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$112'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$110'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$109'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$107'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$106'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$104'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$103'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$101'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$100'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$98'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$97'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$95'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$94'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$92'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$91'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$89'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:69$88'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:63$86'.
+Cleaned up 5 empty switches.
+
+8.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+<suppressed ~1 debug messages>
+Optimizing module $paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.
+
+9. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.
+<suppressed ~2 debug messages>
+Renaming module \arbiter to \pw_gold.
+
+10. Executing Liberty frontend: D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Ignoring cell sky130_fd_sc_hd__dlclkp_1 with missing function on output GCLK.
+Ignoring cell sky130_fd_sc_hd__dlclkp_2 with missing function on output GCLK.
+Ignoring cell sky130_fd_sc_hd__dlclkp_4 with missing function on output GCLK.
+Ignoring cell sky130_fd_sc_hd__sdlclkp_1 with missing function on output GCLK.
+Ignoring cell sky130_fd_sc_hd__sdlclkp_2 with missing function on output GCLK.
+Ignoring cell sky130_fd_sc_hd__sdlclkp_4 with missing function on output GCLK.
+Imported 422 cell types from liberty file.
+<suppressed ~12 debug messages>
+
+11. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/no_timing_feedback/candidate_01/eda/mapped.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/no_timing_feedback/candidate_01/eda/mapped.v' to AST representation.
+Generating RTLIL representation for module `\arbiter'.
+Successfully finished Verilog frontend.
+
+12. Executing HIERARCHY pass (managing design hierarchy).
+
+12.1. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     \sky130_fd_sc_hd__dfxtp_1
+Used module:     \sky130_fd_sc_hd__a21oi_1
+Used module:     \sky130_fd_sc_hd__nand2_1
+Used module:     \sky130_fd_sc_hd__nand4_1
+Used module:     \sky130_fd_sc_hd__nand3_1
+Used module:     \sky130_fd_sc_hd__a21oi_2
+Used module:     \sky130_fd_sc_hd__o21ai_1
+Used module:     \sky130_fd_sc_hd__a31oi_1
+Used module:     \sky130_fd_sc_hd__o21ai_0
+Used module:     \sky130_fd_sc_hd__buf_4
+Used module:     \sky130_fd_sc_hd__clkbuf_1
+Used module:     \sky130_fd_sc_hd__nor2_1
+Used module:     \sky130_fd_sc_hd__buf_2
+Used module:     \sky130_fd_sc_hd__o31ai_1
+Used module:     \sky130_fd_sc_hd__inv_2
+Used module:     \sky130_fd_sc_hd__nand2_2
+Used module:     \sky130_fd_sc_hd__inv_1
+Used module:     \sky130_fd_sc_hd__o22ai_1
+Used module:     \sky130_fd_sc_hd__a31o_2
+Used module:     \sky130_fd_sc_hd__and3_1
+Used module:     \sky130_fd_sc_hd__o211ai_1
+Used module:     \sky130_fd_sc_hd__a41oi_1
+Used module:     \sky130_fd_sc_hd__o31a_1
+Used module:     \sky130_fd_sc_hd__a21boi_0
+Used module:     \sky130_fd_sc_hd__o21bai_1
+Used module:     \sky130_fd_sc_hd__nor4_1
+Used module:     \sky130_fd_sc_hd__or3_1
+Used module:     \sky130_fd_sc_hd__nor3b_1
+Used module:     \sky130_fd_sc_hd__nor3_1
+Used module:     \sky130_fd_sc_hd__or2_2
+Used module:     \sky130_fd_sc_hd__o31ai_2
+Used module:     \sky130_fd_sc_hd__a22oi_1
+Used module:     \sky130_fd_sc_hd__buf_1
+Used module:     \sky130_fd_sc_hd__and2_1
+Used module:     \sky130_fd_sc_hd__nor4_2
+Used module:     \sky130_fd_sc_hd__nor3_2
+Used module:     \sky130_fd_sc_hd__buf_6
+Used module:     \sky130_fd_sc_hd__o41ai_1
+Used module:     \sky130_fd_sc_hd__nor2_2
+Used module:     \sky130_fd_sc_hd__nand4_2
+Used module:     \sky130_fd_sc_hd__nor2_4
+Used module:     \sky130_fd_sc_hd__nand3_4
+Used module:     \sky130_fd_sc_hd__nor2_8
+Used module:     \sky130_fd_sc_hd__nand2_4
+Used module:     \sky130_fd_sc_hd__a22oi_4
+Used module:     \sky130_fd_sc_hd__a22oi_2
+Used module:     \sky130_fd_sc_hd__nor4_4
+Used module:     \sky130_fd_sc_hd__nand3_2
+
+12.2. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     \sky130_fd_sc_hd__dfxtp_1
+Used module:     \sky130_fd_sc_hd__a21oi_1
+Used module:     \sky130_fd_sc_hd__nand2_1
+Used module:     \sky130_fd_sc_hd__nand4_1
+Used module:     \sky130_fd_sc_hd__nand3_1
+Used module:     \sky130_fd_sc_hd__a21oi_2
+Used module:     \sky130_fd_sc_hd__o21ai_1
+Used module:     \sky130_fd_sc_hd__a31oi_1
+Used module:     \sky130_fd_sc_hd__o21ai_0
+Used module:     \sky130_fd_sc_hd__buf_4
+Used module:     \sky130_fd_sc_hd__clkbuf_1
+Used module:     \sky130_fd_sc_hd__nor2_1
+Used module:     \sky130_fd_sc_hd__buf_2
+Used module:     \sky130_fd_sc_hd__o31ai_1
+Used module:     \sky130_fd_sc_hd__inv_2
+Used module:     \sky130_fd_sc_hd__nand2_2
+Used module:     \sky130_fd_sc_hd__inv_1
+Used module:     \sky130_fd_sc_hd__o22ai_1
+Used module:     \sky130_fd_sc_hd__a31o_2
+Used module:     \sky130_fd_sc_hd__and3_1
+Used module:     \sky130_fd_sc_hd__o211ai_1
+Used module:     \sky130_fd_sc_hd__a41oi_1
+Used module:     \sky130_fd_sc_hd__o31a_1
+Used module:     \sky130_fd_sc_hd__a21boi_0
+Used module:     \sky130_fd_sc_hd__o21bai_1
+Used module:     \sky130_fd_sc_hd__nor4_1
+Used module:     \sky130_fd_sc_hd__or3_1
+Used module:     \sky130_fd_sc_hd__nor3b_1
+Used module:     \sky130_fd_sc_hd__nor3_1
+Used module:     \sky130_fd_sc_hd__or2_2
+Used module:     \sky130_fd_sc_hd__o31ai_2
+Used module:     \sky130_fd_sc_hd__a22oi_1
+Used module:     \sky130_fd_sc_hd__buf_1
+Used module:     \sky130_fd_sc_hd__and2_1
+Used module:     \sky130_fd_sc_hd__nor4_2
+Used module:     \sky130_fd_sc_hd__nor3_2
+Used module:     \sky130_fd_sc_hd__buf_6
+Used module:     \sky130_fd_sc_hd__o41ai_1
+Used module:     \sky130_fd_sc_hd__nor2_2
+Used module:     \sky130_fd_sc_hd__nand4_2
+Used module:     \sky130_fd_sc_hd__nor2_4
+Used module:     \sky130_fd_sc_hd__nand3_4
+Used module:     \sky130_fd_sc_hd__nor2_8
+Used module:     \sky130_fd_sc_hd__nand2_4
+Used module:     \sky130_fd_sc_hd__a22oi_4
+Used module:     \sky130_fd_sc_hd__a22oi_2
+Used module:     \sky130_fd_sc_hd__nor4_4
+Used module:     \sky130_fd_sc_hd__nand3_2
+Removing unused module `\sky130_fd_sc_hd__xor3_4'.
+Removing unused module `\sky130_fd_sc_hd__xor3_2'.
+Removing unused module `\sky130_fd_sc_hd__xor3_1'.
+Removing unused module `\sky130_fd_sc_hd__xor2_4'.
+Removing unused module `\sky130_fd_sc_hd__xor2_2'.
+Removing unused module `\sky130_fd_sc_hd__xor2_1'.
+Removing unused module `\sky130_fd_sc_hd__xnor3_4'.
+Removing unused module `\sky130_fd_sc_hd__xnor3_2'.
+Removing unused module `\sky130_fd_sc_hd__xnor3_1'.
+Removing unused module `\sky130_fd_sc_hd__xnor2_4'.
+Removing unused module `\sky130_fd_sc_hd__xnor2_2'.
+Removing unused module `\sky130_fd_sc_hd__xnor2_1'.
+Removing unused module `\sky130_fd_sc_hd__sedfxtp_4'.
+Removing unused module `\sky130_fd_sc_hd__sedfxtp_2'.
+Removing unused module `\sky130_fd_sc_hd__sedfxtp_1'.
+Removing unused module `\sky130_fd_sc_hd__sedfxbp_2'.
+Removing unused module `\sky130_fd_sc_hd__sedfxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfxtp_4'.
+Removing unused module `\sky130_fd_sc_hd__sdfxtp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfxtp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfxbp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfstp_4'.
+Removing unused module `\sky130_fd_sc_hd__sdfstp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfstp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfsbp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfsbp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfrtp_4'.
+Removing unused module `\sky130_fd_sc_hd__sdfrtp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfrtp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfrtn_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfrbp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfrbp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfbbp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfbbn_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfbbn_1'.
+Removing unused module `\sky130_fd_sc_hd__probec_p_8'.
+Removing unused module `\sky130_fd_sc_hd__probe_p_8'.
+Removing unused module `\sky130_fd_sc_hd__or4bb_4'.
+Removing unused module `\sky130_fd_sc_hd__or4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__or4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__or4b_4'.
+Removing unused module `\sky130_fd_sc_hd__or4b_2'.
+Removing unused module `\sky130_fd_sc_hd__or4b_1'.
+Removing unused module `\sky130_fd_sc_hd__or4_4'.
+Removing unused module `\sky130_fd_sc_hd__or4_2'.
+Removing unused module `\sky130_fd_sc_hd__or4_1'.
+Removing unused module `\sky130_fd_sc_hd__or3b_4'.
+Removing unused module `\sky130_fd_sc_hd__or3b_2'.
+Removing unused module `\sky130_fd_sc_hd__or3b_1'.
+Removing unused module `\sky130_fd_sc_hd__or3_4'.
+Removing unused module `\sky130_fd_sc_hd__or3_2'.
+Removing unused module `\sky130_fd_sc_hd__or2b_4'.
+Removing unused module `\sky130_fd_sc_hd__or2b_2'.
+Removing unused module `\sky130_fd_sc_hd__or2b_1'.
+Removing unused module `\sky130_fd_sc_hd__or2_4'.
+Removing unused module `\sky130_fd_sc_hd__or2_1'.
+Removing unused module `\sky130_fd_sc_hd__or2_0'.
+Removing unused module `\sky130_fd_sc_hd__o41ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o41ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o41a_4'.
+Removing unused module `\sky130_fd_sc_hd__o41a_2'.
+Removing unused module `\sky130_fd_sc_hd__o41a_1'.
+Removing unused module `\sky130_fd_sc_hd__o32ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o32ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o32ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o32a_4'.
+Removing unused module `\sky130_fd_sc_hd__o32a_2'.
+Removing unused module `\sky130_fd_sc_hd__o32a_1'.
+Removing unused module `\sky130_fd_sc_hd__o31ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o31a_4'.
+Removing unused module `\sky130_fd_sc_hd__o31a_2'.
+Removing unused module `\sky130_fd_sc_hd__o311ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o311ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o311ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o311ai_0'.
+Removing unused module `\sky130_fd_sc_hd__o311a_4'.
+Removing unused module `\sky130_fd_sc_hd__o311a_2'.
+Removing unused module `\sky130_fd_sc_hd__o311a_1'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2a_4'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2a_2'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2a_1'.
+Removing unused module `\sky130_fd_sc_hd__o22ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o22ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o22a_4'.
+Removing unused module `\sky130_fd_sc_hd__o22a_2'.
+Removing unused module `\sky130_fd_sc_hd__o22a_1'.
+Removing unused module `\sky130_fd_sc_hd__o221ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o221ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o221ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o221a_4'.
+Removing unused module `\sky130_fd_sc_hd__o221a_2'.
+Removing unused module `\sky130_fd_sc_hd__o221a_1'.
+Removing unused module `\sky130_fd_sc_hd__o21bai_4'.
+Removing unused module `\sky130_fd_sc_hd__o21bai_2'.
+Removing unused module `\sky130_fd_sc_hd__o21ba_4'.
+Removing unused module `\sky130_fd_sc_hd__o21ba_2'.
+Removing unused module `\sky130_fd_sc_hd__o21ba_1'.
+Removing unused module `\sky130_fd_sc_hd__o21ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o21ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o21a_4'.
+Removing unused module `\sky130_fd_sc_hd__o21a_2'.
+Removing unused module `\sky130_fd_sc_hd__o21a_1'.
+Removing unused module `\sky130_fd_sc_hd__o211ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o211ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o211a_4'.
+Removing unused module `\sky130_fd_sc_hd__o211a_2'.
+Removing unused module `\sky130_fd_sc_hd__o211a_1'.
+Removing unused module `\sky130_fd_sc_hd__o2111ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o2111ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o2111ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o2111a_4'.
+Removing unused module `\sky130_fd_sc_hd__o2111a_2'.
+Removing unused module `\sky130_fd_sc_hd__o2111a_1'.
+Removing unused module `\sky130_fd_sc_hd__nor4bb_4'.
+Removing unused module `\sky130_fd_sc_hd__nor4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__nor4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__nor4b_4'.
+Removing unused module `\sky130_fd_sc_hd__nor4b_2'.
+Removing unused module `\sky130_fd_sc_hd__nor4b_1'.
+Removing unused module `\sky130_fd_sc_hd__nor3b_4'.
+Removing unused module `\sky130_fd_sc_hd__nor3b_2'.
+Removing unused module `\sky130_fd_sc_hd__nor3_4'.
+Removing unused module `\sky130_fd_sc_hd__nor2b_4'.
+Removing unused module `\sky130_fd_sc_hd__nor2b_2'.
+Removing unused module `\sky130_fd_sc_hd__nor2b_1'.
+Removing unused module `\sky130_fd_sc_hd__nand4bb_4'.
+Removing unused module `\sky130_fd_sc_hd__nand4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__nand4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__nand4b_4'.
+Removing unused module `\sky130_fd_sc_hd__nand4b_2'.
+Removing unused module `\sky130_fd_sc_hd__nand4b_1'.
+Removing unused module `\sky130_fd_sc_hd__nand4_4'.
+Removing unused module `\sky130_fd_sc_hd__nand3b_4'.
+Removing unused module `\sky130_fd_sc_hd__nand3b_2'.
+Removing unused module `\sky130_fd_sc_hd__nand3b_1'.
+Removing unused module `\sky130_fd_sc_hd__nand2b_4'.
+Removing unused module `\sky130_fd_sc_hd__nand2b_2'.
+Removing unused module `\sky130_fd_sc_hd__nand2b_1'.
+Removing unused module `\sky130_fd_sc_hd__nand2_8'.
+Removing unused module `\sky130_fd_sc_hd__mux4_4'.
+Removing unused module `\sky130_fd_sc_hd__mux4_2'.
+Removing unused module `\sky130_fd_sc_hd__mux4_1'.
+Removing unused module `\sky130_fd_sc_hd__mux2i_4'.
+Removing unused module `\sky130_fd_sc_hd__mux2i_2'.
+Removing unused module `\sky130_fd_sc_hd__mux2i_1'.
+Removing unused module `\sky130_fd_sc_hd__mux2_8'.
+Removing unused module `\sky130_fd_sc_hd__mux2_4'.
+Removing unused module `\sky130_fd_sc_hd__mux2_2'.
+Removing unused module `\sky130_fd_sc_hd__mux2_1'.
+Removing unused module `\sky130_fd_sc_hd__maj3_4'.
+Removing unused module `\sky130_fd_sc_hd__maj3_2'.
+Removing unused module `\sky130_fd_sc_hd__maj3_1'.
+Removing unused module `\sky130_fd_sc_hd__macro_sparecell'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrckapwr_16'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrc_8'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrc_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrc_2'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrc_16'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrc_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_inputisolatch_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_inputiso1p_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_inputiso1n_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_inputiso0p_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_inputiso0n_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_decapkapwr_8'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_decapkapwr_6'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_decapkapwr_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_decapkapwr_3'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_decapkapwr_12'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkinvkapwr_8'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkinvkapwr_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkinvkapwr_2'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkinvkapwr_16'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkinvkapwr_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkbufkapwr_8'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkbufkapwr_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkbufkapwr_2'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkbufkapwr_16'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkbufkapwr_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_bleeder_1'.
+Removing unused module `\sky130_fd_sc_hd__inv_8'.
+Removing unused module `\sky130_fd_sc_hd__inv_6'.
+Removing unused module `\sky130_fd_sc_hd__inv_4'.
+Removing unused module `\sky130_fd_sc_hd__inv_16'.
+Removing unused module `\sky130_fd_sc_hd__inv_12'.
+Removing unused module `\sky130_fd_sc_hd__ha_4'.
+Removing unused module `\sky130_fd_sc_hd__ha_2'.
+Removing unused module `\sky130_fd_sc_hd__ha_1'.
+Removing unused module `\sky130_fd_sc_hd__fahcon_1'.
+Removing unused module `\sky130_fd_sc_hd__fahcin_1'.
+Removing unused module `\sky130_fd_sc_hd__fah_1'.
+Removing unused module `\sky130_fd_sc_hd__fa_4'.
+Removing unused module `\sky130_fd_sc_hd__fa_2'.
+Removing unused module `\sky130_fd_sc_hd__fa_1'.
+Removing unused module `\sky130_fd_sc_hd__einvp_8'.
+Removing unused module `\sky130_fd_sc_hd__einvp_4'.
+Removing unused module `\sky130_fd_sc_hd__einvp_2'.
+Removing unused module `\sky130_fd_sc_hd__einvp_1'.
+Removing unused module `\sky130_fd_sc_hd__einvn_8'.
+Removing unused module `\sky130_fd_sc_hd__einvn_4'.
+Removing unused module `\sky130_fd_sc_hd__einvn_2'.
+Removing unused module `\sky130_fd_sc_hd__einvn_1'.
+Removing unused module `\sky130_fd_sc_hd__einvn_0'.
+Removing unused module `\sky130_fd_sc_hd__edfxtp_1'.
+Removing unused module `\sky130_fd_sc_hd__edfxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__ebufn_8'.
+Removing unused module `\sky130_fd_sc_hd__ebufn_4'.
+Removing unused module `\sky130_fd_sc_hd__ebufn_2'.
+Removing unused module `\sky130_fd_sc_hd__ebufn_1'.
+Removing unused module `\sky130_fd_sc_hd__dlymetal6s6s_1'.
+Removing unused module `\sky130_fd_sc_hd__dlymetal6s4s_1'.
+Removing unused module `\sky130_fd_sc_hd__dlymetal6s2s_1'.
+Removing unused module `\sky130_fd_sc_hd__dlygate4sd3_1'.
+Removing unused module `\sky130_fd_sc_hd__dlygate4sd2_1'.
+Removing unused module `\sky130_fd_sc_hd__dlygate4sd1_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxtp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxtn_4'.
+Removing unused module `\sky130_fd_sc_hd__dlxtn_2'.
+Removing unused module `\sky130_fd_sc_hd__dlxtn_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxbn_2'.
+Removing unused module `\sky130_fd_sc_hd__dlxbn_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrtp_4'.
+Removing unused module `\sky130_fd_sc_hd__dlrtp_2'.
+Removing unused module `\sky130_fd_sc_hd__dlrtp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrtn_4'.
+Removing unused module `\sky130_fd_sc_hd__dlrtn_2'.
+Removing unused module `\sky130_fd_sc_hd__dlrtn_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrbp_2'.
+Removing unused module `\sky130_fd_sc_hd__dlrbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrbn_2'.
+Removing unused module `\sky130_fd_sc_hd__dlrbn_1'.
+Removing unused module `\sky130_fd_sc_hd__diode_2'.
+Removing unused module `\sky130_fd_sc_hd__dfxtp_4'.
+Removing unused module `\sky130_fd_sc_hd__dfxtp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfxbp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfstp_4'.
+Removing unused module `\sky130_fd_sc_hd__dfstp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfstp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfsbp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfsbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfrtp_4'.
+Removing unused module `\sky130_fd_sc_hd__dfrtp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfrtp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfrtn_1'.
+Removing unused module `\sky130_fd_sc_hd__dfrbp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfrbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfbbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfbbn_2'.
+Removing unused module `\sky130_fd_sc_hd__dfbbn_1'.
+Removing unused module `\sky130_fd_sc_hd__decap_8'.
+Removing unused module `\sky130_fd_sc_hd__decap_6'.
+Removing unused module `\sky130_fd_sc_hd__decap_4'.
+Removing unused module `\sky130_fd_sc_hd__decap_3'.
+Removing unused module `\sky130_fd_sc_hd__decap_12'.
+Removing unused module `\sky130_fd_sc_hd__conb_1'.
+Removing unused module `\sky130_fd_sc_hd__clkinvlp_4'.
+Removing unused module `\sky130_fd_sc_hd__clkinvlp_2'.
+Removing unused module `\sky130_fd_sc_hd__clkinv_8'.
+Removing unused module `\sky130_fd_sc_hd__clkinv_4'.
+Removing unused module `\sky130_fd_sc_hd__clkinv_2'.
+Removing unused module `\sky130_fd_sc_hd__clkinv_16'.
+Removing unused module `\sky130_fd_sc_hd__clkinv_1'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s50_2'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s50_1'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s25_2'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s25_1'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s18_2'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s18_1'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s15_2'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s15_1'.
+Removing unused module `\sky130_fd_sc_hd__clkbuf_8'.
+Removing unused module `\sky130_fd_sc_hd__clkbuf_4'.
+Removing unused module `\sky130_fd_sc_hd__clkbuf_2'.
+Removing unused module `\sky130_fd_sc_hd__clkbuf_16'.
+Removing unused module `\sky130_fd_sc_hd__bufinv_8'.
+Removing unused module `\sky130_fd_sc_hd__bufinv_16'.
+Removing unused module `\sky130_fd_sc_hd__bufbuf_8'.
+Removing unused module `\sky130_fd_sc_hd__bufbuf_16'.
+Removing unused module `\sky130_fd_sc_hd__buf_8'.
+Removing unused module `\sky130_fd_sc_hd__buf_16'.
+Removing unused module `\sky130_fd_sc_hd__buf_12'.
+Removing unused module `\sky130_fd_sc_hd__and4bb_4'.
+Removing unused module `\sky130_fd_sc_hd__and4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__and4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__and4b_4'.
+Removing unused module `\sky130_fd_sc_hd__and4b_2'.
+Removing unused module `\sky130_fd_sc_hd__and4b_1'.
+Removing unused module `\sky130_fd_sc_hd__and4_4'.
+Removing unused module `\sky130_fd_sc_hd__and4_2'.
+Removing unused module `\sky130_fd_sc_hd__and4_1'.
+Removing unused module `\sky130_fd_sc_hd__and3b_4'.
+Removing unused module `\sky130_fd_sc_hd__and3b_2'.
+Removing unused module `\sky130_fd_sc_hd__and3b_1'.
+Removing unused module `\sky130_fd_sc_hd__and3_4'.
+Removing unused module `\sky130_fd_sc_hd__and3_2'.
+Removing unused module `\sky130_fd_sc_hd__and2b_4'.
+Removing unused module `\sky130_fd_sc_hd__and2b_2'.
+Removing unused module `\sky130_fd_sc_hd__and2b_1'.
+Removing unused module `\sky130_fd_sc_hd__and2_4'.
+Removing unused module `\sky130_fd_sc_hd__and2_2'.
+Removing unused module `\sky130_fd_sc_hd__and2_0'.
+Removing unused module `\sky130_fd_sc_hd__a41oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a41oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a41o_4'.
+Removing unused module `\sky130_fd_sc_hd__a41o_2'.
+Removing unused module `\sky130_fd_sc_hd__a41o_1'.
+Removing unused module `\sky130_fd_sc_hd__a32oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a32oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a32oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a32o_4'.
+Removing unused module `\sky130_fd_sc_hd__a32o_2'.
+Removing unused module `\sky130_fd_sc_hd__a32o_1'.
+Removing unused module `\sky130_fd_sc_hd__a31oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a31oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a31o_4'.
+Removing unused module `\sky130_fd_sc_hd__a31o_1'.
+Removing unused module `\sky130_fd_sc_hd__a311oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a311oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a311oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a311o_4'.
+Removing unused module `\sky130_fd_sc_hd__a311o_2'.
+Removing unused module `\sky130_fd_sc_hd__a311o_1'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2o_4'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2o_2'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2o_1'.
+Removing unused module `\sky130_fd_sc_hd__a22o_4'.
+Removing unused module `\sky130_fd_sc_hd__a22o_2'.
+Removing unused module `\sky130_fd_sc_hd__a22o_1'.
+Removing unused module `\sky130_fd_sc_hd__a222oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a221oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a221oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a221oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a221o_4'.
+Removing unused module `\sky130_fd_sc_hd__a221o_2'.
+Removing unused module `\sky130_fd_sc_hd__a221o_1'.
+Removing unused module `\sky130_fd_sc_hd__a21oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a21o_4'.
+Removing unused module `\sky130_fd_sc_hd__a21o_2'.
+Removing unused module `\sky130_fd_sc_hd__a21o_1'.
+Removing unused module `\sky130_fd_sc_hd__a21boi_4'.
+Removing unused module `\sky130_fd_sc_hd__a21boi_2'.
+Removing unused module `\sky130_fd_sc_hd__a21boi_1'.
+Removing unused module `\sky130_fd_sc_hd__a21bo_4'.
+Removing unused module `\sky130_fd_sc_hd__a21bo_2'.
+Removing unused module `\sky130_fd_sc_hd__a21bo_1'.
+Removing unused module `\sky130_fd_sc_hd__a211oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a211oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a211oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a211o_4'.
+Removing unused module `\sky130_fd_sc_hd__a211o_2'.
+Removing unused module `\sky130_fd_sc_hd__a211o_1'.
+Removing unused module `\sky130_fd_sc_hd__a2111oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a2111oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a2111oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a2111oi_0'.
+Removing unused module `\sky130_fd_sc_hd__a2111o_4'.
+Removing unused module `\sky130_fd_sc_hd__a2111o_2'.
+Removing unused module `\sky130_fd_sc_hd__a2111o_1'.
+Removed 374 unused modules.
+
+13. Executing PROC pass (convert processes to netlists).
+
+13.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+13.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+13.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+13.4. Executing PROC_INIT pass (extract init attributes).
+
+13.5. Executing PROC_ARST pass (detect async resets in processes).
+
+13.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+13.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+13.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+13.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+13.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+13.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+13.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sky130_fd_sc_hd__buf_1.
+Optimizing module sky130_fd_sc_hd__nor3b_1.
+Optimizing module sky130_fd_sc_hd__o21ai_0.
+Optimizing module sky130_fd_sc_hd__nor3_2.
+Optimizing module sky130_fd_sc_hd__nand2_4.
+Optimizing module sky130_fd_sc_hd__nand2_2.
+Optimizing module sky130_fd_sc_hd__nand2_1.
+Optimizing module sky130_fd_sc_hd__nor3_1.
+Optimizing module sky130_fd_sc_hd__or2_2.
+Optimizing module sky130_fd_sc_hd__o31ai_2.
+Optimizing module sky130_fd_sc_hd__a22oi_4.
+Optimizing module sky130_fd_sc_hd__a22oi_2.
+Optimizing module sky130_fd_sc_hd__a22oi_1.
+Optimizing module sky130_fd_sc_hd__o31ai_1.
+Optimizing module sky130_fd_sc_hd__nor2_8.
+Optimizing module sky130_fd_sc_hd__nor2_4.
+Optimizing module sky130_fd_sc_hd__nor2_2.
+Optimizing module sky130_fd_sc_hd__nor2_1.
+Optimizing module sky130_fd_sc_hd__and3_1.
+Optimizing module sky130_fd_sc_hd__o21bai_1.
+Optimizing module arbiter.
+Optimizing module sky130_fd_sc_hd__o211ai_1.
+Optimizing module sky130_fd_sc_hd__dfxtp_1.
+Optimizing module sky130_fd_sc_hd__o41ai_1.
+Optimizing module sky130_fd_sc_hd__a21oi_2.
+Optimizing module sky130_fd_sc_hd__a21oi_1.
+Optimizing module sky130_fd_sc_hd__and2_1.
+Optimizing module sky130_fd_sc_hd__o31a_1.
+Optimizing module sky130_fd_sc_hd__or3_1.
+Optimizing module sky130_fd_sc_hd__nor4_4.
+Optimizing module sky130_fd_sc_hd__a41oi_1.
+Optimizing module sky130_fd_sc_hd__nand4_2.
+Optimizing module sky130_fd_sc_hd__a21boi_0.
+Optimizing module sky130_fd_sc_hd__nand4_1.
+Optimizing module sky130_fd_sc_hd__nor4_2.
+Optimizing module sky130_fd_sc_hd__nor4_1.
+Optimizing module sky130_fd_sc_hd__clkbuf_1.
+Optimizing module sky130_fd_sc_hd__o22ai_1.
+Optimizing module sky130_fd_sc_hd__nand3_4.
+Optimizing module sky130_fd_sc_hd__inv_2.
+Optimizing module sky130_fd_sc_hd__nand3_2.
+Optimizing module sky130_fd_sc_hd__nand3_1.
+Optimizing module sky130_fd_sc_hd__buf_6.
+Optimizing module sky130_fd_sc_hd__a31oi_1.
+Optimizing module sky130_fd_sc_hd__buf_4.
+Optimizing module sky130_fd_sc_hd__a31o_2.
+Optimizing module sky130_fd_sc_hd__buf_2.
+Optimizing module sky130_fd_sc_hd__inv_1.
+Optimizing module sky130_fd_sc_hd__o21ai_1.
+
+14. Executing FLATTEN pass (flatten design).
+Deleting now unused module sky130_fd_sc_hd__buf_1.
+Deleting now unused module sky130_fd_sc_hd__nor3b_1.
+Deleting now unused module sky130_fd_sc_hd__o21ai_0.
+Deleting now unused module sky130_fd_sc_hd__nor3_2.
+Deleting now unused module sky130_fd_sc_hd__nand2_4.
+Deleting now unused module sky130_fd_sc_hd__nand2_2.
+Deleting now unused module sky130_fd_sc_hd__nand2_1.
+Deleting now unused module sky130_fd_sc_hd__nor3_1.
+Deleting now unused module sky130_fd_sc_hd__or2_2.
+Deleting now unused module sky130_fd_sc_hd__o31ai_2.
+Deleting now unused module sky130_fd_sc_hd__a22oi_4.
+Deleting now unused module sky130_fd_sc_hd__a22oi_2.
+Deleting now unused module sky130_fd_sc_hd__a22oi_1.
+Deleting now unused module sky130_fd_sc_hd__o31ai_1.
+Deleting now unused module sky130_fd_sc_hd__nor2_8.
+Deleting now unused module sky130_fd_sc_hd__nor2_4.
+Deleting now unused module sky130_fd_sc_hd__nor2_2.
+Deleting now unused module sky130_fd_sc_hd__nor2_1.
+Deleting now unused module sky130_fd_sc_hd__and3_1.
+Deleting now unused module sky130_fd_sc_hd__o21bai_1.
+Deleting now unused module sky130_fd_sc_hd__o211ai_1.
+Deleting now unused module sky130_fd_sc_hd__dfxtp_1.
+Deleting now unused module sky130_fd_sc_hd__o41ai_1.
+Deleting now unused module sky130_fd_sc_hd__a21oi_2.
+Deleting now unused module sky130_fd_sc_hd__a21oi_1.
+Deleting now unused module sky130_fd_sc_hd__and2_1.
+Deleting now unused module sky130_fd_sc_hd__o31a_1.
+Deleting now unused module sky130_fd_sc_hd__or3_1.
+Deleting now unused module sky130_fd_sc_hd__nor4_4.
+Deleting now unused module sky130_fd_sc_hd__a41oi_1.
+Deleting now unused module sky130_fd_sc_hd__nand4_2.
+Deleting now unused module sky130_fd_sc_hd__a21boi_0.
+Deleting now unused module sky130_fd_sc_hd__nand4_1.
+Deleting now unused module sky130_fd_sc_hd__nor4_2.
+Deleting now unused module sky130_fd_sc_hd__nor4_1.
+Deleting now unused module sky130_fd_sc_hd__clkbuf_1.
+Deleting now unused module sky130_fd_sc_hd__o22ai_1.
+Deleting now unused module sky130_fd_sc_hd__nand3_4.
+Deleting now unused module sky130_fd_sc_hd__inv_2.
+Deleting now unused module sky130_fd_sc_hd__nand3_2.
+Deleting now unused module sky130_fd_sc_hd__nand3_1.
+Deleting now unused module sky130_fd_sc_hd__buf_6.
+Deleting now unused module sky130_fd_sc_hd__a31oi_1.
+Deleting now unused module sky130_fd_sc_hd__buf_4.
+Deleting now unused module sky130_fd_sc_hd__a31o_2.
+Deleting now unused module sky130_fd_sc_hd__buf_2.
+Deleting now unused module sky130_fd_sc_hd__inv_1.
+Deleting now unused module sky130_fd_sc_hd__o21ai_1.
+<suppressed ~843 debug messages>
+Renaming module \arbiter to \pw_cand.
+
+15. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/no_timing_feedback/candidate_01/eda/miter.v
+Parsing formal Verilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/no_timing_feedback/candidate_01/eda/miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+16. Executing PREP pass.
+
+16.1. Executing HIERARCHY pass (managing design hierarchy).
+
+16.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+
+16.1.2. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+Removed 0 unused modules.
+
+16.2. Executing PROC pass (convert processes to netlists).
+
+16.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+16.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+16.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+16.2.4. Executing PROC_INIT pass (extract init attributes).
+
+16.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+16.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+16.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+16.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+16.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+16.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+16.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+16.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+Optimizing module pw_cand.
+<suppressed ~184 debug messages>
+Optimizing module pw_gold.
+
+16.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module pw_cand.
+Deleting now unused module pw_gold.
+<suppressed ~2 debug messages>
+
+16.4. Executing FUTURE pass.
+
+16.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 186 unused cells and 1655 unused wires.
+<suppressed ~543 debug messages>
+
+16.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+16.8. Executing OPT pass (performing simple optimizations).
+
+16.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+16.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 4298 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 3201 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 3148 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 3143 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 3142 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~3468 debug messages>
+Removed a total of 1156 cells.
+
+16.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $flatten\gold.$procmux$196.
+    dead port 2/2 on $mux $flatten\gold.$procmux$198.
+    dead port 1/2 on $mux $flatten\gold.$procmux$201.
+    dead port 1/2 on $mux $flatten\gold.$procmux$204.
+    dead port 2/2 on $mux $flatten\gold.$procmux$208.
+    dead port 2/2 on $mux $flatten\gold.$procmux$210.
+    dead port 1/2 on $mux $flatten\gold.$procmux$213.
+    dead port 1/2 on $mux $flatten\gold.$procmux$216.
+    dead port 2/2 on $mux $flatten\gold.$procmux$222.
+    dead port 1/2 on $mux $flatten\gold.$procmux$225.
+    dead port 1/2 on $mux $flatten\gold.$procmux$228.
+    dead port 2/2 on $mux $flatten\gold.$procmux$234.
+    dead port 1/2 on $mux $flatten\gold.$procmux$237.
+    dead port 1/2 on $mux $flatten\gold.$procmux$240.
+    dead port 2/2 on $mux $flatten\gold.$procmux$246.
+    dead port 1/2 on $mux $flatten\gold.$procmux$249.
+    dead port 1/2 on $mux $flatten\gold.$procmux$252.
+    dead port 2/2 on $mux $flatten\gold.$procmux$257.
+    dead port 1/2 on $mux $flatten\gold.$procmux$260.
+    dead port 1/2 on $mux $flatten\gold.$procmux$263.
+    dead port 2/2 on $mux $flatten\gold.$procmux$266.
+    dead port 1/2 on $mux $flatten\gold.$procmux$269.
+    dead port 1/2 on $mux $flatten\gold.$procmux$272.
+    dead port 2/2 on $mux $flatten\gold.$procmux$275.
+    dead port 1/2 on $mux $flatten\gold.$procmux$278.
+    dead port 1/2 on $mux $flatten\gold.$procmux$281.
+    dead port 2/2 on $mux $flatten\gold.$procmux$284.
+    dead port 1/2 on $mux $flatten\gold.$procmux$287.
+    dead port 1/2 on $mux $flatten\gold.$procmux$290.
+    dead port 2/2 on $mux $flatten\gold.$procmux$293.
+    dead port 1/2 on $mux $flatten\gold.$procmux$296.
+    dead port 1/2 on $mux $flatten\gold.$procmux$299.
+    dead port 1/2 on $mux $flatten\gold.$procmux$305.
+    dead port 1/2 on $mux $flatten\gold.$procmux$308.
+    dead port 1/2 on $mux $flatten\gold.$procmux$314.
+    dead port 1/2 on $mux $flatten\gold.$procmux$317.
+    dead port 1/2 on $mux $flatten\gold.$procmux$323.
+    dead port 1/2 on $mux $flatten\gold.$procmux$326.
+    dead port 1/2 on $mux $flatten\gold.$procmux$332.
+    dead port 1/2 on $mux $flatten\gold.$procmux$335.
+    dead port 1/2 on $mux $flatten\gold.$procmux$341.
+    dead port 1/2 on $mux $flatten\gold.$procmux$347.
+    dead port 1/2 on $mux $flatten\gold.$procmux$353.
+    dead port 1/2 on $mux $flatten\gold.$procmux$359.
+Removed 44 multiplexer ports.
+<suppressed ~99 debug messages>
+
+16.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$135: \in_2 [3:0]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$139: \in_2 [7:4]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$143: \in_2 [11:8]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$147: \in_2 [15:12]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$151: \in_2 [19:16]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$155: \in_2 [23:20]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$159: \in_2 [27:24]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$163: \in_2 [31:28]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$167: \in_2 [7:0]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$171: \in_2 [15:8]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$175: \in_2 [23:16]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$179: \in_2 [31:24]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$183: \in_2 [15:0]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$187: \in_2 [31:16]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$191: \in_2
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$135: \gold.priority_encoder_masked.input_padded [3:0]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$139: \gold.priority_encoder_masked.input_padded [7:4]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$143: \gold.priority_encoder_masked.input_padded [11:8]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$147: \gold.priority_encoder_masked.input_padded [15:12]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$151: \gold.priority_encoder_masked.input_padded [19:16]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$155: \gold.priority_encoder_masked.input_padded [23:20]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$159: \gold.priority_encoder_masked.input_padded [27:24]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$163: \gold.priority_encoder_masked.input_padded [31:28]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$167: \gold.priority_encoder_masked.input_padded [7:0]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$171: \gold.priority_encoder_masked.input_padded [15:8]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$175: \gold.priority_encoder_masked.input_padded [23:16]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$179: \gold.priority_encoder_masked.input_padded [31:24]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$183: \gold.priority_encoder_masked.input_padded [15:0]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$187: \gold.priority_encoder_masked.input_padded [31:16]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:76$191: \gold.priority_encoder_masked.input_padded
+  Optimizing cells in module \pw_miter.
+Performed a total of 30 changes.
+
+16.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 3098 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+16.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 30 unused cells and 1196 unused wires.
+<suppressed ~31 debug messages>
+
+16.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+16.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~55 debug messages>
+
+16.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+16.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 3068 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+16.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+16.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+16.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+16.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 30 bits (of 32) from port A of cell pw_miter.$flatten\gold.\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:90$85 ($shl).
+Removed top 30 bits (of 32) from port A of cell pw_miter.$flatten\gold.\priority_encoder_masked.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v:90$85 ($shl).
+Removed top 26 bits (of 32) from port A of cell pw_miter.$flatten\gold.$sub$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:125$76 ($sub).
+Removed top 25 bits (of 32) from port Y of cell pw_miter.$flatten\gold.$sub$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:125$76 ($sub).
+Removed top 26 bits (of 32) from port A of cell pw_miter.$flatten\gold.$sub$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:134$78 ($sub).
+Removed top 25 bits (of 32) from port Y of cell pw_miter.$flatten\gold.$sub$D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v:134$78 ($sub).
+
+16.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+16.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+16.12. Executing OPT pass (performing simple optimizations).
+
+16.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+16.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 3068 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+16.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+16.12.4. Finished fast OPT passes.
+
+16.13. Executing SORT pass.
+
+16.14. Printing statistics.
+
+=== pw_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     4988 wires
+     7156 wire bits
+     3582 public wires
+     5300 public wire bits
+        5 ports
+       67 port bits
+     3068 cells
+      594   $_AND_
+       69   $_DFF_P_
+      728   $_NOT_
+      728   $_OR_
+        3   $and
+        4   $dff
+        2   $logic_and
+        1   $logic_not
+       49   $mux
+        3   $ne
+        2   $or
+       32   $reduce_or
+      847   $scopeinfo
+        2   $shl
+        2   $shr
+        2   $sub
+
+16.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+18. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Import set-constraint for this timestep: \in_1 = 1'1
+Final constraint equation: \in_1 = 1'1
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 3068 cells to SAT database.
+Import set-constraint from init attribute: \gold.grant_encoded_reg = 5'00000
+Import set-constraint from init attribute: \gold.grant_reg = 0
+Import set-constraint from init attribute: \gold.grant_valid_reg = 1'0
+Import set-constraint from init attribute: \gold.mask_reg = 0
+Final init constraint equation: { \gold.mask_reg \gold.grant_valid_reg \gold.grant_reg \gold.grant_encoded_reg } = 70'0000000000000000000000000000000000000000000000000000000000000000000000
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 3068 cells to SAT database.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 3068 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+
+** Trying induction with length 1 **
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 3068 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \mismatch
+
+[base case 1] Solving problem with 149514 variables and 397648 clauses..
+Base case for induction length 1 proven.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 3068 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \mismatch
+
+[induction step 1] Solving problem with 98912 variables and 262668 clauses..
+Induction step failed. Incrementing induction length.
+
+  Time Signal Name                          Dec       Hex                                 Bin
+  ---- ---------------------------- ----------- --------- -----------------------------------
+  init \cand._1548_.IQ                       --        --                                   x
+  init \cand._1549_.IQ                        0         0                                   0
+  init \cand._1550_.IQ                        0         0                                   0
+  init \cand._1551_.IQ                        1         1                                   1
+  init \cand._1552_.IQ                        0         0                                   0
+  init \cand._1553_.IQ                        0         0                                   0
+  init \cand._1554_.IQ                        0         0                                   0
+  init \cand._1555_.IQ                       --        --                                   x
+  init \cand._1556_.IQ                        0         0                                   0
+  init \cand._1557_.IQ                        1         1                                   1
+  init \cand._1558_.IQ                       --        --                                   x
+  init \cand._1559_.IQ                       --        --                                   x
+  init \cand._1560_.IQ                        0         0                                   0
+  init \cand._1561_.IQ                        0         0                                   0
+  init \cand._1562_.IQ                       --        --                                   x
+  init \cand._1563_.IQ                        0         0                                   0
+  init \cand._1564_.IQ                       --        --                                   x
+  init \cand._1565_.IQ                        1         1                                   1
+  init \cand._1566_.IQ                        0         0                                   0
+  init \cand._1567_.IQ                        0         0                                   0
+  init \cand._1568_.IQ                        0         0                                   0
+  init \cand._1569_.IQ                        0         0                                   0
+  init \cand._1570_.IQ                       --        --                                   x
+  init \cand._1571_.IQ                       --        --                                   x
+  init \cand._1572_.IQ                       --        --                                   x
+  init \cand._1573_.IQ                        0         0                                   0
+  init \cand._1574_.IQ                       --        --                                   x
+  init \cand._1575_.IQ                        1         1                                   1
+  init \cand._1576_.IQ                       --        --                                   x
+  init \cand._1577_.IQ                       --        --                                   x
+  init \cand._1578_.IQ                       --        --                                   x
+  init \cand._1579_.IQ                        1         1                                   1
+  init \cand._1580_.IQ                        1         1                                   1
+  init \cand._1581_.IQ                        1         1                                   1
+  init \cand._1582_.IQ                        1         1                                   1
+  init \cand._1583_.IQ                        0         0                                   0
+  init \cand._1584_.IQ                        0         0                                   0
+  init \cand._1585_.IQ                        1         1                                   1
+  init \cand._1586_.IQ                        0         0                                   0
+  init \cand._1587_.IQ                        0         0                                   0
+  init \cand._1588_.IQ                        0         0                                   0
+  init \cand._1589_.IQ                        0         0                                   0
+  init \cand._1590_.IQ                        1         1                                   1
+  init \cand._1591_.IQ                        0         0                                   0
+  init \cand._1592_.IQ                        1         1                                   1
+  init \cand._1593_.IQ                        0         0                                   0
+  init \cand._1594_.IQ                        0         0                                   0
+  init \cand._1595_.IQ                        1         1                                   1
+  init \cand._1596_.IQ                        1         1                                   1
+  init \cand._1597_.IQ                        0         0                                   0
+  init \cand._1598_.IQ                        0         0                                   0
+  init \cand._1599_.IQ                        1         1                                   1
+  init \cand._1600_.IQ                        0         0                                   0
+  init \cand._1601_.IQ                        1         1                                   1
+  init \cand._1602_.IQ                        0         0                                   0
+  init \cand._1603_.IQ                        0         0                                   0
+  init \cand._1604_.IQ                        0         0                                   0
+  init \cand._1605_.IQ                        0         0                                   0
+  init \cand._1606_.IQ                        0         0                                   0
+  init \cand._1607_.IQ                        1         1                                   1
+  init \cand._1608_.IQ                        0         0                                   0
+  init \cand._1609_.IQ                        1         1                                   1
+  init \cand._1610_.IQ                        0         0                                   0
+  init \cand._1611_.IQ                        1         1                                   1
+  init \cand._1612_.IQ                        0         0                                   0
+  init \cand._1613_.IQ                        1         1                                   1
+  init \cand._1614_.IQ                        0         0                                   0
+  init \cand._1615_.IQ                        0         0                                   0
+  init \cand._1616_.IQ                        0         0                                   0
+  init \gold.grant_encoded_reg               15         f                               01111
+  init \gold.grant_reg                356600993  15414ca1    00010101010000010100110010100001
+  init \gold.grant_valid_reg                  0         0                                   0
+  init \gold.mask_reg                        --        --    0000100100000000010000000010100x
+  ---- ---------------------------- ----------- --------- -----------------------------------
+     1 \in_0                                  0         0                                   0
+     1 \in_1                                  0         0                                   0
+     1 \in_2                          888978647  34fcbcd7    00110100111111001011110011010111
+     1 \in_3                         -356634046  eabe3242    11101010101111100011001001000010
+     1 \mismatch                              0         0                                   0
+  ---- ---------------------------- ----------- --------- -----------------------------------
+     2 \in_0                                  0         0                                   0
+     2 \in_1                                  1         1                                   1
+     2 \in_2                        -2147483648  80000000    10000000000000000000000000000000
+     2 \in_3                          365361200  15c6f830    00010101110001101111100000110000
+     2 \mismatch                             --        --                                   x
+
+** Trying induction with length 2 **
+
+Setting up time step 4:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 3068 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \mismatch
+
+[base case 2] Solving problem with 200953 variables and 535071 clauses..
+Base case for induction length 2 proven.
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 3068 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \mismatch
+
+[induction step 2] Solving problem with 151464 variables and 403568 clauses..
+Induction step failed. Incrementing induction length.
+
+  Time Signal Name                          Dec       Hex                                 Bin
+  ---- ---------------------------- ----------- --------- -----------------------------------
+  init \cand._1548_.IQ                       --        --                                   x
+  init \cand._1549_.IQ                       --        --                                   x
+  init \cand._1550_.IQ                        0         0                                   0
+  init \cand._1551_.IQ                        0         0                                   0
+  init \cand._1552_.IQ                        0         0                                   0
+  init \cand._1553_.IQ                       --        --                                   x
+  init \cand._1554_.IQ                       --        --                                   x
+  init \cand._1555_.IQ                       --        --                                   x
+  init \cand._1556_.IQ                        0         0                                   0
+  init \cand._1557_.IQ                        1         1                                   1
+  init \cand._1558_.IQ                       --        --                                   x
+  init \cand._1559_.IQ                       --        --                                   x
+  init \cand._1560_.IQ                        0         0                                   0
+  init \cand._1561_.IQ                        0         0                                   0
+  init \cand._1562_.IQ                       --        --                                   x
+  init \cand._1563_.IQ                        0         0                                   0
+  init \cand._1564_.IQ                       --        --                                   x
+  init \cand._1565_.IQ                       --        --                                   x
+  init \cand._1566_.IQ                        0         0                                   0
+  init \cand._1567_.IQ                        0         0                                   0
+  init \cand._1568_.IQ                        0         0                                   0
+  init \cand._1569_.IQ                        0         0                                   0
+  init \cand._1570_.IQ                       --        --                                   x
+  init \cand._1571_.IQ                       --        --                                   x
+  init \cand._1572_.IQ                       --        --                                   x
+  init \cand._1573_.IQ                        0         0                                   0
+  init \cand._1574_.IQ                       --        --                                   x
+  init \cand._1575_.IQ                        1         1                                   1
+  init \cand._1576_.IQ                       --        --                                   x
+  init \cand._1577_.IQ                       --        --                                   x
+  init \cand._1578_.IQ                        0         0                                   0
+  init \cand._1579_.IQ                        0         0                                   0
+  init \cand._1580_.IQ                        0         0                                   0
+  init \cand._1581_.IQ                        1         1                                   1
+  init \cand._1582_.IQ                        1         1                                   1
+  init \cand._1583_.IQ                        0         0                                   0
+  init \cand._1584_.IQ                        1         1                                   1
+  init \cand._1585_.IQ                        1         1                                   1
+  init \cand._1586_.IQ                        0         0                                   0
+  init \cand._1587_.IQ                        0         0                                   0
+  init \cand._1588_.IQ                        0         0                                   0
+  init \cand._1589_.IQ                        0         0                                   0
+  init \cand._1590_.IQ                        1         1                                   1
+  init \cand._1591_.IQ                        0         0                                   0
+  init \cand._1592_.IQ                        1         1                                   1
+  init \cand._1593_.IQ                        0         0                                   0
+  init \cand._1594_.IQ                        0         0                                   0
+  init \cand._1595_.IQ                        1         1                                   1
+  init \cand._1596_.IQ                        1         1                                   1
+  init \cand._1597_.IQ                        0         0                                   0
+  init \cand._1598_.IQ                        0         0                                   0
+  init \cand._1599_.IQ                        1         1                                   1
+  init \cand._1600_.IQ                        0         0                                   0
+  init \cand._1601_.IQ                        1         1                                   1
+  init \cand._1602_.IQ                        0         0                                   0
+  init \cand._1603_.IQ                        0         0                                   0
+  init \cand._1604_.IQ                        0         0                                   0
+  init \cand._1605_.IQ                        0         0                                   0
+  init \cand._1606_.IQ                        0         0                                   0
+  init \cand._1607_.IQ                        0         0                                   0
+  init \cand._1608_.IQ                        1         1                                   1
+  init \cand._1609_.IQ                        0         0                                   0
+  init \cand._1610_.IQ                        0         0                                   0
+  init \cand._1611_.IQ                        0         0                                   0
+  init \cand._1612_.IQ                        0         0                                   0
+  init \cand._1613_.IQ                        0         0                                   0
+  init \cand._1614_.IQ                        0         0                                   0
+  init \cand._1615_.IQ                        0         0                                   0
+  init \cand._1616_.IQ                        0         0                                   0
+  init \gold.grant_encoded_reg               12         c                               01100
+  init \gold.grant_reg                  8473761    814ca1    00000000100000010100110010100001
+  init \gold.grant_valid_reg                  1         1                                   1
+  init \gold.mask_reg                        --        --    1000x0xx00000xxx0x0000xx0xx0x0xx
+  ---- ---------------------------- ----------- --------- -----------------------------------
+     1 \in_0                                  0         0                                   0
+     1 \in_1                                  0         0                                   0
+     1 \in_2                          888716437  34f8bc95    00110100111110001011110010010101
+     1 \in_3                         -365022654  ea3e3242    11101010001111100011001001000010
+     1 \mismatch                              0         0                                   0
+  ---- ---------------------------- ----------- --------- -----------------------------------
+     2 \in_0                                  0         0                                   0
+     2 \in_1                                  0         0                                   0
+     2 \in_2                                132        84    00000000000000000000000010000100
+     2 \in_3                          365213712  15c4b810    00010101110001001011100000010000
+     2 \mismatch                              0         0                                   0
+  ---- ---------------------------- ----------- --------- -----------------------------------
+     3 \in_0                                  0         0                                   0
+     3 \in_1                                  1         1                                   1
+     3 \in_2                         1073741824  40000000    01000000000000000000000000000000
+     3 \in_3                                128        80    00000000000000000000000010000000
+     3 \mismatch                             --        --                                   x
+
+** Trying induction with length 3 **
+
+Setting up time step 5:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 3068 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \mismatch
+
+[base case 3] Solving problem with 253505 variables and 675971 clauses..
+Base case for induction length 3 proven.
+
+Setting up time step 4:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 3068 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \mismatch
+
+[induction step 3] Solving problem with 204990 variables and 547528 clauses..
+Induction step failed. Incrementing induction length.
+
+  Time Signal Name                          Dec       Hex                                 Bin
+  ---- ---------------------------- ----------- --------- -----------------------------------
+  init \cand._1548_.IQ                       --        --                                   x
+  init \cand._1549_.IQ                        0         0                                   0
+  init \cand._1550_.IQ                        1         1                                   1
+  init \cand._1551_.IQ                        0         0                                   0
+  init \cand._1552_.IQ                        1         1                                   1
+  init \cand._1553_.IQ                       --        --                                   x
+  init \cand._1554_.IQ                        0         0                                   0
+  init \cand._1555_.IQ                       --        --                                   x
+  init \cand._1556_.IQ                       --        --                                   x
+  init \cand._1557_.IQ                        0         0                                   0
+  init \cand._1558_.IQ                       --        --                                   x
+  init \cand._1559_.IQ                        0         0                                   0
+  init \cand._1560_.IQ                        0         0                                   0
+  init \cand._1561_.IQ                        0         0                                   0
+  init \cand._1562_.IQ                        0         0                                   0
+  init \cand._1563_.IQ                        0         0                                   0
+  init \cand._1564_.IQ                       --        --                                   x
+  init \cand._1565_.IQ                       --        --                                   x
+  init \cand._1566_.IQ                        0         0                                   0
+  init \cand._1567_.IQ                        1         1                                   1
+  init \cand._1568_.IQ                        0         0                                   0
+  init \cand._1569_.IQ                        0         0                                   0
+  init \cand._1570_.IQ                       --        --                                   x
+  init \cand._1571_.IQ                        0         0                                   0
+  init \cand._1572_.IQ                       --        --                                   x
+  init \cand._1573_.IQ                       --        --                                   x
+  init \cand._1574_.IQ                       --        --                                   x
+  init \cand._1575_.IQ                        0         0                                   0
+  init \cand._1576_.IQ                       --        --                                   x
+  init \cand._1577_.IQ                        1         1                                   1
+  init \cand._1578_.IQ                       --        --                                   x
+  init \cand._1579_.IQ                        0         0                                   0
+  init \cand._1580_.IQ                        0         0                                   0
+  init \cand._1581_.IQ                        1         1                                   1
+  init \cand._1582_.IQ                        1         1                                   1
+  init \cand._1583_.IQ                        1         1                                   1
+  init \cand._1584_.IQ                        1         1                                   1
+  init \cand._1585_.IQ                        0         0                                   0
+  init \cand._1586_.IQ                        0         0                                   0
+  init \cand._1587_.IQ                        0         0                                   0
+  init \cand._1588_.IQ                        0         0                                   0
+  init \cand._1589_.IQ                        0         0                                   0
+  init \cand._1590_.IQ                        0         0                                   0
+  init \cand._1591_.IQ                        0         0                                   0
+  init \cand._1592_.IQ                        0         0                                   0
+  init \cand._1593_.IQ                        0         0                                   0
+  init \cand._1594_.IQ                        0         0                                   0
+  init \cand._1595_.IQ                        0         0                                   0
+  init \cand._1596_.IQ                        0         0                                   0
+  init \cand._1597_.IQ                        0         0                                   0
+  init \cand._1598_.IQ                        0         0                                   0
+  init \cand._1599_.IQ                        0         0                                   0
+  init \cand._1600_.IQ                        0         0                                   0
+  init \cand._1601_.IQ                        0         0                                   0
+  init \cand._1602_.IQ                        0         0                                   0
+  init \cand._1603_.IQ                        0         0                                   0
+  init \cand._1604_.IQ                        0         0                                   0
+  init \cand._1605_.IQ                        0         0                                   0
+  init \cand._1606_.IQ                        1         1                                   1
+  init \cand._1607_.IQ                        0         0                                   0
+  init \cand._1608_.IQ                        0         0                                   0
+  init \cand._1609_.IQ                        0         0                                   0
+  init \cand._1610_.IQ                        0         0                                   0
+  init \cand._1611_.IQ                        0         0                                   0
+  init \cand._1612_.IQ                        0         0                                   0
+  init \cand._1613_.IQ                        0         0                                   0
+  init \cand._1614_.IQ                        0         0                                   0
+  init \cand._1615_.IQ                        0         0                                   0
+  init \cand._1616_.IQ                        0         0                                   0
+  init \gold.grant_encoded_reg               28        1c                               11100
+  init \gold.grant_reg                  2097152    200000    00000000001000000000000000000000
+  init \gold.grant_valid_reg                  1         1                                   1
+  init \gold.mask_reg                        --        --    0000000000000000000000000000000x
+  ---- ---------------------------- ----------- --------- -----------------------------------
+     1 \in_0                                  0         0                                   0
+     1 \in_1                                  0         0                                   0
+     1 \in_2                           67110196   4000534    00000100000000000000010100110100
+     1 \in_3                         1074290688  40086000    01000000000010000110000000000000
+     1 \mismatch                              0         0                                   0
+  ---- ---------------------------- ----------- --------- -----------------------------------
+     2 \in_0                                  0         0                                   0
+     2 \in_1                                  0         0                                   0
+     2 \in_2                                  0         0    00000000000000000000000000000000
+     2 \in_3                         2090886144  7ca06400    01111100101000000110010000000000
+     2 \mismatch                              0         0                                   0
+  ---- ---------------------------- ----------- --------- -----------------------------------
+     3 \in_0                                  0         0                                   0
+     3 \in_1                                  0         0                                   0
+     3 \in_2                         1567750891  5d71faeb    01011101011100011111101011101011
+     3 \in_3                         -914086335  c9842641    11001001100001000010011001000001
+     3 \mismatch                              0         0                                   0
+  ---- ---------------------------- ----------- --------- -----------------------------------
+     4 \in_0                                  0         0                                   0
+     4 \in_1                                  1         1                                   1
+     4 \in_2                         1073741824  40000000    01000000000000000000000000000000
+     4 \in_3                         1228943379  49403013    01001001010000000011000000010011
+     4 \mismatch                             --        --                                   x
+
+** Trying induction with length 4 **
+
+Setting up time step 6:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 3068 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \mismatch
+
+[base case 4] Solving problem with 307031 variables and 819931 clauses..
+Base case for induction length 4 proven.
+
+Setting up time step 5:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 3068 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \mismatch
+
+[induction step 4] Solving problem with 259490 variables and 694548 clauses..
+Induction step proven: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 0367bcadae
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 8x read_verilog (0 sec), 3% 8x opt_expr (0 sec), ...

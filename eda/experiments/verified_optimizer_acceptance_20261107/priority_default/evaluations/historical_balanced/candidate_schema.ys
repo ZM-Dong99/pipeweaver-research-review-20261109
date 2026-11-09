@@ -1,0 +1,9 @@
+read_verilog -sv "D:/verilog_lab/PipeWeaver/eda/experiments/verified_optimizer_acceptance_20261107/priority_default/inputs/historical_balanced.v"
+chparam -set LSB_HIGH_PRIORITY 0 priority_encoder
+chparam -set WIDTH 256 priority_encoder
+hierarchy -check -top priority_encoder
+proc
+flatten
+opt
+check -assert
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/verified_optimizer_acceptance_20261107/priority_default/evaluations/historical_balanced/candidate_schema.json"

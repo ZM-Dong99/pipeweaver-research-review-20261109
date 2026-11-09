@@ -1,0 +1,1667 @@
+{
+  "creator": "Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+  "modules": {
+    "ticket_machine": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:1.1-105.10"
+      },
+      "parameter_default_values": {
+        "OFF": "0",
+        "ON": "1"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "clear": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ten": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "twenty": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ready": {
+          "direction": "output",
+          "bits": [ 6 ]
+        },
+        "dispense": {
+          "direction": "output",
+          "bits": [ 7 ]
+        },
+        "return_sig": {
+          "direction": "output",
+          "bits": [ 8 ]
+        },
+        "bill": {
+          "direction": "output",
+          "bits": [ 9 ]
+        }
+      },
+      "cells": {
+        "$procdff$112": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:19.5-24.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 10, 11, 12 ],
+            "Q": [ 13, 14, 15 ]
+          }
+        },
+        "$procmux$10": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:86.21-86.24|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:86.17-91.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 16, 17, 18 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 4 ],
+            "Y": [ 19, 20, 21 ]
+          }
+        },
+        "$procmux$100": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:35.16-35.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:32.9-53.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 22 ],
+            "Y": [ 9 ]
+          }
+        },
+        "$procmux$101_ANY": {
+          "hide_name": 1,
+          "type": "$reduce_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:35.16-35.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:32.9-53.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 23, 24, 25 ],
+            "Y": [ 22 ]
+          }
+        },
+        "$procmux$101_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:35.16-35.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:32.9-53.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "B": [ "1", "0", "0" ],
+            "Y": [ 23 ]
+          }
+        },
+        "$procmux$101_CMP1": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:35.16-35.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:32.9-53.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "B": [ "0", "1", "0" ],
+            "Y": [ 24 ]
+          }
+        },
+        "$procmux$101_CMP2": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:35.16-35.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:32.9-53.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "B": [ "1", "1", "0" ],
+            "Y": [ 25 ]
+          }
+        },
+        "$procmux$103": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:45.16-45.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:32.9-53.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 26 ],
+            "Y": [ 8 ]
+          }
+        },
+        "$procmux$104_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:45.16-45.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:32.9-53.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "B": [ "1", "0", "1" ],
+            "Y": [ 26 ]
+          }
+        },
+        "$procmux$107": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:41.16-41.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:32.9-53.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 27 ],
+            "Y": [ 7 ]
+          }
+        },
+        "$procmux$108_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:41.16-41.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:32.9-53.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "B": [ "0", "0", "1" ],
+            "Y": [ 27 ]
+          }
+        },
+        "$procmux$110": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:20.13-20.18|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:20.9-23.32"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 28, 29, 30 ],
+            "B": [ "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 10, 11, 12 ]
+          }
+        },
+        "$procmux$12": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:83.16-83.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x" ],
+            "B": [ 19, 20, 21 ],
+            "S": [ 31 ],
+            "Y": [ 32, 33, 34 ]
+          }
+        },
+        "$procmux$13_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:83.16-83.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "B": [ "1", "1", "0" ],
+            "Y": [ 31 ]
+          }
+        },
+        "$procmux$17": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:86.21-86.24|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:86.17-91.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 32, 33, 34 ],
+            "B": [ "0", "0", "1" ],
+            "S": [ 4 ],
+            "Y": [ 35, 36, 37 ]
+          }
+        },
+        "$procmux$19": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:83.16-83.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x" ],
+            "B": [ 35, 36, 37 ],
+            "S": [ 38 ],
+            "Y": [ 39, 40, 41 ]
+          }
+        },
+        "$procmux$20_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:83.16-83.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "B": [ "1", "1", "0" ],
+            "Y": [ 38 ]
+          }
+        },
+        "$procmux$25": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:79.26-79.32|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:79.22-82.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "1", "0" ],
+            "B": [ "0", "0", "1" ],
+            "S": [ 5 ],
+            "Y": [ 42, 43, 44 ]
+          }
+        },
+        "$procmux$28": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:77.21-77.24|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:77.17-82.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 42, 43, 44 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 4 ],
+            "Y": [ 45, 46, 47 ]
+          }
+        },
+        "$procmux$30": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:74.16-74.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x" ],
+            "B": [ 45, 46, 47 ],
+            "S": [ 48 ],
+            "Y": [ 49, 50, 51 ]
+          }
+        },
+        "$procmux$31_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:74.16-74.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "B": [ "0", "1", "0" ],
+            "Y": [ 48 ]
+          }
+        },
+        "$procmux$36": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:77.21-77.24|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:77.17-82.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 49, 50, 51 ],
+            "B": [ "1", "1", "0" ],
+            "S": [ 4 ],
+            "Y": [ 52, 53, 54 ]
+          }
+        },
+        "$procmux$38": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:74.16-74.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x" ],
+            "B": [ 52, 53, 54 ],
+            "S": [ 55 ],
+            "Y": [ 56, 57, 58 ]
+          }
+        },
+        "$procmux$39_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:74.16-74.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "B": [ "0", "1", "0" ],
+            "Y": [ 55 ]
+          }
+        },
+        "$procmux$45": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:70.26-70.32|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:70.22-73.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "0", "0" ],
+            "B": [ "1", "1", "0" ],
+            "S": [ 5 ],
+            "Y": [ 59, 60, 61 ]
+          }
+        },
+        "$procmux$48": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:68.21-68.24|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:68.17-73.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 59, 60, 61 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 4 ],
+            "Y": [ 62, 63, 64 ]
+          }
+        },
+        "$procmux$50": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:65.16-65.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x" ],
+            "B": [ 62, 63, 64 ],
+            "S": [ 65 ],
+            "Y": [ 66, 67, 68 ]
+          }
+        },
+        "$procmux$51_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:65.16-65.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "B": [ "1", "0", "0" ],
+            "Y": [ 65 ]
+          }
+        },
+        "$procmux$57": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:68.21-68.24|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:68.17-73.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 66, 67, 68 ],
+            "B": [ "0", "1", "0" ],
+            "S": [ 4 ],
+            "Y": [ 69, 70, 71 ]
+          }
+        },
+        "$procmux$59": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:65.16-65.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x" ],
+            "B": [ 69, 70, 71 ],
+            "S": [ 72 ],
+            "Y": [ 73, 74, 75 ]
+          }
+        },
+        "$procmux$60_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:65.16-65.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "B": [ "1", "0", "0" ],
+            "Y": [ 72 ]
+          }
+        },
+        "$procmux$67": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:61.26-61.32|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:61.22-64.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0" ],
+            "B": [ "0", "1", "0" ],
+            "S": [ 5 ],
+            "Y": [ 76, 77, 78 ]
+          }
+        },
+        "$procmux$7": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:88.26-88.32|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:88.22-91.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "1", "0" ],
+            "B": [ "1", "0", "1" ],
+            "S": [ 5 ],
+            "Y": [ 16, 17, 18 ]
+          }
+        },
+        "$procmux$70": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:59.21-59.24|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:59.17-64.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 76, 77, 78 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 4 ],
+            "Y": [ 79, 80, 81 ]
+          }
+        },
+        "$procmux$72": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.21-57.21|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x" ],
+            "B": [ 79, 80, 81 ],
+            "S": [ 82 ],
+            "Y": [ 83, 84, 85 ]
+          }
+        },
+        "$procmux$73_CMP0": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.21-57.21|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "Y": [ 82 ]
+          }
+        },
+        "$procmux$80": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:59.21-59.24|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:59.17-64.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 83, 84, 85 ],
+            "B": [ "1", "0", "0" ],
+            "S": [ 4 ],
+            "Y": [ 86, 87, 88 ]
+          }
+        },
+        "$procmux$82": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.21-57.21|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x" ],
+            "B": [ 86, 87, 88 ],
+            "S": [ 89 ],
+            "Y": [ 90, 91, 92 ]
+          }
+        },
+        "$procmux$83_CMP0": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.21-57.21|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "Y": [ 89 ]
+          }
+        },
+        "$procmux$86": {
+          "hide_name": 1,
+          "type": "$pmux",
+          "parameters": {
+            "S_WIDTH": "00000000000000000000000000000100",
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:83.16-83.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0" ],
+            "B": [ 39, 40, 41, 56, 57, 58, 73, 74, 75, 90, 91, 92 ],
+            "S": [ 93, 94, 95, 96 ],
+            "Y": [ 28, 29, 30 ]
+          }
+        },
+        "$procmux$87_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:83.16-83.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "B": [ "1", "1", "0" ],
+            "Y": [ 93 ]
+          }
+        },
+        "$procmux$88_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:74.16-74.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "B": [ "0", "1", "0" ],
+            "Y": [ 94 ]
+          }
+        },
+        "$procmux$89_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:65.16-65.16|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "B": [ "1", "0", "0" ],
+            "Y": [ 95 ]
+          }
+        },
+        "$procmux$90_CMP0": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.21-57.21|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:57.9-102.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "Y": [ 96 ]
+          }
+        },
+        "$procmux$95": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:32.21-32.21|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:32.9-53.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 97 ],
+            "Y": [ 6 ]
+          }
+        },
+        "$procmux$96_CMP0": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:32.21-32.21|D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:32.9-53.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 13, 14, 15 ],
+            "Y": [ 97 ]
+          }
+        }
+      },
+      "netnames": {
+        "$0\\NextState[2:0]": {
+          "hide_name": 1,
+          "bits": [ 28, 29, 30 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:56.5-103.8"
+          }
+        },
+        "$0\\State[2:0]": {
+          "hide_name": 1,
+          "bits": [ 10, 11, 12 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:19.5-24.8"
+          }
+        },
+        "$0\\bill[0:0]": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:26.5-54.8"
+          }
+        },
+        "$0\\dispense[0:0]": {
+          "hide_name": 1,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:26.5-54.8"
+          }
+        },
+        "$0\\ready[0:0]": {
+          "hide_name": 1,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:26.5-54.8"
+          }
+        },
+        "$0\\return_sig[0:0]": {
+          "hide_name": 1,
+          "bits": [ 8 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:26.5-54.8"
+          }
+        },
+        "$1\\NextState[2:0]": {
+          "hide_name": 1,
+          "bits": [ 28, 29, 30 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:56.5-103.8"
+          }
+        },
+        "$1\\bill[0:0]": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:26.5-54.8"
+          }
+        },
+        "$1\\dispense[0:0]": {
+          "hide_name": 1,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:26.5-54.8"
+          }
+        },
+        "$1\\ready[0:0]": {
+          "hide_name": 1,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:26.5-54.8"
+          }
+        },
+        "$1\\return_sig[0:0]": {
+          "hide_name": 1,
+          "bits": [ 8 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:26.5-54.8"
+          }
+        },
+        "$2\\NextState[2:0]": {
+          "hide_name": 1,
+          "bits": [ 90, 91, 92 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:56.5-103.8"
+          }
+        },
+        "$3\\NextState[2:0]": {
+          "hide_name": 1,
+          "bits": [ 83, 84, 85 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:56.5-103.8"
+          }
+        },
+        "$4\\NextState[2:0]": {
+          "hide_name": 1,
+          "bits": [ 73, 74, 75 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:56.5-103.8"
+          }
+        },
+        "$5\\NextState[2:0]": {
+          "hide_name": 1,
+          "bits": [ 66, 67, 68 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:56.5-103.8"
+          }
+        },
+        "$6\\NextState[2:0]": {
+          "hide_name": 1,
+          "bits": [ 56, 57, 58 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:56.5-103.8"
+          }
+        },
+        "$7\\NextState[2:0]": {
+          "hide_name": 1,
+          "bits": [ 49, 50, 51 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:56.5-103.8"
+          }
+        },
+        "$8\\NextState[2:0]": {
+          "hide_name": 1,
+          "bits": [ 39, 40, 41 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:56.5-103.8"
+          }
+        },
+        "$9\\NextState[2:0]": {
+          "hide_name": 1,
+          "bits": [ 32, 33, 34 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:56.5-103.8"
+          }
+        },
+        "$procmux$100_Y": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "attributes": {
+          }
+        },
+        "$procmux$101_CMP": {
+          "hide_name": 1,
+          "bits": [ 23, 24, 25 ],
+          "attributes": {
+          }
+        },
+        "$procmux$101_CTRL": {
+          "hide_name": 1,
+          "bits": [ 22 ],
+          "attributes": {
+          }
+        },
+        "$procmux$103_Y": {
+          "hide_name": 1,
+          "bits": [ 8 ],
+          "attributes": {
+          }
+        },
+        "$procmux$104_CMP": {
+          "hide_name": 1,
+          "bits": [ 26 ],
+          "attributes": {
+          }
+        },
+        "$procmux$107_Y": {
+          "hide_name": 1,
+          "bits": [ 7 ],
+          "attributes": {
+          }
+        },
+        "$procmux$108_CMP": {
+          "hide_name": 1,
+          "bits": [ 27 ],
+          "attributes": {
+          }
+        },
+        "$procmux$10_Y": {
+          "hide_name": 1,
+          "bits": [ 19, 20, 21 ],
+          "attributes": {
+          }
+        },
+        "$procmux$110_Y": {
+          "hide_name": 1,
+          "bits": [ 10, 11, 12 ],
+          "attributes": {
+          }
+        },
+        "$procmux$111_CMP": {
+          "hide_name": 1,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "$procmux$11_CMP": {
+          "hide_name": 1,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        },
+        "$procmux$12_Y": {
+          "hide_name": 1,
+          "bits": [ 32, 33, 34 ],
+          "attributes": {
+          }
+        },
+        "$procmux$13_CMP": {
+          "hide_name": 1,
+          "bits": [ 31 ],
+          "attributes": {
+          }
+        },
+        "$procmux$17_Y": {
+          "hide_name": 1,
+          "bits": [ 35, 36, 37 ],
+          "attributes": {
+          }
+        },
+        "$procmux$18_CMP": {
+          "hide_name": 1,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        },
+        "$procmux$19_Y": {
+          "hide_name": 1,
+          "bits": [ 39, 40, 41 ],
+          "attributes": {
+          }
+        },
+        "$procmux$20_CMP": {
+          "hide_name": 1,
+          "bits": [ 38 ],
+          "attributes": {
+          }
+        },
+        "$procmux$25_Y": {
+          "hide_name": 1,
+          "bits": [ 42, 43, 44 ],
+          "attributes": {
+          }
+        },
+        "$procmux$26_CMP": {
+          "hide_name": 1,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        },
+        "$procmux$28_Y": {
+          "hide_name": 1,
+          "bits": [ 45, 46, 47 ],
+          "attributes": {
+          }
+        },
+        "$procmux$29_CMP": {
+          "hide_name": 1,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        },
+        "$procmux$30_Y": {
+          "hide_name": 1,
+          "bits": [ 49, 50, 51 ],
+          "attributes": {
+          }
+        },
+        "$procmux$31_CMP": {
+          "hide_name": 1,
+          "bits": [ 48 ],
+          "attributes": {
+          }
+        },
+        "$procmux$36_Y": {
+          "hide_name": 1,
+          "bits": [ 52, 53, 54 ],
+          "attributes": {
+          }
+        },
+        "$procmux$37_CMP": {
+          "hide_name": 1,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        },
+        "$procmux$38_Y": {
+          "hide_name": 1,
+          "bits": [ 56, 57, 58 ],
+          "attributes": {
+          }
+        },
+        "$procmux$39_CMP": {
+          "hide_name": 1,
+          "bits": [ 55 ],
+          "attributes": {
+          }
+        },
+        "$procmux$45_Y": {
+          "hide_name": 1,
+          "bits": [ 59, 60, 61 ],
+          "attributes": {
+          }
+        },
+        "$procmux$46_CMP": {
+          "hide_name": 1,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        },
+        "$procmux$48_Y": {
+          "hide_name": 1,
+          "bits": [ 62, 63, 64 ],
+          "attributes": {
+          }
+        },
+        "$procmux$49_CMP": {
+          "hide_name": 1,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        },
+        "$procmux$50_Y": {
+          "hide_name": 1,
+          "bits": [ 66, 67, 68 ],
+          "attributes": {
+          }
+        },
+        "$procmux$51_CMP": {
+          "hide_name": 1,
+          "bits": [ 65 ],
+          "attributes": {
+          }
+        },
+        "$procmux$57_Y": {
+          "hide_name": 1,
+          "bits": [ 69, 70, 71 ],
+          "attributes": {
+          }
+        },
+        "$procmux$58_CMP": {
+          "hide_name": 1,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        },
+        "$procmux$59_Y": {
+          "hide_name": 1,
+          "bits": [ 73, 74, 75 ],
+          "attributes": {
+          }
+        },
+        "$procmux$60_CMP": {
+          "hide_name": 1,
+          "bits": [ 72 ],
+          "attributes": {
+          }
+        },
+        "$procmux$67_Y": {
+          "hide_name": 1,
+          "bits": [ 76, 77, 78 ],
+          "attributes": {
+          }
+        },
+        "$procmux$68_CMP": {
+          "hide_name": 1,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        },
+        "$procmux$70_Y": {
+          "hide_name": 1,
+          "bits": [ 79, 80, 81 ],
+          "attributes": {
+          }
+        },
+        "$procmux$71_CMP": {
+          "hide_name": 1,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        },
+        "$procmux$72_Y": {
+          "hide_name": 1,
+          "bits": [ 83, 84, 85 ],
+          "attributes": {
+          }
+        },
+        "$procmux$73_CMP": {
+          "hide_name": 1,
+          "bits": [ 82 ],
+          "attributes": {
+          }
+        },
+        "$procmux$7_Y": {
+          "hide_name": 1,
+          "bits": [ 16, 17, 18 ],
+          "attributes": {
+          }
+        },
+        "$procmux$80_Y": {
+          "hide_name": 1,
+          "bits": [ 86, 87, 88 ],
+          "attributes": {
+          }
+        },
+        "$procmux$81_CMP": {
+          "hide_name": 1,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        },
+        "$procmux$82_Y": {
+          "hide_name": 1,
+          "bits": [ 90, 91, 92 ],
+          "attributes": {
+          }
+        },
+        "$procmux$83_CMP": {
+          "hide_name": 1,
+          "bits": [ 89 ],
+          "attributes": {
+          }
+        },
+        "$procmux$86_Y": {
+          "hide_name": 1,
+          "bits": [ 28, 29, 30 ],
+          "attributes": {
+          }
+        },
+        "$procmux$87_CMP": {
+          "hide_name": 1,
+          "bits": [ 93 ],
+          "attributes": {
+          }
+        },
+        "$procmux$88_CMP": {
+          "hide_name": 1,
+          "bits": [ 94 ],
+          "attributes": {
+          }
+        },
+        "$procmux$89_CMP": {
+          "hide_name": 1,
+          "bits": [ 95 ],
+          "attributes": {
+          }
+        },
+        "$procmux$8_CMP": {
+          "hide_name": 1,
+          "bits": [ 5 ],
+          "attributes": {
+          }
+        },
+        "$procmux$90_CMP": {
+          "hide_name": 1,
+          "bits": [ 96 ],
+          "attributes": {
+          }
+        },
+        "$procmux$95_Y": {
+          "hide_name": 1,
+          "bits": [ 6 ],
+          "attributes": {
+          }
+        },
+        "$procmux$96_CMP": {
+          "hide_name": 1,
+          "bits": [ 97 ],
+          "attributes": {
+          }
+        },
+        "NextState": {
+          "hide_name": 0,
+          "bits": [ 28, 29, 30 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:17.22-17.31"
+          }
+        },
+        "State": {
+          "hide_name": 0,
+          "bits": [ 13, 14, 15 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:17.15-17.20"
+          }
+        },
+        "bill": {
+          "hide_name": 0,
+          "bits": [ 9 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:6.45-6.49"
+          }
+        },
+        "clear": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:5.17-5.22"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:5.12-5.15"
+          }
+        },
+        "dispense": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:6.23-6.31"
+          }
+        },
+        "ready": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:6.16-6.21"
+          }
+        },
+        "return_sig": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:6.33-6.43"
+          }
+        },
+        "ten": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:5.24-5.27"
+          }
+        },
+        "twenty": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/ticket_feedback_study_20261102_234633_156134/selected/no_timing_feedback/ticket_machine.v:5.29-5.35"
+          }
+        }
+      }
+    }
+  }
+}

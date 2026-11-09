@@ -1,0 +1,173 @@
+{
+  "status": "FROZEN_PENDING_AUTHORIZATION",
+  "purpose": "Exploratory small sequential-control family; no guarantee of optimization or feedback advantage",
+  "model": "gpt-6.1-sol",
+  "api_endpoint": "https://apinebula.ai/v1",
+  "request_parameters": {
+    "reasoning_effort": "medium"
+  },
+  "http_transport": "curl",
+  "transport_binary_sha256": "73d24149ff289afc49ec41f08918ef9faa727d39ad993e929757dc2ddafab805",
+  "arms": [
+    "no_timing_feedback",
+    "structured_timing_feedback"
+  ],
+  "candidates_per_arm": 5,
+  "maximum_requests": 10,
+  "call_schedule": [
+    {
+      "call_index": 1,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_01"
+    },
+    {
+      "call_index": 2,
+      "arm": "structured_timing_feedback",
+      "candidate_id": "candidate_01"
+    },
+    {
+      "call_index": 3,
+      "arm": "structured_timing_feedback",
+      "candidate_id": "candidate_02"
+    },
+    {
+      "call_index": 4,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_02"
+    },
+    {
+      "call_index": 5,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_03"
+    },
+    {
+      "call_index": 6,
+      "arm": "structured_timing_feedback",
+      "candidate_id": "candidate_03"
+    },
+    {
+      "call_index": 7,
+      "arm": "structured_timing_feedback",
+      "candidate_id": "candidate_04"
+    },
+    {
+      "call_index": 8,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_04"
+    },
+    {
+      "call_index": 9,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_05"
+    },
+    {
+      "call_index": 10,
+      "arm": "structured_timing_feedback",
+      "candidate_id": "candidate_05"
+    }
+  ],
+  "llm_timeout_seconds": 180,
+  "timeout_seconds": 120,
+  "contract": {
+    "top": "ticket_machine",
+    "clock": "clk",
+    "reset": "clear",
+    "reset_active": 1,
+    "reset_cycles": 1,
+    "warmup_samples": 1,
+    "reset_after_startup": "unconstrained",
+    "period_ns": 10,
+    "parameter_overrides": {},
+    "parameter_defaults": {
+      "ON": 1,
+      "OFF": 0
+    },
+    "input_delay_ns": 0,
+    "output_delay_ns": 0,
+    "input_transition_ns": 0.1,
+    "output_load_pf": 0.01,
+    "preserve_output_latency": true,
+    "library": "SKY130HD TT 025C 1v80",
+    "library_sha256": "92eb4e93a3d4c2563018ac81cdec2f02fdeaced9b39337ed5c141fa63e0ad8f8"
+  },
+  "area_ratio_limit": 1.1,
+  "area_cap_um2": 278.01664000000005,
+  "baseline_metrics": {
+    "status": "PASS",
+    "formal": "PASS",
+    "mapped_formal": "PASS",
+    "ppa": "PASS",
+    "eligible": true,
+    "stage": "sta",
+    "mapped_area_um2": 252.7424,
+    "mapped_cells": 28,
+    "electrical": {
+      "status": "PASS",
+      "violation_rows": 0,
+      "checks": [
+        "max_slew",
+        "max_capacitance"
+      ],
+      "scope": "Library limits under recorded SDC; not physical signoff"
+    },
+    "wns_ns": 9.3,
+    "tns_ns": 0.0,
+    "mapped_sha256": "1baa689d037ccc64e1744395b803346e9dbe23137f314910e4be4976e3493469",
+    "sdc_sha256": "7c1efdc1b0d7abeccbbfb4f8af926767240ac755b5dbd6f49eed98a8e884e4ab",
+    "elapsed_seconds": 5.233
+  },
+  "completion_token_cap": "No explicit token cap in existing adapter; identical model defaults across arms. Timeout and request count do not impose a currency cap.",
+  "library_sha256": "92eb4e93a3d4c2563018ac81cdec2f02fdeaced9b39337ed5c141fa63e0ad8f8",
+  "input_sha256": {
+    "LICENSE": "7bd218334a79d058f1c10ed5705fb4f5f166b1c97a3db7d6f7f4b62102c43930",
+    "original.v": "1b85510e841da71ffb5b1fb2ccf170eb9428d18c08ac2a4654bb731e51fc9570"
+  },
+  "dependency_sha256": {
+    "eda\\experiments\\run_ticket_feedback_study.py": "865355cfad29dc7e4fcce7e13eaa58a074135537bab75464f2ff79476bdb965d",
+    "eda\\experiments\\run_native_seq.py": "00bf18a23d2f09210372691111ddbae8413dcd5b087fe519f5073a435184f955",
+    "eda\\experiments\\run_native_comb.py": "38f0f10f08e7bb752010c2985fc8a1b31f48e08c4891b318d2b1f5a6992c09ff",
+    "eda\\experiments\\trace_sta_rtl_cone.py": "047c3b739a00bcba19d470ea3d043ef5a872dd0ded0f0ee41dc22ea3e41b920d",
+    "agents\\sequential_loop.py": "309c143ffb1df058aa2aabc3d9550283274ec7a0f6bed5f7b040422bc0d882c9",
+    "agents\\rtl_optimizer.py": "576a055c1f5e8498a014833cb7f8bb01de08a56e6f3fcd53c568dcaaf4a3e12e"
+  },
+  "baseline_artifact_sha256": {
+    "abc.constr": "ccb1d7f233b651c80e7198650e753ad582af371b441b1b2faee00c0d50d86838",
+    "abc.script": "4cbbef81881904eefca608f43828b009b76254fa09b0db9d49a5d162fcc7fb32",
+    "candidate_schema.json": "7328074c4fbe41b794cfdb0189e4e920374318ca7aa014f639ea942cae20e1b3",
+    "candidate_schema.log": "a5d311765dbaf87e692898d4bace6764b5ac1075e8ce01c9c624d25e98731565",
+    "candidate_schema.ys": "01ac09a41747727bc5e81795335c7cda0d68b5e90506bdf28dd363a6ca9958a2",
+    "formal.log": "1b125285659e8936edc08545463f1d922e5e7144709cc5ba991a5991ee2fa43a",
+    "formal.ys": "e7fc9618e3ad838df0075963db28a0ecff7728a8b256a2f4e47fd26fd96a07dc",
+    "mapped.json": "4d7ad5130496d5ac76801abb8e2902499741bf359a4eedef5ca85d7440070bee",
+    "mapped.v": "1baa689d037ccc64e1744395b803346e9dbe23137f314910e4be4976e3493469",
+    "mapped_formal.log": "dfd61bc1d6cbe01ef6e1f707b42ed1e556f042d9d1c47b91cfffb356e273b2d1",
+    "mapped_formal.ys": "4b563439efbab5ebd4a37b25e0a4c30cc25a3cfed47a4af2f6a1b84b1e303e81",
+    "mapped_sta.v": "1baa689d037ccc64e1744395b803346e9dbe23137f314910e4be4976e3493469",
+    "mapping.log": "30d8f9d24854064c2890e196f4d96304d9aa4f85232e7837a6fe9a5266f403fd",
+    "mapping.ys": "fa32329e53c43f8fbf41703fdbdc88681a67c1bd4d75290ff90c01af4cba7246",
+    "miter.v": "e62d84a5939d6e1c8de7f6997383097f073bd2490eda6cadbfe59410fefafe04",
+    "opensta_version.log": "5e33023692f9444ef9f77fcd732c57f3015cee605f326e5bf57502a67a2b77ce",
+    "protocol.json": "99f88cfa02c689588757694668d065ff29447a6673dcf08c20489b4e198e459d",
+    "protocol.sha256": "179139985c09f13c42894f50009528a1f8efa37495a6e465a44699f8a3a2c7c7",
+    "reference_schema.json": "7328074c4fbe41b794cfdb0189e4e920374318ca7aa014f639ea942cae20e1b3",
+    "reference_schema.log": "37bf9c33f75509eed6e40b00bf1c4288ceab197f4d03b893aac2a70ce40b85b8",
+    "reference_schema.ys": "28db51b43dec8b52b1a61cc2afe3b9ddc34f9fa97ea5dd396b9a6672050de967",
+    "result.json": "a6afb352fd3e2546a1b9767130a3f8c148a4b2198316920de6529df0a9659ad8",
+    "run_sta.tcl": "d808ae88612a292c20414d8c4602c34e6e6c697a1d3186ddb16322d2ceba0f70",
+    "sta.log": "585df3d1e206784d5a15d6d61e06f1215b7e2bf008846646d3e56a0d9cdb522f",
+    "timing.sdc": "7c1efdc1b0d7abeccbbfb4f8af926767240ac755b5dbd6f49eed98a8e884e4ab",
+    "yosys_version.log": "9b4b09319d6b4c0b06fec8f4a637fcbb4674f5109f6b37c5a38daf323fb6f4d6"
+  },
+  "prompt_sha256": {
+    "no_timing_feedback": "4fa31d9e768e2a4eff0f93f2d714dd74a90626eeff39fb3cc728a17f828e9568",
+    "structured_timing_feedback": "ef07c91bba17466517ab2f09e16974e7c8ee56b406e1b1781e680641e11e9754"
+  },
+  "baseline_reuse": {
+    "original_directory": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\ticket_feedback_preparation_20261102\\baseline",
+    "note": "Byte-copy of fresh local original-vs-original evaluation; protocol records original source location; source hashes checked equal to frozen input."
+  },
+  "selection": "Strict WNS gain over original, TNS non-regressed, actual mapped area <=110% original. Rank gain candidates by WNS then area; retain original otherwise.",
+  "policy": "Identical common prompt fields, guided-only measured feedback. Independent interleaved calls; no retries or replacement draws; no candidate history. Finish all requests before candidate EDA. All failures retained. No significance claim from 5/arm.",
+  "exposure": "Public RTL-OPT source previously read and baseline-qualified; not used for current arbiter operator development. Not a model-training holdout. Do not send ticket_machine_ref or expert solution.",
+  "limitations": "One small six-state design, baseline 28 mapped cells, positive slack. Not large-engineering or universal-method evidence. Ideal-clock TT pre-layout result, no power/hold/CDC signoff."
+}

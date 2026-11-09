@@ -1,0 +1,34 @@
+{
+  "call_index": 1,
+  "arm": "no_timing_feedback",
+  "candidate_id": "candidate_01",
+  "candidate_sha256": "40e6a144525096747594d0558d4c4b12782dfeca3c87e31b7cb7839f30c19107",
+  "status": "GENERATED",
+  "explanation": {
+    "bottleneck": "The original round-robin feedback path passes through priority encoding, index-dependent arithmetic and a variable shift before updating mask_reg. Its grant path also decodes the encoded winner back into a one-hot vector. These are plausible setup bottlenecks; no timing report was provided to establish the actual critical path.",
+    "area_or_other_cost": "Parallel reductions may add logic alongside the retained encoded-output trees, although synthesis can share reductions and remove unused decoder logic. No registers or pipeline stages are added. Mapped area must be checked against the 4880.43072 um2 cap; compliance has not been measured.",
+    "rewrite": "Retain the frozen priority_encoder instances for valid and encoded results, but disconnect their one-hot outputs. Compute one-hot winners directly using parallel higher-priority request reductions. Reuse those reductions as the next round-robin mask, eliminating index arithmetic and variable shifts. Preserve the original selection, blocking and sequential-update structure.",
+    "expected_timing_gain": "The mask feedback path should require fewer serial logic stages, and one-hot grants no longer depend on encoded-index decoding. Actual WNS improvement is unmeasured and must be established by synthesis and STA at the fixed settings; encoded-output or blocking-control paths may instead limit timing.",
+    "functional_boundaries": "For each nonempty request vector, the higher-priority reduction is exactly the mask permitting positions after the selected winner in the configured priority order. This holds for arbitrary simultaneous request bits and for masked requests. Empty-vector direct winners differ from the helper's unused invalid one-hot result, but the original valid guards prevent their selection. The candidate retains parameter names/defaults, native ports and widths, original register initialization semantics, synchronous active-high reset, blocking/acknowledge behavior, mask retention, and edge-sampled output latency. It adds no startup assumptions and does not redefine the dependency. Formal equivalence against the frozen original, including reset after startup, remains required for the specified parameter instance.",
+    "output_format_normalization": [
+      "Removed complete leading think wrapper before JSON parsing"
+    ]
+  },
+  "parameters": {
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "http_transport": "curl",
+    "response_format": "json_object",
+    "candidate_index": 1,
+    "response_id": "chatcmpl-0334963a-57de-4eb2-aa1c-8e887aeb2780",
+    "response_created": 1793626380,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 3167,
+      "completion_tokens": 2422,
+      "total_tokens": 5985
+    }
+  },
+  "response_model": "gpt-6.1-sol",
+  "seconds": 65.67953519999901
+}

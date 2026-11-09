@@ -1,0 +1,16 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v"
+hierarchy -check -top alu_64bit
+flatten
+rename alu_64bit pw_gold
+design -stash pw_gold_design
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_049/candidate.v"
+hierarchy -check -top alu_64bit
+flatten
+rename alu_64bit pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/evaluations/alu64_a83faadcce136824e0fcd212a2062e330603d116c165ef7528d6c0ae49e8ed45/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 120

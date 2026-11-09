@@ -1,0 +1,18 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/inputs/original.v"
+chparam -set N 13 comparator
+hierarchy -check -top comparator
+flatten
+rename comparator pw_gold
+design -stash pw_gold_design
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/candidates/linear_2.v"
+chparam -set N 13 comparator
+hierarchy -check -top comparator
+flatten
+rename comparator pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/boundary_N13/linear_2/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 120

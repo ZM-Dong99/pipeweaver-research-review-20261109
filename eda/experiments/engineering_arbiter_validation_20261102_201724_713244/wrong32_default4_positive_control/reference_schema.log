@@ -1,0 +1,158 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\engineering_arbiter_validation_20261102_201724_713244\wrong32_default4_positive_control\reference_schema.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v' to AST representation.
+Generating RTLIL representation for module `\priority_encoder'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v' to AST representation.
+Generating RTLIL representation for module `\arbiter'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     \priority_encoder
+Parameter \WIDTH = 4
+Parameter \LSB_HIGH_PRIORITY = 0
+
+3.2. Executing AST frontend in derive mode using pre-parsed AST for module `\priority_encoder'.
+Parameter \WIDTH = 4
+Parameter \LSB_HIGH_PRIORITY = 0
+Generating RTLIL representation for module `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder'.
+Parameter \WIDTH = 4
+Parameter \LSB_HIGH_PRIORITY = 0
+Found cached RTLIL representation for module `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder'.
+
+3.3. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder
+
+3.4. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder
+Removing unused module `\priority_encoder'.
+Removed 1 unused modules.
+
+4. Executing PROC pass (convert processes to netlists).
+
+4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+Cleaned up 1 empty switch.
+
+4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13 in module arbiter.
+Removed a total of 0 dead cases.
+
+4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 14 assignments to connections.
+
+4.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:83$24'.
+  Set init value: \mask_reg = 4'0000
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:62$23'.
+  Set init value: \grant_encoded_reg = 2'00
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:61$22'.
+  Set init value: \grant_valid_reg = 1'0
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:60$21'.
+  Set init value: \grant_reg = 4'0000
+
+4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~4 debug messages>
+
+4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:83$24'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:62$23'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:61$22'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:60$21'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:145$20'.
+     1/4: $0\mask_reg[3:0]
+     2/4: $0\grant_encoded_reg[1:0]
+     3/4: $0\grant_valid_reg[0:0]
+     4/4: $0\grant_reg[3:0]
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+     1/12: $4\grant_encoded_next[1:0]
+     2/12: $4\grant_next[3:0]
+     3/12: $4\grant_valid_next[0:0]
+     4/12: $3\grant_encoded_next[1:0]
+     5/12: $3\grant_valid_next[0:0]
+     6/12: $3\grant_next[3:0]
+     7/12: $2\grant_encoded_next[1:0]
+     8/12: $2\grant_next[3:0]
+     9/12: $2\grant_valid_next[0:0]
+    10/12: $1\grant_encoded_next[1:0]
+    11/12: $1\grant_next[3:0]
+    12/12: $1\grant_valid_next[0:0]
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$34'.
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$32'.
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$31'.
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$29'.
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$28'.
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$26'.
+
+4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\arbiter.\grant_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+No latch inferred for signal `\arbiter.\grant_valid_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+No latch inferred for signal `\arbiter.\grant_encoded_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+No latch inferred for signal `\arbiter.\mask_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_enc[1]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$34'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_valid[1] [0]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$32'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_enc[0] [1]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$31'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_valid[0] [1]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$29'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_enc[0] [0]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$28'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_valid[0] [0]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$26'.
+
+4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\arbiter.\grant_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:145$20'.
+  created $dff cell `$procdff$125' with positive edge clock.
+Creating register for signal `\arbiter.\grant_valid_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:145$20'.
+  created $dff cell `$procdff$126' with positive edge clock.
+Creating register for signal `\arbiter.\grant_encoded_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:145$20'.
+  created $dff cell `$procdff$127' with positive edge clock.
+Creating register for signal `\arbiter.\mask_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:145$20'.
+  created $dff cell `$procdff$128' with positive edge clock.
+
+4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:83$24'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:62$23'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:61$22'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:60$21'.
+Found and cleaned up 1 empty switch in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:145$20'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:145$20'.
+Found and cleaned up 3 empty switches in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$34'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$32'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$31'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$29'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$28'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$26'.
+Cleaned up 4 empty switches.
+
+4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+<suppressed ~11 debug messages>
+Optimizing module $paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.
+
+5. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.
+<suppressed ~2 debug messages>
+
+6. Executing CHECK pass (checking for obvious problems).
+Checking module arbiter...
+Found and reported 0 problems.
+
+7. Executing JSON backend.
+
+End of script. Logfile hash: 963b74fae7
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 5% 4x read_verilog (0 sec), 5% 2x write_json (0 sec), ...

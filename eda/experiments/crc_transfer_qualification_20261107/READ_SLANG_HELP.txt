@@ -1,0 +1,448 @@
+
+-- Running command `help read_slang' --
+
+    read_slang [options] [filename]
+
+Read SystemVerilog sources and elaborate a design hierarchy into word-level
+netlist form.
+
+    --std (1364-2005 | 1800-2017 | 1800-2023 | latest)
+        The version of the Verilog or SystemVerilog language to use
+
+    -j,--threads <count>
+        The number of threads to use to parallelize parsing
+
+    --single-unit
+        Treat all input files as a single compilation unit
+
+    -v,--libfile <file-pattern>[,...]
+        One or more library files, which are separate compilation units where
+        modules are not automatically instantiated
+
+    --libmap <file-pattern>[,...]
+        One or more library map files to parse for library name mappings and
+        file lists
+
+    -y,--libdir <dir-pattern>[,...]
+        Library search paths, which will be searched for missing modules
+
+    --dir-prefix <prefix>
+        Directory prefix to prepend to source file paths when the file is not
+        found at the listed path. Multiple prefixes are tried in the order
+        they are specified. Must be specified before the source files that may
+        need it.
+
+    -Y,--libext,+libext <ext>
+        Additional library file extensions to search
+
+    --exclude-ext <ext>
+        Exclude provided source files with these extensions
+
+    -f <file-pattern>[,...]
+        One or more command files containing additional program options. Paths
+        in the file are considered relative to the current directory.
+
+    -F <file-pattern>[,...]
+        One or more command files containing additional program options. Paths
+        in the file are considered relative to the file itself.
+
+    -C <file-pattern>[,...]
+        One or more files containing independent compilation unit listings.
+        The files accept a subset of options that pertain specifically to
+        parsing that unit and optionally including it in a library.
+
+    --show-parsed-files
+        Print the name and kind of each file as it is parsed.
+
+    -I,--include-directory,+incdir <dir-pattern>[,...]
+        Additional include search paths
+
+    --isystem <dir-pattern>[,...]
+        Additional system include search paths
+
+    --disable-local-includes
+        Disables "local" include path lookup, where include directives search
+        relative to the file containing the directive first
+
+    --incdir-first
+        Search user-specified include directories (+incdir/-I) before the
+        local directory of the file containing the include directive. This
+        matches the behavior of VCS and similar simulators
+
+    -D,--define-macro,+define <macro>=<value>
+        Define <macro> to <value> (or 1 if <value> ommitted) in all source
+        files
+
+    -U,--undefine-macro <macro>
+        Undefine macro name at the start of all source files
+
+    --max-include-depth <depth>
+        Maximum depth of nested include files allowed
+
+    --libraries-inherit-macros
+        If true, library files will inherit macro definitions from the primary
+        source files. --single-unit must also be passed when this option is
+        used.
+
+    --enable-legacy-protect
+        If true, the preprocessor will support legacy protected envelope
+        directives, for compatibility with old Verilog tools
+
+    --translate-off-format <common>,<start>,<end>
+        Set a format for comment directives that mark a region of disabled
+        source text. The format is a common keyword, a start word, and an end
+        word, each separated by commas. For example,
+        'pragma,translate_off,translate_on'
+
+    --map-keyword-version <keyword-version>+<file-pattern>[,...]. 
+        Indicates that any files used during parsing which match the given
+        patterns should be parsed using the provided language keywords
+        version, as if they contained a `begin_keywords directive. For example
+        '1364-2005+*.v,*.vh'
+
+    --allow-macro-trailing-space
+        If true, the preprocessor will allow trailing whitespaces after the
+        continuation character in a macro definition
+
+    --allow-missing-protected-scope-end
+        If true, the preprocessor will assume that a missing end of scope
+        keyword for a module/program/package/class inside an include file with
+        protected code has the end of scope keyword inside the protected code.
+        This only works if the include file with protected code does not
+        include any other files.
+
+    --max-parse-depth <depth>
+        Maximum depth of nested language constructs allowed
+
+    --max-lexer-errors <count>
+        Maximum number of errors that can occur during lexing before the rest
+        of the file is skipped
+
+    --top <name>
+        One or more top-level modules to instantiate (instead of figuring it
+        out automatically)
+
+    -G <name>=<value>
+        One or more parameter overrides to apply when instantiating top-level
+        modules
+
+    -L <library>
+        A list of library names that controls the priority order for module
+        lookup
+
+    --defaultLibName <name>
+        Sets the name of the default library
+
+    --define-system-task <prototype>
+        Define a custom system task or function. The subroutine name must
+        start with '$'. Optionally include a port list and, for functions, a
+        return type using standard SystemVerilog syntax (e.g. 'function int
+        $my_func(int a, string b)'). If neither a port list nor a return type
+        is specified the subroutine accepts any number of arguments and is
+        treated as a task.
+
+    --max-hierarchy-depth <depth>
+        Maximum depth of the design hierarchy
+
+    --max-generate-steps <steps>
+        Maximum number of steps that can occur during generate block
+        evaluation before giving up
+
+    --max-constexpr-depth <depth>
+        Maximum depth of a constant evaluation call stack
+
+    --max-constexpr-steps <steps>
+        Maximum number of steps that can occur during constant evaluation
+        before giving up
+
+    --max-constant-size <bits>
+        Maximum number of bits a single constant value can occupy during
+        constant evaluation before giving up
+
+    --constexpr-backtrace-limit <limit>
+        Maximum number of frames to show when printing a constant evaluation
+        backtrace; the rest will be abbreviated
+
+    --max-instance-array <limit>
+        Maximum number of instances allowed in a single instance array
+
+    --max-enum-values <limit>
+        Maximum number of members allowed in a single enum declaration
+
+    --max-udp-coverage-notes <limit>
+        Maximum number of UDP coverage notes that will be generated for a
+        single warning about missing edge transitions
+
+    -T,--timing min|typ|max
+        Select which value to consider in min:typ:max expressions. Valid
+        options: 'min', 'typ', 'max'
+
+    --timescale <base>/<precision>
+        Default time scale to use for design elements that don't specify one
+        explicitly
+
+    --compat <mode>
+        Attempt to increase compatibility with the specified tool. Valid
+        options: 'default', 'vcs', 'all'
+
+    --allow-use-before-declare
+        Don't issue an error for use of names before their declarations
+
+    --relax-enum-conversions
+        Allow all integral types to convert implicitly to enum types
+
+    --relax-string-conversions
+        Allow string types to convert implicitly to integral types
+
+    --allow-hierarchical-const
+        Allow hierarchical references in constant expressions
+
+    --allow-toplevel-iface-ports
+        Allow top-level modules to have interface ports
+
+    --allow-recursive-implicit-call
+        Allow implicit call expressions to be recursive function calls
+
+    --allow-bare-value-param-assigment
+        Allow module parameter assignments to elide the parentheses
+
+    --allow-self-determined-stream-concat
+        Allow self-determined streaming concatenation expressions
+
+    --allow-merging-ansi-ports
+        Allow merging ANSI port declarations with nets and variables declared
+        in the instance body
+
+    --allow-genblk-reference
+        Allow references to unnamed generate blocks via their external names
+        (e.g. genblk1)
+
+    --allow-virtual-iface-with-override
+        Allow interface instances that are bind/defparam targets to be
+        assigned to virtual interfaces
+
+    --allow-array-concat-assign-pattern
+        Allow assignment pattern expressions to be used in unpacked array
+        concatenations. The LRM states that these are not assignment-like
+        contexts but some tools allow it anyway.
+
+    --allow-lib-module-redef
+        Allow multiple definitions of the same module, interface, program, or
+        primitive at the root scope within the same library when the
+        conflicting definition comes from a library file (-v / --libfile); the
+        first definition is kept and subsequent library-file redefinitions are
+        silently discarded
+
+    --allow-cross-auto-bin-max
+        Allow the legacy SystemVerilog 3.1a cross_auto_bin_max coverage option
+        to be set on covergroups and crosses. The option is accepted and
+        ignored.
+
+    --infer-input-ports-as-vars
+        Infer ANSI input ports that have an explicit data type as variables
+        instead of nets. By default such ports are treated as nets, following
+        the LRM.
+
+    --lint-only
+        Only perform linting of code, don't try to elaborate a full hierarchy
+
+    --disable-instance-caching
+        Disable the use of instance caching, which normally allows skipping
+        duplicate instance bodies to save time when elaborating
+
+    --ignore-unknown-modules
+        Don't issue an error for instantiations of unknown modules, interface,
+        and programs
+
+    --disallow-refs-to-unknown-instances
+        When using --ignore-unknown-modules, explicitly disallow references to
+        ignored module instances by issuing an error
+
+    --color-diagnostics
+        Always print diagnostics in color. If this option is unset, colors
+        will be enabled if a color-capable terminal is detected.
+
+    --diag-column
+        Show column numbers in diagnostic output
+
+    --diag-column-unit <unit>
+        Unit for column numbers in diagnostics. Valid options: 'byte',
+        'display'
+
+    --diag-location
+        Show location information in diagnostic output
+
+    --diag-source
+        Show source line or caret info in diagnostic output
+
+    --diag-option
+        Show option names in diagnostic output
+
+    --diag-include-stack
+        Show include stacks in diagnostic output
+
+    --diag-macro-expansion
+        Show macro expansion backtraces in diagnostic output
+
+    --diag-abs-paths
+        Display absolute paths to files in diagnostic output
+
+    --diag-hierarchy always|never|auto
+        Show hierarchy locations in diagnostic output. Valid options: 'auto',
+        'always', 'never'
+
+    --diag-json <file>
+        Dump all diagnostics in JSON format to the specified file, or '-' for
+        stdout
+
+    --error-limit <limit>
+        Limit on the number of errors that will be printed. Setting this to
+        zero will disable the limit.
+
+    --suppress-warnings <file-pattern>[,...]
+        One or more paths in which to suppress warnings
+
+    --suppress-macro-warnings <file-pattern>[,...]
+        One or more paths in which to suppress warnings that originate in
+        macro expansions
+
+    -W <warning>
+        Control the specified warning
+
+    --waiver-file <file>
+        Path to TOML file containing diagnostic waiver rules (repeatable)
+
+    --print-unused-waivers
+        Print detailed information about unused diagnostic waivers
+
+    --depfile-target
+        Output depfile lists in makefile format, creating the file with
+        `<target>:` as the make target
+
+    --Mall,--all-deps <file>
+        Generate dependency file list of all files used during parsing
+
+    --Minclude,--include-deps <file>
+        Generate dependency file list of just include files that were used
+        during parsing
+
+    --Mmodule,--module-deps <file>
+        Generate dependency file list of source files parsed, excluding
+        include files
+
+    --depfile-trim
+        Trim unreferenced files before generating dependency lists (also
+        implies --depfile-sort)
+
+    --depfile-sort
+        Topologically sort the emitted files in dependency lists
+
+    --dfa-unique-priority
+        Respect the 'unique' and 'priority' keywords when analyzing data flow
+        through case statements
+
+    --dfa-four-state
+        Require that case items cover X and Z bits to assume full coverage in
+        data flow analysis
+
+    --max-case-analysis-steps <steps>
+        Maximum number of steps that can occur during case analysis before
+        giving up
+
+    --max-loop-analysis-steps <steps>
+        Maximum number of steps that can occur during loop analysis before
+        giving up
+
+    --allow-multi-driven-locals
+        Allow subroutine local variables to be driven from multiple
+        always_comb/_ff blocks
+
+    --allow-dup-initial-drivers
+        Allow signals driven in an always_comb or always_ff block to also be
+        driven by initial blocks
+
+    --cmd-ignore <vendor_cmd>,<N>
+        Define rule to ignore vendor command <vendor_cmd> with its following
+        <N> parameters. A command of the form +xyz will also match any vendor
+        command of the form +xyz+abc, as +abc is the command's argument, and
+        doesn't need to be matched.
+
+    --cmd-rename <vendor_cmd>,<slang_cmd>
+        Define rule to rename vendor command <vendor_cmd> into existing
+        <slang_cmd>
+
+    --ignore-directive <directive>
+        Ignore preprocessor directive and all its arguments until EOL
+
+    --dump-ast
+        Dump the AST
+
+    --no-proc
+        Disable lowering of processes
+
+    --keep-hierarchy
+        Keep hierarchy (experimental; may crash)
+
+    --best-effort-hierarchy
+        Keep hierarchy in a 'best effort' mode
+
+    --ignore-timing
+        Ignore delays for synthesis
+
+    --ignore-initial
+        Ignore initial blocks for synthesis
+
+    --ignore-assertions
+        Ignore assertions and formal statements in input
+
+    --unroll-limit <limit>
+        Set unrolling limit (default: 4000)
+
+    --no-implicit-memories
+        Disable implicit memory inference. Without this option used, all
+        variables with at least one unpacked dimension are candidates for
+        memory inference. With this option used, inference will be restricted
+        to those variables annotated with one of the following memory style
+        attributes: ram_block, rom_block, ram_style, rom_style, ramstyle,
+        romstyle, syn_ramstyle, syn_romstyle
+
+    --empty-blackboxes
+        Assume empty modules are blackboxes
+
+    --ast-compilation-only
+        For developers: stop after the AST is fully compiled
+
+    --no-default-translate-off-format
+        Do not interpret any comment directives marking disabled input unless
+        specified with '--translate-off-format'
+
+    --allow-dual-edge-ff
+        Allow synthesis of dual-edge flip-flops (@(edge))
+
+    --no-synthesis-define
+        Don't add implicit -D SYNTHESIS
+
+    --blackboxed-module
+        Mark the named module for blackboxing. Whenever an instance of the
+        given module is found in the designhierarchy, its content will not be
+        elaborated and instead the instance will be imported as a black box.
+
+    --udp-handling
+        Set the processing mode for user defined primitives. When set to
+        'blackboxes' the UDP is treated as a blackboxed instance. When set to
+        'error', an error is emitted if a UDP is encountered. By default, the
+        frontend emits an error.. Valid options: 'error', 'blackboxes'
+
+    --compat-mode
+        Deprecated option which is effectively always on. The old help message
+        was "Be relaxed about the synthesis semantics of some language
+        constructs"
+
+    --extern-modules
+        Deprecated option which is effectively always on. The old help message
+        was "Import as an instantiable blackbox any module which was
+        previously loaded into the current design with a Yosys command; this
+        allows composing hierarchy of SystemVerilog and non-SystemVerilog
+        modules"
+
+

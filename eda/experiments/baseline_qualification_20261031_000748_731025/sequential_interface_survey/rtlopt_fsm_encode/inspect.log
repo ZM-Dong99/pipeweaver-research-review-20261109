@@ -1,0 +1,170 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\baseline_qualification_20261031_000748_731025\sequential_interface_survey\rtlopt_fsm_encode\inspect.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v
+Parsing SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v' to AST representation.
+Generating RTLIL representation for module `\fsm_encode'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \fsm_encode
+
+2.2. Analyzing design hierarchy..
+Top module:  \fsm_encode
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:46$5 in module fsm_encode.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:31$3 in module fsm_encode.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:25$1 in module fsm_encode.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 1 assignment to connection.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:46$5'.
+Found async reset \rst_n in `\fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:25$1'.
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~2 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:46$5'.
+     1/4: $0\out_reg[7:0]
+     2/4: $0\reg2[7:0]
+     3/4: $0\reg1[7:0]
+     4/4: $0\done[0:0]
+Creating decoders for process `\fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:31$3'.
+     1/1: $1\next_state[7:0]
+Creating decoders for process `\fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:25$1'.
+     1/1: $0\current_state[7:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\fsm_encode.\next_state' from process `\fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:31$3'.
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\fsm_encode.\done' using process `\fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:46$5'.
+  created $adff cell `$procdff$44' with positive edge clock and positive level reset.
+Creating register for signal `\fsm_encode.\reg1' using process `\fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:46$5'.
+  created $adff cell `$procdff$49' with positive edge clock and positive level reset.
+Creating register for signal `\fsm_encode.\reg2' using process `\fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:46$5'.
+  created $adff cell `$procdff$54' with positive edge clock and positive level reset.
+Creating register for signal `\fsm_encode.\out_reg' using process `\fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:46$5'.
+  created $adff cell `$procdff$59' with positive edge clock and positive level reset.
+Creating register for signal `\fsm_encode.\current_state' using process `\fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:25$1'.
+  created $adff cell `$procdff$64' with positive edge clock and positive level reset.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:46$5'.
+Removing empty process `fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:46$5'.
+Found and cleaned up 1 empty switch in `\fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:31$3'.
+Removing empty process `fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:31$3'.
+Removing empty process `fsm_encode.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/fsm_encode/fsm_encode.v:25$1'.
+Cleaned up 2 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fsm_encode.
+<suppressed ~11 debug messages>
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fsm_encode.
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fsm_encode'.
+Computing hashes of 36 cells of `\fsm_encode'.
+Finding duplicate cells in `\fsm_encode'.
+Computing hashes of 23 cells of `\fsm_encode'.
+Finding duplicate cells in `\fsm_encode'.
+<suppressed ~39 debug messages>
+Removed a total of 13 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fsm_encode..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fsm_encode.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fsm_encode'.
+Computing hashes of 23 cells of `\fsm_encode'.
+Finding duplicate cells in `\fsm_encode'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$54 ($adff) from module fsm_encode (D = \data_in, Q = \reg2).
+Adding EN signal on $procdff$44 ($adff) from module fsm_encode (D = $procmux$27_Y, Q = \done).
+Adding EN signal on $procdff$59 ($adff) from module fsm_encode (D = $procmux$10_Y, Q = \out_reg).
+Adding EN signal on $procdff$49 ($adff) from module fsm_encode (D = $procmux$22_Y, Q = \reg1).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fsm_encode..
+Removed 3 unused cells and 30 unused wires.
+<suppressed ~4 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fsm_encode.
+<suppressed ~3 debug messages>
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fsm_encode..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fsm_encode.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fsm_encode'.
+Computing hashes of 23 cells of `\fsm_encode'.
+Finding duplicate cells in `\fsm_encode'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fsm_encode..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fsm_encode.
+
+5.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6. Executing CHECK pass (checking for obvious problems).
+Checking module fsm_encode...
+Found and reported 0 problems.
+
+7. Executing JSON backend.
+
+End of script. Logfile hash: 38147e2335
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 4% 4x opt_expr (0 sec), 4% 3x opt_merge (0 sec), ...

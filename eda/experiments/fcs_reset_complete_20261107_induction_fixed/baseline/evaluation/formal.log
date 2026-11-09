@@ -1,0 +1,480 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\fcs_reset_complete_20261107_induction_fixed\baseline\evaluation\formal.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v' to AST representation.
+Generating RTLIL representation for module `\axis_eth_fcs_reset'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \axis_eth_fcs_reset
+
+2.2. Analyzing design hierarchy..
+Top module:  \axis_eth_fcs_reset
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:538$201 in module axis_eth_fcs_reset.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:535$200 in module axis_eth_fcs_reset.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:532$199 in module axis_eth_fcs_reset.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~5 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:538$201'.
+     1/1: $0\fcs_valid_reg[0:0]
+Creating decoders for process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:535$200'.
+     1/1: $0\fcs_reg[31:0]
+Creating decoders for process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:532$199'.
+     1/1: $0\crc_state[31:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\axis_eth_fcs_reset.\fcs_valid_reg' using process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:538$201'.
+  created $dff cell `$procdff$220' with positive edge clock.
+Creating register for signal `\axis_eth_fcs_reset.\fcs_reg' using process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:535$200'.
+  created $dff cell `$procdff$221' with positive edge clock.
+Creating register for signal `\axis_eth_fcs_reset.\crc_state' using process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:532$199'.
+  created $dff cell `$procdff$222' with positive edge clock.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:538$201'.
+Removing empty process `axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:538$201'.
+Found and cleaned up 2 empty switches in `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:535$200'.
+Removing empty process `axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:535$200'.
+Found and cleaned up 2 empty switches in `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:532$199'.
+Removing empty process `axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:532$199'.
+Cleaned up 5 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module axis_eth_fcs_reset.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/crc_0__eth_crc_inst_state_in
+
+6. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/crc_state
+
+7. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/fcs_reg
+
+8. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/fcs_valid_reg
+Renaming module \axis_eth_fcs_reset to \pw_gold.
+
+9. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v' to AST representation.
+Generating RTLIL representation for module `\axis_eth_fcs_reset'.
+Successfully finished Verilog frontend.
+
+10. Executing HIERARCHY pass (managing design hierarchy).
+
+10.1. Analyzing design hierarchy..
+Top module:  \axis_eth_fcs_reset
+
+10.2. Analyzing design hierarchy..
+Top module:  \axis_eth_fcs_reset
+Removed 0 unused modules.
+
+11. Executing PROC pass (convert processes to netlists).
+
+11.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+11.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:538$423 in module axis_eth_fcs_reset.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:535$422 in module axis_eth_fcs_reset.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:532$421 in module axis_eth_fcs_reset.
+Removed a total of 0 dead cases.
+
+11.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 0 assignments to connections.
+
+11.4. Executing PROC_INIT pass (extract init attributes).
+
+11.5. Executing PROC_ARST pass (detect async resets in processes).
+
+11.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~5 debug messages>
+
+11.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:538$423'.
+     1/1: $0\fcs_valid_reg[0:0]
+Creating decoders for process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:535$422'.
+     1/1: $0\fcs_reg[31:0]
+Creating decoders for process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:532$421'.
+     1/1: $0\crc_state[31:0]
+
+11.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+11.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\axis_eth_fcs_reset.\fcs_valid_reg' using process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:538$423'.
+  created $dff cell `$procdff$442' with positive edge clock.
+Creating register for signal `\axis_eth_fcs_reset.\fcs_reg' using process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:535$422'.
+  created $dff cell `$procdff$443' with positive edge clock.
+Creating register for signal `\axis_eth_fcs_reset.\crc_state' using process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:532$421'.
+  created $dff cell `$procdff$444' with positive edge clock.
+
+11.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+11.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:538$423'.
+Removing empty process `axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:538$423'.
+Found and cleaned up 2 empty switches in `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:535$422'.
+Removing empty process `axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:535$422'.
+Found and cleaned up 2 empty switches in `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:532$421'.
+Removing empty process `axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:532$421'.
+Cleaned up 5 empty switches.
+
+11.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module axis_eth_fcs_reset.
+
+12. Executing FLATTEN pass (flatten design).
+
+13. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/crc_0__eth_crc_inst_state_in
+
+14. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/crc_state
+
+15. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/fcs_reg
+
+16. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/fcs_valid_reg
+Renaming module \axis_eth_fcs_reset to \pw_cand.
+
+17. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/evaluation/formal_miter.v
+Parsing formal Verilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/evaluation/formal_miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+18. Executing PREP pass.
+
+18.1. Executing HIERARCHY pass (managing design hierarchy).
+
+18.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+
+18.1.2. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+Removed 0 unused modules.
+
+18.2. Executing PROC pass (convert processes to netlists).
+
+18.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+18.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+18.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+18.2.4. Executing PROC_INIT pass (extract init attributes).
+
+18.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+18.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+18.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+18.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+18.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+18.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+18.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+18.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+Optimizing module pw_cand.
+Optimizing module pw_gold.
+
+18.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module pw_cand.
+Deleting now unused module pw_gold.
+<suppressed ~2 debug messages>
+
+18.4. Executing FUTURE pass.
+
+18.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+<suppressed ~3 debug messages>
+
+18.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 425 unused wires.
+<suppressed ~1 debug messages>
+
+18.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+18.8. Executing OPT pass (performing simple optimizations).
+
+18.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+18.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 435 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 430 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 429 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+18.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~20 debug messages>
+
+18.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+18.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 429 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 428 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 427 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+18.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+18.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+18.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+18.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+18.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+18.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 427 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+18.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+18.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+18.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+18.9. Executing WREDUCE pass (reducing word size of cells).
+
+18.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+18.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+18.12. Executing OPT pass (performing simple optimizations).
+
+18.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+18.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 427 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+18.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+18.12.4. Finished fast OPT passes.
+
+18.13. Executing SORT pass.
+
+18.14. Printing statistics.
+
+=== pw_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      678 wires
+    10849 wire bits
+      662 public wires
+    10585 public wire bits
+        8 ports
+       15 port bits
+      427 cells
+        6   $dff
+       12   $mux
+        3   $ne
+        3   $not
+        5   $or
+        1   $reduce_and
+        1   $reduce_or
+        2   $scopeinfo
+      394   $xor
+
+18.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+19. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+20. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Import set-constraint for this timestep: \in_1 = 1'1
+Final constraint equation: \in_1 = 1'1
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_2
+Imported 427 cells to SAT database.
+No constraints for initial state found.
+
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_2
+Imported 427 cells to SAT database.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_2
+Imported 427 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+
+** Trying induction with length 1 **
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_2
+Imported 427 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \in_4
+Import show expression: \in_6
+Import show expression: \in_7
+Import show expression: \mismatch
+
+[base case 1] Solving problem with 51191 variables and 137631 clauses..
+Base case for induction length 1 proven.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_2
+Imported 427 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \in_4
+Import show expression: \in_6
+Import show expression: \in_7
+Import show expression: \mismatch
+
+[induction step 1] Solving problem with 33653 variables and 90245 clauses..
+Induction step proven: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: d22165def0
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 8x opt_expr (0 sec), 3% 8x expose (0 sec), ...

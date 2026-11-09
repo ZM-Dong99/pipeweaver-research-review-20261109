@@ -1,0 +1,60 @@
+{
+  "call_index": 1,
+  "arm": "no_timing_feedback",
+  "candidate_id": "candidate_01",
+  "candidate_sha256": "901dc483439504e408d504b5e678c40f8e9f9273fe117d96b57407b0f24cbc00",
+  "status": "GENERATED",
+  "explanation": {
+    "bottleneck": "The source expresses transitions and outputs through full-vector state comparisons and priority branches. Depending on synthesis FSM extraction and encoding, these can introduce state decoding and mux depth on register-to-register and register-to-output paths. The actual critical path requires mapped timing analysis.",
+    "area_or_other_cost": "Uses six state flip-flops, synchronous reset logic, and a small combinational network. Shared input terms may introduce fanout, and the baseline synthesizer may already perform equivalent optimizations. Mapped area must be checked against the 278.01664000000005 um^2 cap.",
+    "functional_boundaries": "Preserves the module interface and parameter declarations, positive-edge clock, synchronous active-high clear, and output latency. Reset establishes a one-hot state, and every transition preserves that invariant for all ten/twenty combinations, including simultaneous assertion with ten priority. Later clear assertions restore ready on the same edge as the original. No additional startup assumptions are introduced. Illegal internal state encodings need not match the original recovery behavior because they are unreachable after the required startup reset; equivalence must be checked against the frozen original under the supplied startup contract and default parameters.",
+    "rewrite": "Use explicit six-bit one-hot transition equations, shared idle and priority-qualified twenty terms, and direct Moore output decoding. This removes full-vector state equality checks from the reachable-state datapath.",
+    "expected_timing_gain": "The shallow AND/OR transition network and direct output decoding are intended to reduce setup-path depth. No timing improvement is measured or guaranteed: compare setup WNS and TNS against the frozen original using the fixed EDA settings, and retain this candidate only if WNS strictly improves without TNS regression.",
+    "output_format_normalization": [
+      "Removed complete leading think wrapper before JSON parsing"
+    ]
+  },
+  "parameters": {
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "http_transport": "curl",
+    "response_format": "json_object",
+    "candidate_index": 1,
+    "response_id": "chatcmpl-b7070cf6-19dd-425f-9108-4359f16602e4",
+    "response_created": 1793634552,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 1491,
+      "completion_tokens": 1067,
+      "total_tokens": 2831
+    }
+  },
+  "response_model": "gpt-6.1-sol",
+  "seconds": 37.70417279999674,
+  "accepted": false,
+  "metrics": {
+    "status": "PASS",
+    "formal": "PASS",
+    "mapped_formal": "PASS",
+    "ppa": "PASS",
+    "eligible": true,
+    "stage": "sta",
+    "mapped_area_um2": 256.496,
+    "mapped_cells": 29,
+    "electrical": {
+      "status": "PASS",
+      "violation_rows": 0,
+      "checks": [
+        "max_slew",
+        "max_capacitance"
+      ],
+      "scope": "Library limits under recorded SDC; not physical signoff"
+    },
+    "wns_ns": 9.29,
+    "tns_ns": 0.0,
+    "mapped_sha256": "62cc61944be95bc2568e5187eb0c806a638c966b7237de462de74358599ea6ff",
+    "sdc_sha256": "7c1efdc1b0d7abeccbbfb4f8af926767240ac755b5dbd6f49eed98a8e884e4ab",
+    "elapsed_seconds": 5.276
+  },
+  "reason": "No strict WNS improvement at report precision"
+}

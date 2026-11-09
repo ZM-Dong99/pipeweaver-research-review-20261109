@@ -1,0 +1,8 @@
+# running in D:\verilog_lab\PipeWeaver\eda\experiments\extra_tools_readiness_20261031\wrong_proof/src/
+read -formal wrong.sv
+prep -top counter
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

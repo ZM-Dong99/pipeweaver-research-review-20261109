@@ -1,0 +1,621 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\engineering_arbiter_validation_20261102_201724_713244\wrong32_default4_positive_control\formal.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v' to AST representation.
+Generating RTLIL representation for module `\priority_encoder'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v' to AST representation.
+Generating RTLIL representation for module `\arbiter'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     \priority_encoder
+Parameter \WIDTH = 4
+Parameter \LSB_HIGH_PRIORITY = 0
+
+3.2. Executing AST frontend in derive mode using pre-parsed AST for module `\priority_encoder'.
+Parameter \WIDTH = 4
+Parameter \LSB_HIGH_PRIORITY = 0
+Generating RTLIL representation for module `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder'.
+Parameter \WIDTH = 4
+Parameter \LSB_HIGH_PRIORITY = 0
+Found cached RTLIL representation for module `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder'.
+
+3.3. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder
+
+3.4. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder
+Removing unused module `\priority_encoder'.
+Removed 1 unused modules.
+
+4. Executing PROC pass (convert processes to netlists).
+
+4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+Cleaned up 1 empty switch.
+
+4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13 in module arbiter.
+Removed a total of 0 dead cases.
+
+4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 14 assignments to connections.
+
+4.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:83$24'.
+  Set init value: \mask_reg = 4'0000
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:62$23'.
+  Set init value: \grant_encoded_reg = 2'00
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:61$22'.
+  Set init value: \grant_valid_reg = 1'0
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:60$21'.
+  Set init value: \grant_reg = 4'0000
+
+4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~4 debug messages>
+
+4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:83$24'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:62$23'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:61$22'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:60$21'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:145$20'.
+     1/4: $0\mask_reg[3:0]
+     2/4: $0\grant_encoded_reg[1:0]
+     3/4: $0\grant_valid_reg[0:0]
+     4/4: $0\grant_reg[3:0]
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+     1/12: $4\grant_encoded_next[1:0]
+     2/12: $4\grant_next[3:0]
+     3/12: $4\grant_valid_next[0:0]
+     4/12: $3\grant_encoded_next[1:0]
+     5/12: $3\grant_valid_next[0:0]
+     6/12: $3\grant_next[3:0]
+     7/12: $2\grant_encoded_next[1:0]
+     8/12: $2\grant_next[3:0]
+     9/12: $2\grant_valid_next[0:0]
+    10/12: $1\grant_encoded_next[1:0]
+    11/12: $1\grant_next[3:0]
+    12/12: $1\grant_valid_next[0:0]
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$34'.
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$32'.
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$31'.
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$29'.
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$28'.
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$26'.
+
+4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\arbiter.\grant_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+No latch inferred for signal `\arbiter.\grant_valid_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+No latch inferred for signal `\arbiter.\grant_encoded_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+No latch inferred for signal `\arbiter.\mask_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_enc[1]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$34'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_valid[1] [0]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$32'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_enc[0] [1]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$31'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_valid[0] [1]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$29'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_enc[0] [0]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$28'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_valid[0] [0]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$26'.
+
+4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\arbiter.\grant_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:145$20'.
+  created $dff cell `$procdff$125' with positive edge clock.
+Creating register for signal `\arbiter.\grant_valid_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:145$20'.
+  created $dff cell `$procdff$126' with positive edge clock.
+Creating register for signal `\arbiter.\grant_encoded_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:145$20'.
+  created $dff cell `$procdff$127' with positive edge clock.
+Creating register for signal `\arbiter.\mask_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:145$20'.
+  created $dff cell `$procdff$128' with positive edge clock.
+
+4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:83$24'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:62$23'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:61$22'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:60$21'.
+Found and cleaned up 1 empty switch in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:145$20'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:145$20'.
+Found and cleaned up 3 empty switches in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v:100$13'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$34'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$32'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$31'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$29'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$28'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$26'.
+Cleaned up 4 empty switches.
+
+4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+<suppressed ~11 debug messages>
+Optimizing module $paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.
+
+5. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.
+<suppressed ~2 debug messages>
+Renaming module \arbiter to \pw_gold.
+
+6. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v' to AST representation.
+Generating RTLIL representation for module `\priority_encoder'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v' to AST representation.
+Generating RTLIL representation for module `\arbiter'.
+Successfully finished Verilog frontend.
+
+8. Executing HIERARCHY pass (managing design hierarchy).
+
+8.1. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     \priority_encoder
+Parameter \WIDTH = 4
+Parameter \LSB_HIGH_PRIORITY = 0
+
+8.2. Executing AST frontend in derive mode using pre-parsed AST for module `\priority_encoder'.
+Parameter \WIDTH = 4
+Parameter \LSB_HIGH_PRIORITY = 0
+Generating RTLIL representation for module `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder'.
+Parameter \WIDTH = 4
+Parameter \LSB_HIGH_PRIORITY = 0
+Found cached RTLIL representation for module `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder'.
+
+8.3. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder
+
+8.4. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder
+Removing unused module `\priority_encoder'.
+Removed 1 unused modules.
+
+9. Executing PROC pass (convert processes to netlists).
+
+9.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$144'.
+Cleaned up 1 empty switch.
+
+9.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$144 in module arbiter.
+Removed a total of 0 dead cases.
+
+9.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 14 assignments to connections.
+
+9.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:83$155'.
+  Set init value: \mask_reg = 4'0000
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:62$154'.
+  Set init value: \grant_encoded_reg = 2'00
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:61$153'.
+  Set init value: \grant_valid_reg = 1'0
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:60$152'.
+  Set init value: \grant_reg = 4'0000
+
+9.5. Executing PROC_ARST pass (detect async resets in processes).
+
+9.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~4 debug messages>
+
+9.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:83$155'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:62$154'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:61$153'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:60$152'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145$151'.
+     1/4: $0\mask_reg[3:0]
+     2/4: $0\grant_encoded_reg[1:0]
+     3/4: $0\grant_valid_reg[0:0]
+     4/4: $0\grant_reg[3:0]
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$144'.
+     1/12: $4\grant_encoded_next[1:0]
+     2/12: $4\grant_next[3:0]
+     3/12: $4\grant_valid_next[0:0]
+     4/12: $3\grant_encoded_next[1:0]
+     5/12: $3\grant_valid_next[0:0]
+     6/12: $3\grant_next[3:0]
+     7/12: $2\grant_encoded_next[1:0]
+     8/12: $2\grant_next[3:0]
+     9/12: $2\grant_valid_next[0:0]
+    10/12: $1\grant_encoded_next[1:0]
+    11/12: $1\grant_next[3:0]
+    12/12: $1\grant_valid_next[0:0]
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$165'.
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$163'.
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$162'.
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$160'.
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$159'.
+Creating decoders for process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$157'.
+
+9.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\arbiter.\grant_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$144'.
+No latch inferred for signal `\arbiter.\grant_valid_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$144'.
+No latch inferred for signal `\arbiter.\grant_encoded_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$144'.
+No latch inferred for signal `\arbiter.\mask_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$144'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_enc[1]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$165'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_valid[1] [0]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$163'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_enc[0] [1]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$162'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_valid[0] [1]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$160'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_enc[0] [0]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$159'.
+No latch inferred for signal `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.\stage_valid[0] [0]' from process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$157'.
+
+9.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\arbiter.\grant_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145$151'.
+  created $dff cell `$procdff$256' with positive edge clock.
+Creating register for signal `\arbiter.\grant_valid_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145$151'.
+  created $dff cell `$procdff$257' with positive edge clock.
+Creating register for signal `\arbiter.\grant_encoded_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145$151'.
+  created $dff cell `$procdff$258' with positive edge clock.
+Creating register for signal `\arbiter.\mask_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145$151'.
+  created $dff cell `$procdff$259' with positive edge clock.
+
+9.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+9.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:83$155'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:62$154'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:61$153'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:60$152'.
+Found and cleaned up 1 empty switch in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145$151'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145$151'.
+Found and cleaned up 3 empty switches in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$144'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$144'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$165'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$163'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$162'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$160'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$159'.
+Removing empty process `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$157'.
+Cleaned up 4 empty switches.
+
+9.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+<suppressed ~12 debug messages>
+Optimizing module $paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.
+
+10. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.
+<suppressed ~2 debug messages>
+Renaming module \arbiter to \pw_cand.
+
+11. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/wrong32_default4_positive_control/miter.v
+Parsing formal Verilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/wrong32_default4_positive_control/miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+12. Executing PREP pass.
+
+12.1. Executing HIERARCHY pass (managing design hierarchy).
+
+12.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+
+12.1.2. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+Removed 0 unused modules.
+
+12.2. Executing PROC pass (convert processes to netlists).
+
+12.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+12.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+12.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+12.2.4. Executing PROC_INIT pass (extract init attributes).
+
+12.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+12.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+12.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+12.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+12.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+12.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+12.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+12.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+Optimizing module pw_cand.
+Optimizing module pw_gold.
+
+12.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module pw_cand.
+Deleting now unused module pw_gold.
+<suppressed ~2 debug messages>
+
+12.4. Executing FUTURE pass.
+
+12.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+12.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 20 unused cells and 218 unused wires.
+<suppressed ~49 debug messages>
+
+12.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+12.8. Executing OPT pass (performing simple optimizations).
+
+12.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+12.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 73 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 71 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 70 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+12.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $flatten\cand.$procmux$209.
+    dead port 1/2 on $mux $flatten\cand.$procmux$245.
+    dead port 1/2 on $mux $flatten\cand.$procmux$218.
+    dead port 1/2 on $mux $flatten\cand.$procmux$233.
+    dead port 1/2 on $mux $flatten\cand.$procmux$227.
+    dead port 2/2 on $mux $flatten\cand.$procmux$176.
+    dead port 1/2 on $mux $flatten\cand.$procmux$182.
+    dead port 2/2 on $mux $flatten\gold.$procmux$45.
+    dead port 1/2 on $mux $flatten\gold.$procmux$51.
+    dead port 2/2 on $mux $flatten\gold.$procmux$54.
+    dead port 1/2 on $mux $flatten\gold.$procmux$114.
+    dead port 1/2 on $mux $flatten\gold.$procmux$60.
+    dead port 2/2 on $mux $flatten\gold.$procmux$63.
+    dead port 1/2 on $mux $flatten\gold.$procmux$69.
+    dead port 1/2 on $mux $flatten\gold.$procmux$78.
+    dead port 1/2 on $mux $flatten\gold.$procmux$87.
+    dead port 1/2 on $mux $flatten\gold.$procmux$108.
+    dead port 1/2 on $mux $flatten\gold.$procmux$96.
+    dead port 1/2 on $mux $flatten\gold.$procmux$102.
+    dead port 1/2 on $mux $flatten\cand.$procmux$200.
+    dead port 2/2 on $mux $flatten\cand.$procmux$194.
+    dead port 2/2 on $mux $flatten\cand.$procmux$185.
+    dead port 1/2 on $mux $flatten\cand.$procmux$239.
+    dead port 1/2 on $mux $flatten\cand.$procmux$191.
+Removed 24 multiplexer ports.
+<suppressed ~52 debug messages>
+
+12.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+    New input vector for $reduce_or cell $flatten\cand.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$164: \in_2
+  Optimizing cells in module \pw_miter.
+Performed a total of 1 changes.
+
+12.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 46 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 44 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 42 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 41 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
+
+12.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 1 unused cells and 28 unused wires.
+<suppressed ~2 debug messages>
+
+12.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+12.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+12.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+12.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+12.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 40 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+12.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+12.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+12.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+12.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 30 bits (of 32) from port A of cell pw_miter.$flatten\cand.\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:90$156 ($shl).
+Removed top 28 bits (of 32) from port Y of cell pw_miter.$flatten\cand.\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:90$156 ($shl).
+
+12.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+12.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+12.12. Executing OPT pass (performing simple optimizations).
+
+12.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+12.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 40 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+12.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+12.12.4. Finished fast OPT passes.
+
+12.13. Executing SORT pass.
+
+12.14. Printing statistics.
+
+=== pw_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       78 wires
+      182 wire bits
+       61 public wires
+      147 public wire bits
+        5 ports
+       11 port bits
+       40 cells
+        2   $and
+        6   $dff
+        2   $logic_and
+       16   $mux
+        3   $ne
+        2   $or
+        2   $reduce_or
+        6   $scopeinfo
+        1   $shl
+
+12.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+13. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+14. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Import set-constraint for this timestep: \in_1 = 1'1
+Final constraint equation: \in_1 = 1'1
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 40 cells to SAT database.
+Import set-constraint from init attribute: \cand.grant_encoded_reg = 2'00
+Import set-constraint from init attribute: \cand.grant_reg = 4'0000
+Import set-constraint from init attribute: \cand.grant_valid_reg = 1'0
+Import set-constraint from init attribute: \gold.grant_encoded_reg = 2'00
+Import set-constraint from init attribute: \gold.grant_reg = 4'0000
+Import set-constraint from init attribute: \gold.grant_valid_reg = 1'0
+Final init constraint equation: { \gold.grant_valid_reg \gold.grant_reg \gold.grant_encoded_reg \cand.grant_valid_reg \cand.grant_reg \cand.grant_encoded_reg } = 14'00000000000000
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 40 cells to SAT database.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 40 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+
+** Trying induction with length 1 **
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 40 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \mismatch
+
+[base case 1] Solving problem with 4590 variables and 12429 clauses..
+Base case for induction length 1 proven.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 40 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \mismatch
+
+[induction step 1] Solving problem with 2955 variables and 7953 clauses..
+Induction step proven: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 64fc5636df
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 10x read_verilog (0 sec), 3% 8x opt_expr (0 sec), ...

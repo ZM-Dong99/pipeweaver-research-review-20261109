@@ -1,0 +1,291 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\comparator_action_study_20261103_004742_635275\boundary_N13\linear_4\formal.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/inputs/original.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/inputs/original.v' to AST representation.
+Generating RTLIL representation for module `\comparator'.
+Successfully finished Verilog frontend.
+Parameter \N = 13
+
+2. Executing AST frontend in derive mode using pre-parsed AST for module `\comparator'.
+Parameter \N = 13
+Generating RTLIL representation for module `$paramod\comparator\N=s32'00000000000000000000000000001101'.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \comparator
+
+3.2. Analyzing design hierarchy..
+Top module:  \comparator
+Removed 0 unused modules.
+
+4. Executing FLATTEN pass (flatten design).
+Renaming module \comparator to \pw_gold.
+
+5. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/candidates/linear_4.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/candidates/linear_4.v' to AST representation.
+Generating RTLIL representation for module `\comparator'.
+Successfully finished Verilog frontend.
+Parameter \N = 13
+
+6. Executing AST frontend in derive mode using pre-parsed AST for module `\comparator'.
+Parameter \N = 13
+Generating RTLIL representation for module `$paramod\comparator\N=s32'00000000000000000000000000001101'.
+
+7. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1. Analyzing design hierarchy..
+Top module:  \comparator
+
+7.2. Analyzing design hierarchy..
+Top module:  \comparator
+Removed 0 unused modules.
+
+8. Executing FLATTEN pass (flatten design).
+Renaming module \comparator to \pw_cand.
+
+9. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/boundary_N13/linear_4/miter.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/boundary_N13/linear_4/miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+10. Executing PREP pass.
+
+10.1. Executing HIERARCHY pass (managing design hierarchy).
+
+10.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+
+10.1.2. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+Removed 0 unused modules.
+
+10.2. Executing PROC pass (convert processes to netlists).
+
+10.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+10.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/candidates/linear_4.v:37$36 in module pw_cand.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/candidates/linear_4.v:37$36 in module pw_cand.
+Removed 1 dead cases from process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/inputs/original.v:14$12 in module pw_gold.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/inputs/original.v:14$12 in module pw_gold.
+Removed a total of 2 dead cases.
+
+10.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+10.2.4. Executing PROC_INIT pass (extract init attributes).
+
+10.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+10.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~2 debug messages>
+
+10.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/candidates/linear_4.v:37$36'.
+     1/1: $1\OUT[0:0]
+Creating decoders for process `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/inputs/original.v:14$12'.
+     1/1: $1\OUT[0:0]
+
+10.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\pw_cand.\OUT' from process `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/candidates/linear_4.v:37$36'.
+No latch inferred for signal `\pw_gold.\OUT' from process `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/inputs/original.v:14$12'.
+
+10.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+10.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+10.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/candidates/linear_4.v:37$36'.
+Removing empty process `pw_cand.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/candidates/linear_4.v:37$36'.
+Found and cleaned up 1 empty switch in `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/inputs/original.v:14$12'.
+Removing empty process `pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/inputs/original.v:14$12'.
+Cleaned up 2 empty switches.
+
+10.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+Optimizing module pw_cand.
+<suppressed ~4 debug messages>
+Optimizing module pw_gold.
+<suppressed ~1 debug messages>
+
+10.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module pw_cand.
+Deleting now unused module pw_gold.
+<suppressed ~2 debug messages>
+
+10.4. Executing FUTURE pass.
+
+10.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+10.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 26 unused wires.
+<suppressed ~1 debug messages>
+
+10.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+10.8. Executing OPT pass (performing simple optimizations).
+
+10.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+10.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 52 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 40 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~36 debug messages>
+Removed a total of 12 cells.
+
+10.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+10.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+10.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 40 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+10.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 12 unused wires.
+<suppressed ~1 debug messages>
+
+10.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+10.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+10.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+10.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 40 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+10.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+10.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+10.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+10.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\cand.$procmux$69_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell pw_miter.$flatten\cand.$procmux$71_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\cand.$procmux$70_CMP0 ($eq).
+
+10.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+10.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+10.12. Executing OPT pass (performing simple optimizations).
+
+10.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+10.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 40 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+10.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+10.12.4. Finished fast OPT passes.
+
+10.13. Executing SORT pass.
+
+10.14. Printing statistics.
+
+=== pw_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       41 wires
+      133 wire bits
+       22 public wires
+      114 public wire bits
+        4 ports
+       30 port bits
+       40 cells
+        6   $and
+       12   $eq
+        5   $gt
+        2   $logic_and
+        1   $logic_not
+        2   $logic_or
+        1   $ne
+        4   $not
+        3   $or
+        2   $pmux
+        2   $scopeinfo
+
+10.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+11. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 40 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+
+Solving problem with 464 variables and 1252 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: c347b522c2
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 6x read_verilog (0 sec), 3% 6x opt_expr (0 sec), ...

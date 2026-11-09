@@ -1,0 +1,20 @@
+module pw_miter(in_0,in_1,in_2,in_3,in_4,in_6,in_7,mismatch);
+input [0:0] in_0;
+input [0:0] in_1;
+input [7:0] in_2;
+input [0:0] in_3;
+input [0:0] in_4;
+wire [0:0] g_5, c_5;
+input [0:0] in_6;
+input [0:0] in_7;
+wire [31:0] g_8, c_8;
+wire [0:0] g_9, c_9;
+wire [31:0] g_10, c_10;
+wire [31:0] g_11, c_11;
+wire [31:0] g_12, c_12;
+wire [0:0] g_13, c_13;
+output mismatch;
+pw_gold gold(.clk(in_0),.rst(in_1),.s_axis_tdata(in_2),.s_axis_tkeep(in_3),.s_axis_tvalid(in_4),.s_axis_tready(g_5),.s_axis_tlast(in_6),.s_axis_tuser(in_7),.output_fcs(g_8),.output_fcs_valid(g_9),.crc_0__eth_crc_inst_state_in(g_10),.crc_state(g_11),.fcs_reg(g_12),.fcs_valid_reg(g_13));
+pw_cand cand(.clk(in_0),.rst(in_1),.s_axis_tdata(in_2),.s_axis_tkeep(in_3),.s_axis_tvalid(in_4),.s_axis_tready(c_5),.s_axis_tlast(in_6),.s_axis_tuser(in_7),.output_fcs(c_8),.output_fcs_valid(c_9),.crc_0__eth_crc_inst_state_in(c_10),.crc_state(c_11),.fcs_reg(c_12),.fcs_valid_reg(c_13));
+assign mismatch = (g_5 != c_5) | (g_8 != c_8) | (g_9 != c_9) | (g_10 != c_10) | (g_11 != c_11) | (g_12 != c_12) | (g_13 != c_13);
+endmodule

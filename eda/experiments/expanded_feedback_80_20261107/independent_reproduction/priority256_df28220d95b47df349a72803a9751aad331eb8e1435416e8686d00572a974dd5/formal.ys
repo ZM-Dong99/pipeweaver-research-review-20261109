@@ -1,0 +1,20 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/priority256.v"
+chparam -set LSB_HIGH_PRIORITY 0 priority_encoder
+chparam -set WIDTH 256 priority_encoder
+hierarchy -check -top priority_encoder
+flatten
+rename priority_encoder pw_gold
+design -stash pw_gold_design
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/exports/priority256/baseline.v"
+chparam -set LSB_HIGH_PRIORITY 0 priority_encoder
+chparam -set WIDTH 256 priority_encoder
+hierarchy -check -top priority_encoder
+flatten
+rename priority_encoder pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/independent_reproduction/priority256_df28220d95b47df349a72803a9751aad331eb8e1435416e8686d00572a974dd5/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 120

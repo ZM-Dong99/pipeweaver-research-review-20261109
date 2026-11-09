@@ -1,0 +1,22 @@
+{
+  "endpoint": "https://apinebula.ai/v1/chat/completions",
+  "body": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Select exactly two whitelisted structural actions. Never return RTL, code, markdown or commands. Return only the requested JSON object."
+      },
+      {
+        "role": "user",
+        "content": "{\n  \"task\": \"Select exactly two distinct actions from the fixed catalog. Do not return RTL.\",\n  \"original_rtl\": \"module comparator #(\\n    parameter N = 8              // Define parameter first\\n) (\\n    input [2:0] SEL,          // 3-bit selection signal\\n    input [N-1:0] value1,     // First comparison value\\n    input [N-1:0] value2,     // Second comparison value\\n    output reg OUT            // Comparison result output\\n);\\n\\n// Pre-compute comparison results\\nwire cmp_equal = (value1 == value2);\\nwire cmp_greater = (value1 > value2);\\n\\nalways @(*) begin\\n    case (SEL)\\n        3'b000: OUT = 1'b0;               // Constant 0\\n        3'b001: OUT = 1'b1;               // Constant 1\\n        3'b010: OUT = cmp_equal;         // ==\\n        3'b011: OUT = ~cmp_equal;        // !=\\n        3'b100: OUT = (cmp_equal || cmp_greater);  // >=\\n        3'b101: OUT = ~cmp_greater;      // <=\\n        3'b110: OUT = (~cmp_equal && ~cmp_greater); // <\\n        3'b111: OUT = cmp_greater;       // >\\n        default: OUT = 1'b0;             // Default case\\n    endcase\\nend\\n\\nendmodule\",\n  \"top\": \"comparator\",\n  \"parameter_overrides\": {\n    \"N\": 24\n  },\n  \"hardware_width\": 24,\n  \"action_catalog\": [\n    {\n      \"id\": \"balanced_2\",\n      \"operator\": \"unsigned_chunk_compare\",\n      \"chunk_bits\": 2,\n      \"topology\": \"balanced\"\n    },\n    {\n      \"id\": \"balanced_4\",\n      \"operator\": \"unsigned_chunk_compare\",\n      \"chunk_bits\": 4,\n      \"topology\": \"balanced\"\n    },\n    {\n      \"id\": \"balanced_8\",\n      \"operator\": \"unsigned_chunk_compare\",\n      \"chunk_bits\": 8,\n      \"topology\": \"balanced\"\n    },\n    {\n      \"id\": \"linear_2\",\n      \"operator\": \"unsigned_chunk_compare\",\n      \"chunk_bits\": 2,\n      \"topology\": \"linear\"\n    },\n    {\n      \"id\": \"linear_4\",\n      \"operator\": \"unsigned_chunk_compare\",\n      \"chunk_bits\": 4,\n      \"topology\": \"linear\"\n    },\n    {\n      \"id\": \"linear_8\",\n      \"operator\": \"unsigned_chunk_compare\",\n      \"chunk_bits\": 8,\n      \"topology\": \"linear\"\n    }\n  ],\n  \"action_semantics\": \"Replace unsigned equality/greater comparison with chunk comparisons. Higher chunks dominate: gt=gt_high OR (eq_high AND gt_low); eq=eq_high AND eq_low. Balanced uses padded binary composition; linear folds chunks from low to high. All other selector/output behavior stays unchanged.\",\n  \"objective\": \"Within fixed original area cap, minimize maximum combinational data arrival after complete source and mapped equivalence and electrical checks. Original stays available. Exactly two candidate EDA slots per selection; no repairs/replacement draws.\",\n  \"mapped_area_cap_um2\": 916.6291200000002,\n  \"baseline_area_um2\": 833.2992,\n  \"technology\": {\n    \"library\": \"SKY130HD TT 025C 1v80\",\n    \"input_transition_ns\": 0.1,\n    \"output_load_pf\": 0.01,\n    \"mapping\": \"ABC map; cleanup; buffer; upsize; dnsize\"\n  },\n  \"response_format\": {\n    \"action_ids\": [\n      \"one_allowed_ID\",\n      \"a_different_allowed_ID\"\n    ],\n    \"rationale\": \"Non-empty short reason; estimates are not measured gains\"\n  },\n  \"rules\": [\n    \"Return one JSON object with exactly action_ids and rationale, no markdown or wrappers.\",\n    \"No arbitrary RTL, edits, extra actions, parameters, or commands. Do not claim measured improvements before EDA.\"\n  ]\n}\n"
+      }
+    ]
+  },
+  "http_transport": "curl",
+  "credentials": "Authorization header omitted"
+}

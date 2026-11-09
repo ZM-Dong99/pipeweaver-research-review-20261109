@@ -1,0 +1,31 @@
+{
+  "arm": "generic_llm",
+  "candidate_id": "candidate_02",
+  "prompt_sha256": "b9b8c67094eba0872805e4675a7fd223d230fd45a06e9463be0bb9dcc31adbbb",
+  "requested_model": "deepseek-v4-pro",
+  "temperature": 0.2,
+  "status": "GENERATED",
+  "candidate_sha256": "db07faf34dc98e82b7592aa0dd5513eb773afabc45b15c31e83c5b569e17a0ed",
+  "formal_status": "NOT_RUN",
+  "ppa_status": "NOT_RUN",
+  "response_model_id": "deepseek-v4-pro",
+  "generation_parameters": {
+    "requested_model": "deepseek-v4-pro",
+    "temperature": 0.2,
+    "response_format": "json_object",
+    "candidate_index": 2,
+    "usage": {
+      "prompt_tokens": 566,
+      "completion_tokens": 6637,
+      "total_tokens": 7203
+    }
+  },
+  "explanation": {
+    "expected_timing_gain": "Substantial reduction in combinational delay, typically 2-4x faster than the serial accumulation chain, as the critical path shrinks from 7 adders to a logarithmic-depth carry-save tree and a single final adder.",
+    "bottleneck": "The original RTL manually generates partial products and accumulates them with a chain of seven 16-bit ripple-carry additions. This serial dependency creates a long critical path proportional to the number of partial product rows.",
+    "functional_boundaries": "Exactly preserves the unsigned 8x8 multiplication for all 65,536 input combinations. No new timing assumptions, clocks, don't-cares, or restricted input ranges are introduced.",
+    "rewrite": "Replace the explicit serial accumulation with a single unsigned multiplication operator. The synthesis tool will infer a highly optimized parallel multiplier structure (e.g., Wallace or Dadda tree with carry-save adders and a fast final carry-propagate adder) that balances delay and area for the target library.",
+    "area_or_other_cost": "Area may be slightly larger than a naive array multiplier if the tool chooses a parallel structure, but is generally well-controlled and may be smaller than the original due to sharing of partial-product generation. No additional registers or control logic are introduced."
+  },
+  "generation_runtime_seconds": 91.854
+}

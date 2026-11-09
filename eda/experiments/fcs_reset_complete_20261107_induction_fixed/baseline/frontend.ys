@@ -1,0 +1,11 @@
+read_slang --top axis_eth_fcs_reset source.v
+hierarchy -check -top axis_eth_fcs_reset
+proc
+flatten
+write_json before_opt.json
+setattr -unset init w:*
+opt
+rename -unescape
+check -assert
+write_json elaborated.json
+write_verilog -noattr elaborated.v

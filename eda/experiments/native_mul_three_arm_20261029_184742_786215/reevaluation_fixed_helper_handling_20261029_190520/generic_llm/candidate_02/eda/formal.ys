@@ -1,0 +1,16 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul_subexpression/mul_subexpression.v"
+hierarchy -check -top mul_subexpression
+flatten
+rename mul_subexpression pw_gold
+design -stash pw_gold_design
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/native_mul_three_arm_20261029_184742_786215/generic_llm/candidate_02/candidate.v"
+hierarchy -check -top mul_subexpression
+flatten
+rename mul_subexpression pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/native_mul_three_arm_20261029_184742_786215/reevaluation_fixed_helper_handling_20261029_190520/generic_llm/candidate_02/eda/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 180

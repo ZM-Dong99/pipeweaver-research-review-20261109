@@ -1,0 +1,188 @@
+{
+  "client_date": "2026-11-03",
+  "scope": "Prospective unmeasured N=24 parameter instance of an exposed comparator family; not a new family or model-training holdout.",
+  "model": "gpt-6.1-sol",
+  "api_endpoint": "https://apinebula.ai/v1",
+  "http_transport": "curl",
+  "transport_sha256": "73d24149ff289afc49ec41f08918ef9faa727d39ad993e929757dc2ddafab805",
+  "request_parameters": {
+    "reasoning_effort": "medium"
+  },
+  "maximum_requests": 6,
+  "requests_per_arm": 3,
+  "actions_per_request": 2,
+  "call_schedule": [
+    {
+      "call_index": 1,
+      "arm": "no_timing_feedback",
+      "slot": "selection_01"
+    },
+    {
+      "call_index": 2,
+      "arm": "sta_feedback",
+      "slot": "selection_01"
+    },
+    {
+      "call_index": 3,
+      "arm": "sta_feedback",
+      "slot": "selection_02"
+    },
+    {
+      "call_index": 4,
+      "arm": "no_timing_feedback",
+      "slot": "selection_02"
+    },
+    {
+      "call_index": 5,
+      "arm": "no_timing_feedback",
+      "slot": "selection_03"
+    },
+    {
+      "call_index": 6,
+      "arm": "sta_feedback",
+      "slot": "selection_03"
+    }
+  ],
+  "width": 24,
+  "baseline_metrics": {
+    "status": "PASS",
+    "formal": "PASS",
+    "ppa": "PASS",
+    "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\action_selection_N24_20261103_010227_993541\\baseline",
+    "protocol_sha256": "031d9a445009e103d390a29aa00a9753a38145eaf8587e5554ad1e6541fcc432",
+    "stage": "electrical_checks",
+    "mapped_formal": "PASS",
+    "mapped_area_um2": 833.2992,
+    "mapped_cells": 147,
+    "max_data_arrival_ns": 1.21,
+    "wns_ns": 98.79,
+    "tns_ns": 0.0,
+    "critical_startpoint": "value2[20] (input port clocked by virtual_clk)",
+    "critical_endpoint": "OUT (output port clocked by virtual_clk)",
+    "normalized_signed_declarations": 0,
+    "mapped_sha256": "437d7749eeeba59392796522788a5ca503c2481f3fb66fa278e878fd8d1065ec",
+    "sta_netlist_sha256": "437d7749eeeba59392796522788a5ca503c2481f3fb66fa278e878fd8d1065ec",
+    "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+    "mapped_json_sha256": "a83532d45a7f1f2a42b4f20ecf0637b625fe0ab1ff3bc6c02f1853d23895a45a",
+    "electrical": {
+      "status": "PASS",
+      "violation_rows": 0,
+      "checks": [
+        "max_slew",
+        "max_capacitance"
+      ],
+      "scope": "Library limits under recorded SDC; not physical signoff"
+    },
+    "eligible": true,
+    "source_provenance": {
+      "cells_with_src_attribute": 0,
+      "total_mapped_cells": 147,
+      "nets_with_src_attribute": 4,
+      "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+    },
+    "rtl_source_cone": {
+      "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+      "artifact": "rtl_source_cone.json",
+      "sha256": "5df8da5ddadf1c5232d3e106ae58f012b01b2ec6ae12282ab3c4b0588f221d2c",
+      "possible_rtl_operator_cells": 5,
+      "source_attribution_coverage": 1.0,
+      "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+    },
+    "elapsed_seconds": 5.98
+  },
+  "area_cap_um2": 916.6291200000002,
+  "registry": {
+    "balanced_2": {
+      "operator": "unsigned_chunk_compare",
+      "chunk_bits": 2,
+      "topology": "balanced"
+    },
+    "balanced_4": {
+      "operator": "unsigned_chunk_compare",
+      "chunk_bits": 4,
+      "topology": "balanced"
+    },
+    "balanced_8": {
+      "operator": "unsigned_chunk_compare",
+      "chunk_bits": 8,
+      "topology": "balanced"
+    },
+    "linear_2": {
+      "operator": "unsigned_chunk_compare",
+      "chunk_bits": 2,
+      "topology": "linear"
+    },
+    "linear_4": {
+      "operator": "unsigned_chunk_compare",
+      "chunk_bits": 4,
+      "topology": "linear"
+    },
+    "linear_8": {
+      "operator": "unsigned_chunk_compare",
+      "chunk_bits": 8,
+      "topology": "linear"
+    }
+  },
+  "input_sha256": {
+    "LICENSE": "7bd218334a79d058f1c10ed5705fb4f5f166b1c97a3db7d6f7f4b62102c43930",
+    "original.v": "72c2e295f61ca17e0af53b9ec0900e8f58d2984acc5a4a375772af64bd76d900"
+  },
+  "candidate_sha256": {
+    "balanced_2": "82f9115a0f316f3515340d27a4541a82ed730657cffa6ae5865980155c9f9c66",
+    "balanced_4": "0bc4ed1c279c9bbfd1fdc0ed2907115c60d9be0d125f4dff2efe540bf71a88e8",
+    "balanced_8": "25667a3247e0ffc099a6656c55b8c68c3fd28e6b31ce4d0322a6f278fb88ec7a",
+    "linear_2": "63c264f3d235fde3ce7afb48bd79573b606007ab095ee126e68a38acb68ef7ae",
+    "linear_4": "15d2fd612408b399c440d973ece28cc5b5e6853cad53b30166b808b805aa193c",
+    "linear_8": "c5a18f40e6966ecc3b082b83b29201c6243d8e3d3344941cd9fe7ee47ab66d79"
+  },
+  "prompt_sha256": {
+    "no_timing_feedback": "ed0ccfaae5c1e206d75fec6615ba88cf3cc4ad0eaa35ba64aa0bf4ab7b8c5b90",
+    "sta_feedback": "9150b309890a44ac34f604943de72d822b8c289c1fe892ffdd18e9e5d8b3452a"
+  },
+  "baseline_sha256": {
+    "abc.constr": "ccb1d7f233b651c80e7198650e753ad582af371b441b1b2faee00c0d50d86838",
+    "abc.script": "ca0c27fde5a1f8c7f8a1a7ad1b7b716a118882c368d5409fc6a3512bcfb1ad25",
+    "candidate_schema.json": "1b721981286ff6de1a44f9ec71227b8e92afbefcd9fedd66ff6307a5b27b0414",
+    "candidate_schema.log": "6c330593372ca9a585810ea744e5a090271701cef6628a1525934d7e8452b3bb",
+    "candidate_schema.ys": "dc22e9ff90ee79c5475b4451e5294338d4219efe808d2b60f18e7c70af0a64d5",
+    "electrical.json": "600527402c725690b79447b52f18b8820de07e7a2d4a94162fb4bbca7eac2c12",
+    "formal.log": "9a41adbf16992ff89e52a49fc2a910da75abeb83713363bc68a98cf3423becdb",
+    "formal.ys": "2d8cdf798e0a9e0d00206d913dcdab984bb6a76339c7c323c0c8ac134ed64a38",
+    "mapped.json": "a83532d45a7f1f2a42b4f20ecf0637b625fe0ab1ff3bc6c02f1853d23895a45a",
+    "mapped.v": "437d7749eeeba59392796522788a5ca503c2481f3fb66fa278e878fd8d1065ec",
+    "mapped_formal.log": "53ea5e4c195b0bfe51031aefffacb9aa8ed32415bc3ed20854f46d6064115306",
+    "mapped_formal.ys": "3b4474f3df145eda3e3cddef76fd5e6719e183bf311d5aafb1ff9d20c5a9b3c1",
+    "mapped_sta.v": "437d7749eeeba59392796522788a5ca503c2481f3fb66fa278e878fd8d1065ec",
+    "mapping.log": "0ed54e34246e5c4de856e888cba74503ce99f5728d1c87f2babfc14b0e0f8ddc",
+    "mapping.ys": "0f87909bbdafe3fb72243f50df29d7c397d00f1a76a1b7bca0075b3990cbd145",
+    "miter.v": "83b1928360191d3939c2ac55c4248e3f04c49251b885d14961eb3fafd2d7fc7b",
+    "opensta_version.log": "5e33023692f9444ef9f77fcd732c57f3015cee605f326e5bf57502a67a2b77ce",
+    "protocol.json": "031d9a445009e103d390a29aa00a9753a38145eaf8587e5554ad1e6541fcc432",
+    "reference_schema.json": "1b721981286ff6de1a44f9ec71227b8e92afbefcd9fedd66ff6307a5b27b0414",
+    "reference_schema.log": "8e23258a472d955097ba3b71895c870c717b1b750779a03b13799a56d46c3a8c",
+    "reference_schema.ys": "f561a1e264dd1ba07bbc0d422185798f14998fb7a09c34e534f229fb2dc1b72a",
+    "result.json": "f927e5dcce109debb6be7ef4ebd014f502866a46a8961f3c8d6efd2f155c8d9c",
+    "rtl_source_cone.json": "5df8da5ddadf1c5232d3e106ae58f012b01b2ec6ae12282ab3c4b0588f221d2c",
+    "runner.log": "e5ad95c68a2141ab6597ab9b71fad36d8b2a0058e5ca8b1de9ed5d2948f82e20",
+    "run_sta.tcl": "ea68a7c16d61f43cc12e1e3e66856990ef9f4cdc31f6e13938dc475a88eec402",
+    "sta.log": "24ff7b922c85cf45cb374a547b53d929f741fa7cad4543971b5bfb031d86d5f2",
+    "timing.sdc": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+    "yosys_version.log": "9b4b09319d6b4c0b06fec8f4a637fcbb4674f5109f6b37c5a38daf323fb6f4d6"
+  },
+  "code_sha256": {
+    "eda\\experiments\\run_action_selection_study.py": "c7bc0d2009a8502f57d71a1fda583e4487ba0f01a1780c6b5d53099e06f2db20",
+    "agents\\action_loop.py": "eb0c187ad6a1a2f9dacf81738fbd491b6addbfe5692fa7273d0d608c97e8dae4",
+    "agents\\action_selector.py": "21ec3cf2846c911d863d585b6b5e2124ea1f3e5442765b43aba7fd6f3ac4f7e4",
+    "agents\\rtl_optimizer.py": "576a055c1f5e8498a014833cb7f8bb01de08a56e6f3fcd53c568dcaaf4a3e12e",
+    "rewrite\\comparator_rewrites.py": "b19c35c5ac33c25a72c1a0d3538bca4367425ac4fdc4d51a51dfac5054ed68b5",
+    "eda\\experiments\\run_native_comb.py": "38f0f10f08e7bb752010c2985fc8a1b31f48e08c4891b318d2b1f5a6992c09ff",
+    "eda\\experiments\\trace_sta_rtl_cone.py": "047c3b739a00bcba19d470ea3d043ef5a872dd0ded0f0ee41dc22ea3e41b920d"
+  },
+  "library_sha256": "92eb4e93a3d4c2563018ac81cdec2f02fdeaced9b39337ed5c141fa63e0ad8f8",
+  "primary": "Per request best of exactly two selected candidate slots, original retained on invalid selection/failed generation/no eligible gain. Report all three trials per arm; no universal claim.",
+  "oracle": "After all model selections frozen, measure all six actions once. Shared immutable results reused across slots; exhaustive best is a six-action upper bound, not an equal-budget method.",
+  "policy": "No retries or repair calls. Duplicate/unknown/extra actions or RTL fields reject whole response. No selected candidate PPA before generation manifest. No prior candidate PPA sent.",
+  "exposure": "N=1/13/32 measured and inspected during library development. N=24 predeclared here before any candidate measurement; family/source/operator choices exposed.",
+  "limits": "Three requests per arm on one parameter instance. Same request/EDA-slot budgets but unequal prompt tokens; provider backend identity unverified. No explicit completion-token/currency hard cap. TT pre-layout.",
+  "state": "PREPARED_PENDING_AUTHORIZATION"
+}

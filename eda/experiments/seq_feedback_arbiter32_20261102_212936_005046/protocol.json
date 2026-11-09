@@ -1,0 +1,125 @@
+{
+  "purpose": "Exploratory new-family sequential feedback comparison, not a universal-superiority test",
+  "model": "gpt-6.1-sol",
+  "api_endpoint": "https://apinebula.ai/v1",
+  "request_parameters": {
+    "reasoning_effort": "medium"
+  },
+  "http_transport": "curl",
+  "transport_binary_sha256": "73d24149ff289afc49ec41f08918ef9faa727d39ad993e929757dc2ddafab805",
+  "arms": [
+    "no_timing_feedback",
+    "actual_paths"
+  ],
+  "candidates_per_arm": 3,
+  "maximum_requests": 6,
+  "call_schedule": [
+    {
+      "call_index": 1,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_01"
+    },
+    {
+      "call_index": 2,
+      "arm": "actual_paths",
+      "candidate_id": "candidate_01"
+    },
+    {
+      "call_index": 3,
+      "arm": "actual_paths",
+      "candidate_id": "candidate_02"
+    },
+    {
+      "call_index": 4,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_02"
+    },
+    {
+      "call_index": 5,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_03"
+    },
+    {
+      "call_index": 6,
+      "arm": "actual_paths",
+      "candidate_id": "candidate_03"
+    }
+  ],
+  "timeout_seconds": 120,
+  "llm_timeout_seconds": 180,
+  "contract": {
+    "top": "arbiter",
+    "clock": "clk",
+    "reset": "rst",
+    "reset_active": 1,
+    "reset_cycles": 1,
+    "warmup_samples": 1,
+    "period_ns": 10,
+    "parameter_overrides": {
+      "PORTS": 32,
+      "ARB_TYPE_ROUND_ROBIN": 1,
+      "ARB_BLOCK": 1,
+      "ARB_BLOCK_ACK": 1
+    },
+    "fixed_dependencies": [
+      {
+        "name": "priority_encoder.v",
+        "sha256": "df28220d95b47df349a72803a9751aad331eb8e1435416e8686d00572a974dd5"
+      }
+    ],
+    "reset_after_startup": "unconstrained",
+    "preserve_output_latency": true,
+    "input_delay_ns": 0,
+    "output_delay_ns": 0,
+    "input_transition_ns": 0.1,
+    "output_load_pf": 0.01,
+    "library_sha256": "92eb4e93a3d4c2563018ac81cdec2f02fdeaced9b39337ed5c141fa63e0ad8f8"
+  },
+  "baseline_metrics": {
+    "status": "PASS",
+    "formal": "PASS",
+    "mapped_formal": "PASS",
+    "ppa": "PASS",
+    "eligible": true,
+    "stage": "sta",
+    "mapped_area_um2": 4436.7552,
+    "mapped_cells": 625,
+    "electrical": {
+      "status": "PASS",
+      "violation_rows": 0,
+      "checks": [
+        "max_slew",
+        "max_capacitance"
+      ],
+      "scope": "Library limits under recorded SDC; not physical signoff"
+    },
+    "wns_ns": 7.8,
+    "tns_ns": 0.0,
+    "mapped_sha256": "c9eb421aa0540c2ba8f0ea263917352488feb916705c9efbdc0a9248f55f3e6b",
+    "sdc_sha256": "ac8d553567cead8777db869b7a22ac4dfa41a9b08b1edfcd2ad54e6315a268de",
+    "elapsed_seconds": 9.936
+  },
+  "area_cap_um2": 4880.43072,
+  "library_sha256": "92eb4e93a3d4c2563018ac81cdec2f02fdeaced9b39337ed5c141fa63e0ad8f8",
+  "input_sha256": {
+    "original.v": "d54d337db4812f927b2e9b5788dfa39f9bd578ad01b7846c5fa7f2610b0923fa",
+    "priority_encoder.v": "df28220d95b47df349a72803a9751aad331eb8e1435416e8686d00572a974dd5",
+    "UPSTREAM_COPYING": "8ea57f95365e9b16a5b516f422b71269183a1ae53bab5878ae6d69039e58fe77"
+  },
+  "dependency_sha256": {
+    "eda\\experiments\\run_seq_feedback_study.py": "98b51fea89a67a1c799cf9be0de3867ab254cc5158748db645c26479952faa88",
+    "eda\\experiments\\run_native_seq.py": "00bf18a23d2f09210372691111ddbae8413dcd5b087fe519f5073a435184f955",
+    "eda\\experiments\\run_native_comb.py": "38f0f10f08e7bb752010c2985fc8a1b31f48e08c4891b318d2b1f5a6992c09ff",
+    "eda\\experiments\\trace_sta_rtl_cone.py": "047c3b739a00bcba19d470ea3d043ef5a872dd0ded0f0ee41dc22ea3e41b920d",
+    "agents\\sequential_loop.py": "309c143ffb1df058aa2aabc3d9550283274ec7a0f6bed5f7b040422bc0d882c9",
+    "agents\\rtl_optimizer.py": "576a055c1f5e8498a014833cb7f8bb01de08a56e6f3fcd53c568dcaaf4a3e12e"
+  },
+  "prompt_sha256": {
+    "no_timing_feedback": "f8c4cb62b36d351aa52c300898dec6418423fa2080d1e0ce0660b98fce5beba6",
+    "actual_paths": "336a8fa103398afb68010f81875b22ecf0397f522638f5ec5d71e402cc0c8c94"
+  },
+  "policy": "Independent interleaved requests, no previous candidate or outcomes in any prompt; no retries. Freeze all generations before candidate EDA. Every candidate directly compared to original. Fixed baseline area cap. Failed slots retained.",
+  "primary_metric": "Best eligible WNS with original retained; strict gain required and TNS may not regress",
+  "exposure": "Original source and manual controls previously inspected. No prior recorded model generation for arbiter top; priority_encoder helper previously studied. Public code, not model-training holdout.",
+  "limitations": "Single synchronous positive-edge clock, startup reset sampled once, only frozen parameters, fixed helper, TT pre-layout ideal-clock/IO assumptions; no hold/power/CDC signoff"
+}

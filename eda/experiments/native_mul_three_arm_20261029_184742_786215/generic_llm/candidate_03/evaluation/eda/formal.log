@@ -1,0 +1,33 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\native_mul_three_arm_20261029_184742_786215\generic_llm\candidate_03\evaluation\eda\formal.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul_subexpression/mul_subexpression.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul_subexpression/mul_subexpression.v' to AST representation.
+Generating RTLIL representation for module `\mul_subexpression'.
+Successfully finished Verilog frontend.
+Renaming module \mul_subexpression to \pw_gold.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/native_mul_three_arm_20261029_184742_786215/generic_llm/candidate_03/candidate.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/native_mul_three_arm_20261029_184742_786215/generic_llm/candidate_03/candidate.v' to AST representation.
+Generating RTLIL representation for module `\mul_subexpression'.
+Generating RTLIL representation for module `\compressor_3to2'.
+Successfully finished Verilog frontend.
+Renaming module \mul_subexpression to \pw_cand.
+
+3. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/native_mul_three_arm_20261029_184742_786215/generic_llm/candidate_03/evaluation/eda/miter.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/native_mul_three_arm_20261029_184742_786215/generic_llm/candidate_03/evaluation/eda/miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+4. Executing PREP pass.
+
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:         \compressor_3to2
+Used module:     \pw_gold
+Reprocessing module pw_cand because instantiated module compressor_3to2 has become available.
+Generating RTLIL representation for module `\mul_subexpression'.
+ERROR: Module `\pw_cand' referenced in module `\pw_miter' in cell `\cand' is not part of the design.

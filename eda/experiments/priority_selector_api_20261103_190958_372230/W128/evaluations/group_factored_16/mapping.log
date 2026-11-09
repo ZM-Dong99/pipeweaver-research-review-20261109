@@ -1,0 +1,802 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\priority_selector_api_20261103_190958_372230\W128\evaluations\group_factored_16\mapping.ys' --
+
+1. Executing Liberty frontend: D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v
+Parsing SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v' to AST representation.
+Generating RTLIL representation for module `\priority_encoder'.
+Successfully finished Verilog frontend.
+Parameter \LSB_HIGH_PRIORITY = 0
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\priority_encoder'.
+Parameter \LSB_HIGH_PRIORITY = 0
+Generating RTLIL representation for module `$paramod\priority_encoder\LSB_HIGH_PRIORITY=s32'00000000000000000000000000000000'.
+Parameter \WIDTH = 128
+
+4. Executing AST frontend in derive mode using pre-parsed AST for module `\priority_encoder'.
+Parameter \WIDTH = 128
+Generating RTLIL representation for module `$paramod\priority_encoder\WIDTH=s32'00000000000000000000000010000000'.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1. Analyzing design hierarchy..
+Top module:  \priority_encoder
+
+5.2. Analyzing design hierarchy..
+Top module:  \priority_encoder
+Removed 0 unused modules.
+
+6. Executing FLATTEN pass (flatten design).
+
+7. Executing SYNTH pass.
+
+7.1. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1.1. Analyzing design hierarchy..
+Top module:  \priority_encoder
+
+7.1.2. Analyzing design hierarchy..
+Top module:  \priority_encoder
+Removed 0 unused modules.
+
+7.2. Executing PROC pass (convert processes to netlists).
+
+7.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+7.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+7.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+7.2.4. Executing PROC_INIT pass (extract init attributes).
+
+7.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+7.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+7.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+7.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+7.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+7.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+7.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+7.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module priority_encoder.
+<suppressed ~30 debug messages>
+
+7.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module priority_encoder.
+
+7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \priority_encoder..
+Removed 5 unused cells and 327 unused wires.
+<suppressed ~6 debug messages>
+
+7.5. Executing CHECK pass (checking for obvious problems).
+Checking module priority_encoder...
+Found and reported 0 problems.
+
+7.6. Executing OPT pass (performing simple optimizations).
+
+7.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module priority_encoder.
+
+7.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\priority_encoder'.
+Computing hashes of 558 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Removed a total of 0 cells.
+
+7.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \priority_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \priority_encoder.
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:100$739: { \pw_grouped.encoded_bits[6].terms [4] \pw_grouped.encoded_bits[5].terms [6] \pw_grouped.encoded_bits[4].terms [5] \input_unencoded [127:112] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:100$737: { \pw_grouped.encoded_bits[4].terms [5] \pw_grouped.encoded_bits[4].terms [3] \pw_grouped.encoded_bits[4].terms [1] \input_unencoded [127:112] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$734: { \pw_grouped.encoded_bits[3].group_terms[7].local_index.masked [8] \pw_grouped.encoded_bits[2].group_terms[7].local_index.masked [12] \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [10] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [9] \input_unencoded [127] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:100$736: { \pw_grouped.encoded_bits[3].group_terms[7].local_index.masked [8] \pw_grouped.encoded_bits[3].terms [6:0] \pw_grouped.encoded_bits[2].group_terms[7].local_index.masked [12] \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [10] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [9] \input_unencoded [127] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$732: { \pw_grouped.encoded_bits[3].group_terms[6].local_index.masked [8] \pw_grouped.encoded_bits[2].group_terms[6].local_index.masked [12] \pw_grouped.encoded_bits[1].group_terms[6].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[6].local_index.masked [10] \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [9] \input_unencoded [111] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$730: { \pw_grouped.encoded_bits[3].group_terms[5].local_index.masked [8] \pw_grouped.encoded_bits[2].group_terms[5].local_index.masked [12] \pw_grouped.encoded_bits[1].group_terms[5].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[5].local_index.masked [10] \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [9] \input_unencoded [95] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$728: { \pw_grouped.encoded_bits[3].group_terms[4].local_index.masked [8] \pw_grouped.encoded_bits[2].group_terms[4].local_index.masked [12] \pw_grouped.encoded_bits[1].group_terms[4].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[4].local_index.masked [10] \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [9] \input_unencoded [79] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$726: { \pw_grouped.encoded_bits[3].group_terms[3].local_index.masked [8] \pw_grouped.encoded_bits[2].group_terms[3].local_index.masked [12] \pw_grouped.encoded_bits[1].group_terms[3].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[3].local_index.masked [10] \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [9] \input_unencoded [63] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$724: { \pw_grouped.encoded_bits[3].group_terms[2].local_index.masked [8] \pw_grouped.encoded_bits[2].group_terms[2].local_index.masked [12] \pw_grouped.encoded_bits[1].group_terms[2].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[2].local_index.masked [10] \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [9] \input_unencoded [47] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$722: { \pw_grouped.encoded_bits[3].group_terms[1].local_index.masked [8] \pw_grouped.encoded_bits[2].group_terms[1].local_index.masked [12] \pw_grouped.encoded_bits[1].group_terms[1].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[1].local_index.masked [10] \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [9] \input_unencoded [31] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$720: { \pw_grouped.encoded_bits[3].group_terms[0].local_index.masked [8] \pw_grouped.encoded_bits[2].group_terms[0].local_index.masked [12] \pw_grouped.encoded_bits[1].group_terms[0].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[0].local_index.masked [10] \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [9] \input_unencoded [15] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$717: { \pw_grouped.encoded_bits[2].group_terms[7].local_index.masked [12] \pw_grouped.encoded_bits[2].group_terms[7].local_index.masked [4] \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [6] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [5] \input_unencoded [127] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:100$719: { \pw_grouped.encoded_bits[2].group_terms[7].local_index.masked [12] \pw_grouped.encoded_bits[2].group_terms[7].local_index.masked [4] \pw_grouped.encoded_bits[2].terms [6:0] \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [6] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [5] \input_unencoded [127] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$715: { \pw_grouped.encoded_bits[2].group_terms[6].local_index.masked [12] \pw_grouped.encoded_bits[2].group_terms[6].local_index.masked [4] \pw_grouped.encoded_bits[1].group_terms[6].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[6].local_index.masked [6] \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [5] \input_unencoded [111] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$713: { \pw_grouped.encoded_bits[2].group_terms[5].local_index.masked [12] \pw_grouped.encoded_bits[2].group_terms[5].local_index.masked [4] \pw_grouped.encoded_bits[1].group_terms[5].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[5].local_index.masked [6] \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [5] \input_unencoded [95] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$711: { \pw_grouped.encoded_bits[2].group_terms[4].local_index.masked [12] \pw_grouped.encoded_bits[2].group_terms[4].local_index.masked [4] \pw_grouped.encoded_bits[1].group_terms[4].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[4].local_index.masked [6] \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [5] \input_unencoded [79] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$709: { \pw_grouped.encoded_bits[2].group_terms[3].local_index.masked [12] \pw_grouped.encoded_bits[2].group_terms[3].local_index.masked [4] \pw_grouped.encoded_bits[1].group_terms[3].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[3].local_index.masked [6] \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [5] \input_unencoded [63] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$707: { \pw_grouped.encoded_bits[2].group_terms[2].local_index.masked [12] \pw_grouped.encoded_bits[2].group_terms[2].local_index.masked [4] \pw_grouped.encoded_bits[1].group_terms[2].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[2].local_index.masked [6] \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [5] \input_unencoded [47] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$705: { \pw_grouped.encoded_bits[2].group_terms[1].local_index.masked [12] \pw_grouped.encoded_bits[2].group_terms[1].local_index.masked [4] \pw_grouped.encoded_bits[1].group_terms[1].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[1].local_index.masked [6] \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [5] \input_unencoded [31] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$703: { \pw_grouped.encoded_bits[2].group_terms[0].local_index.masked [12] \pw_grouped.encoded_bits[2].group_terms[0].local_index.masked [4] \pw_grouped.encoded_bits[1].group_terms[0].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[0].local_index.masked [6] \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [5] \input_unencoded [15] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$700: { \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [10] \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [6] \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [2] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [3] \input_unencoded [127] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:100$702: { \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [10] \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [6] \pw_grouped.encoded_bits[1].group_terms[7].local_index.masked [2] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [3] \pw_grouped.encoded_bits[1].terms [6:0] \input_unencoded [127] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$698: { \pw_grouped.encoded_bits[1].group_terms[6].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[6].local_index.masked [10] \pw_grouped.encoded_bits[1].group_terms[6].local_index.masked [6] \pw_grouped.encoded_bits[1].group_terms[6].local_index.masked [2] \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [3] \input_unencoded [111] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$696: { \pw_grouped.encoded_bits[1].group_terms[5].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[5].local_index.masked [10] \pw_grouped.encoded_bits[1].group_terms[5].local_index.masked [6] \pw_grouped.encoded_bits[1].group_terms[5].local_index.masked [2] \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [3] \input_unencoded [95] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$694: { \pw_grouped.encoded_bits[1].group_terms[4].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[4].local_index.masked [10] \pw_grouped.encoded_bits[1].group_terms[4].local_index.masked [6] \pw_grouped.encoded_bits[1].group_terms[4].local_index.masked [2] \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [3] \input_unencoded [79] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$692: { \pw_grouped.encoded_bits[1].group_terms[3].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[3].local_index.masked [10] \pw_grouped.encoded_bits[1].group_terms[3].local_index.masked [6] \pw_grouped.encoded_bits[1].group_terms[3].local_index.masked [2] \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [3] \input_unencoded [63] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$690: { \pw_grouped.encoded_bits[1].group_terms[2].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[2].local_index.masked [10] \pw_grouped.encoded_bits[1].group_terms[2].local_index.masked [6] \pw_grouped.encoded_bits[1].group_terms[2].local_index.masked [2] \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [3] \input_unencoded [47] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$688: { \pw_grouped.encoded_bits[1].group_terms[1].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[1].local_index.masked [10] \pw_grouped.encoded_bits[1].group_terms[1].local_index.masked [6] \pw_grouped.encoded_bits[1].group_terms[1].local_index.masked [2] \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [3] \input_unencoded [31] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$686: { \pw_grouped.encoded_bits[1].group_terms[0].local_index.masked [14] \pw_grouped.encoded_bits[1].group_terms[0].local_index.masked [10] \pw_grouped.encoded_bits[1].group_terms[0].local_index.masked [6] \pw_grouped.encoded_bits[1].group_terms[0].local_index.masked [2] \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [3] \input_unencoded [15] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$683: { \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [9] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [5] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [3] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [1] \input_unencoded [127] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:100$685: { \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [9] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [5] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [3] \pw_grouped.encoded_bits[0].group_terms[7].local_index.masked [1] \pw_grouped.encoded_bits[0].terms [6:0] \input_unencoded [127] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$681: { \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [9] \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [5] \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [3] \pw_grouped.encoded_bits[0].group_terms[6].local_index.masked [1] \input_unencoded [111] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$679: { \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [9] \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [5] \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [3] \pw_grouped.encoded_bits[0].group_terms[5].local_index.masked [1] \input_unencoded [95] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$677: { \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [9] \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [5] \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [3] \pw_grouped.encoded_bits[0].group_terms[4].local_index.masked [1] \input_unencoded [79] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$675: { \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [9] \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [5] \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [3] \pw_grouped.encoded_bits[0].group_terms[3].local_index.masked [1] \input_unencoded [63] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$673: { \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [9] \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [5] \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [3] \pw_grouped.encoded_bits[0].group_terms[2].local_index.masked [1] \input_unencoded [47] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$671: { \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [9] \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [5] \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [3] \pw_grouped.encoded_bits[0].group_terms[1].local_index.masked [1] \input_unencoded [31] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:95$669: { \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [13] \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [11] \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [9] \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [7] \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [5] \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [3] \pw_grouped.encoded_bits[0].group_terms[0].local_index.masked [1] \input_unencoded [15] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:86$668: \input_unencoded
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:100$738: { \pw_grouped.encoded_bits[5].terms [6] \pw_grouped.encoded_bits[5].terms [2] \pw_grouped.encoded_bits[4].terms [3] \input_unencoded [127:112] }
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:67$476: \input_unencoded [127:96]
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:67$411: \input_unencoded [127:80]
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:67$346: \input_unencoded [127:64]
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:67$281: \input_unencoded [127:48]
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:67$148: \input_unencoded [127:16]
+    New input vector for $reduce_or cell $reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_16.v:67$216: \input_unencoded [127:32]
+  Optimizing cells in module \priority_encoder.
+Performed a total of 46 changes.
+
+7.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\priority_encoder'.
+Computing hashes of 558 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Removed a total of 0 cells.
+
+7.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \priority_encoder..
+Removed 5 unused cells and 0 unused wires.
+<suppressed ~5 debug messages>
+
+7.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module priority_encoder.
+
+7.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \priority_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \priority_encoder.
+Performed a total of 0 changes.
+
+7.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\priority_encoder'.
+Computing hashes of 553 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Removed a total of 0 cells.
+
+7.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \priority_encoder..
+
+7.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module priority_encoder.
+
+7.6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+7.7. Executing FSM pass (extract and optimize FSM).
+
+7.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+7.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+7.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+7.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \priority_encoder..
+
+7.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+7.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+7.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+7.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+7.8. Executing OPT pass (performing simple optimizations).
+
+7.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module priority_encoder.
+
+7.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\priority_encoder'.
+Computing hashes of 553 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Removed a total of 0 cells.
+
+7.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \priority_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \priority_encoder.
+Performed a total of 0 changes.
+
+7.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\priority_encoder'.
+Computing hashes of 553 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Removed a total of 0 cells.
+
+7.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \priority_encoder..
+
+7.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module priority_encoder.
+
+7.8.9. Finished fast OPT passes. (There is nothing left to do.)
+
+7.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 8) from wire priority_encoder.pw_grouped.encoded_bits[3].terms.
+Removed top 1 bits (of 8) from wire priority_encoder.pw_grouped.encoded_bits[2].terms.
+Removed top 1 bits (of 8) from wire priority_encoder.pw_grouped.encoded_bits[1].terms.
+Removed top 1 bits (of 8) from wire priority_encoder.pw_grouped.encoded_bits[0].terms.
+Removed top 1 bits (of 8) from wire priority_encoder.pw_grouped.group_enable.
+
+7.10. Executing PEEPOPT pass (run peephole optimizers).
+
+7.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \priority_encoder..
+Removed 0 unused cells and 5 unused wires.
+<suppressed ~1 debug messages>
+
+7.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module priority_encoder:
+  created 0 $alu and 0 $macc cells.
+
+7.13. Executing SHARE pass (SAT-based resource sharing).
+
+7.14. Executing OPT pass (performing simple optimizations).
+
+7.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module priority_encoder.
+
+7.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\priority_encoder'.
+Computing hashes of 553 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Removed a total of 0 cells.
+
+7.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \priority_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \priority_encoder.
+Performed a total of 0 changes.
+
+7.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\priority_encoder'.
+Computing hashes of 553 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Removed a total of 0 cells.
+
+7.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \priority_encoder..
+
+7.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module priority_encoder.
+
+7.14.9. Finished fast OPT passes. (There is nothing left to do.)
+
+7.15. Executing MEMORY pass.
+
+7.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+7.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+7.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+7.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+7.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+7.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \priority_encoder..
+
+7.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+7.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+7.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \priority_encoder..
+
+7.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+7.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \priority_encoder..
+
+7.17. Executing OPT pass (performing simple optimizations).
+
+7.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module priority_encoder.
+<suppressed ~4 debug messages>
+
+7.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\priority_encoder'.
+Computing hashes of 553 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Removed a total of 0 cells.
+
+7.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \priority_encoder..
+
+7.17.5. Finished fast OPT passes.
+
+7.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+7.19. Executing OPT pass (performing simple optimizations).
+
+7.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module priority_encoder.
+
+7.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\priority_encoder'.
+Computing hashes of 553 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Removed a total of 0 cells.
+
+7.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \priority_encoder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \priority_encoder.
+Performed a total of 0 changes.
+
+7.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\priority_encoder'.
+Computing hashes of 553 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Removed a total of 0 cells.
+
+7.19.6. Executing OPT_SHARE pass.
+
+7.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \priority_encoder..
+
+7.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module priority_encoder.
+
+7.19.10. Finished fast OPT passes. (There is nothing left to do.)
+
+7.20. Executing TECHMAP pass (map to technology primitives).
+
+7.20.1. Executing Verilog-2005 frontend: D:\oss-cad-suite\bin\../share/yosys/techmap.v
+Parsing Verilog input from `D:\oss-cad-suite\bin\../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+7.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $and.
+No more expansions possible.
+<suppressed ~630 debug messages>
+
+7.21. Executing OPT pass (performing simple optimizations).
+
+7.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module priority_encoder.
+
+7.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\priority_encoder'.
+Computing hashes of 2196 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Computing hashes of 1494 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Computing hashes of 1202 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Computing hashes of 1096 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Computing hashes of 1059 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Computing hashes of 1050 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+Computing hashes of 1048 cells of `\priority_encoder'.
+Finding duplicate cells in `\priority_encoder'.
+<suppressed ~3444 debug messages>
+Removed a total of 1148 cells.
+
+7.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \priority_encoder..
+Removed 0 unused cells and 421 unused wires.
+<suppressed ~1 debug messages>
+
+7.21.5. Finished fast OPT passes.
+
+7.22. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `priority_encoder'. Setting top module to priority_encoder.
+
+7.22.1. Analyzing design hierarchy..
+Top module:  \priority_encoder
+
+7.22.2. Analyzing design hierarchy..
+Top module:  \priority_encoder
+Removed 0 unused modules.
+
+7.23. Printing statistics.
+
+=== priority_encoder ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      442 wires
+     2176 wire bits
+       49 public wires
+     1235 public wire bits
+        4 ports
+      264 port bits
+     1048 cells
+      265   $_AND_
+      127   $_NOT_
+      656   $_OR_
+
+7.24. Executing CHECK pass (checking for obvious problems).
+Checking module priority_encoder...
+Found and reported 0 problems.
+
+8. Executing ABC pass (technology mapping using ABC).
+
+8.1. Extracting gate netlist of module `\priority_encoder' to `<abc-temp-dir>/input.blif'..
+Warning: ABC: merged SCL conversion failed, falling back to liberty format
+ABC: conversion output:
+'D:\oss-cad-suite\bin\yosys-abc" -c "read_lib' is not recognized as an internal or external command,
+
+operable program or batch file.
+
+Warning: ABC: Merged scl conversion failed, using liberty format
+
+8.1.1. Executed ABC.
+Extracted 1048 gates and 1176 wires to a netlist network with 128 inputs and 135 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -X sky130_fd_sc_hd__lpflow_* -w D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.05 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_0".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_8".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_bleeder_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_12" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_3" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_6" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__lpflow_inputisolatch_1".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrckapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_4".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" has 307 cells (121 skipped: 63 seq; 13 tri-state; 12 no func; 33 dont_use; 0 with 2 outputs; 0 with 3+ outputs).  Time =     0.15 sec
+ABC: Memory =   16.01 MB. Time =     0.15 sec
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + read_constr -v D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/W128/evaluations/group_factored_16/abc.constr 
+ABC: Setting driving cell to be "sky130_fd_sc_hd__buf_2".
+ABC: Setting output load to be 10.000000.
+ABC: + source D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/W128/evaluations/group_factored_16/abc.script 
+ABC: Cleanup removed 0 dangling nodes.
+ABC: WireLoad = "none"  Gates =    741 ( 12.1 %)   Cap =  7.4 ff (  6.2 %)   Area =     4052.64 ( 80.8 %)   Delay =  1382.45 ps  ( 15.5 %)               
+ABC: Path  0 --      39 : 0    1 pi                        A =   0.00  Df =   9.1   -1.3 ps  S =  23.2 ps  Cin =  0.0 ff  Cout =   1.8 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --     348 : 1    7 sky130_fd_sc_hd__buf_2    A =   5.00  Df = 150.9   -4.7 ps  S = 104.5 ps  Cin =  1.7 ff  Cout =  19.7 ff  Cmax = 315.9 ff  G = 1066  
+ABC: Path  2 --     479 : 4    3 sky130_fd_sc_hd__nor4_2   A =  12.51  Df = 450.9 -114.5 ps  S = 277.7 ps  Cin =  4.3 ff  Cout =   7.2 ff  Cmax =  64.1 ff  G =  162  
+ABC: Path  3 --     483 : 4    3 sky130_fd_sc_hd__nand4_1  A =   6.26  Df = 689.4 -184.4 ps  S = 214.9 ps  Cin =  2.3 ff  Cout =  16.4 ff  Cmax = 124.5 ff  G =  660  
+ABC: Path  4 --     484 : 2    7 sky130_fd_sc_hd__nor2_4   A =  11.26  Df = 898.3 -319.0 ps  S = 167.6 ps  Cin =  8.7 ff  Cout =  20.8 ff  Cmax = 251.8 ff  G =  230  
+ABC: Path  5 --     485 : 3    9 sky130_fd_sc_hd__nand3_4  A =  17.52  Df =1037.4 -323.0 ps  S = 131.2 ps  Cin =  8.7 ff  Cout =  31.4 ff  Cmax = 469.7 ff  G =  339  
+ABC: Path  6 --     943 : 5    1 sky130_fd_sc_hd__o2111a_1 A =  11.26  Df =1304.4 -298.5 ps  S =  67.8 ps  Cin =  2.4 ff  Cout =   4.4 ff  Cmax = 161.1 ff  G =  183  
+ABC: Path  7 --     966 : 3    1 sky130_fd_sc_hd__nand3_2  A =  10.01  Df =1382.5 -228.5 ps  S =  92.0 ps  Cin =  4.4 ff  Cout =  10.0 ff  Cmax = 260.0 ff  G =  225  
+ABC: Start-point = pi38 (\input_unencoded [105]).  End-point = po130 (\output_encoded [2]).
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+8.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__a41oi_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__and2_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__buf_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__buf_2 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__buf_4 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__buf_6 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__clkbuf_1 cells:       26
+ABC RESULTS:   sky130_fd_sc_hd__inv_1 cells:       42
+ABC RESULTS:   sky130_fd_sc_hd__inv_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:       73
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:       29
+ABC RESULTS:   sky130_fd_sc_hd__nand3_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand3_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand3b_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:      107
+ABC RESULTS:   sky130_fd_sc_hd__nand4_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:      196
+ABC RESULTS:   sky130_fd_sc_hd__nor2_2 cells:       38
+ABC RESULTS:   sky130_fd_sc_hd__nor2_4 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nor2b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__nor3_2 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__nor3_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:       80
+ABC RESULTS:   sky130_fd_sc_hd__nor4_2 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__nor4_4 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__nor4b_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o2111a_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__o2111ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o2111ai_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o211a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o311a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o31a_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o31ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or2_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or4_1 cells:        1
+ABC RESULTS:        internal signals:      913
+ABC RESULTS:           input signals:      128
+ABC RESULTS:          output signals:      135
+Removing temp directory.
+Removing global temp directory.
+Removed 0 unused cells and 661 unused wires.
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module priority_encoder...
+Found and reported 0 problems.
+
+10. Printing statistics.
+
+=== priority_encoder ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      650        - wires
+     1806        - wire bits
+       44        - public wires
+     1200        - public wire bits
+        4        - ports
+      264        - port bits
+      741 4.05E+03 cells
+        1    7.507   sky130_fd_sc_hd__a211oi_1
+        4   20.019   sky130_fd_sc_hd__a21oi_1
+        4   30.029   sky130_fd_sc_hd__a22oi_1
+       11   68.816   sky130_fd_sc_hd__a31oi_1
+        7   61.309   sky130_fd_sc_hd__a41oi_1
+        4   25.024   sky130_fd_sc_hd__and2_1
+       13   81.328   sky130_fd_sc_hd__and3_1
+        1    3.754   sky130_fd_sc_hd__buf_1
+       11   55.053   sky130_fd_sc_hd__buf_2
+        2   15.014   sky130_fd_sc_hd__buf_4
+        5   56.304   sky130_fd_sc_hd__buf_6
+       26   97.594   sky130_fd_sc_hd__clkbuf_1
+       42  157.651   sky130_fd_sc_hd__inv_1
+        3   11.261   sky130_fd_sc_hd__inv_2
+       73  274.013   sky130_fd_sc_hd__nand2_1
+       29  145.139   sky130_fd_sc_hd__nand3_1
+        2   20.019   sky130_fd_sc_hd__nand3_2
+        1   17.517   sky130_fd_sc_hd__nand3_4
+        3   22.522   sky130_fd_sc_hd__nand3b_1
+      107  669.392   sky130_fd_sc_hd__nand4_1
+        3   37.536   sky130_fd_sc_hd__nand4_2
+      196  735.706   sky130_fd_sc_hd__nor2_1
+       38  237.728   sky130_fd_sc_hd__nor2_2
+        3   33.782   sky130_fd_sc_hd__nor2_4
+        1    6.256   sky130_fd_sc_hd__nor2b_1
+       13   65.062   sky130_fd_sc_hd__nor3_1
+        6   60.058   sky130_fd_sc_hd__nor3_2
+        1   16.266   sky130_fd_sc_hd__nor3_4
+        6   45.043   sky130_fd_sc_hd__nor3b_1
+        1   12.512   sky130_fd_sc_hd__nor3b_2
+       80   500.48   sky130_fd_sc_hd__nor4_1
+        9  112.608   sky130_fd_sc_hd__nor4_2
+        5  106.352   sky130_fd_sc_hd__nor4_4
+        2   17.517   sky130_fd_sc_hd__nor4b_1
+        6   67.565   sky130_fd_sc_hd__o2111a_1
+        2   17.517   sky130_fd_sc_hd__o2111ai_1
+        1   15.014   sky130_fd_sc_hd__o2111ai_2
+        1    10.01   sky130_fd_sc_hd__o211a_1
+        1    7.507   sky130_fd_sc_hd__o211ai_1
+        7   35.034   sky130_fd_sc_hd__o21ai_0
+        2    10.01   sky130_fd_sc_hd__o21ai_1
+        2   15.014   sky130_fd_sc_hd__o21bai_1
+        1    10.01   sky130_fd_sc_hd__o311a_1
+        2   17.517   sky130_fd_sc_hd__o31a_1
+        1    7.507   sky130_fd_sc_hd__o31ai_1
+        1    6.256   sky130_fd_sc_hd__or2_2
+        1    7.507   sky130_fd_sc_hd__or4_1
+
+   Chip area for module '\priority_encoder': 4052.636800
+     of which used for sequential elements: 0.000000 (0.00%)
+
+11. Executing JSON backend.
+
+12. Executing Verilog backend.
+
+12.1. Executing BMUXMAP pass.
+
+12.2. Executing DEMUXMAP pass.
+Dumping module `\priority_encoder'.
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: c11c32c564
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 1% 13x opt_expr (0 sec), 1% 13x opt_clean (0 sec), ...

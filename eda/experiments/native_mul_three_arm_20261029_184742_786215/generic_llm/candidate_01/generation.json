@@ -1,0 +1,31 @@
+{
+  "arm": "generic_llm",
+  "candidate_id": "candidate_01",
+  "prompt_sha256": "b9b8c67094eba0872805e4675a7fd223d230fd45a06e9463be0bb9dcc31adbbb",
+  "requested_model": "deepseek-v4-pro",
+  "temperature": 0.2,
+  "status": "GENERATED",
+  "candidate_sha256": "3f3768ecdaccae8e92dfbf1111bbf67337a1c559b011e2bfd04b415f267d047f",
+  "formal_status": "NOT_RUN",
+  "ppa_status": "NOT_RUN",
+  "response_model_id": "deepseek-v4-pro",
+  "generation_parameters": {
+    "requested_model": "deepseek-v4-pro",
+    "temperature": 0.2,
+    "response_format": "json_object",
+    "candidate_index": 1,
+    "usage": {
+      "prompt_tokens": 566,
+      "completion_tokens": 4348,
+      "total_tokens": 4914
+    }
+  },
+  "explanation": {
+    "expected_timing_gain": "Significant reduction in combinational delay; typically 50-70% shorter mapped path (from seven adder delays down to about three logic levels plus one final 16-bit adder).",
+    "bottleneck": "The baseline creates all partial products but then sums them with a serial chain of seven 16-bit carry-propagate additions. Each adder waits for the previous sum, so the critical path grows linearly with the number of rows.",
+    "functional_boundaries": "No changes to module name, port widths, unsigned semantics, or timing contract. All 2^16 input combinations produce the same 16-bit product.",
+    "rewrite": "Replace the explicit serial accumulate with the single synthesizable multiplication operator. Synthesis tools infer a parallel carry-save partial-product reduction tree (Wallace/Dadda) followed by one final carry-propagate adder, reducing the dependency depth from O(N) to O(log N).",
+    "area_or_other_cost": "Area remains comparable; the synthesis tool can balance the parallel CSAs. Minor area increase possible relative to the smallest serial design, but controllable via synthesis constraints."
+  },
+  "generation_runtime_seconds": 61.719
+}

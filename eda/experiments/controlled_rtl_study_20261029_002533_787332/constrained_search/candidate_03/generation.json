@@ -1,0 +1,25 @@
+{
+  "arm": "constrained_search",
+  "candidate_id": "candidate_03",
+  "prompt": "prompts/constrained_search.txt",
+  "prompt_sha256": "c99007381f11da1e9fae5a89a8e15c052d6defe50b9bab3e76fad787c1f77bfb",
+  "candidate_sha256": "c9fdad0c07aed498430f1928560011cbd355a2a8f512325818dbb91a347e150e",
+  "requested_model": null,
+  "response_model_id": null,
+  "generation_parameters": {
+    "group_width_bits": 16,
+    "rule": "grouped carry-lookahead",
+    "candidate_budget": 3
+  },
+  "explanation": {
+    "method": "constrained_search",
+    "rewrite_rule": "replace both combinational 32-bit additions with grouped carry-lookahead adders",
+    "group_width_bits": 16,
+    "expected_timing_effect": "reduce serial carry depth across group boundaries; outcome must be measured",
+    "expected_cost": "group generate/propagate logic may increase mapped area, especially for smaller groups",
+    "functional_boundaries": "asynchronous reset, cycle alignment, modulo-2^32 wraparound, every input sequence"
+  },
+  "status": "GENERATED",
+  "formal_status": "NOT_RUN",
+  "ppa_status": "NOT_RUN"
+}

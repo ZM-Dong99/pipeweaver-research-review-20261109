@@ -1,0 +1,9 @@
+read_verilog -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_070/candidate.v"
+chparam -set LSB_HIGH_PRIORITY 0 priority_encoder
+chparam -set WIDTH 256 priority_encoder
+hierarchy -check -top priority_encoder
+proc
+flatten
+opt
+check -assert
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/evaluations/priority256_9fb1c9f41356f235e897c330588a3d0f1db304b77383e9bd68368fb63412de22/candidate_schema.json"

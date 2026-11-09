@@ -1,0 +1,8 @@
+read_verilog -sv "D:/verilog_lab/PipeWeaver/eda/experiments/action_selection_N24_20261103_010227_993541/inputs/original.v"
+chparam -set N 24 comparator
+hierarchy -check -top comparator
+proc
+flatten
+opt
+check -assert
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/action_selection_N24_20261103_010227_993541/independent_reproduction/baseline_N24/candidate_schema.json"

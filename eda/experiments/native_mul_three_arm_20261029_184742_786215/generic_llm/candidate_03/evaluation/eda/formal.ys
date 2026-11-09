@@ -1,0 +1,7 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul_subexpression/mul_subexpression.v"
+rename mul_subexpression pw_gold
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/native_mul_three_arm_20261029_184742_786215/generic_llm/candidate_03/candidate.v"
+rename mul_subexpression pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/native_mul_three_arm_20261029_184742_786215/generic_llm/candidate_03/evaluation/eda/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 180

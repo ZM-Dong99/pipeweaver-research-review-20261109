@@ -1,0 +1,29 @@
+{
+  "id": "chatcmpl-6a01900b-e296-4c0a-a9ab-115c5d87ef0f",
+  "object": "chat.completion",
+  "created": 1793634708,
+  "model": "gpt-6.1-sol",
+  "usage": {
+    "prompt_tokens": 1491,
+    "completion_tokens": 955,
+    "total_tokens": 2540,
+    "completion_tokens_details": {
+      "reasoning_tokens": 94
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  },
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Formulating one-hot equations**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module ticket_machine #(\\n    parameter ON  = 1'b1,\\n    parameter OFF = 1'b0\\n) (\\n    input  clk, clear, ten, twenty,\\n    output reg ready, dispense, return_sig, bill\\n);\\n\\n    // State bits: RDY, DISP, RTN, BILL10, BILL20, BILL30.\\n    reg [5:0] State;\\n    wire take_ten;\\n    wire take_twenty;\\n    wire hold_credit;\\n    wire [5:0] NextState;\\n\\n    assign take_ten    = ten;\\n    assign take_twenty = ~ten & twenty;\\n    assign hold_credit = ~ten & ~twenty;\\n\\n    // Direct one-hot transition equations avoid full-vector state decoding.\\n    assign NextState[0] = State[1] | State[2]\\n                        | (State[0] & hold_credit);\\n    assign NextState[1] = (State[4] & take_twenty)\\n                        | (State[5] & take_ten);\\n    assign NextState[2] = State[5] & take_twenty;\\n    assign NextState[3] = (State[0] & take_ten)\\n                        | (State[3] & hold_credit);\\n    assign NextState[4] = (State[0] & take_twenty)\\n                        | (State[3] & take_ten)\\n                        | (State[4] & hold_credit);\\n    assign NextState[5] = (State[3] & take_twenty)\\n                        | (State[4] & take_ten)\\n                        | (State[5] & hold_credit);\\n\\n    always @(posedge clk) begin\\n        if (clear)\\n            State <= 6'b000001;\\n        else\\n            State <= NextState;\\n    end\\n\\n    always @* begin\\n        ready      = State[0] ? ON : OFF;\\n        dispense   = State[1] ? ON : OFF;\\n        return_sig = State[2] ? ON : OFF;\\n        bill       = (State[3] | State[4] | State[5]) ? ON : OFF;\\n    end\\n\\nendmodule\\n\",\n  \"bottleneck\": \"The source describes full-vector state comparisons followed by priority next-state selection. Depending on FSM extraction and mapping, those structures can produce unnecessary decode and mux depth on state-to-state paths and output paths.\",\n  \"rewrite\": \"Retain six one-hot state bits but express each next-state bit directly as a sum of transition terms. Share the input classifications ten, !ten && twenty, and !ten && !twenty. Decode outputs directly from the reachable one-hot state bits.\",\n  \"expected_timing_gain\": \"The intended benefit is shallower state feedback and output logic, with opportunities for compact AND/OR compound-cell mapping. No timing improvement is measured or guaranteed; the original may already receive equivalent FSM optimization. Formal equivalence and fixed-setting EDA must establish strictly improved setup WNS, non-regressed TNS, and compliance with the area cap.\",\n  \"area_or_other_cost\": \"Retains six state flip-flops and introduces no pipeline stages or storage types. Direct transition equations may reduce decode logic, but shared input controls and synchronous reset can affect fanout and buffering. Mapped area must be checked against 278.01664000000005 um^2.\",\n  \"functional_boundaries\": \"Preserves the module name, parameter declarations and defaults, native ports, synchronous active-high clear, and output latency. Ten retains priority when both payment inputs are high. Every clear edge restores RDY, including arbitrary later clear assertions. The specified startup reset establishes a one-hot state, and every transition preserves that invariant for all input combinations. Illegal-state recovery is not retained outside that reset-reachable domain; no additional startup or input assumptions are introduced. Equivalence acceptance is required against the frozen original under the supplied contract.\"\n}"
+      }
+    }
+  ],
+  "audit_scope": "Provider envelope and visible message content; reasoning fields omitted."
+}

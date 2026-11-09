@@ -1,0 +1,1267 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\stream_reset_contract_20261106_run2\wrong_keep\prove.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v' to AST representation.
+Generating RTLIL representation for module `\axis_adapter'.
+Successfully finished Verilog frontend.
+Parameter \S_DATA_WIDTH = 8
+
+2. Executing AST frontend in derive mode using pre-parsed AST for module `\axis_adapter'.
+Parameter \S_DATA_WIDTH = 8
+Generating RTLIL representation for module `$paramod\axis_adapter\S_DATA_WIDTH=s32'00000000000000000000000000001000'.
+Parameter \M_DATA_WIDTH = 32
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\axis_adapter'.
+Parameter \M_DATA_WIDTH = 32
+Generating RTLIL representation for module `$paramod\axis_adapter\M_DATA_WIDTH=s32'00000000000000000000000000100000'.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \axis_adapter
+
+4.2. Analyzing design hierarchy..
+Top module:  \axis_adapter
+Removed 0 unused modules.
+
+5. Executing PROC pass (convert processes to netlists).
+
+5.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:103$70'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:103$70'.
+Cleaned up 3 empty switches.
+
+5.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 5 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9 in module axis_adapter.
+Removed a total of 0 dead cases.
+
+5.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 22 assignments to connections.
+
+5.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:146$71'.
+  Set init value: \genblk1.upsize.seg_reg = 2'00
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:148$72'.
+  Set init value: \genblk1.upsize.s_axis_tdata_reg = 8'00000000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:149$73'.
+  Set init value: \genblk1.upsize.s_axis_tkeep_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:150$74'.
+  Set init value: \genblk1.upsize.s_axis_tvalid_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:151$75'.
+  Set init value: \genblk1.upsize.s_axis_tlast_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:152$76'.
+  Set init value: \genblk1.upsize.s_axis_tid_reg = 8'00000000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:153$77'.
+  Set init value: \genblk1.upsize.s_axis_tdest_reg = 8'00000000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:154$78'.
+  Set init value: \genblk1.upsize.s_axis_tuser_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:156$79'.
+  Set init value: \genblk1.upsize.m_axis_tdata_reg = 0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:157$80'.
+  Set init value: \genblk1.upsize.m_axis_tkeep_reg = 4'0000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:158$81'.
+  Set init value: \genblk1.upsize.m_axis_tvalid_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:159$82'.
+  Set init value: \genblk1.upsize.m_axis_tlast_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:160$83'.
+  Set init value: \genblk1.upsize.m_axis_tid_reg = 8'00000000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:161$84'.
+  Set init value: \genblk1.upsize.m_axis_tdest_reg = 8'00000000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:162$85'.
+  Set init value: \genblk1.upsize.m_axis_tuser_reg = 1'0
+
+5.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~8 debug messages>
+
+5.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+     1/23: $2$lookahead\genblk1.upsize.m_axis_tkeep_reg$8[3:0]$29
+     2/23: $2$lookahead\genblk1.upsize.m_axis_tdata_reg$7[31:0]$28
+     3/23: $2$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:181$3[31:0]$25
+     4/23: $2$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$5[31:0]$27
+     5/23: $2$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$4[31:0]$26
+     6/23: $1$lookahead\genblk1.upsize.m_axis_tkeep_reg$8[3:0]$23
+     7/23: $1$lookahead\genblk1.upsize.m_axis_tdata_reg$7[31:0]$22
+     8/23: $1$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$5[31:0]$21
+     9/23: $1$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$4[31:0]$20
+    10/23: $1$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:181$3[31:0]$19
+    11/23: $0\genblk1.upsize.m_axis_tvalid_reg[0:0]
+    12/23: $0\genblk1.upsize.m_axis_tuser_reg[0:0]
+    13/23: $0\genblk1.upsize.m_axis_tdest_reg[7:0]
+    14/23: $0\genblk1.upsize.m_axis_tid_reg[7:0]
+    15/23: $0\genblk1.upsize.m_axis_tlast_reg[0:0]
+    16/23: $0\genblk1.upsize.s_axis_tuser_reg[0:0]
+    17/23: $0\genblk1.upsize.s_axis_tdest_reg[7:0]
+    18/23: $0\genblk1.upsize.s_axis_tid_reg[7:0]
+    19/23: $0\genblk1.upsize.s_axis_tlast_reg[0:0]
+    20/23: $0\genblk1.upsize.s_axis_tvalid_reg[0:0]
+    21/23: $0\genblk1.upsize.s_axis_tkeep_reg[0:0]
+    22/23: $0\genblk1.upsize.s_axis_tdata_reg[7:0]
+    23/23: $0\genblk1.upsize.seg_reg[1:0]
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:146$71'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:148$72'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:149$73'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:150$74'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:151$75'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:152$76'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:153$77'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:154$78'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:156$79'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:157$80'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:158$81'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:159$82'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:160$83'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:161$84'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:162$85'.
+
+5.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+5.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\axis_adapter.\genblk1.upsize.seg_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$215' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tdata_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$216' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tkeep_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$217' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tvalid_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$218' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tlast_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$219' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tid_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$220' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tdest_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$221' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tuser_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$222' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tdata_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$223' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tkeep_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$224' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tvalid_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$225' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tlast_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$226' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tid_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$227' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tdest_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$228' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tuser_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$229' with positive edge clock.
+Creating register for signal `\axis_adapter.$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:181$3' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$230' with positive edge clock.
+Creating register for signal `\axis_adapter.$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$4' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$231' with positive edge clock.
+Creating register for signal `\axis_adapter.$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$5' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$232' with positive edge clock.
+Creating register for signal `\axis_adapter.$lookahead\genblk1.upsize.m_axis_tdata_reg$7' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$233' with positive edge clock.
+Creating register for signal `\axis_adapter.$lookahead\genblk1.upsize.m_axis_tkeep_reg$8' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$234' with positive edge clock.
+
+5.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 8 empty switches in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:146$71'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:148$72'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:149$73'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:150$74'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:151$75'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:152$76'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:153$77'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:154$78'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:156$79'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:157$80'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:158$81'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:159$82'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:160$83'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:161$84'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:162$85'.
+Cleaned up 8 empty switches.
+
+5.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module axis_adapter.
+<suppressed ~1 debug messages>
+
+6. Executing FLATTEN pass (flatten design).
+
+7. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.m_axis_tdata_reg
+
+8. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.m_axis_tkeep_reg
+
+9. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.m_axis_tlast_reg
+
+10. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.m_axis_tuser_reg
+
+11. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.m_axis_tvalid_reg
+
+12. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.s_axis_tdata_reg
+
+13. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.s_axis_tkeep_reg
+
+14. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.s_axis_tlast_reg
+
+15. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.s_axis_tuser_reg
+
+16. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.s_axis_tvalid_reg
+
+17. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.seg_reg
+Renaming module \axis_adapter to \pw_gold.
+
+18. Executing JSON backend.
+
+19. Executing Liberty frontend: D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Ignoring cell sky130_fd_sc_hd__dlclkp_1 with missing function on output GCLK.
+Ignoring cell sky130_fd_sc_hd__dlclkp_2 with missing function on output GCLK.
+Ignoring cell sky130_fd_sc_hd__dlclkp_4 with missing function on output GCLK.
+Ignoring cell sky130_fd_sc_hd__sdlclkp_1 with missing function on output GCLK.
+Ignoring cell sky130_fd_sc_hd__sdlclkp_2 with missing function on output GCLK.
+Ignoring cell sky130_fd_sc_hd__sdlclkp_4 with missing function on output GCLK.
+Imported 422 cell types from liberty file.
+<suppressed ~12 debug messages>
+
+20. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/fixtures/wrong_keep.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/fixtures/wrong_keep.v' to AST representation.
+Generating RTLIL representation for module `\axis_adapter'.
+Successfully finished Verilog frontend.
+
+21. Executing HIERARCHY pass (managing design hierarchy).
+
+21.1. Analyzing design hierarchy..
+Top module:  \axis_adapter
+Used module:     \sky130_fd_sc_hd__dfxtp_1
+Used module:     \sky130_fd_sc_hd__o21ai_0
+Used module:     \sky130_fd_sc_hd__nand2_1
+Used module:     \sky130_fd_sc_hd__nor2_1
+Used module:     \sky130_fd_sc_hd__inv_1
+Used module:     \sky130_fd_sc_hd__o21ai_1
+Used module:     \sky130_fd_sc_hd__nor3_1
+Used module:     \sky130_fd_sc_hd__a21oi_1
+Used module:     \sky130_fd_sc_hd__a31oi_4
+Used module:     \sky130_fd_sc_hd__o21ai_2
+Used module:     \sky130_fd_sc_hd__a311oi_1
+Used module:     \sky130_fd_sc_hd__nor2_2
+Used module:     \sky130_fd_sc_hd__clkbuf_1
+Used module:     \sky130_fd_sc_hd__buf_2
+Used module:     \sky130_fd_sc_hd__inv_2
+Used module:     \sky130_fd_sc_hd__buf_4
+Used module:     \sky130_fd_sc_hd__buf_1
+Used module:     \sky130_fd_sc_hd__nor2_8
+Used module:     \sky130_fd_sc_hd__nand3_1
+Used module:     \sky130_fd_sc_hd__a21oi_2
+Used module:     \sky130_fd_sc_hd__buf_6
+Used module:     \sky130_fd_sc_hd__a211oi_4
+Used module:     \sky130_fd_sc_hd__nor2_4
+Used module:     \sky130_fd_sc_hd__inv_4
+Used module:     \sky130_fd_sc_hd__nand2b_1
+
+21.2. Analyzing design hierarchy..
+Top module:  \axis_adapter
+Used module:     \sky130_fd_sc_hd__dfxtp_1
+Used module:     \sky130_fd_sc_hd__o21ai_0
+Used module:     \sky130_fd_sc_hd__nand2_1
+Used module:     \sky130_fd_sc_hd__nor2_1
+Used module:     \sky130_fd_sc_hd__inv_1
+Used module:     \sky130_fd_sc_hd__o21ai_1
+Used module:     \sky130_fd_sc_hd__nor3_1
+Used module:     \sky130_fd_sc_hd__a21oi_1
+Used module:     \sky130_fd_sc_hd__a31oi_4
+Used module:     \sky130_fd_sc_hd__o21ai_2
+Used module:     \sky130_fd_sc_hd__a311oi_1
+Used module:     \sky130_fd_sc_hd__nor2_2
+Used module:     \sky130_fd_sc_hd__clkbuf_1
+Used module:     \sky130_fd_sc_hd__buf_2
+Used module:     \sky130_fd_sc_hd__inv_2
+Used module:     \sky130_fd_sc_hd__buf_4
+Used module:     \sky130_fd_sc_hd__buf_1
+Used module:     \sky130_fd_sc_hd__nor2_8
+Used module:     \sky130_fd_sc_hd__nand3_1
+Used module:     \sky130_fd_sc_hd__a21oi_2
+Used module:     \sky130_fd_sc_hd__buf_6
+Used module:     \sky130_fd_sc_hd__a211oi_4
+Used module:     \sky130_fd_sc_hd__nor2_4
+Used module:     \sky130_fd_sc_hd__inv_4
+Used module:     \sky130_fd_sc_hd__nand2b_1
+Removing unused module `\sky130_fd_sc_hd__xor3_4'.
+Removing unused module `\sky130_fd_sc_hd__xor3_2'.
+Removing unused module `\sky130_fd_sc_hd__xor3_1'.
+Removing unused module `\sky130_fd_sc_hd__xor2_4'.
+Removing unused module `\sky130_fd_sc_hd__xor2_2'.
+Removing unused module `\sky130_fd_sc_hd__xor2_1'.
+Removing unused module `\sky130_fd_sc_hd__xnor3_4'.
+Removing unused module `\sky130_fd_sc_hd__xnor3_2'.
+Removing unused module `\sky130_fd_sc_hd__xnor3_1'.
+Removing unused module `\sky130_fd_sc_hd__xnor2_4'.
+Removing unused module `\sky130_fd_sc_hd__xnor2_2'.
+Removing unused module `\sky130_fd_sc_hd__xnor2_1'.
+Removing unused module `\sky130_fd_sc_hd__sedfxtp_4'.
+Removing unused module `\sky130_fd_sc_hd__sedfxtp_2'.
+Removing unused module `\sky130_fd_sc_hd__sedfxtp_1'.
+Removing unused module `\sky130_fd_sc_hd__sedfxbp_2'.
+Removing unused module `\sky130_fd_sc_hd__sedfxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfxtp_4'.
+Removing unused module `\sky130_fd_sc_hd__sdfxtp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfxtp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfxbp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfstp_4'.
+Removing unused module `\sky130_fd_sc_hd__sdfstp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfstp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfsbp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfsbp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfrtp_4'.
+Removing unused module `\sky130_fd_sc_hd__sdfrtp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfrtp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfrtn_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfrbp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfrbp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfbbp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfbbn_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfbbn_1'.
+Removing unused module `\sky130_fd_sc_hd__probec_p_8'.
+Removing unused module `\sky130_fd_sc_hd__probe_p_8'.
+Removing unused module `\sky130_fd_sc_hd__or4bb_4'.
+Removing unused module `\sky130_fd_sc_hd__or4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__or4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__or4b_4'.
+Removing unused module `\sky130_fd_sc_hd__or4b_2'.
+Removing unused module `\sky130_fd_sc_hd__or4b_1'.
+Removing unused module `\sky130_fd_sc_hd__or4_4'.
+Removing unused module `\sky130_fd_sc_hd__or4_2'.
+Removing unused module `\sky130_fd_sc_hd__or4_1'.
+Removing unused module `\sky130_fd_sc_hd__or3b_4'.
+Removing unused module `\sky130_fd_sc_hd__or3b_2'.
+Removing unused module `\sky130_fd_sc_hd__or3b_1'.
+Removing unused module `\sky130_fd_sc_hd__or3_4'.
+Removing unused module `\sky130_fd_sc_hd__or3_2'.
+Removing unused module `\sky130_fd_sc_hd__or3_1'.
+Removing unused module `\sky130_fd_sc_hd__or2b_4'.
+Removing unused module `\sky130_fd_sc_hd__or2b_2'.
+Removing unused module `\sky130_fd_sc_hd__or2b_1'.
+Removing unused module `\sky130_fd_sc_hd__or2_4'.
+Removing unused module `\sky130_fd_sc_hd__or2_2'.
+Removing unused module `\sky130_fd_sc_hd__or2_1'.
+Removing unused module `\sky130_fd_sc_hd__or2_0'.
+Removing unused module `\sky130_fd_sc_hd__o41ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o41ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o41ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o41a_4'.
+Removing unused module `\sky130_fd_sc_hd__o41a_2'.
+Removing unused module `\sky130_fd_sc_hd__o41a_1'.
+Removing unused module `\sky130_fd_sc_hd__o32ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o32ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o32ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o32a_4'.
+Removing unused module `\sky130_fd_sc_hd__o32a_2'.
+Removing unused module `\sky130_fd_sc_hd__o32a_1'.
+Removing unused module `\sky130_fd_sc_hd__o31ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o31ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o31ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o31a_4'.
+Removing unused module `\sky130_fd_sc_hd__o31a_2'.
+Removing unused module `\sky130_fd_sc_hd__o31a_1'.
+Removing unused module `\sky130_fd_sc_hd__o311ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o311ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o311ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o311ai_0'.
+Removing unused module `\sky130_fd_sc_hd__o311a_4'.
+Removing unused module `\sky130_fd_sc_hd__o311a_2'.
+Removing unused module `\sky130_fd_sc_hd__o311a_1'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2a_4'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2a_2'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2a_1'.
+Removing unused module `\sky130_fd_sc_hd__o22ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o22ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o22ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o22a_4'.
+Removing unused module `\sky130_fd_sc_hd__o22a_2'.
+Removing unused module `\sky130_fd_sc_hd__o22a_1'.
+Removing unused module `\sky130_fd_sc_hd__o221ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o221ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o221ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o221a_4'.
+Removing unused module `\sky130_fd_sc_hd__o221a_2'.
+Removing unused module `\sky130_fd_sc_hd__o221a_1'.
+Removing unused module `\sky130_fd_sc_hd__o21bai_4'.
+Removing unused module `\sky130_fd_sc_hd__o21bai_2'.
+Removing unused module `\sky130_fd_sc_hd__o21bai_1'.
+Removing unused module `\sky130_fd_sc_hd__o21ba_4'.
+Removing unused module `\sky130_fd_sc_hd__o21ba_2'.
+Removing unused module `\sky130_fd_sc_hd__o21ba_1'.
+Removing unused module `\sky130_fd_sc_hd__o21ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o21a_4'.
+Removing unused module `\sky130_fd_sc_hd__o21a_2'.
+Removing unused module `\sky130_fd_sc_hd__o21a_1'.
+Removing unused module `\sky130_fd_sc_hd__o211ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o211ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o211ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o211a_4'.
+Removing unused module `\sky130_fd_sc_hd__o211a_2'.
+Removing unused module `\sky130_fd_sc_hd__o211a_1'.
+Removing unused module `\sky130_fd_sc_hd__o2111ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o2111ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o2111ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o2111a_4'.
+Removing unused module `\sky130_fd_sc_hd__o2111a_2'.
+Removing unused module `\sky130_fd_sc_hd__o2111a_1'.
+Removing unused module `\sky130_fd_sc_hd__nor4bb_4'.
+Removing unused module `\sky130_fd_sc_hd__nor4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__nor4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__nor4b_4'.
+Removing unused module `\sky130_fd_sc_hd__nor4b_2'.
+Removing unused module `\sky130_fd_sc_hd__nor4b_1'.
+Removing unused module `\sky130_fd_sc_hd__nor4_4'.
+Removing unused module `\sky130_fd_sc_hd__nor4_2'.
+Removing unused module `\sky130_fd_sc_hd__nor4_1'.
+Removing unused module `\sky130_fd_sc_hd__nor3b_4'.
+Removing unused module `\sky130_fd_sc_hd__nor3b_2'.
+Removing unused module `\sky130_fd_sc_hd__nor3b_1'.
+Removing unused module `\sky130_fd_sc_hd__nor3_4'.
+Removing unused module `\sky130_fd_sc_hd__nor3_2'.
+Removing unused module `\sky130_fd_sc_hd__nor2b_4'.
+Removing unused module `\sky130_fd_sc_hd__nor2b_2'.
+Removing unused module `\sky130_fd_sc_hd__nor2b_1'.
+Removing unused module `\sky130_fd_sc_hd__nand4bb_4'.
+Removing unused module `\sky130_fd_sc_hd__nand4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__nand4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__nand4b_4'.
+Removing unused module `\sky130_fd_sc_hd__nand4b_2'.
+Removing unused module `\sky130_fd_sc_hd__nand4b_1'.
+Removing unused module `\sky130_fd_sc_hd__nand4_4'.
+Removing unused module `\sky130_fd_sc_hd__nand4_2'.
+Removing unused module `\sky130_fd_sc_hd__nand4_1'.
+Removing unused module `\sky130_fd_sc_hd__nand3b_4'.
+Removing unused module `\sky130_fd_sc_hd__nand3b_2'.
+Removing unused module `\sky130_fd_sc_hd__nand3b_1'.
+Removing unused module `\sky130_fd_sc_hd__nand3_4'.
+Removing unused module `\sky130_fd_sc_hd__nand3_2'.
+Removing unused module `\sky130_fd_sc_hd__nand2b_4'.
+Removing unused module `\sky130_fd_sc_hd__nand2b_2'.
+Removing unused module `\sky130_fd_sc_hd__nand2_8'.
+Removing unused module `\sky130_fd_sc_hd__nand2_4'.
+Removing unused module `\sky130_fd_sc_hd__nand2_2'.
+Removing unused module `\sky130_fd_sc_hd__mux4_4'.
+Removing unused module `\sky130_fd_sc_hd__mux4_2'.
+Removing unused module `\sky130_fd_sc_hd__mux4_1'.
+Removing unused module `\sky130_fd_sc_hd__mux2i_4'.
+Removing unused module `\sky130_fd_sc_hd__mux2i_2'.
+Removing unused module `\sky130_fd_sc_hd__mux2i_1'.
+Removing unused module `\sky130_fd_sc_hd__mux2_8'.
+Removing unused module `\sky130_fd_sc_hd__mux2_4'.
+Removing unused module `\sky130_fd_sc_hd__mux2_2'.
+Removing unused module `\sky130_fd_sc_hd__mux2_1'.
+Removing unused module `\sky130_fd_sc_hd__maj3_4'.
+Removing unused module `\sky130_fd_sc_hd__maj3_2'.
+Removing unused module `\sky130_fd_sc_hd__maj3_1'.
+Removing unused module `\sky130_fd_sc_hd__macro_sparecell'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrckapwr_16'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrc_8'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrc_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrc_2'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrc_16'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrc_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_inputisolatch_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_inputiso1p_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_inputiso1n_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_inputiso0p_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_inputiso0n_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_decapkapwr_8'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_decapkapwr_6'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_decapkapwr_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_decapkapwr_3'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_decapkapwr_12'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkinvkapwr_8'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkinvkapwr_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkinvkapwr_2'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkinvkapwr_16'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkinvkapwr_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkbufkapwr_8'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkbufkapwr_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkbufkapwr_2'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkbufkapwr_16'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkbufkapwr_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_bleeder_1'.
+Removing unused module `\sky130_fd_sc_hd__inv_8'.
+Removing unused module `\sky130_fd_sc_hd__inv_6'.
+Removing unused module `\sky130_fd_sc_hd__inv_16'.
+Removing unused module `\sky130_fd_sc_hd__inv_12'.
+Removing unused module `\sky130_fd_sc_hd__ha_4'.
+Removing unused module `\sky130_fd_sc_hd__ha_2'.
+Removing unused module `\sky130_fd_sc_hd__ha_1'.
+Removing unused module `\sky130_fd_sc_hd__fahcon_1'.
+Removing unused module `\sky130_fd_sc_hd__fahcin_1'.
+Removing unused module `\sky130_fd_sc_hd__fah_1'.
+Removing unused module `\sky130_fd_sc_hd__fa_4'.
+Removing unused module `\sky130_fd_sc_hd__fa_2'.
+Removing unused module `\sky130_fd_sc_hd__fa_1'.
+Removing unused module `\sky130_fd_sc_hd__einvp_8'.
+Removing unused module `\sky130_fd_sc_hd__einvp_4'.
+Removing unused module `\sky130_fd_sc_hd__einvp_2'.
+Removing unused module `\sky130_fd_sc_hd__einvp_1'.
+Removing unused module `\sky130_fd_sc_hd__einvn_8'.
+Removing unused module `\sky130_fd_sc_hd__einvn_4'.
+Removing unused module `\sky130_fd_sc_hd__einvn_2'.
+Removing unused module `\sky130_fd_sc_hd__einvn_1'.
+Removing unused module `\sky130_fd_sc_hd__einvn_0'.
+Removing unused module `\sky130_fd_sc_hd__edfxtp_1'.
+Removing unused module `\sky130_fd_sc_hd__edfxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__ebufn_8'.
+Removing unused module `\sky130_fd_sc_hd__ebufn_4'.
+Removing unused module `\sky130_fd_sc_hd__ebufn_2'.
+Removing unused module `\sky130_fd_sc_hd__ebufn_1'.
+Removing unused module `\sky130_fd_sc_hd__dlymetal6s6s_1'.
+Removing unused module `\sky130_fd_sc_hd__dlymetal6s4s_1'.
+Removing unused module `\sky130_fd_sc_hd__dlymetal6s2s_1'.
+Removing unused module `\sky130_fd_sc_hd__dlygate4sd3_1'.
+Removing unused module `\sky130_fd_sc_hd__dlygate4sd2_1'.
+Removing unused module `\sky130_fd_sc_hd__dlygate4sd1_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxtp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxtn_4'.
+Removing unused module `\sky130_fd_sc_hd__dlxtn_2'.
+Removing unused module `\sky130_fd_sc_hd__dlxtn_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxbn_2'.
+Removing unused module `\sky130_fd_sc_hd__dlxbn_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrtp_4'.
+Removing unused module `\sky130_fd_sc_hd__dlrtp_2'.
+Removing unused module `\sky130_fd_sc_hd__dlrtp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrtn_4'.
+Removing unused module `\sky130_fd_sc_hd__dlrtn_2'.
+Removing unused module `\sky130_fd_sc_hd__dlrtn_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrbp_2'.
+Removing unused module `\sky130_fd_sc_hd__dlrbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrbn_2'.
+Removing unused module `\sky130_fd_sc_hd__dlrbn_1'.
+Removing unused module `\sky130_fd_sc_hd__diode_2'.
+Removing unused module `\sky130_fd_sc_hd__dfxtp_4'.
+Removing unused module `\sky130_fd_sc_hd__dfxtp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfxbp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfstp_4'.
+Removing unused module `\sky130_fd_sc_hd__dfstp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfstp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfsbp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfsbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfrtp_4'.
+Removing unused module `\sky130_fd_sc_hd__dfrtp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfrtp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfrtn_1'.
+Removing unused module `\sky130_fd_sc_hd__dfrbp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfrbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfbbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfbbn_2'.
+Removing unused module `\sky130_fd_sc_hd__dfbbn_1'.
+Removing unused module `\sky130_fd_sc_hd__decap_8'.
+Removing unused module `\sky130_fd_sc_hd__decap_6'.
+Removing unused module `\sky130_fd_sc_hd__decap_4'.
+Removing unused module `\sky130_fd_sc_hd__decap_3'.
+Removing unused module `\sky130_fd_sc_hd__decap_12'.
+Removing unused module `\sky130_fd_sc_hd__conb_1'.
+Removing unused module `\sky130_fd_sc_hd__clkinvlp_4'.
+Removing unused module `\sky130_fd_sc_hd__clkinvlp_2'.
+Removing unused module `\sky130_fd_sc_hd__clkinv_8'.
+Removing unused module `\sky130_fd_sc_hd__clkinv_4'.
+Removing unused module `\sky130_fd_sc_hd__clkinv_2'.
+Removing unused module `\sky130_fd_sc_hd__clkinv_16'.
+Removing unused module `\sky130_fd_sc_hd__clkinv_1'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s50_2'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s50_1'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s25_2'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s25_1'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s18_2'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s18_1'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s15_2'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s15_1'.
+Removing unused module `\sky130_fd_sc_hd__clkbuf_8'.
+Removing unused module `\sky130_fd_sc_hd__clkbuf_4'.
+Removing unused module `\sky130_fd_sc_hd__clkbuf_2'.
+Removing unused module `\sky130_fd_sc_hd__clkbuf_16'.
+Removing unused module `\sky130_fd_sc_hd__bufinv_8'.
+Removing unused module `\sky130_fd_sc_hd__bufinv_16'.
+Removing unused module `\sky130_fd_sc_hd__bufbuf_8'.
+Removing unused module `\sky130_fd_sc_hd__bufbuf_16'.
+Removing unused module `\sky130_fd_sc_hd__buf_8'.
+Removing unused module `\sky130_fd_sc_hd__buf_16'.
+Removing unused module `\sky130_fd_sc_hd__buf_12'.
+Removing unused module `\sky130_fd_sc_hd__and4bb_4'.
+Removing unused module `\sky130_fd_sc_hd__and4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__and4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__and4b_4'.
+Removing unused module `\sky130_fd_sc_hd__and4b_2'.
+Removing unused module `\sky130_fd_sc_hd__and4b_1'.
+Removing unused module `\sky130_fd_sc_hd__and4_4'.
+Removing unused module `\sky130_fd_sc_hd__and4_2'.
+Removing unused module `\sky130_fd_sc_hd__and4_1'.
+Removing unused module `\sky130_fd_sc_hd__and3b_4'.
+Removing unused module `\sky130_fd_sc_hd__and3b_2'.
+Removing unused module `\sky130_fd_sc_hd__and3b_1'.
+Removing unused module `\sky130_fd_sc_hd__and3_4'.
+Removing unused module `\sky130_fd_sc_hd__and3_2'.
+Removing unused module `\sky130_fd_sc_hd__and3_1'.
+Removing unused module `\sky130_fd_sc_hd__and2b_4'.
+Removing unused module `\sky130_fd_sc_hd__and2b_2'.
+Removing unused module `\sky130_fd_sc_hd__and2b_1'.
+Removing unused module `\sky130_fd_sc_hd__and2_4'.
+Removing unused module `\sky130_fd_sc_hd__and2_2'.
+Removing unused module `\sky130_fd_sc_hd__and2_1'.
+Removing unused module `\sky130_fd_sc_hd__and2_0'.
+Removing unused module `\sky130_fd_sc_hd__a41oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a41oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a41oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a41o_4'.
+Removing unused module `\sky130_fd_sc_hd__a41o_2'.
+Removing unused module `\sky130_fd_sc_hd__a41o_1'.
+Removing unused module `\sky130_fd_sc_hd__a32oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a32oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a32oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a32o_4'.
+Removing unused module `\sky130_fd_sc_hd__a32o_2'.
+Removing unused module `\sky130_fd_sc_hd__a32o_1'.
+Removing unused module `\sky130_fd_sc_hd__a31oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a31oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a31o_4'.
+Removing unused module `\sky130_fd_sc_hd__a31o_2'.
+Removing unused module `\sky130_fd_sc_hd__a31o_1'.
+Removing unused module `\sky130_fd_sc_hd__a311oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a311oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a311o_4'.
+Removing unused module `\sky130_fd_sc_hd__a311o_2'.
+Removing unused module `\sky130_fd_sc_hd__a311o_1'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2o_4'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2o_2'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2o_1'.
+Removing unused module `\sky130_fd_sc_hd__a22oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a22oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a22oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a22o_4'.
+Removing unused module `\sky130_fd_sc_hd__a22o_2'.
+Removing unused module `\sky130_fd_sc_hd__a22o_1'.
+Removing unused module `\sky130_fd_sc_hd__a222oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a221oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a221oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a221oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a221o_4'.
+Removing unused module `\sky130_fd_sc_hd__a221o_2'.
+Removing unused module `\sky130_fd_sc_hd__a221o_1'.
+Removing unused module `\sky130_fd_sc_hd__a21oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a21o_4'.
+Removing unused module `\sky130_fd_sc_hd__a21o_2'.
+Removing unused module `\sky130_fd_sc_hd__a21o_1'.
+Removing unused module `\sky130_fd_sc_hd__a21boi_4'.
+Removing unused module `\sky130_fd_sc_hd__a21boi_2'.
+Removing unused module `\sky130_fd_sc_hd__a21boi_1'.
+Removing unused module `\sky130_fd_sc_hd__a21boi_0'.
+Removing unused module `\sky130_fd_sc_hd__a21bo_4'.
+Removing unused module `\sky130_fd_sc_hd__a21bo_2'.
+Removing unused module `\sky130_fd_sc_hd__a21bo_1'.
+Removing unused module `\sky130_fd_sc_hd__a211oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a211oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a211o_4'.
+Removing unused module `\sky130_fd_sc_hd__a211o_2'.
+Removing unused module `\sky130_fd_sc_hd__a211o_1'.
+Removing unused module `\sky130_fd_sc_hd__a2111oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a2111oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a2111oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a2111oi_0'.
+Removing unused module `\sky130_fd_sc_hd__a2111o_4'.
+Removing unused module `\sky130_fd_sc_hd__a2111o_2'.
+Removing unused module `\sky130_fd_sc_hd__a2111o_1'.
+Removed 397 unused modules.
+
+22. Executing PROC pass (convert processes to netlists).
+
+22.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+22.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+22.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+22.4. Executing PROC_INIT pass (extract init attributes).
+
+22.5. Executing PROC_ARST pass (detect async resets in processes).
+
+22.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+22.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+22.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+22.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+22.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+22.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+22.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sky130_fd_sc_hd__a311oi_1.
+Optimizing module sky130_fd_sc_hd__a21oi_2.
+Optimizing module sky130_fd_sc_hd__a21oi_1.
+Optimizing module sky130_fd_sc_hd__buf_1.
+Optimizing module sky130_fd_sc_hd__nor2_1.
+Optimizing module axis_adapter.
+<suppressed ~1 debug messages>
+Optimizing module sky130_fd_sc_hd__nand2_1.
+Optimizing module sky130_fd_sc_hd__nor3_1.
+Optimizing module sky130_fd_sc_hd__o21ai_2.
+Optimizing module sky130_fd_sc_hd__inv_4.
+Optimizing module sky130_fd_sc_hd__inv_2.
+Optimizing module sky130_fd_sc_hd__o21ai_1.
+Optimizing module sky130_fd_sc_hd__o21ai_0.
+Optimizing module sky130_fd_sc_hd__a211oi_4.
+Optimizing module sky130_fd_sc_hd__clkbuf_1.
+Optimizing module sky130_fd_sc_hd__inv_1.
+Optimizing module sky130_fd_sc_hd__nand3_1.
+Optimizing module sky130_fd_sc_hd__nor2_8.
+Optimizing module sky130_fd_sc_hd__a31oi_4.
+Optimizing module sky130_fd_sc_hd__nor2_4.
+Optimizing module sky130_fd_sc_hd__nand2b_1.
+Optimizing module sky130_fd_sc_hd__buf_6.
+Optimizing module sky130_fd_sc_hd__buf_4.
+Optimizing module sky130_fd_sc_hd__buf_2.
+Optimizing module sky130_fd_sc_hd__nor2_2.
+Optimizing module sky130_fd_sc_hd__dfxtp_1.
+
+23. Executing FLATTEN pass (flatten design).
+Deleting now unused module sky130_fd_sc_hd__a311oi_1.
+Deleting now unused module sky130_fd_sc_hd__a21oi_2.
+Deleting now unused module sky130_fd_sc_hd__a21oi_1.
+Deleting now unused module sky130_fd_sc_hd__buf_1.
+Deleting now unused module sky130_fd_sc_hd__nor2_1.
+Deleting now unused module sky130_fd_sc_hd__nand2_1.
+Deleting now unused module sky130_fd_sc_hd__nor3_1.
+Deleting now unused module sky130_fd_sc_hd__o21ai_2.
+Deleting now unused module sky130_fd_sc_hd__inv_4.
+Deleting now unused module sky130_fd_sc_hd__inv_2.
+Deleting now unused module sky130_fd_sc_hd__o21ai_1.
+Deleting now unused module sky130_fd_sc_hd__o21ai_0.
+Deleting now unused module sky130_fd_sc_hd__a211oi_4.
+Deleting now unused module sky130_fd_sc_hd__clkbuf_1.
+Deleting now unused module sky130_fd_sc_hd__inv_1.
+Deleting now unused module sky130_fd_sc_hd__nand3_1.
+Deleting now unused module sky130_fd_sc_hd__nor2_8.
+Deleting now unused module sky130_fd_sc_hd__a31oi_4.
+Deleting now unused module sky130_fd_sc_hd__nor2_4.
+Deleting now unused module sky130_fd_sc_hd__nand2b_1.
+Deleting now unused module sky130_fd_sc_hd__buf_6.
+Deleting now unused module sky130_fd_sc_hd__buf_4.
+Deleting now unused module sky130_fd_sc_hd__buf_2.
+Deleting now unused module sky130_fd_sc_hd__nor2_2.
+Deleting now unused module sky130_fd_sc_hd__dfxtp_1.
+<suppressed ~341 debug messages>
+
+24. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.m_axis_tdata_reg
+
+25. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.m_axis_tkeep_reg
+
+26. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.m_axis_tlast_reg
+
+27. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.m_axis_tuser_reg
+
+28. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.m_axis_tvalid_reg
+
+29. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.s_axis_tdata_reg
+
+30. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.s_axis_tkeep_reg
+
+31. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.s_axis_tlast_reg
+
+32. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.s_axis_tuser_reg
+
+33. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.s_axis_tvalid_reg
+
+34. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_adapter/genblk1.upsize.seg_reg
+Renaming module \axis_adapter to \pw_cand.
+
+35. Executing JSON backend.
+
+36. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/wrong_keep/miter.v
+Parsing formal Verilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/wrong_keep/miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+37. Executing PREP pass.
+
+37.1. Executing HIERARCHY pass (managing design hierarchy).
+
+37.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+
+37.1.2. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+Removed 0 unused modules.
+
+37.2. Executing PROC pass (convert processes to netlists).
+
+37.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+37.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+37.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+37.2.4. Executing PROC_INIT pass (extract init attributes).
+
+37.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+37.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+37.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+37.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+37.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+37.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+37.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+37.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+<suppressed ~7 debug messages>
+Optimizing module pw_cand.
+<suppressed ~194 debug messages>
+Optimizing module pw_gold.
+
+37.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module pw_cand.
+Deleting now unused module pw_gold.
+<suppressed ~2 debug messages>
+
+37.4. Executing FUTURE pass.
+
+37.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+<suppressed ~8 debug messages>
+
+37.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 170 unused cells and 976 unused wires.
+<suppressed ~504 debug messages>
+
+37.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+37.8. Executing OPT pass (performing simple optimizations).
+
+37.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+37.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1464 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1191 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1163 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1162 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1161 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1160 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1159 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~915 debug messages>
+Removed a total of 305 cells.
+
+37.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $flatten\gold.$procmux$183: \gold.genblk1.upsize.s_axis_tvalid_reg -> 1'0
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $flatten\gold.$procmux$96.
+    dead port 2/2 on $mux $flatten\gold.$procmux$90.
+Removed 2 multiplexer ports.
+<suppressed ~48 debug messages>
+
+37.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+  Optimizing cells in module \pw_miter.
+Performed a total of 1 changes.
+
+37.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1156 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+37.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 308 unused wires.
+<suppressed ~1 debug messages>
+
+37.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+37.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+37.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~45 debug messages>
+
+37.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+37.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1156 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+37.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+37.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+37.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+37.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from port B of cell pw_miter.$gt$D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/wrong_keep/miter.v:34$5107 ($gt).
+Removed top 31 bits (of 32) from port B of cell pw_miter.$gt$D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/wrong_keep/miter.v:34$5110 ($gt).
+Removed top 30 bits (of 32) from port B of cell pw_miter.$gt$D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/wrong_keep/miter.v:34$5113 ($gt).
+Removed top 30 bits (of 32) from port B of cell pw_miter.$gt$D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/wrong_keep/miter.v:34$5116 ($gt).
+Removed top 31 bits (of 32) from port B of cell pw_miter.$flatten\gold.$add$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$42 ($add).
+Removed top 31 bits (of 32) from port B of cell pw_miter.$flatten\gold.$add$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$51 ($add).
+Removed top 31 bits (of 32) from port B of cell pw_miter.$flatten\gold.$add$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:208$68 ($add).
+Removed top 30 bits (of 32) from port Y of cell pw_miter.$flatten\gold.$add$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:208$68 ($add).
+Removed top 28 bits (of 32) from port B of cell pw_miter.$flatten\gold.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$41 ($mul).
+Removed top 26 bits (of 32) from port Y of cell pw_miter.$flatten\gold.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$41 ($mul).
+Removed top 31 bits (of 32) from port B of cell pw_miter.$flatten\gold.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$50 ($mul).
+Removed top 29 bits (of 32) from port Y of cell pw_miter.$flatten\gold.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$50 ($mul).
+Converting cell pw_miter.$flatten\gold.$neg$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$47 ($neg) from signed to unsigned.
+Removed top 1 bits (of 33) from port A of cell pw_miter.$flatten\gold.$neg$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$47 ($neg).
+Converting cell pw_miter.$flatten\gold.$neg$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$56 ($neg) from signed to unsigned.
+Removed top 1 bits (of 33) from port A of cell pw_miter.$flatten\gold.$neg$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$56 ($neg).
+Removed top 29 bits (of 32) from wire pw_miter.$flatten\gold.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$50_Y.
+Removed top 26 bits (of 32) from wire pw_miter.$flatten\gold.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:181$30_Y.
+Removed top 30 bits (of 32) from wire pw_miter.$flatten\gold.$add$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:200$65_Y.
+
+37.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+37.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+37.12. Executing OPT pass (performing simple optimizations).
+
+37.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+37.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1156 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+37.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+37.12.4. Finished fast OPT passes.
+
+37.13. Executing SORT pass.
+
+37.14. Printing statistics.
+
+=== pw_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1810 wires
+     2869 wire bits
+     1292 public wires
+     1715 public wire bits
+       11 ports
+       32 port bits
+     1156 cells
+      221   $_AND_
+       53   $_DFF_P_
+      220   $_NOT_
+      190   $_OR_
+        3   $add
+        4   $and
+       11   $dff
+        1   $eq
+        4   $gt
+       15   $logic_and
+        4   $logic_not
+        8   $logic_or
+        2   $mul
+       33   $mux
+       12   $ne
+        2   $neg
+        3   $not
+       19   $or
+        1   $reduce_bool
+        2   $reduce_or
+      343   $scopeinfo
+        4   $shift
+        1   $xor
+
+37.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+38. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+39. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Import set-constraint for this timestep: \in_1 = 1'1
+Final constraint equation: \in_1 = 1'1
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_9
+Import def constraint for this timestep: \in_13
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_8
+Imported 1156 cells to SAT database.
+No constraints for initial state found.
+
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_9
+Import def constraint for this timestep: \in_13
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_8
+Imported 1156 cells to SAT database.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_9
+Import def constraint for this timestep: \in_13
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_8
+Imported 1156 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+
+** Trying induction with length 1 **
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_9
+Import def constraint for this timestep: \in_13
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_8
+Imported 1156 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_13
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \in_4
+Import show expression: \in_6
+Import show expression: \in_7
+Import show expression: \in_8
+Import show expression: \in_9
+Import show expression: \mismatch
+
+[base case 1] Solving problem with 77181 variables and 207039 clauses..
+SAT temporal induction proof finished - model found for base case: FAIL!
+
+   ______                   ___       ___       _ _            _ _ 
+  (_____ \                 / __)     / __)     (_) |          | | |
+   _____) )___ ___   ___ _| |__    _| |__ _____ _| | _____  __| | |
+  |  ____/ ___) _ \ / _ (_   __)  (_   __|____ | | || ___ |/ _  |_|
+  | |   | |  | |_| | |_| || |       | |  / ___ | | || ____( (_| |_ 
+  |_|   |_|   \___/ \___/ |_|       |_|  \_____|_|\_)_____)\____|_|
+
+
+  Time Signal Name                                         Dec       Hex                                 Bin
+  ---- ------------------------------------------- ----------- --------- -----------------------------------
+  init \cand._575_.IQ                                        0         0                                   0
+  init \cand._576_.IQ                                        0         0                                   0
+  init \cand._577_.IQ                                        0         0                                   0
+  init \cand._578_.IQ                                        0         0                                   0
+  init \cand._579_.IQ                                        0         0                                   0
+  init \cand._580_.IQ                                        0         0                                   0
+  init \cand._581_.IQ                                        0         0                                   0
+  init \cand._582_.IQ                                        0         0                                   0
+  init \cand._583_.IQ                                        0         0                                   0
+  init \cand._584_.IQ                                        0         0                                   0
+  init \cand._585_.IQ                                        0         0                                   0
+  init \cand._586_.IQ                                        0         0                                   0
+  init \cand._587_.IQ                                        0         0                                   0
+  init \cand._588_.IQ                                        0         0                                   0
+  init \cand._589_.IQ                                        0         0                                   0
+  init \cand._590_.IQ                                        0         0                                   0
+  init \cand._591_.IQ                                        0         0                                   0
+  init \cand._592_.IQ                                        0         0                                   0
+  init \cand._593_.IQ                                        0         0                                   0
+  init \cand._594_.IQ                                        0         0                                   0
+  init \cand._595_.IQ                                        0         0                                   0
+  init \cand._596_.IQ                                        0         0                                   0
+  init \cand._597_.IQ                                        0         0                                   0
+  init \cand._598_.IQ                                        0         0                                   0
+  init \cand._599_.IQ                                        0         0                                   0
+  init \cand._600_.IQ                                        0         0                                   0
+  init \cand._601_.IQ                                        0         0                                   0
+  init \cand._602_.IQ                                        0         0                                   0
+  init \cand._603_.IQ                                        0         0                                   0
+  init \cand._604_.IQ                                        0         0                                   0
+  init \cand._605_.IQ                                        0         0                                   0
+  init \cand._606_.IQ                                        0         0                                   0
+  init \cand._607_.IQ                                        0         0                                   0
+  init \cand._608_.IQ                                        0         0                                   0
+  init \cand._609_.IQ                                        0         0                                   0
+  init \cand._610_.IQ                                        0         0                                   0
+  init \cand._611_.IQ                                        1         1                                   1
+  init \cand._612_.IQ                                        1         1                                   1
+  init \cand._613_.IQ                                        1         1                                   1
+  init \cand._614_.IQ                                        1         1                                   1
+  init \cand._615_.IQ                                        1         1                                   1
+  init \cand._616_.IQ                                        0         0                                   0
+  init \cand._617_.IQ                                        0         0                                   0
+  init \cand._618_.IQ                                        0         0                                   0
+  init \cand._619_.IQ                                        0         0                                   0
+  init \cand._620_.IQ                                        0         0                                   0
+  init \cand._621_.IQ                                        0         0                                   0
+  init \cand._622_.IQ                                        0         0                                   0
+  init \cand._623_.IQ                                        0         0                                   0
+  init \cand._624_.IQ                                        0         0                                   0
+  init \cand._625_.IQ                                        0         0                                   0
+  init \cand._626_.IQ                                        1         1                                   1
+  init \cand._627_.IQ                                        0         0                                   0
+  init \gold.genblk1.upsize.m_axis_tdata_reg                 0         0    00000000000000000000000000000000
+  init \gold.genblk1.upsize.m_axis_tkeep_reg                 0         0                                0000
+  init \gold.genblk1.upsize.m_axis_tlast_reg                 1         1                                   1
+  init \gold.genblk1.upsize.m_axis_tuser_reg                 0         0                                   0
+  init \gold.genblk1.upsize.m_axis_tvalid_reg                0         0                                   0
+  init \gold.genblk1.upsize.s_axis_tdata_reg                 0         0                            00000000
+  init \gold.genblk1.upsize.s_axis_tkeep_reg                 0         0                                   0
+  init \gold.genblk1.upsize.s_axis_tlast_reg                 1         1                                   1
+  init \gold.genblk1.upsize.s_axis_tuser_reg                 0         0                                   0
+  init \gold.genblk1.upsize.s_axis_tvalid_reg                0         0                                   0
+  init \gold.genblk1.upsize.seg_reg                          2         2                                  10
+  ---- ------------------------------------------- ----------- --------- -----------------------------------
+     1 \in_0                                                 0         0                                   0
+     1 \in_1                                                 1         1                                   1
+     1 \in_13                                                0         0                                   0
+     1 \in_2                                                64        40                            01000000
+     1 \in_3                                                 0         0                                   0
+     1 \in_4                                                 0         0                                   0
+     1 \in_6                                                 1         1                                   1
+     1 \in_7                                                 0         0                            00000000
+     1 \in_8                                                 0         0                            00000000
+     1 \in_9                                                 0         0                                   0
+     1 \mismatch                                             1         1                                   1
+  ---- ------------------------------------------- ----------- --------- -----------------------------------
+     2 \in_0                                                 0         0                                   0
+     2 \in_1                                                 0         0                                   0
+     2 \in_13                                                1         1                                   1
+     2 \in_2                                               255        ff                            11111111
+     2 \in_3                                                 0         0                                   0
+     2 \in_4                                                 1         1                                   1
+     2 \in_6                                                 1         1                                   1
+     2 \in_7                                                 0         0                            00000000
+     2 \in_8                                                 0         0                            00000000
+     2 \in_9                                                 0         0                                   0
+     2 \mismatch                                             0         0                                   0
+  ---- ------------------------------------------- ----------- --------- -----------------------------------
+     3 \in_0                                                 0         0                                   0
+     3 \in_1                                                 1         1                                   1
+     3 \in_13                                                1         1                                   1
+     3 \in_2                                               255        ff                            11111111
+     3 \in_3                                                 0         0                                   0
+     3 \in_4                                                 1         1                                   1
+     3 \in_6                                                 1         1                                   1
+     3 \in_7                                                 0         0                            00000000
+     3 \in_8                                                 0         0                            00000000
+     3 \in_9                                                 0         0                                   0
+     3 \mismatch                                             1         1                                   1
+Dumping SAT model to VCD file D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/wrong_keep/counterexample.vcd
+
+ERROR: Called with -verify and proof did fail!

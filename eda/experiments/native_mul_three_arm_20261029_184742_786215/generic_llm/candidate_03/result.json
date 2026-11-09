@@ -1,0 +1,43 @@
+{
+  "arm": "generic_llm",
+  "candidate_id": "candidate_03",
+  "prompt_sha256": "b9b8c67094eba0872805e4675a7fd223d230fd45a06e9463be0bb9dcc31adbbb",
+  "requested_model": "deepseek-v4-pro",
+  "temperature": 0.2,
+  "status": "FAILED_EVALUATION",
+  "candidate_sha256": "84d98f32a85e39adb0782d3a1c1be104b9d79bb678d21509ccf97de0e2d6ae0b",
+  "formal_status": "ERROR",
+  "ppa_status": "NOT_RUN",
+  "response_model_id": "deepseek-v4-pro",
+  "generation_parameters": {
+    "requested_model": "deepseek-v4-pro",
+    "temperature": 0.2,
+    "response_format": "json_object",
+    "candidate_index": 3,
+    "usage": {
+      "prompt_tokens": 566,
+      "completion_tokens": 15582,
+      "total_tokens": 16148
+    }
+  },
+  "explanation": {
+    "expected_timing_gain": "Approximately 2x to 3x reduction in combinational delay. The critical path changes from about 7 full-adder carry propagation delays to about 4 compressor stages (each ~2 logic levels for XOR and majority gates) plus one final adder (e.g., carry-lookahead), resulting in roughly 40-60% shorter delay.",
+    "bottleneck": "The original design uses a linear chain of seven 16-bit carry-propagate adders to accumulate partial products. This creates a long combinational path where each adder's carry must propagate before the next addition can start, leading to high delay proportional to the number of rows.",
+    "functional_boundaries": "Preserves module name mul_subexpression, 8-bit unsigned inputs multiplicand and multiplier, 16-bit unsigned output product, and exact product value for all 2^16 input combinations. No clocks, state, assumptions, don't-cares, or input restrictions are introduced. The design is purely combinational and fully synthesizable.",
+    "rewrite": "Replaced the linear accumulation with a Wallace tree using 3:2 carry-save compressors. The eight partial product rows are reduced in parallel through four compressor stages, each adding three rows into sum and carry (shifted) using XOR and majority logic, with no carry propagation until the final stage. A single final 16-bit adder combines the last two rows to produce the product.",
+    "area_or_other_cost": "Area may increase slightly due to the extra XOR and AND-OR logic in the carry-save compressors compared to the simple chain, but remains in the same order. The design uses six 16-bit 3:2 compressors (about 6 gates per bit each) plus a 16-bit adder, totaling roughly 600-700 gate equivalents, comparable to the baseline's 64 AND gates and seven 16-bit adders (~500-700 gates). Power is expected to be similar or lower due to reduced glitching."
+  },
+  "generation_runtime_seconds": 186.206,
+  "evaluation_runtime_seconds": 0.527,
+  "metrics": {
+    "status": "FAILED",
+    "formal": "ERROR",
+    "ppa": "NOT_RUN",
+    "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\native_mul_three_arm_20261029_184742_786215\\generic_llm\\candidate_03\\evaluation\\eda",
+    "protocol_sha256": "fdc4fc555d830daf70d345411d873b66a96a091cfb5285ec18bb8050ff82b0fa",
+    "stage": "formal",
+    "failure_reason": "RuntimeError: Tool exit 1; see formal.log",
+    "elapsed_seconds": 0.393
+  },
+  "failure_reason": "Experiment: D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\native_mul_three_arm_20261029_184742_786215\\generic_llm\\candidate_03\\evaluation\\eda\n{\n  \"status\": \"FAILED\",\n  \"formal\": \"ERROR\",\n  \"ppa\": \"NOT_RUN\",\n  \"out\": \"D:\\\\verilog_lab\\\\PipeWeaver\\\\eda\\\\experiments\\\\native_mul_three_arm_20261029_184742_786215\\\\generic_llm\\\\candidate_03\\\\evaluation\\\\eda\",\n  \"protocol_sha256\": \"fdc4fc555d830daf70d345411d873b66a96a091cfb5285ec18bb8050ff82b0fa\",\n  \"stage\": \"formal\",\n  \"failure_reason\": \"RuntimeError: Tool exit 1; see formal.log\",\n  \"elapsed_seconds\": 0.393\n}\n"
+}

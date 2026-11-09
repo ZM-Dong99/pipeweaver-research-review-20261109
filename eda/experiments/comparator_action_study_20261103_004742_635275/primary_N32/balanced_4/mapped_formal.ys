@@ -1,0 +1,19 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/inputs/original.v"
+chparam -set N 32 comparator
+hierarchy -check -top comparator
+flatten
+rename comparator pw_gold
+design -stash pw_gold_design
+read_liberty -ignore_miss_func -ignore_miss_dir "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/primary_N32/balanced_4/mapped.v"
+hierarchy -check -top comparator
+flatten
+delete t:$scopeinfo
+rename comparator pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/primary_N32/balanced_4/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 120

@@ -1,0 +1,18 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/addr128.v"
+chparam -set base 128 addr_calcu
+hierarchy -check -top addr_calcu
+flatten
+rename addr_calcu pw_gold
+design -stash pw_gold_design
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/exports/addr128/no_sta.v"
+chparam -set base 128 addr_calcu
+hierarchy -check -top addr_calcu
+flatten
+rename addr_calcu pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/independent_reproduction/addr128_7aeb09aa90c2abdafaaaf9a32a716dd4e56f107de36c427da61c6cb189ccbbd2/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 120

@@ -1,0 +1,715 @@
+{
+  "creator": "Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+  "modules": {
+    "ticket_machine": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:2.1-135.10"
+      },
+      "parameter_default_values": {
+        "OFF": "0",
+        "ON": "1"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "clear": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "ten": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "twenty": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "ready": {
+          "direction": "output",
+          "bits": [ 6 ]
+        },
+        "dispense": {
+          "direction": "output",
+          "bits": [ 7 ]
+        },
+        "return_sig": {
+          "direction": "output",
+          "bits": [ 8 ]
+        },
+        "bill": {
+          "direction": "output",
+          "bits": [ 9 ]
+        }
+      },
+      "cells": {
+        "$auto$ff.cc:337:slice$132": {
+          "hide_name": 1,
+          "type": "$sdff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "SRST_POLARITY": "00000000000000000000000000000001",
+            "SRST_VALUE": "000001",
+            "WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:21.5-26.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "SRST": "input"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 10, 11, 12, 13, 14, 15 ],
+            "Q": [ 16, 17, 18, 19, 20, 21 ],
+            "SRST": [ 3 ]
+          }
+        },
+        "$auto$opt_reduce.cc:131:opt_pmux$130": {
+          "hide_name": 1,
+          "type": "$reduce_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 22, 23, 24 ],
+            "Y": [ 25 ]
+          }
+        },
+        "$procmux$104": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:43.16-43.16|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:30.9-79.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 26 ],
+            "Y": [ 8 ]
+          }
+        },
+        "$procmux$105_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:43.16-43.16|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:30.9-79.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 16, 17, 18, 19, 20, 21 ],
+            "B": [ "0", "0", "1", "0", "0", "0" ],
+            "Y": [ 26 ]
+          }
+        },
+        "$procmux$111": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:36.16-36.16|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:30.9-79.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 27 ],
+            "Y": [ 7 ]
+          }
+        },
+        "$procmux$112_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:36.16-36.16|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:30.9-79.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 16, 17, 18, 19, 20, 21 ],
+            "B": [ "0", "1", "0", "0", "0", "0" ],
+            "Y": [ 27 ]
+          }
+        },
+        "$procmux$114": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:64.16-64.16|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:30.9-79.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 25 ],
+            "Y": [ 9 ]
+          }
+        },
+        "$procmux$115_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:64.16-64.16|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:30.9-79.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 16, 17, 18, 19, 20, 21 ],
+            "B": [ "0", "0", "0", "0", "0", "1" ],
+            "Y": [ 22 ]
+          }
+        },
+        "$procmux$116_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:57.16-57.16|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:30.9-79.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 16, 17, 18, 19, 20, 21 ],
+            "B": [ "0", "0", "0", "0", "1", "0" ],
+            "Y": [ 23 ]
+          }
+        },
+        "$procmux$117_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:50.16-50.16|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:30.9-79.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 16, 17, 18, 19, 20, 21 ],
+            "B": [ "0", "0", "0", "1", "0", "0" ],
+            "Y": [ 24 ]
+          }
+        },
+        "$procmux$124": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:30.21-30.21|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:30.9-79.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 28 ],
+            "Y": [ 6 ]
+          }
+        },
+        "$procmux$125_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000110",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000110",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:30.21-30.21|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:30.9-79.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 16, 17, 18, 19, 20, 21 ],
+            "B": [ "1", "0", "0", "0", "0", "0" ],
+            "Y": [ 28 ]
+          }
+        },
+        "$procmux$19": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:113.21-113.24|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:113.17-118.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 29, 30, 31, 32, 33, 34 ],
+            "B": [ "0", "1", "0", "0", "0", "0" ],
+            "S": [ 4 ],
+            "Y": [ 35, 36, 37, 38, 39, 40 ]
+          }
+        },
+        "$procmux$28": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:106.26-106.32|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:106.22-109.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "1", "0" ],
+            "B": [ "0", "1", "0", "0", "0", "0" ],
+            "S": [ 5 ],
+            "Y": [ 41, 42, 43, 44, 45, 46 ]
+          }
+        },
+        "$procmux$40": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:104.21-104.24|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:104.17-109.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 41, 42, 43, 44, 45, 46 ],
+            "B": [ "0", "0", "0", "0", "0", "1" ],
+            "S": [ 4 ],
+            "Y": [ 47, 48, 49, 50, 51, 52 ]
+          }
+        },
+        "$procmux$50": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:97.26-97.32|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:97.22-100.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "1", "0", "0" ],
+            "B": [ "0", "0", "0", "0", "0", "1" ],
+            "S": [ 5 ],
+            "Y": [ 53, 54, 55, 56, 57, 58 ]
+          }
+        },
+        "$procmux$63": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:95.21-95.24|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:95.17-100.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 53, 54, 55, 56, 57, 58 ],
+            "B": [ "0", "0", "0", "0", "1", "0" ],
+            "S": [ 4 ],
+            "Y": [ 59, 60, 61, 62, 63, 64 ]
+          }
+        },
+        "$procmux$74": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:88.26-88.32|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:88.22-91.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "0", "0", "0", "0", "0" ],
+            "B": [ "0", "0", "0", "0", "1", "0" ],
+            "S": [ 5 ],
+            "Y": [ 65, 66, 67, 68, 69, 70 ]
+          }
+        },
+        "$procmux$8": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:115.26-115.32|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:115.22-118.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "1" ],
+            "B": [ "0", "0", "1", "0", "0", "0" ],
+            "S": [ 5 ],
+            "Y": [ 29, 30, 31, 32, 33, 34 ]
+          }
+        },
+        "$procmux$88": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:86.21-86.24|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:86.17-91.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 65, 66, 67, 68, 69, 70 ],
+            "B": [ "0", "0", "0", "1", "0", "0" ],
+            "S": [ 4 ],
+            "Y": [ 71, 72, 73, 74, 75, 76 ]
+          }
+        },
+        "$procmux$95": {
+          "hide_name": 1,
+          "type": "$pmux",
+          "parameters": {
+            "S_WIDTH": "00000000000000000000000000000100",
+            "WIDTH": "00000000000000000000000000000110"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:110.16-110.16|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:84.9-132.16"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "0", "0", "0", "0", "0" ],
+            "B": [ 35, 36, 37, 38, 39, 40, 47, 48, 49, 50, 51, 52, 59, 60, 61, 62, 63, 64, 71, 72, 73, 74, 75, 76 ],
+            "S": [ 22, 23, 24, 28 ],
+            "Y": [ 10, 11, 12, 13, 14, 15 ]
+          }
+        }
+      },
+      "netnames": {
+        "$2\\NextState[5:0]": {
+          "hide_name": 1,
+          "bits": [ 71, 72, 73, 74, 75, 76 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:83.5-133.8"
+          }
+        },
+        "$3\\NextState[5:0]": {
+          "hide_name": 1,
+          "bits": [ 65, 66, 67, 68, 69, 70 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:83.5-133.8"
+          }
+        },
+        "$4\\NextState[5:0]": {
+          "hide_name": 1,
+          "bits": [ 59, 60, 61, 62, 63, 64 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:83.5-133.8"
+          }
+        },
+        "$5\\NextState[5:0]": {
+          "hide_name": 1,
+          "bits": [ 53, 54, 55, 56, 57, 58 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:83.5-133.8"
+          }
+        },
+        "$6\\NextState[5:0]": {
+          "hide_name": 1,
+          "bits": [ 47, 48, 49, 50, 51, 52 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:83.5-133.8"
+          }
+        },
+        "$7\\NextState[5:0]": {
+          "hide_name": 1,
+          "bits": [ 41, 42, 43, 44, 45, 46 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:83.5-133.8"
+          }
+        },
+        "$8\\NextState[5:0]": {
+          "hide_name": 1,
+          "bits": [ 35, 36, 37, 38, 39, 40 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:83.5-133.8"
+          }
+        },
+        "$9\\NextState[5:0]": {
+          "hide_name": 1,
+          "bits": [ 29, 30, 31, 32, 33, 34 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:83.5-133.8"
+          }
+        },
+        "$auto$opt_reduce.cc:137:opt_pmux$131": {
+          "hide_name": 1,
+          "bits": [ 25 ],
+          "attributes": {
+          }
+        },
+        "$procmux$105_CMP": {
+          "hide_name": 1,
+          "bits": [ 26 ],
+          "attributes": {
+          }
+        },
+        "$procmux$112_CMP": {
+          "hide_name": 1,
+          "bits": [ 27 ],
+          "attributes": {
+          }
+        },
+        "$procmux$115_CMP": {
+          "hide_name": 1,
+          "bits": [ 22 ],
+          "attributes": {
+          }
+        },
+        "$procmux$116_CMP": {
+          "hide_name": 1,
+          "bits": [ 23 ],
+          "attributes": {
+          }
+        },
+        "$procmux$117_CMP": {
+          "hide_name": 1,
+          "bits": [ 24 ],
+          "attributes": {
+          }
+        },
+        "$procmux$125_CMP": {
+          "hide_name": 1,
+          "bits": [ 28 ],
+          "attributes": {
+          }
+        },
+        "NextState": {
+          "hide_name": 0,
+          "bits": [ 10, 11, 12, 13, 14, 15 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:18.22-18.31"
+          }
+        },
+        "State": {
+          "hide_name": 0,
+          "bits": [ 16, 17, 18, 19, 20, 21 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:18.15-18.20"
+          }
+        },
+        "bill": {
+          "hide_name": 0,
+          "bits": [ 9 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:7.45-7.49"
+          }
+        },
+        "clear": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:6.17-6.22"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:6.12-6.15"
+          }
+        },
+        "dispense": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:7.23-7.31"
+          }
+        },
+        "ready": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:7.16-7.21"
+          }
+        },
+        "return_sig": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:7.33-7.43"
+          }
+        },
+        "ten": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:6.24-6.27"
+          }
+        },
+        "twenty": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/ticket_machine/ticket_machine.v:6.29-6.35"
+          }
+        }
+      }
+    }
+  }
+}

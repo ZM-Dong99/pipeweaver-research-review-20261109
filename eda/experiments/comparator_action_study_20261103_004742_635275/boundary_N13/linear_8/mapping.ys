@@ -1,0 +1,13 @@
+read_liberty -lib "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+read_verilog -sv "D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/candidates/linear_8.v"
+chparam -set N 13 comparator
+hierarchy -check -top comparator
+flatten
+delete t:$scopeinfo
+synth -top comparator -noabc
+abc -script "D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/boundary_N13/linear_8/abc.script" -liberty "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" -constr "D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/boundary_N13/linear_8/abc.constr" -dont_use sky130_fd_sc_hd__lpflow_*
+clean
+check -assert
+stat -liberty "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/boundary_N13/linear_8/mapped.json"
+write_verilog -noattr "D:/verilog_lab/PipeWeaver/eda/experiments/comparator_action_study_20261103_004742_635275/boundary_N13/linear_8/mapped.v"

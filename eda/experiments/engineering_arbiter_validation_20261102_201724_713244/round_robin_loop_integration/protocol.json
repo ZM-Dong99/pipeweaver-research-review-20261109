@@ -1,0 +1,62 @@
+{
+  "mode": "manual_replay",
+  "contract": {
+    "top": "arbiter",
+    "clock": "clk",
+    "reset": "rst",
+    "reset_active": 1,
+    "parameter_overrides": {
+      "ARB_BLOCK": 1,
+      "ARB_BLOCK_ACK": 1,
+      "ARB_TYPE_ROUND_ROBIN": 1,
+      "PORTS": 32
+    },
+    "fixed_dependencies": [
+      {
+        "name": "dependency_001.v",
+        "sha256": "df28220d95b47df349a72803a9751aad331eb8e1435416e8686d00572a974dd5"
+      }
+    ],
+    "reset_cycles": 1,
+    "warmup_samples": 1,
+    "period_ns": 10,
+    "reset_after_startup": "unconstrained",
+    "preserve_output_latency": true,
+    "input_delay_ns": 0,
+    "output_delay_ns": 0,
+    "input_transition_ns": 0.1,
+    "output_load_pf": 0.01,
+    "library_sha256": "92eb4e93a3d4c2563018ac81cdec2f02fdeaced9b39337ed5c141fa63e0ad8f8",
+    "scope": "Edge sampled only; no asynchronous reset, hold, parasitics or power signoff"
+  },
+  "original_sha256": "d54d337db4812f927b2e9b5788dfa39f9bd578ad01b7846c5fa7f2610b0923fa",
+  "inputs": [
+    {
+      "path": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\engineering_arbiter_validation_20261102_201724_713244\\round_robin_loop_integration\\inputs\\original.v",
+      "sha256": "d54d337db4812f927b2e9b5788dfa39f9bd578ad01b7846c5fa7f2610b0923fa"
+    },
+    {
+      "path": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\engineering_arbiter_validation_20261102_201724_713244\\round_robin_loop_integration\\inputs\\manual_001.v",
+      "sha256": "b937296af93dbe4a7fbe6f3a510161aca698b7d4b0260822c6bda0e173063515"
+    },
+    {
+      "path": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\engineering_arbiter_validation_20261102_201724_713244\\round_robin_loop_integration\\inputs\\dependency_001.v",
+      "sha256": "df28220d95b47df349a72803a9751aad331eb8e1435416e8686d00572a974dd5"
+    }
+  ],
+  "dependencies": {
+    "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\run_native_seq.py": "00bf18a23d2f09210372691111ddbae8413dcd5b087fe519f5073a435184f955",
+    "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\run_native_comb.py": "38f0f10f08e7bb752010c2985fc8a1b31f48e08c4891b318d2b1f5a6992c09ff",
+    "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\trace_sta_rtl_cone.py": "047c3b739a00bcba19d470ea3d043ef5a872dd0ded0f0ee41dc22ea3e41b920d",
+    "D:\\verilog_lab\\PipeWeaver\\agents\\sequential_loop.py": "309c143ffb1df058aa2aabc3d9550283274ec7a0f6bed5f7b040422bc0d882c9",
+    "D:\\verilog_lab\\PipeWeaver\\agents\\rtl_optimizer.py": "576a055c1f5e8498a014833cb7f8bb01de08a56e6f3fcd53c568dcaaf4a3e12e",
+    "D:\\verilog_lab\\PipeWeaver\\agents\\optimization_loop.py": "711f807fad46f15a45958992aa5507d9a554d91611b5c619762da2d1f3be93d1"
+  },
+  "area_limit": 1.1,
+  "timeout_per_tool_seconds": 120,
+  "llm_timeout": 120,
+  "requested_model": null,
+  "request_budget": 0,
+  "candidate_budget": 1,
+  "selection": "Strict WNS gain, TNS no worse, fixed original area ratio; preserve baseline when no candidate improves"
+}

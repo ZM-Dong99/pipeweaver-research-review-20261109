@@ -1,0 +1,1 @@
+module tb;reg[7:0]data_in;reg[31:0]state_in;wire[7:0]data_out;wire[31:0]state_out;crc32_d8 dut(.data_in(data_in),.state_in(state_in),.data_out(data_out),.state_out(state_out));initial begin data_in=8'h00;state_in=32'h0000008e;#1;$display("RESULT %08x %02x",state_out,data_out);$finish;end endmodule

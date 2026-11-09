@@ -1,0 +1,24 @@
+module pw_miter(in_0,in_1,in_2,in_3,in_4,in_6,in_7,in_8,in_9,in_13,mismatch);
+input [0:0] in_0;
+input [0:0] in_1;
+input [31:0] in_2;
+input [3:0] in_3;
+input [0:0] in_4;
+wire [0:0] g_5, c_5;
+input [0:0] in_6;
+input [7:0] in_7;
+input [7:0] in_8;
+input [0:0] in_9;
+wire [31:0] g_10, c_10;
+wire [3:0] g_11, c_11;
+wire [0:0] g_12, c_12;
+input [0:0] in_13;
+wire [0:0] g_14, c_14;
+wire [7:0] g_15, c_15;
+wire [7:0] g_16, c_16;
+wire [0:0] g_17, c_17;
+output mismatch;
+pw_gold gold(.clk(in_0),.rst(in_1),.s_axis_tdata(in_2),.s_axis_tkeep(in_3),.s_axis_tvalid(in_4),.s_axis_tready(g_5),.s_axis_tlast(in_6),.s_axis_tid(in_7),.s_axis_tdest(in_8),.s_axis_tuser(in_9),.m_axis_tdata(g_10),.m_axis_tkeep(g_11),.m_axis_tvalid(g_12),.m_axis_tready(in_13),.m_axis_tlast(g_14),.m_axis_tid(g_15),.m_axis_tdest(g_16),.m_axis_tuser(g_17));
+pw_cand cand(.clk(in_0),.rst(in_1),.s_axis_tdata(in_2),.s_axis_tkeep(in_3),.s_axis_tvalid(in_4),.s_axis_tready(c_5),.s_axis_tlast(in_6),.s_axis_tid(in_7),.s_axis_tdest(in_8),.s_axis_tuser(in_9),.m_axis_tdata(c_10),.m_axis_tkeep(c_11),.m_axis_tvalid(c_12),.m_axis_tready(in_13),.m_axis_tlast(c_14),.m_axis_tid(c_15),.m_axis_tdest(c_16),.m_axis_tuser(c_17));
+assign mismatch = ((1'b1) && (g_5 != c_5)) | ((1'b1) && (g_10 != c_10)) | ((1'b1) && (g_11 != c_11)) | ((1'b1) && (g_12 != c_12)) | ((1'b1) && (g_14 != c_14)) | ((1'b1) && (g_15 != c_15)) | ((1'b1) && (g_16 != c_16)) | ((1'b1) && (g_17 != c_17));
+endmodule

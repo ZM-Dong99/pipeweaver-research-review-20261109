@@ -1,0 +1,29 @@
+{
+  "id": "chatcmpl-bfe97fa1-237a-4e27-9991-957c5f026208",
+  "object": "chat.completion",
+  "created": 1793634740,
+  "model": "gpt-6.1-sol",
+  "usage": {
+    "prompt_tokens": 1491,
+    "completion_tokens": 1126,
+    "total_tokens": 2909,
+    "completion_tokens_details": {
+      "reasoning_tokens": 292
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  },
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Drafting one-hot reset-enable equations**\n\n**Drafting one-hot state equations**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module ticket_machine #(\\n    parameter ON  = 1'b1,\\n    parameter OFF = 1'b0\\n) (\\n    input  clk, clear, ten, twenty,\\n    output reg ready, dispense, return_sig, bill\\n);\\n\\n    reg s_ready, s_disp, s_return;\\n    reg s_bill10, s_bill20, s_bill30;\\n\\n    wire take_ten;\\n    wire take_twenty;\\n    wire idle;\\n\\n    assign take_ten    = ten;\\n    assign take_twenty = twenty & ~ten;\\n    assign idle        = ~(ten | twenty);\\n\\n    always @(posedge clk) begin\\n        if (clear) begin\\n            s_ready  <= 1'b1;\\n            s_disp   <= 1'b0;\\n            s_return <= 1'b0;\\n            s_bill10 <= 1'b0;\\n            s_bill20 <= 1'b0;\\n            s_bill30 <= 1'b0;\\n        end else begin\\n            s_ready <= s_disp | s_return | (s_ready & idle);\\n\\n            s_disp <= (s_bill20 & take_twenty)\\n                    | (s_bill30 & take_ten);\\n\\n            s_return <= s_bill30 & take_twenty;\\n\\n            s_bill10 <= (s_ready & take_ten)\\n                      | (s_bill10 & idle);\\n\\n            s_bill20 <= (s_ready & take_twenty)\\n                      | (s_bill10 & take_ten)\\n                      | (s_bill20 & idle);\\n\\n            s_bill30 <= (s_bill10 & take_twenty)\\n                      | (s_bill20 & take_ten)\\n                      | (s_bill30 & idle);\\n        end\\n    end\\n\\n    always @* begin\\n        ready      = s_ready  ? ON : OFF;\\n        dispense   = s_disp   ? ON : OFF;\\n        return_sig = s_return ? ON : OFF;\\n        bill       = (s_bill10 | s_bill20 | s_bill30) ? ON : OFF;\\n    end\\n\\nendmodule\",\n  \"bottleneck\": \"The source expresses both transitions and outputs through full-vector state comparisons and priority branches. Depending on FSM extraction and mapping, these can introduce state decoding and multiplexing on register-to-register paths. No timing report was supplied, so the actual critical path is not established.\",\n  \"rewrite\": \"Express the six reachable states as explicit one-hot registers with shallow sum-of-products transition equations. Share mutually exclusive input conditions, including twenty qualified by not-ten, and derive outputs directly from state bits. Retain the synchronous active-high reset and the original parameter declarations.\",\n  \"expected_timing_gain\": \"The rewrite targets reduced state-decode and next-state mux depth, with possible additional improvement in state-to-output timing. Strict WNS improvement and non-regressing TNS remain unverified; synthesis and STA at the fixed settings are required. An already optimized baseline FSM may map similarly.\",\n  \"area_or_other_cost\": \"Uses six state flip-flops, shared input qualification, and small transition networks. Explicit one-hot logic may reduce decoding overhead, but mapped area and reset fanout costs require measurement. Acceptance requires mapped area at or below 278.01664000000005 um2.\",\n  \"functional_boundaries\": \"After the specified startup reset, exactly one state bit remains set for every input sequence. The equations preserve all six source transitions, ten priority when ten and twenty are both asserted, idle behavior, and unconditional return to ready after dispense or return. Arbitrary later clear assertions synchronously restore ready without changing output latency. No startup assumptions are added. Illegal-state recovery before a valid reset is not preserved; equivalence is scoped to the supplied reset-started contract and default ON=1, OFF=0. Formal equivalence remains required.\"\n}"
+      }
+    }
+  ],
+  "audit_scope": "Provider envelope and visible message content; reasoning fields omitted."
+}

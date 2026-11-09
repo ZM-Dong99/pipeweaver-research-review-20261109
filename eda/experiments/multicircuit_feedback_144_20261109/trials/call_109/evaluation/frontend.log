@@ -1,0 +1,31 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\multicircuit_feedback_144_20261109\trials\call_109\evaluation\frontend.ys' --
+
+1. Executing SLANG frontend.
+Top level design units:
+    crc32_d8
+
+  in 32 instances, e.g. crc32_d8.core.state_bits[31].u
+candidate.v:116:31: error: reference to non-constant variable 'mask' is not allowed in a constant expression
+            crc_xor40 #(.MASK(mask)) u (.data_in(data_in), .state_in(state_in), .out(state_out[n]));
+                              ^~~~
+candidate.v:115:25: note: declared here
+            wire [39:0] mask = lfsr_mask(n);
+                        ^
+  in 8 instances, e.g. crc32_d8.core.data_bits[7].u
+candidate.v:120:31: error: reference to non-constant variable 'mask' is not allowed in a constant expression
+            crc_xor40 #(.MASK(mask)) u (.data_in(data_in), .state_in(state_in), .out(data_out[n]));
+                              ^~~~
+candidate.v:119:25: note: declared here
+            wire [39:0] mask = lfsr_mask(n + LFSR_WIDTH);
+                        ^
+
+Build failed: 2 errors, 0 warnings
+ERROR: Design elaboration failed; see full log for details

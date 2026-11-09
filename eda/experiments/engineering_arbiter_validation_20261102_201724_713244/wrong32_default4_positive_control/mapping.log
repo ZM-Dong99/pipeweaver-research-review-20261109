@@ -1,0 +1,934 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\engineering_arbiter_validation_20261102_201724_713244\wrong32_default4_positive_control\mapping.ys' --
+
+1. Executing Liberty frontend: D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v' to AST representation.
+Generating RTLIL representation for module `\priority_encoder'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v' to AST representation.
+Generating RTLIL representation for module `\arbiter'.
+Successfully finished Verilog frontend.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     \priority_encoder
+Parameter \WIDTH = 4
+Parameter \LSB_HIGH_PRIORITY = 0
+
+4.2. Executing AST frontend in derive mode using pre-parsed AST for module `\priority_encoder'.
+Parameter \WIDTH = 4
+Parameter \LSB_HIGH_PRIORITY = 0
+Generating RTLIL representation for module `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder'.
+Parameter \WIDTH = 4
+Parameter \LSB_HIGH_PRIORITY = 0
+Found cached RTLIL representation for module `$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder'.
+
+4.3. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder
+
+4.4. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder
+Removing unused module `\priority_encoder'.
+Removed 1 unused modules.
+
+5. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\priority_encoder.
+<suppressed ~2 debug messages>
+
+6. Executing SYNTH pass.
+
+6.1. Executing HIERARCHY pass (managing design hierarchy).
+
+6.1.1. Analyzing design hierarchy..
+Top module:  \arbiter
+
+6.1.2. Analyzing design hierarchy..
+Top module:  \arbiter
+Removed 0 unused modules.
+
+6.2. Executing PROC pass (convert processes to netlists).
+
+6.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$14'.
+Cleaned up 1 empty switch.
+
+6.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$14 in module arbiter.
+Removed a total of 0 dead cases.
+
+6.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 20 assignments to connections.
+
+6.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:83$25'.
+  Set init value: \mask_reg = 4'0000
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:62$24'.
+  Set init value: \grant_encoded_reg = 2'00
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:61$23'.
+  Set init value: \grant_valid_reg = 1'0
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:60$22'.
+  Set init value: \grant_reg = 4'0000
+
+6.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+6.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~4 debug messages>
+
+6.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$27'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$29'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$30'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$32'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$33'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$35'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$27'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$29'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$30'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$32'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$33'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$35'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:83$25'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:62$24'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:61$23'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:60$22'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145$21'.
+     1/4: $0\mask_reg[3:0]
+     2/4: $0\grant_encoded_reg[1:0]
+     3/4: $0\grant_valid_reg[0:0]
+     4/4: $0\grant_reg[3:0]
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$14'.
+     1/12: $4\grant_encoded_next[1:0]
+     2/12: $4\grant_next[3:0]
+     3/12: $4\grant_valid_next[0:0]
+     4/12: $3\grant_encoded_next[1:0]
+     5/12: $3\grant_valid_next[0:0]
+     6/12: $3\grant_next[3:0]
+     7/12: $2\grant_encoded_next[1:0]
+     8/12: $2\grant_next[3:0]
+     9/12: $2\grant_valid_next[0:0]
+    10/12: $1\grant_encoded_next[1:0]
+    11/12: $1\grant_next[3:0]
+    12/12: $1\grant_valid_next[0:0]
+
+6.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [0]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$27'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [0]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$29'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [1]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$30'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [1]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$32'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[1] [0]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$33'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[1]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$35'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [0]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$27'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [0]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$29'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [1]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$30'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [1]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$32'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[1] [0]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$33'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[1]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$35'.
+No latch inferred for signal `\arbiter.\grant_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$14'.
+No latch inferred for signal `\arbiter.\grant_valid_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$14'.
+No latch inferred for signal `\arbiter.\grant_encoded_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$14'.
+No latch inferred for signal `\arbiter.\mask_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$14'.
+
+6.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\arbiter.\grant_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145$21'.
+  created $dff cell `$procdff$128' with positive edge clock.
+Creating register for signal `\arbiter.\grant_valid_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145$21'.
+  created $dff cell `$procdff$129' with positive edge clock.
+Creating register for signal `\arbiter.\grant_encoded_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145$21'.
+  created $dff cell `$procdff$130' with positive edge clock.
+Creating register for signal `\arbiter.\mask_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145$21'.
+  created $dff cell `$procdff$131' with positive edge clock.
+
+6.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$27'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$29'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$30'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$32'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$33'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$35'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$27'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$29'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$30'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69$32'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$33'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$35'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:83$25'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:62$24'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:61$23'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:60$22'.
+Found and cleaned up 1 empty switch in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145$21'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145$21'.
+Found and cleaned up 3 empty switches in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$14'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100$14'.
+Cleaned up 4 empty switches.
+
+6.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+<suppressed ~12 debug messages>
+
+6.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+6.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+Removed 10 unused cells and 109 unused wires.
+<suppressed ~25 debug messages>
+
+6.5. Executing CHECK pass (checking for obvious problems).
+Checking module arbiter...
+Found and reported 0 problems.
+
+6.6. Executing OPT pass (performing simple optimizations).
+
+6.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+6.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 31 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+6.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$72.
+    dead port 2/2 on $mux $procmux$66.
+    dead port 1/2 on $mux $procmux$63.
+    dead port 1/2 on $mux $procmux$111.
+    dead port 2/2 on $mux $procmux$57.
+    dead port 1/2 on $mux $procmux$54.
+    dead port 2/2 on $mux $procmux$48.
+    dead port 1/2 on $mux $procmux$117.
+    dead port 1/2 on $mux $procmux$90.
+    dead port 1/2 on $mux $procmux$105.
+    dead port 1/2 on $mux $procmux$99.
+    dead port 1/2 on $mux $procmux$81.
+Removed 12 multiplexer ports.
+<suppressed ~26 debug messages>
+
+6.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbiter.
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$34: \request
+  Optimizing cells in module \arbiter.
+Performed a total of 1 changes.
+
+6.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 19 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+6.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+Removed 1 unused cells and 12 unused wires.
+<suppressed ~2 debug messages>
+
+6.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+6.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~14 debug messages>
+
+6.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbiter.
+Performed a total of 0 changes.
+
+6.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 18 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+6.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+6.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+6.6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6.7. Executing FSM pass (extract and optimize FSM).
+
+6.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+6.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+6.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+6.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+6.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+6.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+6.8. Executing OPT pass (performing simple optimizations).
+
+6.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+6.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 18 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+6.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~14 debug messages>
+
+6.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbiter.
+Performed a total of 0 changes.
+
+6.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 18 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+6.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$130 ($dff) from module arbiter (D = \grant_encoded_next, Q = \grant_encoded_reg, rval = 2'00).
+Adding EN signal on $auto$ff.cc:337:slice$132 ($sdff) from module arbiter (D = $2\grant_encoded_next[1:0], Q = \grant_encoded_reg).
+Adding SRST signal on $procdff$129 ($dff) from module arbiter (D = \grant_valid_next, Q = \grant_valid_reg, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$134 ($sdff) from module arbiter (D = $2\grant_valid_next[0:0], Q = \grant_valid_reg).
+Adding SRST signal on $procdff$128 ($dff) from module arbiter (D = \grant_next, Q = \grant_reg, rval = 4'0000).
+Adding EN signal on $auto$ff.cc:337:slice$136 ($sdff) from module arbiter (D = $2\grant_next[3:0], Q = \grant_reg).
+
+6.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+Removed 6 unused cells and 6 unused wires.
+<suppressed ~10 debug messages>
+
+6.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+6.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+6.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbiter.
+Performed a total of 0 changes.
+
+6.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 12 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+6.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+6.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+6.8.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 30 bits (of 32) from port A of cell arbiter.$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:90$26 ($shl).
+Removed top 28 bits (of 32) from port Y of cell arbiter.$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:90$26 ($shl).
+
+6.10. Executing PEEPOPT pass (run peephole optimizers).
+
+6.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+6.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module arbiter:
+  created 0 $alu and 0 $macc cells.
+
+6.13. Executing SHARE pass (SAT-based resource sharing).
+
+6.14. Executing OPT pass (performing simple optimizations).
+
+6.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+6.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 12 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+6.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+6.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbiter.
+Performed a total of 0 changes.
+
+6.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 12 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+6.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+6.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+6.14.9. Finished fast OPT passes. (There is nothing left to do.)
+
+6.15. Executing MEMORY pass.
+
+6.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+6.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+6.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+6.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+6.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+6.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+6.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+6.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+6.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+6.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+6.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+6.17. Executing OPT pass (performing simple optimizations).
+
+6.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+<suppressed ~3 debug messages>
+
+6.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 11 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+6.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+6.17.5. Finished fast OPT passes.
+
+6.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+6.19. Executing OPT pass (performing simple optimizations).
+
+6.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+6.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 11 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+6.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+6.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbiter.
+Performed a total of 0 changes.
+
+6.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 11 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+6.19.6. Executing OPT_SHARE pass.
+
+6.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+6.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+6.19.10. Finished fast OPT passes. (There is nothing left to do.)
+
+6.20. Executing TECHMAP pass (map to technology primitives).
+
+6.20.1. Executing Verilog-2005 frontend: D:\oss-cad-suite\bin\../share/yosys/techmap.v
+Parsing Verilog input from `D:\oss-cad-suite\bin\../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+6.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $reduce_or.
+Using template $paramod$constmap:83302096bf6308e92f1df803059841db54edbd25$paramod$244b2c5d4fd64a2cf8f8849abfe8960b103dffcd\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
+No more expansions possible.
+<suppressed ~216 debug messages>
+
+6.21. Executing OPT pass (performing simple optimizations).
+
+6.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+<suppressed ~2 debug messages>
+
+6.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 30 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Computing hashes of 29 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+6.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+Removing always-active EN on $auto$ff.cc:337:slice$212 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$212 ($_SDFFE_PP0N_) from module arbiter (D = \priority_encoder_inst.output_encoded [0], Q = \grant_reg [3], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$215 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$215 ($_SDFFE_PP0N_) from module arbiter (D = \priority_encoder_inst.output_encoded [1], Q = \grant_encoded_reg [1], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$213 ($_SDFFE_PP0N_) from module arbiter.
+Removing always-active EN on $auto$ff.cc:337:slice$209 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$209 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:90$26.$1\buffer[3:0] [0], Q = \grant_reg [0], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$210 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$210 ($_SDFFE_PP0N_) from module arbiter (D = \priority_encoder_inst.output_encoded [0], Q = \grant_reg [1], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$211 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$211 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:90$26.$1\buffer[3:0] [0], Q = \grant_reg [2], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$214 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$214 ($_SDFFE_PP0N_) from module arbiter (D = \priority_encoder_inst.output_encoded [0], Q = \grant_encoded_reg [0], rval = 1'0).
+
+6.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+Removed 17 unused cells and 21 unused wires.
+<suppressed ~20 debug messages>
+
+6.21.5. Rerunning OPT passes. (Removed registers in this run.)
+
+6.21.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+6.21.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 30 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Computing hashes of 23 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Computing hashes of 20 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Computing hashes of 19 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+<suppressed ~33 debug messages>
+Removed a total of 11 cells.
+
+6.21.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.21.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+Removed 0 unused cells and 11 unused wires.
+<suppressed ~1 debug messages>
+
+6.21.10. Finished fast OPT passes.
+
+6.22. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `arbiter'. Setting top module to arbiter.
+
+6.22.1. Analyzing design hierarchy..
+Top module:  \arbiter
+
+6.22.2. Analyzing design hierarchy..
+Top module:  \arbiter
+Removed 0 unused modules.
+
+6.23. Printing statistics.
+
+=== arbiter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       29 wires
+       59 wire bits
+       20 public wires
+       46 public wire bits
+        7 ports
+       17 port bits
+       19 cells
+        1   $_MUX_
+        3   $_NOT_
+        8   $_OR_
+        7   $_SDFF_PP0_
+
+6.24. Executing CHECK pass (checking for obvious problems).
+Checking module arbiter...
+Found and reported 0 problems.
+
+7. Executing DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__lpflow_inputisolatch_1 (noninv, pins=3, area=13.76) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__lpflow_inputisolatch_1 _DLATCH_P_ (.D( D), .Q( Q), .SLEEP_B( E));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+7.1. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+<suppressed ~24 debug messages>
+Mapping DFF/DLATCH cells in module `\arbiter':
+  mapped 7 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_1 cells.
+
+8. Executing ABC pass (technology mapping using ABC).
+
+8.1. Extracting gate netlist of module `\arbiter' to `<abc-temp-dir>/input.blif'..
+Warning: ABC: merged SCL conversion failed, falling back to liberty format
+ABC: conversion output:
+'D:\oss-cad-suite\bin\yosys-abc" -c "read_lib' is not recognized as an internal or external command,
+
+operable program or batch file.
+
+Warning: ABC: Merged scl conversion failed, using liberty format
+
+8.1.1. Executed ABC.
+Extracted 19 gates and 25 wires to a netlist network with 5 inputs and 7 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -X sky130_fd_sc_hd__lpflow_* -w D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.05 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_0".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_8".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_bleeder_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_12" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_3" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_6" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__lpflow_inputisolatch_1".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrckapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_4".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" has 307 cells (121 skipped: 63 seq; 13 tri-state; 12 no func; 33 dont_use; 0 with 2 outputs; 0 with 3+ outputs).  Time =     0.14 sec
+ABC: Memory =   16.01 MB. Time =     0.14 sec
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + read_constr -v D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/wrong32_default4_positive_control/abc.constr 
+ABC: Setting driving cell to be "sky130_fd_sc_hd__buf_2".
+ABC: Setting output load to be 10.000000.
+ABC: + source D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/wrong32_default4_positive_control/abc.script 
+ABC: Cleanup removed 0 dangling nodes.
+ABC: WireLoad = "none"  Gates =     17 ( 17.6 %)   Cap =  9.0 ff ( 13.7 %)   Area =      110.11 ( 64.7 %)   Delay =   444.47 ps  ( 47.1 %)               
+ABC: Path  0 --       5 : 0    5 pi                        A =   0.00  Df =  91.0  -33.3 ps  S = 130.4 ps  Cin =  0.0 ff  Cout =  25.2 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --      14 : 2    3 sky130_fd_sc_hd__nor2_4   A =  11.26  Df = 180.6  -31.6 ps  S =  90.7 ps  Cin =  8.7 ff  Cout =   9.3 ff  Cmax = 251.8 ff  G =  103  
+ABC: Path  2 --      23 : 4    2 sky130_fd_sc_hd__o211ai_2 A =  12.51  Df = 281.9  -58.6 ps  S = 180.6 ps  Cin =  4.4 ff  Cout =   9.4 ff  Cmax = 133.7 ff  G =  202  
+ABC: Path  3 --      26 : 2    1 sky130_fd_sc_hd__nor2_2   A =   6.26  Df = 444.5  -53.6 ps  S = 135.6 ps  Cin =  4.4 ff  Cout =  10.0 ff  Cmax = 141.9 ff  G =  226  
+ABC: Start-point = pi4 (\request [2]).  End-point = po3 ($auto$rtlil.cc:3497:MuxGate$333).
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+8.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__inv_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nor2_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor2_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_4 cells:        1
+ABC RESULTS:        internal signals:       13
+ABC RESULTS:           input signals:        5
+ABC RESULTS:          output signals:        7
+Removing temp directory.
+Removing global temp directory.
+Removed 0 unused cells and 26 unused wires.
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module arbiter...
+Found and reported 0 problems.
+
+10. Printing statistics.
+
+=== arbiter ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+       32        - wires
+       55        - wire bits
+       15        - public wires
+       38        - public wire bits
+        7        - ports
+       17        - port bits
+       24   250.24 cells
+        2    10.01   sky130_fd_sc_hd__a21oi_1
+        1    6.256   sky130_fd_sc_hd__and3_1
+        7  140.134   sky130_fd_sc_hd__dfxtp_1
+        3   11.261   sky130_fd_sc_hd__inv_1
+        1    3.754   sky130_fd_sc_hd__nand2_1
+        3   11.261   sky130_fd_sc_hd__nor2_1
+        2   12.512   sky130_fd_sc_hd__nor2_2
+        1   11.261   sky130_fd_sc_hd__nor2_4
+        1   12.512   sky130_fd_sc_hd__o211ai_2
+        1    7.507   sky130_fd_sc_hd__o21a_1
+        1    5.005   sky130_fd_sc_hd__o21ai_0
+        1   18.768   sky130_fd_sc_hd__o21bai_4
+
+   Chip area for module '\arbiter': 250.240000
+     of which used for sequential elements: 140.134400 (56.00%)
+
+11. Executing JSON backend.
+
+12. Executing Verilog backend.
+
+12.1. Executing BMUXMAP pass.
+
+12.2. Executing DEMUXMAP pass.
+Dumping module `\arbiter'.
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 64b1ac4f7f
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 1% 17x opt_expr (0 sec), 1% 15x opt_clean (0 sec), ...

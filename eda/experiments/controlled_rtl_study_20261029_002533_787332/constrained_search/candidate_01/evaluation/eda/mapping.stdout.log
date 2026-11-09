@@ -1,0 +1,1114 @@
+
+-- Executing script file `eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/map.ys' --
+
+1. Executing Liberty frontend: eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v
+Parsing SystemVerilog input from `eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v' to AST representation.
+Generating RTLIL representation for module `\timing_adder'.
+Generating RTLIL representation for module `\grouped_adder32'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \timing_adder
+Used module:     \grouped_adder32
+
+3.2. Analyzing design hierarchy..
+Top module:  \timing_adder
+Used module:     \grouped_adder32
+Removed 0 unused modules.
+
+4. Executing SYNTH pass.
+
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1.1. Analyzing design hierarchy..
+Top module:  \timing_adder
+Used module:     \grouped_adder32
+
+4.1.2. Analyzing design hierarchy..
+Top module:  \timing_adder
+Used module:     \grouped_adder32
+Removed 0 unused modules.
+
+4.2. Executing PROC pass (convert processes to netlists).
+
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:5$1 in module timing_adder.
+Removed a total of 0 dead cases.
+
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 0 assignments to connections.
+
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\timing_adder.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:5$1'.
+
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\timing_adder.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:5$1'.
+     1/3: $0\y[31:0]
+     2/3: $0\sum2[31:0]
+     3/3: $0\sum1[31:0]
+
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\timing_adder.\y' using process `\timing_adder.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:5$1'.
+  created $adff cell `$procdff$159' with positive edge clock and positive level reset.
+Creating register for signal `\timing_adder.\sum1' using process `\timing_adder.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:5$1'.
+  created $adff cell `$procdff$164' with positive edge clock and positive level reset.
+Creating register for signal `\timing_adder.\sum2' using process `\timing_adder.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:5$1'.
+  created $adff cell `$procdff$169' with positive edge clock and positive level reset.
+
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `timing_adder.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:5$1'.
+Cleaned up 0 empty switches.
+
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module grouped_adder32.
+Optimizing module timing_adder.
+<suppressed ~6 debug messages>
+
+4.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module grouped_adder32.
+<suppressed ~1 debug messages>
+Optimizing module timing_adder.
+
+4.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \grouped_adder32..
+Finding unused cells or wires in module \timing_adder..
+Removed 44 unused cells and 78 unused wires.
+<suppressed ~47 debug messages>
+
+4.5. Executing CHECK pass (checking for obvious problems).
+Checking module grouped_adder32...
+Checking module timing_adder...
+Found and reported 0 problems.
+
+4.6. Executing OPT pass (performing simple optimizations).
+
+4.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module grouped_adder32.
+Optimizing module timing_adder.
+
+4.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\grouped_adder32'.
+Computing hashes of 111 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Computing hashes of 101 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Computing hashes of 95 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Computing hashes of 92 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Computing hashes of 91 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+<suppressed ~60 debug messages>
+Finding identical cells in module `\timing_adder'.
+Computing hashes of 5 cells of `\timing_adder'.
+Finding duplicate cells in `\timing_adder'.
+Removed a total of 20 cells.
+
+4.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \grouped_adder32..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \timing_adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \grouped_adder32.
+  Optimizing cells in module \timing_adder.
+Performed a total of 0 changes.
+
+4.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\grouped_adder32'.
+Computing hashes of 91 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Finding identical cells in module `\timing_adder'.
+Computing hashes of 5 cells of `\timing_adder'.
+Finding duplicate cells in `\timing_adder'.
+Removed a total of 0 cells.
+
+4.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \grouped_adder32..
+Finding unused cells or wires in module \timing_adder..
+Removed 0 unused cells and 20 unused wires.
+<suppressed ~1 debug messages>
+
+4.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module grouped_adder32.
+Optimizing module timing_adder.
+
+4.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \grouped_adder32..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \timing_adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \grouped_adder32.
+  Optimizing cells in module \timing_adder.
+Performed a total of 0 changes.
+
+4.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\grouped_adder32'.
+Computing hashes of 91 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Finding identical cells in module `\timing_adder'.
+Computing hashes of 5 cells of `\timing_adder'.
+Finding duplicate cells in `\timing_adder'.
+Removed a total of 0 cells.
+
+4.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \grouped_adder32..
+Finding unused cells or wires in module \timing_adder..
+
+4.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module grouped_adder32.
+Optimizing module timing_adder.
+
+4.6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+4.7. Executing FSM pass (extract and optimize FSM).
+
+4.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+4.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+4.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+4.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \grouped_adder32..
+Finding unused cells or wires in module \timing_adder..
+
+4.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+4.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+4.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+4.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+4.8. Executing OPT pass (performing simple optimizations).
+
+4.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module grouped_adder32.
+Optimizing module timing_adder.
+
+4.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\grouped_adder32'.
+Computing hashes of 91 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Finding identical cells in module `\timing_adder'.
+Computing hashes of 5 cells of `\timing_adder'.
+Finding duplicate cells in `\timing_adder'.
+Removed a total of 0 cells.
+
+4.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \grouped_adder32..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \timing_adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \grouped_adder32.
+  Optimizing cells in module \timing_adder.
+Performed a total of 0 changes.
+
+4.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\grouped_adder32'.
+Computing hashes of 91 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Finding identical cells in module `\timing_adder'.
+Computing hashes of 5 cells of `\timing_adder'.
+Finding duplicate cells in `\timing_adder'.
+Removed a total of 0 cells.
+
+4.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \grouped_adder32..
+Finding unused cells or wires in module \timing_adder..
+
+4.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module grouped_adder32.
+Optimizing module timing_adder.
+
+4.8.9. Finished fast OPT passes. (There is nothing left to do.)
+
+4.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 5) from port A of cell grouped_adder32.$add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:14$3 ($add).
+Removed top 1 bits (of 5) from port B of cell grouped_adder32.$add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:14$3 ($add).
+Removed top 1 bits (of 5) from port A of cell grouped_adder32.$add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:18$6 ($add).
+Removed top 1 bits (of 5) from port B of cell grouped_adder32.$add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:18$6 ($add).
+Removed top 1 bits (of 5) from port A of cell grouped_adder32.$add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:22$9 ($add).
+Removed top 1 bits (of 5) from port B of cell grouped_adder32.$add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:22$9 ($add).
+Removed top 1 bits (of 5) from port A of cell grouped_adder32.$add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:26$12 ($add).
+Removed top 1 bits (of 5) from port B of cell grouped_adder32.$add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:26$12 ($add).
+Removed top 1 bits (of 5) from port A of cell grouped_adder32.$add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:30$15 ($add).
+Removed top 1 bits (of 5) from port B of cell grouped_adder32.$add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:30$15 ($add).
+Removed top 1 bits (of 5) from port A of cell grouped_adder32.$add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:34$18 ($add).
+Removed top 1 bits (of 5) from port B of cell grouped_adder32.$add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:34$18 ($add).
+Removed top 1 bits (of 5) from port A of cell grouped_adder32.$add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:38$21 ($add).
+Removed top 1 bits (of 5) from port B of cell grouped_adder32.$add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:38$21 ($add).
+Removed top 1 bits (of 9) from wire grouped_adder32.carry.
+Removed top 1 bits (of 8) from wire grouped_adder32.g.
+Removed top 1 bits (of 8) from wire grouped_adder32.p.
+
+4.10. Executing PEEPOPT pass (run peephole optimizers).
+
+4.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \grouped_adder32..
+Finding unused cells or wires in module \timing_adder..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~2 debug messages>
+
+4.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module grouped_adder32:
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:54$139 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:61$154 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:55$141 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:55$142 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:56$143 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:56$144 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:57$145 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:57$146 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:58$147 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:58$148 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:59$149 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:59$150 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:60$151 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:38$21 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:34$18 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:30$15 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:26$12 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:22$9 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:18$6 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:60$152 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:61$153 ($add).
+  creating $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:14$3 ($add).
+  merging $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:60$151 into $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:60$152.
+  merging $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:59$149 into $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:59$150.
+  merging $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:58$147 into $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:58$148.
+  merging $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:57$145 into $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:57$146.
+  merging $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:56$143 into $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:56$144.
+  merging $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:55$141 into $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:55$142.
+  merging $macc model for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:61$153 into $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:61$154.
+  creating $alu model for $macc $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:34$18.
+  creating $alu model for $macc $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:38$21.
+  creating $alu model for $macc $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:30$15.
+  creating $alu model for $macc $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:59$150.
+  creating $alu model for $macc $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:26$12.
+  creating $alu model for $macc $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:58$148.
+  creating $alu model for $macc $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:22$9.
+  creating $alu model for $macc $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:57$146.
+  creating $alu model for $macc $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:18$6.
+  creating $alu model for $macc $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:56$144.
+  creating $alu model for $macc $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:60$152.
+  creating $alu model for $macc $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:55$142.
+  creating $alu model for $macc $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:14$3.
+  creating $alu model for $macc $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:61$154.
+  creating $alu model for $macc $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:54$139.
+  creating $alu cell for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:61$154: $auto$alumacc.cc:548:replace_alu$173
+  creating $alu cell for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:54$139: $auto$alumacc.cc:548:replace_alu$176
+  creating $alu cell for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:14$3: $auto$alumacc.cc:548:replace_alu$179
+  creating $alu cell for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:55$142: $auto$alumacc.cc:548:replace_alu$182
+  creating $alu cell for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:18$6: $auto$alumacc.cc:548:replace_alu$185
+  creating $alu cell for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:56$144: $auto$alumacc.cc:548:replace_alu$188
+  creating $alu cell for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:22$9: $auto$alumacc.cc:548:replace_alu$191
+  creating $alu cell for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:57$146: $auto$alumacc.cc:548:replace_alu$194
+  creating $alu cell for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:26$12: $auto$alumacc.cc:548:replace_alu$197
+  creating $alu cell for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:58$148: $auto$alumacc.cc:548:replace_alu$200
+  creating $alu cell for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:30$15: $auto$alumacc.cc:548:replace_alu$203
+  creating $alu cell for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:60$152: $auto$alumacc.cc:548:replace_alu$206
+  creating $alu cell for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:38$21: $auto$alumacc.cc:548:replace_alu$209
+  creating $alu cell for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:59$150: $auto$alumacc.cc:548:replace_alu$212
+  creating $alu cell for $add$eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_01/evaluation/eda/candidate.v:34$18: $auto$alumacc.cc:548:replace_alu$215
+  created 15 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module timing_adder:
+  created 0 $alu and 0 $macc cells.
+
+4.13. Executing SHARE pass (SAT-based resource sharing).
+
+4.14. Executing OPT pass (performing simple optimizations).
+
+4.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module grouped_adder32.
+Optimizing module timing_adder.
+
+4.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\grouped_adder32'.
+Computing hashes of 91 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Finding identical cells in module `\timing_adder'.
+Computing hashes of 5 cells of `\timing_adder'.
+Finding duplicate cells in `\timing_adder'.
+Removed a total of 0 cells.
+
+4.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \grouped_adder32..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \timing_adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \grouped_adder32.
+  Optimizing cells in module \timing_adder.
+Performed a total of 0 changes.
+
+4.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\grouped_adder32'.
+Computing hashes of 91 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Finding identical cells in module `\timing_adder'.
+Computing hashes of 5 cells of `\timing_adder'.
+Finding duplicate cells in `\timing_adder'.
+Removed a total of 0 cells.
+
+4.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \grouped_adder32..
+Finding unused cells or wires in module \timing_adder..
+Removed 7 unused cells and 7 unused wires.
+<suppressed ~8 debug messages>
+
+4.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module grouped_adder32.
+Optimizing module timing_adder.
+
+4.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \grouped_adder32..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \timing_adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \grouped_adder32.
+  Optimizing cells in module \timing_adder.
+Performed a total of 0 changes.
+
+4.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\grouped_adder32'.
+Computing hashes of 84 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Finding identical cells in module `\timing_adder'.
+Computing hashes of 5 cells of `\timing_adder'.
+Finding duplicate cells in `\timing_adder'.
+Removed a total of 0 cells.
+
+4.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \grouped_adder32..
+Finding unused cells or wires in module \timing_adder..
+
+4.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module grouped_adder32.
+Optimizing module timing_adder.
+
+4.14.16. Finished fast OPT passes. (There is nothing left to do.)
+
+4.15. Executing MEMORY pass.
+
+4.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+4.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+4.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+4.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+4.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+4.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \grouped_adder32..
+Finding unused cells or wires in module \timing_adder..
+
+4.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+4.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+4.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \grouped_adder32..
+Finding unused cells or wires in module \timing_adder..
+
+4.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+4.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \grouped_adder32..
+Finding unused cells or wires in module \timing_adder..
+
+4.17. Executing OPT pass (performing simple optimizations).
+
+4.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module grouped_adder32.
+<suppressed ~1 debug messages>
+Optimizing module timing_adder.
+
+4.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\grouped_adder32'.
+Computing hashes of 84 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Finding identical cells in module `\timing_adder'.
+Computing hashes of 5 cells of `\timing_adder'.
+Finding duplicate cells in `\timing_adder'.
+Removed a total of 0 cells.
+
+4.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \grouped_adder32..
+Finding unused cells or wires in module \timing_adder..
+
+4.17.5. Finished fast OPT passes.
+
+4.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+4.19. Executing OPT pass (performing simple optimizations).
+
+4.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module grouped_adder32.
+Optimizing module timing_adder.
+
+4.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\grouped_adder32'.
+Computing hashes of 84 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Finding identical cells in module `\timing_adder'.
+Computing hashes of 5 cells of `\timing_adder'.
+Finding duplicate cells in `\timing_adder'.
+Removed a total of 0 cells.
+
+4.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \grouped_adder32..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \timing_adder..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+4.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \grouped_adder32.
+  Optimizing cells in module \timing_adder.
+Performed a total of 0 changes.
+
+4.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\grouped_adder32'.
+Computing hashes of 84 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Finding identical cells in module `\timing_adder'.
+Computing hashes of 5 cells of `\timing_adder'.
+Finding duplicate cells in `\timing_adder'.
+Removed a total of 0 cells.
+
+4.19.6. Executing OPT_SHARE pass.
+
+4.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \grouped_adder32..
+Finding unused cells or wires in module \timing_adder..
+
+4.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module grouped_adder32.
+Optimizing module timing_adder.
+
+4.19.10. Finished fast OPT passes. (There is nothing left to do.)
+
+4.20. Executing TECHMAP pass (map to technology primitives).
+
+4.20.1. Executing Verilog-2005 frontend: D:\oss-cad-suite\bin\../share/yosys/techmap.v
+Parsing Verilog input from `D:\oss-cad-suite\bin\../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+4.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $adff.
+Using template $paramod$b85fbb3374a1d9ba7ee4f4d6323c30f939df3ada\_90_alu for cells of type $alu.
+Using template $paramod$740b056ede97228d3eae64ea2fdc81f0a33e0fe7\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $or.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000101 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000101 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $not.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000100 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~806 debug messages>
+
+4.21. Executing OPT pass (performing simple optimizations).
+
+4.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module grouped_adder32.
+<suppressed ~349 debug messages>
+Optimizing module timing_adder.
+
+4.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\grouped_adder32'.
+Computing hashes of 480 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Computing hashes of 372 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Computing hashes of 350 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Computing hashes of 342 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Computing hashes of 339 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Computing hashes of 337 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+Computing hashes of 336 cells of `\grouped_adder32'.
+Finding duplicate cells in `\grouped_adder32'.
+<suppressed ~432 debug messages>
+Finding identical cells in module `\timing_adder'.
+Computing hashes of 98 cells of `\timing_adder'.
+Finding duplicate cells in `\timing_adder'.
+Removed a total of 144 cells.
+
+4.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \grouped_adder32..
+Finding unused cells or wires in module \timing_adder..
+Removed 80 unused cells and 658 unused wires.
+<suppressed ~81 debug messages>
+
+4.21.5. Finished fast OPT passes.
+
+4.22. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `timing_adder'. Setting top module to timing_adder.
+
+4.22.1. Analyzing design hierarchy..
+Top module:  \timing_adder
+Used module:     \grouped_adder32
+
+4.22.2. Analyzing design hierarchy..
+Top module:  \timing_adder
+Used module:     \grouped_adder32
+Removed 0 unused modules.
+
+4.23. Printing statistics.
+
+=== grouped_adder32 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      151 wires
+      393 wire bits
+       13 public wires
+      153 public wire bits
+        3 ports
+       96 port bits
+      256 cells
+      129   $_AND_
+       64   $_OR_
+       63   $_XOR_
+
+=== timing_adder ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       10 wires
+      258 wire bits
+       10 public wires
+      258 public wire bits
+        6 ports
+      130 port bits
+       96 cells
+       96   $_DFF_PN0_
+        2 submodules
+        2   grouped_adder32
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      608 timing_adder
+      256 grouped_adder32
+
+        +----------Count including submodules.
+        | 
+      312 wires
+     1044 wire bits
+       36 public wires
+      564 public wire bits
+       12 ports
+      322 port bits
+        - memories
+        - memory bits
+        - processes
+      608 cells
+      258   $_AND_
+       96   $_DFF_PN0_
+      128   $_OR_
+      126   $_XOR_
+        2 submodules
+        2   grouped_adder32
+
+4.24. Executing CHECK pass (checking for obvious problems).
+Checking module grouped_adder32...
+Checking module timing_adder...
+Found and reported 0 problems.
+
+5. Executing DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__lpflow_inputisolatch_1 (noninv, pins=3, area=13.76) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__lpflow_inputisolatch_1 _DLATCH_P_ (.D( D), .Q( Q), .SLEEP_B( E));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+5.1. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+<suppressed ~24 debug messages>
+Mapping DFF/DLATCH cells in module `\grouped_adder32':
+Mapping DFF/DLATCH cells in module `\timing_adder':
+  mapped 96 $_DFF_PN0_ cells to \sky130_fd_sc_hd__dfrtp_1 cells.
+
+6. Executing ABC pass (technology mapping using ABC).
+
+6.1. Extracting gate netlist of module `\grouped_adder32' to `<abc-temp-dir>/input.blif'..
+Warning: ABC: merged SCL conversion failed, falling back to liberty format
+ABC: conversion output:
+'D:\oss-cad-suite\bin\yosys-abc" -c "read_lib' is not recognized as an internal or external command,
+
+operable program or batch file.
+
+Warning: ABC: Merged scl conversion failed, using liberty format
+
+6.1.1. Executed ABC.
+Extracted 256 gates and 320 wires to a netlist network with 64 inputs and 32 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -X sky130_fd_sc_hd__lpflow_* -w D:\verilog_lab\PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.05 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_0".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_8".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_bleeder_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_12" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_3" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_6" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__lpflow_inputisolatch_1".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrckapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_4".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "D:\verilog_lab\PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" has 307 cells (121 skipped: 63 seq; 13 tri-state; 12 no func; 33 dont_use; 0 with 2 outputs; 0 with 3+ outputs).  Time =     0.15 sec
+ABC: Memory =   16.01 MB. Time =     0.15 sec
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+6.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_0 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21o_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__a221oi_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a41oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and2_0 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__maj3_1 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:       24
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor4b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o211a_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__o31ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o41ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or2_0 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__or3_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:       48
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:       12
+ABC RESULTS:        internal signals:      224
+ABC RESULTS:           input signals:       64
+ABC RESULTS:          output signals:       32
+Removing temp directory.
+
+6.2. Extracting gate netlist of module `\timing_adder' to `<abc-temp-dir>/input.blif'..
+Warning: ABC: merged SCL conversion failed, falling back to liberty format
+ABC: conversion output:
+'D:\oss-cad-suite\bin\yosys-abc" -c "read_lib' is not recognized as an internal or external command,
+
+operable program or batch file.
+
+Warning: ABC: Merged scl conversion failed, using liberty format
+
+6.2.1. Executed ABC.
+Extracted 0 gates and 0 wires to a netlist network with 0 inputs and 0 outputs.
+Don't call ABC as there is nothing to map.
+Removing temp directory.
+Removing global temp directory.
+Removed 0 unused cells and 234 unused wires.
+
+7. Executing CHECK pass (checking for obvious problems).
+Checking module grouped_adder32...
+Checking module timing_adder...
+Found and reported 0 problems.
+
+8. Printing statistics.
+
+=== grouped_adder32 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      133        - wires
+      273        - wire bits
+       13        - public wires
+      153        - public wire bits
+        3        - ports
+       96        - port bits
+      152 1.06E+03 cells
+        1    7.507   sky130_fd_sc_hd__a21boi_0
+        2   15.014   sky130_fd_sc_hd__a21o_1
+        6   30.029   sky130_fd_sc_hd__a21oi_1
+        3   26.275   sky130_fd_sc_hd__a221oi_1
+        1    8.758   sky130_fd_sc_hd__a41oi_1
+        2   12.512   sky130_fd_sc_hd__and2_0
+        2   12.512   sky130_fd_sc_hd__and3_1
+        1    3.754   sky130_fd_sc_hd__clkinv_1
+       11  110.106   sky130_fd_sc_hd__maj3_1
+       24   90.086   sky130_fd_sc_hd__nand2_1
+        3   18.768   sky130_fd_sc_hd__nand2b_1
+        3   15.014   sky130_fd_sc_hd__nand3_1
+       11    41.29   sky130_fd_sc_hd__nor2_1
+        2   12.512   sky130_fd_sc_hd__nor4_1
+        1    8.758   sky130_fd_sc_hd__nor4b_1
+        2   20.019   sky130_fd_sc_hd__o211a_1
+        4   30.029   sky130_fd_sc_hd__o211ai_1
+        7   35.034   sky130_fd_sc_hd__o21ai_0
+        1    7.507   sky130_fd_sc_hd__o31ai_1
+        1    8.758   sky130_fd_sc_hd__o41ai_1
+        3   18.768   sky130_fd_sc_hd__or2_0
+        1    6.256   sky130_fd_sc_hd__or3_1
+       48  420.403   sky130_fd_sc_hd__xnor2_1
+       12  105.101   sky130_fd_sc_hd__xor2_1
+
+   Chip area for module '\grouped_adder32': 1064.771200
+     of which used for sequential elements: 0.000000 (0.00%)
+
+=== timing_adder ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+       10        - wires
+      258        - wire bits
+       10        - public wires
+      258        - public wire bits
+        6        - ports
+      130        - port bits
+       96  2.4E+03 cells
+       96  2.4E+03   sky130_fd_sc_hd__dfrtp_1
+        2        - submodules
+        2        -   grouped_adder32
+
+   Chip area for module '\timing_adder': 2402.304000
+     of which used for sequential elements: 2402.304000 (100.00%)
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        |        +-Area including submodules.
+        |        | 
+      400 4.53E+03 timing_adder
+      152 1.06E+03 grouped_adder32
+
+        +----------Count including submodules.
+        |        +-Area including submodules.
+        |        | 
+      276        - wires
+      804        - wire bits
+       36        - public wires
+      564        - public wire bits
+       12        - ports
+      322        - port bits
+        -        - memories
+        -        - memory bits
+        -        - processes
+      400 4.53E+03 cells
+        2   15.014   sky130_fd_sc_hd__a21boi_0
+        4   30.029   sky130_fd_sc_hd__a21o_1
+       12   60.058   sky130_fd_sc_hd__a21oi_1
+        6    52.55   sky130_fd_sc_hd__a221oi_1
+        2   17.517   sky130_fd_sc_hd__a41oi_1
+        4   25.024   sky130_fd_sc_hd__and2_0
+        4   25.024   sky130_fd_sc_hd__and3_1
+        2    7.507   sky130_fd_sc_hd__clkinv_1
+       96  2.4E+03   sky130_fd_sc_hd__dfrtp_1
+       22  220.211   sky130_fd_sc_hd__maj3_1
+       48  180.173   sky130_fd_sc_hd__nand2_1
+        6   37.536   sky130_fd_sc_hd__nand2b_1
+        6   30.029   sky130_fd_sc_hd__nand3_1
+       22   82.579   sky130_fd_sc_hd__nor2_1
+        4   25.024   sky130_fd_sc_hd__nor4_1
+        2   17.517   sky130_fd_sc_hd__nor4b_1
+        4   40.038   sky130_fd_sc_hd__o211a_1
+        8   60.058   sky130_fd_sc_hd__o211ai_1
+       14   70.067   sky130_fd_sc_hd__o21ai_0
+        2   15.014   sky130_fd_sc_hd__o31ai_1
+        2   17.517   sky130_fd_sc_hd__o41ai_1
+        6   37.536   sky130_fd_sc_hd__or2_0
+        2   12.512   sky130_fd_sc_hd__or3_1
+       96  840.806   sky130_fd_sc_hd__xnor2_1
+       24  210.202   sky130_fd_sc_hd__xor2_1
+        2 2.13E+03 submodules
+        2 2.13E+03   grouped_adder32
+
+   Chip area for top module '\timing_adder': 4531.846400
+     of which used for sequential elements: 2402.304000 (53.01%)
+
+9. Executing Verilog backend.
+
+9.1. Executing BMUXMAP pass.
+
+9.2. Executing DEMUXMAP pass.
+Dumping module `\grouped_adder32'.
+Dumping module `\timing_adder'.
+
+Warnings: 2 unique messages, 4 total
+End of script. Logfile hash: 89e5eb853d
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 1% 18x opt_expr (0 sec), 1% 16x opt_clean (0 sec), ...

@@ -1,0 +1,86 @@
+{
+  "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+  "meaning": "These RTLIL operator cells have structural bit dependencies from the STA start bit to the STA end bit. This is a conservative cone, not proof that every listed cell is on the exact mapped timing path.",
+  "top": "add_sub",
+  "sta_startpoint": "b[0] (input port clocked by virtual_clk)",
+  "sta_endpoint": "result[15] (output port clocked by virtual_clk)",
+  "start_net_aliases": [
+    "b[0]"
+  ],
+  "end_net_aliases": [
+    "result[15]"
+  ],
+  "rtl_operator_cells_on_possible_cone_paths": 3,
+  "source_attributed_selected_cells": 3,
+  "source_attribution_coverage": 1.0,
+  "coverage_scope": "Source attributes among the selected pre-ABC supported RTLIL cells only; this is not mapped-gate localization accuracy.",
+  "rtl_source_locations": [
+    "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:11.22-11.27",
+    "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:8.13-8.28|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:8.9-11.28",
+    "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:9.22-9.27"
+  ],
+  "candidate_cells": [
+    {
+      "cell": "$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:11$4",
+      "type": "$sub",
+      "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:11.22-11.27",
+      "line": 11
+    },
+    {
+      "cell": "$procmux$6",
+      "type": "$mux",
+      "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:8.13-8.28|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:8.9-11.28",
+      "line": 8
+    },
+    {
+      "cell": "$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:9$3",
+      "type": "$add",
+      "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:9.22-9.27",
+      "line": 9
+    }
+  ],
+  "shortest_structural_dependency_path": [
+    {
+      "from_bit": 18,
+      "to_bit": 66,
+      "cell": "$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:9$3",
+      "type": "$add",
+      "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:9.22-9.27",
+      "line": 9,
+      "input_port": "B",
+      "input_bit": 0,
+      "output_port": "Y",
+      "output_bit": 15,
+      "from_net_aliases": [
+        "b[0]"
+      ],
+      "to_net_aliases": [
+        "$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:9$3_Y[15]"
+      ]
+    },
+    {
+      "from_bit": 66,
+      "to_bit": 50,
+      "cell": "$procmux$6",
+      "type": "$mux",
+      "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:8.13-8.28|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:8.9-11.28",
+      "line": 8,
+      "input_port": "B",
+      "input_bit": 15,
+      "output_port": "Y",
+      "output_bit": 15,
+      "from_net_aliases": [
+        "$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/add_sub/add_sub.v:9$3_Y[15]"
+      ],
+      "to_net_aliases": [
+        "result[15]"
+      ]
+    }
+  ],
+  "structural_path_edge_count": 2,
+  "all_possible_cone_edge_count": 4,
+  "chain_warning": "One shortest structural dependency chain, not the longest mapped timing path. Synthesis may restructure the source arithmetic; do not infer mapped serial adder depth from RTL adder count.",
+  "supported_cells_modeled": 3,
+  "unsupported_cell_types": {},
+  "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+}

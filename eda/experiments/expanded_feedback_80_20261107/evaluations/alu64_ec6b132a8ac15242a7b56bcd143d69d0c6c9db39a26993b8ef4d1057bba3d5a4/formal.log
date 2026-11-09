@@ -1,0 +1,335 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\expanded_feedback_80_20261107\evaluations\alu64_ec6b132a8ac15242a7b56bcd143d69d0c6c9db39a26993b8ef4d1057bba3d5a4\formal.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v' to AST representation.
+Generating RTLIL representation for module `\alu_64bit'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \alu_64bit
+
+2.2. Analyzing design hierarchy..
+Top module:  \alu_64bit
+Removed 0 unused modules.
+
+3. Executing FLATTEN pass (flatten design).
+Renaming module \alu_64bit to \pw_gold.
+
+4. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v' to AST representation.
+Generating RTLIL representation for module `\alu_64bit'.
+Generating RTLIL representation for module `\alu64_carry_tree'.
+Successfully finished Verilog frontend.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1. Analyzing design hierarchy..
+Top module:  \alu_64bit
+Used module:     \alu64_carry_tree
+
+5.2. Analyzing design hierarchy..
+Top module:  \alu_64bit
+Used module:     \alu64_carry_tree
+Removed 0 unused modules.
+
+6. Executing FLATTEN pass (flatten design).
+Deleting now unused module alu64_carry_tree.
+<suppressed ~3 debug messages>
+Renaming module \alu_64bit to \pw_cand.
+
+7. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/evaluations/alu64_ec6b132a8ac15242a7b56bcd143d69d0c6c9db39a26993b8ef4d1057bba3d5a4/miter.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/evaluations/alu64_ec6b132a8ac15242a7b56bcd143d69d0c6c9db39a26993b8ef4d1057bba3d5a4/miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+8. Executing PREP pass.
+
+8.1. Executing HIERARCHY pass (managing design hierarchy).
+
+8.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+
+8.1.2. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+Removed 0 unused modules.
+
+8.2. Executing PROC pass (convert processes to netlists).
+
+8.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+8.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:26$22 in module pw_cand.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:7$1 in module pw_gold.
+Removed a total of 0 dead cases.
+
+8.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 3 assignments to connections.
+
+8.2.4. Executing PROC_INIT pass (extract init attributes).
+
+8.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+8.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~2 debug messages>
+
+8.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:26$22'.
+     1/1: $1\sum[63:0]
+Creating decoders for process `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:7$1'.
+     1/1: { $1\c_out[0:0] $1\sum[63:0] }
+
+8.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\pw_cand.\sum' from process `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:26$22'.
+No latch inferred for signal `\pw_gold.\sum' from process `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:7$1'.
+No latch inferred for signal `\pw_gold.\c_out' from process `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:7$1'.
+
+8.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+8.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+8.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:26$22'.
+Removing empty process `pw_cand.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:26$22'.
+Found and cleaned up 1 empty switch in `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:7$1'.
+Removing empty process `pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:7$1'.
+Cleaned up 2 empty switches.
+
+8.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+Optimizing module pw_cand.
+<suppressed ~37 debug messages>
+Optimizing module pw_gold.
+<suppressed ~1 debug messages>
+
+8.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module pw_cand.
+Deleting now unused module pw_gold.
+<suppressed ~2 debug messages>
+
+8.4. Executing FUTURE pass.
+
+8.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 71 unused cells and 417 unused wires.
+<suppressed ~72 debug messages>
+
+8.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+8.8. Executing OPT pass (performing simple optimizations).
+
+8.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1546 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1420 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1358 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1313 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1304 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1303 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~729 debug messages>
+Removed a total of 243 cells.
+
+8.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+8.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+    New input vector for $reduce_and cell $flatten\cand.\u_sub.$reduce_and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:61$202: $flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:34$25_Y [15:0]
+    New input vector for $reduce_and cell $flatten\cand.\u_sub.$reduce_and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:61$222: $flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:34$25_Y [47:32]
+    New input vector for $reduce_and cell $flatten\cand.\u_sub.$reduce_and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:61$212: $flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:34$25_Y [31:16]
+    New input vector for $reduce_and cell $flatten\cand.\u_add.$reduce_and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:61$212: \cand.u_add.p [31:16]
+    New input vector for $reduce_and cell $flatten\cand.\u_add.$reduce_and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:61$222: \cand.u_add.p [47:32]
+  Optimizing cells in module \pw_miter.
+Performed a total of 5 changes.
+
+8.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1303 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+8.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 224 unused wires.
+<suppressed ~1 debug messages>
+
+8.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+8.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+8.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+8.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1303 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+8.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+8.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+8.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 65) from mux cell pw_miter.$flatten\gold.$procmux$576 ($pmux).
+Removed top 1 bits (of 65) from port Y of cell pw_miter.$flatten\gold.$xnor$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:15$8 ($xnor).
+Removed top 1 bits (of 65) from port Y of cell pw_miter.$flatten\gold.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:14$7 ($xor).
+Removed top 1 bits (of 65) from port Y of cell pw_miter.$flatten\gold.$and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:13$6 ($and).
+Removed top 1 bits (of 65) from port Y of cell pw_miter.$flatten\gold.$or$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:12$5 ($or).
+Removed top 1 bits (of 65) from port Y of cell pw_miter.$flatten\gold.$sub$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:11$4 ($sub).
+Removed top 1 bits (of 65) from port Y of cell pw_miter.$flatten\gold.$sub$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:10$3 ($sub).
+Removed top 1 bits (of 65) from port Y of cell pw_miter.$flatten\gold.$add$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:9$2 ($add).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\cand.$procmux$572_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\cand.$procmux$571_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell pw_miter.$flatten\cand.$procmux$573_CMP0 ($eq).
+Removed top 1 bits (of 64) from port Y of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:19$16 ($and).
+Removed top 1 bits (of 64) from port A of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:19$16 ($and).
+Removed top 1 bits (of 64) from port B of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:19$16 ($and).
+Removed top 1 bits (of 64) from port Y of cell pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:19$15 ($not).
+Removed top 1 bits (of 64) from port A of cell pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:19$15 ($not).
+Removed top 1 bits (of 64) from port Y of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:16$13 ($and).
+Removed top 1 bits (of 64) from port A of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:16$13 ($and).
+Removed top 1 bits (of 64) from port B of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:16$13 ($and).
+Removed top 1 bits (of 64) from port Y of cell pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:16$12 ($not).
+Removed top 1 bits (of 64) from port A of cell pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:16$12 ($not).
+Removed top 1 bits (of 64) from wire pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:19$15_Y.
+Removed top 1 bits (of 64) from wire pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_001/candidate.v:16$12_Y.
+Removed top 1 bits (of 65) from wire pw_miter.$flatten\gold.$add$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:9$2_Y.
+Removed top 1 bits (of 65) from wire pw_miter.$flatten\gold.$sub$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:10$3_Y.
+Removed top 1 bits (of 65) from wire pw_miter.$flatten\gold.$sub$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:11$4_Y.
+Removed top 1 bits (of 65) from wire pw_miter.$flatten\gold.$or$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:12$5_Y.
+Removed top 1 bits (of 65) from wire pw_miter.$flatten\gold.$and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:13$6_Y.
+Removed top 1 bits (of 65) from wire pw_miter.$flatten\gold.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:14$7_Y.
+Removed top 1 bits (of 65) from wire pw_miter.$flatten\gold.$xnor$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/alu64.v:15$8_Y.
+
+8.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 9 unused wires.
+<suppressed ~1 debug messages>
+
+8.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+8.12. Executing OPT pass (performing simple optimizations).
+
+8.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1303 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1300 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+8.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+8.12.4. Finished fast OPT passes.
+
+8.13. Executing SORT pass.
+
+8.14. Printing statistics.
+
+=== pw_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1062 wires
+     3314 wire bits
+       52 public wires
+     1858 public wire bits
+        4 ports
+      132 port bits
+     1300 cells
+        1   $add
+      708   $and
+        6   $eq
+        1   $logic_not
+        1   $ne
+        3   $not
+      532   $or
+        2   $pmux
+       34   $reduce_and
+        5   $scopeinfo
+        2   $sub
+        1   $xnor
+        4   $xor
+
+8.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+9. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 1300 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+
+Solving problem with 15710 variables and 42208 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: ea3a72461d
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 6x read_verilog (0 sec), 3% 6x opt_expr (0 sec), ...

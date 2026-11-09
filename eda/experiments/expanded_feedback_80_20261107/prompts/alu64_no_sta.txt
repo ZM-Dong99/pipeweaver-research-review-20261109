@@ -1,0 +1,24 @@
+Optimize this fixed combinational instance: module alu_64bit, parameters {}. Minimize mapped maximum data arrival. Give one complete synthesizable Verilog-2001 design. Keep module, parameters, ports, widths, signedness, truncations, priority and default-case behavior. All inputs are unconstrained, all outputs must match for every two-state input. No clocks, storage, latency, assumptions, external includes, or new dependencies. Helper modules are allowed.
+Common evaluation: SKY130HD TT25C1.80V; zero external IO delays; input transition0.10ns; output load0.010pF; 100ns virtual reporting clock; no physical wire parasitics. Yosys flatten/synth-noabc; ABC strash/dretime/map/cleanup-i-o/buffer/upsize/dnsize/stime-p with fixed driver and load. Full source and mapped equivalence and zero electrical violations required.
+Baseline mapped area 11907.670400um^2; fixed cap 13098.437440um^2. No candidate results are supplied.
+Return exactly one JSON object with these six fields: candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.
+Original RTL:
+module alu_64bit(
+    input [63:0] a, b,
+    input [2:0] Oper,
+    output reg [63:0] sum
+);
+reg c_out;
+always @(*) begin
+    case(Oper)
+        3'b000:  {c_out,sum} = a + b;
+        3'b001:  {c_out,sum} = a - b;
+        3'b010:  {c_out,sum} = b - a;
+        3'b011:  {c_out,sum} = a | b;
+        3'b100:  {c_out,sum} = a & b;
+        3'b101:  {c_out,sum} = a ^ b;
+        3'b110:  {c_out,sum} = a ~^ b;
+        default: {c_out,sum} = 65'b0;
+    endcase
+end
+endmodule

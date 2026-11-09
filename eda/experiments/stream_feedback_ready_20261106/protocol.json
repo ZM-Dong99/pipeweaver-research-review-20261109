@@ -1,0 +1,287 @@
+{
+  "created_at": "2026-11-06T11:48:10.963524+08:00",
+  "status": "PREPARED_PENDING_EXPLICIT_APPROVAL",
+  "model": "gpt-6.1-sol",
+  "endpoint": "https://apinebula.ai/v1",
+  "maximum_requests": 12,
+  "timeout_seconds": 180,
+  "request_parameters": {
+    "reasoning_effort": "medium"
+  },
+  "system_message": "Optimize one native streaming RTL conservatively under the exact reset-only interface contract. Return one requested JSON object. Never provide commands or external dependencies.",
+  "cases": [
+    {
+      "id": "adapter",
+      "top": "axis_adapter",
+      "source": "axis_adapter.v",
+      "params": {
+        "S_DATA_WIDTH": 8,
+        "M_DATA_WIDTH": 32
+      },
+      "baseline": {
+        "status": "PASS",
+        "formal": "PASS",
+        "mapped_formal": "PASS",
+        "ppa": "PASS",
+        "eligible": true,
+        "stage": "sta",
+        "formal_decisive_log": "formal.log",
+        "formal_proof_mode": "joint_relations_proven",
+        "mapped_formal_decisive_log": "mapped_formal.log",
+        "mapped_formal_proof_mode": "joint_relations_proven",
+        "mapped_area_um2": 2574.9696,
+        "mapped_cells": 333,
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "wns_ns": 8.87,
+        "tns_ns": 0.0,
+        "mapped_sha256": "52c76f6a3c20d09174625518aea972357bc3d99974244ebc6f3c9c443d1ffda0",
+        "sdc_sha256": "568090c0e1b1dec4dc48da032ad7e6c1f557fb481f37c45376b2203d066c81e2",
+        "eligibility_scope": "Fixed reset-only valid/keep interface contract; not strict all-pin or physical signoff",
+        "no_declared_initial_values_relied_on": true,
+        "physical_power_up_verified": false,
+        "elapsed_seconds": 6.3
+      }
+    },
+    {
+      "id": "skid",
+      "top": "axis_register",
+      "source": "axis_register.v",
+      "params": {
+        "DATA_WIDTH": 32,
+        "REG_TYPE": 2
+      },
+      "baseline": {
+        "status": "PASS",
+        "formal": "PASS",
+        "mapped_formal": "PASS",
+        "ppa": "PASS",
+        "eligible": true,
+        "stage": "sta",
+        "formal_decisive_log": "formal.log",
+        "formal_proof_mode": "joint_relations_proven",
+        "mapped_formal_decisive_log": "mapped_formal.log",
+        "mapped_formal_proof_mode": "joint_relations_proven",
+        "mapped_area_um2": 3564.6688,
+        "mapped_cells": 485,
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "wns_ns": 8.71,
+        "tns_ns": 0.0,
+        "mapped_sha256": "4dc6a62872c2338df18e6526133314969827b180879317882872daf7c1b00528",
+        "sdc_sha256": "568090c0e1b1dec4dc48da032ad7e6c1f557fb481f37c45376b2203d066c81e2",
+        "eligibility_scope": "Fixed reset-only valid/keep interface contract; not strict all-pin or physical signoff",
+        "no_declared_initial_values_relied_on": true,
+        "physical_power_up_verified": false,
+        "elapsed_seconds": 2.673
+      }
+    }
+  ],
+  "schedule": [
+    {
+      "call_index": 1,
+      "case": "adapter",
+      "arm": "no_sta",
+      "trial": 1,
+      "prompt": "prompts/adapter_no_sta.txt"
+    },
+    {
+      "call_index": 2,
+      "case": "adapter",
+      "arm": "sta",
+      "trial": 1,
+      "prompt": "prompts/adapter_sta.txt"
+    },
+    {
+      "call_index": 3,
+      "case": "skid",
+      "arm": "sta",
+      "trial": 1,
+      "prompt": "prompts/skid_sta.txt"
+    },
+    {
+      "call_index": 4,
+      "case": "skid",
+      "arm": "no_sta",
+      "trial": 1,
+      "prompt": "prompts/skid_no_sta.txt"
+    },
+    {
+      "call_index": 5,
+      "case": "adapter",
+      "arm": "sta",
+      "trial": 2,
+      "prompt": "prompts/adapter_sta.txt"
+    },
+    {
+      "call_index": 6,
+      "case": "adapter",
+      "arm": "no_sta",
+      "trial": 2,
+      "prompt": "prompts/adapter_no_sta.txt"
+    },
+    {
+      "call_index": 7,
+      "case": "skid",
+      "arm": "no_sta",
+      "trial": 2,
+      "prompt": "prompts/skid_no_sta.txt"
+    },
+    {
+      "call_index": 8,
+      "case": "skid",
+      "arm": "sta",
+      "trial": 2,
+      "prompt": "prompts/skid_sta.txt"
+    },
+    {
+      "call_index": 9,
+      "case": "adapter",
+      "arm": "no_sta",
+      "trial": 3,
+      "prompt": "prompts/adapter_no_sta.txt"
+    },
+    {
+      "call_index": 10,
+      "case": "adapter",
+      "arm": "sta",
+      "trial": 3,
+      "prompt": "prompts/adapter_sta.txt"
+    },
+    {
+      "call_index": 11,
+      "case": "skid",
+      "arm": "sta",
+      "trial": 3,
+      "prompt": "prompts/skid_sta.txt"
+    },
+    {
+      "call_index": 12,
+      "case": "skid",
+      "arm": "no_sta",
+      "trial": 3,
+      "prompt": "prompts/skid_no_sta.txt"
+    }
+  ],
+  "original_design_sha256": "57b5facabaefdd386273b96f59901178574c5f6a843aa2148d9bf1b83a0caa3a",
+  "old_baseline_refresh": "Mapping removes init before synthesis; old8.83/8.71ns values are not silently reused",
+  "generation_policy": "Freeze all12 generations before candidate EDA. No retries, repairs or replacement. Unknown attempted request blocks resume.",
+  "scoring": "Three-attempt baseline-retained median WNS per case/arm is primary; all failures count. Report strict improvement counts, candidate area/TNS and unique netlist hashes. No switch to best draw.",
+  "candidate_eda": "Identical case+RTL SHA reused once across repeated model slots, disclosed as shared PPA not independent RTL samples.",
+  "budget": "No fixed token/currency cap;12 attempt ceiling and180s per request. Provider usage reported for all responses, including parse failures.",
+  "limitations": "Two related streaming functions from one exposed public repository, fixed parameters, pre-layout. Candidate proof can be INCOMPLETE; state renaming falls back to output-only proof. No generic AXI compliance, FIFO, retiming or statistical superiority claim.",
+  "frozen_files": {
+    "baselines\\adapter_runner.log": "6aa97752087ebf1810c2298fd9d4cf2b94f1908cf240fc17c582f7b4e1ce75a4",
+    "baselines\\skid_runner.log": "97ebd5d94d22b1fe84db6666f48687c417c21bb076267dac954feb5f3db10f01",
+    "code_snapshot\\rtl_optimizer.py": "576a055c1f5e8498a014833cb7f8bb01de08a56e6f3fcd53c568dcaaf4a3e12e",
+    "code_snapshot\\run_native_comb.py": "6d5533a0fabdaf0e97d16d6d3b35ca424387bb4ff07968a10aa27df34ed385f2",
+    "code_snapshot\\run_native_seq_initialized.py": "aeeeb54ff22512e71c8c93ffabf3bc4f44ac7adcf5982a32179d79aa292e830e",
+    "code_snapshot\\run_native_stream.py": "1a0132f5b37369b977f960148b306fad3aa56f97cb3c18f9cc2d06ba27024ef3",
+    "code_snapshot\\run_stream_feedback.py": "b2c841e6b34618f6814aa32d6306aa9b6ee001bc12bdebed284ea908d3d55292",
+    "code_snapshot\\trace_sta_rtl_cone.py": "047c3b739a00bcba19d470ea3d043ef5a872dd0ded0f0ee41dc22ea3e41b920d",
+    "code_snapshot\\validate_stream_reset_contract.py": "50eed41865ec779ba7afad8388125453dd182caa4dd4cc42a7bd94724978b500",
+    "inputs\\axis_adapter.v": "42e8a1289d4aa2dfd90785c983d3f5790c9c4a2cb957cfd42ea1d39435032c67",
+    "inputs\\axis_register.v": "599fde2d6c2d806643bbffb7c444297e69a71871f962d4b741ec1914342e0d39",
+    "prompts\\adapter_no_sta.txt": "07f6adc1253d530216e0727925cbd915ef425f8be4d67d0cec4f51648b7dff75",
+    "prompts\\adapter_sta.txt": "a3ead6fce015aae25970da4e00b17a7d36420f7e385accf628b743ae83928cb4",
+    "prompts\\skid_no_sta.txt": "a23b36af433351f4803909b318e7312f0028ef03b2be9a92512b4f4d5be85856",
+    "prompts\\skid_sta.txt": "ab8f12c1befe3bbd4066aa9b08fd504eb1d4aad437193d859af3afb21e7d0432",
+    "baselines\\adapter\\abc.constr": "ccb1d7f233b651c80e7198650e753ad582af371b441b1b2faee00c0d50d86838",
+    "baselines\\adapter\\abc.script": "4cbbef81881904eefca608f43828b009b76254fa09b0db9d49a5d162fcc7fb32",
+    "baselines\\adapter\\candidate_schema.json": "a01db06a04afa91764aaad062099a6c063d0f7b7cf87587713a95394952b5bbd",
+    "baselines\\adapter\\candidate_schema.log": "f5995b7a6323242ba6f6197f890bda29f959102843d40ae7f6579ce70d7b340f",
+    "baselines\\adapter\\candidate_schema.ys": "5b7a0840d628cda0d3ef1093422c79fec3e9667a3aed801c707b74864940416c",
+    "baselines\\adapter\\formal.log": "7d6f1d0b6bf3a795c7d38231c9db46dbd421166bd4acfbcde55b12541c623cac",
+    "baselines\\adapter\\formal.ys": "9e0f2e6b2150197ac629c1f20aeb447e55516228502e6e70e17bec2f7e18b53b",
+    "baselines\\adapter\\formal_miter.v": "fa86848ae0f1ad77b77ab121ee654ec10adab1c5c4868b77e007048345010005",
+    "baselines\\adapter\\formal_pw_cand_noinit.json": "7a962d69aeea62773a2b6f5beafe64503bc9a568098f35b5140027746ad4145a",
+    "baselines\\adapter\\formal_pw_gold_noinit.json": "324b79cdae013cce3207d8418f3878ba634e092e39484b1ab7c3e0fb3ab176d5",
+    "baselines\\adapter\\formal_state_invariants.json": "19b844f618fc252fb80f53083a9a9cac450309da5f05617925ca17b879a4583f",
+    "baselines\\adapter\\mapped.json": "afc0d0b232c85438300637f15c384cfe9e1b915bd4c06327540da83a5f18930c",
+    "baselines\\adapter\\mapped.v": "52c76f6a3c20d09174625518aea972357bc3d99974244ebc6f3c9c443d1ffda0",
+    "baselines\\adapter\\mapped_formal.log": "2a73db44c7234c4cdd1afcbf61c6d43ca0ab06dd6a9ab1df2c8f4181bfd7e378",
+    "baselines\\adapter\\mapped_formal.ys": "393ec2df82f5477fb6ab274abf0962fe3715f0dc9773b13242cc0b8ccd527fd2",
+    "baselines\\adapter\\mapped_formal_miter.v": "84445dc5d443b01ec153d7198b09054aa5d955a9928db0a8aa2f2e4575594956",
+    "baselines\\adapter\\mapped_formal_pw_cand_noinit.json": "03e193f65e2710a38dd3c9a6d4453929118c82e0e8e12f40a56851276c24426c",
+    "baselines\\adapter\\mapped_formal_pw_gold_noinit.json": "ad0580f0ffcf86ff7d70c8b0ae3f126f2e36bf7aa8ca5cad2b63f779914a6595",
+    "baselines\\adapter\\mapped_formal_state_invariants.json": "a4a8cdd1763a1cc39e8b0ef5ae8b37f1b4f520c3c79ce0108f0d1a8d5a9434b8",
+    "baselines\\adapter\\mapped_sta.v": "52c76f6a3c20d09174625518aea972357bc3d99974244ebc6f3c9c443d1ffda0",
+    "baselines\\adapter\\mapping.log": "5f5e38973b64c81fc4081bed60b83a04df0492e4937dd0a1dadbce41260fd003",
+    "baselines\\adapter\\mapping.ys": "44111c97ed65e8443c2c2dd0bc64ea7b1edbce8faf678c85f500b2be653d2fb9",
+    "baselines\\adapter\\opensta_version.log": "5e33023692f9444ef9f77fcd732c57f3015cee605f326e5bf57502a67a2b77ce",
+    "baselines\\adapter\\protocol.json": "7fa1550390b5a9dc31aa1d1ffc8c05eb666773fbfaf91518e12e56c3eb6ace52",
+    "baselines\\adapter\\protocol.sha256": "edc8aedafc5b3b68b53734a22b410e88992a97cab7b55c1e15f439629be770a1",
+    "baselines\\adapter\\reference_schema.json": "a01db06a04afa91764aaad062099a6c063d0f7b7cf87587713a95394952b5bbd",
+    "baselines\\adapter\\reference_schema.log": "38f63cf626ae25f178356b268a59f11963cb21f7a258378c1edad92a23628f41",
+    "baselines\\adapter\\reference_schema.ys": "75cd65bdcb0ec47702ab6329d7d8f8dcc6b4ba3e5e0e49ccd6ba9768d99d7600",
+    "baselines\\adapter\\result.json": "f5709253ff1953b31b7e21ede9b48b1d6f84e27cc7decc2f38a179e9e437c55a",
+    "baselines\\adapter\\run_sta.tcl": "915cf86a9295fe48312caceef378bf939dd23c905e184f8f40f187e3fb8e4bf8",
+    "baselines\\adapter\\sta.log": "a63bbed778ff8f6aff1498ea946bd37a5702f04ad0a645c98dd8df8094a31c99",
+    "baselines\\adapter\\timing.sdc": "568090c0e1b1dec4dc48da032ad7e6c1f557fb481f37c45376b2203d066c81e2",
+    "baselines\\adapter\\yosys_version.log": "9b4b09319d6b4c0b06fec8f4a637fcbb4674f5109f6b37c5a38daf323fb6f4d6",
+    "baselines\\skid\\abc.constr": "ccb1d7f233b651c80e7198650e753ad582af371b441b1b2faee00c0d50d86838",
+    "baselines\\skid\\abc.script": "4cbbef81881904eefca608f43828b009b76254fa09b0db9d49a5d162fcc7fb32",
+    "baselines\\skid\\candidate_schema.json": "22d8f186caabfb98d1466df916da95058bf1413fed0090b381b991d475d79fef",
+    "baselines\\skid\\candidate_schema.log": "c0effa103e7ef05ecd34727df0de3567bf9935f6b1c800c75271eaf11f7c3e72",
+    "baselines\\skid\\candidate_schema.ys": "44882fb04178c07ce206d549f1a3579cf7c6ae2b232734c6a54b3b503ba40d1b",
+    "baselines\\skid\\formal.log": "45aa1661ab77ce00b7be109df3ab1f2811769db57bf50cf9d5c39ec9540ab8be",
+    "baselines\\skid\\formal.ys": "327c31f8b3f5296ebbaa945442a4df6ed46bf7b9fc26604ff34bba362af17ab0",
+    "baselines\\skid\\formal_miter.v": "d5e0c3a7de176a2f4916e53983b5e0ef031fe2627cba3f98b42cc67a136f4b41",
+    "baselines\\skid\\formal_pw_cand_noinit.json": "c94561dea47ba8dc43e85f8ec26358ea478fa4db4f4ff2a81cdcb692f1f06fb2",
+    "baselines\\skid\\formal_pw_gold_noinit.json": "6dcfc575ae65d631b1ae8ce785ae26e65b368403b835e0d4423b5237a442c9aa",
+    "baselines\\skid\\formal_state_invariants.json": "97b3be4bcb0e1a0f928d2fb8d51dcc2633b5a128700df0f23fa4f85a40a47c87",
+    "baselines\\skid\\mapped.json": "d3c60f5ab6900f53efa140aba7161f984a03c6dec9e42a3c972aaa61a2cee9b2",
+    "baselines\\skid\\mapped.v": "4dc6a62872c2338df18e6526133314969827b180879317882872daf7c1b00528",
+    "baselines\\skid\\mapped_formal.log": "079614489f239d6cd6a0f00ace8b3734fe4e6f6ff55a1f4a31a17b6fdfab6015",
+    "baselines\\skid\\mapped_formal.ys": "a09a690530d5fca569cb2bffb4d2092be772449ce9812ba1cac7d0656da64216",
+    "baselines\\skid\\mapped_formal_miter.v": "ac317abf34fbe9b48f39e3fbf9650b4c71e142d323912a0b4ef52e79571403f8",
+    "baselines\\skid\\mapped_formal_pw_cand_noinit.json": "d59d194974593f87a753354178485bbb3e9b9a9b708d0a517844fc2faecb0896",
+    "baselines\\skid\\mapped_formal_pw_gold_noinit.json": "98f3ab38d87f1a02d8edfa9bda6448f2ac820a71978777decc56d798669a9013",
+    "baselines\\skid\\mapped_formal_state_invariants.json": "bc04e8875d4b3d96b76cc96c75667485dc71ba8695fab5c182caf697b8efc19a",
+    "baselines\\skid\\mapped_sta.v": "4dc6a62872c2338df18e6526133314969827b180879317882872daf7c1b00528",
+    "baselines\\skid\\mapping.log": "6612fd7be57c36f48c295d9d6cad551c88598f384ac07a383a707a7c32940f90",
+    "baselines\\skid\\mapping.ys": "3cfec1787db65724a9db9fbc0447f5ec927a3b0b94acf1a8cf6401b14c4896d2",
+    "baselines\\skid\\opensta_version.log": "5e33023692f9444ef9f77fcd732c57f3015cee605f326e5bf57502a67a2b77ce",
+    "baselines\\skid\\protocol.json": "4684d1148b259c60dc8cf723f30b2c291f61e61354de2e69d5e50d2c4e7f7f48",
+    "baselines\\skid\\protocol.sha256": "bdb41b1fd2210d546ef26845ee06d589029b71b26697e8be00ab112b5cf474ef",
+    "baselines\\skid\\reference_schema.json": "22d8f186caabfb98d1466df916da95058bf1413fed0090b381b991d475d79fef",
+    "baselines\\skid\\reference_schema.log": "6db4ed36b999c3d87c2ef1836d3f8f83c50274bec2a1c1192d8db7f3d66d47df",
+    "baselines\\skid\\reference_schema.ys": "bfb9234eac8440f9b01df849032fd67fa7c7f9ace09e08553cf93d520608e54a",
+    "baselines\\skid\\result.json": "9ca7edf62f86b32c613648bf7d6f78213be1543612d47056d892a90f511ebc24",
+    "baselines\\skid\\run_sta.tcl": "a1c148633cfa9ac0a83efc4fa1657349cd1e9baf2c40a8d6ed5538e0811f2da9",
+    "baselines\\skid\\sta.log": "e6f6dbefdedcabb506f483894c222378d719ef0341e54fa5833d902c8d0a87d0",
+    "baselines\\skid\\timing.sdc": "568090c0e1b1dec4dc48da032ad7e6c1f557fb481f37c45376b2203d066c81e2",
+    "baselines\\skid\\yosys_version.log": "9b4b09319d6b4c0b06fec8f4a637fcbb4674f5109f6b37c5a38daf323fb6f4d6",
+    "baselines\\skid\\_tmp\\yosys-liberty-scl-cache\\yosys_merged_78b136c6.scl.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baselines\\adapter\\_tmp\\yosys-liberty-scl-cache\\yosys_merged_78b136c6.scl.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "dependencies": {
+    "eda\\experiments\\run_stream_feedback.py": "b2c841e6b34618f6814aa32d6306aa9b6ee001bc12bdebed284ea908d3d55292",
+    "eda\\experiments\\run_native_stream.py": "1a0132f5b37369b977f960148b306fad3aa56f97cb3c18f9cc2d06ba27024ef3",
+    "eda\\experiments\\run_native_seq_initialized.py": "aeeeb54ff22512e71c8c93ffabf3bc4f44ac7adcf5982a32179d79aa292e830e",
+    "eda\\experiments\\validate_stream_reset_contract.py": "50eed41865ec779ba7afad8388125453dd182caa4dd4cc42a7bd94724978b500",
+    "eda\\experiments\\run_native_comb.py": "6d5533a0fabdaf0e97d16d6d3b35ca424387bb4ff07968a10aa27df34ed385f2",
+    "eda\\experiments\\trace_sta_rtl_cone.py": "047c3b739a00bcba19d470ea3d043ef5a872dd0ded0f0ee41dc22ea3e41b920d",
+    "agents\\rtl_optimizer.py": "576a055c1f5e8498a014833cb7f8bb01de08a56e6f3fcd53c568dcaaf4a3e12e"
+  },
+  "reference_sources": {
+    "benchmark\\engineering_sources_20261106\\axis_adapter.v": "42e8a1289d4aa2dfd90785c983d3f5790c9c4a2cb957cfd42ea1d39435032c67",
+    "benchmark\\engineering_sources_20261106\\axis_register.v": "599fde2d6c2d806643bbffb7c444297e69a71871f962d4b741ec1914342e0d39"
+  },
+  "curl_path": "C:\\Windows\\System32\\curl.exe",
+  "curl_sha256": "73d24149ff289afc49ec41f08918ef9faa727d39ad993e929757dc2ddafab805"
+}

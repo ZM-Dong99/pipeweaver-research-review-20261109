@@ -1,0 +1,60 @@
+{
+  "call_index": 7,
+  "arm": "risk_aware_timing_feedback",
+  "candidate_id": "candidate_03",
+  "candidate_sha256": "9182008adc8557c4c98611832cb5df277bfb2ce0a6c7be7f636b73f202a37ad0",
+  "status": "GENERATED",
+  "explanation": {
+    "bottleneck": "The measured baseline worst path is a state flip-flop through a three-input OR to bill, with 0.70 ns arrival time and 9.30 ns setup slack. The next reported state-transition path has only 0.08 ns more slack, so removing the output OR alone offers limited global improvement.",
+    "rewrite": "Express the six reachable one-hot states as explicit Boolean registers and add a destination-state bill register. bill_q is updated on the same edge as the state, using a factored equation for whether the destination is BILL10, BILL20 or BILL30. This removes the post-register bill OR without adding an output cycle. Shared input qualifiers explicitly preserve ten priority.",
+    "functional_boundaries": "Preserves the module name, parameter declarations and defaults, native ports, synchronous active-high clear, single positive-edge clock and output latency. Following the specified reset, exactly one of the six state flags is set, and bill_q equals the union of the three bill states. Both invariants are preserved on every subsequent edge, including arbitrary later clear assertions. Simultaneous ten and twenty selects ten. No initialization, additional startup assumptions or input restrictions are introduced. Equivalence must be checked against the frozen original under the supplied startup contract; arbitrary unreset or corrupted internal encodings are not claimed equivalent.",
+    "expected_timing_gain": "Unmeasured candidate: the default-parameter bill output becomes a direct register output. The baseline state-transition path with 9.38 ns slack is a likely competing critical path; if all other paths were unchanged, eliminating only the original worst path would improve WNS by at most 0.08 ns. The new bill_q input cone, including synchronous-clear gating and setup time, may instead become critical. Mapping and STA are required to establish strict WNS improvement and non-regressing TNS.",
+    "area_or_other_cost": "Expected register count is seven versus the baseline six, subject to synthesis optimization. One additional dfxtp_1 costs 20.0192 um2, leaving only 5.25504 um2 of the supplied area headroom before combinational changes. Removing the output OR may offset some of the added bill next-state logic and reset gating, but buffering, cell sizing and logic mapping can exceed that allowance. Compliance with the 278.01664 um2 cap is not established.",
+    "output_format_normalization": [
+      "Removed complete leading think wrapper before JSON parsing"
+    ]
+  },
+  "parameters": {
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "http_transport": "curl",
+    "response_format": "json_object",
+    "candidate_index": 7,
+    "response_id": "chatcmpl-755be947-8e38-40e7-97e0-ca4f7838cce2",
+    "response_created": 1793636889,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 3835,
+      "completion_tokens": 1593,
+      "total_tokens": 5940
+    }
+  },
+  "response_model": "gpt-6.1-sol",
+  "seconds": 35.371200400000816,
+  "accepted": false,
+  "metrics": {
+    "status": "PASS",
+    "formal": "PASS",
+    "mapped_formal": "PASS",
+    "ppa": "PASS",
+    "eligible": true,
+    "stage": "sta",
+    "mapped_area_um2": 321.5584,
+    "mapped_cells": 34,
+    "electrical": {
+      "status": "PASS",
+      "violation_rows": 0,
+      "checks": [
+        "max_slew",
+        "max_capacitance"
+      ],
+      "scope": "Library limits under recorded SDC; not physical signoff"
+    },
+    "wns_ns": 9.22,
+    "tns_ns": 0.0,
+    "mapped_sha256": "76212c703486ef33ee033896bb73e87051fcebe725cda581a5a736715fe5edac",
+    "sdc_sha256": "7c1efdc1b0d7abeccbbfb4f8af926767240ac755b5dbd6f49eed98a8e884e4ab",
+    "elapsed_seconds": 1.856
+  },
+  "reason": "Exceeds fixed baseline-derived area cap"
+}

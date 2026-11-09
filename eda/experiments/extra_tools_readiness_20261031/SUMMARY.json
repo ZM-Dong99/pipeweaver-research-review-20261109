@@ -1,0 +1,111 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "label": "sby_version",
+      "command": [
+        "D:\\oss-cad-suite\\bin\\sby.exe",
+        "--version"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "label": "eqy_version",
+      "command": [
+        "D:\\oss-cad-suite\\bin\\eqy.exe",
+        "--version"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "label": "z3_version",
+      "command": [
+        "D:\\oss-cad-suite\\bin\\z3.exe",
+        "--version"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "label": "slang_version",
+      "command": [
+        "D:\\oss-cad-suite\\bin\\slang.exe",
+        "--version"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "label": "verilator_bin_version",
+      "command": [
+        "D:\\oss-cad-suite\\bin\\verilator_bin.exe",
+        "--version"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "label": "verilator_lint",
+      "command": [
+        "D:\\oss-cad-suite\\bin\\verilator_bin.exe",
+        "--lint-only",
+        "--top-module",
+        "minimal_and",
+        "D:\\verilog_lab\\PipeWeaver\\tests\\minimal.v"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "label": "verilator_reject_bad",
+      "command": [
+        "D:\\oss-cad-suite\\bin\\verilator_bin.exe",
+        "--lint-only",
+        "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\extra_tools_readiness_20261031\\bad.v"
+      ],
+      "exit_code": 1,
+      "passed": true
+    },
+    {
+      "label": "slang_native_mux",
+      "command": [
+        "D:\\oss-cad-suite\\bin\\slang.exe",
+        "--top",
+        "mux_encode",
+        "D:\\verilog_lab\\PipeWeaver\\benchmark\\rtl_opt_upstream_hkust\\benchmark\\mux_encode\\mux_encode.sv"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "label": "sby_correct",
+      "command": [
+        "D:\\oss-cad-suite\\bin\\sby.exe",
+        "-d",
+        "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\extra_tools_readiness_20261031\\correct_proof",
+        "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\extra_tools_readiness_20261031\\correct.sby"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "label": "sby_wrong",
+      "command": [
+        "D:\\oss-cad-suite\\bin\\sby.exe",
+        "-d",
+        "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\extra_tools_readiness_20261031\\wrong_proof",
+        "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\extra_tools_readiness_20261031\\wrong.sby"
+      ],
+      "exit_code": 2,
+      "passed": true
+    }
+  ],
+  "suite": "D:\\oss-cad-suite",
+  "suite_version": "20260829",
+  "llm_generation_requests": 0,
+  "downloaded_packages": 0,
+  "runner_sha256": "224325fd1d62c957667d8f2bbd561a18498b636e32691f99069c0a324c852352",
+  "limits": "Verilator lint only, not C++ simulation; Slang elaboration only, not mapped PPA; GTKWave discovered but GUI not launched; SBY synthetic proof only"
+}

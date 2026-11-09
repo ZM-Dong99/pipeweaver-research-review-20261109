@@ -1,0 +1,317 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\multicircuit_feedback_144_20261109\definedness_checks\call_106\definedness.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v' to AST representation.
+Generating RTLIL representation for module `\priority_encoder'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/definedness_checks/call_106/definedness.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/definedness_checks/call_106/definedness.v' to AST representation.
+Generating RTLIL representation for module `\pw_definedness'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \pw_definedness
+Used module:     \priority_encoder
+Parameter \WIDTH = 256
+Parameter \LSB_HIGH_PRIORITY = 0
+
+3.1.2. Executing AST frontend in derive mode using pre-parsed AST for module `\priority_encoder'.
+Parameter \WIDTH = 256
+Parameter \LSB_HIGH_PRIORITY = 0
+Generating RTLIL representation for module `$paramod$b53bcac189589099ba492181bddb3e9ed711f146\priority_encoder'.
+
+3.1.3. Analyzing design hierarchy..
+Top module:  \pw_definedness
+Used module:     $paramod$b53bcac189589099ba492181bddb3e9ed711f146\priority_encoder
+
+3.1.4. Analyzing design hierarchy..
+Top module:  \pw_definedness
+Used module:     $paramod$b53bcac189589099ba492181bddb3e9ed711f146\priority_encoder
+Removing unused module `\priority_encoder'.
+Removed 1 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+<suppressed ~1 debug messages>
+Optimizing module $paramod$b53bcac189589099ba492181bddb3e9ed711f146\priority_encoder.
+<suppressed ~106 debug messages>
+
+3.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$b53bcac189589099ba492181bddb3e9ed711f146\priority_encoder.
+<suppressed ~1 debug messages>
+
+3.4. Executing FUTURE pass.
+
+3.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+Removed 1 unused cells and 752 unused wires.
+<suppressed ~2 debug messages>
+
+3.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_definedness...
+Found and reported 0 problems.
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 1143 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Removed a total of 0 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_definedness..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_definedness.
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$1092: { \dut.fast_256.groups[13].local_hot [14:8] \pw_signal_0 [223] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$1090: { \dut.fast_256.groups[13].local_hot [14:12] \dut.fast_256.groups[13].local_hot [7:4] \pw_signal_0 [223] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$1088: { \dut.fast_256.groups[13].local_hot [14] \dut.fast_256.groups[13].local_hot [11:10] \dut.fast_256.groups[13].local_hot [7:6] \dut.fast_256.groups[13].local_hot [3:2] \pw_signal_0 [223] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$1086: { \dut.fast_256.groups[13].local_hot [13] \dut.fast_256.groups[13].local_hot [11] \dut.fast_256.groups[13].local_hot [9] \dut.fast_256.groups[13].local_hot [7] \dut.fast_256.groups[13].local_hot [5] \dut.fast_256.groups[13].local_hot [3] \dut.fast_256.groups[13].local_hot [1] \pw_signal_0 [223] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:39$1021: \pw_signal_0 [255:224]
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$1015: { \dut.fast_256.groups[12].local_hot [14:8] \pw_signal_0 [207] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$1013: { \dut.fast_256.groups[12].local_hot [14:12] \dut.fast_256.groups[12].local_hot [7:4] \pw_signal_0 [207] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$1011: { \dut.fast_256.groups[12].local_hot [14] \dut.fast_256.groups[12].local_hot [11:10] \dut.fast_256.groups[12].local_hot [7:6] \dut.fast_256.groups[12].local_hot [3:2] \pw_signal_0 [207] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$1009: { \dut.fast_256.groups[12].local_hot [13] \dut.fast_256.groups[12].local_hot [11] \dut.fast_256.groups[12].local_hot [9] \dut.fast_256.groups[12].local_hot [7] \dut.fast_256.groups[12].local_hot [5] \dut.fast_256.groups[12].local_hot [3] \dut.fast_256.groups[12].local_hot [1] \pw_signal_0 [207] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:39$944: \pw_signal_0 [255:208]
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$938: { \dut.fast_256.groups[11].local_hot [14:8] \pw_signal_0 [191] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$936: { \dut.fast_256.groups[11].local_hot [14:12] \dut.fast_256.groups[11].local_hot [7:4] \pw_signal_0 [191] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$934: { \dut.fast_256.groups[11].local_hot [14] \dut.fast_256.groups[11].local_hot [11:10] \dut.fast_256.groups[11].local_hot [7:6] \dut.fast_256.groups[11].local_hot [3:2] \pw_signal_0 [191] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$932: { \dut.fast_256.groups[11].local_hot [13] \dut.fast_256.groups[11].local_hot [11] \dut.fast_256.groups[11].local_hot [9] \dut.fast_256.groups[11].local_hot [7] \dut.fast_256.groups[11].local_hot [5] \dut.fast_256.groups[11].local_hot [3] \dut.fast_256.groups[11].local_hot [1] \pw_signal_0 [191] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:39$867: \pw_signal_0 [255:192]
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$861: { \dut.fast_256.groups[10].local_hot [14:8] \pw_signal_0 [175] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$859: { \dut.fast_256.groups[10].local_hot [14:12] \dut.fast_256.groups[10].local_hot [7:4] \pw_signal_0 [175] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$857: { \dut.fast_256.groups[10].local_hot [14] \dut.fast_256.groups[10].local_hot [11:10] \dut.fast_256.groups[10].local_hot [7:6] \dut.fast_256.groups[10].local_hot [3:2] \pw_signal_0 [175] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$855: { \dut.fast_256.groups[10].local_hot [13] \dut.fast_256.groups[10].local_hot [11] \dut.fast_256.groups[10].local_hot [9] \dut.fast_256.groups[10].local_hot [7] \dut.fast_256.groups[10].local_hot [5] \dut.fast_256.groups[10].local_hot [3] \dut.fast_256.groups[10].local_hot [1] \pw_signal_0 [175] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:39$790: \pw_signal_0 [255:176]
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$784: { \dut.fast_256.groups[9].local_hot [14:8] \pw_signal_0 [159] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$782: { \dut.fast_256.groups[9].local_hot [14:12] \dut.fast_256.groups[9].local_hot [7:4] \pw_signal_0 [159] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$780: { \dut.fast_256.groups[9].local_hot [14] \dut.fast_256.groups[9].local_hot [11:10] \dut.fast_256.groups[9].local_hot [7:6] \dut.fast_256.groups[9].local_hot [3:2] \pw_signal_0 [159] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$778: { \dut.fast_256.groups[9].local_hot [13] \dut.fast_256.groups[9].local_hot [11] \dut.fast_256.groups[9].local_hot [9] \dut.fast_256.groups[9].local_hot [7] \dut.fast_256.groups[9].local_hot [5] \dut.fast_256.groups[9].local_hot [3] \dut.fast_256.groups[9].local_hot [1] \pw_signal_0 [159] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:39$713: \pw_signal_0 [255:160]
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$707: { \dut.fast_256.groups[8].local_hot [14:8] \pw_signal_0 [143] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$705: { \dut.fast_256.groups[8].local_hot [14:12] \dut.fast_256.groups[8].local_hot [7:4] \pw_signal_0 [143] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$703: { \dut.fast_256.groups[8].local_hot [14] \dut.fast_256.groups[8].local_hot [11:10] \dut.fast_256.groups[8].local_hot [7:6] \dut.fast_256.groups[8].local_hot [3:2] \pw_signal_0 [143] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$701: { \dut.fast_256.groups[8].local_hot [13] \dut.fast_256.groups[8].local_hot [11] \dut.fast_256.groups[8].local_hot [9] \dut.fast_256.groups[8].local_hot [7] \dut.fast_256.groups[8].local_hot [5] \dut.fast_256.groups[8].local_hot [3] \dut.fast_256.groups[8].local_hot [1] \pw_signal_0 [143] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:39$636: \pw_signal_0 [255:144]
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$630: { \dut.fast_256.groups[7].local_hot [14:8] \pw_signal_0 [127] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$628: { \dut.fast_256.groups[7].local_hot [14:12] \dut.fast_256.groups[7].local_hot [7:4] \pw_signal_0 [127] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$626: { \dut.fast_256.groups[7].local_hot [14] \dut.fast_256.groups[7].local_hot [11:10] \dut.fast_256.groups[7].local_hot [7:6] \dut.fast_256.groups[7].local_hot [3:2] \pw_signal_0 [127] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$624: { \dut.fast_256.groups[7].local_hot [13] \dut.fast_256.groups[7].local_hot [11] \dut.fast_256.groups[7].local_hot [9] \dut.fast_256.groups[7].local_hot [7] \dut.fast_256.groups[7].local_hot [5] \dut.fast_256.groups[7].local_hot [3] \dut.fast_256.groups[7].local_hot [1] \pw_signal_0 [127] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:39$559: \pw_signal_0 [255:128]
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$553: { \dut.fast_256.groups[6].local_hot [14:8] \pw_signal_0 [111] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$551: { \dut.fast_256.groups[6].local_hot [14:12] \dut.fast_256.groups[6].local_hot [7:4] \pw_signal_0 [111] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$549: { \dut.fast_256.groups[6].local_hot [14] \dut.fast_256.groups[6].local_hot [11:10] \dut.fast_256.groups[6].local_hot [7:6] \dut.fast_256.groups[6].local_hot [3:2] \pw_signal_0 [111] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$547: { \dut.fast_256.groups[6].local_hot [13] \dut.fast_256.groups[6].local_hot [11] \dut.fast_256.groups[6].local_hot [9] \dut.fast_256.groups[6].local_hot [7] \dut.fast_256.groups[6].local_hot [5] \dut.fast_256.groups[6].local_hot [3] \dut.fast_256.groups[6].local_hot [1] \pw_signal_0 [111] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:39$482: \pw_signal_0 [255:112]
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$476: { \dut.fast_256.groups[5].local_hot [14:8] \pw_signal_0 [95] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$1169: { \dut.fast_256.groups[14].local_hot [14:8] \pw_signal_0 [239] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$474: { \dut.fast_256.groups[5].local_hot [14:12] \dut.fast_256.groups[5].local_hot [7:4] \pw_signal_0 [95] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$472: { \dut.fast_256.groups[5].local_hot [14] \dut.fast_256.groups[5].local_hot [11:10] \dut.fast_256.groups[5].local_hot [7:6] \dut.fast_256.groups[5].local_hot [3:2] \pw_signal_0 [95] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$470: { \dut.fast_256.groups[5].local_hot [13] \dut.fast_256.groups[5].local_hot [11] \dut.fast_256.groups[5].local_hot [9] \dut.fast_256.groups[5].local_hot [7] \dut.fast_256.groups[5].local_hot [5] \dut.fast_256.groups[5].local_hot [3] \dut.fast_256.groups[5].local_hot [1] \pw_signal_0 [95] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:39$405: \pw_signal_0 [255:96]
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$399: { \dut.fast_256.groups[4].local_hot [14:8] \pw_signal_0 [79] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$1167: { \dut.fast_256.groups[14].local_hot [14:12] \dut.fast_256.groups[14].local_hot [7:4] \pw_signal_0 [239] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$397: { \dut.fast_256.groups[4].local_hot [14:12] \dut.fast_256.groups[4].local_hot [7:4] \pw_signal_0 [79] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$1238: { \pw_signal_3 [253] \pw_signal_3 [251] \pw_signal_3 [249] \pw_signal_3 [247] \pw_signal_3 [245] \pw_signal_3 [243] \pw_signal_3 [241] \pw_signal_0 [255] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$395: { \dut.fast_256.groups[4].local_hot [14] \dut.fast_256.groups[4].local_hot [11:10] \dut.fast_256.groups[4].local_hot [7:6] \dut.fast_256.groups[4].local_hot [3:2] \pw_signal_0 [79] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$393: { \dut.fast_256.groups[4].local_hot [13] \dut.fast_256.groups[4].local_hot [11] \dut.fast_256.groups[4].local_hot [9] \dut.fast_256.groups[4].local_hot [7] \dut.fast_256.groups[4].local_hot [5] \dut.fast_256.groups[4].local_hot [3] \dut.fast_256.groups[4].local_hot [1] \pw_signal_0 [79] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$1240: { \pw_signal_3 [254] \pw_signal_3 [251:250] \pw_signal_3 [247:246] \pw_signal_3 [243:242] \pw_signal_0 [255] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$1165: { \dut.fast_256.groups[14].local_hot [14] \dut.fast_256.groups[14].local_hot [11:10] \dut.fast_256.groups[14].local_hot [7:6] \dut.fast_256.groups[14].local_hot [3:2] \pw_signal_0 [239] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:39$328: \pw_signal_0 [255:80]
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$322: { \dut.fast_256.groups[3].local_hot [14:8] \pw_signal_0 [63] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$1242: { \pw_signal_3 [254:252] \pw_signal_3 [247:244] \pw_signal_0 [255] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$320: { \dut.fast_256.groups[3].local_hot [14:12] \dut.fast_256.groups[3].local_hot [7:4] \pw_signal_0 [63] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$318: { \dut.fast_256.groups[3].local_hot [14] \dut.fast_256.groups[3].local_hot [11:10] \dut.fast_256.groups[3].local_hot [7:6] \dut.fast_256.groups[3].local_hot [3:2] \pw_signal_0 [63] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$1244: { \pw_signal_3 [254:248] \pw_signal_0 [255] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$316: { \dut.fast_256.groups[3].local_hot [13] \dut.fast_256.groups[3].local_hot [11] \dut.fast_256.groups[3].local_hot [9] \dut.fast_256.groups[3].local_hot [7] \dut.fast_256.groups[3].local_hot [5] \dut.fast_256.groups[3].local_hot [3] \dut.fast_256.groups[3].local_hot [1] \pw_signal_0 [63] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$1163: { \dut.fast_256.groups[14].local_hot [13] \dut.fast_256.groups[14].local_hot [11] \dut.fast_256.groups[14].local_hot [9] \dut.fast_256.groups[14].local_hot [7] \dut.fast_256.groups[14].local_hot [5] \dut.fast_256.groups[14].local_hot [3] \dut.fast_256.groups[14].local_hot [1] \pw_signal_0 [239] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:39$251: \pw_signal_0 [255:64]
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$245: { \dut.fast_256.groups[2].local_hot [14:8] \pw_signal_0 [47] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$243: { \dut.fast_256.groups[2].local_hot [14:12] \dut.fast_256.groups[2].local_hot [7:4] \pw_signal_0 [47] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$241: { \dut.fast_256.groups[2].local_hot [14] \dut.fast_256.groups[2].local_hot [11:10] \dut.fast_256.groups[2].local_hot [7:6] \dut.fast_256.groups[2].local_hot [3:2] \pw_signal_0 [47] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:65$1249: \pw_signal_0
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:67$1251: { \dut.fast_256.code_bit1 [14:0] \pw_signal_3 [254] \pw_signal_3 [251:250] \pw_signal_3 [247:246] \pw_signal_3 [243:242] \pw_signal_0 [255] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:39$174: \pw_signal_0 [255:48]
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:66$1250: { \dut.fast_256.code_bit0 [14:0] \pw_signal_3 [253] \pw_signal_3 [251] \pw_signal_3 [249] \pw_signal_3 [247] \pw_signal_3 [245] \pw_signal_3 [243] \pw_signal_3 [241] \pw_signal_0 [255] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$168: { \dut.fast_256.groups[1].local_hot [14:8] \pw_signal_0 [31] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:68$1252: { \dut.fast_256.code_bit2 [14:0] \pw_signal_3 [254:252] \pw_signal_3 [247:244] \pw_signal_0 [255] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$166: { \dut.fast_256.groups[1].local_hot [14:12] \dut.fast_256.groups[1].local_hot [7:4] \pw_signal_0 [31] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:69$1253: { \dut.fast_256.code_bit3 [14:0] \pw_signal_3 [254:248] \pw_signal_0 [255] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$164: { \dut.fast_256.groups[1].local_hot [14] \dut.fast_256.groups[1].local_hot [11:10] \dut.fast_256.groups[1].local_hot [7:6] \dut.fast_256.groups[1].local_hot [3:2] \pw_signal_0 [31] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$162: { \dut.fast_256.groups[1].local_hot [13] \dut.fast_256.groups[1].local_hot [11] \dut.fast_256.groups[1].local_hot [9] \dut.fast_256.groups[1].local_hot [7] \dut.fast_256.groups[1].local_hot [5] \dut.fast_256.groups[1].local_hot [3] \dut.fast_256.groups[1].local_hot [1] \pw_signal_0 [31] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:70$1255: { \dut.fast_256.group_selected [13] \dut.fast_256.group_selected [11] \dut.fast_256.group_selected [9] \dut.fast_256.group_selected [7] \dut.fast_256.group_selected [5] \dut.fast_256.group_selected [3] \dut.fast_256.group_selected [1] \pw_signal_0 [255:240] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:39$97: \pw_signal_0 [255:32]
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$239: { \dut.fast_256.groups[2].local_hot [13] \dut.fast_256.groups[2].local_hot [11] \dut.fast_256.groups[2].local_hot [9] \dut.fast_256.groups[2].local_hot [7] \dut.fast_256.groups[2].local_hot [5] \dut.fast_256.groups[2].local_hot [3] \dut.fast_256.groups[2].local_hot [1] \pw_signal_0 [47] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:59$91: { \dut.fast_256.groups[0].local_hot [14:8] \pw_signal_0 [15] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:71$1257: { \dut.fast_256.group_selected [14] \dut.fast_256.group_selected [11:10] \dut.fast_256.group_selected [7:6] \dut.fast_256.group_selected [3:2] \pw_signal_0 [255:240] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:58$89: { \dut.fast_256.groups[0].local_hot [14:12] \dut.fast_256.groups[0].local_hot [7:4] \pw_signal_0 [15] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:57$87: { \dut.fast_256.groups[0].local_hot [14] \dut.fast_256.groups[0].local_hot [11:10] \dut.fast_256.groups[0].local_hot [7:6] \dut.fast_256.groups[0].local_hot [3:2] \pw_signal_0 [15] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:72$1259: { \dut.fast_256.group_selected [14:12] \dut.fast_256.group_selected [7:4] \pw_signal_0 [255:240] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:56$85: { \dut.fast_256.groups[0].local_hot [13] \dut.fast_256.groups[0].local_hot [11] \dut.fast_256.groups[0].local_hot [9] \dut.fast_256.groups[0].local_hot [7] \dut.fast_256.groups[0].local_hot [5] \dut.fast_256.groups[0].local_hot [3] \dut.fast_256.groups[0].local_hot [1] \pw_signal_0 [15] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:73$1261: { \dut.fast_256.group_selected [14:8] \pw_signal_0 [255:240] }
+    New input vector for $reduce_or cell $flatten\dut.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_106/candidate.v:39$21: \pw_signal_0 [255:16]
+  Optimizing cells in module \pw_definedness.
+Performed a total of 87 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 1143 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Removed a total of 0 cells.
+
+3.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+Removed 5 unused cells and 0 unused wires.
+<suppressed ~5 debug messages>
+
+3.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_definedness..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_definedness.
+Performed a total of 0 changes.
+
+3.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 1138 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Removed a total of 0 cells.
+
+3.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+
+3.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+
+3.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+
+3.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.12. Executing OPT pass (performing simple optimizations).
+
+3.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 1138 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Removed a total of 0 cells.
+
+3.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+
+3.12.4. Finished fast OPT passes.
+
+3.13. Executing SORT pass.
+
+3.14. Printing statistics.
+
+=== pw_definedness ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      562 wires
+     2229 wire bits
+       64 public wires
+     1731 public wire bits
+        2 ports
+      257 port bits
+     1138 cells
+      555   $and
+        3   $nex
+      255   $not
+      322   $reduce_or
+        2   $reduce_xor
+        1   $scopeinfo
+
+3.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_definedness...
+Found and reported 0 problems.
+
+4. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \pw_signal_0
+Imported 1138 cells to SAT database.
+Import proof-constraint: \defined = 1'1
+Final proof equation: \defined = 1'1
+Import show expression: \pw_signal_0
+
+Solving problem with 19849 variables and 64411 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 89d4db2230
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 6x opt_expr (0 sec), 3% 5x opt_clean (0 sec), ...

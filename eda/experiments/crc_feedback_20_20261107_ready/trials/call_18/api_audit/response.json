@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-0483e5ec-95bf-4759-a2b3-9734853047f1",
+  "model": "gpt-6.1-sol",
+  "created": 1794022627,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Generating compile-time masks**\n\n**Building symbolic CRC masks**\n\n**Balancing XOR3 groups**\n\n**Structuring the parity reduction**\n\n</think>\n\n{\n  \"candidate_rtl\": \"`default_nettype none\\nmodule crc32_d8 (\\n    input  wire [7:0]  data_in,\\n    input  wire [31:0] state_in,\\n    output wire [7:0]  data_out,\\n    output wire [31:0] state_out\\n);\\n\\n    // Factor the eight repeated input/state pairs before the CRC matrix.\\n    wire [7:0] q;\\n    assign q = data_in ^ state_in[7:0];\\n\\n    // Constant elaboration-time construction of the reflected CRC matrix.\\n    // Rows 0..31 are next-state bits; rows 32..39 are feedback bits\\n    // emitted in chronological, least-significant-bit-first order.\\n    function [7:0] crc_row;\\n        input integer row;\\n        reg [31:0] c;\\n        reg [7:0] feedback;\\n        integer k;\\n        integer j;\\n        begin\\n            crc_row = 8'b0;\\n            for (k = 0; k < 8; k = k + 1) begin\\n                c = 32'h00000001 << k;\\n                feedback = 8'b0;\\n                for (j = 0; j < 8; j = j + 1) begin\\n                    feedback[j] = c[0];\\n                    if (c[0])\\n                        c = (c >> 1) ^ 32'hedb88320;\\n                    else\\n                        c = c >> 1;\\n                end\\n                if (row < 32)\\n                    crc_row[k] = c[row];\\n                else\\n                    crc_row[k] = feedback[row-32];\\n            end\\n        end\\n    endfunction\\n\\n    genvar b;\\n    generate\\n        for (b = 0; b < 32; b = b + 1) begin : g_state\\n            localparam [7:0] MASK = crc_row(b);\\n            wire [7:0] terms;\\n            wire [3:0] pair_xor;\\n            wire [1:0] quad_xor;\\n            wire correction;\\n            assign terms = q & MASK;\\n            assign pair_xor[0] = terms[0] ^ terms[1];\\n            assign pair_xor[1] = terms[2] ^ terms[3];\\n            assign pair_xor[2] = terms[4] ^ terms[5];\\n            assign pair_xor[3] = terms[6] ^ terms[7];\\n            assign quad_xor[0] = pair_xor[0] ^ pair_xor[1];\\n            assign quad_xor[1] = pair_xor[2] ^ pair_xor[3];\\n            assign correction = quad_xor[0] ^ quad_xor[1];\\n            if (b < 24) begin : g_shift\\n                assign state_out[b] = state_in[b+8] ^ correction;\\n            end else begin : g_no_shift\\n                assign state_out[b] = correction;\\n            end\\n        end\\n        for (b = 0; b < 8; b = b + 1) begin : g_data\\n            localparam [7:0] MASK = crc_row(32+b);\\n            assign data_out[b] = ^(q & MASK);\\n        end\\n    endgenerate\\nendmodule\\n`default_nettype wire\\n\",\n  \"bottleneck\": \"The supplied critical paths pass through buffered input distribution and several mapped parity-logic stages. Independently expanding each output parity repeats the same data_in/state_in low-byte relationships and increases input loading.\",\n  \"rewrite\": \"Specialize to the fixed reflected CRC32 byte update. Compute q = data_in XOR state_in[7:0] once, then apply constant CRC matrices using balanced XOR trees. Add the unchanged upper-state shift contribution separately. Generate the exact data_out feedback matrix as well, rather than treating data_out as a pass-through or unused output. All matrix construction occurs at elaboration time.\",\n  \"expected_timing_gain\": \"The intended improvement is reduced input loading and repeated parity work relative to the 0.98 ns baseline. No mapped timing result is available for this candidate; a positive gain or global timing minimum cannot be guaranteed without running the specified flow.\",\n  \"area_or_other_cost\": \"Sharing eight input/state XORs should reduce duplicated logic, but their fanout may require buffering or stronger mapped cells. Mapped area, compliance with the 2752.64 um^2 cap, and zero electrical violations remain unmeasured and require validation.\",\n  \"functional_boundaries\": \"Preserves the specified top, port widths, and directions. Implements eight reflected Galois steps with polynomial 0xedb88320, equivalent to reflected 0x04c11db7, with feed-forward disabled. All 40 input bits remain unconstrained; both output buses are defined for every binary input. No initialization, inversion, framing, clock, storage, gating, assumptions, or dependencies are introduced. Native-source and mapped SAT equivalence proofs have not been run here and remain mandatory before acceptance.\"\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 6650,
+    "completion_tokens": 1752,
+    "total_tokens": 9029
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 1125,
+    "usage_reported": true
+  }
+}

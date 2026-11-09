@@ -1,0 +1,14 @@
+read_liberty -lib "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+read_verilog -sv "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_009/candidate.v"
+chparam -set LSB_HIGH_PRIORITY 0 priority_encoder
+chparam -set WIDTH 256 priority_encoder
+hierarchy -check -top priority_encoder
+flatten
+delete t:$scopeinfo
+synth -top priority_encoder -noabc
+abc -script "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/independent_reproduction_after_48/priority256/candidate/abc.script" -liberty "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" -constr "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/independent_reproduction_after_48/priority256/candidate/abc.constr" -dont_use sky130_fd_sc_hd__lpflow_*
+clean
+check -assert
+stat -liberty "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/independent_reproduction_after_48/priority256/candidate/mapped.json"
+write_verilog -noattr "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/independent_reproduction_after_48/priority256/candidate/mapped.v"

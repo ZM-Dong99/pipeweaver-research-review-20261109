@@ -1,0 +1,16 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul_const/mul_const.v"
+hierarchy -check -top mul_const
+flatten
+rename mul_const pw_gold
+design -stash pw_gold_design
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mul_const/mul_const.v"
+hierarchy -check -top mul_const
+flatten
+rename mul_const pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/baseline_qualification_20261031_000748_731025/cases/rtlopt_mul_const/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 120

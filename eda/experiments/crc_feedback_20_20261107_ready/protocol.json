@@ -1,0 +1,348 @@
+{
+  "status": "PREPARED_PENDING_EXPLICIT_APPROVAL",
+  "endpoint": "https://apinebula.ai/v1/chat/completions",
+  "model": "gpt-6.1-sol",
+  "maximum_requests": 20,
+  "timeout_seconds": 600,
+  "max_completion_tokens": 16000,
+  "reasoning_effort": "medium",
+  "automatic_retries": 0,
+  "stop_after_consecutive_transport_failures": 3,
+  "system": "Optimize the given fixed combinational CRC32 update conservatively. Preserve all input/output semantics. Return exactly the six requested JSON fields.",
+  "schedule": [
+    {
+      "index": 1,
+      "arm": "no_sta",
+      "trial": 1
+    },
+    {
+      "index": 2,
+      "arm": "sta",
+      "trial": 1
+    },
+    {
+      "index": 3,
+      "arm": "no_sta",
+      "trial": 2
+    },
+    {
+      "index": 4,
+      "arm": "sta",
+      "trial": 2
+    },
+    {
+      "index": 5,
+      "arm": "sta",
+      "trial": 3
+    },
+    {
+      "index": 6,
+      "arm": "no_sta",
+      "trial": 3
+    },
+    {
+      "index": 7,
+      "arm": "no_sta",
+      "trial": 4
+    },
+    {
+      "index": 8,
+      "arm": "sta",
+      "trial": 4
+    },
+    {
+      "index": 9,
+      "arm": "no_sta",
+      "trial": 5
+    },
+    {
+      "index": 10,
+      "arm": "sta",
+      "trial": 5
+    },
+    {
+      "index": 11,
+      "arm": "sta",
+      "trial": 6
+    },
+    {
+      "index": 12,
+      "arm": "no_sta",
+      "trial": 6
+    },
+    {
+      "index": 13,
+      "arm": "no_sta",
+      "trial": 7
+    },
+    {
+      "index": 14,
+      "arm": "sta",
+      "trial": 7
+    },
+    {
+      "index": 15,
+      "arm": "sta",
+      "trial": 8
+    },
+    {
+      "index": 16,
+      "arm": "no_sta",
+      "trial": 8
+    },
+    {
+      "index": 17,
+      "arm": "no_sta",
+      "trial": 9
+    },
+    {
+      "index": 18,
+      "arm": "sta",
+      "trial": 9
+    },
+    {
+      "index": 19,
+      "arm": "sta",
+      "trial": 10
+    },
+    {
+      "index": 20,
+      "arm": "no_sta",
+      "trial": 10
+    }
+  ],
+  "baseline": {
+    "status": "PASS",
+    "formal": "PASS",
+    "ppa": "PASS",
+    "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\crc_feedback_20_20261107_ready\\baseline\\eda",
+    "protocol_sha256": "9234b6e589137f02290807f793fee265216ace8701ec8c91be040f1bcdd7004f",
+    "stage": "electrical_checks",
+    "mapped_formal": "PASS",
+    "mapped_area_um2": 2502.4,
+    "mapped_cells": 373,
+    "max_data_arrival_ns": 0.98,
+    "wns_ns": 99.02,
+    "tns_ns": 0.0,
+    "critical_startpoint": "data_in[2] (input port clocked by virtual_clk)",
+    "critical_endpoint": "state_out[16] (output port clocked by virtual_clk)",
+    "normalized_signed_declarations": 0,
+    "mapped_sha256": "6aa75408fb94148fae766e518682e529a37a9541c1cc7dd800cab3a36aef6ff9",
+    "sta_netlist_sha256": "6aa75408fb94148fae766e518682e529a37a9541c1cc7dd800cab3a36aef6ff9",
+    "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+    "mapped_json_sha256": "323d1a5322ce66dd4d1ca11a322cbb581319dcbc12754b576aff6a08156783ed",
+    "electrical": {
+      "status": "PASS",
+      "violation_rows": 0,
+      "checks": [
+        "max_slew",
+        "max_capacitance"
+      ],
+      "scope": "Library limits under recorded SDC; not physical signoff"
+    },
+    "eligible": true,
+    "source_provenance": {
+      "cells_with_src_attribute": 0,
+      "total_mapped_cells": 373,
+      "nets_with_src_attribute": 58,
+      "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+    },
+    "rtl_source_cone": {
+      "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+      "artifact": "rtl_source_cone.json",
+      "sha256": "494c6b8fd6aa72312917e41e6a22100d9c64d7ad4673bc745c73fe3836614756",
+      "possible_rtl_operator_cells": 1,
+      "source_attribution_coverage": 1.0,
+      "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+    },
+    "elapsed_seconds": 4.84,
+    "model_requests": 0,
+    "candidate_frontend": "Slang",
+    "raw_candidate_sha256": "3cb79eecd9c7bb0a4ce07e1d824d93f20faaf54447167b653800f38cb3f2b20f",
+    "candidate_elaborated_sha256": "c6fc99dec3da709c2c6020534479f8f70eff8c3f24141754b471e4c71d57d0da",
+    "original_reference_sha256": "617ddb8474c8ac17f406168eee4f597e1d3646eb645b44cf83843253da879fec"
+  },
+  "deterministic_control": {
+    "status": "PASS",
+    "formal": "PASS",
+    "ppa": "PASS",
+    "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\crc_feedback_20_20261107_ready\\bitserial_control\\eda",
+    "protocol_sha256": "5d1ed1b769781870c3a8bcaf3e36d76ee4298d20e90a6be32da04cd4eab8588c",
+    "stage": "electrical_checks",
+    "mapped_formal": "PASS",
+    "mapped_area_um2": 1385.0784,
+    "mapped_cells": 125,
+    "max_data_arrival_ns": 1.29,
+    "wns_ns": 98.71,
+    "tns_ns": 0.0,
+    "critical_startpoint": "data_in[0] (input port clocked by virtual_clk)",
+    "critical_endpoint": "state_out[8] (output port clocked by virtual_clk)",
+    "normalized_signed_declarations": 0,
+    "mapped_sha256": "ccbe75a179f61dcbbaea2e327131917b93bf2a324987b2118c9def25d1e6796e",
+    "sta_netlist_sha256": "ccbe75a179f61dcbbaea2e327131917b93bf2a324987b2118c9def25d1e6796e",
+    "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+    "mapped_json_sha256": "d0b0120edb6298e5adfe1fc0dd5a3efc1561c69adfdebd899856c295f823b947",
+    "electrical": {
+      "status": "PASS",
+      "violation_rows": 0,
+      "checks": [
+        "max_slew",
+        "max_capacitance"
+      ],
+      "scope": "Library limits under recorded SDC; not physical signoff"
+    },
+    "eligible": true,
+    "source_provenance": {
+      "cells_with_src_attribute": 0,
+      "total_mapped_cells": 125,
+      "nets_with_src_attribute": 13,
+      "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+    },
+    "rtl_source_cone": {
+      "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+      "artifact": "rtl_source_cone.json",
+      "sha256": "d9272d362ca051e106d8c4eecb4900338fda7439e0540e74ae487bf22915fc81",
+      "possible_rtl_operator_cells": 10,
+      "source_attribution_coverage": 1.0,
+      "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+    },
+    "elapsed_seconds": 4.993,
+    "model_requests": 0,
+    "candidate_frontend": "Slang",
+    "raw_candidate_sha256": "f710e80f4b6138298884a9a4effb37987e368d2bf2b4a2fd65a7516f9a1b366e",
+    "candidate_elaborated_sha256": "936befcfeaba1656fe51e8c2a322d2eee663bc262408983412100f613b5b446a",
+    "original_reference_sha256": "617ddb8474c8ac17f406168eee4f597e1d3646eb645b44cf83843253da879fec"
+  },
+  "primary": "Per-arm all10-attempt baseline-retained median arrival; failures remain. Full-cohort conclusion only after20 attempts.",
+  "secondary": "Qualified improvement count, >=5pct gain count, area, unique mapped hashes, token reports and failure breakdown",
+  "isolation": "All responses frozen before candidate EDA. No repair, resampling, replacement or prompt changes.",
+  "scope": "One new-to-project-LLM-optimization functional family and one byte-update instance, not a large streaming module or statistical generalization claim",
+  "exposure": "Source existed in qualification work; no prior project LLM optimization on this CRC instance. Public model training exposure unknown.",
+  "controls": "Original baseline and conventional unrolled bit-serial area/timing tradeoff; control RTL/PPA excluded from both prompts",
+  "cost": "Requested completion cap320000 total; provider enforcement unverified, input tokens additional, failures may be billed. No currency cap or price estimate.",
+  "disclosure": "Public447-line LFSR source plus fixed CRC32 byte wrapper, functional/mapping constraints, baseline area, and STA-arm baseline timing report",
+  "dependencies": {
+    "eda\\experiments\\run_crc_feedback.py": "aa2eff1081e4ae498bef0667f427a81abe3f7a0d4468c2b72c7111b4100a7709",
+    "eda\\experiments\\evaluate_crc_candidate.py": "83f4088bd4d9900df84a7b9edd20c2f939a2ff7b70900aa229cf632a6d9fa051",
+    "agents\\portfolio_loop.py": "f459163f3687fbe11b5679a839955c8dacf7ce5e199f8f9a9490e2e408ff769d",
+    "agents\\sse_transport.py": "85f106720815042c9edfdf1242212a6f524b6563d143524b02af03b42692ba28",
+    "eda\\experiments\\prove_crc_affine.py": "04dc24f7a7505f15574f10c6d0385a5aebe9fd294edb3870ed6a77c6ff880f9b",
+    "eda\\experiments\\run_stream_feedback.py": "b2c841e6b34618f6814aa32d6306aa9b6ee001bc12bdebed284ea908d3d55292",
+    "eda\\experiments\\run_native_stream.py": "1a0132f5b37369b977f960148b306fad3aa56f97cb3c18f9cc2d06ba27024ef3",
+    "eda\\experiments\\run_native_seq_initialized.py": "aeeeb54ff22512e71c8c93ffabf3bc4f44ac7adcf5982a32179d79aa292e830e",
+    "eda\\experiments\\validate_stream_reset_contract.py": "50eed41865ec779ba7afad8388125453dd182caa4dd4cc42a7bd94724978b500",
+    "eda\\experiments\\run_native_comb.py": "6d5533a0fabdaf0e97d16d6d3b35ca424387bb4ff07968a10aa27df34ed385f2",
+    "eda\\experiments\\trace_sta_rtl_cone.py": "047c3b739a00bcba19d470ea3d043ef5a872dd0ded0f0ee41dc22ea3e41b920d",
+    "agents\\rtl_optimizer.py": "576a055c1f5e8498a014833cb7f8bb01de08a56e6f3fcd53c568dcaaf4a3e12e"
+  },
+  "reference_locks": {
+    "eda\\experiments\\crc_transfer_qualification_20261107\\protocol.json": "8d51b51a7b9dab9acd65831a8685dc9baba61c510a29d19c933d1af702036010",
+    "eda\\experiments\\crc_transfer_qualification_20261107\\protocol.sha256": "aaf8b9d7019d0652feb7665a1bfccb982b90246c002df18eeeb2d98290de7b95",
+    "eda\\experiments\\crc_transfer_qualification_20261107\\EVALUATION_PROTOCOL.json": "6e849c32112e3615a03a5ceea39c7b685b4faa33aa43e969181b6220354c48a1",
+    "eda\\experiments\\crc_transfer_qualification_20261107\\AFFINE_SOURCE_PROOF.json": "97a824f4293a8a1e7e3ffa5927a57c292f6c95148ba0a60ab7229ba0eddda9be",
+    "eda\\experiments\\crc_transfer_qualification_20261107\\crc32_d8_slang_invocation_fixed\\elaborated.v": "617ddb8474c8ac17f406168eee4f597e1d3646eb645b44cf83843253da879fec",
+    "eda\\experiments\\crc_transfer_qualification_20261107\\crc32_d8_slang_invocation_fixed\\elaborated.json": "655bff3d9d536ecf1418ccd5652180177e9c1f4e6481b55877a0f3d335a07086",
+    "eda\\experiments\\crc_transfer_qualification_20261107\\inputs\\crc32_d8.v": "3cb79eecd9c7bb0a4ce07e1d824d93f20faaf54447167b653800f38cb3f2b20f"
+  },
+  "curl_path": "C:\\Windows\\system32\\curl.exe",
+  "curl_sha256": "73d24149ff289afc49ec41f08918ef9faa727d39ad993e929757dc2ddafab805",
+  "yosys_path": "D:\\oss-cad-suite\\bin\\yosys.exe",
+  "yosys_sha256": "d3de71bef533487ba29189c129d52f2bdd621d3fc8cd2eae6f489fcec5789c8d",
+  "liberty_sha256": "92eb4e93a3d4c2563018ac81cdec2f02fdeaced9b39337ed5c141fa63e0ad8f8",
+  "frozen_files": {
+    "baseline_runner.log": "eff5d249ca77b4a9f2909db2665034fb29ad5f42358711a833cfb8ae58d78278",
+    "bitserial_control_runner.log": "361921f88825c92ff5d268f9816320544f1f4ba90520468ca11881c5073f3560",
+    "baseline\\after_opt.json": "a043f3dddcd923268689966c0e1b65a5ec4efa2f2b3ec659343361d9719bd980",
+    "baseline\\before_opt.json": "dd599f9bf06d86b793e7e50c16ee1dc0fec0485fa63588601531e2b195a129ca",
+    "baseline\\candidate.v": "3cb79eecd9c7bb0a4ce07e1d824d93f20faaf54447167b653800f38cb3f2b20f",
+    "baseline\\candidate_elaborated.v": "c6fc99dec3da709c2c6020534479f8f70eff8c3f24141754b471e4c71d57d0da",
+    "baseline\\eda_runner.log": "75edf4bc9889e6645a7db2385b49238d1a8857959146a075c71cc698874094f7",
+    "baseline\\frontend.log": "6ea00ab05a464bc6e2cc98e9069196008bf214e52b552c2f5a3110d21dd06217",
+    "baseline\\frontend.ys": "c7a9b1e5cce844ff387ae11ce3965b0cf29d069595e9554ba09542dc1127cf91",
+    "baseline\\protocol.json": "76a032490a1dde49912885197a1e40f003b9bc2603a9c42595cecb589e523c52",
+    "baseline\\reference.v": "617ddb8474c8ac17f406168eee4f597e1d3646eb645b44cf83843253da879fec",
+    "baseline\\result.json": "418242ec9a0f361ecd160d34e348435619e40de66a1c4c3f942373560365871b",
+    "bitserial_control\\after_opt.json": "15ca913d71603260f5e63ca71cb8a62997e5f74b873619630bbc76a6c624c673",
+    "bitserial_control\\before_opt.json": "a1a014d4c2e462998282836d3f7ca76803d44cbb789749a68aa57c1cf8744b35",
+    "bitserial_control\\candidate.v": "f710e80f4b6138298884a9a4effb37987e368d2bf2b4a2fd65a7516f9a1b366e",
+    "bitserial_control\\candidate_elaborated.v": "936befcfeaba1656fe51e8c2a322d2eee663bc262408983412100f613b5b446a",
+    "bitserial_control\\eda_runner.log": "f64d53445c773c492e101246d76d35421e1c7ac9fd43acea9405eacc8a7739ac",
+    "bitserial_control\\frontend.log": "bcb70abb0fcd335963b8e0079408f639266484b44fbfb815bb5aedbfd3c2f82e",
+    "bitserial_control\\frontend.ys": "c7a9b1e5cce844ff387ae11ce3965b0cf29d069595e9554ba09542dc1127cf91",
+    "bitserial_control\\protocol.json": "ea31e67f17bf15acf7a8a2a3d323649761069cbdd5cd0ffb96d6717b19415c9f",
+    "bitserial_control\\reference.v": "617ddb8474c8ac17f406168eee4f597e1d3646eb645b44cf83843253da879fec",
+    "bitserial_control\\result.json": "3a08ba1efca65005c42c16c822dced9b710f54d0d5490f3d11878723cbcc87bc",
+    "code_snapshot\\evaluate_crc_candidate.py": "83f4088bd4d9900df84a7b9edd20c2f939a2ff7b70900aa229cf632a6d9fa051",
+    "code_snapshot\\portfolio_loop.py": "f459163f3687fbe11b5679a839955c8dacf7ce5e199f8f9a9490e2e408ff769d",
+    "code_snapshot\\prove_crc_affine.py": "04dc24f7a7505f15574f10c6d0385a5aebe9fd294edb3870ed6a77c6ff880f9b",
+    "code_snapshot\\rtl_optimizer.py": "576a055c1f5e8498a014833cb7f8bb01de08a56e6f3fcd53c568dcaaf4a3e12e",
+    "code_snapshot\\run_crc_feedback.py": "aa2eff1081e4ae498bef0667f427a81abe3f7a0d4468c2b72c7111b4100a7709",
+    "code_snapshot\\run_native_comb.py": "6d5533a0fabdaf0e97d16d6d3b35ca424387bb4ff07968a10aa27df34ed385f2",
+    "code_snapshot\\run_native_seq_initialized.py": "aeeeb54ff22512e71c8c93ffabf3bc4f44ac7adcf5982a32179d79aa292e830e",
+    "code_snapshot\\run_native_stream.py": "1a0132f5b37369b977f960148b306fad3aa56f97cb3c18f9cc2d06ba27024ef3",
+    "code_snapshot\\run_stream_feedback.py": "b2c841e6b34618f6814aa32d6306aa9b6ee001bc12bdebed284ea908d3d55292",
+    "code_snapshot\\sse_transport.py": "85f106720815042c9edfdf1242212a6f524b6563d143524b02af03b42692ba28",
+    "code_snapshot\\trace_sta_rtl_cone.py": "047c3b739a00bcba19d470ea3d043ef5a872dd0ded0f0ee41dc22ea3e41b920d",
+    "code_snapshot\\validate_stream_reset_contract.py": "50eed41865ec779ba7afad8388125453dd182caa4dd4cc42a7bd94724978b500",
+    "inputs\\bitserial_reference.v": "f710e80f4b6138298884a9a4effb37987e368d2bf2b4a2fd65a7516f9a1b366e",
+    "inputs\\original.v": "3cb79eecd9c7bb0a4ce07e1d824d93f20faaf54447167b653800f38cb3f2b20f",
+    "prompts\\no_sta.txt": "f1a1634f68cb0641fb634e7055654dc6d2c1c35781dcf48331e814e48aa1f9ef",
+    "prompts\\sta.txt": "f42cb12cca1f67ce452875e7adf0cd838089e30f5482986af6b9056673828082",
+    "bitserial_control\\eda\\abc.constr": "ccb1d7f233b651c80e7198650e753ad582af371b441b1b2faee00c0d50d86838",
+    "bitserial_control\\eda\\abc.script": "ca0c27fde5a1f8c7f8a1a7ad1b7b716a118882c368d5409fc6a3512bcfb1ad25",
+    "bitserial_control\\eda\\candidate_schema.json": "ef5b0aba0132f181ad628fc51bb199712aff01479640d6f821360e99632cc919",
+    "bitserial_control\\eda\\candidate_schema.log": "13d70df7f9ce1cb5bf5a8eba9513111a548d70480c8baedb5d2c51e6a64413ce",
+    "bitserial_control\\eda\\candidate_schema.ys": "f240bb6391b2413c1cd29e77daea073b5044964aa1688097b8cc19228cf83cc4",
+    "bitserial_control\\eda\\electrical.json": "600527402c725690b79447b52f18b8820de07e7a2d4a94162fb4bbca7eac2c12",
+    "bitserial_control\\eda\\formal.log": "91fd885073b0f7ce0bfc4fba0479fc057b9452cf8f7af2c3912281c0fd9ee66d",
+    "bitserial_control\\eda\\formal.ys": "a9361090b0dc1de1a145a7ed54586139429ca74a15c0b34fde4a8f1d2558cf60",
+    "bitserial_control\\eda\\mapped.json": "d0b0120edb6298e5adfe1fc0dd5a3efc1561c69adfdebd899856c295f823b947",
+    "bitserial_control\\eda\\mapped.v": "ccbe75a179f61dcbbaea2e327131917b93bf2a324987b2118c9def25d1e6796e",
+    "bitserial_control\\eda\\mapped_formal.log": "0f65d8a8607095292644b390f41b9b30b7432f26fbbb3e28d331820619bd4caf",
+    "bitserial_control\\eda\\mapped_formal.ys": "0348fe4cfa199dc1a7ecddbbaef16f94ce2ce69ad5cb54d0dc6738360f4be0f3",
+    "bitserial_control\\eda\\mapped_sta.v": "ccbe75a179f61dcbbaea2e327131917b93bf2a324987b2118c9def25d1e6796e",
+    "bitserial_control\\eda\\mapping.log": "8c702c3ddae7fea2159347bdcd5be084921bb187aec8a8cde0e562eaaf116df3",
+    "bitserial_control\\eda\\mapping.ys": "4aa870451c35b00f554043159e880eb115274e888533c072a075dad2c6b3ee1a",
+    "bitserial_control\\eda\\miter.v": "01559149bfe61f58af1f2f12ec9414440b1a124352219b764c089ae2b1e1f145",
+    "bitserial_control\\eda\\opensta_version.log": "5e33023692f9444ef9f77fcd732c57f3015cee605f326e5bf57502a67a2b77ce",
+    "bitserial_control\\eda\\protocol.json": "5d1ed1b769781870c3a8bcaf3e36d76ee4298d20e90a6be32da04cd4eab8588c",
+    "bitserial_control\\eda\\reference_schema.json": "3b8c421e1b7eeff447c96651d194dca0cf3921029cf61e93a26a2a8af6c9083b",
+    "bitserial_control\\eda\\reference_schema.log": "bef0cdf8d59460bab7b630d1c14c6c4a65cec34f8e17b8611349eef40a6a3c92",
+    "bitserial_control\\eda\\reference_schema.ys": "d669694027123c9adf74d60f1e3e53c8175bdfdb3a9bd5b899fa6756fbf5398f",
+    "bitserial_control\\eda\\result.json": "f304a59b51ebc75e9f94dde4463078f44663ad871db30f8bf57cbde97a235849",
+    "bitserial_control\\eda\\rtl_source_cone.json": "d9272d362ca051e106d8c4eecb4900338fda7439e0540e74ae487bf22915fc81",
+    "bitserial_control\\eda\\run_sta.tcl": "224881306d750897247013ddf1da94bec866e8c346c5932c4c04e2d994c116da",
+    "bitserial_control\\eda\\sta.log": "ab3b865b77bf258d07c2a4edebb22ae93ad78462c2cfe2698f756c9438afba2a",
+    "bitserial_control\\eda\\timing.sdc": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+    "bitserial_control\\eda\\yosys_version.log": "9b4b09319d6b4c0b06fec8f4a637fcbb4674f5109f6b37c5a38daf323fb6f4d6",
+    "bitserial_control\\eda\\yosys_tmp\\yosys-liberty-scl-cache\\yosys_merged_78b136c6.scl.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "baseline\\eda\\abc.constr": "ccb1d7f233b651c80e7198650e753ad582af371b441b1b2faee00c0d50d86838",
+    "baseline\\eda\\abc.script": "ca0c27fde5a1f8c7f8a1a7ad1b7b716a118882c368d5409fc6a3512bcfb1ad25",
+    "baseline\\eda\\candidate_schema.json": "9a20ed699a8dad90a02ca575b789dbe057470aaa6a86e8ce736ddc4a0fedc5a7",
+    "baseline\\eda\\candidate_schema.log": "95ea84878210163ed6f578ea316070084ae694255e7a6563a6a5a4ce13346eb4",
+    "baseline\\eda\\candidate_schema.ys": "d861247c98281eea8411df0216515f3b75700ef000045bee2c61ebdd64ed5b6c",
+    "baseline\\eda\\electrical.json": "600527402c725690b79447b52f18b8820de07e7a2d4a94162fb4bbca7eac2c12",
+    "baseline\\eda\\formal.log": "1f9909297311a4355622ce0ba1e9c07fdfd51d8ad891b85351bc8ce271a98759",
+    "baseline\\eda\\formal.ys": "f2c6fb7e182c42bf9f9f916839a15747ca2ea036af2f5eeb072271d637480846",
+    "baseline\\eda\\mapped.json": "323d1a5322ce66dd4d1ca11a322cbb581319dcbc12754b576aff6a08156783ed",
+    "baseline\\eda\\mapped.v": "6aa75408fb94148fae766e518682e529a37a9541c1cc7dd800cab3a36aef6ff9",
+    "baseline\\eda\\mapped_formal.log": "1eb8a61be924e18856b43a5b398ad061bd5c6a4c9ba73f092c8069c237d4e9c1",
+    "baseline\\eda\\mapped_formal.ys": "9196d0263acf9f225458c360165cb08c40bb4152c9b10211c674649da7d57012",
+    "baseline\\eda\\mapped_sta.v": "6aa75408fb94148fae766e518682e529a37a9541c1cc7dd800cab3a36aef6ff9",
+    "baseline\\eda\\mapping.log": "30bcd79053424e70f4b7b9ce42a5504fb8e063590454b3da4991138258107c36",
+    "baseline\\eda\\mapping.ys": "4a5b6997e9fdbbf512323c6b4802c6389ac3192b35dd28fa66aec2bee81c5b6b",
+    "baseline\\eda\\miter.v": "01559149bfe61f58af1f2f12ec9414440b1a124352219b764c089ae2b1e1f145",
+    "baseline\\eda\\opensta_version.log": "5e33023692f9444ef9f77fcd732c57f3015cee605f326e5bf57502a67a2b77ce",
+    "baseline\\eda\\protocol.json": "9234b6e589137f02290807f793fee265216ace8701ec8c91be040f1bcdd7004f",
+    "baseline\\eda\\reference_schema.json": "9ec4aa08577aefb147dddd886c11f4875b3e82e99e4424143ace1835d53be09b",
+    "baseline\\eda\\reference_schema.log": "539f728882c7aed7f547837fd3521559bf1786f51ea32646a7c5a93d2a5f88f8",
+    "baseline\\eda\\reference_schema.ys": "d1ee22d871c19838ff6e3207fb315591856dddf34180e20ead9fd730fc1ce72e",
+    "baseline\\eda\\result.json": "cc3eb26d62ba71fae9f3a1dc021d6aa828dd6092827447c21a1c3132336fbbcf",
+    "baseline\\eda\\rtl_source_cone.json": "494c6b8fd6aa72312917e41e6a22100d9c64d7ad4673bc745c73fe3836614756",
+    "baseline\\eda\\run_sta.tcl": "4acc138070baf326e3402155f223f0ea51642672df2c3eee931d6f28512b5fb1",
+    "baseline\\eda\\sta.log": "959f1633c34b7be78f270922c9e9657090d99972283c956f4f3c392fc1c591fe",
+    "baseline\\eda\\timing.sdc": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+    "baseline\\eda\\yosys_version.log": "9b4b09319d6b4c0b06fec8f4a637fcbb4674f5109f6b37c5a38daf323fb6f4d6",
+    "baseline\\eda\\yosys_tmp\\yosys-liberty-scl-cache\\yosys_merged_78b136c6.scl.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

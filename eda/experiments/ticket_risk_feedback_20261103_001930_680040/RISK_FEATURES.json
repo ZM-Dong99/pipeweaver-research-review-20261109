@@ -1,0 +1,39 @@
+{
+  "name": "Path-competition and incremental-cost generation guidance; not an automatic acceptance filter",
+  "baseline_mapped_ff_count": 6,
+  "dfxtp_1_area_um2": 20.0192,
+  "remaining_mapped_area_budget_um2": 25.27424000000005,
+  "budget_if_one_same_type_ff_added_and_no_other_changes_um2": 5.255040000000047,
+  "competing_baseline_paths": [
+    {
+      "startpoint": "_44_ (rising edge-triggered flip-flop clocked by core_clk)",
+      "endpoint": "bill (output port clocked by core_clk)",
+      "data_arrival_ns": 0.7,
+      "data_required_ns": 10.0,
+      "slack_ns": 9.3
+    },
+    {
+      "startpoint": "_43_ (rising edge-triggered flip-flop clocked by core_clk)",
+      "endpoint": "_45_ (rising edge-triggered flip-flop clocked by core_clk)",
+      "data_arrival_ns": 0.56,
+      "data_required_ns": 9.94,
+      "slack_ns": 9.38
+    },
+    {
+      "startpoint": "_48_ (rising edge-triggered flip-flop clocked by core_clk)",
+      "endpoint": "_43_ (rising edge-triggered flip-flop clocked by core_clk)",
+      "data_arrival_ns": 0.48,
+      "data_required_ns": 9.88,
+      "slack_ns": 9.4
+    }
+  ],
+  "best_possible_wns_if_only_first_path_removed_and_all_others_unchanged_ns": 9.38,
+  "interpretation": "These are baseline measurements and arithmetic risk features, not candidate timing predictions. Adding a register moves logic to its D cone and introduces setup time; it can expose a worse path. Fewer flops can require more decode logic. Do not treat source state width as final mapped FF count: automatic FSM recoding may change it.",
+  "generation_policy": [
+    "Assess both the modified output path and the new/modified register-input and state-transition paths before choosing a rewrite.",
+    "Prefer a rewrite reusing existing state or shared decode unless a new register has a justified global timing and area case. New registers are allowed and all candidates use the same EDA acceptance rule.",
+    "In area_or_other_cost, state expected mapped register change, assumptions, and uncertainty; account for combinational/buffer cost as well as FF area.",
+    "In expected_timing_gain, name a likely competing path and why it may become critical. Estimates are not measured results.",
+    "Do not assume eliminating the old critical output gate improves global WNS. Return exactly one complete RTL candidate; no new input assumptions or startup extension."
+  ]
+}

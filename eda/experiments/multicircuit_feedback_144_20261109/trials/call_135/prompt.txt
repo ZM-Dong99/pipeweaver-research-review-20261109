@@ -1,0 +1,185 @@
+Optimize module priority_encoder, fixed parameter overrides {"LSB_HIGH_PRIORITY": 0, "WIDTH": 256}. Minimize mapped maximum data arrival. Preserve module name, ports, widths, signedness, truncations, priority, default outputs and parameter declarations/defaults. All input bits are arbitrary binary values. Every output bit must match for all inputs. Do not rely on presumed typical operation or comments. No clocks, storage, latency, latches, memories, assumptions, assertions, external includes, file access, dependencies or undefined outputs. Return a complete synthesizable design including helper modules. Only this fixed parameter instance is assessed.
+Evaluation uses SKY130HD TT25C1.80V, Yosys source and mapped all-input equivalence, flatten/synth-noabc and ABC buffer_size with cleanup-before-buffer, OpenSTA, 0ns external IO delays, input transition0.10ns, output load0.010pF, 100ns virtual reporting clock and no physical wire parasitics. Zero reported max-slew and max-capacitance violations required. Original mapped area 8056.476800um2; area cap 8862.124480um2. CRC candidates use the same Slang frontend as their baseline. CRC state_in is arbitrary and data_out must also match exactly.
+Return exactly one JSON object with six string fields candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.
+Original RTL:
+/*
+
+Copyright (c) 2014-2021 Alex Forencich
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+*/
+
+// Language: Verilog 2001
+
+`resetall
+`timescale 1ns / 1ps
+`default_nettype none
+
+/*
+ * Priority encoder module
+ */
+module priority_encoder #
+(
+    parameter WIDTH = 4,
+    // LSB priority selection
+    parameter LSB_HIGH_PRIORITY = 0
+)
+(
+    input  wire [WIDTH-1:0]         input_unencoded,
+    output wire                     output_valid,
+    output wire [$clog2(WIDTH)-1:0] output_encoded,
+    output wire [WIDTH-1:0]         output_unencoded
+);
+
+parameter LEVELS = WIDTH > 2 ? $clog2(WIDTH) : 1;
+parameter W = 2**LEVELS;
+
+// pad input to even power of two
+wire [W-1:0] input_padded = {{W-WIDTH{1'b0}}, input_unencoded};
+
+wire [W/2-1:0] stage_valid[LEVELS-1:0];
+wire [W/2-1:0] stage_enc[LEVELS-1:0];
+
+generate
+    genvar l, n;
+
+    // process input bits; generate valid bit and encoded bit for each pair
+    for (n = 0; n < W/2; n = n + 1) begin : loop_in
+        assign stage_valid[0][n] = |input_padded[n*2+1:n*2];
+        if (LSB_HIGH_PRIORITY) begin
+            // bit 0 is highest priority
+            assign stage_enc[0][n] = !input_padded[n*2+0];
+        end else begin
+            // bit 0 is lowest priority
+            assign stage_enc[0][n] = input_padded[n*2+1];
+        end
+    end
+
+    // compress down to single valid bit and encoded bus
+    for (l = 1; l < LEVELS; l = l + 1) begin : loop_levels
+        for (n = 0; n < W/(2*2**l); n = n + 1) begin : loop_compress
+            assign stage_valid[l][n] = |stage_valid[l-1][n*2+1:n*2];
+            if (LSB_HIGH_PRIORITY) begin
+                // bit 0 is highest priority
+                assign stage_enc[l][(n+1)*(l+1)-1:n*(l+1)] = stage_valid[l-1][n*2+0] ? {1'b0, stage_enc[l-1][(n*2+1)*l-1:(n*2+0)*l]} : {1'b1, stage_enc[l-1][(n*2+2)*l-1:(n*2+1)*l]};
+            end else begin
+                // bit 0 is lowest priority
+                assign stage_enc[l][(n+1)*(l+1)-1:n*(l+1)] = stage_valid[l-1][n*2+1] ? {1'b1, stage_enc[l-1][(n*2+2)*l-1:(n*2+1)*l]} : {1'b0, stage_enc[l-1][(n*2+1)*l-1:(n*2+0)*l]};
+            end
+        end
+    end
+endgenerate
+
+assign output_valid = stage_valid[LEVELS-1];
+assign output_encoded = stage_enc[LEVELS-1];
+assign output_unencoded = 1 << output_encoded;
+
+endmodule
+
+`resetall
+
+Second round. Improve your previous candidate, keeping the original contract and area cap.
+
+Your previous candidate RTL:
+`resetall
+`timescale 1ns / 1ps
+`default_nettype none
+
+module priority_encoder_tree #(
+    parameter WIDTH = 2,
+    parameter LEVELS = WIDTH > 2 ? $clog2(WIDTH) : 1
+) (
+    input  wire [WIDTH-1:0] input_unencoded,
+    output wire             output_valid,
+    output wire [LEVELS-1:0] output_encoded,
+    output wire [WIDTH-1:0] output_unencoded
+);
+
+localparam HALF = WIDTH / 2;
+
+generate
+    if (WIDTH == 2) begin : gen_leaf
+        assign output_valid = |input_unencoded;
+        assign output_encoded = input_unencoded[1];
+        assign output_unencoded = input_unencoded[1] ? 2'b10 : 2'b01;
+    end else begin : gen_node
+        wire left_valid;
+        wire right_valid;
+        wire [LEVELS-2:0] left_encoded;
+        wire [LEVELS-2:0] right_encoded;
+        wire [HALF-1:0] left_unencoded;
+        wire [HALF-1:0] right_unencoded;
+
+        priority_encoder_tree #(
+            .WIDTH(HALF),
+            .LEVELS(LEVELS-1)
+        ) left_tree (
+            .input_unencoded(input_unencoded[HALF-1:0]),
+            .output_valid(left_valid),
+            .output_encoded(left_encoded),
+            .output_unencoded(left_unencoded)
+        );
+
+        priority_encoder_tree #(
+            .WIDTH(HALF),
+            .LEVELS(LEVELS-1)
+        ) right_tree (
+            .input_unencoded(input_unencoded[WIDTH-1:HALF]),
+            .output_valid(right_valid),
+            .output_encoded(right_encoded),
+            .output_unencoded(right_unencoded)
+        );
+
+        assign output_valid = left_valid | right_valid;
+        assign output_encoded = right_valid ? {1'b1, right_encoded} : {1'b0, left_encoded};
+        assign output_unencoded = right_valid ? {right_unencoded, {HALF{1'b0}}} : {{HALF{1'b0}}, left_unencoded};
+    end
+endgenerate
+
+endmodule
+
+module priority_encoder #
+(
+    parameter WIDTH = 4,
+    parameter LSB_HIGH_PRIORITY = 0
+)
+(
+    input  wire [WIDTH-1:0]         input_unencoded,
+    output wire                     output_valid,
+    output wire [$clog2(WIDTH)-1:0] output_encoded,
+    output wire [WIDTH-1:0]         output_unencoded
+);
+
+parameter LEVELS = WIDTH > 2 ? $clog2(WIDTH) : 1;
+parameter W = 2**LEVELS;
+
+priority_encoder_tree #(
+    .WIDTH(WIDTH),
+    .LEVELS(LEVELS)
+) encoder_tree (
+    .input_unencoded(input_unencoded),
+    .output_valid(output_valid),
+    .output_encoded(output_encoded),
+    .output_unencoded(output_unencoded)
+);
+
+endmodule
+
+`resetall

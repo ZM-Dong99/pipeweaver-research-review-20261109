@@ -1,0 +1,20 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/inputs/original.v"
+chparam -set LSB_HIGH_PRIORITY 0 priority_encoder
+chparam -set WIDTH 128 priority_encoder
+hierarchy -check -top priority_encoder
+flatten
+rename priority_encoder pw_gold
+design -stash pw_gold_design
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/candidates/group_factored_8.v"
+chparam -set LSB_HIGH_PRIORITY 0 priority_encoder
+chparam -set WIDTH 128 priority_encoder
+hierarchy -check -top priority_encoder
+flatten
+rename priority_encoder pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/priority_selector_api_20261103_190958_372230/W128/evaluations/group_factored_8/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 120

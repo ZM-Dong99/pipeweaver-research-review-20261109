@@ -1,0 +1,56 @@
+{
+  "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+  "meaning": "These RTLIL operator cells have structural bit dependencies from the STA start bit to the STA end bit. This is a conservative cone, not proof that every listed cell is on the exact mapped timing path.",
+  "top": "mux_dead",
+  "sta_startpoint": "x (input port clocked by virtual_clk)",
+  "sta_endpoint": "result[1] (output port clocked by virtual_clk)",
+  "start_net_aliases": [
+    "x"
+  ],
+  "end_net_aliases": [
+    "result[1]"
+  ],
+  "rtl_operator_cells_on_possible_cone_paths": 1,
+  "source_attributed_selected_cells": 1,
+  "source_attribution_coverage": 1.0,
+  "coverage_scope": "Source attributes among the selected pre-ABC supported RTLIL cells only; this is not mapped-gate localization accuracy.",
+  "rtl_source_locations": [
+    "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mux_dead/mux_dead.v:27.9-27.10|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mux_dead/mux_dead.v:27.5-33.8"
+  ],
+  "candidate_cells": [
+    {
+      "cell": "$procmux$5",
+      "type": "$mux",
+      "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mux_dead/mux_dead.v:27.9-27.10|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mux_dead/mux_dead.v:27.5-33.8",
+      "line": 27
+    }
+  ],
+  "shortest_structural_dependency_path": [
+    {
+      "from_bit": 2,
+      "to_bit": 21,
+      "cell": "$procmux$5",
+      "type": "$mux",
+      "src": "D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mux_dead/mux_dead.v:27.9-27.10|D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/mux_dead/mux_dead.v:27.5-33.8",
+      "line": 27,
+      "input_port": "S",
+      "input_bit": 0,
+      "output_port": "Y",
+      "output_bit": 1,
+      "from_net_aliases": [
+        "x"
+      ],
+      "to_net_aliases": [
+        "result[1]"
+      ]
+    }
+  ],
+  "structural_path_edge_count": 1,
+  "all_possible_cone_edge_count": 1,
+  "chain_warning": "One shortest structural dependency chain, not the longest mapped timing path. Synthesis may restructure the source arithmetic; do not infer mapped serial adder depth from RTL adder count.",
+  "supported_cells_modeled": 3,
+  "unsupported_cell_types": {
+    "$scopeinfo": 2
+  },
+  "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+}

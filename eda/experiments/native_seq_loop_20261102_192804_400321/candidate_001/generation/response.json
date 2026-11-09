@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-315bc0ec-e167-436a-87f3-35cfa54d81c7",
+  "object": "chat.completion",
+  "created": 1793618891,
+  "model": "gpt-6.1-sol",
+  "usage": {
+    "prompt_tokens": 9022,
+    "completion_tokens": 577,
+    "total_tokens": 9599,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  },
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"candidate_rtl\": \"module adder #(parameter N = 32) (\\n    input [N-1:0] DATA_1,\\n    input [N-1:0] DATA_2,\\n    input SEL_0,\\n    input SEL_1,\\n    input clk,\\n    output reg [N-1:0] reg_0\\n);\\n    wire [N-1:0] Add_0 = DATA_1 + DATA_2;\\n    wire [N-1:0] mux_0 = SEL_0 ? Add_0 : DATA_1;\\n    wire [N-1:0] mux_1 = SEL_1 ? DATA_2 : mux_0;\\n\\n    always @(posedge clk) begin\\n        reg_0 <= mux_1;\\n    end\\nendmodule\\n\",\n  \"bottleneck\": \"The reported worst paths start at SEL_0 and traverse substantial combinational logic before reaching the output registers. Operand isolation places selector-dependent logic ahead of the adder, allowing SEL_0 to propagate through the carry network as well as output selection.\",\n  \"rewrite\": \"Remove both operand-isolation muxes and compute the unsigned N-bit sum directly from DATA_1 and DATA_2. Retain the original two output muxes and unconditional positive-edge output register. This is a conservative simplification rather than an unmeasured custom carry architecture.\",\n  \"expected_timing_gain\": \"Expected to eliminate selector-to-carry-network paths, leaving selector timing primarily through output selection. The critical path may move to a data-input-to-sum path. No candidate WNS improvement has been measured; compare against the supplied 8.01 ns baseline using the same synthesis, library and timing settings.\",\n  \"area_or_other_cost\": \"Removing operand isolation should reduce combinational logic, but mapped area and electrical limits require verification against the 3406.392 um2 cap. The adder can now toggle in bypass modes, potentially increasing dynamic switching activity.\",\n  \"functional_boundaries\": \"For binary inputs, SEL_1=1 selects DATA_2 regardless of SEL_0; SEL_1=0 and SEL_0=0 selects DATA_1; SEL_1=0 and SEL_0=1 selects the modulo-2^N sum. In that last case the reference activation signal is always asserted, so removing isolation does not change the selected result. Preserve the original top, parameter, port widths and unsigned declarations, single direct positive-edge clock, absence of reset, unconditional updates and exact output latency. No initialization or startup assumptions are added. Validate RTL and mapped equivalence against the frozen original under the fixed startup contract; four-state X-propagation equivalence is not claimed.\"\n}"
+      }
+    }
+  ],
+  "audit_scope": "Provider envelope and visible message content; reasoning fields omitted."
+}

@@ -1,0 +1,27 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_register.v"
+chparam -set DATA_WIDTH 32 axis_register
+chparam -set REG_TYPE 2 axis_register
+hierarchy -check -top axis_register
+proc
+flatten
+setattr -unset init
+rename axis_register pw_gold
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/skid_all_pins/pw_gold_noinit.json"
+design -stash pw_gold_design
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_register.v"
+chparam -set DATA_WIDTH 32 axis_register
+chparam -set REG_TYPE 2 axis_register
+hierarchy -check -top axis_register
+proc
+flatten
+setattr -unset init
+rename axis_register pw_cand
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/skid_all_pins/pw_cand_noinit.json"
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal "D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/skid_all_pins/miter.v"
+prep -top pw_miter -flatten
+opt_clean
+sat -verify -seq 2 -tempinduct -maxsteps 32 -set-init-def -set-def-inputs -set-at 1 in_1 1 -prove mismatch 0 -show-ports -dump_vcd "D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/skid_all_pins/counterexample.vcd" -timeout 120

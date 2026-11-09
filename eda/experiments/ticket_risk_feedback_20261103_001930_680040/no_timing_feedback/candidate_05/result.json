@@ -1,0 +1,60 @@
+{
+  "call_index": 15,
+  "arm": "no_timing_feedback",
+  "candidate_id": "candidate_05",
+  "candidate_sha256": "e62a6282977555dfcaf4f4017ae2cc56c3cbeafa74ed43706c033ae733ca416a",
+  "status": "GENERATED",
+  "explanation": {
+    "bottleneck": "The source expresses one-hot states through full-vector case comparisons and priority next-state selection. Depending on FSM extraction and mapping, these can produce redundant state decoding and deeper selection logic. The actual baseline critical path requires timing-report confirmation.",
+    "rewrite": "Express the six state bits as individual registers with explicit parallel next-state equations. Share mutually exclusive input terms, preserving ten priority over twenty. Decode outputs directly from the registered state bits rather than full-vector equality comparisons.",
+    "functional_boundaries": "Preserves the module name, ports, parameter declarations and defaults, positive-edge clock, active-high synchronous clear, and output latency. After the required startup reset, the state is one-hot; every transition preserves that invariant for all ten/twenty combinations. When both inputs are high, only take_ten is active. Any later sampled clear returns the state to RDY on that edge. No new startup or input assumptions are introduced. Arbitrary illegal internal-state recovery is not replicated, but such states cannot arise under the specified reset and transition contract. Functional equivalence must be checked against the frozen original with default ON=1 and OFF=0.",
+    "expected_timing_gain": "The rewrite targets shallower state-to-state and state-to-output logic, with opportunities for compact AND-OR mapping. No measured improvement is claimed. If synthesis already optimizes the baseline into equivalent equations, the gain may be negligible. Accept only after equivalence checking and EDA demonstrate strictly improved setup WNS, no TNS regression, and compliance with the area cap.",
+    "area_or_other_cost": "Uses six state registers with synchronous reset and no additional pipeline stages. Shared input terms and removal of full-vector output decoding may reduce combinational area, but mapped area and fanout effects remain unmeasured. The mapped design must remain at or below 278.01664000000005 um2.",
+    "output_format_normalization": [
+      "Removed complete leading think wrapper before JSON parsing"
+    ]
+  },
+  "parameters": {
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "http_transport": "curl",
+    "response_format": "json_object",
+    "candidate_index": 15,
+    "response_id": "chatcmpl-0b8afe25-1262-45cb-8e56-279c4b7d49f1",
+    "response_created": 1793637348,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 1491,
+      "completion_tokens": 1201,
+      "total_tokens": 3017
+    }
+  },
+  "response_model": "gpt-6.1-sol",
+  "seconds": 33.07877129999906,
+  "accepted": false,
+  "metrics": {
+    "status": "PASS",
+    "formal": "PASS",
+    "mapped_formal": "PASS",
+    "ppa": "PASS",
+    "eligible": true,
+    "stage": "sta",
+    "mapped_area_um2": 256.496,
+    "mapped_cells": 29,
+    "electrical": {
+      "status": "PASS",
+      "violation_rows": 0,
+      "checks": [
+        "max_slew",
+        "max_capacitance"
+      ],
+      "scope": "Library limits under recorded SDC; not physical signoff"
+    },
+    "wns_ns": 9.29,
+    "tns_ns": 0.0,
+    "mapped_sha256": "3a55f26e93c508cd3e6c7bbad5b2157488d6af739cf790683a992d23f014384b",
+    "sdc_sha256": "7c1efdc1b0d7abeccbbfb4f8af926767240ac755b5dbd6f49eed98a8e884e4ab",
+    "elapsed_seconds": 1.915
+  },
+  "reason": "No strict WNS improvement at report precision"
+}

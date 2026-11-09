@@ -1,0 +1,26 @@
+{
+  "endpoint": "https://apinebula.ai/v1/chat/completions",
+  "body": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "response_format": {
+      "type": "json_object"
+    },
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "max_completion_tokens": 16000,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Conservatively optimize combinational RTL. Preserve all defined input/output behavior. Return exactly the requested JSON object."
+      },
+      {
+        "role": "user",
+        "content": "Optimize this fixed combinational instance: module alu_64bit, parameters {}. Minimize mapped maximum data arrival. Give one complete synthesizable Verilog-2001 design. Keep module, parameters, ports, widths, signedness, truncations, priority and default-case behavior. All inputs are unconstrained, all outputs must match for every two-state input. No clocks, storage, latency, assumptions, external includes, or new dependencies. Helper modules are allowed.\nCommon evaluation: SKY130HD TT25C1.80V; zero external IO delays; input transition0.10ns; output load0.010pF; 100ns virtual reporting clock; no physical wire parasitics. Yosys flatten/synth-noabc; ABC strash/dretime/map/cleanup-i-o/buffer/upsize/dnsize/stime-p with fixed driver and load. Full source and mapped equivalence and zero electrical violations required.\nBaseline mapped area 11907.670400um^2; fixed cap 13098.437440um^2. No candidate results are supplied.\nReturn exactly one JSON object with these six fields: candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.\nOriginal RTL:\nmodule alu_64bit(\n    input [63:0] a, b,\n    input [2:0] Oper,\n    output reg [63:0] sum\n);\nreg c_out;\nalways @(*) begin\n    case(Oper)\n        3'b000:  {c_out,sum} = a + b;\n        3'b001:  {c_out,sum} = a - b;\n        3'b010:  {c_out,sum} = b - a;\n        3'b011:  {c_out,sum} = a | b;\n        3'b100:  {c_out,sum} = a & b;\n        3'b101:  {c_out,sum} = a ^ b;\n        3'b110:  {c_out,sum} = a ~^ b;\n        default: {c_out,sum} = 65'b0;\n    endcase\nend\nendmodule"
+      }
+    ]
+  },
+  "credentials": "omitted"
+}

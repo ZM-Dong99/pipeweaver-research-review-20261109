@@ -1,0 +1,16 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/crc_transfer_qualification_20261107/crc32_d32_slang_invocation_fixed/elaborated.v"
+hierarchy -check -top crc32_d32
+flatten
+rename crc32_d32 pw_gold
+design -stash pw_gold_design
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/crc_transfer_qualification_20261107/crc32_d32_slang_invocation_fixed/elaborated.v"
+hierarchy -check -top crc32_d32
+flatten
+rename crc32_d32 pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/crc_transfer_qualification_20261107/crc32_d32_baseline/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 120

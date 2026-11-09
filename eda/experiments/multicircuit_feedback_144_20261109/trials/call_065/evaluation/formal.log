@@ -1,0 +1,1193 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\multicircuit_feedback_144_20261109\trials\call_065\evaluation\formal.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v' to AST representation.
+Generating RTLIL representation for module `\alu_64bit'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \alu_64bit
+
+2.2. Analyzing design hierarchy..
+Top module:  \alu_64bit
+Removed 0 unused modules.
+
+3. Executing FLATTEN pass (flatten design).
+Renaming module \alu_64bit to \pw_gold.
+
+4. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v' to AST representation.
+Generating RTLIL representation for module `\alu_64bit'.
+Generating RTLIL representation for module `\alu64_carry_tree'.
+Successfully finished Verilog frontend.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1. Analyzing design hierarchy..
+Top module:  \alu_64bit
+Used module:     \alu64_carry_tree
+
+5.2. Analyzing design hierarchy..
+Top module:  \alu_64bit
+Used module:     \alu64_carry_tree
+Removed 0 unused modules.
+
+6. Executing FLATTEN pass (flatten design).
+Deleting now unused module alu64_carry_tree.
+<suppressed ~3 debug messages>
+Renaming module \alu_64bit to \pw_cand.
+
+7. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/evaluation/miter.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/evaluation/miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+8. Executing PREP pass.
+
+8.1. Executing HIERARCHY pass (managing design hierarchy).
+
+8.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+
+8.1.2. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+Removed 0 unused modules.
+
+8.2. Executing PROC pass (convert processes to netlists).
+
+8.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+8.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:24$23 in module pw_cand.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:7$1 in module pw_gold.
+Removed a total of 0 dead cases.
+
+8.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 291 assignments to connections.
+
+8.2.4. Executing PROC_INIT pass (extract init attributes).
+
+8.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+8.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~2 debug messages>
+
+8.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$283'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$285'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$295'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$297'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$307'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$309'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$319'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$321'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$331'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$333'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$343'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$345'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$355'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$357'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$367'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$369'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$379'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$381'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$391'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$393'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$403'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$405'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$415'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$417'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$427'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$429'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$439'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$441'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$451'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$453'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$463'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$465'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$475'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$476'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$477'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$479'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$482'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$485'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$491'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$495'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$505'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$509'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$519'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$523'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$533'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$537'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$547'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$551'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$561'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$565'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$575'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$579'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$589'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$593'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$603'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$607'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$617'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$621'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$631'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$635'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$645'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$649'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$659'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$663'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$673'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$674'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$675'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$676'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$677'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$678'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$679'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$680'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$681'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$683'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$686'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$688'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$691'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$693'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$696'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$698'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$701'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$704'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$710'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$713'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$719'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$722'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$728'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$731'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$737'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$741'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$751'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$755'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$765'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$769'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$779'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$783'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$283'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$285'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$295'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$297'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$307'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$309'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$319'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$321'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$331'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$333'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$343'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$345'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$355'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$357'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$367'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$369'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$379'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$381'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$391'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$393'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$403'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$405'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$415'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$417'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$427'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$429'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$439'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$441'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$451'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$453'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$463'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$465'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$475'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$476'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$477'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$479'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$482'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$485'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$491'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$495'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$505'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$509'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$519'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$523'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$533'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$537'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$547'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$551'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$561'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$565'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$575'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$579'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$589'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$593'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$603'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$607'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$617'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$621'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$631'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$635'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$645'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$649'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$659'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$663'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$673'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$674'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$675'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$676'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$677'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$678'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$679'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$680'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$681'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$683'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$686'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$688'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$691'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$693'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$696'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$698'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$701'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$704'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$710'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$713'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$719'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$722'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$728'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$731'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$737'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$741'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$751'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$755'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$765'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$769'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$779'.
+Creating decoders for process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$783'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$283'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$285'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$295'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$297'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$307'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$309'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$319'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$321'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$331'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$333'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$343'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$345'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$355'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$357'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$367'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$369'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$379'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$381'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$391'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$393'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$403'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$405'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$415'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$417'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$427'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$429'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$439'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$441'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$451'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$453'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$463'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$465'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$475'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$476'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$477'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$479'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$482'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$485'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$491'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$495'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$505'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$509'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$519'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$523'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$533'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$537'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$547'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$551'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$561'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$565'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$575'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$579'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$589'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$593'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$603'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$607'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$617'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$621'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$631'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$635'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$645'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$649'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$659'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$663'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$673'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$674'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$675'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$676'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$677'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$678'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$679'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$680'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$681'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$683'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$686'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$688'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$691'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$693'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$696'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$698'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$701'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$704'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$710'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$713'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$719'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$722'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$728'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$731'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$737'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$741'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$751'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$755'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$765'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$769'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$779'.
+Creating decoders for process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$783'.
+Creating decoders for process `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:24$23'.
+     1/1: $1\sum[63:0]
+Creating decoders for process `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:7$1'.
+     1/1: { $1\c_out[0:0] $1\sum[63:0] }
+
+8.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [0]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$283'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [0]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$285'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [1]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$295'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [1]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$297'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [2]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$307'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [2]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$309'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [3]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$319'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [3]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$321'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [4]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$331'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [4]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$333'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [5]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$343'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [5]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$345'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [6]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$355'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [6]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$357'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [7]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$367'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [7]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$369'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [8]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$379'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [8]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$381'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [9]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$391'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [9]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$393'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [10]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$403'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [10]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$405'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [11]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$415'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [11]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$417'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [12]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$427'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [12]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$429'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [13]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$439'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [13]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$441'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [14]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$451'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [14]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$453'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[0] [15]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$463'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[0] [15]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$465'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [0]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$475'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [0]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$476'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [1]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$477'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [1]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$479'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [2]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$482'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [2]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$485'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [3]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$491'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [3]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$495'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [4]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$505'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [4]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$509'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [5]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$519'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [5]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$523'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [6]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$533'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [6]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$537'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [7]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$547'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [7]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$551'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [8]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$561'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [8]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$565'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [9]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$575'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [9]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$579'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [10]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$589'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [10]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$593'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [11]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$603'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [11]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$607'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [12]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$617'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [12]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$621'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [13]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$631'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [13]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$635'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [14]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$645'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [14]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$649'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[1] [15]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$659'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[1] [15]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$663'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [0]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$673'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [0]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$674'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [1]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$675'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [1]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$676'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [2]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$677'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [2]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$678'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [3]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$679'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [3]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$680'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [4]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$681'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [4]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$683'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [5]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$686'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [5]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$688'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [6]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$691'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [6]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$693'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [7]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$696'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [7]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$698'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [8]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$701'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [8]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$704'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [9]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$710'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [9]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$713'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [10]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$719'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [10]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$722'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [11]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$728'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [11]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$731'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [12]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$737'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [12]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$741'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [13]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$751'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [13]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$755'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [14]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$765'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [14]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$769'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.pp[2] [15]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$779'.
+No latch inferred for signal `\pw_cand.\u_sub_ba.gg[2] [15]' from process `\pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$783'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [0]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$283'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [0]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$285'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [1]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$295'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [1]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$297'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [2]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$307'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [2]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$309'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [3]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$319'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [3]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$321'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [4]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$331'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [4]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$333'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [5]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$343'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [5]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$345'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [6]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$355'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [6]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$357'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [7]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$367'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [7]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$369'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [8]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$379'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [8]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$381'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [9]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$391'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [9]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$393'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [10]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$403'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [10]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$405'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [11]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$415'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [11]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$417'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [12]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$427'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [12]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$429'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [13]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$439'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [13]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$441'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [14]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$451'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [14]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$453'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[0] [15]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$463'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[0] [15]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$465'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [0]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$475'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [0]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$476'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [1]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$477'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [1]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$479'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [2]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$482'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [2]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$485'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [3]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$491'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [3]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$495'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [4]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$505'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [4]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$509'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [5]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$519'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [5]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$523'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [6]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$533'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [6]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$537'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [7]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$547'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [7]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$551'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [8]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$561'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [8]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$565'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [9]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$575'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [9]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$579'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [10]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$589'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [10]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$593'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [11]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$603'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [11]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$607'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [12]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$617'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [12]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$621'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [13]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$631'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [13]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$635'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [14]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$645'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [14]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$649'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[1] [15]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$659'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[1] [15]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$663'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [0]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$673'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [0]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$674'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [1]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$675'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [1]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$676'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [2]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$677'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [2]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$678'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [3]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$679'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [3]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$680'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [4]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$681'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [4]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$683'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [5]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$686'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [5]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$688'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [6]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$691'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [6]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$693'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [7]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$696'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [7]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$698'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [8]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$701'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [8]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$704'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [9]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$710'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [9]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$713'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [10]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$719'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [10]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$722'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [11]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$728'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [11]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$731'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [12]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$737'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [12]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$741'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [13]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$751'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [13]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$755'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [14]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$765'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [14]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$769'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.pp[2] [15]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$779'.
+No latch inferred for signal `\pw_cand.\u_sub_ab.gg[2] [15]' from process `\pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$783'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [0]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$283'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [0]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$285'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [1]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$295'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [1]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$297'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [2]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$307'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [2]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$309'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [3]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$319'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [3]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$321'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [4]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$331'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [4]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$333'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [5]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$343'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [5]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$345'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [6]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$355'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [6]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$357'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [7]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$367'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [7]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$369'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [8]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$379'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [8]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$381'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [9]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$391'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [9]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$393'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [10]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$403'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [10]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$405'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [11]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$415'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [11]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$417'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [12]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$427'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [12]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$429'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [13]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$439'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [13]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$441'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [14]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$451'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [14]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$453'.
+No latch inferred for signal `\pw_cand.\u_add.pp[0] [15]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$463'.
+No latch inferred for signal `\pw_cand.\u_add.gg[0] [15]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$465'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [0]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$475'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [0]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$476'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [1]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$477'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [1]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$479'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [2]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$482'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [2]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$485'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [3]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$491'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [3]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$495'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [4]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$505'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [4]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$509'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [5]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$519'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [5]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$523'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [6]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$533'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [6]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$537'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [7]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$547'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [7]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$551'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [8]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$561'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [8]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$565'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [9]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$575'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [9]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$579'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [10]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$589'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [10]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$593'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [11]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$603'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [11]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$607'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [12]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$617'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [12]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$621'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [13]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$631'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [13]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$635'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [14]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$645'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [14]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$649'.
+No latch inferred for signal `\pw_cand.\u_add.pp[1] [15]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$659'.
+No latch inferred for signal `\pw_cand.\u_add.gg[1] [15]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$663'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [0]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$673'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [0]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$674'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [1]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$675'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [1]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$676'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [2]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$677'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [2]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$678'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [3]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$679'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [3]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$680'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [4]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$681'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [4]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$683'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [5]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$686'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [5]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$688'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [6]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$691'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [6]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$693'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [7]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$696'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [7]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$698'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [8]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$701'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [8]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$704'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [9]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$710'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [9]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$713'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [10]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$719'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [10]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$722'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [11]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$728'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [11]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$731'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [12]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$737'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [12]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$741'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [13]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$751'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [13]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$755'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [14]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$765'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [14]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$769'.
+No latch inferred for signal `\pw_cand.\u_add.pp[2] [15]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$779'.
+No latch inferred for signal `\pw_cand.\u_add.gg[2] [15]' from process `\pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$783'.
+No latch inferred for signal `\pw_cand.\sum' from process `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:24$23'.
+No latch inferred for signal `\pw_gold.\sum' from process `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:7$1'.
+No latch inferred for signal `\pw_gold.\c_out' from process `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:7$1'.
+
+8.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+8.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+8.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$283'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$285'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$295'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$297'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$307'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$309'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$319'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$321'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$331'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$333'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$343'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$345'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$355'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$357'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$367'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$369'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$379'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$381'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$391'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$393'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$403'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$405'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$415'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$417'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$427'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$429'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$439'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$441'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$451'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$453'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$463'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$465'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$475'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$476'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$477'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$479'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$482'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$485'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$491'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$495'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$505'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$509'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$519'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$523'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$533'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$537'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$547'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$551'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$561'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$565'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$575'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$579'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$589'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$593'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$603'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$607'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$617'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$621'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$631'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$635'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$645'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$649'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$659'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$663'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$673'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$674'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$675'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$676'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$677'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$678'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$679'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$680'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$681'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$683'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$686'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$688'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$691'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$693'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$696'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$698'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$701'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$704'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$710'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$713'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$719'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$722'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$728'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$731'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$737'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$741'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$751'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$755'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$765'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$769'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$779'.
+Removing empty process `pw_cand.$flatten\u_sub_ba.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$783'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$283'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$285'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$295'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$297'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$307'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$309'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$319'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$321'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$331'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$333'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$343'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$345'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$355'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$357'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$367'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$369'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$379'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$381'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$391'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$393'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$403'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$405'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$415'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$417'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$427'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$429'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$439'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$441'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$451'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$453'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$463'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$465'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$475'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$476'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$477'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$479'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$482'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$485'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$491'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$495'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$505'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$509'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$519'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$523'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$533'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$537'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$547'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$551'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$561'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$565'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$575'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$579'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$589'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$593'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$603'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$607'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$617'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$621'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$631'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$635'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$645'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$649'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$659'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$663'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$673'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$674'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$675'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$676'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$677'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$678'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$679'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$680'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$681'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$683'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$686'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$688'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$691'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$693'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$696'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$698'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$701'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$704'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$710'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$713'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$719'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$722'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$728'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$731'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$737'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$741'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$751'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$755'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$765'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$769'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$779'.
+Removing empty process `pw_cand.$flatten\u_sub_ab.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$783'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$283'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$285'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$295'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$297'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$307'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$309'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$319'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$321'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$331'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$333'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$343'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$345'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$355'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$357'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$367'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$369'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$379'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$381'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$391'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$393'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$403'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$405'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$415'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$417'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$427'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$429'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$439'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$441'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$451'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$453'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:49$463'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:50$465'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$475'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$476'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$477'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$479'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$482'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$485'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$491'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$495'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$505'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$509'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$519'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$523'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$533'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$537'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$547'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$551'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$561'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$565'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$575'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$579'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$589'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$593'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$603'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$607'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$617'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$621'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$631'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$635'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$645'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$649'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$659'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$663'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$673'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$674'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$675'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$676'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$677'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$678'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:74$679'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:75$680'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$681'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$683'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$686'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$688'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$691'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$693'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:71$696'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:72$698'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$701'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$704'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$710'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$713'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$719'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$722'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:66$728'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:67$731'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$737'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$741'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$751'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$755'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$765'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$769'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:59$779'.
+Removing empty process `pw_cand.$flatten\u_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:61$783'.
+Found and cleaned up 1 empty switch in `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:24$23'.
+Removing empty process `pw_cand.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:24$23'.
+Found and cleaned up 1 empty switch in `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:7$1'.
+Removing empty process `pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:7$1'.
+Cleaned up 2 empty switches.
+
+8.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+Optimizing module pw_cand.
+<suppressed ~19 debug messages>
+Optimizing module pw_gold.
+<suppressed ~1 debug messages>
+
+8.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module pw_cand.
+Deleting now unused module pw_gold.
+<suppressed ~2 debug messages>
+
+8.4. Executing FUTURE pass.
+
+8.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 195 unused cells and 856 unused wires.
+<suppressed ~196 debug messages>
+
+8.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+8.8. Executing OPT pass (performing simple optimizations).
+
+8.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1843 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1664 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1631 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~636 debug messages>
+Removed a total of 212 cells.
+
+8.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+8.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+8.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1631 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+8.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 212 unused wires.
+<suppressed ~1 debug messages>
+
+8.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+8.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+8.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+8.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1631 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+8.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+8.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+8.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 65) from mux cell pw_miter.$flatten\gold.$procmux$807 ($pmux).
+Removed top 1 bits (of 65) from port Y of cell pw_miter.$flatten\gold.$xnor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:15$8 ($xnor).
+Removed top 1 bits (of 65) from port Y of cell pw_miter.$flatten\gold.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:14$7 ($xor).
+Removed top 1 bits (of 65) from port Y of cell pw_miter.$flatten\gold.$and$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:13$6 ($and).
+Removed top 1 bits (of 65) from port Y of cell pw_miter.$flatten\gold.$or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:12$5 ($or).
+Removed top 1 bits (of 65) from port Y of cell pw_miter.$flatten\gold.$sub$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:11$4 ($sub).
+Removed top 1 bits (of 65) from port Y of cell pw_miter.$flatten\gold.$sub$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:10$3 ($sub).
+Removed top 1 bits (of 65) from port Y of cell pw_miter.$flatten\gold.$add$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:9$2 ($add).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\cand.$procmux$803_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\cand.$procmux$802_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell pw_miter.$flatten\cand.$procmux$804_CMP0 ($eq).
+Removed top 1 bits (of 64) from port Y of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:18$19 ($and).
+Removed top 1 bits (of 64) from port A of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:18$19 ($and).
+Removed top 1 bits (of 64) from port B of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:18$19 ($and).
+Removed top 1 bits (of 64) from port Y of cell pw_miter.$flatten\cand.$or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:18$17 ($or).
+Removed top 1 bits (of 64) from port A of cell pw_miter.$flatten\cand.$or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:18$17 ($or).
+Removed top 1 bits (of 64) from port B of cell pw_miter.$flatten\cand.$or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:18$17 ($or).
+Removed top 1 bits (of 64) from port Y of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:15$15 ($and).
+Removed top 1 bits (of 64) from port A of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:15$15 ($and).
+Removed top 1 bits (of 64) from port B of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:15$15 ($and).
+Removed top 1 bits (of 64) from port Y of cell pw_miter.$flatten\cand.$or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:15$13 ($or).
+Removed top 1 bits (of 64) from port A of cell pw_miter.$flatten\cand.$or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:15$13 ($or).
+Removed top 1 bits (of 64) from port B of cell pw_miter.$flatten\cand.$or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:15$13 ($or).
+Removed top 1 bits (of 64) from port Y of cell pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:18$18 ($not).
+Removed top 1 bits (of 64) from port A of cell pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:18$18 ($not).
+Removed top 1 bits (of 64) from port Y of cell pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:15$14 ($not).
+Removed top 1 bits (of 64) from port A of cell pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:15$14 ($not).
+Removed top 1 bits (of 64) from wire pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:18$16_Y.
+Removed top 1 bits (of 64) from wire pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_065/candidate.v:15$12_Y.
+Removed top 1 bits (of 65) from wire pw_miter.$flatten\gold.$add$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:9$2_Y.
+Removed top 1 bits (of 65) from wire pw_miter.$flatten\gold.$sub$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:10$3_Y.
+Removed top 1 bits (of 65) from wire pw_miter.$flatten\gold.$sub$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:11$4_Y.
+Removed top 1 bits (of 65) from wire pw_miter.$flatten\gold.$or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:12$5_Y.
+Removed top 1 bits (of 65) from wire pw_miter.$flatten\gold.$and$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:13$6_Y.
+Removed top 1 bits (of 65) from wire pw_miter.$flatten\gold.$xor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:14$7_Y.
+Removed top 1 bits (of 65) from wire pw_miter.$flatten\gold.$xnor$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/alu64.v:15$8_Y.
+
+8.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 9 unused wires.
+<suppressed ~1 debug messages>
+
+8.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+8.12. Executing OPT pass (performing simple optimizations).
+
+8.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1631 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1628 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+8.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+8.12.4. Finished fast OPT passes.
+
+8.13. Executing SORT pass.
+
+8.14. Printing statistics.
+
+=== pw_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1326 wires
+     3730 wire bits
+       52 public wires
+     2011 public wire bits
+        4 ports
+      132 port bits
+     1628 cells
+        1   $add
+      963   $and
+        6   $eq
+        1   $logic_not
+        1   $ne
+        3   $not
+      597   $or
+        2   $pmux
+       42   $reduce_and
+        5   $scopeinfo
+        2   $sub
+        1   $xnor
+        4   $xor
+
+8.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+9. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 1628 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+
+Solving problem with 17970 variables and 48040 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 46cbd62140
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 6x read_verilog (0 sec), 3% 6x opt_expr (0 sec), ...

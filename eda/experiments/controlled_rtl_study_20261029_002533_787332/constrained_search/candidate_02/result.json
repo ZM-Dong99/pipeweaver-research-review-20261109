@@ -1,0 +1,215 @@
+{
+  "arm": "constrained_search",
+  "candidate_id": "candidate_02",
+  "prompt": "prompts/constrained_search.txt",
+  "prompt_sha256": "c99007381f11da1e9fae5a89a8e15c052d6defe50b9bab3e76fad787c1f77bfb",
+  "candidate_sha256": "9579a13d14b7b47250e18a8baeb0c582345918a46ba98764c688542165af6a82",
+  "requested_model": null,
+  "response_model_id": null,
+  "generation_parameters": {
+    "group_width_bits": 8,
+    "rule": "grouped carry-lookahead",
+    "candidate_budget": 3
+  },
+  "explanation": {
+    "method": "constrained_search",
+    "rewrite_rule": "replace both combinational 32-bit additions with grouped carry-lookahead adders",
+    "group_width_bits": 8,
+    "expected_timing_effect": "reduce serial carry depth across group boundaries; outcome must be measured",
+    "expected_cost": "group generate/propagate logic may increase mapped area, especially for smaller groups",
+    "functional_boundaries": "asynchronous reset, cycle alignment, modulo-2^32 wraparound, every input sequence"
+  },
+  "status": "PASS",
+  "formal_status": "PASS",
+  "ppa_status": "PASS",
+  "structure": {
+    "ports": {
+      "clk": [
+        "input",
+        1
+      ],
+      "rst_n": [
+        "input",
+        1
+      ],
+      "a": [
+        "input",
+        32
+      ],
+      "b": [
+        "input",
+        32
+      ],
+      "c": [
+        "input",
+        32
+      ],
+      "y": [
+        "output",
+        32
+      ]
+    },
+    "modules": [
+      "timing_adder",
+      "grouped_adder32"
+    ]
+  },
+  "validation": {
+    "status": "PASS",
+    "script": "syntax.ys",
+    "log": "syntax.log"
+  },
+  "validation_status": "PASS",
+  "pipeline_runtime_seconds": 1.719,
+  "total_runtime_seconds": 1.779,
+  "metrics": {
+    "run_id": "run_20261029_004328_837451",
+    "candidate": "eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_02/candidate.v",
+    "candidate_sha256": "9579a13d14b7b47250e18a8baeb0c582345918a46ba98764c688542165af6a82",
+    "formal": "PASS",
+    "formal_depth": null,
+    "formal_assumption": "rst_n asserted in initial formal state",
+    "wns_ns": 4.89,
+    "tns_ns": 0.0,
+    "mapped_area_um2": 4509.3248,
+    "mapped_cells": 428,
+    "mapped_reset_flops": 96,
+    "critical_startpoint": "b[0] (input port clocked by core_clk)",
+    "critical_endpoint": "_63_ (rising edge-triggered flip-flop clocked by core_clk)",
+    "critical_data_arrival_ns": 4.88,
+    "sdc": "eda/experiments/sky130_sta_20261027/timing_adder.sdc",
+    "sdc_sha256": "9d4a5287e5c8133525cf4480c2fa984b698485eb31511d39fe81f2187a5c5b0d",
+    "liberty": "eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
+    "liberty_sha256": "92eb4e93a3d4c2563018ac81cdec2f02fdeaced9b39337ed5c141fa63e0ad8f8",
+    "reference_rtl": "benchmark/timing_adder.v",
+    "reference_sha256": "0aea0e97355b0f3086009b30bc81445ee1a56d3a5bd0dee6c687d1f9370fcb26",
+    "artifact_dir": "eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_02/evaluation/eda",
+    "sta_netlist": "eda/experiments/controlled_rtl_study_20261029_002533_787332/constrained_search/candidate_02/evaluation/eda/mapped_sta.v",
+    "sta_netlist_sha256": "5c12fda17d70be0f268b42eb77a74e9ddda527507ab9348241568aa926f39046",
+    "sta_netlist_signed_wire_declarations_normalized": 0,
+    "status": "PASS"
+  },
+  "sta_context": {
+    "startpoint": "b[0] (input port clocked by core_clk)",
+    "endpoint": "_63_ (rising edge-triggered flip-flop clocked by core_clk)",
+    "wns_ns": 4.89,
+    "tns_ns": 0.0,
+    "data_arrival_ns": 4.88,
+    "cell_count_on_reported_paths": 21,
+    "cell_types_on_reported_paths": [
+      "sky130_fd_sc_hd__nand2_1",
+      "sky130_fd_sc_hd__o21ai_0",
+      "sky130_fd_sc_hd__maj3_1",
+      "sky130_fd_sc_hd__a211oi_1",
+      "sky130_fd_sc_hd__nor4_1",
+      "sky130_fd_sc_hd__a21oi_1",
+      "sky130_fd_sc_hd__a21o_1",
+      "sky130_fd_sc_hd__xnor2_1",
+      "sky130_fd_sc_hd__dfrtp_1"
+    ],
+    "path_cell_contributions": [
+      {
+        "incremental_delay_ns": 0.11,
+        "arrival_ns": 1.11,
+        "cell": "sky130_fd_sc_hd__nand2_1"
+      },
+      {
+        "incremental_delay_ns": 0.13,
+        "arrival_ns": 1.24,
+        "cell": "sky130_fd_sc_hd__o21ai_0"
+      },
+      {
+        "incremental_delay_ns": 0.4,
+        "arrival_ns": 1.64,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.39,
+        "arrival_ns": 2.03,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.39,
+        "arrival_ns": 2.42,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.4,
+        "arrival_ns": 2.82,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.33,
+        "arrival_ns": 3.16,
+        "cell": "sky130_fd_sc_hd__a211oi_1"
+      },
+      {
+        "incremental_delay_ns": 0.1,
+        "arrival_ns": 3.26,
+        "cell": "sky130_fd_sc_hd__nor4_1"
+      },
+      {
+        "incremental_delay_ns": 0.25,
+        "arrival_ns": 3.5,
+        "cell": "sky130_fd_sc_hd__o21ai_0"
+      },
+      {
+        "incremental_delay_ns": 0.11,
+        "arrival_ns": 3.61,
+        "cell": "sky130_fd_sc_hd__a21oi_1"
+      },
+      {
+        "incremental_delay_ns": 0.21,
+        "arrival_ns": 3.82,
+        "cell": "sky130_fd_sc_hd__o21ai_0"
+      },
+      {
+        "incremental_delay_ns": 0.17,
+        "arrival_ns": 3.99,
+        "cell": "sky130_fd_sc_hd__a21o_1"
+      },
+      {
+        "incremental_delay_ns": 0.13,
+        "arrival_ns": 4.12,
+        "cell": "sky130_fd_sc_hd__a21o_1"
+      },
+      {
+        "incremental_delay_ns": 0.13,
+        "arrival_ns": 4.25,
+        "cell": "sky130_fd_sc_hd__a21o_1"
+      },
+      {
+        "incremental_delay_ns": 0.13,
+        "arrival_ns": 4.38,
+        "cell": "sky130_fd_sc_hd__a21o_1"
+      },
+      {
+        "incremental_delay_ns": 0.07,
+        "arrival_ns": 4.46,
+        "cell": "sky130_fd_sc_hd__a21oi_1"
+      },
+      {
+        "incremental_delay_ns": 0.17,
+        "arrival_ns": 4.62,
+        "cell": "sky130_fd_sc_hd__a21oi_1"
+      },
+      {
+        "incremental_delay_ns": 0.13,
+        "arrival_ns": 4.75,
+        "cell": "sky130_fd_sc_hd__o21ai_0"
+      },
+      {
+        "incremental_delay_ns": 0.13,
+        "arrival_ns": 4.88,
+        "cell": "sky130_fd_sc_hd__xnor2_1"
+      },
+      {
+        "incremental_delay_ns": 0.0,
+        "arrival_ns": 4.88,
+        "cell": "sky130_fd_sc_hd__dfrtp_1"
+      }
+    ]
+  },
+  "area_within_limit": true,
+  "area_delta_percent": 5.257009345794406
+}

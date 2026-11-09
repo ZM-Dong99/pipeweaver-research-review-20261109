@@ -1,0 +1,29 @@
+{
+  "id": "chatcmpl-2b36c8c9-35c5-433e-a121-508517fec7ee",
+  "object": "chat.completion",
+  "created": 1793636852,
+  "model": "gpt-6.1-sol",
+  "usage": {
+    "prompt_tokens": 1491,
+    "completion_tokens": 981,
+    "total_tokens": 2630,
+    "completion_tokens_details": {
+      "reasoning_tokens": 158
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  },
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Drafting candidate reset equations**\n\n**Choosing direct state equations**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module ticket_machine #(\\n    parameter ON  = 1'b1,\\n    parameter OFF = 1'b0\\n) (\\n    input  clk, clear, ten, twenty,\\n    output reg ready, dispense, return_sig, bill\\n);\\n\\n    // State bits: RDY, DISP, RTN, BILL10, BILL20, BILL30.\\n    reg [5:0] State;\\n    wire take_ten;\\n    wire take_twenty;\\n    wire hold_amount;\\n\\n    assign take_ten    = ten;\\n    assign take_twenty = ~ten & twenty;\\n    assign hold_amount = ~ten & ~twenty;\\n\\n    // Parallel one-hot next-state equations with synchronous reset.\\n    always @(posedge clk) begin\\n        if (clear) begin\\n            State <= 6'b000001;\\n        end else begin\\n            State[0] <= (State[0] & hold_amount) | State[1] | State[2];\\n            State[1] <= (State[4] & take_twenty) |\\n                        (State[5] & take_ten);\\n            State[2] <= State[5] & take_twenty;\\n            State[3] <= (State[0] & take_ten) |\\n                        (State[3] & hold_amount);\\n            State[4] <= (State[0] & take_twenty) |\\n                        (State[3] & take_ten) |\\n                        (State[4] & hold_amount);\\n            State[5] <= (State[3] & take_twenty) |\\n                        (State[4] & take_ten) |\\n                        (State[5] & hold_amount);\\n        end\\n    end\\n\\n    always @* begin\\n        ready      = State[0] ? ON : OFF;\\n        dispense   = State[1] ? ON : OFF;\\n        return_sig = State[2] ? ON : OFF;\\n        bill       = (State[3] | State[4] | State[5]) ? ON : OFF;\\n    end\\n\\nendmodule\",\n  \"bottleneck\": \"The source describes full-vector state comparisons and case-based next-state selection. Unless synthesis already extracts and optimizes the FSM equivalently, those structures can introduce unnecessary decode and selection depth on state-to-state and state-to-output paths.\",\n  \"rewrite\": \"Retain six one-hot state bits, but express each next-state bit as a parallel sum of transition terms. Share the input classifications ten, twenty-without-ten, and neither-input. Decode outputs directly from state bits rather than full-vector equality comparisons.\",\n  \"expected_timing_gain\": \"The rewrite targets shallower state decoding and next-state selection. Actual WNS improvement is unmeasured; synthesis may already perform similar optimization on the baseline. Accept this candidate only after equivalence checking and EDA confirm strictly better setup WNS, no TNS regression, and compliance with the area cap.\",\n  \"area_or_other_cost\": \"Uses six state flip-flops, shared input qualification, and small AND/OR networks, with no additional sequential storage. Mapped area and buffering costs remain unmeasured and must be checked against 278.01664000000005 um^2.\",\n  \"functional_boundaries\": \"Preserves the module name, ports, parameter declarations and defaults, synchronous active-high clear, single positive-edge clock, and output latency. ten retains priority when both inputs are asserted. Reset establishes a one-hot state, and every transition preserves that invariant for all input combinations, including arbitrary later clear assertions. No startup assumption is added. Illegal-state recovery differs outside the reset-reachable state space; equivalence is required under the supplied fixed startup contract. The requested proof scope is ON=1 and OFF=0.\"\n}"
+      }
+    }
+  ],
+  "audit_scope": "Provider envelope and visible message content; reasoning fields omitted."
+}

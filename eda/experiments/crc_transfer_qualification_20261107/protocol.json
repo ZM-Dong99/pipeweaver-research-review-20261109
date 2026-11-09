@@ -1,0 +1,30 @@
+{
+  "source": "benchmark\\engineering_sources_20261030\\verilog-lfsr\\rtl\\lfsr.v",
+  "source_sha256": "5502c8203b0dfc7246c1a2de93e60c199ded3c1d7840b106350d714f72a9a079",
+  "source_lines": 447,
+  "old_default_qualification_failures_preserved": true,
+  "purpose": "New CRC32 Galois reflected fixed-instance qualification, not LLM optimization or generic RTL support",
+  "cases": [
+    {
+      "id": "crc32_d8",
+      "data_width": 8,
+      "top": "crc32_d8",
+      "source": "inputs\\crc32_d8.v",
+      "oracle": "inputs/crc32_d8_oracle.v",
+      "source_sha256": "3cb79eecd9c7bb0a4ce07e1d824d93f20faaf54447167b653800f38cb3f2b20f"
+    },
+    {
+      "id": "crc32_d32",
+      "data_width": 32,
+      "top": "crc32_d32",
+      "source": "inputs\\crc32_d32.v",
+      "oracle": "inputs/crc32_d32_oracle.v",
+      "source_sha256": "4b82936cd71e73b3baf445428cd242cd7c74f09f564f9cb41047ea06c924baa9"
+    }
+  ],
+  "frontend": "read_verilog -defer; hierarchy; proc; flatten; opt; check",
+  "frontend_timeout_seconds": 60,
+  "model_requests": 0,
+  "state_contract": "Combinational update; unconstrained32-bit state and data; both state_out and data_out checked",
+  "raw_source_unmodified": true
+}

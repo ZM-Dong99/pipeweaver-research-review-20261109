@@ -1,0 +1,188 @@
+{
+  "compared_state_nets": {
+    "genblk1.upsize.m_axis_tdata_reg": 32,
+    "genblk1.upsize.m_axis_tdest_reg": 8,
+    "genblk1.upsize.m_axis_tid_reg": 8,
+    "genblk1.upsize.m_axis_tkeep_reg": 4,
+    "genblk1.upsize.m_axis_tlast_reg": 1,
+    "genblk1.upsize.m_axis_tuser_reg": 1,
+    "genblk1.upsize.m_axis_tvalid_reg": 1,
+    "genblk1.upsize.s_axis_tdata_reg": 8,
+    "genblk1.upsize.s_axis_tdest_reg": 8,
+    "genblk1.upsize.s_axis_tid_reg": 8,
+    "genblk1.upsize.s_axis_tkeep_reg": 1,
+    "genblk1.upsize.s_axis_tlast_reg": 1,
+    "genblk1.upsize.s_axis_tuser_reg": 1,
+    "genblk1.upsize.s_axis_tvalid_reg": 1,
+    "genblk1.upsize.seg_reg": 2
+  },
+  "assumed_state_equalities": 0,
+  "rules": [
+    {
+      "signal": "s_axis_tready",
+      "guard": "1'b1",
+      "mask": null
+    },
+    {
+      "signal": "m_axis_tvalid",
+      "guard": "1'b1",
+      "mask": null
+    },
+    {
+      "signal": "m_axis_tkeep",
+      "guard": "g_12",
+      "mask": null
+    },
+    {
+      "signal": "m_axis_tlast",
+      "guard": "g_12",
+      "mask": null
+    },
+    {
+      "signal": "m_axis_tid",
+      "guard": "g_12",
+      "mask": null
+    },
+    {
+      "signal": "m_axis_tdest",
+      "guard": "g_12",
+      "mask": null
+    },
+    {
+      "signal": "m_axis_tuser",
+      "guard": "g_12",
+      "mask": null
+    },
+    {
+      "signal": "m_axis_tdata",
+      "guard": "g_12",
+      "mask": "{{8{g_11[3]}}, {8{g_11[2]}}, {8{g_11[1]}}, {8{g_11[0]}}}"
+    },
+    {
+      "signal": "genblk1.upsize.m_axis_tdata_reg",
+      "guard": "1'b1",
+      "mask": "{{8{g_21[3] && (g_24 || (g_32 > 3))}}, {8{g_21[2] && (g_24 || (g_32 > 2))}}, {8{g_21[1] && (g_24 || (g_32 > 1))}}, {8{g_21[0] && (g_24 || (g_32 > 0))}}}"
+    },
+    {
+      "signal": "genblk1.upsize.m_axis_tdest_reg",
+      "guard": "g_24",
+      "mask": null
+    },
+    {
+      "signal": "genblk1.upsize.m_axis_tid_reg",
+      "guard": "g_24",
+      "mask": null
+    },
+    {
+      "signal": "genblk1.upsize.m_axis_tkeep_reg",
+      "guard": "g_24 || (g_32 != 0)",
+      "mask": null
+    },
+    {
+      "signal": "genblk1.upsize.m_axis_tlast_reg",
+      "guard": "g_24",
+      "mask": null
+    },
+    {
+      "signal": "genblk1.upsize.m_axis_tuser_reg",
+      "guard": "g_24",
+      "mask": null
+    },
+    {
+      "signal": "genblk1.upsize.m_axis_tvalid_reg",
+      "guard": "1'b1",
+      "mask": null
+    },
+    {
+      "signal": "genblk1.upsize.s_axis_tdata_reg",
+      "guard": "g_31",
+      "mask": null
+    },
+    {
+      "signal": "genblk1.upsize.s_axis_tdest_reg",
+      "guard": "g_31",
+      "mask": null
+    },
+    {
+      "signal": "genblk1.upsize.s_axis_tid_reg",
+      "guard": "g_31",
+      "mask": null
+    },
+    {
+      "signal": "genblk1.upsize.s_axis_tkeep_reg",
+      "guard": "g_31",
+      "mask": null
+    },
+    {
+      "signal": "genblk1.upsize.s_axis_tlast_reg",
+      "guard": "g_31",
+      "mask": null
+    },
+    {
+      "signal": "genblk1.upsize.s_axis_tuser_reg",
+      "guard": "g_31",
+      "mask": null
+    },
+    {
+      "signal": "genblk1.upsize.s_axis_tvalid_reg",
+      "guard": "1'b1",
+      "mask": null
+    },
+    {
+      "signal": "genblk1.upsize.seg_reg",
+      "guard": "1'b1",
+      "mask": null
+    },
+    {
+      "reachability_side": "gold",
+      "forbidden_condition": "(g_24 && (g_32 != 0))",
+      "assumed": false
+    },
+    {
+      "reachability_side": "gold",
+      "forbidden_condition": "(g_31 && (g_32 != 0))",
+      "assumed": false
+    },
+    {
+      "reachability_side": "gold",
+      "forbidden_condition": "(!g_24 && (g_32 != 0) && g_21[1] && (g_32 < 1))",
+      "assumed": false
+    },
+    {
+      "reachability_side": "gold",
+      "forbidden_condition": "(!g_24 && (g_32 != 0) && g_21[2] && (g_32 < 2))",
+      "assumed": false
+    },
+    {
+      "reachability_side": "gold",
+      "forbidden_condition": "(!g_24 && (g_32 != 0) && g_21[3] && (g_32 < 3))",
+      "assumed": false
+    },
+    {
+      "reachability_side": "candidate",
+      "forbidden_condition": "(c_24 && (c_32 != 0))",
+      "assumed": false
+    },
+    {
+      "reachability_side": "candidate",
+      "forbidden_condition": "(c_31 && (c_32 != 0))",
+      "assumed": false
+    },
+    {
+      "reachability_side": "candidate",
+      "forbidden_condition": "(!c_24 && (c_32 != 0) && c_21[1] && (c_32 < 1))",
+      "assumed": false
+    },
+    {
+      "reachability_side": "candidate",
+      "forbidden_condition": "(!c_24 && (c_32 != 0) && c_21[2] && (c_32 < 2))",
+      "assumed": false
+    },
+    {
+      "reachability_side": "candidate",
+      "forbidden_condition": "(!c_24 && (c_32 != 0) && c_21[3] && (c_32 < 3))",
+      "assumed": false
+    }
+  ],
+  "meaning": "Interface plus optional jointly proven relations; failed auxiliary relations never establish functional inequivalence"
+}

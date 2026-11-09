@@ -1,0 +1,77 @@
+{
+  "task": "Select exactly two distinct actions from the fixed catalog. Do not return RTL.",
+  "original_rtl": "module comparator #(\n    parameter N = 8              // Define parameter first\n) (\n    input [2:0] SEL,          // 3-bit selection signal\n    input [N-1:0] value1,     // First comparison value\n    input [N-1:0] value2,     // Second comparison value\n    output reg OUT            // Comparison result output\n);\n\n// Pre-compute comparison results\nwire cmp_equal = (value1 == value2);\nwire cmp_greater = (value1 > value2);\n\nalways @(*) begin\n    case (SEL)\n        3'b000: OUT = 1'b0;               // Constant 0\n        3'b001: OUT = 1'b1;               // Constant 1\n        3'b010: OUT = cmp_equal;         // ==\n        3'b011: OUT = ~cmp_equal;        // !=\n        3'b100: OUT = (cmp_equal || cmp_greater);  // >=\n        3'b101: OUT = ~cmp_greater;      // <=\n        3'b110: OUT = (~cmp_equal && ~cmp_greater); // <\n        3'b111: OUT = cmp_greater;       // >\n        default: OUT = 1'b0;             // Default case\n    endcase\nend\n\nendmodule",
+  "top": "comparator",
+  "parameter_overrides": {
+    "N": 24
+  },
+  "hardware_width": 24,
+  "action_catalog": [
+    {
+      "id": "balanced_2",
+      "operator": "unsigned_chunk_compare",
+      "chunk_bits": 2,
+      "topology": "balanced"
+    },
+    {
+      "id": "balanced_4",
+      "operator": "unsigned_chunk_compare",
+      "chunk_bits": 4,
+      "topology": "balanced"
+    },
+    {
+      "id": "balanced_8",
+      "operator": "unsigned_chunk_compare",
+      "chunk_bits": 8,
+      "topology": "balanced"
+    },
+    {
+      "id": "linear_2",
+      "operator": "unsigned_chunk_compare",
+      "chunk_bits": 2,
+      "topology": "linear"
+    },
+    {
+      "id": "linear_4",
+      "operator": "unsigned_chunk_compare",
+      "chunk_bits": 4,
+      "topology": "linear"
+    },
+    {
+      "id": "linear_8",
+      "operator": "unsigned_chunk_compare",
+      "chunk_bits": 8,
+      "topology": "linear"
+    }
+  ],
+  "action_semantics": "Replace unsigned equality/greater comparison with chunk comparisons. Higher chunks dominate: gt=gt_high OR (eq_high AND gt_low); eq=eq_high AND eq_low. Balanced uses padded binary composition; linear folds chunks from low to high. All other selector/output behavior stays unchanged.",
+  "objective": "Within fixed original area cap, minimize maximum combinational data arrival after complete source and mapped equivalence and electrical checks. Original stays available. Exactly two candidate EDA slots per selection; no repairs/replacement draws.",
+  "mapped_area_cap_um2": 916.6291200000002,
+  "baseline_area_um2": 833.2992,
+  "technology": {
+    "library": "SKY130HD TT 025C 1v80",
+    "input_transition_ns": 0.1,
+    "output_load_pf": 0.01,
+    "mapping": "ABC map; cleanup; buffer; upsize; dnsize"
+  },
+  "response_format": {
+    "action_ids": [
+      "one_allowed_ID",
+      "a_different_allowed_ID"
+    ],
+    "rationale": "Non-empty short reason; estimates are not measured gains"
+  },
+  "rules": [
+    "Return one JSON object with exactly action_ids and rationale, no markdown or wrappers.",
+    "No arbitrary RTL, edits, extra actions, parameters, or commands. Do not claim measured improvements before EDA."
+  ],
+  "actual_baseline_sta": {
+    "max_data_arrival_ns": 1.21,
+    "critical_startpoint": "value2[20] (input port clocked by virtual_clk)",
+    "critical_endpoint": "OUT (output port clocked by virtual_clk)",
+    "measured_paths": [
+      "Startpoint: value2[20] (input port clocked by virtual_clk)\nEndpoint: OUT (output port clocked by virtual_clk)\nPath Group: virtual_clk\nPath Type: max\n\n  Delay    Time   Description\n---------------------------------------------------------\n   0.00    0.00   clock virtual_clk (rise edge)\n   0.00    0.00   clock network delay (ideal)\n   0.00    0.00 v input external delay\n   0.00    0.00 v value2[20] (in)\n   0.25    0.25 v _232_/X (sky130_fd_sc_hd__or2_1)\n   0.22    0.47 ^ _238_/Y (sky130_fd_sc_hd__a211oi_2)\n   0.13    0.59 v _245_/Y (sky130_fd_sc_hd__nand4_2)\n   0.23    0.83 v _246_/Y (sky130_fd_sc_hd__o21bai_2)\n   0.07    0.90 ^ _279_/Y (sky130_fd_sc_hd__nand4_1)\n   0.17    1.07 ^ _280_/Y (sky130_fd_sc_hd__a21boi_1)\n   0.14    1.21 v _292_/Y (sky130_fd_sc_hd__a41oi_2)\n   0.00    1.21 v OUT (out)\n           1.21   data arrival time\n\n 100.00  100.00   clock virtual_clk (rise edge)\n   0.00  100.00   clock network delay (ideal)\n   0.00  100.00   clock reconvergence pessimism\n   0.00  100.00   output external delay\n         100.00   data required time\n---------------------------------------------------------\n         100.00   data required time\n          -1.21   data arrival time\n---------------------------------------------------------\n          98.79   slack (MET)"
+    ],
+    "warning": "Mapped names are not an exact RTL source-line attribution. Only baseline measurements, no candidate outcomes."
+  }
+}

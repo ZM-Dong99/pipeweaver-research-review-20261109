@@ -1,0 +1,109 @@
+{
+  "client_date": "2026-11-03",
+  "scope": "One unsigned-comparison family. Six fixed source versions and three parameter instances; not 18 independently generated RTLs or an LLM comparison.",
+  "source_sha256": "72c2e295f61ca17e0af53b9ec0900e8f58d2984acc5a4a375772af64bd76d900",
+  "canonical_lf_text_sha256": "f17e486f9af6526abe22b0ae2ff2a8873febc28883e945db680bfabc22208526",
+  "library_sha256": "92eb4e93a3d4c2563018ac81cdec2f02fdeaced9b39337ed5c141fa63e0ad8f8",
+  "code_sha256": {
+    "eda\\experiments\\run_comparator_action_study.py": "13c94f0ec7c5661eb769e98e7cefe3f3595d9c994790e7af42c2204433cdfde4",
+    "rewrite\\comparator_rewrites.py": "b19c35c5ac33c25a72c1a0d3538bca4367425ac4fdc4d51a51dfac5054ed68b5",
+    "eda\\experiments\\run_native_comb.py": "38f0f10f08e7bb752010c2985fc8a1b31f48e08c4891b318d2b1f5a6992c09ff",
+    "eda\\experiments\\trace_sta_rtl_cone.py": "047c3b739a00bcba19d470ea3d043ef5a872dd0ded0f0ee41dc22ea3e41b920d"
+  },
+  "profiles": [
+    {
+      "id": "primary_N32",
+      "N": 32,
+      "role": "primary"
+    },
+    {
+      "id": "boundary_N1",
+      "N": 1,
+      "role": "minimum-width validation"
+    },
+    {
+      "id": "boundary_N13",
+      "N": 13,
+      "role": "partial-chunk and padded-tree validation"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "balanced_2",
+      "action": {
+        "operator": "unsigned_chunk_compare",
+        "chunk_bits": 2,
+        "topology": "balanced"
+      },
+      "sha256": "82f9115a0f316f3515340d27a4541a82ed730657cffa6ae5865980155c9f9c66",
+      "action_sha256": "8b4c4074f6a0092126d56e1634eac9aa62ae4e3b46a7e8bc25c54f2318a43bda"
+    },
+    {
+      "id": "balanced_4",
+      "action": {
+        "operator": "unsigned_chunk_compare",
+        "chunk_bits": 4,
+        "topology": "balanced"
+      },
+      "sha256": "0bc4ed1c279c9bbfd1fdc0ed2907115c60d9be0d125f4dff2efe540bf71a88e8",
+      "action_sha256": "e2325fe7ad656c4343724214d814196b621a919aaa945c14a14794fe0d8be405"
+    },
+    {
+      "id": "balanced_8",
+      "action": {
+        "operator": "unsigned_chunk_compare",
+        "chunk_bits": 8,
+        "topology": "balanced"
+      },
+      "sha256": "25667a3247e0ffc099a6656c55b8c68c3fd28e6b31ce4d0322a6f278fb88ec7a",
+      "action_sha256": "6252d178d94a94b83ba3bdf1e767cee28583c63aa183c184d676df80ea17f427"
+    },
+    {
+      "id": "linear_2",
+      "action": {
+        "operator": "unsigned_chunk_compare",
+        "chunk_bits": 2,
+        "topology": "linear"
+      },
+      "sha256": "63c264f3d235fde3ce7afb48bd79573b606007ab095ee126e68a38acb68ef7ae",
+      "action_sha256": "8347c32a748f7c51e2b3f6e3110a282403cae11ee04e37c1947206a7db686afc"
+    },
+    {
+      "id": "linear_4",
+      "action": {
+        "operator": "unsigned_chunk_compare",
+        "chunk_bits": 4,
+        "topology": "linear"
+      },
+      "sha256": "15d2fd612408b399c440d973ece28cc5b5e6853cad53b30166b808b805aa193c",
+      "action_sha256": "eba1648101a7007bd1c79b436b785a98398f924c860cb2471d3526194ee418bf"
+    },
+    {
+      "id": "linear_8",
+      "action": {
+        "operator": "unsigned_chunk_compare",
+        "chunk_bits": 8,
+        "topology": "linear"
+      },
+      "sha256": "c5a18f40e6966ecc3b082b83b29201c6243d8e3d3344941cd9fe7ee47ab66d79",
+      "action_sha256": "c08ce78d52a22732ff0d5af751e502c522d38695347a9f905355aa35a12806e9"
+    }
+  ],
+  "source_versions": 6,
+  "planned_eda_cases": 21,
+  "candidate_configuration_pairs": 18,
+  "primary_profile": "primary_N32",
+  "primary_metric": "Maximum combinational data arrival in ns, lower is better. Do not compare virtual-clock WNS against earlier sequential designs.",
+  "area_ratio_limit": 1.1,
+  "mapping_policy": "buffer_size",
+  "cleanup_before_buffer": true,
+  "input_transition_ns": 0.1,
+  "output_load_pf": 0.01,
+  "timeout_per_tool_seconds": 120,
+  "workers": 2,
+  "model_requests": 0,
+  "selection": "Per parameter original baseline. Require full source/mapped proofs, clean electrical STA, area <=110% baseline, and strictly smaller maximum arrival. Rank delay then area, otherwise retain original.",
+  "policy": "Freeze all six action JSONs and RTLs before any baseline measurement. Whitelist parameters only; no arbitrary RTL returned by a model. No adaptive candidates after outcomes.",
+  "prior_exposure": "Public RTL-OPT comparator previously baseline-qualified at N=8; no current comparator model study. Operator designed after negative state-machine prompt experiments, before these comparator measurements. Public code is not a model-training holdout.",
+  "limitations": "Exact canonical source template only, unsigned defined binary inputs, positive N instances 1/13/32 measured, no sequential logic or new pipeline stage. TT pre-layout fixed IO, no power/physical signoff. Standard comparison structures, no novelty claim."
+}

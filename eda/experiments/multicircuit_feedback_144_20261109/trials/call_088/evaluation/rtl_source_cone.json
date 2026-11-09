@@ -1,0 +1,106 @@
+{
+  "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+  "meaning": "These RTLIL operator cells have structural bit dependencies from the STA start bit to the STA end bit. This is a conservative cone, not proof that every listed cell is on the exact mapped timing path.",
+  "top": "priority_encoder",
+  "sta_startpoint": "input_unencoded[62] (input port clocked by virtual_clk)",
+  "sta_endpoint": "output_unencoded[10] (output port clocked by virtual_clk)",
+  "start_net_aliases": [
+    "input_unencoded[62]",
+    "fast256.groups[3].local_input[14]"
+  ],
+  "end_net_aliases": [
+    "output_unencoded[10]"
+  ],
+  "rtl_operator_cells_on_possible_cone_paths": 3,
+  "source_attributed_selected_cells": 3,
+  "source_attribution_coverage": 1.0,
+  "coverage_scope": "Source attributes among the selected pre-ABC supported RTLIL cells only; this is not mapped-gate localization accuracy.",
+  "rtl_source_locations": [
+    "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:37.41-37.64",
+    "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:37.43-37.63",
+    "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:52.55-52.87"
+  ],
+  "candidate_cells": [
+    {
+      "cell": "$not$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:37$25",
+      "type": "$not",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:37.41-37.64",
+      "line": 37
+    },
+    {
+      "cell": "$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:37$24",
+      "type": "$reduce_or",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:37.43-37.63",
+      "line": 37
+    },
+    {
+      "cell": "$and$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:52$70",
+      "type": "$and",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:52.55-52.87",
+      "line": 52
+    }
+  ],
+  "shortest_structural_dependency_path": [
+    {
+      "from_bit": 64,
+      "to_bit": 1152,
+      "cell": "$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:37$24",
+      "type": "$reduce_or",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:37.43-37.63",
+      "line": 37,
+      "input_port": "A",
+      "input_bit": 46,
+      "output_port": "Y",
+      "output_bit": 0,
+      "from_net_aliases": [
+        "input_unencoded[62]",
+        "fast256.groups[3].local_input[14]"
+      ],
+      "to_net_aliases": [
+        "$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:37$24_Y"
+      ]
+    },
+    {
+      "from_bit": 1152,
+      "to_bit": 1027,
+      "cell": "$not$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:37$25",
+      "type": "$not",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:37.41-37.64",
+      "line": 37,
+      "input_port": "A",
+      "input_bit": 0,
+      "output_port": "Y",
+      "output_bit": 0,
+      "from_net_aliases": [
+        "$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:37$24_Y"
+      ],
+      "to_net_aliases": [
+        "fast256.group_allow[0]"
+      ]
+    },
+    {
+      "from_bit": 1027,
+      "to_bit": 277,
+      "cell": "$and$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:52$70",
+      "type": "$and",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_088/candidate.v:52.55-52.87",
+      "line": 52,
+      "input_port": "A",
+      "input_bit": 0,
+      "output_port": "Y",
+      "output_bit": 0,
+      "from_net_aliases": [
+        "fast256.group_allow[0]"
+      ],
+      "to_net_aliases": [
+        "output_unencoded[10]"
+      ]
+    }
+  ],
+  "structural_path_edge_count": 3,
+  "all_possible_cone_edge_count": 3,
+  "chain_warning": "One shortest structural dependency chain, not the longest mapped timing path. Synthesis may restructure the source arithmetic; do not infer mapped serial adder depth from RTL adder count.",
+  "supported_cells_modeled": 1130,
+  "unsupported_cell_types": {},
+  "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+}

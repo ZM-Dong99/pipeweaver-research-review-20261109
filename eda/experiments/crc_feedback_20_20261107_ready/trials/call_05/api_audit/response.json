@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-01c5de51-60d1-41ff-ad60-bc8f300e8737",
+  "model": "gpt-6.1-sol",
+  "created": 1794021896,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Designing q-state mask logic**\n\n**Generating q-state masks**\n\n**Implementing q-state mask logic**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module crc32_d8 (\\n    input  wire [7:0]  data_in,\\n    input  wire [31:0] state_in,\\n    output wire [7:0]  data_out,\\n    output wire [31:0] state_out\\n);\\n\\n    // Fold the input byte into the low state byte before the\\n    // fixed, linear reflected-CRC transform.\\n    wire [7:0] q;\\n    assign q = data_in ^ state_in[7:0];\\n\\n    // Constant elaboration function: select the byte contributions\\n    // to one result bit after eight reflected Galois steps.\\n    function automatic [7:0] byte_mask;\\n        input integer bit_index;\\n        reg [31:0] c;\\n        integer j;\\n        integer k;\\n        begin\\n            byte_mask = 8'b0;\\n            for (j = 0; j < 8; j = j + 1) begin\\n                c = 32'h00000001 << j;\\n                for (k = 0; k < 8; k = k + 1) begin\\n                    if (c[0])\\n                        c = (c >> 1) ^ 32'hedb88320;\\n                    else\\n                        c = c >> 1;\\n                end\\n                byte_mask[j] = c[bit_index];\\n            end\\n        end\\n    endfunction\\n\\n    genvar n;\\n    generate\\n        for (n = 0; n < 32; n = n + 1) begin : result_bit\\n            localparam [7:0] MASK = byte_mask(n);\\n            wire lower_parity;\\n            wire upper_parity;\\n            assign lower_parity = ^(q[3:0] & MASK[3:0]);\\n            assign upper_parity = ^(q[7:4] & MASK[7:4]);\\n            if (n < 24) begin : shifted_state\\n                assign state_out[n] = ^{state_in[n+8],\\n                                        lower_parity, upper_parity};\\n            end else begin : byte_only\\n                assign state_out[n] = lower_parity ^ upper_parity;\\n            end\\n        end\\n    endgenerate\\n\\n    // The observed data output is the sequence of feedback bits,\\n    // not a copy of the input byte or simply the original state byte.\\n    assign data_out[4:0] = q[4:0];\\n    assign data_out[5] = q[5] ^ q[0];\\n    assign data_out[6] = q[6] ^ q[1];\\n    assign data_out[7] = q[7] ^ q[2];\\n\\nendmodule\\n\",\n  \"bottleneck\": \"The baseline critical paths combine input buffering, decomposed parity logic and final output parity. Independently reducing the original state/data masks can repeat equivalent low-state/input XOR work and increase input loading.\",\n  \"rewrite\": \"Specialize the instance to the reflected polynomial 0xedb88320. First compute q = data_in XOR state_in[7:0], then apply the fixed eight-step linear transform to q. Build each state result from two small parity groups and, where applicable, the directly shifted upper-state bit. Preserve all eight data_out feedback bits explicitly. The mask function runs only during elaboration; it does not infer a serial runtime CRC network.\",\n  \"expected_timing_gain\": \"The intended improvement is reduced duplicated parity work and input loading, with shallow grouped parity cones. No mapped timing run was available, so a gain over the 0.98 ns baseline or a minimum-arrival result cannot be claimed.\",\n  \"area_or_other_cost\": \"Eight shared input XORs replace repeated appearances of paired state/data terms. Area is expected to decrease, but sharing can increase q-net fanout and require buffering. Compliance with the 2752.64 um^2 area cap and zero reported electrical violations remains unverified and requires the specified mapping and STA flow.\",\n  \"functional_boundaries\": \"Preserves the fixed combinational crc32_d8 interface for arbitrary binary values on all 40 input bits, including all eight observed data_out bits. No initialization, reset, framing, final inversion, gating or unreachable-state assumptions are used. The specialization is only for the supplied reflected Galois CRC32, width eight, feed-forward zero instance. Native source/mapped SAT proofs were not available here and must pass before accepting this candidate.\"\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 6650,
+    "completion_tokens": 1475,
+    "total_tokens": 8613
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 986,
+    "usage_reported": true
+  }
+}

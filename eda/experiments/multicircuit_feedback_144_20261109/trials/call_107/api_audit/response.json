@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-7a92e2e4-41b9-43fd-bc9a-b64bcbf4689d",
+  "model": "gpt-6.1-sol",
+  "created": 1794219408,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Simulating CRC bit columns**\n\n**Deriving CRC output masks**\n\n**Generating CRC masks**\n\n</think>\n\n{\n  \"candidate_rtl\": \"`timescale 1ns / 1ps\\n`default_nettype none\\n\\nmodule crc32_d8 (\\n    input  wire [7:0]  data_in,\\n    input  wire [31:0] state_in,\\n    output wire [7:0]  data_out,\\n    output wire [31:0] state_out\\n);\\n    // Combine corresponding message and initial-state contributions first.\\n    wire [7:0] q;\\n    assign q = data_in ^ state_in[7:0];\\n\\n    // Constant columns of the eight-step reflected CRC transformation.\\n    function automatic [7:0] state_mask;\\n        input integer output_bit;\\n        reg [31:0] column;\\n        integer k, step;\\n        begin\\n            state_mask = 8'b0;\\n            for (k = 0; k < 8; k = k + 1) begin\\n                column = 32'b1 << k;\\n                for (step = 0; step < 8; step = step + 1) begin\\n                    if (column[0])\\n                        column = (column >> 1) ^ 32'hedb88320;\\n                    else\\n                        column = column >> 1;\\n                end\\n                state_mask[k] = column[output_bit];\\n            end\\n        end\\n    endfunction\\n\\n    function automatic integer bit_count;\\n        input [7:0] mask;\\n        integer k;\\n        begin\\n            bit_count = 0;\\n            for (k = 0; k < 8; k = k + 1)\\n                bit_count = bit_count + mask[k];\\n        end\\n    endfunction\\n\\n    function automatic integer bit_rank;\\n        input [7:0] mask;\\n        input integer index;\\n        integer k;\\n        begin\\n            bit_rank = 0;\\n            for (k = 0; k < index; k = k + 1)\\n                bit_rank = bit_rank + mask[k];\\n        end\\n    endfunction\\n\\n    genvar n, k;\\n    generate\\n        for (n = 0; n < 32; n = n + 1) begin : output_bit\\n            localparam [7:0] MASK = state_mask(n);\\n            localparam integer COUNT = bit_count(MASK);\\n            localparam integer SHIFT_TERM = (n < 24) ? 1 : 0;\\n            wire [COUNT+SHIFT_TERM-1:0] terms;\\n            for (k = 0; k < 8; k = k + 1) begin : input_bit\\n                if (MASK[k]) begin : selected\\n                    assign terms[bit_rank(MASK, k)] = q[k];\\n                end\\n            end\\n            if (n < 24) begin : shifted_state\\n                assign terms[COUNT] = state_in[n+8];\\n            end\\n            assign state_out[n] = ^terms;\\n        end\\n    endgenerate\\n\\n    // The shifted-out value is the feedback at each step, not raw input data.\\n    assign data_out[5:0] = q[5:0];\\n    assign data_out[6] = q[6] ^ q[0];\\n    assign data_out[7] = q[7] ^ q[1];\\nendmodule\\n\\n`default_nettype wire\\n\",\n  \"bottleneck\": \"The original independently reduces overlapping state and data contributions. Wide parity cones and repeated handling of corresponding input/state bits can increase XOR depth, loading, and mapped arrival time.\",\n  \"rewrite\": \"Factor the eight common data_in[i] XOR state_in[i] terms before applying the reflected CRC32 transformation. Compute constant transformation masks at elaboration and build compact parity reductions containing only selected terms and the applicable shifted upper-state bit. Explicitly preserve the shifted-out feedback data.\",\n  \"expected_timing_gain\": \"Expected to reduce redundant parity logic and improve arrival time through smaller, balanced parity cones. The longest state paths have one initial XOR followed by a reduction of at most eight terms. Actual timing improvement and electrical compliance require the specified mapping and STA flow; no measured gain is claimed.\",\n  \"area_or_other_cost\": \"Eight shared input XORs replace repeated state/data contributions across output cones. Area is expected to decrease relative to the unfactored implementation, although shared-node fanout can require buffering. The 2752.64um2 area cap and zero slew/capacitance violations have not been measured.\",\n  \"functional_boundaries\": \"Preserves crc32_d8 and all port names, widths, and unsigned wire declarations; the top module has no parameters. Implements the fixed reflected Galois CRC32 polynomial with eight LSB-first steps for every arbitrary 32-bit state and 8-bit data value. data_out[6] and data_out[7] include earlier feedback contributions. All outputs are combinational and fully defined, with no state, latency, assumptions, external dependencies, or runtime memories.\"\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5114,
+    "completion_tokens": 1613,
+    "total_tokens": 7243
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 1096,
+    "usage_reported": true
+  }
+}

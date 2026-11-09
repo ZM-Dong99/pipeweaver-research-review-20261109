@@ -1,0 +1,130 @@
+{
+  "created_at": "2026-11-06T10:51:48.631442+08:00",
+  "kind": "EXPOSED_BLOCK_LOCALIZATION_SELECTION",
+  "maximum_requests": 12,
+  "model": "gpt-6.1-sol",
+  "endpoint": "https://apinebula.ai/v1",
+  "transport": "curl",
+  "timeout_seconds": 180,
+  "request_parameters": {
+    "reasoning_effort": "medium"
+  },
+  "system_message": "Select exactly one of the two allowed structural actions. Return only action_id and rationale as JSON. Never return executable code.",
+  "schedule": [
+    {
+      "call_index": 1,
+      "profile": "mux_delay050",
+      "arm": "no_sta",
+      "trial": 1,
+      "prompt": "prompts/mux_delay050_no_sta.txt"
+    },
+    {
+      "call_index": 2,
+      "profile": "mux_delay050",
+      "arm": "sta",
+      "trial": 1,
+      "prompt": "prompts/mux_delay050_sta.txt"
+    },
+    {
+      "call_index": 3,
+      "profile": "mux_delay090",
+      "arm": "sta",
+      "trial": 1,
+      "prompt": "prompts/mux_delay090_sta.txt"
+    },
+    {
+      "call_index": 4,
+      "profile": "mux_delay090",
+      "arm": "no_sta",
+      "trial": 1,
+      "prompt": "prompts/mux_delay090_no_sta.txt"
+    },
+    {
+      "call_index": 5,
+      "profile": "mux_delay050",
+      "arm": "sta",
+      "trial": 2,
+      "prompt": "prompts/mux_delay050_sta.txt"
+    },
+    {
+      "call_index": 6,
+      "profile": "mux_delay050",
+      "arm": "no_sta",
+      "trial": 2,
+      "prompt": "prompts/mux_delay050_no_sta.txt"
+    },
+    {
+      "call_index": 7,
+      "profile": "mux_delay090",
+      "arm": "no_sta",
+      "trial": 2,
+      "prompt": "prompts/mux_delay090_no_sta.txt"
+    },
+    {
+      "call_index": 8,
+      "profile": "mux_delay090",
+      "arm": "sta",
+      "trial": 2,
+      "prompt": "prompts/mux_delay090_sta.txt"
+    },
+    {
+      "call_index": 9,
+      "profile": "mux_delay050",
+      "arm": "no_sta",
+      "trial": 3,
+      "prompt": "prompts/mux_delay050_no_sta.txt"
+    },
+    {
+      "call_index": 10,
+      "profile": "mux_delay050",
+      "arm": "sta",
+      "trial": 3,
+      "prompt": "prompts/mux_delay050_sta.txt"
+    },
+    {
+      "call_index": 11,
+      "profile": "mux_delay090",
+      "arm": "sta",
+      "trial": 3,
+      "prompt": "prompts/mux_delay090_sta.txt"
+    },
+    {
+      "call_index": 12,
+      "profile": "mux_delay090",
+      "arm": "no_sta",
+      "trial": 3,
+      "prompt": "prompts/mux_delay090_no_sta.txt"
+    }
+  ],
+  "frozen_files": {
+    "code_snapshot\\rtl_optimizer.py": "576a055c1f5e8498a014833cb7f8bb01de08a56e6f3fcd53c568dcaaf4a3e12e",
+    "code_snapshot\\run_localization_selection.py": "af055a5b1c2337136985f82d682251c69dc7e6fb0f51bc5be5cdc67775c23947",
+    "design\\PREPARATION_CHECKS.json": "3d5c91a8939592dc0dd8c460d5f014e97cf45e5dae2701c8e5534cc33b763890",
+    "design\\protocol.json": "54a2d52bf57c14eabeecb0b9abf2d43e0e1fe136d3a49c894d87ec1f111aad50",
+    "design\\protocol.sha256": "9aa551074f11d9653f4d97114eec05b6a233d92e0acfb68b27e36558c374e3c0",
+    "design\\README.md": "46814322d6cb0bdb6f824f8407628aa82d755002e88dc1dc9969dc1c6c00dbcb",
+    "design\\analysis_only\\deterministic_controls.json": "94d24493516fed226a67ceefea586ad6709b0a4b7aa38feaa12ae10e4b99c823",
+    "design\\analysis_only\\prior_mapping_and_sta.json": "4399566def6b65b8544e9f13cbf89a2ca49e6524e12a84943a7054e80e92fb0a",
+    "design\\code_snapshot\\prepare_localization_selection.py": "20e6fbbc1a4fe3a3dde49e139e1fe30108cda274922ca5da36597055d7641a09",
+    "design\\inputs\\baseline.v": "d84d2436127c41493ca8fbb6bc204d8c3eb5f0eff67b0007f4d5d9ede93b8fba",
+    "design\\inputs\\mux_delay050.sdc": "7ca9b9f36c785b6873b8484acb9b645bbcc38ce90da73e7afc59bee481b0816e",
+    "design\\inputs\\mux_delay050_baseline_sta.log": "eabfe383f2e452ad55d96371ada8babb27cb0a5028f1a2a77cf7e596a34264b3",
+    "design\\inputs\\mux_delay090.sdc": "056c96d0aa7bac9cadde8fb3b3b2dca191d6620804858a3d7f505c9ad0b77058",
+    "design\\inputs\\mux_delay090_baseline_sta.log": "e34bde503a069cce0f47b0adf8eacf3aab205943458c5833586cf9e6b974ad94",
+    "design\\inputs\\rewrite_mux.v": "676cb1cb19a15a878d74bbf870a8f8fb30ca09fb280fb877ac711238d8fb0e37",
+    "design\\inputs\\rewrite_priority.v": "0cc7b656247bcabcf514b381c0a8cd57b15038da3bd59f70c94fb06e37592afb",
+    "design\\prompts\\mux_delay050_no_sta.txt": "cdb5b124b7a6e3b0a6e12cbdf46121b2145ac4dcc27572e6148f3a4d80c5d4b8",
+    "design\\prompts\\mux_delay050_sta.txt": "6e9c6343f4cc42cddd7f3d84659556aeab8105d50069068efab6ecada41df34c",
+    "design\\prompts\\mux_delay090_no_sta.txt": "72cf2c84a173a5e236b89192f3dc476ff99a29f0a8f81407b39ab84d3fdd3664",
+    "design\\prompts\\mux_delay090_sta.txt": "c6f1b965b755dfc3f7b7424ef2bd731d69859079b091d2f262da8a1615e9a486"
+  },
+  "dependencies": {
+    "eda\\experiments\\run_localization_selection.py": "af055a5b1c2337136985f82d682251c69dc7e6fb0f51bc5be5cdc67775c23947",
+    "agents\\rtl_optimizer.py": "576a055c1f5e8498a014833cb7f8bb01de08a56e6f3fcd53c568dcaaf4a3e12e"
+  },
+  "curl_path": "C:\\Windows\\System32\\curl.exe",
+  "curl_sha256": "73d24149ff289afc49ec41f08918ef9faa727d39ad993e929757dc2ddafab805",
+  "scoring": "All attempt-retained medians per profile/arm; mean paired profile-normalized median-gain contrast; strict baseline fallback for invalid/fail/over-area/non-improvement. All twelve slots retained.",
+  "limits": "Previously observed two related configurations, exposed actions, reused PPA. No fresh candidate EDA, blind holdout, independent families or statistical significance. No fixed rule winner is hidden from final reporting.",
+  "request_policy": "Exactly scheduled attempts at most; never retry. Unknown prior attempt aborts until explicitly recorded as unknown, never resent."
+}

@@ -1,0 +1,12 @@
+read_liberty -lib "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+read_verilog -sv "D:/verilog_lab/PipeWeaver/eda/experiments/verified_optimizer_acceptance_20261107/mux_no_area_growth/inputs/sampled_no_sta.v"
+hierarchy -check -top mux_large
+flatten
+delete t:$scopeinfo
+synth -top mux_large -noabc
+abc -script "D:/verilog_lab/PipeWeaver/eda/experiments/verified_optimizer_acceptance_20261107/mux_no_area_growth/evaluations/sampled_no_sta/abc.script" -liberty "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" -constr "D:/verilog_lab/PipeWeaver/eda/experiments/verified_optimizer_acceptance_20261107/mux_no_area_growth/evaluations/sampled_no_sta/abc.constr" -dont_use sky130_fd_sc_hd__lpflow_*
+clean
+check -assert
+stat -liberty "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/verified_optimizer_acceptance_20261107/mux_no_area_growth/evaluations/sampled_no_sta/mapped.json"
+write_verilog -noattr "D:/verilog_lab/PipeWeaver/eda/experiments/verified_optimizer_acceptance_20261107/mux_no_area_growth/evaluations/sampled_no_sta/mapped.v"

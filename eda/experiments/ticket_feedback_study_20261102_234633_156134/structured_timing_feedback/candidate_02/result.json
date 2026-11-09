@@ -1,0 +1,60 @@
+{
+  "call_index": 3,
+  "arm": "structured_timing_feedback",
+  "candidate_id": "candidate_02",
+  "candidate_sha256": "fa1764f70d35fe0977c3d4193d5a7fa585c1c265e0a2aafa34298aa00dba0563",
+  "status": "GENERATED",
+  "explanation": {
+    "bottleneck": "The measured worst path is a state flip-flop to bill through a sky130_fd_sc_hd__or3_4: 0.30 ns clock-to-Q plus 0.40 ns output decode, producing 9.30 ns setup slack. The reported register-to-register paths have more slack.",
+    "area_or_other_cost": "Adds one output register and its next-value decode while removing the combinational bill output decode. Logic sharing and output-cell sizing determine the net area change. The available area headroom is 25.27424 um^2; compliance with the 278.01664 um^2 cap must be checked after mapping. Reject this candidate if it exceeds the cap.",
+    "functional_boundaries": "After the required synchronous startup reset, bill equals the original billing-state predicate after every edge because State and bill are updated from the same NextState. Later clear assertions synchronously restore RDY and bill=OFF. Simultaneous ten and twenty retain ten priority. The top name, ports, widths, parameter declarations and defaults, positive-edge clock, reset polarity and output cycle latency are preserved. No helper modules, initialization, assumptions, latches or generated clocks are introduced. Equivalence is required against the frozen original under the fixed startup contract.",
+    "rewrite": "Register the bill predicate of NextState on the same edge that updates State. This moves the billing-state union from the output path to the register-input logic. Keep the original state transitions and the other Moore output decodes. Explicit synchronous clear sets bill to OFF alongside State returning to RDY.",
+    "expected_timing_gain": "The intended improvement is removal of the three-state OR from the bill output path, without adding a cycle of latency. Actual WNS depends on the new bill-register input path, synthesis recoding, fanout and output drive. No improvement is measured or guaranteed; accept only after equivalence and EDA show WNS strictly above 9.30 ns and TNS remaining 0.0 ns.",
+    "output_format_normalization": [
+      "Removed complete leading think wrapper before JSON parsing"
+    ]
+  },
+  "parameters": {
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "http_transport": "curl",
+    "response_format": "json_object",
+    "candidate_index": 3,
+    "response_id": "chatcmpl-d07ff83c-c9b3-4d80-b833-7ff669940d11",
+    "response_created": 1793634646,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 3218,
+      "completion_tokens": 1749,
+      "total_tokens": 5706
+    }
+  },
+  "response_model": "gpt-6.1-sol",
+  "seconds": 64.98522299999968,
+  "accepted": false,
+  "metrics": {
+    "status": "PASS",
+    "formal": "PASS",
+    "mapped_formal": "PASS",
+    "ppa": "PASS",
+    "eligible": true,
+    "stage": "sta",
+    "mapped_area_um2": 475.456,
+    "mapped_cells": 60,
+    "electrical": {
+      "status": "PASS",
+      "violation_rows": 0,
+      "checks": [
+        "max_slew",
+        "max_capacitance"
+      ],
+      "scope": "Library limits under recorded SDC; not physical signoff"
+    },
+    "wns_ns": 8.79,
+    "tns_ns": 0.0,
+    "mapped_sha256": "23284256c9d5fbf5bf0058c6dd2ea1a2aab49faa015693d7a1cd8991db400585",
+    "sdc_sha256": "7c1efdc1b0d7abeccbbfb4f8af926767240ac755b5dbd6f49eed98a8e884e4ab",
+    "elapsed_seconds": 2.007
+  },
+  "reason": "Exceeds fixed baseline-derived area cap"
+}

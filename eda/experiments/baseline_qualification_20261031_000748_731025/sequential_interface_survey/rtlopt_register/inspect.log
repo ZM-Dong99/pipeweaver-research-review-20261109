@@ -1,0 +1,406 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\baseline_qualification_20261031_000748_731025\sequential_interface_survey\rtlopt_register\inspect.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v
+Parsing SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v' to AST representation.
+Generating RTLIL representation for module `\register'.
+Warning: Replacing memory \data with list of registers. See D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:50, D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:37
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \register
+
+2.2. Analyzing design hierarchy..
+Top module:  \register
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:31$30 in module register.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:31$30 in module register.
+Removed 1 dead cases from process $proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:25$27 in module register.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:25$27 in module register.
+Marked 3 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18 in module register.
+Removed a total of 2 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 37 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:35$33'.
+  Set init value: \data[1] = 0
+  Set init value: \data[2] = 0
+  Set init value: \data[3] = 0
+  Set init value: \data[4] = 0
+  Set init value: \data[5] = 0
+  Set init value: \data[6] = 0
+  Set init value: \data[7] = 0
+  Set init value: \data[8] = 0
+  Set init value: \data[9] = 0
+  Set init value: \data[10] = 0
+  Set init value: \data[11] = 0
+  Set init value: \data[12] = 0
+  Set init value: \data[13] = 0
+  Set init value: \data[14] = 0
+  Set init value: \data[15] = 0
+  Set init value: \data[16] = 0
+  Set init value: \data[17] = 0
+  Set init value: \data[18] = 0
+  Set init value: \data[19] = 0
+  Set init value: \data[20] = 0
+  Set init value: \data[21] = 0
+  Set init value: \data[22] = 0
+  Set init value: \data[23] = 0
+  Set init value: \data[24] = 0
+  Set init value: \data[25] = 0
+  Set init value: \data[26] = 0
+  Set init value: \data[27] = 0
+  Set init value: \data[28] = 0
+  Set init value: \data[29] = 2044
+  Set init value: \data[30] = 0
+  Set init value: \data[31] = 0
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \reset in `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~4 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:35$33'.
+Creating decoders for process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:31$30'.
+     1/1: $1$mem2reg_rd$\data$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:31$6_DATA[31:0]$32
+Creating decoders for process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:25$27'.
+     1/1: $1$mem2reg_rd$\data$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:25$5_DATA[31:0]$29
+Creating decoders for process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+     1/37: $2$mem2reg_wr$\data$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:59$7_ADDR[4:0]$25
+     2/37: $2$mem2reg_wr$\data$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:59$7_DATA[31:0]$26
+     3/37: $1$mem2reg_wr$\data$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:59$7_DATA[31:0]$22
+     4/37: $1$mem2reg_wr$\data$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:59$7_ADDR[4:0]$21
+     5/37: $1\i[31:0]
+     6/37: $0\data[31][31:0]
+     7/37: $0\data[30][31:0]
+     8/37: $0\data[29][31:0]
+     9/37: $0\data[28][31:0]
+    10/37: $0\data[27][31:0]
+    11/37: $0\data[26][31:0]
+    12/37: $0\data[25][31:0]
+    13/37: $0\data[24][31:0]
+    14/37: $0\data[23][31:0]
+    15/37: $0\data[22][31:0]
+    16/37: $0\data[21][31:0]
+    17/37: $0\data[20][31:0]
+    18/37: $0\data[19][31:0]
+    19/37: $0\data[18][31:0]
+    20/37: $0\data[17][31:0]
+    21/37: $0\data[16][31:0]
+    22/37: $0\data[15][31:0]
+    23/37: $0\data[14][31:0]
+    24/37: $0\data[13][31:0]
+    25/37: $0\data[12][31:0]
+    26/37: $0\data[11][31:0]
+    27/37: $0\data[10][31:0]
+    28/37: $0\data[9][31:0]
+    29/37: $0\data[8][31:0]
+    30/37: $0\data[7][31:0]
+    31/37: $0\data[6][31:0]
+    32/37: $0\data[5][31:0]
+    33/37: $0\data[4][31:0]
+    34/37: $0\data[3][31:0]
+    35/37: $0\data[2][31:0]
+    36/37: $0\data[1][31:0]
+    37/37: $0\data[0][31:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\register.\j' from process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:35$33'.
+No latch inferred for signal `\register.$mem2reg_rd$\data$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:31$6_DATA' from process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:31$30'.
+No latch inferred for signal `\register.$mem2reg_rd$\data$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:25$5_DATA' from process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:25$27'.
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\register.\i' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$764' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[0]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $dff cell `$procdff$769' with positive edge clock.
+Creating register for signal `\register.\data[1]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$772' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[2]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$775' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[3]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$778' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[4]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$781' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[5]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$784' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[6]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$787' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[7]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$790' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[8]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$793' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[9]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$796' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[10]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$799' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[11]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$802' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[12]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$805' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[13]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$808' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[14]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$811' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[15]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$814' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[16]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$817' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[17]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$820' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[18]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$823' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[19]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$826' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[20]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$829' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[21]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$832' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[22]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$835' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[23]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$838' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[24]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$841' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[25]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$844' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[26]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$847' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[27]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$850' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[28]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$853' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[29]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$856' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[30]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$859' with positive edge clock and positive level reset.
+Creating register for signal `\register.\data[31]' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$862' with positive edge clock and positive level reset.
+Creating register for signal `\register.$mem2reg_wr$\data$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:59$7_ADDR' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$865' with positive edge clock and positive level reset.
+Creating register for signal `\register.$mem2reg_wr$\data$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:59$7_DATA' using process `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+  created $adff cell `$procdff$868' with positive edge clock and positive level reset.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:35$33'.
+Found and cleaned up 1 empty switch in `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:31$30'.
+Removing empty process `register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:31$30'.
+Found and cleaned up 1 empty switch in `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:25$27'.
+Removing empty process `register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:25$27'.
+Found and cleaned up 2 empty switches in `\register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+Removing empty process `register.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/register/register.v:47$18'.
+Cleaned up 4 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module register.
+<suppressed ~41 debug messages>
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module register.
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\register'.
+Computing hashes of 212 cells of `\register'.
+Finding duplicate cells in `\register'.
+Computing hashes of 210 cells of `\register'.
+Finding duplicate cells in `\register'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \register..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$104.
+    dead port 2/2 on $mux $procmux$104.
+    dead port 1/2 on $mux $procmux$101.
+    dead port 2/2 on $mux $procmux$101.
+    dead port 32/33 on $pmux $procmux$67.
+    dead port 32/33 on $pmux $procmux$34.
+Removed 6 multiplexer ports.
+<suppressed ~105 debug messages>
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \register.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\register'.
+Computing hashes of 208 cells of `\register'.
+Finding duplicate cells in `\register'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$814 ($adff) from module register (D = \write_data, Q = \data[15]).
+Adding EN signal on $procdff$856 ($adff) from module register (D = \write_data, Q = \data[29]).
+Adding EN signal on $procdff$811 ($adff) from module register (D = \write_data, Q = \data[14]).
+Adding EN signal on $procdff$841 ($adff) from module register (D = \write_data, Q = \data[24]).
+Adding EN signal on $procdff$817 ($adff) from module register (D = \write_data, Q = \data[16]).
+Handling D = Q on $procdff$764 ($adff) from module register (removing D path).
+Adding EN signal on $procdff$844 ($adff) from module register (D = \write_data, Q = \data[25]).
+Adding EN signal on $procdff$769 ($dff) from module register (D = \write_data, Q = \data[0]).
+Adding EN signal on $procdff$820 ($adff) from module register (D = \write_data, Q = \data[17]).
+Adding EN signal on $procdff$772 ($adff) from module register (D = \write_data, Q = \data[1]).
+Adding EN signal on $procdff$775 ($adff) from module register (D = \write_data, Q = \data[2]).
+Adding EN signal on $procdff$823 ($adff) from module register (D = \write_data, Q = \data[18]).
+Adding EN signal on $procdff$778 ($adff) from module register (D = \write_data, Q = \data[3]).
+Adding EN signal on $procdff$847 ($adff) from module register (D = \write_data, Q = \data[26]).
+Adding EN signal on $procdff$781 ($adff) from module register (D = \write_data, Q = \data[4]).
+Adding EN signal on $procdff$826 ($adff) from module register (D = \write_data, Q = \data[19]).
+Adding EN signal on $procdff$784 ($adff) from module register (D = \write_data, Q = \data[5]).
+Adding EN signal on $procdff$859 ($adff) from module register (D = \write_data, Q = \data[30]).
+Adding EN signal on $procdff$787 ($adff) from module register (D = \write_data, Q = \data[6]).
+Adding EN signal on $procdff$829 ($adff) from module register (D = \write_data, Q = \data[20]).
+Adding EN signal on $procdff$790 ($adff) from module register (D = \write_data, Q = \data[7]).
+Adding EN signal on $procdff$850 ($adff) from module register (D = \write_data, Q = \data[27]).
+Adding EN signal on $procdff$793 ($adff) from module register (D = \write_data, Q = \data[8]).
+Adding EN signal on $procdff$832 ($adff) from module register (D = \write_data, Q = \data[21]).
+Adding EN signal on $procdff$796 ($adff) from module register (D = \write_data, Q = \data[9]).
+Adding EN signal on $procdff$799 ($adff) from module register (D = \write_data, Q = \data[10]).
+Adding EN signal on $procdff$835 ($adff) from module register (D = \write_data, Q = \data[22]).
+Adding EN signal on $procdff$802 ($adff) from module register (D = \write_data, Q = \data[11]).
+Adding EN signal on $procdff$853 ($adff) from module register (D = \write_data, Q = \data[28]).
+Adding EN signal on $procdff$805 ($adff) from module register (D = \write_data, Q = \data[12]).
+Adding EN signal on $procdff$838 ($adff) from module register (D = \write_data, Q = \data[23]).
+Adding EN signal on $procdff$808 ($adff) from module register (D = \write_data, Q = \data[13]).
+Adding EN signal on $procdff$862 ($adff) from module register (D = \write_data, Q = \data[31]).
+Setting constant 0-bit at position 0 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 1 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 2 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 3 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 4 on $procdff$764 ($dlatch) from module register.
+Setting constant 1-bit at position 5 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 6 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 7 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 8 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 9 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 10 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 11 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 12 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 13 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 14 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 15 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 16 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 17 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 18 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 19 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 20 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 21 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 22 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 23 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 24 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 25 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 26 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 27 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 28 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 29 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 30 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 31 on $procdff$764 ($dlatch) from module register.
+Setting constant 0-bit at position 0 on $procdff$865 ($adff) from module register.
+Setting constant 0-bit at position 1 on $procdff$865 ($adff) from module register.
+Setting constant 0-bit at position 2 on $procdff$865 ($adff) from module register.
+Setting constant 0-bit at position 3 on $procdff$865 ($adff) from module register.
+Setting constant 0-bit at position 4 on $procdff$865 ($adff) from module register.
+Setting constant 0-bit at position 0 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 1 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 2 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 3 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 4 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 5 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 6 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 7 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 8 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 9 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 10 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 11 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 12 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 13 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 14 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 15 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 16 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 17 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 18 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 19 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 20 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 21 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 22 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 23 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 24 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 25 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 26 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 27 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 28 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 29 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 30 on $procdff$868 ($adff) from module register.
+Setting constant 0-bit at position 31 on $procdff$868 ($adff) from module register.
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \register..
+Removed 69 unused cells and 226 unused wires.
+<suppressed ~71 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module register.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \register..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \register.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\register'.
+Computing hashes of 169 cells of `\register'.
+Finding duplicate cells in `\register'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \register..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module register.
+
+5.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6. Executing CHECK pass (checking for obvious problems).
+Checking module register...
+Found and reported 0 problems.
+
+7. Executing JSON backend.
+
+Warnings: 1 unique messages, 1 total
+End of script. Logfile hash: 316278695f
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 4% 4x opt_expr (0 sec), 4% 3x opt_merge (0 sec), ...

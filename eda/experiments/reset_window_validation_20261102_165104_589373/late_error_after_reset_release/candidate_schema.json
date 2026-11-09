@@ -1,0 +1,256 @@
+{
+  "creator": "Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+  "modules": {
+    "seq_control": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:1.1-8.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "en": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "q": {
+          "direction": "output",
+          "bits": [ 5, 6, 7, 8 ]
+        }
+      },
+      "cells": {
+        "$add$D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:6$3": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:6.41-6.53"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5, 6, 7, 8 ],
+            "B": [ "1" ],
+            "Y": [ 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40 ]
+          }
+        },
+        "$eq$D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:6$2": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:6.24-6.34"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5, 6, 7, 8 ],
+            "B": [ "1", "1", "1", "0" ],
+            "Y": [ 41 ]
+          }
+        },
+        "$procdff$10": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:4.1-7.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 42, 43, 44, 45 ],
+            "Q": [ 5, 6, 7, 8 ]
+          }
+        },
+        "$procmux$5": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:6.11-6.13|D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:6.7-6.54"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5, 6, 7, 8 ],
+            "B": [ 46, 47, 48, 49 ],
+            "S": [ 4 ],
+            "Y": [ 50, 51, 52, 53 ]
+          }
+        },
+        "$procmux$8": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:5.6-5.9|D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:5.2-6.54"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 50, 51, 52, 53 ],
+            "B": [ "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 42, 43, 44, 45 ]
+          }
+        },
+        "$ternary$D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:6$4": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:6.24-6.53"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 41 ],
+            "Y": [ 46, 47, 48, 49, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81 ]
+          }
+        }
+      },
+      "netnames": {
+        "$0\\state[3:0]": {
+          "hide_name": 1,
+          "bits": [ 42, 43, 44, 45 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:4.1-7.4"
+          }
+        },
+        "$add$D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:6$3_Y": {
+          "hide_name": 1,
+          "bits": [ 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:6.41-6.53"
+          }
+        },
+        "$eq$D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:6$2_Y": {
+          "hide_name": 1,
+          "bits": [ 41 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:6.24-6.34"
+          }
+        },
+        "$procmux$5_Y": {
+          "hide_name": 1,
+          "bits": [ 50, 51, 52, 53 ],
+          "attributes": {
+          }
+        },
+        "$procmux$6_CMP": {
+          "hide_name": 1,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        },
+        "$procmux$8_Y": {
+          "hide_name": 1,
+          "bits": [ 42, 43, 44, 45 ],
+          "attributes": {
+          }
+        },
+        "$procmux$9_CMP": {
+          "hide_name": 1,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "$ternary$D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:6$4_Y": {
+          "hide_name": 1,
+          "bits": [ 46, 47, 48, 49, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:6.24-6.53"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:1.26-1.29"
+          }
+        },
+        "en": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:1.48-1.50"
+          }
+        },
+        "q": {
+          "hide_name": 0,
+          "bits": [ 5, 6, 7, 8 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:1.65-1.66"
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:1.37-1.40"
+          }
+        },
+        "state": {
+          "hide_name": 0,
+          "bits": [ 5, 6, 7, 8 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/late_error.v:2.11-2.16"
+          }
+        }
+      }
+    }
+  }
+}

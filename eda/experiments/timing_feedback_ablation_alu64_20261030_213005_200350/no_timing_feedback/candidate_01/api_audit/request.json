@@ -1,0 +1,21 @@
+{
+  "endpoint": "https://apinebula.ai/v1/chat/completions",
+  "body": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Optimize synthesizable RTL conservatively. Preserve sequential behavior."
+      },
+      {
+        "role": "user",
+        "content": "Optimize this native combinational circuit (64-bit ALU with a 3-bit operation select) for shorter mapped-cell maximum data arrival while respecting the mapped-area cap. Preserve its exact module name, input/output ports, widths, and behavior for every input value. No clocks, state, input restrictions, assumptions, or don't-cares may be introduced.\nFunctional contract: For every 64-bit a/b and all eight Oper values, preserve the original sum output exactly: add, a-b, b-a, bitwise OR/AND/XOR/XNOR, and zero for the default operation; arithmetic output wraps modulo 2^64. Internal carry is not an output port.\n\nAll conditions use Yosys plus OpenSTA, SKY130HD TT 25C 1.80V, no physical wire parasitics, input transition 0.10 ns, output load 0.010 pF, and zero external I/O delays. Fixed mapping policy: hierarchy; flatten; synth -noabc; ABC script: strash; dretime; map; buffer; upsize; dnsize; stime -p with fixed driver/output load. Baseline area is 11907.6704 um^2; the area cap is 13098.437440 um^2. A 100 ns virtual clock is a reporting reference only; optimize maximum data arrival rather than the virtual-clock slack. Every candidate must pass full functional equivalence and max-slew/max-capacitance checks with zero violations under the fixed library and constraints. These area, eligibility and tool conditions are supplied identically in every arm.\n\nYosys can restructure arithmetic. Source-level adder counts do not establish serial adder counts in the final mapped netlist. Propose one candidate and state what available evidence supports the suspected bottleneck. Timing estimates are hypotheses to be checked by EDA, not measurements.\n\nReturn one JSON object with candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, and functional_boundaries. candidate_rtl must be synthesizable Verilog; helper modules are allowed.\n\nOriginal RTL:\nmodule alu_64bit(\n    input [63:0] a, b,\n    input [2:0] Oper,\n    output reg [63:0] sum\n);\nreg c_out;\nalways @(*) begin\n    case(Oper)\n        3'b000:  {c_out,sum} = a + b;\n        3'b001:  {c_out,sum} = a - b;\n        3'b010:  {c_out,sum} = b - a;\n        3'b011:  {c_out,sum} = a | b;\n        3'b100:  {c_out,sum} = a & b;\n        3'b101:  {c_out,sum} = a ^ b;\n        3'b110:  {c_out,sum} = a ~^ b;\n        default: {c_out,sum} = 65'b0;\n    endcase\nend\nendmodule\n"
+      }
+    ]
+  },
+  "credentials": "Authorization header omitted"
+}

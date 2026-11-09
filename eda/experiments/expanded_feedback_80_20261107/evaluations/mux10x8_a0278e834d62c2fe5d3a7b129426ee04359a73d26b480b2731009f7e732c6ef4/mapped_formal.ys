@@ -1,0 +1,18 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/mux10x8.v"
+hierarchy -check -top mux_large
+flatten
+rename mux_large pw_gold
+design -stash pw_gold_design
+read_liberty -ignore_miss_func -ignore_miss_dir "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/evaluations/mux10x8_a0278e834d62c2fe5d3a7b129426ee04359a73d26b480b2731009f7e732c6ef4/mapped.v"
+hierarchy -check -top mux_large
+flatten
+delete t:$scopeinfo
+rename mux_large pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/evaluations/mux10x8_a0278e834d62c2fe5d3a7b129426ee04359a73d26b480b2731009f7e732c6ef4/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 120

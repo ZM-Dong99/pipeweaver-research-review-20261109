@@ -1,0 +1,86 @@
+{
+  "study": "three-arm timing_adder RTL comparison",
+  "created_at": "2026-10-29T00:25:33.790450+08:00",
+  "baseline_rtl": "benchmark/timing_adder.v",
+  "baseline_rtl_sha256": "0aea0e97355b0f3086009b30bc81445ee1a56d3a5bd0dee6c687d1f9370fcb26",
+  "baseline_reference_result": "eda/experiments/sky130_optimize_20261027/runs/baseline_approved3/result.json",
+  "baseline_reference_result_sha256": "dcd12fb78652666ddb883b04db00a4d7de3a3bc3e0d3332cbd65d658d94bfb3d",
+  "baseline_reference_metrics": {
+    "wns_ns": 1.38,
+    "tns_ns": 0.0,
+    "mapped_area_um2": 4284.1088,
+    "mapped_cells": 365,
+    "mapped_reset_flops": 96,
+    "formal": "PASS"
+  },
+  "baseline_sta_report": "eda/experiments/sky130_sta_20261027/opensta_verified.log",
+  "baseline_sta_report_sha256": "502c3c81a522b589c23cb019afe388e66010d35171693e861b69161a3d67fb3d",
+  "candidate_budget_per_arm": 3,
+  "total_candidate_slots": 9,
+  "arms": {
+    "generic_llm": {
+      "input": [
+        "baseline RTL",
+        "functional constraints"
+      ],
+      "sta_report_provided": false,
+      "prompt_sha256": "399fa300e0a7ec546b0563cb0fb146b31e3a7a4b0d2dd23265147b4471a30dff",
+      "independent_from_previous_candidates": true
+    },
+    "sta_guided_llm": {
+      "input": [
+        "same baseline RTL",
+        "baseline OpenSTA report",
+        "same functional constraints"
+      ],
+      "sta_report_provided": true,
+      "prompt_sha256": "2e919e1941aa99c46373e91e5d1d2a9e004d3c2e52aa2fee02a8e0832b5ad64e",
+      "independent_from_previous_candidates": true
+    },
+    "constrained_search": {
+      "allowed_rule": "grouped carry-lookahead adder; preserve state and latency",
+      "candidate_parameter_values": [
+        4,
+        8,
+        16
+      ],
+      "candidate_budget": 3,
+      "prompt_sha256": "c99007381f11da1e9fae5a89a8e15c052d6defe50b9bab3e76fad787c1f77bfb",
+      "independent_from_previous_candidates": true
+    }
+  },
+  "generation": {
+    "requested_model": "deepseek-v4-pro",
+    "temperature": 0.2,
+    "response_format": "json_object",
+    "per_candidate_call": true,
+    "api_key_configured": true
+  },
+  "tool_versions": {
+    "yosys": "Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+    "yosys_smtbmc": "bundled with the Yosys OSS CAD Suite listed above",
+    "opensta": "3.1.0"
+  },
+  "study_runner_sha256": "fdbfdf15799fcd7a95fc2057750b048cbdf5a319d195e3b636996f576af638fc",
+  "candidate_runner_sha256": "901c6a081540ee6b1c38772719d9e80a1c4ee6107c60460cb278a1e7518aa8b4",
+  "evaluation": {
+    "reference_rtl_for_every_candidate": "benchmark/timing_adder.v",
+    "formal": "yosys-smtbmc temporal induction; assert y equality; initial rst_n asserted",
+    "mapping_and_sta": "eda/experiments/sky130_optimize_20261027/run_experiment.py",
+    "sdc": "eda/experiments/sky130_sta_20261027/timing_adder.sdc",
+    "sdc_sha256": "9d4a5287e5c8133525cf4480c2fa984b698485eb31511d39fe81f2187a5c5b0d",
+    "liberty": "eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
+    "liberty_sha256": "92eb4e93a3d4c2563018ac81cdec2f02fdeaced9b39337ed5c141fa63e0ad8f8",
+    "area_limit_ratio": 1.1,
+    "acceptance_eligibility": "formal pass and area <= baseline area * 1.10",
+    "all_candidates_retained": true
+  },
+  "model_version_policy": "record only the model identifier returned by the API; do not infer a version",
+  "result_statistics": {
+    "formal_pass_rate_denominator": 3,
+    "best_wns": "best PPA-complete formal-pass candidate within area cap",
+    "average_wns": "mean over PPA-complete formal-pass candidates; area eligibility reported separately",
+    "average_area_delta": "mean mapped-area percent change from reproduced baseline over PPA-complete formal-pass candidates",
+    "runtime": "per-candidate elapsed generation and/or validation+formal+PPA time, reported separately"
+  }
+}

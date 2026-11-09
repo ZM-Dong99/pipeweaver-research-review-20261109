@@ -1,0 +1,9 @@
+read_slang --top crc32_d8 candidate.v
+hierarchy -check -top crc32_d8
+flatten
+write_json before_opt.json
+proc
+opt
+check -assert
+write_json after_opt.json
+write_verilog -noattr candidate_elaborated.v

@@ -1,0 +1,63 @@
+{
+  "reevaluation": "all frozen candidates, no new LLM calls",
+  "source_study": "native_mul_three_arm_20261029_184742_786215",
+  "source_protocol_sha256": "666d378eaa214239a6ecf5f4010c2e4015e7b1e32cef22a3792bffd039d987bb",
+  "source_manifest_sha256": "01c2cb9345ffdef876eb2a966be223c3f9428afa6c254bceb28e054d46cbe20f",
+  "candidate_hashes": [
+    {
+      "arm": "generic_llm",
+      "candidate_id": "candidate_01",
+      "sha256": "3f3768ecdaccae8e92dfbf1111bbf67337a1c559b011e2bfd04b415f267d047f"
+    },
+    {
+      "arm": "generic_llm",
+      "candidate_id": "candidate_02",
+      "sha256": "db07faf34dc98e82b7592aa0dd5513eb773afabc45b15c31e83c5b569e17a0ed"
+    },
+    {
+      "arm": "generic_llm",
+      "candidate_id": "candidate_03",
+      "sha256": "84d98f32a85e39adb0782d3a1c1be104b9d79bb678d21509ccf97de0e2d6ae0b"
+    },
+    {
+      "arm": "sta_guided_llm",
+      "candidate_id": "candidate_01",
+      "sha256": "c8c52214a64712dcac7a0d5334665d619e73a2d95283aa4cd008b2ff5f46e21c"
+    },
+    {
+      "arm": "sta_guided_llm",
+      "candidate_id": "candidate_02",
+      "sha256": "d28984ae2c77b2938b068998e13df6677a4b6e7808d36b042de12e3342cce1ff"
+    },
+    {
+      "arm": "sta_guided_llm",
+      "candidate_id": "candidate_03",
+      "sha256": "495241abb8c582919c116a3b9ea59ec1a2ff980d5a55aa1ad9279b45c6008028"
+    },
+    {
+      "arm": "constrained_search",
+      "candidate_id": "candidate_01",
+      "sha256": "8886b015822d9f249f32bb3b70eb27a854bf1a5e2e9efdbfe3d0d6ff2dc7c30f"
+    },
+    {
+      "arm": "constrained_search",
+      "candidate_id": "candidate_02",
+      "sha256": "722f4a45acb3b8e84944f742e4954a38f5bc569fa1810deee1bb2aafe86c6d3c"
+    },
+    {
+      "arm": "constrained_search",
+      "candidate_id": "candidate_03",
+      "sha256": "708f41788b4e30eff18fa2e41c2ed374f2c102ba3beff26d0408a79cc8ba6e38"
+    }
+  ],
+  "reason": "The initial general RTL evaluator failed to flatten model-generated helper modules before equivalence/mapping. Updated evaluator separately hierarchizes and flattens candidate/reference; mapping deletes nonfunctional $scopeinfo cells. All nine frozen candidate RTL files are re-evaluated, not only failed slots.",
+  "evaluator": "eda/experiments/run_native_comb.py",
+  "evaluator_sha256": "8d9f6e34facf9be15c8eadaa08f296c1cf88ea27eb32168c27ba32628aea8baa",
+  "baseline_sha256": "b63cc897d91792c44f2052f44d87f11221ac142b3035bbad0b5cf3f65410ff43",
+  "top": "mul_subexpression",
+  "candidate_budget_per_arm": 3,
+  "timeout_seconds": 180,
+  "acceptance": "formal PASS, PPA PASS, area <= 110% reproduced baseline, and max_data_arrival_ns strictly below baseline",
+  "input_protocol_sha256": null,
+  "no_api_calls": true
+}

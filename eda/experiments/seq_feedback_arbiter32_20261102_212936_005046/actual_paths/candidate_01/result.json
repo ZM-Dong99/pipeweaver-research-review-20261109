@@ -1,0 +1,60 @@
+{
+  "call_index": 2,
+  "arm": "actual_paths",
+  "candidate_id": "candidate_01",
+  "candidate_sha256": "4763986541d09399e2187c74ec5d98104a6a4fa9609245ffae266e2a735255b3",
+  "status": "GENERATED",
+  "explanation": {
+    "bottleneck": "The supplied STA shows approximately 2.07 ns arrival time on the worst register-to-register path, with substantial combinational depth and buffering. Exact source correspondence is unavailable. A likely structural contributor is the original round-robin feedback through priority encoding, index-dependent mask shifting, selection, and register control.",
+    "area_or_other_cost": "Overlapping prefix reductions may increase logic duplication, routing, or buffering, although synthesis can share reductions and removes the original mask-shift logic. Register count and output latency are unchanged. Mapped area must be checked against the 4880.43072 um2 cap; compliance has not been measured.",
+    "rewrite": "Replace the top-level encoder uses with parallel priority-prefix reductions. Derive one-hot winners directly from request bits and higher-priority prefixes. Reuse those prefixes as the next round-robin mask, eliminating the encoded-index arithmetic and variable shifts entirely. Generate grant_encoded with an OR encoding of the selected one-hot winner. Express hold and arbitration selection as mutually exclusive terms. The frozen helper module is neither modified nor redefined.",
+    "expected_timing_gain": "Unmeasured. The intended improvement is a shorter mask-register feedback path: masked request, prefix reduction, selection, and register input instead of priority encoding followed by index arithmetic and mask shifting. Prefix fanout, selection control, or the output encoding may become limiting. Compare mapped WNS against the supplied 7.80 ns baseline under the identical EDA settings before accepting the candidate.",
+    "functional_boundaries": "Preserves the original parameter names/defaults, port widths and signedness, declaration initialization, single positive-edge clock, and active-high synchronous reset. For arbitrary multi-bit requests, each winner is the highest-priority asserted bit. Its next mask equals the corresponding higher-priority-request prefix vector. Masked requests take precedence only in round-robin mode; blocking retains grant, validity, encoded grant, and mask exactly as before. No-request cycles clear the grant outputs unless held and retain the mask. Reset remains effective on every edge, including after startup. No added assumptions, state stages, helper definitions, or latency changes. Formal equivalence against the frozen original under the fixed startup contract and specified overrides remains required.",
+    "output_format_normalization": [
+      "Removed complete leading think wrapper before JSON parsing"
+    ]
+  },
+  "parameters": {
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "http_transport": "curl",
+    "response_format": "json_object",
+    "candidate_index": 2,
+    "response_id": "chatcmpl-85c620c9-613b-4c5e-895b-37e09f1d21eb",
+    "response_created": 1793626446,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 5569,
+      "completion_tokens": 2354,
+      "total_tokens": 8295
+    }
+  },
+  "response_model": "gpt-6.1-sol",
+  "seconds": 70.75972400000319,
+  "accepted": false,
+  "metrics": {
+    "status": "PASS",
+    "formal": "PASS",
+    "mapped_formal": "PASS",
+    "ppa": "PASS",
+    "eligible": true,
+    "stage": "sta",
+    "mapped_area_um2": 5074.8672,
+    "mapped_cells": 736,
+    "electrical": {
+      "status": "PASS",
+      "violation_rows": 0,
+      "checks": [
+        "max_slew",
+        "max_capacitance"
+      ],
+      "scope": "Library limits under recorded SDC; not physical signoff"
+    },
+    "wns_ns": 8.06,
+    "tns_ns": 0.0,
+    "mapped_sha256": "22cccc36f4f7df33b17fc616076790d6d44fe7b07459fb71ec752b9adc7a0e70",
+    "sdc_sha256": "ac8d553567cead8777db869b7a22ac4dfa41a9b08b1edfcd2ad54e6315a268de",
+    "elapsed_seconds": 11.625
+  },
+  "reason": "Exceeds fixed baseline-derived area cap"
+}

@@ -1,0 +1,8 @@
+read_slang --top crc32_d8 source.v
+hierarchy -check -top crc32_d8
+proc
+flatten
+opt
+check -assert
+write_json source.json
+write_verilog -noattr elaborated.v

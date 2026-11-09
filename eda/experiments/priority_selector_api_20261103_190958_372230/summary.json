@@ -1,0 +1,1889 @@
+{
+  "status": "COMPLETED",
+  "actual_request_slots": 12,
+  "groups": {
+    "64": {
+      "no_sta": {
+        "attempts": 3,
+        "valid_selections": 2,
+        "improved_trials": 1,
+        "median_delay_ns": 1.73,
+        "delays_ns": [
+          1.73,
+          1.73,
+          1.1
+        ],
+        "oracle_hits": 1
+      },
+      "sta": {
+        "attempts": 3,
+        "valid_selections": 3,
+        "improved_trials": 2,
+        "median_delay_ns": 1.1,
+        "delays_ns": [
+          1.1,
+          1.1,
+          1.73
+        ],
+        "oracle_hits": 2
+      }
+    },
+    "128": {
+      "no_sta": {
+        "attempts": 3,
+        "valid_selections": 3,
+        "improved_trials": 3,
+        "median_delay_ns": 1.41,
+        "delays_ns": [
+          1.41,
+          1.41,
+          1.41
+        ],
+        "oracle_hits": 3
+      },
+      "sta": {
+        "attempts": 3,
+        "valid_selections": 3,
+        "improved_trials": 3,
+        "median_delay_ns": 1.41,
+        "delays_ns": [
+          1.41,
+          1.41,
+          1.41
+        ],
+        "oracle_hits": 3
+      }
+    }
+  },
+  "trials": [
+    {
+      "call_index": 1,
+      "width": 64,
+      "arm": "no_sta",
+      "trial": 1,
+      "action_ids": [
+        "group_factored_16"
+      ],
+      "status": "SELECTED",
+      "rationale": "A 16-bit grouped, factored priority structure should balance local winner depth and group-selection depth for WIDTH=64, while likely keeping area within the modest cap. It is a stronger timing candidate than smaller groups with more group-level logic and larger groups with deeper local priority logic.",
+      "normalizations": [
+        "Discarded complete leading think wrapper; content not executed"
+      ],
+      "provider_metadata": {
+        "requested_model": "gpt-6.1-sol",
+        "response_model": "gpt-6.1-sol",
+        "request_parameters": {
+          "reasoning_effort": "medium"
+        },
+        "usage": {
+          "prompt_tokens": 1758,
+          "completion_tokens": 236,
+          "total_tokens": 2150,
+          "completion_tokens_details": {
+            "reasoning_tokens": 156
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          }
+        },
+        "response_id": "chatcmpl-06861694-4e64-4b29-b11e-34b13b3f8b23"
+      },
+      "seconds": 16.23297509999975,
+      "selected": "baseline",
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W64\\baseline",
+        "protocol_sha256": "23a42a3cbcae244afd08b2323c56dacacb78cbde12c43d507e106abe620b2bce",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 1557.744,
+        "mapped_cells": 270,
+        "max_data_arrival_ns": 1.73,
+        "wns_ns": 98.27,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[56] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_unencoded[10] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "d2c7085d1ff8cd54f68d378656ea5cf1e3a0646f9cb619772562c166a36e6fa0",
+        "sta_netlist_sha256": "d2c7085d1ff8cd54f68d378656ea5cf1e3a0646f9cb619772562c166a36e6fa0",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "37ac2f8bc270850e1bc46aca4f155c73f4d40597ae707bf41e754bbc42faccde",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 270,
+          "nets_with_src_attribute": 9,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "NO_SUPPORTED_PATH_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "c19ea4958b3ed044ade711e31d1d77c04fdeeec4ffa89e7bcbb12b6b5a48df96",
+          "possible_rtl_operator_cells": null,
+          "source_attribution_coverage": null,
+          "precision": "No path found among the supported bit-dependency rules; this is inconclusive if unsupported cells remain."
+        },
+        "elapsed_seconds": 6.577
+      },
+      "regret_ns": 0.6299999999999999
+    },
+    {
+      "call_index": 2,
+      "width": 64,
+      "arm": "sta",
+      "trial": 1,
+      "action_ids": [
+        "group_factored_8"
+      ],
+      "status": "SELECTED",
+      "rationale": "For WIDTH=64, 8-bit groups provide a balanced two-level priority structure with shallow local winners and group selection, while group_factored encoding avoids the larger area and masking overhead of global one-hot generation. It is the strongest estimated timing candidate likely to remain within the 10% mapped-area cap; EDA validation is required.",
+      "normalizations": [
+        "Discarded complete leading think wrapper; content not executed"
+      ],
+      "provider_metadata": {
+        "requested_model": "gpt-6.1-sol",
+        "response_model": "gpt-6.1-sol",
+        "request_parameters": {
+          "reasoning_effort": "medium"
+        },
+        "usage": {
+          "prompt_tokens": 3376,
+          "completion_tokens": 221,
+          "total_tokens": 3727,
+          "completion_tokens_details": {
+            "reasoning_tokens": 130
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          }
+        },
+        "response_id": "chatcmpl-34feb42c-23f8-4866-b63d-7801e9c1d3ff"
+      },
+      "seconds": 28.924574099999518,
+      "selected": "group_factored_8",
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W64\\evaluations\\group_factored_8",
+        "protocol_sha256": "c48acb14b30ebd6e7cd8d7f0b078b0a2dde44a84096f964545550262b36fe05d",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 1636.5696,
+        "mapped_cells": 275,
+        "max_data_arrival_ns": 1.1,
+        "wns_ns": 98.9,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[63] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_unencoded[8] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "67fff9b32d920bb26c40c2b65ecd42c91719ea3cd85965464f3d873c174cd526",
+        "sta_netlist_sha256": "67fff9b32d920bb26c40c2b65ecd42c91719ea3cd85965464f3d873c174cd526",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "15c42ab05717c1a92733e0f14603aab854c6c49467281d070fabc960248292d3",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 275,
+          "nets_with_src_attribute": 36,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "f000336d8aed89840a1682e442ff06fd711f3b2f6819a868f476674ec54e2a33",
+          "possible_rtl_operator_cells": 3,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 7.547
+      },
+      "regret_ns": 0.0
+    },
+    {
+      "call_index": 7,
+      "width": 64,
+      "arm": "sta",
+      "trial": 2,
+      "action_ids": [
+        "group_factored_8"
+      ],
+      "status": "SELECTED",
+      "rationale": "Estimated best timing candidate: two balanced 8-way priority stages should limit the maximum combinational depth while retaining factored encoding and likely staying within the area cap. EDA measurement is required to confirm area and delay.",
+      "normalizations": [
+        "Discarded complete leading think wrapper; content not executed"
+      ],
+      "provider_metadata": {
+        "requested_model": "gpt-6.1-sol",
+        "response_model": "gpt-6.1-sol",
+        "request_parameters": {
+          "reasoning_effort": "medium"
+        },
+        "usage": {
+          "prompt_tokens": 3376,
+          "completion_tokens": 433,
+          "total_tokens": 4175,
+          "completion_tokens_details": {
+            "reasoning_tokens": 366
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 3200,
+            "cache_write_tokens": 0
+          }
+        },
+        "response_id": "chatcmpl-7ca83272-1bbb-4c00-9261-364ca6b784e1"
+      },
+      "seconds": 24.751291499998842,
+      "selected": "group_factored_8",
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W64\\evaluations\\group_factored_8",
+        "protocol_sha256": "c48acb14b30ebd6e7cd8d7f0b078b0a2dde44a84096f964545550262b36fe05d",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 1636.5696,
+        "mapped_cells": 275,
+        "max_data_arrival_ns": 1.1,
+        "wns_ns": 98.9,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[63] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_unencoded[8] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "67fff9b32d920bb26c40c2b65ecd42c91719ea3cd85965464f3d873c174cd526",
+        "sta_netlist_sha256": "67fff9b32d920bb26c40c2b65ecd42c91719ea3cd85965464f3d873c174cd526",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "15c42ab05717c1a92733e0f14603aab854c6c49467281d070fabc960248292d3",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 275,
+          "nets_with_src_attribute": 36,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "f000336d8aed89840a1682e442ff06fd711f3b2f6819a868f476674ec54e2a33",
+          "possible_rtl_operator_cells": 3,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 7.547
+      },
+      "regret_ns": 0.0
+    },
+    {
+      "call_index": 8,
+      "width": 64,
+      "arm": "no_sta",
+      "trial": 2,
+      "action_ids": [],
+      "status": "FAILED_SELECTION",
+      "error": "curl transport failed (exit 56); no automatic retry",
+      "seconds": 165.74175250000008,
+      "selected": "baseline",
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W64\\baseline",
+        "protocol_sha256": "23a42a3cbcae244afd08b2323c56dacacb78cbde12c43d507e106abe620b2bce",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 1557.744,
+        "mapped_cells": 270,
+        "max_data_arrival_ns": 1.73,
+        "wns_ns": 98.27,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[56] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_unencoded[10] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "d2c7085d1ff8cd54f68d378656ea5cf1e3a0646f9cb619772562c166a36e6fa0",
+        "sta_netlist_sha256": "d2c7085d1ff8cd54f68d378656ea5cf1e3a0646f9cb619772562c166a36e6fa0",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "37ac2f8bc270850e1bc46aca4f155c73f4d40597ae707bf41e754bbc42faccde",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 270,
+          "nets_with_src_attribute": 9,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "NO_SUPPORTED_PATH_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "c19ea4958b3ed044ade711e31d1d77c04fdeeec4ffa89e7bcbb12b6b5a48df96",
+          "possible_rtl_operator_cells": null,
+          "source_attribution_coverage": null,
+          "precision": "No path found among the supported bit-dependency rules; this is inconclusive if unsupported cells remain."
+        },
+        "elapsed_seconds": 6.577
+      },
+      "regret_ns": 0.6299999999999999
+    },
+    {
+      "call_index": 9,
+      "width": 64,
+      "arm": "no_sta",
+      "trial": 3,
+      "action_ids": [
+        "group_factored_8"
+      ],
+      "status": "SELECTED",
+      "rationale": "Best expected timing/area tradeoff: 8-bit local priority groups limit fanout and wiring while preserving a balanced two-level priority structure. Group-factored encoding should avoid the larger mask and OR overhead of global one-hot variants and remain within the stated area cap; actual benefit requires EDA validation.",
+      "normalizations": [
+        "Discarded complete leading think wrapper; content not executed"
+      ],
+      "provider_metadata": {
+        "requested_model": "gpt-6.1-sol",
+        "response_model": "gpt-6.1-sol",
+        "request_parameters": {
+          "reasoning_effort": "medium"
+        },
+        "usage": {
+          "prompt_tokens": 1758,
+          "completion_tokens": 239,
+          "total_tokens": 2151,
+          "completion_tokens_details": {
+            "reasoning_tokens": 154
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          }
+        },
+        "response_id": "chatcmpl-d7152e81-2d1b-4757-9bb3-c500c744a9a5"
+      },
+      "seconds": 37.537639899999704,
+      "selected": "group_factored_8",
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W64\\evaluations\\group_factored_8",
+        "protocol_sha256": "c48acb14b30ebd6e7cd8d7f0b078b0a2dde44a84096f964545550262b36fe05d",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 1636.5696,
+        "mapped_cells": 275,
+        "max_data_arrival_ns": 1.1,
+        "wns_ns": 98.9,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[63] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_unencoded[8] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "67fff9b32d920bb26c40c2b65ecd42c91719ea3cd85965464f3d873c174cd526",
+        "sta_netlist_sha256": "67fff9b32d920bb26c40c2b65ecd42c91719ea3cd85965464f3d873c174cd526",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "15c42ab05717c1a92733e0f14603aab854c6c49467281d070fabc960248292d3",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 275,
+          "nets_with_src_attribute": 36,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "f000336d8aed89840a1682e442ff06fd711f3b2f6819a868f476674ec54e2a33",
+          "possible_rtl_operator_cells": 3,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 7.547
+      },
+      "regret_ns": 0.0
+    },
+    {
+      "call_index": 10,
+      "width": 64,
+      "arm": "sta",
+      "trial": 3,
+      "action_ids": [
+        "group_factored_16"
+      ],
+      "status": "SELECTED",
+      "rationale": "A 16-bit grouped factored structure is a balanced candidate for reducing priority depth while avoiding the area overhead of global one-hot masking; it appears likely to fit the available area margin, pending EDA validation.",
+      "normalizations": [
+        "Discarded complete leading think wrapper; content not executed"
+      ],
+      "provider_metadata": {
+        "requested_model": "gpt-6.1-sol",
+        "response_model": "gpt-6.1-sol",
+        "request_parameters": {
+          "reasoning_effort": "medium"
+        },
+        "usage": {
+          "prompt_tokens": 3376,
+          "completion_tokens": 326,
+          "total_tokens": 3962,
+          "completion_tokens_details": {
+            "reasoning_tokens": 260
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          }
+        },
+        "response_id": "chatcmpl-d1881945-14a4-4974-ab18-19f496d5cbe6"
+      },
+      "seconds": 42.70885259999886,
+      "selected": "baseline",
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W64\\baseline",
+        "protocol_sha256": "23a42a3cbcae244afd08b2323c56dacacb78cbde12c43d507e106abe620b2bce",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 1557.744,
+        "mapped_cells": 270,
+        "max_data_arrival_ns": 1.73,
+        "wns_ns": 98.27,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[56] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_unencoded[10] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "d2c7085d1ff8cd54f68d378656ea5cf1e3a0646f9cb619772562c166a36e6fa0",
+        "sta_netlist_sha256": "d2c7085d1ff8cd54f68d378656ea5cf1e3a0646f9cb619772562c166a36e6fa0",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "37ac2f8bc270850e1bc46aca4f155c73f4d40597ae707bf41e754bbc42faccde",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 270,
+          "nets_with_src_attribute": 9,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "NO_SUPPORTED_PATH_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "c19ea4958b3ed044ade711e31d1d77c04fdeeec4ffa89e7bcbb12b6b5a48df96",
+          "possible_rtl_operator_cells": null,
+          "source_attribution_coverage": null,
+          "precision": "No path found among the supported bit-dependency rules; this is inconclusive if unsupported cells remain."
+        },
+        "elapsed_seconds": 6.577
+      },
+      "regret_ns": 0.6299999999999999
+    },
+    {
+      "call_index": 3,
+      "width": 128,
+      "arm": "no_sta",
+      "trial": 1,
+      "action_ids": [
+        "group_factored_16"
+      ],
+      "status": "SELECTED",
+      "rationale": "A 16-bit factored grouping balances local priority depth and inter-group priority depth for likely lower maximum combinational delay while avoiding the extra area of global one-hot masking; it is expected to remain within the stated area cap, subject to EDA validation.",
+      "normalizations": [
+        "Discarded complete leading think wrapper; content not executed"
+      ],
+      "provider_metadata": {
+        "requested_model": "gpt-6.1-sol",
+        "response_model": "gpt-6.1-sol",
+        "request_parameters": {
+          "reasoning_effort": "medium"
+        },
+        "usage": {
+          "prompt_tokens": 1758,
+          "completion_tokens": 328,
+          "total_tokens": 2339,
+          "completion_tokens_details": {
+            "reasoning_tokens": 253
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          }
+        },
+        "response_id": "chatcmpl-6e62287a-893e-494a-a1d6-fcc62cf9d9a9"
+      },
+      "seconds": 35.20442860000003,
+      "selected": "group_factored_16",
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W128\\evaluations\\group_factored_16",
+        "protocol_sha256": "00fbdde33b1408325f6d0ff635d7b362d45973cfd5eab861f0e2908d34864505",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 4052.6368,
+        "mapped_cells": 741,
+        "max_data_arrival_ns": 1.41,
+        "wns_ns": 98.59,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[105] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[2] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sta_netlist_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "caea7ac47281ce62ee14fbb0e49177d3eeba9d80cfadbafba0aeee1f9e852ff7",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 741,
+          "nets_with_src_attribute": 44,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "54f5f9d9b2877b06aa04a5a04b5a7e67b8c72ead7a3ee0a6ca26bb7fc39e3f31",
+          "possible_rtl_operator_cells": 33,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 3.355
+      },
+      "regret_ns": 0.0
+    },
+    {
+      "call_index": 4,
+      "width": 128,
+      "arm": "sta",
+      "trial": 1,
+      "action_ids": [
+        "group_factored_16"
+      ],
+      "status": "SELECTED",
+      "rationale": "A 16-bit grouped priority structure should balance local and inter-group logic depth, offering a plausible reduction in maximum combinational arrival while keeping area closer to the baseline than global one-hot variants. Candidate PPA and equivalence remain to be verified by EDA.",
+      "normalizations": [
+        "Discarded complete leading think wrapper; content not executed"
+      ],
+      "provider_metadata": {
+        "requested_model": "gpt-6.1-sol",
+        "response_model": "gpt-6.1-sol",
+        "request_parameters": {
+          "reasoning_effort": "medium"
+        },
+        "usage": {
+          "prompt_tokens": 3403,
+          "completion_tokens": 263,
+          "total_tokens": 3853,
+          "completion_tokens_details": {
+            "reasoning_tokens": 187
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          }
+        },
+        "response_id": "chatcmpl-aa39b44f-360d-4244-887c-519869566174"
+      },
+      "seconds": 19.279930599999716,
+      "selected": "group_factored_16",
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W128\\evaluations\\group_factored_16",
+        "protocol_sha256": "00fbdde33b1408325f6d0ff635d7b362d45973cfd5eab861f0e2908d34864505",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 4052.6368,
+        "mapped_cells": 741,
+        "max_data_arrival_ns": 1.41,
+        "wns_ns": 98.59,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[105] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[2] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sta_netlist_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "caea7ac47281ce62ee14fbb0e49177d3eeba9d80cfadbafba0aeee1f9e852ff7",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 741,
+          "nets_with_src_attribute": 44,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "54f5f9d9b2877b06aa04a5a04b5a7e67b8c72ead7a3ee0a6ca26bb7fc39e3f31",
+          "possible_rtl_operator_cells": 33,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 3.355
+      },
+      "regret_ns": 0.0
+    },
+    {
+      "call_index": 5,
+      "width": 128,
+      "arm": "sta",
+      "trial": 2,
+      "action_ids": [
+        "group_factored_16"
+      ],
+      "status": "SELECTED",
+      "rationale": "A 16-bit factored grouping should balance local priority depth and inter-group selection, offering a plausible reduction in maximum combinational arrival while keeping area closer to baseline than global one-hot variants. Candidate PPA remains unmeasured.",
+      "normalizations": [
+        "Discarded complete leading think wrapper; content not executed"
+      ],
+      "provider_metadata": {
+        "requested_model": "gpt-6.1-sol",
+        "response_model": "gpt-6.1-sol",
+        "request_parameters": {
+          "reasoning_effort": "medium"
+        },
+        "usage": {
+          "prompt_tokens": 3403,
+          "completion_tokens": 281,
+          "total_tokens": 3895,
+          "completion_tokens_details": {
+            "reasoning_tokens": 211
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          }
+        },
+        "response_id": "chatcmpl-0970051d-8abd-4a72-88cc-63ae6e7f3ba8"
+      },
+      "seconds": 18.864816000001156,
+      "selected": "group_factored_16",
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W128\\evaluations\\group_factored_16",
+        "protocol_sha256": "00fbdde33b1408325f6d0ff635d7b362d45973cfd5eab861f0e2908d34864505",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 4052.6368,
+        "mapped_cells": 741,
+        "max_data_arrival_ns": 1.41,
+        "wns_ns": 98.59,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[105] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[2] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sta_netlist_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "caea7ac47281ce62ee14fbb0e49177d3eeba9d80cfadbafba0aeee1f9e852ff7",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 741,
+          "nets_with_src_attribute": 44,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "54f5f9d9b2877b06aa04a5a04b5a7e67b8c72ead7a3ee0a6ca26bb7fc39e3f31",
+          "possible_rtl_operator_cells": 33,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 3.355
+      },
+      "regret_ns": 0.0
+    },
+    {
+      "call_index": 6,
+      "width": 128,
+      "arm": "no_sta",
+      "trial": 2,
+      "action_ids": [
+        "group_factored_16"
+      ],
+      "status": "SELECTED",
+      "rationale": "A 16-bit grouping offers a balanced reduction in priority-selection fanout and inter-group depth while retaining compact factored encoding, making it a plausible timing improvement within the stated area cap. Actual benefit requires EDA measurement.",
+      "normalizations": [
+        "Discarded complete leading think wrapper; content not executed"
+      ],
+      "provider_metadata": {
+        "requested_model": "gpt-6.1-sol",
+        "response_model": "gpt-6.1-sol",
+        "request_parameters": {
+          "reasoning_effort": "medium"
+        },
+        "usage": {
+          "prompt_tokens": 1758,
+          "completion_tokens": 307,
+          "total_tokens": 2304,
+          "completion_tokens_details": {
+            "reasoning_tokens": 239
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          }
+        },
+        "response_id": "chatcmpl-8fd838f5-022d-493c-bdc7-a3918c91bac5"
+      },
+      "seconds": 32.329705000000104,
+      "selected": "group_factored_16",
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W128\\evaluations\\group_factored_16",
+        "protocol_sha256": "00fbdde33b1408325f6d0ff635d7b362d45973cfd5eab861f0e2908d34864505",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 4052.6368,
+        "mapped_cells": 741,
+        "max_data_arrival_ns": 1.41,
+        "wns_ns": 98.59,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[105] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[2] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sta_netlist_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "caea7ac47281ce62ee14fbb0e49177d3eeba9d80cfadbafba0aeee1f9e852ff7",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 741,
+          "nets_with_src_attribute": 44,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "54f5f9d9b2877b06aa04a5a04b5a7e67b8c72ead7a3ee0a6ca26bb7fc39e3f31",
+          "possible_rtl_operator_cells": 33,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 3.355
+      },
+      "regret_ns": 0.0
+    },
+    {
+      "call_index": 11,
+      "width": 128,
+      "arm": "no_sta",
+      "trial": 3,
+      "action_ids": [
+        "group_factored_16"
+      ],
+      "status": "SELECTED",
+      "rationale": "A 16-bit grouped factored priority structure offers a balanced tradeoff between local and global priority depth while avoiding the extra masking and wiring cost of global one-hot encoding. It is a plausible candidate for reducing maximum data arrival within the stated area cap; EDA measurement is required to confirm.",
+      "normalizations": [
+        "Discarded complete leading think wrapper; content not executed"
+      ],
+      "provider_metadata": {
+        "requested_model": "gpt-6.1-sol",
+        "response_model": "gpt-6.1-sol",
+        "request_parameters": {
+          "reasoning_effort": "medium"
+        },
+        "usage": {
+          "prompt_tokens": 1758,
+          "completion_tokens": 279,
+          "total_tokens": 2234,
+          "completion_tokens_details": {
+            "reasoning_tokens": 197
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          }
+        },
+        "response_id": "chatcmpl-02ce9f26-6f73-4117-8327-7953b929f1fb"
+      },
+      "seconds": 20.448415200000454,
+      "selected": "group_factored_16",
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W128\\evaluations\\group_factored_16",
+        "protocol_sha256": "00fbdde33b1408325f6d0ff635d7b362d45973cfd5eab861f0e2908d34864505",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 4052.6368,
+        "mapped_cells": 741,
+        "max_data_arrival_ns": 1.41,
+        "wns_ns": 98.59,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[105] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[2] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sta_netlist_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "caea7ac47281ce62ee14fbb0e49177d3eeba9d80cfadbafba0aeee1f9e852ff7",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 741,
+          "nets_with_src_attribute": 44,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "54f5f9d9b2877b06aa04a5a04b5a7e67b8c72ead7a3ee0a6ca26bb7fc39e3f31",
+          "possible_rtl_operator_cells": 33,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 3.355
+      },
+      "regret_ns": 0.0
+    },
+    {
+      "call_index": 12,
+      "width": 128,
+      "arm": "sta",
+      "trial": 3,
+      "action_ids": [
+        "group_factored_16"
+      ],
+      "status": "SELECTED",
+      "rationale": "A 16-bit grouping balances local priority depth and inter-group selection for WIDTH 128, while factored encoding should reduce one-hot reconstruction depth and remain plausibly within the area cap. Results are estimates pending EDA.",
+      "normalizations": [
+        "Discarded complete leading think wrapper; content not executed"
+      ],
+      "provider_metadata": {
+        "requested_model": "gpt-6.1-sol",
+        "response_model": "gpt-6.1-sol",
+        "request_parameters": {
+          "reasoning_effort": "medium"
+        },
+        "usage": {
+          "prompt_tokens": 3403,
+          "completion_tokens": 373,
+          "total_tokens": 4081,
+          "completion_tokens_details": {
+            "reasoning_tokens": 305
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 3200,
+            "cache_write_tokens": 0
+          }
+        },
+        "response_id": "chatcmpl-8699a769-2a07-4726-87b6-3ccfa3e7a455"
+      },
+      "seconds": 29.22068990000116,
+      "selected": "group_factored_16",
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W128\\evaluations\\group_factored_16",
+        "protocol_sha256": "00fbdde33b1408325f6d0ff635d7b362d45973cfd5eab861f0e2908d34864505",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 4052.6368,
+        "mapped_cells": 741,
+        "max_data_arrival_ns": 1.41,
+        "wns_ns": 98.59,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[105] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[2] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sta_netlist_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "caea7ac47281ce62ee14fbb0e49177d3eeba9d80cfadbafba0aeee1f9e852ff7",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 741,
+          "nets_with_src_attribute": 44,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "54f5f9d9b2877b06aa04a5a04b5a7e67b8c72ead7a3ee0a6ca26bb7fc39e3f31",
+          "possible_rtl_operator_cells": 33,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 3.355
+      },
+      "regret_ns": 0.0
+    }
+  ],
+  "controls": {
+    "64": {
+      "oracle": "group_factored_8",
+      "oracle_metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W64\\evaluations\\group_factored_8",
+        "protocol_sha256": "c48acb14b30ebd6e7cd8d7f0b078b0a2dde44a84096f964545550262b36fe05d",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 1636.5696,
+        "mapped_cells": 275,
+        "max_data_arrival_ns": 1.1,
+        "wns_ns": 98.9,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[63] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_unencoded[8] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "67fff9b32d920bb26c40c2b65ecd42c91719ea3cd85965464f3d873c174cd526",
+        "sta_netlist_sha256": "67fff9b32d920bb26c40c2b65ecd42c91719ea3cd85965464f3d873c174cd526",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "15c42ab05717c1a92733e0f14603aab854c6c49467281d070fabc960248292d3",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 275,
+          "nets_with_src_attribute": 36,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "f000336d8aed89840a1682e442ff06fd711f3b2f6819a868f476674ec54e2a33",
+          "possible_rtl_operator_cells": 3,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 7.547
+      },
+      "static16": {
+        "action": "group_factored_16",
+        "selected": "baseline",
+        "metrics": {
+          "status": "PASS",
+          "formal": "PASS",
+          "ppa": "PASS",
+          "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W64\\baseline",
+          "protocol_sha256": "23a42a3cbcae244afd08b2323c56dacacb78cbde12c43d507e106abe620b2bce",
+          "stage": "electrical_checks",
+          "mapped_formal": "PASS",
+          "mapped_area_um2": 1557.744,
+          "mapped_cells": 270,
+          "max_data_arrival_ns": 1.73,
+          "wns_ns": 98.27,
+          "tns_ns": 0.0,
+          "critical_startpoint": "input_unencoded[56] (input port clocked by virtual_clk)",
+          "critical_endpoint": "output_unencoded[10] (output port clocked by virtual_clk)",
+          "normalized_signed_declarations": 0,
+          "mapped_sha256": "d2c7085d1ff8cd54f68d378656ea5cf1e3a0646f9cb619772562c166a36e6fa0",
+          "sta_netlist_sha256": "d2c7085d1ff8cd54f68d378656ea5cf1e3a0646f9cb619772562c166a36e6fa0",
+          "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+          "mapped_json_sha256": "37ac2f8bc270850e1bc46aca4f155c73f4d40597ae707bf41e754bbc42faccde",
+          "electrical": {
+            "status": "PASS",
+            "violation_rows": 0,
+            "checks": [
+              "max_slew",
+              "max_capacitance"
+            ],
+            "scope": "Library limits under recorded SDC; not physical signoff"
+          },
+          "eligible": true,
+          "source_provenance": {
+            "cells_with_src_attribute": 0,
+            "total_mapped_cells": 270,
+            "nets_with_src_attribute": 9,
+            "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+          },
+          "rtl_source_cone": {
+            "status": "NO_SUPPORTED_PATH_FOUND",
+            "artifact": "rtl_source_cone.json",
+            "sha256": "c19ea4958b3ed044ade711e31d1d77c04fdeeec4ffa89e7bcbb12b6b5a48df96",
+            "possible_rtl_operator_cells": null,
+            "source_attribution_coverage": null,
+            "precision": "No path found among the supported bit-dependency rules; this is inconclusive if unsupported cells remain."
+          },
+          "elapsed_seconds": 6.577
+        }
+      },
+      "static8": {
+        "action": "group_factored_8",
+        "selected": "group_factored_8",
+        "metrics": {
+          "status": "PASS",
+          "formal": "PASS",
+          "ppa": "PASS",
+          "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W64\\evaluations\\group_factored_8",
+          "protocol_sha256": "c48acb14b30ebd6e7cd8d7f0b078b0a2dde44a84096f964545550262b36fe05d",
+          "stage": "electrical_checks",
+          "mapped_formal": "PASS",
+          "mapped_area_um2": 1636.5696,
+          "mapped_cells": 275,
+          "max_data_arrival_ns": 1.1,
+          "wns_ns": 98.9,
+          "tns_ns": 0.0,
+          "critical_startpoint": "input_unencoded[63] (input port clocked by virtual_clk)",
+          "critical_endpoint": "output_unencoded[8] (output port clocked by virtual_clk)",
+          "normalized_signed_declarations": 0,
+          "mapped_sha256": "67fff9b32d920bb26c40c2b65ecd42c91719ea3cd85965464f3d873c174cd526",
+          "sta_netlist_sha256": "67fff9b32d920bb26c40c2b65ecd42c91719ea3cd85965464f3d873c174cd526",
+          "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+          "mapped_json_sha256": "15c42ab05717c1a92733e0f14603aab854c6c49467281d070fabc960248292d3",
+          "electrical": {
+            "status": "PASS",
+            "violation_rows": 0,
+            "checks": [
+              "max_slew",
+              "max_capacitance"
+            ],
+            "scope": "Library limits under recorded SDC; not physical signoff"
+          },
+          "eligible": true,
+          "source_provenance": {
+            "cells_with_src_attribute": 0,
+            "total_mapped_cells": 275,
+            "nets_with_src_attribute": 36,
+            "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+          },
+          "rtl_source_cone": {
+            "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+            "artifact": "rtl_source_cone.json",
+            "sha256": "f000336d8aed89840a1682e442ff06fd711f3b2f6819a868f476674ec54e2a33",
+            "possible_rtl_operator_cells": 3,
+            "source_attribution_coverage": 1.0,
+            "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+          },
+          "elapsed_seconds": 7.547
+        }
+      }
+    },
+    "128": {
+      "oracle": "group_factored_16",
+      "oracle_metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W128\\evaluations\\group_factored_16",
+        "protocol_sha256": "00fbdde33b1408325f6d0ff635d7b362d45973cfd5eab861f0e2908d34864505",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 4052.6368,
+        "mapped_cells": 741,
+        "max_data_arrival_ns": 1.41,
+        "wns_ns": 98.59,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[105] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[2] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sta_netlist_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "caea7ac47281ce62ee14fbb0e49177d3eeba9d80cfadbafba0aeee1f9e852ff7",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 741,
+          "nets_with_src_attribute": 44,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "54f5f9d9b2877b06aa04a5a04b5a7e67b8c72ead7a3ee0a6ca26bb7fc39e3f31",
+          "possible_rtl_operator_cells": 33,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 3.355
+      },
+      "static16": {
+        "action": "group_factored_16",
+        "selected": "group_factored_16",
+        "metrics": {
+          "status": "PASS",
+          "formal": "PASS",
+          "ppa": "PASS",
+          "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W128\\evaluations\\group_factored_16",
+          "protocol_sha256": "00fbdde33b1408325f6d0ff635d7b362d45973cfd5eab861f0e2908d34864505",
+          "stage": "electrical_checks",
+          "mapped_formal": "PASS",
+          "mapped_area_um2": 4052.6368,
+          "mapped_cells": 741,
+          "max_data_arrival_ns": 1.41,
+          "wns_ns": 98.59,
+          "tns_ns": 0.0,
+          "critical_startpoint": "input_unencoded[105] (input port clocked by virtual_clk)",
+          "critical_endpoint": "output_encoded[2] (output port clocked by virtual_clk)",
+          "normalized_signed_declarations": 0,
+          "mapped_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+          "sta_netlist_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+          "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+          "mapped_json_sha256": "caea7ac47281ce62ee14fbb0e49177d3eeba9d80cfadbafba0aeee1f9e852ff7",
+          "electrical": {
+            "status": "PASS",
+            "violation_rows": 0,
+            "checks": [
+              "max_slew",
+              "max_capacitance"
+            ],
+            "scope": "Library limits under recorded SDC; not physical signoff"
+          },
+          "eligible": true,
+          "source_provenance": {
+            "cells_with_src_attribute": 0,
+            "total_mapped_cells": 741,
+            "nets_with_src_attribute": 44,
+            "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+          },
+          "rtl_source_cone": {
+            "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+            "artifact": "rtl_source_cone.json",
+            "sha256": "54f5f9d9b2877b06aa04a5a04b5a7e67b8c72ead7a3ee0a6ca26bb7fc39e3f31",
+            "possible_rtl_operator_cells": 33,
+            "source_attribution_coverage": 1.0,
+            "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+          },
+          "elapsed_seconds": 3.355
+        }
+      },
+      "static8": {
+        "action": "group_factored_8",
+        "selected": "group_factored_8",
+        "metrics": {
+          "status": "PASS",
+          "formal": "PASS",
+          "ppa": "PASS",
+          "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W128\\evaluations\\group_factored_8",
+          "protocol_sha256": "f47277d38747c58073b1821c716c35140e11dad46a3b04945c94c7024eb69d29",
+          "stage": "electrical_checks",
+          "mapped_formal": "PASS",
+          "mapped_area_um2": 3301.9168,
+          "mapped_cells": 594,
+          "max_data_arrival_ns": 1.47,
+          "wns_ns": 98.53,
+          "tns_ns": 0.0,
+          "critical_startpoint": "input_unencoded[71] (input port clocked by virtual_clk)",
+          "critical_endpoint": "output_encoded[4] (output port clocked by virtual_clk)",
+          "normalized_signed_declarations": 0,
+          "mapped_sha256": "ca15be6f5a33ec8d32a2c71ec91e30ebe229a8c1f2ffab1cbc9348b157abba4c",
+          "sta_netlist_sha256": "ca15be6f5a33ec8d32a2c71ec91e30ebe229a8c1f2ffab1cbc9348b157abba4c",
+          "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+          "mapped_json_sha256": "6fb6fe9d69eca9ce521eb5b02bcf6ff542862c27889e48a5f1ae6d81ac80bb1e",
+          "electrical": {
+            "status": "PASS",
+            "violation_rows": 0,
+            "checks": [
+              "max_slew",
+              "max_capacitance"
+            ],
+            "scope": "Library limits under recorded SDC; not physical signoff"
+          },
+          "eligible": true,
+          "source_provenance": {
+            "cells_with_src_attribute": 0,
+            "total_mapped_cells": 594,
+            "nets_with_src_attribute": 61,
+            "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+          },
+          "rtl_source_cone": {
+            "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+            "artifact": "rtl_source_cone.json",
+            "sha256": "85b0b182f3a79fbc3fe0f087ddf81c179b361363c5aed2eac1e7904b62c7c3da",
+            "possible_rtl_operator_cells": 13,
+            "source_attribution_coverage": 1.0,
+            "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+          },
+          "elapsed_seconds": 3.228
+        }
+      }
+    }
+  },
+  "action_results": {
+    "64": {
+      "group_factored_8": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W64\\evaluations\\group_factored_8",
+        "protocol_sha256": "c48acb14b30ebd6e7cd8d7f0b078b0a2dde44a84096f964545550262b36fe05d",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 1636.5696,
+        "mapped_cells": 275,
+        "max_data_arrival_ns": 1.1,
+        "wns_ns": 98.9,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[63] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_unencoded[8] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "67fff9b32d920bb26c40c2b65ecd42c91719ea3cd85965464f3d873c174cd526",
+        "sta_netlist_sha256": "67fff9b32d920bb26c40c2b65ecd42c91719ea3cd85965464f3d873c174cd526",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "15c42ab05717c1a92733e0f14603aab854c6c49467281d070fabc960248292d3",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 275,
+          "nets_with_src_attribute": 36,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "f000336d8aed89840a1682e442ff06fd711f3b2f6819a868f476674ec54e2a33",
+          "possible_rtl_operator_cells": 3,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 7.547
+      },
+      "group_factored_16": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W64\\evaluations\\group_factored_16",
+        "protocol_sha256": "87744959a4caf712cd48bcf09f482e469b63dc39dfdcb2b6d05f8bfd9d31a146",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 2335.9904,
+        "mapped_cells": 372,
+        "max_data_arrival_ns": 1.23,
+        "wns_ns": 98.77,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[40] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[2] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "d7b2b8b8f2713a17d0f6c2b372341ca8d1aec5ad860e6bca5018fcde0b2dc4c8",
+        "sta_netlist_sha256": "d7b2b8b8f2713a17d0f6c2b372341ca8d1aec5ad860e6bca5018fcde0b2dc4c8",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "4d553fb0b169258ad8ba04da16eb48ead9c9e6815143f6e7824ad48fd0862973",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 372,
+          "nets_with_src_attribute": 27,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "3cefda0582e0b45f66289bba58f8780dd2ccaecfb0bc61fa1353a081f196ae0d",
+          "possible_rtl_operator_cells": 21,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 7.572
+      },
+      "group_factored_32": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W64\\evaluations\\group_factored_32",
+        "protocol_sha256": "7077f9c87b5c35edb15577a27c220998dcfa34e3dea4dc604913cce8aed4632a",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 2453.6032,
+        "mapped_cells": 439,
+        "max_data_arrival_ns": 1.27,
+        "wns_ns": 98.73,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[23] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[3] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "048723b9512ab39adb322416c29588286ec2b6c0399fa759f051ebeed0c32e69",
+        "sta_netlist_sha256": "048723b9512ab39adb322416c29588286ec2b6c0399fa759f051ebeed0c32e69",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "5cbf06f71fc8aeca427b0445e7f87847e20daf21b7140ea26df87f236464de66",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 439,
+          "nets_with_src_attribute": 20,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "fc51c676f836f0cc1bf67613212e6d94f3ae299c3d9ab88887a4181e40e794e0",
+          "possible_rtl_operator_cells": 27,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 2.538
+      },
+      "global_onehot_8": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W64\\evaluations\\global_onehot_8",
+        "protocol_sha256": "560d4fc26ca78c315e18b270b404a5813319b54e00eeb3b3f9f643ed1da1fa05",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 2058.224,
+        "mapped_cells": 383,
+        "max_data_arrival_ns": 1.09,
+        "wns_ns": 98.91,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[48] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[0] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "8e2112ce8721c7cac9b3f955fbf396c99e602efc4991c3a660bf5e34bac0268a",
+        "sta_netlist_sha256": "8e2112ce8721c7cac9b3f955fbf396c99e602efc4991c3a660bf5e34bac0268a",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "78e88d561ded1cda587bc7c1dffd49ac2e6d58be1c1e36de719300e41ddfb742",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 383,
+          "nets_with_src_attribute": 15,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "6469c434ea6575284b90420837f98a934b26bc24d165ee249d4f96413e325a2c",
+          "possible_rtl_operator_cells": 37,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 2.343
+      },
+      "global_onehot_16": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W64\\evaluations\\global_onehot_16",
+        "protocol_sha256": "73add6a5faccf015bd71c19a36197f8914cfc0585c69add312af7949999c564d",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 2145.808,
+        "mapped_cells": 423,
+        "max_data_arrival_ns": 1.14,
+        "wns_ns": 98.86,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[54] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[0] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "deef41b06a0fdb6ef872576628f2e11e68fbe59dddb84539957ae821a3111b6f",
+        "sta_netlist_sha256": "deef41b06a0fdb6ef872576628f2e11e68fbe59dddb84539957ae821a3111b6f",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "de080f7ed897c30a6f29c4d158314a4919fe464a375dc336194abe4f8ff017d3",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 423,
+          "nets_with_src_attribute": 15,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "f7abf6910e1af8c9e804d314216c32e7c40e05caa662812ccffcc7279e2c2ce2",
+          "possible_rtl_operator_cells": 40,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 2.534
+      },
+      "global_onehot_32": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W64\\evaluations\\global_onehot_32",
+        "protocol_sha256": "a9d89a0f7ee518f3087e537a11e7e46572f9430197662363903803982db2d8f2",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 2158.32,
+        "mapped_cells": 445,
+        "max_data_arrival_ns": 1.17,
+        "wns_ns": 98.83,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[63] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[4] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "37599b93b551d230a0c2f17eca7c73cbedd29fd3973cdefa0ca23ca82b230450",
+        "sta_netlist_sha256": "37599b93b551d230a0c2f17eca7c73cbedd29fd3973cdefa0ca23ca82b230450",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "8cb77dadfab8e9dbe14a427791c6741eaad73c3b6c6f4c1bacb0496ef3b6de58",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 445,
+          "nets_with_src_attribute": 15,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "83751c6d4dbef71a92634cccacd42d1354c3ee9f49cc44f8cbf81aba0b2a18ce",
+          "possible_rtl_operator_cells": 63,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 2.493
+      }
+    },
+    "128": {
+      "group_factored_8": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W128\\evaluations\\group_factored_8",
+        "protocol_sha256": "f47277d38747c58073b1821c716c35140e11dad46a3b04945c94c7024eb69d29",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 3301.9168,
+        "mapped_cells": 594,
+        "max_data_arrival_ns": 1.47,
+        "wns_ns": 98.53,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[71] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[4] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "ca15be6f5a33ec8d32a2c71ec91e30ebe229a8c1f2ffab1cbc9348b157abba4c",
+        "sta_netlist_sha256": "ca15be6f5a33ec8d32a2c71ec91e30ebe229a8c1f2ffab1cbc9348b157abba4c",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "6fb6fe9d69eca9ce521eb5b02bcf6ff542862c27889e48a5f1ae6d81ac80bb1e",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 594,
+          "nets_with_src_attribute": 61,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "85b0b182f3a79fbc3fe0f087ddf81c179b361363c5aed2eac1e7904b62c7c3da",
+          "possible_rtl_operator_cells": 13,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 3.228
+      },
+      "group_factored_16": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W128\\evaluations\\group_factored_16",
+        "protocol_sha256": "00fbdde33b1408325f6d0ff635d7b362d45973cfd5eab861f0e2908d34864505",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 4052.6368,
+        "mapped_cells": 741,
+        "max_data_arrival_ns": 1.41,
+        "wns_ns": 98.59,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[105] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[2] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sta_netlist_sha256": "2238c351e539e5f76fd5c42d53f11899a0a155eb0d820bd246f6d1ca4382e3bc",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "caea7ac47281ce62ee14fbb0e49177d3eeba9d80cfadbafba0aeee1f9e852ff7",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 741,
+          "nets_with_src_attribute": 44,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "54f5f9d9b2877b06aa04a5a04b5a7e67b8c72ead7a3ee0a6ca26bb7fc39e3f31",
+          "possible_rtl_operator_cells": 33,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 3.355
+      },
+      "group_factored_32": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W128\\evaluations\\group_factored_32",
+        "protocol_sha256": "1e789b04dc33feb96440da891dffde19da561ce76a9d735eb592f71eebba084e",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 4372.944,
+        "mapped_cells": 848,
+        "max_data_arrival_ns": 1.43,
+        "wns_ns": 98.57,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[31] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[3] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "3ac35aa6207b307ef4fc3f75addd5f0227e0310d179660dd43675761b66d823a",
+        "sta_netlist_sha256": "3ac35aa6207b307ef4fc3f75addd5f0227e0310d179660dd43675761b66d823a",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "b8ed3b10f271006df50f2dd4fe56df855aa5bfe0db72e7f54518d7205d7a03ee",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 848,
+          "nets_with_src_attribute": 31,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "ffcf240ef86d6f52868adfec1feb4f918901b1c30b7134c75c86076540b10f0b",
+          "possible_rtl_operator_cells": 47,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 3.522
+      },
+      "global_onehot_8": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W128\\evaluations\\global_onehot_8",
+        "protocol_sha256": "07e42533df1ab5b090673664039e8c91988174b1b3b4507a98573d7ec0efa993",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 4397.968,
+        "mapped_cells": 816,
+        "max_data_arrival_ns": 1.54,
+        "wns_ns": 98.46,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[103] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[4] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "bdabb2727238be24b717f16c705482466925145856daf6d65131de2083fb5aac",
+        "sta_netlist_sha256": "bdabb2727238be24b717f16c705482466925145856daf6d65131de2083fb5aac",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "3cfa8b5cb5687e3f9796b91b48ade58fec92ec9903d4849d398ec80b9c84fab6",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 816,
+          "nets_with_src_attribute": 16,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "7908f58a53440483c7aa6f918857ddd1f1ee46f0d4da0447d6f4f4a73a637b2c",
+          "possible_rtl_operator_cells": 61,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 3.172
+      },
+      "global_onehot_16": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W128\\evaluations\\global_onehot_16",
+        "protocol_sha256": "3a4f8dcb8debf1a177bcb61d41252ba1508046af4f6a532152da45574cbb0403",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 4371.6928,
+        "mapped_cells": 870,
+        "max_data_arrival_ns": 1.55,
+        "wns_ns": 98.45,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[63] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[0] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "33c4b20670fc146958bff2b43d64397a60b6cb1231ef47434618e05ac5e914ec",
+        "sta_netlist_sha256": "33c4b20670fc146958bff2b43d64397a60b6cb1231ef47434618e05ac5e914ec",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "b75cef2237e42bb24adb0394b521233dd29d37b81e6dd60474016ad12575bd82",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 870,
+          "nets_with_src_attribute": 16,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "49bd9d1b4ae63aa9c9b5c7221d5d1d05a3a549b088f6a48ed6ac4cb38bcd82ff",
+          "possible_rtl_operator_cells": 60,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 3.201
+      },
+      "global_onehot_32": {
+        "status": "PASS",
+        "formal": "PASS",
+        "ppa": "PASS",
+        "out": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\priority_selector_api_20261103_190958_372230\\W128\\evaluations\\global_onehot_32",
+        "protocol_sha256": "027615bb78cb37b22e713902852fedb9dfde626e2b11ede40a3123a969453324",
+        "stage": "electrical_checks",
+        "mapped_formal": "PASS",
+        "mapped_area_um2": 4989.7856,
+        "mapped_cells": 965,
+        "max_data_arrival_ns": 1.5,
+        "wns_ns": 98.5,
+        "tns_ns": 0.0,
+        "critical_startpoint": "input_unencoded[95] (input port clocked by virtual_clk)",
+        "critical_endpoint": "output_encoded[0] (output port clocked by virtual_clk)",
+        "normalized_signed_declarations": 0,
+        "mapped_sha256": "f012759b2d0a659a17284001cee0bda9e1b54d87dcdbb4623e40d2c54d90def2",
+        "sta_netlist_sha256": "f012759b2d0a659a17284001cee0bda9e1b54d87dcdbb4623e40d2c54d90def2",
+        "sdc_sha256": "21dccb2bd29e0d841db8d95c3cfd946c2141cf8a48d9fccbfd37ab5b359bc9e8",
+        "mapped_json_sha256": "0ea6ff6d8657100a9cdd8f1d7e0f611700c081ea0df6322bd0758d0d95e0ff3f",
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "eligible": true,
+        "source_provenance": {
+          "cells_with_src_attribute": 0,
+          "total_mapped_cells": 965,
+          "nets_with_src_attribute": 16,
+          "cell_to_rtl_line_mapping": "not established; src coverage alone is not a verified mapping"
+        },
+        "rtl_source_cone": {
+          "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+          "artifact": "rtl_source_cone.json",
+          "sha256": "91bf89d17a8434e9d5ca12ec0ba68d1ad8198f779eb95d82eef407bc8197fde8",
+          "possible_rtl_operator_cells": 98,
+          "source_attribution_coverage": 1.0,
+          "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+        },
+        "elapsed_seconds": 3.222
+      }
+    }
+  }
+}

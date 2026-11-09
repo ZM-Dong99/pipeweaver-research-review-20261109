@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-f203ff21-dfcb-446f-a731-98abdf4e5159",
+  "model": "gpt-6.1-sol",
+  "created": 1794218154,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Computing CRC masks**\n\n**Building balanced mask tree**\n\n**Building CRC mask reductions**\n\n**Designing generic mask function**\n\n**Checking q injection equivalence**\n\n</think>\n\n{\n  \"candidate_rtl\": \"`timescale 1ns / 1ps\\n`default_nettype none\\n\\nmodule crc32_d8 (\\n    input  wire [7:0]  data_in,\\n    input  wire [31:0] state_in,\\n    output wire [7:0]  data_out,\\n    output wire [31:0] state_out\\n);\\n\\n    // Combine the eight matching input/state terms before the CRC matrix.\\n    wire [7:0] q;\\n    assign q = data_in ^ state_in[7:0];\\n\\n    // Constant elaboration-time impulse response of the reflected CRC.\\n    // Indices 0..31 select state outputs; 32..39 select data outputs.\\n    function [7:0] output_mask;\\n        input integer index;\\n        reg [31:0] s;\\n        reg [7:0] d;\\n        reg feedback;\\n        integer k;\\n        integer j;\\n        begin\\n            output_mask = 8'b0;\\n            for (k = 0; k < 8; k = k + 1) begin\\n                s = 32'h00000001 << k;\\n                d = 8'b0;\\n                for (j = 0; j < 8; j = j + 1) begin\\n                    feedback = s[0];\\n                    d[j] = feedback;\\n                    s = (s >> 1) ^ (32'hedb88320 & {32{feedback}});\\n                end\\n                if (index < 32)\\n                    output_mask[k] = s[index];\\n                else\\n                    output_mask[k] = d[index-32];\\n            end\\n        end\\n    endfunction\\n\\n    function integer popcount;\\n        input [7:0] value;\\n        integer j;\\n        begin\\n            popcount = 0;\\n            for (j = 0; j < 8; j = j + 1)\\n                popcount = popcount + value[j];\\n        end\\n    endfunction\\n\\n    wire [39:0] result;\\n    genvar n, k;\\n    generate\\n        for (n = 0; n < 40; n = n + 1) begin : output_matrix\\n            localparam [7:0] MASK = output_mask(n);\\n            localparam integer COUNT = popcount(MASK);\\n            localparam integer TAIL = (n < 24) ? 1 : 0;\\n\\n            if (COUNT + TAIL > 0) begin : nonzero_row\\n                // Pack only live operands so reduction synthesis constructs\\n                // a balanced tree without zero-filled intermediate branches.\\n                wire [COUNT+TAIL-1:0] terms;\\n                for (k = 0; k < 8; k = k + 1) begin : input_terms\\n                    if (MASK[k]) begin : selected\\n                        localparam integer POSITION = popcount(MASK & ((8'h01 << k) - 8'h01));\\n                        assign terms[POSITION] = q[k];\\n                    end\\n                end\\n                if (TAIL != 0) begin : shifted_state\\n                    assign terms[COUNT] = state_in[n+8];\\n                end\\n                assign result[n] = ^terms;\\n            end else begin : zero_row\\n                assign result[n] = 1'b0;\\n            end\\n        end\\n    endgenerate\\n\\n    assign state_out = result[31:0];\\n    assign data_out = result[39:32];\\n\\nendmodule\\n\\n`default_nettype wire\\n\",\n  \"bottleneck\": \"The original CRC matrix independently reduces state and data operands. Matching low-state and data bits therefore enter wide XOR networks separately, increasing parity depth and duplicated logic.\",\n  \"rewrite\": \"Factor data_in XOR state_in[7:0] into eight shared terms, then apply the constant reflected CRC-32 impulse-response matrix. Pack each output's live operands into a reduction tree, including the unmodified shifted-state bit where applicable. Derive data_out from the actual eight feedback values rather than treating it as a passthrough.\",\n  \"expected_timing_gain\": \"Expected to reduce parity-network depth and mapped maximum arrival by combining matching input/state operands early and balancing the remaining reductions. Exact timing and electrical-violation results require the specified mapping and STA flow; no measured gain is claimed.\",\n  \"area_or_other_cost\": \"Adds eight shared input XORs while removing duplicated state/data contributions throughout the output matrix. Expected to reduce XOR count relative to the original matrix and leave room for fanout buffering, but the area cap and zero slew/capacitance violations have not been measured.\",\n  \"functional_boundaries\": \"Purely combinational crc32_d8 with unchanged ports and no top-level parameters. Implements reflected polynomial 32'hedb88320, equivalent to the original reversed Galois 32'h04c11db7 configuration. Preserves every state_out and data_out bit for arbitrary binary data_in and state_in, without initialization, final inversion, storage, assumptions, or external dependencies.\"\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5114,
+    "completion_tokens": 1987,
+    "total_tokens": 7971
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 1118,
+    "usage_reported": true
+  }
+}

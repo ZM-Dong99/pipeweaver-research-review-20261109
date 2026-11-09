@@ -1,0 +1,34 @@
+{
+  "call_index": 9,
+  "arm": "structured_timing_feedback",
+  "candidate_id": "candidate_03",
+  "candidate_sha256": "9f1927e9bfd3e00cd5498d5dca684703b0b932b53a88b704d9257444a06c6df0",
+  "status": "GENERATED",
+  "explanation": {
+    "bottleneck": "The measured worst path is a state flip-flop through a three-input OR to bill: 0.30 ns clock-to-Q plus 0.40 ns output decode. Its 9.30 ns slack is worse than the reported internal setup paths.",
+    "rewrite": "Register the bill decode of NextState on the same edge that updates State. This moves the bill decode before a register rather than placing it between a state register and the output. Preserve the original state transition logic and the combinational decoding of the other outputs.",
+    "functional_boundaries": "On each clear edge, State becomes RDY and bill becomes OFF. On every other edge, State becomes the previous NextState and bill becomes exactly the original bill decode of that same NextState, preserving post-edge output latency. The original ten-over-twenty priority and arbitrary later synchronous clear assertions remain intact. No startup assumption is added; pre-reset register values are not relied upon. Ports, parameter declarations, positive-edge clocking and reset polarity are unchanged. Verify against the frozen original under the fixed startup contract.",
+    "expected_timing_gain": "The targeted benefit is removal of the measured OR gate from the bill output path. This is not a measured improvement: next-state-to-bill setup timing, FSM extraction, register loading and mapping may become limiting. Accept only after equivalence and EDA demonstrate WNS strictly above 9.30 ns and TNS no worse than 0.0 ns at the fixed settings.",
+    "area_or_other_cost": "Adds one logical bill register and moves its decode into the register-input cone. The area headroom is 25.27424 um^2; mapped area must be checked against 278.01664 um^2. Synthesis may change FSM extraction or logic sharing, so neither area compliance nor timing improvement is guaranteed.",
+    "output_format_normalization": [
+      "Removed complete leading think wrapper before JSON parsing"
+    ]
+  },
+  "parameters": {
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "http_transport": "curl",
+    "response_format": "json_object",
+    "candidate_index": 9,
+    "response_id": "chatcmpl-aff6f5cc-5e39-438c-8554-f11a3fee321e",
+    "response_created": 1793636959,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 3218,
+      "completion_tokens": 1747,
+      "total_tokens": 5729
+    }
+  },
+  "response_model": "gpt-6.1-sol",
+  "seconds": 55.325876799997786
+}

@@ -1,0 +1,1 @@
+本轮真实结果见INTERPRETATION.md；本机复现命令见项目根目录README_COMPARATOR_ACTIONS.md。主实验N32无预算内时序收益，N13仅为边界次要正例。

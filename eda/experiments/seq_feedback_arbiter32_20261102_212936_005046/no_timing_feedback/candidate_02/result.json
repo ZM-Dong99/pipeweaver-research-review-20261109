@@ -1,0 +1,60 @@
+{
+  "call_index": 4,
+  "arm": "no_timing_feedback",
+  "candidate_id": "candidate_02",
+  "candidate_sha256": "ec209788ffad239f8e13d290e27ba116e00fdc2117da1d30aae524fd954ecdf4",
+  "status": "GENERATED",
+  "explanation": {
+    "bottleneck": "The original round-robin feedback path passes masked requests through a priority encoder and then derives mask_next using index arithmetic and a variable shift. The grant path also converts the encoded winner back to one-hot form. These dependent operations are plausible setup-critical paths; no timing report was provided to establish the actual critical endpoint.",
+    "area_or_other_cost": "Overlapping priority reductions and parallel encoding may increase logic duplication, routing, or fanout, depending on synthesis sharing. No mapped area result is available. Acceptance requires mapped area at or below 4880.43072 um2, as well as improved setup WNS and equivalence against the frozen original.",
+    "rewrite": "Replace the two helper instances with top-local parallel priority reductions. Generate each one-hot winner directly by suppressing requests with higher-priority competitors. Encode these internally one-hot vectors using parallel OR reductions. Compute each candidate round-robin mask directly from the higher-priority-request reductions, independently of the encoded index, then select masked or unmasked results. The frozen helper source is neither changed nor redefined.",
+    "expected_timing_gain": "The intended gain is removal of the priority-encode-to-index-arithmetic-to-variable-shift chain from the mask feedback path, and removal of binary decoding from the one-hot grant path. Actual setup WNS improvement remains unmeasured and must be established with the fixed EDA settings.",
+    "functional_boundaries": "Retains the top interface, parameter names/defaults, original register initialization values, single positive-edge clock, synchronous active-high reset, blocking rules, and registered output latency. Arbitrary multi-bit request and acknowledge inputs are supported without one-hot assumptions. For a nonempty priority-selected request set, the higher-priority-presence vector equals the original shifted round-robin mask. The mask holds during blocking and idle cycles. Reset retains priority on every edge, including resets after startup. No startup assumptions, pipeline stages, helper definitions, assertions, or new initialization semantics are introduced. Formal equivalence is still required for the specified PORTS=32 parameter instance.",
+    "output_format_normalization": [
+      "Removed complete leading think wrapper before JSON parsing"
+    ]
+  },
+  "parameters": {
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "http_transport": "curl",
+    "response_format": "json_object",
+    "candidate_index": 4,
+    "response_id": "chatcmpl-ea7f68bd-b85b-4668-805b-bce02f748f51",
+    "response_created": 1793626574,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 3167,
+      "completion_tokens": 2875,
+      "total_tokens": 6809
+    }
+  },
+  "response_model": "gpt-6.1-sol",
+  "seconds": 83.48341639999853,
+  "accepted": false,
+  "metrics": {
+    "status": "PASS",
+    "formal": "PASS",
+    "mapped_formal": "PASS",
+    "ppa": "PASS",
+    "eligible": true,
+    "stage": "sta",
+    "mapped_area_um2": 5388.9184,
+    "mapped_cells": 841,
+    "electrical": {
+      "status": "PASS",
+      "violation_rows": 0,
+      "checks": [
+        "max_slew",
+        "max_capacitance"
+      ],
+      "scope": "Library limits under recorded SDC; not physical signoff"
+    },
+    "wns_ns": 8.25,
+    "tns_ns": 0.0,
+    "mapped_sha256": "6be1620fff9bdbc6b89c891440d8708065fe7edc024698dc0ea928ce5939d582",
+    "sdc_sha256": "ac8d553567cead8777db869b7a22ac4dfa41a9b08b1edfcd2ad54e6315a268de",
+    "elapsed_seconds": 10.421
+  },
+  "reason": "Exceeds fixed baseline-derived area cap"
+}

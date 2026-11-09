@@ -1,0 +1,8 @@
+# running in D:\verilog_lab\PipeWeaver\eda\experiments\extra_tools_readiness_20261031\correct_proof\model/
+read_rtlil design_prep.il
+hierarchy -smtcheck
+delete */t:$print
+formalff -assume
+dffunmap
+stat
+write_smt2 -wires design_smt2.smt2

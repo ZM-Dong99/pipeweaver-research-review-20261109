@@ -1,0 +1,1000 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\engineering_arbiter_validation_20261102_201724_713244\loop_integration\baseline\formal.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v' to AST representation.
+Generating RTLIL representation for module `\priority_encoder'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v' to AST representation.
+Generating RTLIL representation for module `\arbiter'.
+Successfully finished Verilog frontend.
+Parameter \ARB_TYPE_ROUND_ROBIN = 0
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\arbiter'.
+Parameter \ARB_TYPE_ROUND_ROBIN = 0
+Generating RTLIL representation for module `$paramod\arbiter\ARB_TYPE_ROUND_ROBIN=s32'00000000000000000000000000000000'.
+Parameter \PORTS = 32
+
+4. Executing AST frontend in derive mode using pre-parsed AST for module `\arbiter'.
+Parameter \PORTS = 32
+Generating RTLIL representation for module `$paramod\arbiter\PORTS=s32'00000000000000000000000000100000'.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     \priority_encoder
+Parameter \WIDTH = 32
+Parameter \LSB_HIGH_PRIORITY = 0
+
+5.2. Executing AST frontend in derive mode using pre-parsed AST for module `\priority_encoder'.
+Parameter \WIDTH = 32
+Parameter \LSB_HIGH_PRIORITY = 0
+Generating RTLIL representation for module `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder'.
+Parameter \WIDTH = 32
+Parameter \LSB_HIGH_PRIORITY = 0
+Found cached RTLIL representation for module `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder'.
+
+5.3. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder
+
+5.4. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder
+Removing unused module `\priority_encoder'.
+Removed 1 unused modules.
+
+6. Executing PROC pass (convert processes to netlists).
+
+6.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$39'.
+Cleaned up 1 empty switch.
+
+6.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$39 in module arbiter.
+Removed a total of 0 dead cases.
+
+6.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 70 assignments to connections.
+
+6.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:60$47'.
+  Set init value: \grant_reg = 0
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:61$48'.
+  Set init value: \grant_valid_reg = 1'0
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:62$49'.
+  Set init value: \grant_encoded_reg = 5'00000
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:83$50'.
+  Set init value: \mask_reg = 0
+
+6.5. Executing PROC_ARST pass (detect async resets in processes).
+
+6.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~4 debug messages>
+
+6.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$39'.
+     1/12: $4\grant_encoded_next[4:0]
+     2/12: $4\grant_next[31:0]
+     3/12: $4\grant_valid_next[0:0]
+     4/12: $3\grant_encoded_next[4:0]
+     5/12: $3\grant_valid_next[0:0]
+     6/12: $3\grant_next[31:0]
+     7/12: $2\grant_encoded_next[4:0]
+     8/12: $2\grant_next[31:0]
+     9/12: $2\grant_valid_next[0:0]
+    10/12: $1\grant_encoded_next[4:0]
+    11/12: $1\grant_next[31:0]
+    12/12: $1\grant_valid_next[0:0]
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:145$46'.
+     1/4: $0\mask_reg[31:0]
+     2/4: $0\grant_encoded_reg[4:0]
+     3/4: $0\grant_valid_reg[0:0]
+     4/4: $0\grant_reg[31:0]
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:60$47'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:61$48'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:62$49'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:83$50'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$158'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$156'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$154'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$152'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$150'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$148'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$146'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$144'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$142'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$140'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$138'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$136'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$134'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$132'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$130'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$128'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$126'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$124'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$122'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$120'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$118'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$116'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$114'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$112'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$110'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$108'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$106'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$104'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$102'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$100'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$99'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$97'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$96'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$94'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$93'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$91'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$90'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$88'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$87'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$85'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$84'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$82'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$81'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$79'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$78'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$76'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$75'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$73'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$72'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$70'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$69'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$67'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$66'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$64'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$63'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$61'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$60'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$58'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$57'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$55'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$54'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$52'.
+
+6.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\arbiter.\grant_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$39'.
+No latch inferred for signal `\arbiter.\grant_valid_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$39'.
+No latch inferred for signal `\arbiter.\grant_encoded_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$39'.
+No latch inferred for signal `\arbiter.\mask_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$39'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[4] [4:0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$158'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[4] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$156'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[3] [7:4]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$154'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[3] [1]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$152'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[3] [3:0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$150'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[3] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$148'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[2] [11:9]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$146'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[2] [3]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$144'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[2] [8:6]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$142'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[2] [2]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$140'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[2] [5:3]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$138'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[2] [1]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$136'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[2] [2:0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$134'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[2] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$132'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [15:14]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$130'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [7]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$128'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [13:12]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$126'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [6]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$124'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [11:10]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$122'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [5]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$120'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [9:8]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$118'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [4]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$116'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [7:6]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$114'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [3]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$112'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [5:4]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$110'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [2]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$108'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [3:2]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$106'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [1]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$104'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [1:0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$102'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$100'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [15]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$99'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [15]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$97'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [14]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$96'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [14]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$94'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [13]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$93'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [13]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$91'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [12]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$90'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [12]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$88'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [11]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$87'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [11]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$85'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [10]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$84'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [10]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$82'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [9]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$81'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [9]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$79'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [8]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$78'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [8]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$76'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [7]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$75'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [7]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$73'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [6]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$72'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [6]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$70'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [5]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$69'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [5]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$67'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [4]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$66'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [4]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$64'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [3]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$63'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [3]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$61'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [2]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$60'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [2]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$58'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [1]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$57'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [1]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$55'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$54'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$52'.
+
+6.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\arbiter.\grant_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:145$46'.
+  created $dff cell `$procdff$249' with positive edge clock.
+Creating register for signal `\arbiter.\grant_valid_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:145$46'.
+  created $dff cell `$procdff$250' with positive edge clock.
+Creating register for signal `\arbiter.\grant_encoded_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:145$46'.
+  created $dff cell `$procdff$251' with positive edge clock.
+Creating register for signal `\arbiter.\mask_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:145$46'.
+  created $dff cell `$procdff$252' with positive edge clock.
+
+6.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$39'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$39'.
+Found and cleaned up 1 empty switch in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:145$46'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:145$46'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:60$47'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:61$48'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:62$49'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:83$50'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$158'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$156'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$154'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$152'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$150'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$148'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$146'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$144'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$142'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$140'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$138'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$136'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$134'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$132'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$130'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$128'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$126'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$124'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$122'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$120'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$118'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$116'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$114'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$112'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$110'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$108'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$106'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$104'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$102'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$100'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$99'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$97'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$96'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$94'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$93'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$91'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$90'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$88'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$87'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$85'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$84'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$82'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$81'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$79'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$78'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$76'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$75'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$73'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$72'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$70'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$69'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$67'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$66'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$64'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$63'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$61'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$60'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$58'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$57'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$55'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$54'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$52'.
+Cleaned up 4 empty switches.
+
+6.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+<suppressed ~11 debug messages>
+Optimizing module $paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.
+
+7. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.
+<suppressed ~2 debug messages>
+Renaming module \arbiter to \pw_gold.
+
+8. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v' to AST representation.
+Generating RTLIL representation for module `\priority_encoder'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v' to AST representation.
+Generating RTLIL representation for module `\arbiter'.
+Successfully finished Verilog frontend.
+Parameter \ARB_TYPE_ROUND_ROBIN = 0
+
+10. Executing AST frontend in derive mode using pre-parsed AST for module `\arbiter'.
+Parameter \ARB_TYPE_ROUND_ROBIN = 0
+Generating RTLIL representation for module `$paramod\arbiter\ARB_TYPE_ROUND_ROBIN=s32'00000000000000000000000000000000'.
+Parameter \PORTS = 32
+
+11. Executing AST frontend in derive mode using pre-parsed AST for module `\arbiter'.
+Parameter \PORTS = 32
+Generating RTLIL representation for module `$paramod\arbiter\PORTS=s32'00000000000000000000000000100000'.
+
+12. Executing HIERARCHY pass (managing design hierarchy).
+
+12.1. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     \priority_encoder
+Parameter \WIDTH = 32
+Parameter \LSB_HIGH_PRIORITY = 0
+
+12.2. Executing AST frontend in derive mode using pre-parsed AST for module `\priority_encoder'.
+Parameter \WIDTH = 32
+Parameter \LSB_HIGH_PRIORITY = 0
+Generating RTLIL representation for module `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder'.
+Parameter \WIDTH = 32
+Parameter \LSB_HIGH_PRIORITY = 0
+Found cached RTLIL representation for module `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder'.
+
+12.3. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder
+
+12.4. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder
+Removing unused module `\priority_encoder'.
+Removed 1 unused modules.
+
+13. Executing PROC pass (convert processes to netlists).
+
+13.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$293'.
+Cleaned up 1 empty switch.
+
+13.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$293 in module arbiter.
+Removed a total of 0 dead cases.
+
+13.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 70 assignments to connections.
+
+13.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:60$301'.
+  Set init value: \grant_reg = 0
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:61$302'.
+  Set init value: \grant_valid_reg = 1'0
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:62$303'.
+  Set init value: \grant_encoded_reg = 5'00000
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:83$304'.
+  Set init value: \mask_reg = 0
+
+13.5. Executing PROC_ARST pass (detect async resets in processes).
+
+13.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~4 debug messages>
+
+13.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$293'.
+     1/12: $4\grant_encoded_next[4:0]
+     2/12: $4\grant_next[31:0]
+     3/12: $4\grant_valid_next[0:0]
+     4/12: $3\grant_encoded_next[4:0]
+     5/12: $3\grant_valid_next[0:0]
+     6/12: $3\grant_next[31:0]
+     7/12: $2\grant_encoded_next[4:0]
+     8/12: $2\grant_next[31:0]
+     9/12: $2\grant_valid_next[0:0]
+    10/12: $1\grant_encoded_next[4:0]
+    11/12: $1\grant_next[31:0]
+    12/12: $1\grant_valid_next[0:0]
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:145$300'.
+     1/4: $0\mask_reg[31:0]
+     2/4: $0\grant_encoded_reg[4:0]
+     3/4: $0\grant_valid_reg[0:0]
+     4/4: $0\grant_reg[31:0]
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:60$301'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:61$302'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:62$303'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:83$304'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$412'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$410'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$408'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$406'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$404'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$402'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$400'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$398'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$396'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$394'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$392'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$390'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$388'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$386'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$384'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$382'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$380'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$378'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$376'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$374'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$372'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$370'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$368'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$366'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$364'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$362'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$360'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$358'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$356'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$354'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$353'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$351'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$350'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$348'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$347'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$345'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$344'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$342'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$341'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$339'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$338'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$336'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$335'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$333'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$332'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$330'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$329'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$327'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$326'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$324'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$323'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$321'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$320'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$318'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$317'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$315'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$314'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$312'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$311'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$309'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$308'.
+Creating decoders for process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$306'.
+
+13.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\arbiter.\grant_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$293'.
+No latch inferred for signal `\arbiter.\grant_valid_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$293'.
+No latch inferred for signal `\arbiter.\grant_encoded_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$293'.
+No latch inferred for signal `\arbiter.\mask_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$293'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[4] [4:0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$412'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[4] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$410'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[3] [7:4]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$408'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[3] [1]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$406'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[3] [3:0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$404'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[3] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$402'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[2] [11:9]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$400'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[2] [3]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$398'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[2] [8:6]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$396'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[2] [2]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$394'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[2] [5:3]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$392'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[2] [1]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$390'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[2] [2:0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$388'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[2] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$386'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [15:14]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$384'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [7]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$382'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [13:12]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$380'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [6]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$378'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [11:10]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$376'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [5]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$374'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [9:8]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$372'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [4]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$370'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [7:6]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$368'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [3]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$366'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [5:4]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$364'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [2]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$362'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [3:2]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$360'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [1]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$358'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[1] [1:0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$356'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[1] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$354'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [15]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$353'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [15]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$351'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [14]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$350'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [14]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$348'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [13]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$347'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [13]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$345'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [12]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$344'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [12]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$342'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [11]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$341'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [11]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$339'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [10]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$338'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [10]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$336'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [9]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$335'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [9]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$333'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [8]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$332'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [8]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$330'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [7]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$329'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [7]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$327'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [6]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$326'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [6]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$324'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [5]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$323'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [5]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$321'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [4]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$320'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [4]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$318'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [3]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$317'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [3]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$315'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [2]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$314'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [2]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$312'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [1]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$311'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [1]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$309'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_enc[0] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$308'.
+No latch inferred for signal `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.\stage_valid[0] [0]' from process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$306'.
+
+13.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\arbiter.\grant_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:145$300'.
+  created $dff cell `$procdff$503' with positive edge clock.
+Creating register for signal `\arbiter.\grant_valid_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:145$300'.
+  created $dff cell `$procdff$504' with positive edge clock.
+Creating register for signal `\arbiter.\grant_encoded_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:145$300'.
+  created $dff cell `$procdff$505' with positive edge clock.
+Creating register for signal `\arbiter.\mask_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:145$300'.
+  created $dff cell `$procdff$506' with positive edge clock.
+
+13.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+13.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$293'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:100$293'.
+Found and cleaned up 1 empty switch in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:145$300'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:145$300'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:60$301'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:61$302'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:62$303'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/original.v:83$304'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$412'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$410'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$408'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$406'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$404'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$402'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$400'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$398'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$396'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$394'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$392'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$390'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$388'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$386'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$384'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$382'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$380'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$378'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$376'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$374'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$372'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$370'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$368'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$366'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$364'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$362'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$360'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$358'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$356'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$354'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$353'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$351'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$350'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$348'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$347'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$345'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$344'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$342'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$341'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$339'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$338'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$336'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$335'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$333'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$332'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$330'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$329'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$327'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$326'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$324'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$323'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$321'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$320'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$318'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$317'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$315'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$314'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$312'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$311'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$309'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$308'.
+Removing empty process `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$306'.
+Cleaned up 4 empty switches.
+
+13.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+<suppressed ~11 debug messages>
+Optimizing module $paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.
+
+14. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.
+<suppressed ~2 debug messages>
+Renaming module \arbiter to \pw_cand.
+
+15. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/baseline/miter.v
+Parsing formal Verilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/baseline/miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+16. Executing PREP pass.
+
+16.1. Executing HIERARCHY pass (managing design hierarchy).
+
+16.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+
+16.1.2. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+Removed 0 unused modules.
+
+16.2. Executing PROC pass (convert processes to netlists).
+
+16.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+16.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+16.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+16.2.4. Executing PROC_INIT pass (extract init attributes).
+
+16.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+16.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+16.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+16.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+16.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+16.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+16.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+16.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+Optimizing module pw_cand.
+Optimizing module pw_gold.
+
+16.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module pw_cand.
+Deleting now unused module pw_gold.
+<suppressed ~2 debug messages>
+
+16.4. Executing FUTURE pass.
+
+16.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 104 unused cells and 623 unused wires.
+<suppressed ~145 debug messages>
+
+16.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+16.8. Executing OPT pass (performing simple optimizations).
+
+16.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+16.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 157 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 141 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 133 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 129 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 127 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 126 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~93 debug messages>
+Removed a total of 31 cells.
+
+16.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $flatten\gold.$procmux$161.
+    dead port 1/2 on $mux $flatten\gold.$procmux$167.
+    dead port 2/2 on $mux $flatten\gold.$procmux$170.
+    dead port 1/2 on $mux $flatten\gold.$procmux$176.
+    dead port 2/2 on $mux $flatten\gold.$procmux$179.
+    dead port 1/2 on $mux $flatten\gold.$procmux$185.
+    dead port 1/2 on $mux $flatten\gold.$procmux$194.
+    dead port 1/2 on $mux $flatten\gold.$procmux$203.
+    dead port 1/2 on $mux $flatten\gold.$procmux$212.
+    dead port 1/2 on $mux $flatten\gold.$procmux$218.
+    dead port 1/2 on $mux $flatten\gold.$procmux$224.
+    dead port 1/2 on $mux $flatten\gold.$procmux$230.
+    dead port 1/2 on $mux $flatten\cand.$procmux$484.
+    dead port 1/2 on $mux $flatten\cand.$procmux$478.
+    dead port 1/2 on $mux $flatten\cand.$procmux$472.
+    dead port 1/2 on $mux $flatten\cand.$procmux$466.
+    dead port 1/2 on $mux $flatten\cand.$procmux$457.
+    dead port 1/2 on $mux $flatten\cand.$procmux$448.
+    dead port 1/2 on $mux $flatten\cand.$procmux$439.
+    dead port 2/2 on $mux $flatten\cand.$procmux$433.
+    dead port 1/2 on $mux $flatten\cand.$procmux$430.
+    dead port 2/2 on $mux $flatten\cand.$procmux$424.
+    dead port 1/2 on $mux $flatten\cand.$procmux$421.
+    dead port 2/2 on $mux $flatten\cand.$procmux$415.
+Removed 24 multiplexer ports.
+<suppressed ~80 debug messages>
+
+16.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$101: \in_2 [3:0]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$109: \in_2 [11:8]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$105: \in_2 [7:4]
+    New input vector for $reduce_or cell $flatten\cand.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$371: \in_2 [19:16]
+    New input vector for $reduce_or cell $flatten\cand.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$375: \in_2 [23:20]
+    New input vector for $reduce_or cell $flatten\cand.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$395: \in_2 [23:16]
+    New input vector for $reduce_or cell $flatten\cand.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$379: \in_2 [27:24]
+    New input vector for $reduce_or cell $flatten\cand.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$383: \in_2 [31:28]
+    New input vector for $reduce_or cell $flatten\cand.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$399: \in_2 [31:24]
+    New input vector for $reduce_or cell $flatten\cand.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$407: \in_2 [31:16]
+    New input vector for $reduce_or cell $flatten\cand.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$387: \in_2 [7:0]
+    New input vector for $reduce_or cell $flatten\cand.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$367: \in_2 [15:12]
+    New input vector for $reduce_or cell $flatten\cand.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$391: \in_2 [15:8]
+    New input vector for $reduce_or cell $flatten\cand.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$403: \in_2 [15:0]
+    New input vector for $reduce_or cell $flatten\gold.\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$157: \in_2
+  Optimizing cells in module \pw_miter.
+Performed a total of 15 changes.
+
+16.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 102 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 93 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 89 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 87 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 86 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 84 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 83 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~57 debug messages>
+Removed a total of 19 cells.
+
+16.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 15 unused cells and 27 unused wires.
+<suppressed ~16 debug messages>
+
+16.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+16.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~46 debug messages>
+
+16.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+16.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 68 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+16.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+16.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+16.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+16.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 30 bits (of 32) from port A of cell pw_miter.$flatten\cand.\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$305 ($shl).
+
+16.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+16.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+16.12. Executing OPT pass (performing simple optimizations).
+
+16.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+16.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 68 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+16.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+16.12.4. Finished fast OPT passes.
+
+16.13. Executing SORT pass.
+
+16.14. Printing statistics.
+
+=== pw_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       90 wires
+     1287 wire bits
+       73 public wires
+     1103 public wire bits
+        5 ports
+       67 port bits
+       68 cells
+        2   $and
+        6   $dff
+        2   $logic_and
+       30   $mux
+        3   $ne
+        2   $or
+       16   $reduce_or
+        6   $scopeinfo
+        1   $shl
+
+16.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+18. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Import set-constraint for this timestep: \in_1 = 1'1
+Final constraint equation: \in_1 = 1'1
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 68 cells to SAT database.
+Import set-constraint from init attribute: \cand.grant_encoded_reg = 5'00000
+Import set-constraint from init attribute: \cand.grant_reg = 0
+Import set-constraint from init attribute: \cand.grant_valid_reg = 1'0
+Import set-constraint from init attribute: \gold.grant_encoded_reg = 5'00000
+Import set-constraint from init attribute: \gold.grant_reg = 0
+Import set-constraint from init attribute: \gold.grant_valid_reg = 1'0
+Final init constraint equation: { \gold.grant_valid_reg \gold.grant_reg \gold.grant_encoded_reg \cand.grant_valid_reg \cand.grant_reg \cand.grant_encoded_reg } = 76'0000000000000000000000000000000000000000000000000000000000000000000000000000
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 68 cells to SAT database.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 68 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+
+** Trying induction with length 1 **
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 68 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \mismatch
+
+[base case 1] Solving problem with 27845 variables and 76465 clauses..
+Base case for induction length 1 proven.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 68 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \mismatch
+
+[induction step 1] Solving problem with 17983 variables and 49135 clauses..
+Induction step proven: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 77e8e554ab
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 10x read_verilog (0 sec), 3% 8x opt_expr (0 sec), ...

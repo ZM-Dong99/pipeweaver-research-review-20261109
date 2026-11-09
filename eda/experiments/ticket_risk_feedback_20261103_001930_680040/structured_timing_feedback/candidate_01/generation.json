@@ -1,0 +1,34 @@
+{
+  "call_index": 2,
+  "arm": "structured_timing_feedback",
+  "candidate_id": "candidate_01",
+  "candidate_sha256": "58edab27a66de77243c0cc1b35c794d09d59731948a60ef14ac42274bcdc813c",
+  "status": "GENERATED",
+  "explanation": {
+    "bottleneck": "The supplied worst path is a state flip-flop through the three-input bill decode to the output: 0.30 ns clock-to-Q plus 0.40 ns OR delay. Its 9.30 ns slack is slightly worse than the reported register-to-register paths.",
+    "rewrite": "Use explicit one-hot transition equations and add a synchronous redundant bill_active register. Load bill_active from the union of the three next billing-state bits, so it represents the billing status of the state entered on the same edge. With the default parameters, bill is driven directly by that register rather than by an output OR gate.",
+    "functional_boundaries": "Preserves the module interface, parameter declarations, single positive-edge clock, synchronous active-high clear, and output latency. ten retains priority when both payment inputs are asserted. Every clear edge restores ready and clears the other outputs, including bill_active. Following the specified startup reset, the six state bits remain one-hot and bill_active equals the union of the three billing-state bits; this invariant establishes cycle-level output correspondence without restricting subsequent inputs or clear assertions. Illegal-state and pre-reset behavior are not used to extend the startup assumptions. Formal equivalence against the frozen original remains required.",
+    "expected_timing_gain": "This targets removal of the reported 0.40 ns output-decode stage, not a guaranteed 0.40 ns WNS improvement. Existing register paths and the new bill_active input path can become critical. No candidate EDA measurements are available; acceptance requires WNS strictly greater than 9.30 ns and TNS no worse than 0.0 ns at the fixed settings.",
+    "area_or_other_cost": "Adds one flip-flop and relocates the billing decode to its input cone. Explicit transition equations can also change mapping and sharing. The area allowance above baseline is 25.27424 um2; compliance with the 278.01664 um2 cap must be checked after mapping. Neither area compliance nor timing improvement is claimed as measured.",
+    "output_format_normalization": [
+      "Removed complete leading think wrapper before JSON parsing"
+    ]
+  },
+  "parameters": {
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "http_transport": "curl",
+    "response_format": "json_object",
+    "candidate_index": 2,
+    "response_id": "chatcmpl-17faa10f-cdf4-40cd-8117-e6eccd1418da",
+    "response_created": 1793636558,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 3218,
+      "completion_tokens": 1842,
+      "total_tokens": 5943
+    }
+  },
+  "response_model": "gpt-6.1-sol",
+  "seconds": 72.80601730000126
+}

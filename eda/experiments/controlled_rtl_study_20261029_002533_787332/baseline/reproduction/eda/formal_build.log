@@ -1,0 +1,343 @@
+
+-- Executing script file `eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/formal.ys' --
+
+1. Executing Verilog-2005 frontend: benchmark/timing_adder.v
+Parsing formal SystemVerilog input from `benchmark/timing_adder.v' to AST representation.
+Generating RTLIL representation for module `\timing_adder'.
+Successfully finished Verilog frontend.
+Renaming module \timing_adder to \timing_adder_gold.
+
+2. Executing Verilog-2005 frontend: eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/candidate.v
+Parsing formal SystemVerilog input from `eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/candidate.v' to AST representation.
+Generating RTLIL representation for module `\timing_adder'.
+Successfully finished Verilog frontend.
+Renaming module \timing_adder to \timing_adder_cand.
+
+3. Executing Verilog-2005 frontend: eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/equiv_miter.v
+Parsing formal SystemVerilog input from `eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/equiv_miter.v' to AST representation.
+Generating RTLIL representation for module `\equiv_miter'.
+Successfully finished Verilog frontend.
+
+4. Executing PREP pass.
+
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1.1. Analyzing design hierarchy..
+Top module:  \equiv_miter
+Used module:     \timing_adder_cand
+Used module:     \timing_adder_gold
+
+4.1.2. Analyzing design hierarchy..
+Top module:  \equiv_miter
+Used module:     \timing_adder_cand
+Used module:     \timing_adder_gold
+Removed 0 unused modules.
+Module equiv_miter directly or indirectly contains formal properties -> setting "keep" attribute.
+Mapping positional arguments of cell equiv_miter.cand (timing_adder_cand).
+Mapping positional arguments of cell equiv_miter.gold (timing_adder_gold).
+
+4.2. Executing PROC pass (convert processes to netlists).
+
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/candidate.v:13$5 in module timing_adder_cand.
+Marked 1 switch rules as full_case in process $proc$benchmark/timing_adder.v:13$1 in module timing_adder_gold.
+Removed a total of 0 dead cases.
+
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 6 redundant assignments.
+Promoted 2 assignments to connections.
+
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\equiv_miter.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/equiv_miter.v:5$15'.
+  Set init value: \past_valid = 1'0
+
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\timing_adder_cand.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/candidate.v:13$5'.
+Found async reset \rst_n in `\timing_adder_gold.$proc$benchmark/timing_adder.v:13$1'.
+
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~2 debug messages>
+
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\equiv_miter.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/equiv_miter.v:5$15'.
+Creating decoders for process `\equiv_miter.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/equiv_miter.v:6$9'.
+     1/2: $assert$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/equiv_miter.v:9$13_EN
+     2/2: $assume$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/equiv_miter.v:8$11_EN
+Creating decoders for process `\timing_adder_cand.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/candidate.v:13$5'.
+     1/3: $0\y[31:0]
+     2/3: $0\sum2[31:0]
+     3/3: $0\sum1[31:0]
+Creating decoders for process `\timing_adder_gold.$proc$benchmark/timing_adder.v:13$1'.
+     1/3: $0\y[31:0]
+     2/3: $0\sum2[31:0]
+     3/3: $0\sum1[31:0]
+
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\equiv_miter.\past_valid' using process `\equiv_miter.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/equiv_miter.v:6$9'.
+  created $dff cell `$procdff$20' with positive edge clock.
+Creating register for signal `\timing_adder_cand.\y' using process `\timing_adder_cand.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/candidate.v:13$5'.
+  created $adff cell `$procdff$25' with positive edge clock and positive level reset.
+Creating register for signal `\timing_adder_cand.\sum1' using process `\timing_adder_cand.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/candidate.v:13$5'.
+  created $adff cell `$procdff$30' with positive edge clock and positive level reset.
+Creating register for signal `\timing_adder_cand.\sum2' using process `\timing_adder_cand.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/candidate.v:13$5'.
+  created $adff cell `$procdff$35' with positive edge clock and positive level reset.
+Creating register for signal `\timing_adder_gold.\y' using process `\timing_adder_gold.$proc$benchmark/timing_adder.v:13$1'.
+  created $adff cell `$procdff$40' with positive edge clock and positive level reset.
+Creating register for signal `\timing_adder_gold.\sum1' using process `\timing_adder_gold.$proc$benchmark/timing_adder.v:13$1'.
+  created $adff cell `$procdff$45' with positive edge clock and positive level reset.
+Creating register for signal `\timing_adder_gold.\sum2' using process `\timing_adder_gold.$proc$benchmark/timing_adder.v:13$1'.
+  created $adff cell `$procdff$50' with positive edge clock and positive level reset.
+
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `equiv_miter.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/equiv_miter.v:5$15'.
+Found and cleaned up 2 empty switches in `\equiv_miter.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/equiv_miter.v:6$9'.
+Removing empty process `equiv_miter.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/equiv_miter.v:6$9'.
+Removing empty process `timing_adder_cand.$proc$eda/experiments/controlled_rtl_study_20261029_002533_787332/baseline/reproduction/eda/candidate.v:13$5'.
+Removing empty process `timing_adder_gold.$proc$benchmark/timing_adder.v:13$1'.
+Cleaned up 2 empty switches.
+
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module equiv_miter.
+<suppressed ~1 debug messages>
+Optimizing module timing_adder_cand.
+<suppressed ~6 debug messages>
+Optimizing module timing_adder_gold.
+<suppressed ~6 debug messages>
+
+4.3. Executing FUTURE pass.
+
+4.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module equiv_miter.
+Optimizing module timing_adder_cand.
+Optimizing module timing_adder_gold.
+
+4.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \equiv_miter..
+Finding unused cells or wires in module \timing_adder_cand..
+Finding unused cells or wires in module \timing_adder_gold..
+Removed 9 unused cells and 27 unused wires.
+<suppressed ~12 debug messages>
+
+4.6. Executing CHECK pass (checking for obvious problems).
+Checking module equiv_miter...
+Checking module timing_adder_cand...
+Checking module timing_adder_gold...
+Found and reported 0 problems.
+
+4.7. Executing OPT pass (performing simple optimizations).
+
+4.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module equiv_miter.
+Optimizing module timing_adder_cand.
+Optimizing module timing_adder_gold.
+
+4.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\equiv_miter'.
+Computing hashes of 9 cells of `\equiv_miter'.
+Finding duplicate cells in `\equiv_miter'.
+Finding identical cells in module `\timing_adder_cand'.
+Computing hashes of 5 cells of `\timing_adder_cand'.
+Finding duplicate cells in `\timing_adder_cand'.
+Finding identical cells in module `\timing_adder_gold'.
+Computing hashes of 5 cells of `\timing_adder_gold'.
+Finding duplicate cells in `\timing_adder_gold'.
+Removed a total of 0 cells.
+
+4.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \equiv_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \timing_adder_cand..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \timing_adder_gold..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \equiv_miter.
+  Optimizing cells in module \timing_adder_cand.
+  Optimizing cells in module \timing_adder_gold.
+Performed a total of 0 changes.
+
+4.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\equiv_miter'.
+Computing hashes of 9 cells of `\equiv_miter'.
+Finding duplicate cells in `\equiv_miter'.
+Finding identical cells in module `\timing_adder_cand'.
+Computing hashes of 5 cells of `\timing_adder_cand'.
+Finding duplicate cells in `\timing_adder_cand'.
+Finding identical cells in module `\timing_adder_gold'.
+Computing hashes of 5 cells of `\timing_adder_gold'.
+Finding duplicate cells in `\timing_adder_gold'.
+Removed a total of 0 cells.
+
+4.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \equiv_miter..
+Finding unused cells or wires in module \timing_adder_cand..
+Finding unused cells or wires in module \timing_adder_gold..
+
+4.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module equiv_miter.
+Optimizing module timing_adder_cand.
+Optimizing module timing_adder_gold.
+
+4.7.8. Finished fast OPT passes. (There is nothing left to do.)
+
+4.8. Executing WREDUCE pass (reducing word size of cells).
+
+4.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \equiv_miter..
+Finding unused cells or wires in module \timing_adder_cand..
+Finding unused cells or wires in module \timing_adder_gold..
+
+4.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+4.11. Executing OPT pass (performing simple optimizations).
+
+4.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module equiv_miter.
+Optimizing module timing_adder_cand.
+Optimizing module timing_adder_gold.
+
+4.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\equiv_miter'.
+Computing hashes of 9 cells of `\equiv_miter'.
+Finding duplicate cells in `\equiv_miter'.
+Finding identical cells in module `\timing_adder_cand'.
+Computing hashes of 5 cells of `\timing_adder_cand'.
+Finding duplicate cells in `\timing_adder_cand'.
+Finding identical cells in module `\timing_adder_gold'.
+Computing hashes of 5 cells of `\timing_adder_gold'.
+Finding duplicate cells in `\timing_adder_gold'.
+Removed a total of 0 cells.
+
+4.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \equiv_miter..
+Finding unused cells or wires in module \timing_adder_cand..
+Finding unused cells or wires in module \timing_adder_gold..
+
+4.11.4. Finished fast OPT passes.
+
+4.12. Executing SORT pass.
+
+4.13. Printing statistics.
+
+=== equiv_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+      167 wire bits
+        8 public wires
+      163 public wire bits
+        5 ports
+       98 port bits
+        7 cells
+        2   $check
+        1   $dff
+        1   $eq
+        1   $logic_not
+        2   $mux
+        2 submodules
+        1   timing_adder_cand
+        1   timing_adder_gold
+
+=== timing_adder_cand ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       10 wires
+      258 wire bits
+        8 public wires
+      194 public wire bits
+        6 ports
+      130 port bits
+        5 cells
+        2   $add
+        3   $adff
+
+=== timing_adder_gold ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       10 wires
+      258 wire bits
+        8 public wires
+      194 public wire bits
+        6 ports
+      130 port bits
+        5 cells
+        2   $add
+        3   $adff
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+       17 equiv_miter
+        5 timing_adder_cand
+        5 timing_adder_gold
+
+        +----------Count including submodules.
+        | 
+       32 wires
+      683 wire bits
+       24 public wires
+      551 public wire bits
+       17 ports
+      358 port bits
+        - memories
+        - memory bits
+        - processes
+       17 cells
+        4   $add
+        6   $adff
+        2   $check
+        1   $dff
+        1   $eq
+        1   $logic_not
+        2   $mux
+        2 submodules
+        1   timing_adder_cand
+        1   timing_adder_gold
+
+4.14. Executing CHECK pass (checking for obvious problems).
+Checking module equiv_miter...
+Checking module timing_adder_cand...
+Checking module timing_adder_gold...
+Found and reported 0 problems.
+
+5. Executing ASYNC2SYNC pass.
+Replacing timing_adder_cand.$procdff$25 ($adff): ARST=\rst_n, D=\sum2, Q=\y
+Replacing timing_adder_cand.$procdff$30 ($adff): ARST=\rst_n, D=$0\sum1[31:0], Q=\sum1
+Replacing timing_adder_cand.$procdff$35 ($adff): ARST=\rst_n, D=$0\sum2[31:0], Q=\sum2
+Replacing timing_adder_gold.$procdff$40 ($adff): ARST=\rst_n, D=\sum2, Q=\y
+Replacing timing_adder_gold.$procdff$45 ($adff): ARST=\rst_n, D=$0\sum1[31:0], Q=\sum1
+Replacing timing_adder_gold.$procdff$50 ($adff): ARST=\rst_n, D=$0\sum2[31:0], Q=\sum2
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing SMT2 backend.
+
+7.1. Executing BMUXMAP pass.
+
+7.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module timing_adder_gold.
+Creating SMT-LIBv2 representation of module timing_adder_cand.
+Creating SMT-LIBv2 representation of module equiv_miter.
+
+End of script. Logfile hash: e36104487d
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 2% 6x read_verilog (0 sec), 2% 5x opt_expr (0 sec), ...

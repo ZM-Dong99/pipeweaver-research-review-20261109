@@ -1,0 +1,60 @@
+{
+  "call_index": 11,
+  "arm": "structured_timing_feedback",
+  "candidate_id": "candidate_04",
+  "candidate_sha256": "74191505e15b0798eb681a063cd49bc55377792621ed49849bf936f7266a321d",
+  "status": "GENERATED",
+  "explanation": {
+    "bottleneck": "The measured worst path is a state flip-flop through the three-input bill decode OR to the bill output. The OR contributes 0.40 ns of the reported 0.70 ns arrival time. The next reported register-to-register path already has only 0.08 ns more slack, so removing the output decode alone does not imply a large overall WNS gain.",
+    "rewrite": "Register bill directly using a factored destination-state predicate, while retaining the original state transitions and combinational decoding of the other outputs. The bill register updates on the same edge as State, so it represents the newly entered state's bill output rather than adding an output pipeline cycle. Its synchronous clear value matches RDY.",
+    "functional_boundaries": "Preserves the top interface, parameter declarations and defaults, positive-edge clock, synchronous active-high clear, and output latency. The bill predicate covers every original state transition, including ten=twenty=1 with ten priority. Arbitrary later clear assertions synchronously enter RDY and clear bill. Equivalence is intended under the fixed startup contract against the frozen original, with no added assumptions; pre-reset uninitialized behavior is not claimed equivalent. Formal equivalence and timing/area validation remain required.",
+    "expected_timing_gain": "Unmeasured candidate. This removes the combinational OR from the bill output path, but adds a bill-register input path that must be checked by STA. If that new path is sufficiently short and other paths remain unchanged, the reported 9.38 ns register-to-register slack would become the next limit, approximately 0.08 ns above baseline WNS. Actual WNS and non-regression of TNS require EDA confirmation.",
+    "area_or_other_cost": "Adds one logical bill flip-flop and destination-state predicate logic, potentially sharing terms with the existing transition logic. Available area headroom is 25.27424 um2; fitting within the 278.01664 um2 cap is not established without mapping. Reject this candidate if mapped area exceeds the cap or setup metrics fail the objective.",
+    "output_format_normalization": [
+      "Removed complete leading think wrapper before JSON parsing"
+    ]
+  },
+  "parameters": {
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "http_transport": "curl",
+    "response_format": "json_object",
+    "candidate_index": 11,
+    "response_id": "chatcmpl-dc9bd62c-6aa9-480e-a6a5-31c8e85b29f0",
+    "response_created": 1793637056,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 3218,
+      "completion_tokens": 1500,
+      "total_tokens": 5137
+    }
+  },
+  "response_model": "gpt-6.1-sol",
+  "seconds": 33.588512599999376,
+  "accepted": false,
+  "metrics": {
+    "status": "PASS",
+    "formal": "PASS",
+    "mapped_formal": "PASS",
+    "ppa": "PASS",
+    "eligible": true,
+    "stage": "sta",
+    "mapped_area_um2": 300.288,
+    "mapped_cells": 32,
+    "electrical": {
+      "status": "PASS",
+      "violation_rows": 0,
+      "checks": [
+        "max_slew",
+        "max_capacitance"
+      ],
+      "scope": "Library limits under recorded SDC; not physical signoff"
+    },
+    "wns_ns": 9.28,
+    "tns_ns": 0.0,
+    "mapped_sha256": "0a084054c4bd4968c6f1bffcc39311526b3cafa441be4d4f1397702284e0d64e",
+    "sdc_sha256": "7c1efdc1b0d7abeccbbfb4f8af926767240ac755b5dbd6f49eed98a8e884e4ab",
+    "elapsed_seconds": 1.949
+  },
+  "reason": "Exceeds fixed baseline-derived area cap"
+}

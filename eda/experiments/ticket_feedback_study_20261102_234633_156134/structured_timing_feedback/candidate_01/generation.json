@@ -1,0 +1,34 @@
+{
+  "call_index": 2,
+  "arm": "structured_timing_feedback",
+  "candidate_id": "candidate_01",
+  "candidate_sha256": "a729d08e684af87dcff471f552a0bcd63e9a8c815470d5adb83515463de32a70",
+  "status": "GENERATED",
+  "explanation": {
+    "bottleneck": "The supplied baseline's worst setup path is a state flip-flop through a three-input OR to bill. Its reported arrival time is 0.70 ns, including 0.40 ns in the output OR. The next reported register-to-register path has 9.38 ns slack, so removing the output decode can expose another limiting path.",
+    "area_or_other_cost": "Adds one logical flip-flop and moves the bill decode to its input, with synchronous-clear handling. The available area headroom is 25.27424 um^2; fitting within it is not established. Accept only if mapped area is at most 278.01664 um^2 and the timing objective passes. No new clock, memory, latch, or asynchronous reset is introduced.",
+    "functional_boundaries": "After the specified reset edge, bill equals the original decode of State: reset sets State to RDY and bill to OFF; every subsequent edge loads State from NextState and bill from the decode of that same NextState. Arbitrary later synchronous clear assertions preserve this relationship. The ten-over-twenty priority, native interface, parameter declarations, other outputs, and cycle-level latency are unchanged. No startup assumptions are added. Formal equivalence against the frozen original under the supplied startup contract remains required.",
+    "rewrite": "Register the bill decode of NextState on the same edge that loads State. Keep the original state machine and the other output decodes. This moves the bill decode from the output path to the bill register's input path without adding a cycle of observable latency.",
+    "expected_timing_gain": "Unmeasured candidate. A directly registered bill should remove the baseline OR gate from the register-to-output path. However, the new bill-register input path can become critical, and synthesis can change the mapping. Strict WNS improvement and non-regressing TNS must be established by EDA against the frozen baseline.",
+    "output_format_normalization": [
+      "Removed complete leading think wrapper before JSON parsing"
+    ]
+  },
+  "parameters": {
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "http_transport": "curl",
+    "response_format": "json_object",
+    "candidate_index": 2,
+    "response_id": "chatcmpl-220f01e5-9d28-4b00-99ed-72704a124f5b",
+    "response_created": 1793634587,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 3218,
+      "completion_tokens": 1658,
+      "total_tokens": 5575
+    }
+  },
+  "response_model": "gpt-6.1-sol",
+  "seconds": 55.886284699998214
+}

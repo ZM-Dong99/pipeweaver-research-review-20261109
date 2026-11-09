@@ -1,0 +1,88 @@
+{
+  "cases": [
+    {
+      "id": "fixed_priority32",
+      "candidate": "D:\\verilog_lab\\PipeWeaver\\benchmark\\engineering_sources_20261030\\verilog-axis\\rtl\\arbiter.v",
+      "parameters": {
+        "PORTS": 32,
+        "ARB_TYPE_ROUND_ROBIN": 0
+      },
+      "dependency": true,
+      "expected": "PASS",
+      "candidate_sha256": "d54d337db4812f927b2e9b5788dfa39f9bd578ad01b7846c5fa7f2610b0923fa"
+    },
+    {
+      "id": "round_robin_blocking32",
+      "candidate": "D:\\verilog_lab\\PipeWeaver\\benchmark\\engineering_sources_20261030\\verilog-axis\\rtl\\arbiter.v",
+      "parameters": {
+        "PORTS": 32,
+        "ARB_TYPE_ROUND_ROBIN": 1,
+        "ARB_BLOCK": 1,
+        "ARB_BLOCK_ACK": 1
+      },
+      "dependency": true,
+      "expected": "PASS",
+      "candidate_sha256": "d54d337db4812f927b2e9b5788dfa39f9bd578ad01b7846c5fa7f2610b0923fa"
+    },
+    {
+      "id": "wrong32_default4_positive_control",
+      "candidate": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\engineering_arbiter_validation_20261102_201724_713244\\fixtures\\wrong_only_at_ports32.v",
+      "parameters": {},
+      "dependency": true,
+      "expected": "PASS",
+      "candidate_sha256": "18e2227a45ba236c954b6689df9acef45a236a158f2198804031ee4a6b215752"
+    },
+    {
+      "id": "wrong32_negative_control",
+      "candidate": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\engineering_arbiter_validation_20261102_201724_713244\\fixtures\\wrong_only_at_ports32.v",
+      "parameters": {
+        "PORTS": 32,
+        "ARB_TYPE_ROUND_ROBIN": 0
+      },
+      "dependency": true,
+      "expected": "FORMAL_FAIL",
+      "candidate_sha256": "18e2227a45ba236c954b6689df9acef45a236a158f2198804031ee4a6b215752"
+    },
+    {
+      "id": "missing_helper",
+      "candidate": "D:\\verilog_lab\\PipeWeaver\\benchmark\\engineering_sources_20261030\\verilog-axis\\rtl\\arbiter.v",
+      "parameters": {
+        "PORTS": 32,
+        "ARB_TYPE_ROUND_ROBIN": 0
+      },
+      "dependency": false,
+      "expected": "SCHEMA_REJECT",
+      "candidate_sha256": "d54d337db4812f927b2e9b5788dfa39f9bd578ad01b7846c5fa7f2610b0923fa"
+    }
+  ],
+  "reference": "D:\\verilog_lab\\PipeWeaver\\benchmark\\engineering_sources_20261030\\verilog-axis\\rtl\\arbiter.v",
+  "reference_sha256": "d54d337db4812f927b2e9b5788dfa39f9bd578ad01b7846c5fa7f2610b0923fa",
+  "dependency": "D:\\verilog_lab\\PipeWeaver\\benchmark\\engineering_sources_20261030\\verilog-axis\\rtl\\priority_encoder.v",
+  "dependency_sha256": "df28220d95b47df349a72803a9751aad331eb8e1435416e8686d00572a974dd5",
+  "frozen_files": {
+    "D:\\verilog_lab\\PipeWeaver\\benchmark\\engineering_sources_20261030\\verilog-axis\\rtl\\arbiter.v": "d54d337db4812f927b2e9b5788dfa39f9bd578ad01b7846c5fa7f2610b0923fa",
+    "D:\\verilog_lab\\PipeWeaver\\benchmark\\engineering_sources_20261030\\verilog-axis\\rtl\\priority_encoder.v": "df28220d95b47df349a72803a9751aad331eb8e1435416e8686d00572a974dd5",
+    "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\engineering_arbiter_validation_20261102_201724_713244\\fixtures\\wrong_only_at_ports32.v": "18e2227a45ba236c954b6689df9acef45a236a158f2198804031ee4a6b215752",
+    "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\engineering_arbiter_validation_20261102_201724_713244\\fixtures\\explicit_sync_reset.v": "b937296af93dbe4a7fbe6f3a510161aca698b7d4b0260822c6bda0e173063515",
+    "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\run_native_seq.py": "00bf18a23d2f09210372691111ddbae8413dcd5b087fe519f5073a435184f955",
+    "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\run_native_comb.py": "38f0f10f08e7bb752010c2985fc8a1b31f48e08c4891b318d2b1f5a6992c09ff",
+    "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\trace_sta_rtl_cone.py": "047c3b739a00bcba19d470ea3d043ef5a872dd0ded0f0ee41dc22ea3e41b920d",
+    "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\validate_engineering_arbiter.py": "d3d8abeaf8afc82bc12c9800c75d568694036f0042eda33bffb278871f8f899c",
+    "D:\\verilog_lab\\PipeWeaver\\agents\\sequential_loop.py": "309c143ffb1df058aa2aabc3d9550283274ec7a0f6bed5f7b040422bc0d882c9",
+    "D:\\verilog_lab\\PipeWeaver\\agents\\optimization_loop.py": "711f807fad46f15a45958992aa5507d9a554d91611b5c619762da2d1f3be93d1",
+    "D:\\verilog_lab\\PipeWeaver\\agents\\rtl_optimizer.py": "576a055c1f5e8498a014833cb7f8bb01de08a56e6f3fcd53c568dcaaf4a3e12e"
+  },
+  "clock": "clk",
+  "reset": "rst",
+  "reset_cycles": 1,
+  "warmup_samples": 1,
+  "period_ns": 10,
+  "timeout_seconds": 120,
+  "llm_requests": 0,
+  "loop_candidate": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\engineering_arbiter_validation_20261102_201724_713244\\fixtures\\explicit_sync_reset.v",
+  "loop_parameters": {
+    "PORTS": 32,
+    "ARB_TYPE_ROUND_ROBIN": 0
+  },
+  "purpose": "Native parameter/dependency qualification, positive rewrite and deliberate negative controls. Not an optimization or model comparison."
+}

@@ -1,0 +1,26 @@
+{
+  "endpoint": "https://apinebula.ai/v1/chat/completions",
+  "body": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "response_format": {
+      "type": "json_object"
+    },
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "max_completion_tokens": 16000,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Conservatively optimize combinational RTL. Preserve all defined input/output behavior. Return exactly the requested JSON object."
+      },
+      {
+        "role": "user",
+        "content": "Optimize this fixed combinational instance: module priority_encoder, parameters {\"LSB_HIGH_PRIORITY\": 0, \"WIDTH\": 256}. Minimize mapped maximum data arrival. Give one complete synthesizable Verilog-2001 design. Keep module, parameters, ports, widths, signedness, truncations, priority and default-case behavior. All inputs are unconstrained, all outputs must match for every two-state input. No clocks, storage, latency, assumptions, external includes, or new dependencies. Helper modules are allowed.\nCommon evaluation: SKY130HD TT25C1.80V; zero external IO delays; input transition0.10ns; output load0.010pF; 100ns virtual reporting clock; no physical wire parasitics. Yosys flatten/synth-noabc; ABC strash/dretime/map/cleanup-i-o/buffer/upsize/dnsize/stime-p with fixed driver and load. Full source and mapped equivalence and zero electrical violations required.\nBaseline mapped area 8056.476800um^2; fixed cap 8862.124480um^2. No candidate results are supplied.\nReturn exactly one JSON object with these six fields: candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.\nOriginal RTL:\n/*\n\nCopyright (c) 2014-2021 Alex Forencich\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\nTHE SOFTWARE.\n\n*/\n\n// Language: Verilog 2001\n\n`resetall\n`timescale 1ns / 1ps\n`default_nettype none\n\n/*\n * Priority encoder module\n */\nmodule priority_encoder #\n(\n    parameter WIDTH = 4,\n    // LSB priority selection\n    parameter LSB_HIGH_PRIORITY = 0\n)\n(\n    input  wire [WIDTH-1:0]         input_unencoded,\n    output wire                     output_valid,\n    output wire [$clog2(WIDTH)-1:0] output_encoded,\n    output wire [WIDTH-1:0]         output_unencoded\n);\n\nparameter LEVELS = WIDTH > 2 ? $clog2(WIDTH) : 1;\nparameter W = 2**LEVELS;\n\n// pad input to even power of two\nwire [W-1:0] input_padded = {{W-WIDTH{1'b0}}, input_unencoded};\n\nwire [W/2-1:0] stage_valid[LEVELS-1:0];\nwire [W/2-1:0] stage_enc[LEVELS-1:0];\n\ngenerate\n    genvar l, n;\n\n    // process input bits; generate valid bit and encoded bit for each pair\n    for (n = 0; n < W/2; n = n + 1) begin : loop_in\n        assign stage_valid[0][n] = |input_padded[n*2+1:n*2];\n        if (LSB_HIGH_PRIORITY) begin\n            // bit 0 is highest priority\n            assign stage_enc[0][n] = !input_padded[n*2+0];\n        end else begin\n            // bit 0 is lowest priority\n            assign stage_enc[0][n] = input_padded[n*2+1];\n        end\n    end\n\n    // compress down to single valid bit and encoded bus\n    for (l = 1; l < LEVELS; l = l + 1) begin : loop_levels\n        for (n = 0; n < W/(2*2**l); n = n + 1) begin : loop_compress\n            assign stage_valid[l][n] = |stage_valid[l-1][n*2+1:n*2];\n            if (LSB_HIGH_PRIORITY) begin\n                // bit 0 is highest priority\n                assign stage_enc[l][(n+1)*(l+1)-1:n*(l+1)] = stage_valid[l-1][n*2+0] ? {1'b0, stage_enc[l-1][(n*2+1)*l-1:(n*2+0)*l]} : {1'b1, stage_enc[l-1][(n*2+2)*l-1:(n*2+1)*l]};\n            end else begin\n                // bit 0 is lowest priority\n                assign stage_enc[l][(n+1)*(l+1)-1:n*(l+1)] = stage_valid[l-1][n*2+1] ? {1'b1, stage_enc[l-1][(n*2+2)*l-1:(n*2+1)*l]} : {1'b0, stage_enc[l-1][(n*2+1)*l-1:(n*2+0)*l]};\n            end\n        end\n    end\nendgenerate\n\nassign output_valid = stage_valid[LEVELS-1];\nassign output_encoded = stage_enc[LEVELS-1];\nassign output_unencoded = 1 << output_encoded;\n\nendmodule\n\n`resetall\n"
+      }
+    ]
+  },
+  "credentials": "omitted"
+}

@@ -1,0 +1,7 @@
+read_liberty -lib "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+read_verilog "D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/optimized/evaluation/mapped.v"
+hierarchy -check -top axis_eth_fcs_reset
+hilomap -hicell sky130_fd_sc_hd__conb_1 HI -locell sky130_fd_sc_hd__conb_1 LO
+clean
+write_json prepared.json
+write_verilog -noattr prepared.v

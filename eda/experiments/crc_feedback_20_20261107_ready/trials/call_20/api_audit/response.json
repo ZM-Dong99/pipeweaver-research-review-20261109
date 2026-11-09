@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-e7e770a9-1b8b-4690-b3ea-3496bf843580",
+  "model": "gpt-6.1-sol",
+  "created": 1794022707,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Deriving CRC update masks**\n\n**Deriving CRC basis masks**\n\n**Selecting index tree**\n\n**Designing balanced parity tree**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module crc32_d8 (\\n    input  wire [7:0]  data_in,\\n    input  wire [31:0] state_in,\\n    output wire [7:0]  data_out,\\n    output wire [31:0] state_out\\n);\\n    // Common input parities for this fixed reflected CRC32 instance.\\n    wire [7:0] t;\\n    assign t = data_in ^ state_in[7:0];\\n\\n    // Feedback emitted by each of the eight reflected Galois steps.\\n    assign data_out[5:0] = t[5:0];\\n    assign data_out[6] = t[6] ^ t[0];\\n    assign data_out[7] = t[7] ^ t[1];\\n\\n    // Elaboration-only construction of the byte-update linear transform.\\n    function [7:0] byte_mask;\\n        input integer bit_number;\\n        reg [31:0] basis;\\n        integer k;\\n        integer step;\\n        begin\\n            byte_mask = 8'b0;\\n            for (k = 0; k < 8; k = k + 1) begin\\n                basis = 32'h00000001 << k;\\n                for (step = 0; step < 8; step = step + 1) begin\\n                    if (basis[0])\\n                        basis = (basis >> 1) ^ 32'hedb88320;\\n                    else\\n                        basis = basis >> 1;\\n                end\\n                byte_mask[k] = basis[bit_number];\\n            end\\n        end\\n    endfunction\\n\\n    function integer bit_count;\\n        input [7:0] mask;\\n        integer k;\\n        begin\\n            bit_count = 0;\\n            for (k = 0; k < 8; k = k + 1)\\n                bit_count = bit_count + ((mask >> k) & 8'h01);\\n        end\\n    endfunction\\n\\n    genvar b;\\n    genvar k;\\n    generate\\n        for (b = 0; b < 32; b = b + 1) begin : output_bit\\n            localparam [7:0] MASK = byte_mask(b);\\n            localparam integer TC = bit_count(MASK);\\n            localparam integer NC = TC + ((b < 24) ? 1 : 0);\\n            wire [NC-1:0] terms;\\n\\n            for (k = 0; k < 8; k = k + 1) begin : input_term\\n                if (MASK[k]) begin : selected\\n                    localparam integer INDEX = bit_count(MASK & ((8'h01 << k) - 8'h01));\\n                    assign terms[INDEX] = t[k];\\n                end\\n            end\\n\\n            if (b < 24) begin : shifted_state\\n                assign terms[TC] = state_in[b+8];\\n            end\\n\\n            crc32_d8_balanced_xor #(.N(NC)) parity (\\n                .x(terms),\\n                .y(state_out[b])\\n            );\\n        end\\n    endgenerate\\nendmodule\\n\\nmodule crc32_d8_balanced_xor #(\\n    parameter integer N = 1\\n) (\\n    input  wire [N-1:0] x,\\n    output wire y\\n);\\n    generate\\n        if (N == 1) begin : leaf\\n            assign y = x[0];\\n        end else begin : branch\\n            localparam integer L = N/2;\\n            wire lo;\\n            wire hi;\\n            crc32_d8_balanced_xor #(.N(L)) left (\\n                .x(x[L-1:0]), .y(lo)\\n            );\\n            crc32_d8_balanced_xor #(.N(N-L)) right (\\n                .x(x[N-1:L]), .y(hi)\\n            );\\n            assign y = lo ^ hi;\\n        end\\n    endgenerate\\nendmodule\",\n  \"bottleneck\": \"The original independently reduces state and data terms for each output. Its mapped critical path can be dominated by XOR depth and repeated input-parity computation, with additional loading from shared terms.\",\n  \"rewrite\": \"Factor data_in XOR state_in[7:0] into eight common parities. Compute each next-state bit from the fixed reflected-polynomial byte transform using an explicitly balanced XOR tree that includes the shifted-state term. Preserve data_out as the actual eight emitted feedback bits, including its two nontrivial correction parities. All mask-generation loops execute at elaboration; there is no runtime serial CRC chain.\",\n  \"expected_timing_gain\": \"Expected to reduce redundant parity logic and encourage shallow XOR paths. A numerical gain cannot be established without the specified mapping and timing flow; no measured improvement is claimed.\",\n  \"area_or_other_cost\": \"Shared input parities should reduce duplicated XOR work, but their fanout may require buffering. Mapped area, the 2752.640000 um^2 cap, and zero electrical violations have not been verified here and require the specified evaluation flow.\",\n  \"functional_boundaries\": \"Fixed combinational crc32_d8 interface with all 40 input bits unrestricted and all 40 output bits retained. Implements eight LSB-first Galois steps using reflected polynomial 0xedb88320, equivalent to the supplied 0x04c11db7 configuration. No initialization, framing, inversion, gating, sequential state, assumptions, or external dependencies are introduced. Source and mapped SAT proofs remain required; they have not been run here.\"\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5203,
+    "completion_tokens": 2044,
+    "total_tokens": 8052
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 1239,
+    "usage_reported": true
+  }
+}

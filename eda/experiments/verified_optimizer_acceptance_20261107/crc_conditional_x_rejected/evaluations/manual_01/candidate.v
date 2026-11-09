@@ -1,0 +1,1 @@
+module crc32_d8(input wire [7:0] data_in,input wire [31:0] state_in,output wire [7:0] data_out,output wire [31:0] state_out);assign state_out=data_in[0]?32'bx:state_in;assign data_out=data_in;endmodule

@@ -1,0 +1,44 @@
+Optimize module decoder_8bit, fixed parameter overrides {"N": 8}. Minimize mapped maximum data arrival. Preserve module name, ports, widths, signedness, truncations, priority, default outputs and parameter declarations/defaults. All input bits are arbitrary binary values. Every output bit must match for all inputs. Do not rely on presumed typical operation or comments. No clocks, storage, latency, latches, memories, assumptions, assertions, external includes, file access, dependencies or undefined outputs. Return a complete synthesizable design including helper modules. Only this fixed parameter instance is assessed.
+Evaluation uses SKY130HD TT25C1.80V, Yosys source and mapped all-input equivalence, flatten/synth-noabc and ABC buffer_size with cleanup-before-buffer, OpenSTA, 0ns external IO delays, input transition0.10ns, output load0.010pF, 100ns virtual reporting clock and no physical wire parasitics. Zero reported max-slew and max-capacitance violations required. Original mapped area 2599.993600um2; area cap 2859.992960um2. CRC candidates use the same Slang frontend as their baseline. CRC state_in is arbitrary and data_out must also match exactly.
+Return exactly one JSON object with six string fields candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.
+Original RTL:
+module decoder_8bit 
+ #(
+    parameter N = 8
+) (
+    input [N-1:0] in,
+    output reg [(1<<N)-1:0] out
+);
+    
+    always @(*) begin
+        out = {{(1<<N)-1{1'b0}}, 1'b1} << in;
+    end
+endmodule
+Second round. Improve your previous candidate, keeping the original contract and area cap.
+
+Your previous candidate RTL:
+module decoder_8bit
+ #(
+    parameter N = 8
+) (
+    input [N-1:0] in,
+    output reg [(1<<N)-1:0] out
+);
+    wire [15:0] low_dec;
+    wire [15:0] high_dec;
+    wire [255:0] decoded;
+
+    assign low_dec = 16'b1 << in[3:0];
+    assign high_dec = 16'b1 << in[7:4];
+
+    genvar k;
+    generate
+        for (k = 0; k < 256; k = k + 1) begin : gen_decode
+            assign decoded[k] = low_dec[k % 16] & high_dec[k / 16];
+        end
+    endgenerate
+
+    always @(*) begin
+        out = decoded;
+    end
+endmodule

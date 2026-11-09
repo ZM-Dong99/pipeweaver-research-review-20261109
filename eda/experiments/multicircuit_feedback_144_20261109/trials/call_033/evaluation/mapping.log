@@ -1,0 +1,731 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\multicircuit_feedback_144_20261109\trials\call_033\evaluation\mapping.ys' --
+
+1. Executing Liberty frontend: D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v
+Parsing SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v' to AST representation.
+Generating RTLIL representation for module `\decoder_8bit'.
+Successfully finished Verilog frontend.
+Parameter \N = 8
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\decoder_8bit'.
+Parameter \N = 8
+Generating RTLIL representation for module `$paramod\decoder_8bit\N=s32'00000000000000000000000000001000'.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \decoder_8bit
+
+4.2. Analyzing design hierarchy..
+Top module:  \decoder_8bit
+Removed 0 unused modules.
+
+5. Executing FLATTEN pass (flatten design).
+
+6. Executing SYNTH pass.
+
+6.1. Executing HIERARCHY pass (managing design hierarchy).
+
+6.1.1. Analyzing design hierarchy..
+Top module:  \decoder_8bit
+
+6.1.2. Analyzing design hierarchy..
+Top module:  \decoder_8bit
+Removed 0 unused modules.
+
+6.2. Executing PROC pass (convert processes to netlists).
+
+6.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$3 in module decoder_8bit.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$3 in module decoder_8bit.
+Removed a total of 1 dead cases.
+
+6.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+6.2.4. Executing PROC_INIT pass (extract init attributes).
+
+6.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+6.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+6.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\decoder_8bit.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$3'.
+     1/16: $1\out[255:0] [239:224]
+     2/16: $1\out[255:0] [223:208]
+     3/16: $1\out[255:0] [191:176]
+     4/16: $1\out[255:0] [159:144]
+     5/16: $1\out[255:0] [127:112]
+     6/16: $1\out[255:0] [95:80]
+     7/16: $1\out[255:0] [63:48]
+     8/16: $1\out[255:0] [31:16]
+     9/16: $1\out[255:0] [255:240]
+    10/16: $1\out[255:0] [175:160]
+    11/16: $1\out[255:0] [111:96]
+    12/16: $1\out[255:0] [47:32]
+    13/16: $1\out[255:0] [207:192]
+    14/16: $1\out[255:0] [79:64]
+    15/16: $1\out[255:0] [143:128]
+    16/16: $1\out[255:0] [15:0]
+
+6.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\decoder_8bit.\out' from process `\decoder_8bit.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$3'.
+No latch inferred for signal `\decoder_8bit.\low_onehot' from process `\decoder_8bit.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$3'.
+
+6.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+6.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\decoder_8bit.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$3'.
+Removing empty process `decoder_8bit.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:10$3'.
+Cleaned up 1 empty switch.
+
+6.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+<suppressed ~16 debug messages>
+
+6.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+
+6.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder_8bit..
+Removed 0 unused cells and 20 unused wires.
+<suppressed ~1 debug messages>
+
+6.5. Executing CHECK pass (checking for obvious problems).
+Checking module decoder_8bit...
+Found and reported 0 problems.
+
+6.6. Executing OPT pass (performing simple optimizations).
+
+6.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+
+6.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder_8bit'.
+Computing hashes of 273 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+Computing hashes of 33 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+<suppressed ~720 debug messages>
+Removed a total of 240 cells.
+
+6.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \decoder_8bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+6.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \decoder_8bit.
+    New ctrl vector for $pmux cell $procmux$209: { $auto$opt_reduce.cc:137:opt_pmux$278 $procmux$264_CMP }
+    New ctrl vector for $pmux cell $procmux$90: { $auto$opt_reduce.cc:137:opt_pmux$280 $procmux$271_CMP }
+    New ctrl vector for $pmux cell $procmux$141: { $procmux$261_CMP $auto$opt_reduce.cc:137:opt_pmux$282 }
+    New ctrl vector for $pmux cell $procmux$226: { $auto$opt_reduce.cc:137:opt_pmux$284 $procmux$272_CMP }
+    New ctrl vector for $pmux cell $procmux$243: { $auto$opt_reduce.cc:137:opt_pmux$286 $procmux$268_CMP }
+    New ctrl vector for $pmux cell $procmux$56: { $auto$opt_reduce.cc:137:opt_pmux$288 $procmux$267_CMP }
+    New ctrl vector for $pmux cell $procmux$260: { $auto$opt_reduce.cc:137:opt_pmux$290 $procmux$276_CMP }
+    New ctrl vector for $pmux cell $procmux$158: { $auto$opt_reduce.cc:137:opt_pmux$292 $procmux$266_CMP }
+    New ctrl vector for $pmux cell $procmux$22: { $auto$opt_reduce.cc:137:opt_pmux$294 $procmux$263_CMP }
+    New ctrl vector for $pmux cell $procmux$107: { $auto$opt_reduce.cc:137:opt_pmux$296 $procmux$273_CMP }
+    New ctrl vector for $pmux cell $procmux$175: { $auto$opt_reduce.cc:137:opt_pmux$298 $procmux$270_CMP }
+    New ctrl vector for $pmux cell $procmux$73: { $auto$opt_reduce.cc:137:opt_pmux$300 $procmux$269_CMP }
+    New ctrl vector for $pmux cell $procmux$124: { $auto$opt_reduce.cc:137:opt_pmux$302 $procmux$275_CMP }
+    New ctrl vector for $pmux cell $procmux$39: { $auto$opt_reduce.cc:137:opt_pmux$304 $procmux$265_CMP }
+    New ctrl vector for $pmux cell $procmux$192: { $auto$opt_reduce.cc:137:opt_pmux$306 $procmux$274_CMP }
+    New ctrl vector for $pmux cell $procmux$5: { $auto$opt_reduce.cc:137:opt_pmux$308 $procmux$262_CMP }
+  Optimizing cells in module \decoder_8bit.
+Performed a total of 16 changes.
+
+6.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder_8bit'.
+Computing hashes of 49 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+Removed a total of 0 cells.
+
+6.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder_8bit..
+Removed 0 unused cells and 240 unused wires.
+<suppressed ~1 debug messages>
+
+6.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+
+6.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \decoder_8bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+6.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \decoder_8bit.
+Performed a total of 0 changes.
+
+6.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder_8bit'.
+Computing hashes of 49 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+Removed a total of 0 cells.
+
+6.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder_8bit..
+
+6.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+
+6.6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6.7. Executing FSM pass (extract and optimize FSM).
+
+6.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+6.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+6.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder_8bit..
+
+6.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+6.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+6.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+6.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+6.8. Executing OPT pass (performing simple optimizations).
+
+6.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+
+6.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder_8bit'.
+Computing hashes of 49 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+Removed a total of 0 cells.
+
+6.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \decoder_8bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+6.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \decoder_8bit.
+Performed a total of 0 changes.
+
+6.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder_8bit'.
+Computing hashes of 49 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+Removed a total of 0 cells.
+
+6.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder_8bit..
+
+6.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+
+6.8.9. Finished fast OPT passes. (There is nothing left to do.)
+
+6.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 15 bits (of 16) from port A of cell decoder_8bit.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/candidate.v:11$4 ($shl).
+Removed top 1 bits (of 4) from port B of cell decoder_8bit.$procmux$269_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell decoder_8bit.$procmux$270_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell decoder_8bit.$procmux$271_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell decoder_8bit.$procmux$272_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell decoder_8bit.$procmux$273_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell decoder_8bit.$procmux$274_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell decoder_8bit.$procmux$275_CMP0 ($eq).
+
+6.10. Executing PEEPOPT pass (run peephole optimizers).
+
+6.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder_8bit..
+
+6.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module decoder_8bit:
+  created 0 $alu and 0 $macc cells.
+
+6.13. Executing SHARE pass (SAT-based resource sharing).
+
+6.14. Executing OPT pass (performing simple optimizations).
+
+6.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+
+6.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder_8bit'.
+Computing hashes of 49 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+Removed a total of 0 cells.
+
+6.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \decoder_8bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+6.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \decoder_8bit.
+Performed a total of 0 changes.
+
+6.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder_8bit'.
+Computing hashes of 49 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+Removed a total of 0 cells.
+
+6.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder_8bit..
+
+6.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+
+6.14.9. Finished fast OPT passes. (There is nothing left to do.)
+
+6.15. Executing MEMORY pass.
+
+6.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+6.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+6.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+6.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+6.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+6.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder_8bit..
+
+6.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+6.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+6.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder_8bit..
+
+6.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+6.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder_8bit..
+
+6.17. Executing OPT pass (performing simple optimizations).
+
+6.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+<suppressed ~16 debug messages>
+
+6.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder_8bit'.
+Computing hashes of 49 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+Removed a total of 0 cells.
+
+6.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder_8bit..
+Removed 16 unused cells and 16 unused wires.
+<suppressed ~17 debug messages>
+
+6.17.5. Finished fast OPT passes.
+
+6.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+6.19. Executing OPT pass (performing simple optimizations).
+
+6.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+
+6.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder_8bit'.
+Computing hashes of 33 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+Removed a total of 0 cells.
+
+6.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \decoder_8bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+6.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \decoder_8bit.
+Performed a total of 0 changes.
+
+6.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder_8bit'.
+Computing hashes of 33 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+Removed a total of 0 cells.
+
+6.19.6. Executing OPT_SHARE pass.
+
+6.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder_8bit..
+
+6.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+
+6.19.10. Finished fast OPT passes. (There is nothing left to do.)
+
+6.20. Executing TECHMAP pass (map to technology primitives).
+
+6.20.1. Executing Verilog-2005 frontend: D:\oss-cad-suite\bin\../share/yosys/techmap.v
+Parsing Verilog input from `D:\oss-cad-suite\bin\../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+6.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $reduce_or.
+Using template $paramod$constmap:cd091ea91e3c923bb92039f58cc19ac12c809578$paramod$0c53878c2ab6a84f047b5c15f705bf752551700e\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $logic_not.
+No more expansions possible.
+<suppressed ~336 debug messages>
+
+6.21. Executing OPT pass (performing simple optimizations).
+
+6.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module decoder_8bit.
+<suppressed ~296 debug messages>
+
+6.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\decoder_8bit'.
+Computing hashes of 387 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+Computing hashes of 357 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+Computing hashes of 341 cells of `\decoder_8bit'.
+Finding duplicate cells in `\decoder_8bit'.
+<suppressed ~138 debug messages>
+Removed a total of 46 cells.
+
+6.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \decoder_8bit..
+Removed 0 unused cells and 68 unused wires.
+<suppressed ~1 debug messages>
+
+6.21.5. Finished fast OPT passes.
+
+6.22. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `decoder_8bit'. Setting top module to decoder_8bit.
+
+6.22.1. Analyzing design hierarchy..
+Top module:  \decoder_8bit
+
+6.22.2. Analyzing design hierarchy..
+Top module:  \decoder_8bit
+Removed 0 unused modules.
+
+6.23. Printing statistics.
+
+=== decoder_8bit ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       49 wires
+      386 wire bits
+        3 public wires
+      280 public wire bits
+        2 ports
+      264 port bits
+      341 cells
+      284   $_MUX_
+       20   $_NOT_
+       37   $_OR_
+
+6.24. Executing CHECK pass (checking for obvious problems).
+Checking module decoder_8bit...
+Found and reported 0 problems.
+
+7. Executing ABC pass (technology mapping using ABC).
+
+7.1. Extracting gate netlist of module `\decoder_8bit' to `<abc-temp-dir>/input.blif'..
+Warning: ABC: merged SCL conversion failed, falling back to liberty format
+ABC: conversion output:
+'D:\oss-cad-suite\bin\yosys-abc" -c "read_lib' is not recognized as an internal or external command,
+
+operable program or batch file.
+
+Warning: ABC: Merged scl conversion failed, using liberty format
+
+7.1.1. Executed ABC.
+Extracted 341 gates and 350 wires to a netlist network with 8 inputs and 256 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -X sky130_fd_sc_hd__lpflow_* -w D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.04 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_0".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_8".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_bleeder_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_12" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_3" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_6" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__lpflow_inputisolatch_1".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrckapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_4".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" has 307 cells (121 skipped: 63 seq; 13 tri-state; 12 no func; 33 dont_use; 0 with 2 outputs; 0 with 3+ outputs).  Time =     0.14 sec
+ABC: Memory =   16.01 MB. Time =     0.14 sec
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + read_constr -v D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/evaluation/abc.constr 
+ABC: Setting driving cell to be "sky130_fd_sc_hd__buf_2".
+ABC: Setting output load to be 10.000000.
+ABC: + source D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_033/evaluation/abc.script 
+ABC: Cleanup removed 0 dangling nodes.
+ABC: WireLoad = "none"  Gates =    339 ( 14.2 %)   Cap = 15.1 ff ( 17.5 %)   Area =     2160.82 ( 63.4 %)   Delay =   845.99 ps  ( 72.3 %)               
+ABC: Path  0 --       2 : 0    1 pi                       A =   0.00  Df =  21.7   -4.1 ps  S =  36.8 ps  Cin =  0.0 ff  Cout =   4.9 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --     275 : 1   10 sky130_fd_sc_hd__buf_6   A =  11.26  Df = 219.8  -39.0 ps  S = 183.9 ps  Cin =  4.6 ff  Cout =  90.1 ff  Cmax = 785.5 ff  G = 1862  
+ABC: Path  2 --     341 : 1    4 sky130_fd_sc_hd__inv_2   A =   3.75  Df = 344.8   -6.4 ps  S = 164.4 ps  Cin =  4.5 ff  Cout =  35.0 ff  Cmax = 331.4 ff  G =  765  
+ABC: Path  3 --     501 : 4    7 sky130_fd_sc_hd__nand4_4 A =  21.27  Df = 461.9  -13.3 ps  S = 116.0 ps  Cin =  8.6 ff  Cout =  16.6 ff  Cmax = 358.0 ff  G =  186  
+ABC: Path  4 --     503 : 1   10 sky130_fd_sc_hd__buf_2   A =   5.00  Df = 653.0  -15.5 ps  S = 128.2 ps  Cin =  1.7 ff  Cout =  24.7 ff  Cmax = 315.9 ff  G = 1372  
+ABC: Path  5 --     504 : 2    1 sky130_fd_sc_hd__nor2_1  A =   3.75  Df = 846.0 -114.7 ps  S = 198.9 ps  Cin =  2.4 ff  Cout =  10.0 ff  Cmax =  86.1 ff  G =  423  
+ABC: Start-point = pi1 (\in [7]).  End-point = po166 (\out [125]).
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+7.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__buf_2 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__buf_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__buf_6 cells:       26
+ABC RESULTS:   sky130_fd_sc_hd__inv_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__inv_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__inv_8 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand2_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand3_4 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__nand4_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand4_4 cells:       20
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:      215
+ABC RESULTS:   sky130_fd_sc_hd__nor2_2 cells:       41
+ABC RESULTS:   sky130_fd_sc_hd__nor2_8 cells:        3
+ABC RESULTS:        internal signals:       86
+ABC RESULTS:           input signals:        8
+ABC RESULTS:          output signals:      256
+Removing temp directory.
+Removing global temp directory.
+Removed 0 unused cells and 311 unused wires.
+
+8. Executing CHECK pass (checking for obvious problems).
+Checking module decoder_8bit...
+Found and reported 0 problems.
+
+9. Printing statistics.
+
+=== decoder_8bit ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+       85        - wires
+      347        - wire bits
+        2        - public wires
+      264        - public wire bits
+        2        - ports
+      264        - port bits
+      339 2.16E+03 cells
+       13   65.062   sky130_fd_sc_hd__buf_2
+        1    7.507   sky130_fd_sc_hd__buf_4
+       26  292.781   sky130_fd_sc_hd__buf_6
+        5   18.768   sky130_fd_sc_hd__inv_2
+        1    6.256   sky130_fd_sc_hd__inv_4
+        2   22.522   sky130_fd_sc_hd__inv_8
+        1   11.261   sky130_fd_sc_hd__nand2_4
+       10  175.168   sky130_fd_sc_hd__nand3_4
+        1   12.512   sky130_fd_sc_hd__nand4_2
+       20  425.408   sky130_fd_sc_hd__nand4_4
+      215  807.024   sky130_fd_sc_hd__nor2_1
+       41  256.496   sky130_fd_sc_hd__nor2_2
+        3   60.058   sky130_fd_sc_hd__nor2_8
+
+   Chip area for module '\decoder_8bit': 2160.822400
+     of which used for sequential elements: 0.000000 (0.00%)
+
+10. Executing JSON backend.
+
+11. Executing Verilog backend.
+
+11.1. Executing BMUXMAP pass.
+
+11.2. Executing DEMUXMAP pass.
+Dumping module `\decoder_8bit'.
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 7aad2329f1
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 1% 15x opt_expr (0 sec), 1% 13x opt_clean (0 sec), ...

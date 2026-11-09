@@ -1,0 +1,1607 @@
+{
+  "scope": "Structure inspection only; deferred baseline status unchanged",
+  "llm_generation_requests": 0,
+  "planned": 11,
+  "inspected": 11,
+  "results": [
+    {
+      "id": "rtlopt_adder",
+      "status": "STRUCTURE_INSPECTED",
+      "sequential_equivalence": "NOT_RUN",
+      "sta": "NOT_RUN",
+      "source_sha256": "fc9f40e5b7bf42628438fe55cf10ca25a7ed08ea86b34e713b3628459dbfb967",
+      "ports": {
+        "DATA_1": {
+          "direction": "input",
+          "width": 32
+        },
+        "DATA_2": {
+          "direction": "input",
+          "width": 32
+        },
+        "SEL_0": {
+          "direction": "input",
+          "width": 1
+        },
+        "SEL_1": {
+          "direction": "input",
+          "width": 1
+        },
+        "clk": {
+          "direction": "input",
+          "width": 1
+        },
+        "reg_0": {
+          "direction": "output",
+          "width": 32
+        }
+      },
+      "state_cell_types": {
+        "$dff": 1
+      },
+      "controls": [
+        {
+          "state_cell": "$procdff$11",
+          "type": "$dff",
+          "pin": "CLK",
+          "bits": [
+            68
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "1"
+        }
+      ]
+    },
+    {
+      "id": "rtlopt_fsm",
+      "status": "STRUCTURE_INSPECTED",
+      "sequential_equivalence": "NOT_RUN",
+      "sta": "NOT_RUN",
+      "source_sha256": "073c85687f6a48b93a95af0fbcc878ab2ea9d8ef93cf99718644836fa3ee5e3d",
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "width": 1
+        },
+        "rst_n": {
+          "direction": "input",
+          "width": 1
+        },
+        "start": {
+          "direction": "input",
+          "width": 1
+        },
+        "data_in": {
+          "direction": "input",
+          "width": 8
+        },
+        "data_out": {
+          "direction": "output",
+          "width": 8
+        },
+        "done": {
+          "direction": "output",
+          "width": 1
+        }
+      },
+      "state_cell_types": {
+        "$adff": 1
+      },
+      "controls": [
+        {
+          "state_cell": "$procdff$42",
+          "type": "$adff",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "1"
+        },
+        {
+          "state_cell": "$procdff$42",
+          "type": "$adff",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "rst_n"
+          ],
+          "polarity_parameter": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "id": "rtlopt_fsm_encode",
+      "status": "STRUCTURE_INSPECTED",
+      "sequential_equivalence": "NOT_RUN",
+      "sta": "NOT_RUN",
+      "source_sha256": "89a84aa404db33d6a45a7ec6c9afb457a3e8ae81db3430b388cfa02df4f4e20d",
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "width": 1
+        },
+        "rst_n": {
+          "direction": "input",
+          "width": 1
+        },
+        "start": {
+          "direction": "input",
+          "width": 1
+        },
+        "data_in": {
+          "direction": "input",
+          "width": 8
+        },
+        "data_out": {
+          "direction": "output",
+          "width": 8
+        },
+        "done": {
+          "direction": "output",
+          "width": 1
+        }
+      },
+      "state_cell_types": {
+        "$adffe": 4,
+        "$adff": 1
+      },
+      "controls": [
+        {
+          "state_cell": "$auto$ff.cc:337:slice$65",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$65",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "rst_n"
+          ],
+          "polarity_parameter": "00000000000000000000000000000000"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$66",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$66",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "rst_n"
+          ],
+          "polarity_parameter": "00000000000000000000000000000000"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$69",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$69",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "rst_n"
+          ],
+          "polarity_parameter": "00000000000000000000000000000000"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$72",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$72",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "rst_n"
+          ],
+          "polarity_parameter": "00000000000000000000000000000000"
+        },
+        {
+          "state_cell": "$procdff$64",
+          "type": "$adff",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "1"
+        },
+        {
+          "state_cell": "$procdff$64",
+          "type": "$adff",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "rst_n"
+          ],
+          "polarity_parameter": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "id": "rtlopt_gray",
+      "status": "STRUCTURE_INSPECTED",
+      "sequential_equivalence": "NOT_RUN",
+      "sta": "NOT_RUN",
+      "source_sha256": "53728d40b48c4f2f6f8daac5475a2c5d6700ecdb2c925f05697bb17a6927c337",
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "width": 1
+        },
+        "rst_n": {
+          "direction": "input",
+          "width": 1
+        },
+        "cmd": {
+          "direction": "input",
+          "width": 4
+        },
+        "out": {
+          "direction": "output",
+          "width": 8
+        }
+      },
+      "state_cell_types": {
+        "$memrd_v2": 1,
+        "$meminit": 1,
+        "$adff": 1
+      },
+      "controls": [
+        {
+          "state_cell": "$auto$mem.cc:305:emit$19",
+          "type": "$memrd_v2",
+          "pin": "CLK",
+          "bits": [
+            "x"
+          ],
+          "top_port_aliases": [],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$mem.cc:305:emit$19",
+          "type": "$memrd_v2",
+          "pin": "ARST",
+          "bits": [
+            "0"
+          ],
+          "top_port_aliases": [],
+          "polarity_parameter": null
+        },
+        {
+          "state_cell": "$auto$mem.cc:305:emit$19",
+          "type": "$memrd_v2",
+          "pin": "SRST",
+          "bits": [
+            "0"
+          ],
+          "top_port_aliases": [],
+          "polarity_parameter": null
+        },
+        {
+          "state_cell": "$procdff$43",
+          "type": "$adff",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "1"
+        },
+        {
+          "state_cell": "$procdff$43",
+          "type": "$adff",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "rst_n"
+          ],
+          "polarity_parameter": "00000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "id": "rtlopt_mac",
+      "status": "STRUCTURE_INSPECTED",
+      "sequential_equivalence": "NOT_RUN",
+      "sta": "NOT_RUN",
+      "source_sha256": "85018de9dbec8850949e31e92c24f85ba257b46a05db171ea9b4153d8329f19d",
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "width": 1
+        },
+        "a": {
+          "direction": "input",
+          "width": 8
+        },
+        "b": {
+          "direction": "input",
+          "width": 8
+        },
+        "reset": {
+          "direction": "input",
+          "width": 1
+        },
+        "z": {
+          "direction": "output",
+          "width": 16
+        }
+      },
+      "state_cell_types": {
+        "$sdff": 1,
+        "$dff": 4
+      },
+      "controls": [
+        {
+          "state_cell": "$auto$ff.cc:337:slice$12",
+          "type": "$sdff",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$12",
+          "type": "$sdff",
+          "pin": "SRST",
+          "bits": [
+            19
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$procdff$10",
+          "type": "$dff",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "1"
+        },
+        {
+          "state_cell": "$procdff$7",
+          "type": "$dff",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "1"
+        },
+        {
+          "state_cell": "$procdff$8",
+          "type": "$dff",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "1"
+        },
+        {
+          "state_cell": "$procdff$9",
+          "type": "$dff",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "1"
+        }
+      ]
+    },
+    {
+      "id": "rtlopt_mul",
+      "status": "STRUCTURE_INSPECTED",
+      "sequential_equivalence": "NOT_RUN",
+      "sta": "NOT_RUN",
+      "source_sha256": "dba90f5ce346e31e3986a3315b5cdfa1776b8ac7c2ff13bc841600c76c29ba74",
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "width": 1
+        },
+        "a": {
+          "direction": "input",
+          "width": 8
+        },
+        "b": {
+          "direction": "input",
+          "width": 8
+        },
+        "z": {
+          "direction": "output",
+          "width": 8
+        }
+      },
+      "state_cell_types": {
+        "$dff": 1
+      },
+      "controls": [
+        {
+          "state_cell": "$procdff$4",
+          "type": "$dff",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "1"
+        }
+      ]
+    },
+    {
+      "id": "rtlopt_register",
+      "status": "STRUCTURE_INSPECTED",
+      "sequential_equivalence": "NOT_RUN",
+      "sta": "NOT_RUN",
+      "source_sha256": "159417e9f1be853a9f6d05e9109eeb173d3b9e0e972050111c01e3269ec26069",
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "width": 1
+        },
+        "reset": {
+          "direction": "input",
+          "width": 1
+        },
+        "read_addr1": {
+          "direction": "input",
+          "width": 5
+        },
+        "read_addr2": {
+          "direction": "input",
+          "width": 5
+        },
+        "write_addr": {
+          "direction": "input",
+          "width": 5
+        },
+        "write_data": {
+          "direction": "input",
+          "width": 32
+        },
+        "reg_write": {
+          "direction": "input",
+          "width": 1
+        },
+        "read_data1": {
+          "direction": "output",
+          "width": 32
+        },
+        "read_data2": {
+          "direction": "output",
+          "width": 32
+        }
+      },
+      "state_cell_types": {
+        "$adffe": 31
+      },
+      "controls": [
+        {
+          "state_cell": "$auto$ff.cc:337:slice$869",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$869",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$872",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$872",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$875",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$875",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$878",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$878",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$881",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$881",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$884",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$884",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$892",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$892",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$895",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$895",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$898",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$898",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$901",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$901",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$904",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$904",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$907",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$907",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$910",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$910",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$913",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$913",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$916",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$916",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$919",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$919",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$922",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$922",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$925",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$925",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$928",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$928",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$931",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$931",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$934",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$934",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$937",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$937",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$940",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$940",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$943",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$943",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$946",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$946",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$949",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$949",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$952",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$952",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$955",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$955",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$958",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$958",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$961",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$961",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$964",
+          "type": "$adffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$964",
+          "type": "$adffe",
+          "pin": "ARST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "reset"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        }
+      ]
+    },
+    {
+      "id": "rtlopt_saturating_add",
+      "status": "STRUCTURE_INSPECTED",
+      "sequential_equivalence": "NOT_RUN",
+      "sta": "NOT_RUN",
+      "source_sha256": "96e33532b3c9685e8a3df65b23e5d3ff4fa61d86ad8a4b65a767150a16c84872",
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "width": 1
+        },
+        "a": {
+          "direction": "input",
+          "width": 8
+        },
+        "b": {
+          "direction": "input",
+          "width": 8
+        },
+        "z": {
+          "direction": "output",
+          "width": 8
+        }
+      },
+      "state_cell_types": {
+        "$sdff": 1,
+        "$dff": 2
+      },
+      "controls": [
+        {
+          "state_cell": "$auto$ff.cc:337:slice$16",
+          "type": "$sdff",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$16",
+          "type": "$sdff",
+          "pin": "SRST",
+          "bits": [
+            51
+          ],
+          "top_port_aliases": [],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$procdff$14",
+          "type": "$dff",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "1"
+        },
+        {
+          "state_cell": "$procdff$15",
+          "type": "$dff",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "1"
+        }
+      ]
+    },
+    {
+      "id": "rtlopt_selector",
+      "status": "STRUCTURE_INSPECTED",
+      "sequential_equivalence": "NOT_RUN",
+      "sta": "NOT_RUN",
+      "source_sha256": "2c017050a3e16eda4e196dcd7838638b117b2e2cc3a25b594249597e63460dfc",
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "width": 1
+        },
+        "sel": {
+          "direction": "input",
+          "width": 4
+        },
+        "dout": {
+          "direction": "output",
+          "width": 7
+        }
+      },
+      "state_cell_types": {
+        "$dff": 1
+      },
+      "controls": [
+        {
+          "state_cell": "$procdff$4",
+          "type": "$dff",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "1"
+        }
+      ]
+    },
+    {
+      "id": "rtlopt_ticket_machine",
+      "status": "STRUCTURE_INSPECTED",
+      "sequential_equivalence": "NOT_RUN",
+      "sta": "NOT_RUN",
+      "source_sha256": "1b85510e841da71ffb5b1fb2ccf170eb9428d18c08ac2a4654bb731e51fc9570",
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "width": 1
+        },
+        "clear": {
+          "direction": "input",
+          "width": 1
+        },
+        "ten": {
+          "direction": "input",
+          "width": 1
+        },
+        "twenty": {
+          "direction": "input",
+          "width": 1
+        },
+        "ready": {
+          "direction": "output",
+          "width": 1
+        },
+        "dispense": {
+          "direction": "output",
+          "width": 1
+        },
+        "return_sig": {
+          "direction": "output",
+          "width": 1
+        },
+        "bill": {
+          "direction": "output",
+          "width": 1
+        }
+      },
+      "state_cell_types": {
+        "$sdff": 1
+      },
+      "controls": [
+        {
+          "state_cell": "$auto$ff.cc:337:slice$132",
+          "type": "$sdff",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$132",
+          "type": "$sdff",
+          "pin": "SRST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "clear"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        }
+      ]
+    },
+    {
+      "id": "engineering_arbiter",
+      "status": "STRUCTURE_INSPECTED",
+      "sequential_equivalence": "NOT_RUN",
+      "sta": "NOT_RUN",
+      "source_sha256": "d54d337db4812f927b2e9b5788dfa39f9bd578ad01b7846c5fa7f2610b0923fa",
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "width": 1
+        },
+        "rst": {
+          "direction": "input",
+          "width": 1
+        },
+        "request": {
+          "direction": "input",
+          "width": 4
+        },
+        "acknowledge": {
+          "direction": "input",
+          "width": 4
+        },
+        "grant": {
+          "direction": "output",
+          "width": 4
+        },
+        "grant_valid": {
+          "direction": "output",
+          "width": 1
+        },
+        "grant_encoded": {
+          "direction": "output",
+          "width": 2
+        }
+      },
+      "state_cell_types": {
+        "$sdffe": 3
+      },
+      "controls": [
+        {
+          "state_cell": "$auto$ff.cc:337:slice$135",
+          "type": "$sdffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$135",
+          "type": "$sdffe",
+          "pin": "SRST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "rst"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$136",
+          "type": "$sdffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$136",
+          "type": "$sdffe",
+          "pin": "SRST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "rst"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$137",
+          "type": "$sdffe",
+          "pin": "CLK",
+          "bits": [
+            2
+          ],
+          "top_port_aliases": [
+            "clk"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        },
+        {
+          "state_cell": "$auto$ff.cc:337:slice$137",
+          "type": "$sdffe",
+          "pin": "SRST",
+          "bits": [
+            3
+          ],
+          "top_port_aliases": [
+            "rst"
+          ],
+          "polarity_parameter": "00000000000000000000000000000001"
+        }
+      ]
+    }
+  ]
+}

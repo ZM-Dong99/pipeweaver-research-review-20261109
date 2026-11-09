@@ -1,0 +1,23 @@
+module crc32_d8(input wire [7:0] data_in, input wire [31:0] state_in, output wire [7:0] data_out, output wire [31:0] state_out);
+wire [31:0] s0, s1, s2, s3, s4, s5, s6, s7, s8;
+wire f0, f1, f2, f3, f4, f5, f6, f7;
+assign s0 = state_in;
+assign f0 = s0[0] ^ data_in[7];
+assign s1 = (s0 >> 1) ^ ({32{f0}} & 32'hedb88320);
+assign f1 = s1[0] ^ data_in[6];
+assign s2 = (s1 >> 1) ^ ({32{f1}} & 32'hedb88320);
+assign f2 = s2[0] ^ data_in[5];
+assign s3 = (s2 >> 1) ^ ({32{f2}} & 32'hedb88320);
+assign f3 = s3[0] ^ data_in[4];
+assign s4 = (s3 >> 1) ^ ({32{f3}} & 32'hedb88320);
+assign f4 = s4[0] ^ data_in[3];
+assign s5 = (s4 >> 1) ^ ({32{f4}} & 32'hedb88320);
+assign f5 = s5[0] ^ data_in[2];
+assign s6 = (s5 >> 1) ^ ({32{f5}} & 32'hedb88320);
+assign f6 = s6[0] ^ data_in[1];
+assign s7 = (s6 >> 1) ^ ({32{f6}} & 32'hedb88320);
+assign f7 = s7[0] ^ data_in[0];
+assign s8 = (s7 >> 1) ^ ({32{f7}} & 32'hedb88320);
+assign data_out = {f7, f6, f5, f4, f3, f2, f1, f0};
+assign state_out = s8;
+endmodule

@@ -1,0 +1,16 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/crc_feedback_20_20261107_ready/evaluations/0bc53f7fb1c33917606c9e0fdb23bbca6156535fcff188e701e93658d06321fa/reference.v"
+hierarchy -check -top crc32_d8
+flatten
+rename crc32_d8 pw_gold
+design -stash pw_gold_design
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/crc_feedback_20_20261107_ready/evaluations/0bc53f7fb1c33917606c9e0fdb23bbca6156535fcff188e701e93658d06321fa/candidate_elaborated.v"
+hierarchy -check -top crc32_d8
+flatten
+rename crc32_d8 pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/crc_feedback_20_20261107_ready/evaluations/0bc53f7fb1c33917606c9e0fdb23bbca6156535fcff188e701e93658d06321fa/eda/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 120

@@ -1,0 +1,28 @@
+Optimize this fixed combinational instance: module mux_large, parameters {}. Minimize mapped maximum data arrival. Give one complete synthesizable Verilog-2001 design. Keep module, parameters, ports, widths, signedness, truncations, priority and default-case behavior. All inputs are unconstrained, all outputs must match for every two-state input. No clocks, storage, latency, assumptions, external includes, or new dependencies. Helper modules are allowed.
+Common evaluation: SKY130HD TT25C1.80V; zero external IO delays; input transition0.10ns; output load0.010pF; 100ns virtual reporting clock; no physical wire parasitics. Yosys flatten/synth-noabc; ABC strash/dretime/map/cleanup-i-o/buffer/upsize/dnsize/stime-p with fixed driver and load. Full source and mapped equivalence and zero electrical violations required.
+Baseline mapped area 914.627200um^2; fixed cap 1006.089920um^2. No candidate results are supplied.
+Return exactly one JSON object with these six fields: candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.
+Original RTL:
+module mux_large (
+    input [7:0] block_a, block_b, block_c, block_d, block_e,
+    input [7:0] block_f, block_g, block_h, block_i, block_j,
+    input [3:0] sel,  // 4 bit select signal
+    output reg [7:0] block_out
+);
+
+    always @(*) begin
+        case (sel)
+            4'b0000: block_out = block_a;
+            4'b0001: block_out = block_b;
+            4'b0010: block_out = block_c;
+            4'b0011: block_out = block_d;
+            4'b0100: block_out = block_e;
+            4'b0101: block_out = block_f;
+            4'b0110: block_out = block_g;
+            4'b0111: block_out = block_h;
+            4'b1000: block_out = block_i;
+            4'b1001: block_out = block_j;
+            default: block_out = block_a; 
+        endcase
+    end
+endmodule

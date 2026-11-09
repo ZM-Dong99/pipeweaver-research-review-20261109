@@ -1,0 +1,445 @@
+{
+  "groups": {
+    "adapter": {
+      "no_sta": {
+        "attempted": 3,
+        "generated": 1,
+        "strict_improvements": 0,
+        "median_retained_wns_ns": 8.87,
+        "unique_measured_netlists": 1
+      },
+      "sta": {
+        "attempted": 3,
+        "generated": 0,
+        "strict_improvements": 0,
+        "median_retained_wns_ns": 8.87,
+        "unique_measured_netlists": 0
+      }
+    },
+    "skid": {
+      "no_sta": {
+        "attempted": 3,
+        "generated": 1,
+        "strict_improvements": 0,
+        "median_retained_wns_ns": 8.71,
+        "unique_measured_netlists": 1
+      },
+      "sta": {
+        "attempted": 3,
+        "generated": 1,
+        "strict_improvements": 0,
+        "median_retained_wns_ns": 8.71,
+        "unique_measured_netlists": 1
+      }
+    }
+  },
+  "rows": [
+    {
+      "slot": {
+        "call_index": 1,
+        "case": "adapter",
+        "arm": "no_sta",
+        "trial": 1,
+        "prompt": "prompts/adapter_no_sta.txt"
+      },
+      "status": "GENERATED",
+      "candidate_sha256": "ea88eab98b2ce686401a3c2f9e33d79993ee5454984624b2d4eff2bcae968f7e",
+      "explanation": {
+        "bottleneck": "Unmeasured. In the fixed 8-to-32 configuration, the variable-index segment writes and their control/mux logic are plausible timing contributors, but no mapped critical-path report is available to establish the bottleneck.",
+        "expected_timing_gain": "None claimed. This is the required original-design fallback, not a candidate demonstrated to have strictly greater WNS. No WNS or TNS measurements were performed.",
+        "rewrite": "Retain the original RTL logic, register names, encodings, initialization declarations, parameter declarations/defaults, and interfaces. Only comments and formatting are condensed. No optimization is accepted because complete source-level and mapped reset-contract proofs, STA, and electrical checks cannot be established without execution.",
+        "area_or_other_cost": "No intended hardware change. The supplied baseline area is 2574.969600 um^2, below the 2832.466560 um^2 cap; this is supplied information, not a new measurement. Mapped area and zero max-slew/max-capacitance violations have not been independently verified.",
+        "functional_boundaries": "Original synchronous-reset behavior and same-cycle interface behavior are retained, with no retiming, added latency, reordering, clock domains, assumptions, or input restrictions. Initialization declarations are not used to justify correctness. No completed formal proof is claimed; the supplied reset-only observation contract remains the required acceptance criterion for any future optimization."
+      },
+      "format_normalizations": [
+        "Discarded one complete leading think wrapper"
+      ],
+      "provider_metadata": {
+        "id": "chatcmpl-08e914f8-219c-447d-b919-ef9e5e5f8d48",
+        "model": "gpt-6.1-sol",
+        "usage": {
+          "prompt_tokens": 4202,
+          "completion_tokens": 3842,
+          "total_tokens": 8149,
+          "completion_tokens_details": {
+            "reasoning_tokens": 105
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          }
+        },
+        "created": 1793937600
+      },
+      "generation_seconds": 79.741331,
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "mapped_formal": "PASS",
+        "ppa": "PASS",
+        "eligible": true,
+        "stage": "sta",
+        "formal_decisive_log": "formal.log",
+        "formal_proof_mode": "joint_relations_proven",
+        "mapped_formal_decisive_log": "mapped_formal.log",
+        "mapped_formal_proof_mode": "joint_relations_proven",
+        "mapped_area_um2": 2574.9696,
+        "mapped_cells": 333,
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "wns_ns": 8.87,
+        "tns_ns": 0.0,
+        "mapped_sha256": "52c76f6a3c20d09174625518aea972357bc3d99974244ebc6f3c9c443d1ffda0",
+        "sdc_sha256": "568090c0e1b1dec4dc48da032ad7e6c1f557fb481f37c45376b2203d066c81e2",
+        "eligibility_scope": "Fixed reset-only valid/keep interface contract; not strict all-pin or physical signoff",
+        "no_declared_initial_values_relied_on": true,
+        "physical_power_up_verified": false,
+        "elapsed_seconds": 7.557
+      },
+      "decision": {
+        "improved": false,
+        "selected": "baseline",
+        "retained_wns_ns": 8.87,
+        "retained_area_um2": 2574.9696
+      }
+    },
+    {
+      "slot": {
+        "call_index": 2,
+        "case": "adapter",
+        "arm": "sta",
+        "trial": 1,
+        "prompt": "prompts/adapter_sta.txt"
+      },
+      "status": "FAILED_GENERATION",
+      "candidate_sha256": null,
+      "error": "LLM API returned HTTP 524",
+      "generation_seconds": 126.217304,
+      "metrics": {},
+      "decision": {
+        "improved": false,
+        "selected": "baseline",
+        "retained_wns_ns": 8.87,
+        "retained_area_um2": 2574.9696
+      }
+    },
+    {
+      "slot": {
+        "call_index": 3,
+        "case": "skid",
+        "arm": "sta",
+        "trial": 1,
+        "prompt": "prompts/skid_sta.txt"
+      },
+      "status": "FAILED_GENERATION",
+      "candidate_sha256": null,
+      "error": "LLM API returned HTTP 524",
+      "generation_seconds": 125.52565,
+      "metrics": {},
+      "decision": {
+        "improved": false,
+        "selected": "baseline",
+        "retained_wns_ns": 8.71,
+        "retained_area_um2": 3564.6688
+      }
+    },
+    {
+      "slot": {
+        "call_index": 4,
+        "case": "skid",
+        "arm": "no_sta",
+        "trial": 1,
+        "prompt": "prompts/skid_no_sta.txt"
+      },
+      "status": "FAILED_GENERATION",
+      "candidate_sha256": null,
+      "error": "LLM API returned HTTP 524",
+      "generation_seconds": 126.49867,
+      "metrics": {},
+      "decision": {
+        "improved": false,
+        "selected": "baseline",
+        "retained_wns_ns": 8.71,
+        "retained_area_um2": 3564.6688
+      }
+    },
+    {
+      "slot": {
+        "call_index": 5,
+        "case": "adapter",
+        "arm": "sta",
+        "trial": 2,
+        "prompt": "prompts/adapter_sta.txt"
+      },
+      "status": "FAILED_GENERATION",
+      "candidate_sha256": null,
+      "error": "LLM API returned HTTP 524",
+      "generation_seconds": 126.255502,
+      "metrics": {},
+      "decision": {
+        "improved": false,
+        "selected": "baseline",
+        "retained_wns_ns": 8.87,
+        "retained_area_um2": 2574.9696
+      }
+    },
+    {
+      "slot": {
+        "call_index": 6,
+        "case": "adapter",
+        "arm": "no_sta",
+        "trial": 2,
+        "prompt": "prompts/adapter_no_sta.txt"
+      },
+      "status": "FAILED_GENERATION",
+      "candidate_sha256": null,
+      "error": "curl transport failed (exit 56); no automatic retry",
+      "generation_seconds": 107.444222,
+      "metrics": {},
+      "decision": {
+        "improved": false,
+        "selected": "baseline",
+        "retained_wns_ns": 8.87,
+        "retained_area_um2": 2574.9696
+      }
+    },
+    {
+      "slot": {
+        "call_index": 7,
+        "case": "skid",
+        "arm": "no_sta",
+        "trial": 2,
+        "prompt": "prompts/skid_no_sta.txt"
+      },
+      "status": "FAILED_GENERATION",
+      "candidate_sha256": null,
+      "error": "curl transport failed (exit 35); no automatic retry",
+      "generation_seconds": 5.084148,
+      "metrics": {},
+      "decision": {
+        "improved": false,
+        "selected": "baseline",
+        "retained_wns_ns": 8.71,
+        "retained_area_um2": 3564.6688
+      }
+    },
+    {
+      "slot": {
+        "call_index": 8,
+        "case": "skid",
+        "arm": "sta",
+        "trial": 2,
+        "prompt": "prompts/skid_sta.txt"
+      },
+      "status": "FAILED_GENERATION",
+      "candidate_sha256": null,
+      "error": "LLM API returned HTTP 524",
+      "generation_seconds": 128.646683,
+      "metrics": {},
+      "decision": {
+        "improved": false,
+        "selected": "baseline",
+        "retained_wns_ns": 8.71,
+        "retained_area_um2": 3564.6688
+      }
+    },
+    {
+      "slot": {
+        "call_index": 9,
+        "case": "adapter",
+        "arm": "no_sta",
+        "trial": 3,
+        "prompt": "prompts/adapter_no_sta.txt"
+      },
+      "status": "FAILED_GENERATION",
+      "candidate_sha256": null,
+      "error": "curl transport failed (exit 56); no automatic retry",
+      "generation_seconds": 136.207235,
+      "metrics": {},
+      "decision": {
+        "improved": false,
+        "selected": "baseline",
+        "retained_wns_ns": 8.87,
+        "retained_area_um2": 2574.9696
+      }
+    },
+    {
+      "slot": {
+        "call_index": 10,
+        "case": "adapter",
+        "arm": "sta",
+        "trial": 3,
+        "prompt": "prompts/adapter_sta.txt"
+      },
+      "status": "FAILED_GENERATION",
+      "candidate_sha256": null,
+      "error": "LLM API returned HTTP 524",
+      "generation_seconds": 127.34314,
+      "metrics": {},
+      "decision": {
+        "improved": false,
+        "selected": "baseline",
+        "retained_wns_ns": 8.87,
+        "retained_area_um2": 2574.9696
+      }
+    },
+    {
+      "slot": {
+        "call_index": 11,
+        "case": "skid",
+        "arm": "sta",
+        "trial": 3,
+        "prompt": "prompts/skid_sta.txt"
+      },
+      "status": "GENERATED",
+      "candidate_sha256": "ef682f81f3f73640f74d2ad4573c3bab5d7b0b1c424be9e50182f571fc1e870a",
+      "explanation": {
+        "bottleneck": "The supplied critical paths have 1.17 ns data arrival time and 8.71 ns setup slack. They traverse a launching flip-flop, buffering, control logic, further buffering, and NAND logic into destination flip-flops. This suggests a control-to-datapath selection or enable distribution bottleneck, but the mapped names do not establish exact RTL attribution.",
+        "expected_timing_gain": "None claimed. The retained design is not a strictly improved candidate. The supplied baseline is WNS 8.71 ns and TNS 0.0 ns; these are user-provided measurements, not new verification results.",
+        "rewrite": "Retain the original RTL behavior and structure; only comments and formatting are condensed. No optimization is accepted because complete source and mapped reset-contract proofs, candidate STA, and electrical-rule checks cannot be performed here. An unverified rewrite would not satisfy the explicit acceptance requirements.",
+        "area_or_other_cost": "No hardware change is intended. The supplied baseline mapped area is 3564.668800 um^2, below the 3921.135680 um^2 cap. No new mapped-area, maximum-slew, or maximum-capacitance results are claimed.",
+        "functional_boundaries": "Module name, native ports, widths, parameter declarations/defaults, internal register names, synchronous reset behavior, and all three REG_TYPE branches are retained. No latency, ordering, clock-domain, or input-assumption changes are introduced. No correctness claim relies on declared initial values. The requested reset-only comparison contract remains unchanged; no new completed source-level or mapped proof is claimed."
+      },
+      "format_normalizations": [],
+      "provider_metadata": {
+        "id": "chatcmpl-d079989a-afc6-4838-b65c-79c0b55132cb",
+        "model": "gpt-6.1-sol",
+        "usage": {
+          "prompt_tokens": 5110,
+          "completion_tokens": 3104,
+          "total_tokens": 8315,
+          "completion_tokens_details": {
+            "reasoning_tokens": 101
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          }
+        },
+        "created": 1793938689
+      },
+      "generation_seconds": 66.499429,
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "mapped_formal": "PASS",
+        "ppa": "PASS",
+        "eligible": true,
+        "stage": "sta",
+        "formal_decisive_log": "formal.log",
+        "formal_proof_mode": "joint_relations_proven",
+        "mapped_formal_decisive_log": "mapped_formal.log",
+        "mapped_formal_proof_mode": "joint_relations_proven",
+        "mapped_area_um2": 3564.6688,
+        "mapped_cells": 485,
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "wns_ns": 8.71,
+        "tns_ns": 0.0,
+        "mapped_sha256": "4dc6a62872c2338df18e6526133314969827b180879317882872daf7c1b00528",
+        "sdc_sha256": "568090c0e1b1dec4dc48da032ad7e6c1f557fb481f37c45376b2203d066c81e2",
+        "eligibility_scope": "Fixed reset-only valid/keep interface contract; not strict all-pin or physical signoff",
+        "no_declared_initial_values_relied_on": true,
+        "physical_power_up_verified": false,
+        "elapsed_seconds": 2.818
+      },
+      "decision": {
+        "improved": false,
+        "selected": "baseline",
+        "retained_wns_ns": 8.71,
+        "retained_area_um2": 3564.6688
+      }
+    },
+    {
+      "slot": {
+        "call_index": 12,
+        "case": "skid",
+        "arm": "no_sta",
+        "trial": 3,
+        "prompt": "prompts/skid_no_sta.txt"
+      },
+      "status": "GENERATED",
+      "candidate_sha256": "d4544581a70c90e7c9c107e92beddd19ae05ddd9e83f5b33cf80dd4d18a564c3",
+      "explanation": {
+        "bottleneck": "No measured critical path was provided. Skid-buffer transfer-control fanout and the output-register input/temporary/hold selection are plausible timing bottlenecks, but neither is established by STA.",
+        "expected_timing_gain": "None claimed. Unchanged logic is expected to reproduce baseline timing under the same mapping policy; it does not establish strictly greater setup WNS. No WNS or TNS result was measured.",
+        "rewrite": "Retain the original RTL, with only formatting and explanatory-comment changes. No optimization is accepted because complete source and mapped reset-contract proofs, STA, and electrical checks cannot be performed here. This follows the explicit otherwise-retain-original requirement.",
+        "area_or_other_cost": "User-supplied baseline area: 3564.668800 um^2; cap: 3921.135680 um^2. No logical area increase is introduced. Mapped area and zero max-slew/max-capacitance violations were not independently verified.",
+        "functional_boundaries": "Module name, native pins, widths, parameter declarations/defaults, register names, state encoding, synchronous reset, latency, and ordering are retained. No assumptions about upstream backpressure compliance or input stability are added. No new initialization is introduced or relied upon; the supplied initialization syntax remains subject to removal during proof. This is the unchanged fallback, not a newly proved or timing-qualified optimization."
+      },
+      "format_normalizations": [],
+      "provider_metadata": {
+        "id": "chatcmpl-17b7f840-a4af-4b2c-aff1-5d8b0b705633",
+        "model": "gpt-6.1-sol",
+        "usage": {
+          "prompt_tokens": 3465,
+          "completion_tokens": 3066,
+          "total_tokens": 6632,
+          "completion_tokens_details": {
+            "reasoning_tokens": 101
+          },
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "cache_write_tokens": 0
+          }
+        },
+        "created": 1793938758
+      },
+      "generation_seconds": 75.305954,
+      "metrics": {
+        "status": "PASS",
+        "formal": "PASS",
+        "mapped_formal": "PASS",
+        "ppa": "PASS",
+        "eligible": true,
+        "stage": "sta",
+        "formal_decisive_log": "formal.log",
+        "formal_proof_mode": "joint_relations_proven",
+        "mapped_formal_decisive_log": "mapped_formal.log",
+        "mapped_formal_proof_mode": "joint_relations_proven",
+        "mapped_area_um2": 3564.6688,
+        "mapped_cells": 485,
+        "electrical": {
+          "status": "PASS",
+          "violation_rows": 0,
+          "checks": [
+            "max_slew",
+            "max_capacitance"
+          ],
+          "scope": "Library limits under recorded SDC; not physical signoff"
+        },
+        "wns_ns": 8.71,
+        "tns_ns": 0.0,
+        "mapped_sha256": "4dc6a62872c2338df18e6526133314969827b180879317882872daf7c1b00528",
+        "sdc_sha256": "568090c0e1b1dec4dc48da032ad7e6c1f557fb481f37c45376b2203d066c81e2",
+        "eligibility_scope": "Fixed reset-only valid/keep interface contract; not strict all-pin or physical signoff",
+        "no_declared_initial_values_relied_on": true,
+        "physical_power_up_verified": false,
+        "elapsed_seconds": 2.774
+      },
+      "decision": {
+        "improved": false,
+        "selected": "baseline",
+        "retained_wns_ns": 8.71,
+        "retained_area_um2": 3564.6688
+      }
+    }
+  ],
+  "unique_candidate_eda": 3,
+  "baseline_fallback": true,
+  "scope": "Two related streaming functions from one exposed public repository, fixed parameters, pre-layout. Candidate proof can be INCOMPLETE; state renaming falls back to output-only proof. No generic AXI compliance, FIFO, retiming or statistical superiority claim."
+}

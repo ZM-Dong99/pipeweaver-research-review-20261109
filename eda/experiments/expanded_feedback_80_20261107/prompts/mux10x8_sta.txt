@@ -1,0 +1,127 @@
+Optimize this fixed combinational instance: module mux_large, parameters {}. Minimize mapped maximum data arrival. Give one complete synthesizable Verilog-2001 design. Keep module, parameters, ports, widths, signedness, truncations, priority and default-case behavior. All inputs are unconstrained, all outputs must match for every two-state input. No clocks, storage, latency, assumptions, external includes, or new dependencies. Helper modules are allowed.
+Common evaluation: SKY130HD TT25C1.80V; zero external IO delays; input transition0.10ns; output load0.010pF; 100ns virtual reporting clock; no physical wire parasitics. Yosys flatten/synth-noabc; ABC strash/dretime/map/cleanup-i-o/buffer/upsize/dnsize/stime-p with fixed driver and load. Full source and mapped equivalence and zero electrical violations required.
+Baseline mapped area 914.627200um^2; fixed cap 1006.089920um^2. No candidate results are supplied.
+Return exactly one JSON object with these six fields: candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.
+Original RTL:
+module mux_large (
+    input [7:0] block_a, block_b, block_c, block_d, block_e,
+    input [7:0] block_f, block_g, block_h, block_i, block_j,
+    input [3:0] sel,  // 4 bit select signal
+    output reg [7:0] block_out
+);
+
+    always @(*) begin
+        case (sel)
+            4'b0000: block_out = block_a;
+            4'b0001: block_out = block_b;
+            4'b0010: block_out = block_c;
+            4'b0011: block_out = block_d;
+            4'b0100: block_out = block_e;
+            4'b0101: block_out = block_f;
+            4'b0110: block_out = block_g;
+            4'b0111: block_out = block_h;
+            4'b1000: block_out = block_i;
+            4'b1001: block_out = block_j;
+            default: block_out = block_a; 
+        endcase
+    end
+endmodule
+Actual baseline STA (mapped names are not exact source attribution):
+{"max_data_arrival_ns": 1.04, "wns_ns": 98.96, "tns_ns": 0.0}
+Startpoint: sel[3] (input port clocked by virtual_clk)
+Endpoint: block_out[2] (output port clocked by virtual_clk)
+Path Group: virtual_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock virtual_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 v input external delay
+   0.00    0.00 v sel[3] (in)
+   0.29    0.29 ^ _156_/Y (sky130_fd_sc_hd__nor2_2)
+   0.14    0.43 v _157_/Y (sky130_fd_sc_hd__nand2_2)
+   0.19    0.62 v _206_/X (sky130_fd_sc_hd__buf_2)
+   0.09    0.70 ^ _257_/Y (sky130_fd_sc_hd__nor2_1)
+   0.05    0.75 v _268_/Y (sky130_fd_sc_hd__nor3_1)
+   0.28    1.04 ^ _270_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.00    1.04 ^ block_out[2] (out)
+           1.04   data arrival time
+
+ 100.00  100.00   clock virtual_clk (rise edge)
+   0.00  100.00   clock network delay (ideal)
+   0.00  100.00   clock reconvergence pessimism
+   0.00  100.00   output external delay
+         100.00   data required time
+---------------------------------------------------------
+         100.00   data required time
+          -1.04   data arrival time
+---------------------------------------------------------
+          98.96   slack (MET)
+
+
+Startpoint: sel[3] (input port clocked by virtual_clk)
+Endpoint: block_out[4] (output port clocked by virtual_clk)
+Path Group: virtual_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock virtual_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 v input external delay
+   0.00    0.00 v sel[3] (in)
+   0.29    0.29 ^ _156_/Y (sky130_fd_sc_hd__nor2_2)
+   0.14    0.43 v _157_/Y (sky130_fd_sc_hd__nand2_2)
+   0.19    0.62 v _206_/X (sky130_fd_sc_hd__buf_2)
+   0.09    0.70 ^ _226_/Y (sky130_fd_sc_hd__nor2_1)
+   0.05    0.75 v _238_/Y (sky130_fd_sc_hd__nor3_1)
+   0.28    1.04 ^ _240_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.00    1.04 ^ block_out[4] (out)
+           1.04   data arrival time
+
+ 100.00  100.00   clock virtual_clk (rise edge)
+   0.00  100.00   clock network delay (ideal)
+   0.00  100.00   clock reconvergence pessimism
+   0.00  100.00   output external delay
+         100.00   data required time
+---------------------------------------------------------
+         100.00   data required time
+          -1.04   data arrival time
+---------------------------------------------------------
+          98.96   slack (MET)
+
+
+Startpoint: sel[0] (input port clocked by virtual_clk)
+Endpoint: block_out[5] (output port clocked by virtual_clk)
+Path Group: virtual_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock virtual_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 v input external delay
+   0.00    0.00 v sel[0] (in)
+   0.19    0.19 v _163_/X (sky130_fd_sc_hd__buf_4)
+   0.15    0.33 ^ _169_/Y (sky130_fd_sc_hd__nor2_4)
+   0.17    0.51 ^ _199_/X (sky130_fd_sc_hd__buf_4)
+   0.07    0.58 v _214_/Y (sky130_fd_sc_hd__nand4_1)
+   0.10    0.67 ^ _216_/Y (sky130_fd_sc_hd__nand4_1)
+   0.05    0.72 v _222_/Y (sky130_fd_sc_hd__nor3_1)
+   0.28    1.00 ^ _224_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.00    1.00 ^ block_out[5] (out)
+           1.00   data arrival time
+
+ 100.00  100.00   clock virtual_clk (rise edge)
+   0.00  100.00   clock network delay (ideal)
+   0.00  100.00   clock reconvergence pessimism
+   0.00  100.00   output external delay
+         100.00   data required time
+---------------------------------------------------------
+         100.00   data required time
+          -1.00   data arrival time
+---------------------------------------------------------
+          99.00   slack (MET)
+
+

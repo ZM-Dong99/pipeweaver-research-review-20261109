@@ -1,0 +1,29 @@
+{
+  "id": "chatcmpl-aff6f5cc-5e39-438c-8554-f11a3fee321e",
+  "object": "chat.completion",
+  "created": 1793636959,
+  "model": "gpt-6.1-sol",
+  "usage": {
+    "prompt_tokens": 3218,
+    "completion_tokens": 1747,
+    "total_tokens": 5729,
+    "completion_tokens_details": {
+      "reasoning_tokens": 764
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  },
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Evaluating bill register options**\n\n**Implementing registered bill state**\n\n**Reviewing bill-next logic**\n\n**Preparing registered bill decode**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module ticket_machine #(\\n    parameter ON  = 1'b1,\\n    parameter OFF = 1'b0\\n) (\\n    input  clk, clear, ten, twenty,\\n    output reg ready, dispense, return_sig, bill\\n);\\n\\n    localparam RDY    = 6'b000001,\\n               DISP   = 6'b000010,\\n               RTN    = 6'b000100,\\n               BILL10 = 6'b001000,\\n               BILL20 = 6'b010000,\\n               BILL30 = 6'b100000;\\n\\n    reg [5:0] State, NextState;\\n\\n    always @(posedge clk) begin\\n        if (clear) begin\\n            State <= RDY;\\n            bill  <= OFF;\\n        end else begin\\n            State <= NextState;\\n            case (NextState)\\n                BILL10, BILL20, BILL30: bill <= ON;\\n                default:                bill <= OFF;\\n            endcase\\n        end\\n    end\\n\\n    always @* begin\\n        ready      = OFF;\\n        dispense   = OFF;\\n        return_sig = OFF;\\n        case (State)\\n            RDY:  ready      = ON;\\n            DISP: dispense   = ON;\\n            RTN:  return_sig = ON;\\n            default: begin\\n                ready      = OFF;\\n                dispense   = OFF;\\n                return_sig = OFF;\\n            end\\n        endcase\\n    end\\n\\n    always @* begin\\n        NextState = RDY;\\n        case (State)\\n            RDY: begin\\n                if (ten)\\n                    NextState = BILL10;\\n                else if (twenty)\\n                    NextState = BILL20;\\n                else\\n                    NextState = RDY;\\n            end\\n            BILL10: begin\\n                if (ten)\\n                    NextState = BILL20;\\n                else if (twenty)\\n                    NextState = BILL30;\\n                else\\n                    NextState = BILL10;\\n            end\\n            BILL20: begin\\n                if (ten)\\n                    NextState = BILL30;\\n                else if (twenty)\\n                    NextState = DISP;\\n                else\\n                    NextState = BILL20;\\n            end\\n            BILL30: begin\\n                if (ten)\\n                    NextState = DISP;\\n                else if (twenty)\\n                    NextState = RTN;\\n                else\\n                    NextState = BILL30;\\n            end\\n            DISP: NextState = RDY;\\n            RTN:  NextState = RDY;\\n            default: NextState = RDY;\\n        endcase\\n    end\\n\\nendmodule\",\n  \"bottleneck\": \"The measured worst path is a state flip-flop through a three-input OR to bill: 0.30 ns clock-to-Q plus 0.40 ns output decode. Its 9.30 ns slack is worse than the reported internal setup paths.\",\n  \"rewrite\": \"Register the bill decode of NextState on the same edge that updates State. This moves the bill decode before a register rather than placing it between a state register and the output. Preserve the original state transition logic and the combinational decoding of the other outputs.\",\n  \"expected_timing_gain\": \"The targeted benefit is removal of the measured OR gate from the bill output path. This is not a measured improvement: next-state-to-bill setup timing, FSM extraction, register loading and mapping may become limiting. Accept only after equivalence and EDA demonstrate WNS strictly above 9.30 ns and TNS no worse than 0.0 ns at the fixed settings.\",\n  \"area_or_other_cost\": \"Adds one logical bill register and moves its decode into the register-input cone. The area headroom is 25.27424 um^2; mapped area must be checked against 278.01664 um^2. Synthesis may change FSM extraction or logic sharing, so neither area compliance nor timing improvement is guaranteed.\",\n  \"functional_boundaries\": \"On each clear edge, State becomes RDY and bill becomes OFF. On every other edge, State becomes the previous NextState and bill becomes exactly the original bill decode of that same NextState, preserving post-edge output latency. The original ten-over-twenty priority and arbitrary later synchronous clear assertions remain intact. No startup assumption is added; pre-reset register values are not relied upon. Ports, parameter declarations, positive-edge clocking and reset polarity are unchanged. Verify against the frozen original under the fixed startup contract.\"\n}"
+      }
+    }
+  ],
+  "audit_scope": "Provider envelope and visible message content; reasoning fields omitted."
+}

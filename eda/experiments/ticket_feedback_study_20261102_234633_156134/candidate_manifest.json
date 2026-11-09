@@ -1,0 +1,345 @@
+{
+  "protocol_sha256": "6187a4d733595a7321f8517b7bf9fb68d1e45621cfc6b89b0e858d6e97a62f2c",
+  "slots": [
+    {
+      "call_index": 1,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_01",
+      "candidate_sha256": "901dc483439504e408d504b5e678c40f8e9f9273fe117d96b57407b0f24cbc00",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The source expresses transitions and outputs through full-vector state comparisons and priority branches. Depending on synthesis FSM extraction and encoding, these can introduce state decoding and mux depth on register-to-register and register-to-output paths. The actual critical path requires mapped timing analysis.",
+        "area_or_other_cost": "Uses six state flip-flops, synchronous reset logic, and a small combinational network. Shared input terms may introduce fanout, and the baseline synthesizer may already perform equivalent optimizations. Mapped area must be checked against the 278.01664000000005 um^2 cap.",
+        "functional_boundaries": "Preserves the module interface and parameter declarations, positive-edge clock, synchronous active-high clear, and output latency. Reset establishes a one-hot state, and every transition preserves that invariant for all ten/twenty combinations, including simultaneous assertion with ten priority. Later clear assertions restore ready on the same edge as the original. No additional startup assumptions are introduced. Illegal internal state encodings need not match the original recovery behavior because they are unreachable after the required startup reset; equivalence must be checked against the frozen original under the supplied startup contract and default parameters.",
+        "rewrite": "Use explicit six-bit one-hot transition equations, shared idle and priority-qualified twenty terms, and direct Moore output decoding. This removes full-vector state equality checks from the reachable-state datapath.",
+        "expected_timing_gain": "The shallow AND/OR transition network and direct output decoding are intended to reduce setup-path depth. No timing improvement is measured or guaranteed: compare setup WNS and TNS against the frozen original using the fixed EDA settings, and retain this candidate only if WNS strictly improves without TNS regression.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 1,
+        "response_id": "chatcmpl-b7070cf6-19dd-425f-9108-4359f16602e4",
+        "response_created": 1793634552,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 1491,
+          "completion_tokens": 1067,
+          "total_tokens": 2831
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 37.70417279999674
+    },
+    {
+      "call_index": 2,
+      "arm": "structured_timing_feedback",
+      "candidate_id": "candidate_01",
+      "candidate_sha256": "a729d08e684af87dcff471f552a0bcd63e9a8c815470d5adb83515463de32a70",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The supplied baseline's worst setup path is a state flip-flop through a three-input OR to bill. Its reported arrival time is 0.70 ns, including 0.40 ns in the output OR. The next reported register-to-register path has 9.38 ns slack, so removing the output decode can expose another limiting path.",
+        "area_or_other_cost": "Adds one logical flip-flop and moves the bill decode to its input, with synchronous-clear handling. The available area headroom is 25.27424 um^2; fitting within it is not established. Accept only if mapped area is at most 278.01664 um^2 and the timing objective passes. No new clock, memory, latch, or asynchronous reset is introduced.",
+        "functional_boundaries": "After the specified reset edge, bill equals the original decode of State: reset sets State to RDY and bill to OFF; every subsequent edge loads State from NextState and bill from the decode of that same NextState. Arbitrary later synchronous clear assertions preserve this relationship. The ten-over-twenty priority, native interface, parameter declarations, other outputs, and cycle-level latency are unchanged. No startup assumptions are added. Formal equivalence against the frozen original under the supplied startup contract remains required.",
+        "rewrite": "Register the bill decode of NextState on the same edge that loads State. Keep the original state machine and the other output decodes. This moves the bill decode from the output path to the bill register's input path without adding a cycle of observable latency.",
+        "expected_timing_gain": "Unmeasured candidate. A directly registered bill should remove the baseline OR gate from the register-to-output path. However, the new bill-register input path can become critical, and synthesis can change the mapping. Strict WNS improvement and non-regressing TNS must be established by EDA against the frozen baseline.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 2,
+        "response_id": "chatcmpl-220f01e5-9d28-4b00-99ed-72704a124f5b",
+        "response_created": 1793634587,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 3218,
+          "completion_tokens": 1658,
+          "total_tokens": 5575
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 55.886284699998214
+    },
+    {
+      "call_index": 3,
+      "arm": "structured_timing_feedback",
+      "candidate_id": "candidate_02",
+      "candidate_sha256": "fa1764f70d35fe0977c3d4193d5a7fa585c1c265e0a2aafa34298aa00dba0563",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The measured worst path is a state flip-flop to bill through a sky130_fd_sc_hd__or3_4: 0.30 ns clock-to-Q plus 0.40 ns output decode, producing 9.30 ns setup slack. The reported register-to-register paths have more slack.",
+        "area_or_other_cost": "Adds one output register and its next-value decode while removing the combinational bill output decode. Logic sharing and output-cell sizing determine the net area change. The available area headroom is 25.27424 um^2; compliance with the 278.01664 um^2 cap must be checked after mapping. Reject this candidate if it exceeds the cap.",
+        "functional_boundaries": "After the required synchronous startup reset, bill equals the original billing-state predicate after every edge because State and bill are updated from the same NextState. Later clear assertions synchronously restore RDY and bill=OFF. Simultaneous ten and twenty retain ten priority. The top name, ports, widths, parameter declarations and defaults, positive-edge clock, reset polarity and output cycle latency are preserved. No helper modules, initialization, assumptions, latches or generated clocks are introduced. Equivalence is required against the frozen original under the fixed startup contract.",
+        "rewrite": "Register the bill predicate of NextState on the same edge that updates State. This moves the billing-state union from the output path to the register-input logic. Keep the original state transitions and the other Moore output decodes. Explicit synchronous clear sets bill to OFF alongside State returning to RDY.",
+        "expected_timing_gain": "The intended improvement is removal of the three-state OR from the bill output path, without adding a cycle of latency. Actual WNS depends on the new bill-register input path, synthesis recoding, fanout and output drive. No improvement is measured or guaranteed; accept only after equivalence and EDA show WNS strictly above 9.30 ns and TNS remaining 0.0 ns.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 3,
+        "response_id": "chatcmpl-d07ff83c-c9b3-4d80-b833-7ff669940d11",
+        "response_created": 1793634646,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 3218,
+          "completion_tokens": 1749,
+          "total_tokens": 5706
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 64.98522299999968
+    },
+    {
+      "call_index": 4,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_02",
+      "candidate_sha256": "cd4da2e504e43c9bc87e54e902c6fcebab3f456d8c62ae802cff33232853ebc4",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The source describes full-vector state comparisons followed by priority next-state selection. Depending on FSM extraction and mapping, those structures can produce unnecessary decode and mux depth on state-to-state paths and output paths.",
+        "area_or_other_cost": "Retains six state flip-flops and introduces no pipeline stages or storage types. Direct transition equations may reduce decode logic, but shared input controls and synchronous reset can affect fanout and buffering. Mapped area must be checked against 278.01664000000005 um^2.",
+        "functional_boundaries": "Preserves the module name, parameter declarations and defaults, native ports, synchronous active-high clear, and output latency. Ten retains priority when both payment inputs are high. Every clear edge restores RDY, including arbitrary later clear assertions. The specified startup reset establishes a one-hot state, and every transition preserves that invariant for all input combinations. Illegal-state recovery is not retained outside that reset-reachable domain; no additional startup or input assumptions are introduced. Equivalence acceptance is required against the frozen original under the supplied contract.",
+        "rewrite": "Retain six one-hot state bits but express each next-state bit directly as a sum of transition terms. Share the input classifications ten, !ten && twenty, and !ten && !twenty. Decode outputs directly from the reachable one-hot state bits.",
+        "expected_timing_gain": "The intended benefit is shallower state feedback and output logic, with opportunities for compact AND/OR compound-cell mapping. No timing improvement is measured or guaranteed; the original may already receive equivalent FSM optimization. Formal equivalence and fixed-setting EDA must establish strictly improved setup WNS, non-regressed TNS, and compliance with the area cap.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 4,
+        "response_id": "chatcmpl-6a01900b-e296-4c0a-a9ab-115c5d87ef0f",
+        "response_created": 1793634708,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 1491,
+          "completion_tokens": 955,
+          "total_tokens": 2540
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 32.50279799999771
+    },
+    {
+      "call_index": 5,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_03",
+      "candidate_sha256": "c4034c9dd2625915343ba03d80adede3685543f6c19a860efaebf8c5467c1e9d",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The source expresses both transitions and outputs through full-vector state comparisons and priority branches. Depending on FSM extraction and mapping, these can introduce state decoding and multiplexing on register-to-register paths. No timing report was supplied, so the actual critical path is not established.",
+        "area_or_other_cost": "Uses six state flip-flops, shared input qualification, and small transition networks. Explicit one-hot logic may reduce decoding overhead, but mapped area and reset fanout costs require measurement. Acceptance requires mapped area at or below 278.01664000000005 um2.",
+        "functional_boundaries": "After the specified startup reset, exactly one state bit remains set for every input sequence. The equations preserve all six source transitions, ten priority when ten and twenty are both asserted, idle behavior, and unconditional return to ready after dispense or return. Arbitrary later clear assertions synchronously restore ready without changing output latency. No startup assumptions are added. Illegal-state recovery before a valid reset is not preserved; equivalence is scoped to the supplied reset-started contract and default ON=1, OFF=0. Formal equivalence remains required.",
+        "rewrite": "Express the six reachable states as explicit one-hot registers with shallow sum-of-products transition equations. Share mutually exclusive input conditions, including twenty qualified by not-ten, and derive outputs directly from state bits. Retain the synchronous active-high reset and the original parameter declarations.",
+        "expected_timing_gain": "The rewrite targets reduced state-decode and next-state mux depth, with possible additional improvement in state-to-output timing. Strict WNS improvement and non-regressing TNS remain unverified; synthesis and STA at the fixed settings are required. An already optimized baseline FSM may map similarly.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 5,
+        "response_id": "chatcmpl-bfe97fa1-237a-4e27-9991-957c5f026208",
+        "response_created": 1793634740,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 1491,
+          "completion_tokens": 1126,
+          "total_tokens": 2909
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 41.215162299999065
+    },
+    {
+      "call_index": 6,
+      "arm": "structured_timing_feedback",
+      "candidate_id": "candidate_03",
+      "candidate_sha256": "8466a9cb9c49c6ad5417134a98cec2fadb51747a7bb945195f965bd8596be1df",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The measured worst path is a state flip-flop through a three-input OR to bill. Its reported 0.40 ns OR delay exceeds the individual combinational delays on the supplied state-transition paths. The baseline already uses one-hot FSM recoding, so merely rewriting its state encoding would not directly address this output path.",
+        "area_or_other_cost": "Adds one flip-flop for bill and its next-value logic. Explicit transition equations may offset some of that cost, but the net mapped area is unknown. Reject this candidate if mapped area exceeds 278.01664000000005 um^2 or if timing acceptance fails.",
+        "functional_boundaries": "Preserves the module interface, parameter declarations and defaults, synchronous active-high clear, single positive-edge clock, and output latency. Simultaneous ten and twenty selects ten. Every clear assertion returns the state to ready and sets bill to OFF on that edge. The fixed startup reset establishes the one-hot invariant; no additional startup or input assumptions are introduced. Illegal internal state recovery is not matched outside reset-reachable behavior. Equivalence must be checked against the frozen original with the supplied startup contract; no formal or EDA result is claimed.",
+        "rewrite": "Use explicit one-hot transition equations and register the aggregate bill indication from the state being entered. This removes the current-state three-way OR from the bill output path without adding an output cycle. The three other outputs remain direct indications of their corresponding state bits.",
+        "expected_timing_gain": "The targeted bill path becomes a flip-flop-to-output path without the reported OR gate. This is an unmeasured timing hypothesis, not a WNS improvement claim. The added bill-register input logic or changed state mapping could become critical; synthesis and STA must establish strictly better WNS and non-regressing TNS.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 6,
+        "response_id": "chatcmpl-db120aef-3a9d-4556-84ae-dcee400862b9",
+        "response_created": 1793634781,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 3218,
+          "completion_tokens": 1292,
+          "total_tokens": 4892
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 41.207374500001606
+    },
+    {
+      "call_index": 7,
+      "arm": "structured_timing_feedback",
+      "candidate_id": "candidate_04",
+      "candidate_sha256": "b00be0ddcc3b30291e0497c00bf78294e172e67caa3200058bfb0dd8ff9e2e72",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The measured baseline worst path is a state flip-flop through the three-input bill decode OR to the output: 0.30 ns clock-to-Q plus 0.40 ns decode delay. The next reported register-to-register path has 9.38 ns slack, so removing the output decode may expose a different limiting path.",
+        "area_or_other_cost": "Adds one bill flip-flop and its look-ahead input logic while removing the combinational bill output decode. Explicit transition equations can also change mapping and fanout. Net mapped area is unmeasured; compliance with the 278.01664000000005 um2 cap must be checked.",
+        "functional_boundaries": "Retains the module name, parameter declarations and defaults, ports, synchronous active-high clear, and sole positive-edge clock. After the prescribed reset, the six state bits remain one-hot and the registered bill equals the reference current-state bill decode. This invariant includes simultaneous ten and twenty, idle cycles, and arbitrary later clear assertions. No startup assumptions are added. Equivalence is required against the frozen original under the specified default-parameter proof contract; behavior before the prescribed reset is not used to justify correctness.",
+        "rewrite": "Use explicit one-hot state-bit transition equations and a synchronous look-ahead bill register. The bill register receives the bill classification of the next state on the same edge that updates the state. Thus bill no longer requires a three-state OR after the clock edge, without adding an output cycle. Shared take_twenty logic explicitly preserves ten priority.",
+        "expected_timing_gain": "The intended improvement is removal of the measured OR gate from the bill output path. This is not a measured WNS improvement: the new bill-register input path, changed state loading, and mapping may determine the new worst slack. Accept only after equivalence checking and fixed-setting EDA show WNS strictly above 9.30 ns, TNS remaining 0.0 ns, and area within the cap.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 7,
+        "response_id": "chatcmpl-45587c5f-fac9-45f4-b474-c9ded0c2e4df",
+        "response_created": 1793634822,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 3218,
+          "completion_tokens": 1430,
+          "total_tokens": 5109
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 40.00097160000223
+    },
+    {
+      "call_index": 8,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_04",
+      "candidate_sha256": "b1850c1930aac58d6d5de38db5ca633427431139e62b0035973274ff58f3266a",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The source expresses transitions and outputs through full six-bit state comparisons and priority conditionals. Depending on synthesis FSM extraction and recoding, these can introduce state-decode and mux depth on setup paths. The actual critical path must be established by STA.",
+        "area_or_other_cost": "Uses six state flip-flops, shared input qualification, and shallow transition logic. Explicit one-hot implementation may use more flops than a synthesis-selected compact encoding, although it avoids full-state output decoding. Mapped area must be checked against the 278.01664000000005 um2 cap.",
+        "functional_boundaries": "Preserves the module name, ports, parameter declarations and defaults, single positive-edge clock, synchronous clear priority, and Moore output latency. When ten and twenty are both asserted, ten wins. DISP and RTN return to RDY on the next non-clear edge regardless of inputs. The required startup clear establishes a valid one-hot state; all transitions and arbitrary later clear assertions preserve that invariant. No additional startup or input assumptions are introduced. Illegal internal encodings before the required startup reset are not given the original default-state recovery behavior; equivalence is required over the specified post-reset behavior with default ON=1 and OFF=0.",
+        "rewrite": "Implement the same six reachable states with explicit one-hot registers and direct sum-of-products transition equations. Share the ten-priority input qualifiers and derive Moore outputs directly from state bits. Retain the synchronous active-high clear on every state register.",
+        "expected_timing_gain": "The rewrite is intended to reduce state-decode and transition-selection depth, especially on register-to-register paths. No timing improvement is measured or guaranteed; synthesis and STA must confirm strictly better setup WNS and non-regressing TNS at the fixed settings.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 8,
+        "response_id": "chatcmpl-6cdf23bb-99b4-400d-b9a3-e1ec6e754caa",
+        "response_created": 1793634863,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 1491,
+          "completion_tokens": 1111,
+          "total_tokens": 2856
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 24.588211800000863
+    },
+    {
+      "call_index": 9,
+      "arm": "no_timing_feedback",
+      "candidate_id": "candidate_05",
+      "candidate_sha256": "ca7e12707d6ef8b49d3c4a88b82280583d55a0d19216b549d9971277a5af5c82",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The original implementation uses a six-bit one-hot state register and separate state decoders for both outputs and next-state selection. This increases state-register load and decode/mux logic on the input-to-state setup paths.",
+        "area_or_other_cost": "The binary state register uses three flops instead of six and should generally reduce mapped area. Binary decoding can have different logic depth than one-hot decoding, so timing and area must be checked against the fixed area cap. No additional sequential elements are introduced.",
+        "functional_boundaries": "Preserves the original module name, parameters and defaults, ports, widths, signedness, single positive-edge clock, active-high synchronous clear, and output latency. ten retains priority over twenty when both are asserted. DISP and RTN still return to RDY on the following clock, bill remains asserted in BILL10/BILL20/BILL30, and arbitrary later clear assertions still force RDY on the active clock edge. Invalid binary states retain the original default behavior: all outputs OFF and next state RDY. Verification should compare against the frozen original after the fixed one-cycle reset and warmup contract.",
+        "rewrite": "Replace the six-bit one-hot encoding with a three-bit binary encoding, merge equivalent bill-producing states in the output decoder, and merge the identical DISP/RTN transition behavior. The sequential block, clear polarity, enable behavior, state transition priority, and output latency remain unchanged.",
+        "expected_timing_gain": "Potential setup improvement from reduced state width and less duplicated decode logic, especially on paths through the state register and output decode. The gain is expected but unmeasured; EDA timing analysis is required before claiming improvement.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 9,
+        "response_id": "chatcmpl-196b0db9-3718-4dac-85d7-7092641df8b0",
+        "response_created": 1793634888,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 1491,
+          "completion_tokens": 1608,
+          "total_tokens": 3764
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 66.13859880000018
+    },
+    {
+      "call_index": 10,
+      "arm": "structured_timing_feedback",
+      "candidate_id": "candidate_05",
+      "candidate_sha256": "0ab72fb393ba3548bfa9d16a43bea9a0bf32f85f7c353988a19befa729b51715",
+      "status": "GENERATED",
+      "explanation": {
+        "bottleneck": "The measured baseline worst path is a state flip-flop through a three-input OR to bill: 0.30 ns clock-to-Q plus 0.40 ns OR delay. The existing one-hot mapping therefore still incurs a comparatively expensive output decode.",
+        "area_or_other_cost": "Adds one logical flip-flop and its next-value logic, while simplifying the bill output path. Explicit transition logic may also change mapping and sharing. The resulting mapped area is unmeasured and must remain at or below 278.01664000000005 um^2.",
+        "functional_boundaries": "Preserves the module interface and parameter declarations, a single positive-edge clock, synchronous active-high clear, and output latency. Simultaneous ten and twenty retain ten priority. Every clear edge restores the ready state and clears bill_active, including arbitrary later clear assertions. Under the fixed startup reset, the six state bits remain one-hot and bill_active equals membership in BILL10, BILL20, or BILL30. No additional startup assumptions are introduced. Equivalence must be checked against the frozen original for the specified default ON/OFF values; behavior from arbitrary unreset illegal internal states is not claimed.",
+        "rewrite": "Use explicit one-hot transition equations and a redundant bill_active flip-flop. Compute bill_active from the current state and inputs at the same edge that advances the state, so it represents the new state's bill output without adding a cycle. Its equation is simplified directly from the original transitions. With the default parameters, bill is driven directly by this register rather than by the OR of three state registers.",
+        "expected_timing_gain": "The targeted benefit is removal of the measured 0.40 ns output OR stage. This is not a predicted net WNS gain: bill_active's input logic, register loading, and mapping may become limiting. No candidate timing measurements are available. Accept only after equivalence and EDA confirm WNS strictly above 9.30 ns, TNS no worse than 0.0 ns, and area within the fixed cap.",
+        "output_format_normalization": [
+          "Removed complete leading think wrapper before JSON parsing"
+        ]
+      },
+      "parameters": {
+        "requested_model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
+        "http_transport": "curl",
+        "response_format": "json_object",
+        "candidate_index": 10,
+        "response_id": "chatcmpl-48411ff8-f3da-4c52-b58a-a08a6041319a",
+        "response_created": 1793634955,
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 3218,
+          "completion_tokens": 1440,
+          "total_tokens": 5131
+        }
+      },
+      "response_model": "gpt-6.1-sol",
+      "seconds": 61.28599459999896
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "call_index": 5,
+  "arm": "no_timing_feedback",
+  "candidate_id": "candidate_03",
+  "candidate_sha256": "9cd0c45a1bc6e162655b946106e08b497bf8622be722cf5214b08970d79a7f47",
+  "status": "GENERATED",
+  "explanation": {
+    "bottleneck": "The original round-robin feedback path can traverse request masking, priority encoding, index arithmetic and variable shifting before reaching mask_reg. Its one-hot grant path also decodes the encoded winner. These are structural timing risks; no timing report was supplied to establish the actual critical path.",
+    "area_or_other_cost": "The prefix networks add combinational logic alongside the retained binary encoders, while removing their used one-hot decoders and the variable mask shifters. No registers or pipeline stages are added. Net mapped area, routing cost and compliance with the 4880.43072 um2 cap remain unmeasured.",
+    "rewrite": "Keep the frozen priority_encoder instances for valid and binary index generation. Compute one-hot winners and next round-robin masks directly with parallel priority-direction OR prefixes. For MSB-first arbitration, each strict-prefix bit indicates whether any higher-numbered request exists; for LSB-first arbitration it indicates whether any lower-numbered request exists. This strict prefix is exactly the mask following the winning request, and request AND NOT strict-prefix is exactly its one-hot grant. Preserve the original blocking, hold, idle and synchronous reset decisions.",
+    "expected_timing_gain": "Unmeasured. For PORTS=32, each prefix network has five constant-shift OR stages. The rewrite removes binary-index arithmetic and variable shifting from mask generation, and binary-to-one-hot decoding from grant generation. It is expected to shorten those feedback paths, but setup WNS improvement must be established by EDA at the fixed settings.",
+    "functional_boundaries": "Preserves top name, parameter names/defaults, native port widths and signedness, existing register initialization semantics, single positive-edge clock, synchronous active-high reset, and output latency. Blocking and mask-update conditions remain unchanged, including resets after startup. Prefix identities support arbitrary simultaneous request bits and do not assume one-hot requests or acknowledges. The frozen dependency is instantiated, not redefined. No additional startup assumptions are introduced. Formal equivalence against the original frozen RTL and timing/area validation are still required.",
+    "output_format_normalization": [
+      "Removed complete leading think wrapper before JSON parsing"
+    ]
+  },
+  "parameters": {
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "http_transport": "curl",
+    "response_format": "json_object",
+    "candidate_index": 5,
+    "response_id": "chatcmpl-4fb601dc-e91a-43a5-aa67-9448b35508de",
+    "response_created": 1793626658,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 3167,
+      "completion_tokens": 3420,
+      "total_tokens": 7858
+    }
+  },
+  "response_model": "gpt-6.1-sol",
+  "seconds": 107.80766869999934,
+  "accepted": false,
+  "metrics": {
+    "status": "PASS",
+    "formal": "PASS",
+    "mapped_formal": "PASS",
+    "ppa": "PASS",
+    "eligible": true,
+    "stage": "sta",
+    "mapped_area_um2": 5415.1936,
+    "mapped_cells": 869,
+    "electrical": {
+      "status": "PASS",
+      "violation_rows": 0,
+      "checks": [
+        "max_slew",
+        "max_capacitance"
+      ],
+      "scope": "Library limits under recorded SDC; not physical signoff"
+    },
+    "wns_ns": 8.29,
+    "tns_ns": 0.0,
+    "mapped_sha256": "8dde1852d7349e33caf7788cce7553eac0b141e0a4ae3050bd0f4b26e9bd654d",
+    "sdc_sha256": "ac8d553567cead8777db869b7a22ac4dfa41a9b08b1edfcd2ad54e6315a268de",
+    "elapsed_seconds": 10.192
+  },
+  "reason": "Exceeds fixed baseline-derived area cap"
+}

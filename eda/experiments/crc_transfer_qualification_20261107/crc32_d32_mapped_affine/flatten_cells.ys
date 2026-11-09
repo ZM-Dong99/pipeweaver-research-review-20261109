@@ -1,0 +1,8 @@
+read_liberty -ignore_miss_func -ignore_miss_dir "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+read_verilog "D:/verilog_lab/PipeWeaver/eda/experiments/crc_transfer_qualification_20261107/crc32_d32_baseline/mapped.v"
+hierarchy -check -top crc32_d32
+flatten
+proc
+opt
+check -assert
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/crc_transfer_qualification_20261107/crc32_d32_mapped_affine/mapped_flat.json"

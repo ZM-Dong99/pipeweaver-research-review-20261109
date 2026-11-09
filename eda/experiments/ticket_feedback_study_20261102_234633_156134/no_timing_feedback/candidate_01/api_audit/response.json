@@ -1,0 +1,29 @@
+{
+  "id": "chatcmpl-b7070cf6-19dd-425f-9108-4359f16602e4",
+  "object": "chat.completion",
+  "created": 1793634552,
+  "model": "gpt-6.1-sol",
+  "usage": {
+    "prompt_tokens": 1491,
+    "completion_tokens": 1067,
+    "total_tokens": 2831,
+    "completion_tokens_details": {
+      "reasoning_tokens": 273
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  },
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Selecting direct state equations**\n\n**Factoring state equations**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module ticket_machine #(\\n    parameter ON  = 1'b1,\\n    parameter OFF = 1'b0\\n) (\\n    input  clk, clear, ten, twenty,\\n    output reg ready, dispense, return_sig, bill\\n);\\n\\n    // State bits: ready, dispense, return, bill10, bill20, bill30.\\n    reg [5:0] state;\\n\\n    wire idle;\\n    wire take_twenty;\\n    assign idle = ~ten & ~twenty;\\n    assign take_twenty = ~ten & twenty;\\n\\n    // Explicit one-hot transition equations. A ten input takes priority.\\n    always @(posedge clk) begin\\n        if (clear) begin\\n            state <= 6'b000001;\\n        end else begin\\n            state[0] <= state[1] | state[2] | (state[0] & idle);\\n            state[1] <= (state[4] & take_twenty) | (state[5] & ten);\\n            state[2] <= state[5] & take_twenty;\\n            state[3] <= (state[0] & ten) | (state[3] & idle);\\n            state[4] <= (state[0] & take_twenty) |\\n                        (state[3] & ten) |\\n                        (state[4] & idle);\\n            state[5] <= (state[3] & take_twenty) |\\n                        (state[4] & ten) |\\n                        (state[5] & idle);\\n        end\\n    end\\n\\n    always @* begin\\n        ready      = state[0] ? ON : OFF;\\n        dispense   = state[1] ? ON : OFF;\\n        return_sig = state[2] ? ON : OFF;\\n        bill       = (state[3] | state[4] | state[5]) ? ON : OFF;\\n    end\\n\\nendmodule\",\n  \"bottleneck\": \"The source expresses transitions and outputs through full-vector state comparisons and priority branches. Depending on synthesis FSM extraction and encoding, these can introduce state decoding and mux depth on register-to-register and register-to-output paths. The actual critical path requires mapped timing analysis.\",\n  \"rewrite\": \"Use explicit six-bit one-hot transition equations, shared idle and priority-qualified twenty terms, and direct Moore output decoding. This removes full-vector state equality checks from the reachable-state datapath.\",\n  \"expected_timing_gain\": \"The shallow AND/OR transition network and direct output decoding are intended to reduce setup-path depth. No timing improvement is measured or guaranteed: compare setup WNS and TNS against the frozen original using the fixed EDA settings, and retain this candidate only if WNS strictly improves without TNS regression.\",\n  \"area_or_other_cost\": \"Uses six state flip-flops, synchronous reset logic, and a small combinational network. Shared input terms may introduce fanout, and the baseline synthesizer may already perform equivalent optimizations. Mapped area must be checked against the 278.01664000000005 um^2 cap.\",\n  \"functional_boundaries\": \"Preserves the module interface and parameter declarations, positive-edge clock, synchronous active-high clear, and output latency. Reset establishes a one-hot state, and every transition preserves that invariant for all ten/twenty combinations, including simultaneous assertion with ten priority. Later clear assertions restore ready on the same edge as the original. No additional startup assumptions are introduced. Illegal internal state encodings need not match the original recovery behavior because they are unreachable after the required startup reset; equivalence must be checked against the frozen original under the supplied startup contract and default parameters.\"\n}"
+      }
+    }
+  ],
+  "audit_scope": "Provider envelope and visible message content; reasoning fields omitted."
+}

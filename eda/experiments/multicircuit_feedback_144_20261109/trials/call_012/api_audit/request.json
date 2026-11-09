@@ -1,0 +1,26 @@
+{
+  "endpoint": "https://apinebula.ai/v1/chat/completions",
+  "body": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "response_format": {
+      "type": "json_object"
+    },
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "max_completion_tokens": 16000,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Optimize the specified combinational RTL under its exact all-input equivalence contract. Return exactly the requested JSON object."
+      },
+      {
+        "role": "user",
+        "content": "Optimize module alu_64bit, fixed parameter overrides {}. Minimize mapped maximum data arrival. Preserve module name, ports, widths, signedness, truncations, priority, default outputs and parameter declarations/defaults. All input bits are arbitrary binary values. Every output bit must match for all inputs. Do not rely on presumed typical operation or comments. No clocks, storage, latency, latches, memories, assumptions, assertions, external includes, file access, dependencies or undefined outputs. Return a complete synthesizable design including helper modules. Only this fixed parameter instance is assessed.\nEvaluation uses SKY130HD TT25C1.80V, Yosys source and mapped all-input equivalence, flatten/synth-noabc and ABC buffer_size with cleanup-before-buffer, OpenSTA, 0ns external IO delays, input transition0.10ns, output load0.010pF, 100ns virtual reporting clock and no physical wire parasitics. Zero reported max-slew and max-capacitance violations required. Original mapped area 11907.670400um2; area cap 13098.437440um2. CRC candidates use the same Slang frontend as their baseline. CRC state_in is arbitrary and data_out must also match exactly.\nReturn exactly one JSON object with six string fields candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.\nOriginal RTL:\nmodule alu_64bit(\n    input [63:0] a, b,\n    input [2:0] Oper,\n    output reg [63:0] sum\n);\nreg c_out;\nalways @(*) begin\n    case(Oper)\n        3'b000:  {c_out,sum} = a + b;\n        3'b001:  {c_out,sum} = a - b;\n        3'b010:  {c_out,sum} = b - a;\n        3'b011:  {c_out,sum} = a | b;\n        3'b100:  {c_out,sum} = a & b;\n        3'b101:  {c_out,sum} = a ^ b;\n        3'b110:  {c_out,sum} = a ~^ b;\n        default: {c_out,sum} = 65'b0;\n    endcase\nend\nendmodule"
+      }
+    ]
+  },
+  "credentials": "omitted"
+}

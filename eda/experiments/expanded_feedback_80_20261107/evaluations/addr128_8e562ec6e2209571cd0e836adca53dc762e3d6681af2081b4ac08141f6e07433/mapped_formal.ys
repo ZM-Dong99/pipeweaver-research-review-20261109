@@ -1,0 +1,19 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/inputs/addr128.v"
+chparam -set base 128 addr_calcu
+hierarchy -check -top addr_calcu
+flatten
+rename addr_calcu pw_gold
+design -stash pw_gold_design
+read_liberty -ignore_miss_func -ignore_miss_dir "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/evaluations/addr128_8e562ec6e2209571cd0e836adca53dc762e3d6681af2081b4ac08141f6e07433/mapped.v"
+hierarchy -check -top addr_calcu
+flatten
+delete t:$scopeinfo
+rename addr_calcu pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/evaluations/addr128_8e562ec6e2209571cd0e836adca53dc762e3d6681af2081b4ac08141f6e07433/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 120

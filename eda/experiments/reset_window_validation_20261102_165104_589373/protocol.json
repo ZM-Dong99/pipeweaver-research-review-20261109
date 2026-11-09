@@ -1,0 +1,55 @@
+{
+  "cases": [
+    {
+      "id": "mac_three_reset_samples",
+      "reference": "D:\\verilog_lab\\PipeWeaver\\benchmark\\rtl_opt_upstream_hkust\\benchmark\\mac\\mac.v",
+      "candidate": "D:\\verilog_lab\\PipeWeaver\\benchmark\\rtl_opt_upstream_hkust\\benchmark\\mac\\mac.v",
+      "top": "mac",
+      "reset": "reset",
+      "expected": "PASS",
+      "reference_sha256": "85018de9dbec8850949e31e92c24f85ba257b46a05db171ea9b4153d8329f19d",
+      "candidate_sha256": "85018de9dbec8850949e31e92c24f85ba257b46a05db171ea9b4153d8329f19d"
+    },
+    {
+      "id": "mac_wrong_reset",
+      "reference": "D:\\verilog_lab\\PipeWeaver\\benchmark\\rtl_opt_upstream_hkust\\benchmark\\mac\\mac.v",
+      "candidate": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\reset_window_validation_20261102_165104_589373\\fixtures\\wrong_mac_reset.v",
+      "top": "mac",
+      "reset": "reset",
+      "expected": "FORMAL_FAIL",
+      "reference_sha256": "85018de9dbec8850949e31e92c24f85ba257b46a05db171ea9b4153d8329f19d",
+      "candidate_sha256": "c5199c73f8968c8e5b8dc38193aed4d49a0f99fc32282ef499be111eaa4b7ec1"
+    },
+    {
+      "id": "counter_three_reset_samples",
+      "reference": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\sequential_backend_controls_20261031_final\\fixtures\\counter.v",
+      "candidate": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\sequential_backend_controls_20261031_final\\fixtures\\encoded.v",
+      "top": "seq_control",
+      "reset": "rst",
+      "expected": "PASS",
+      "reference_sha256": "4fcadd077d90862aba1e508c2304a2417847a406fc1af2f7eb3c3b06a4ff76b3",
+      "candidate_sha256": "2c7be9738bcb5f0d55fb5636732c33ba81ef5b354fd49d3b9b9dd6343d2c9d61"
+    },
+    {
+      "id": "late_error_after_reset_release",
+      "reference": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\sequential_backend_controls_20261031_final\\fixtures\\counter.v",
+      "candidate": "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\sequential_backend_controls_20261031_final\\fixtures\\late_error.v",
+      "top": "seq_control",
+      "reset": "rst",
+      "expected": "FORMAL_FAIL",
+      "reference_sha256": "4fcadd077d90862aba1e508c2304a2417847a406fc1af2f7eb3c3b06a4ff76b3",
+      "candidate_sha256": "9738ab277284164e8908b6af23283775bb194e525e256ebcfd96f4c915c8dc48"
+    }
+  ],
+  "dependencies": {
+    "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\run_native_seq.py": "7bb19ac874b538c86718f0aa443cffed5e20330f466271125d91275c6c6bb9d2",
+    "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\run_native_comb.py": "38f0f10f08e7bb752010c2985fc8a1b31f48e08c4891b318d2b1f5a6992c09ff",
+    "D:\\verilog_lab\\PipeWeaver\\eda\\experiments\\validate_reset_window.py": "a6e4837273ffd876b59484f6dfb13eee53ae664889cc71ebc0ee1c265099836e"
+  },
+  "reset_cycles": 3,
+  "warmup_samples": 4,
+  "period_ns": 10,
+  "timeout_seconds": 120,
+  "llm_requests": 0,
+  "scope": "Conditional startup contract validation, not an optimization study; reset and data unconstrained after sample 3. This is a distinct experiment, not a repair of past results."
+}

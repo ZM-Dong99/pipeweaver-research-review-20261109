@@ -1,0 +1,1005 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\fcs_reset_complete_20261107_induction_fixed\optimized\evaluation\mapped_formal.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v' to AST representation.
+Generating RTLIL representation for module `\axis_eth_fcs_reset'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \axis_eth_fcs_reset
+
+2.2. Analyzing design hierarchy..
+Top module:  \axis_eth_fcs_reset
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:538$201 in module axis_eth_fcs_reset.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:535$200 in module axis_eth_fcs_reset.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:532$199 in module axis_eth_fcs_reset.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 0 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~5 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:538$201'.
+     1/1: $0\fcs_valid_reg[0:0]
+Creating decoders for process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:535$200'.
+     1/1: $0\fcs_reg[31:0]
+Creating decoders for process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:532$199'.
+     1/1: $0\crc_state[31:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\axis_eth_fcs_reset.\fcs_valid_reg' using process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:538$201'.
+  created $dff cell `$procdff$220' with positive edge clock.
+Creating register for signal `\axis_eth_fcs_reset.\fcs_reg' using process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:535$200'.
+  created $dff cell `$procdff$221' with positive edge clock.
+Creating register for signal `\axis_eth_fcs_reset.\crc_state' using process `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:532$199'.
+  created $dff cell `$procdff$222' with positive edge clock.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:538$201'.
+Removing empty process `axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:538$201'.
+Found and cleaned up 2 empty switches in `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:535$200'.
+Removing empty process `axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:535$200'.
+Found and cleaned up 2 empty switches in `\axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:532$199'.
+Removing empty process `axis_eth_fcs_reset.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/baseline/elaborated.v:532$199'.
+Cleaned up 5 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module axis_eth_fcs_reset.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/crc_0__eth_crc_inst_state_in
+
+6. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/crc_state
+
+7. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/fcs_reg
+
+8. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/fcs_valid_reg
+Renaming module \axis_eth_fcs_reset to \pw_gold.
+
+9. Executing Liberty frontend: D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Ignoring cell sky130_fd_sc_hd__dlclkp_1 with missing function on output GCLK.
+Ignoring cell sky130_fd_sc_hd__dlclkp_2 with missing function on output GCLK.
+Ignoring cell sky130_fd_sc_hd__dlclkp_4 with missing function on output GCLK.
+Ignoring cell sky130_fd_sc_hd__sdlclkp_1 with missing function on output GCLK.
+Ignoring cell sky130_fd_sc_hd__sdlclkp_2 with missing function on output GCLK.
+Ignoring cell sky130_fd_sc_hd__sdlclkp_4 with missing function on output GCLK.
+Imported 422 cell types from liberty file.
+<suppressed ~12 debug messages>
+
+10. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/optimized/evaluation/mapped.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/optimized/evaluation/mapped.v' to AST representation.
+Generating RTLIL representation for module `\axis_eth_fcs_reset'.
+Successfully finished Verilog frontend.
+
+11. Executing HIERARCHY pass (managing design hierarchy).
+
+11.1. Analyzing design hierarchy..
+Top module:  \axis_eth_fcs_reset
+Used module:     \sky130_fd_sc_hd__dfxtp_1
+Used module:     \sky130_fd_sc_hd__nand3_1
+Used module:     \sky130_fd_sc_hd__o211ai_1
+Used module:     \sky130_fd_sc_hd__nand2_1
+Used module:     \sky130_fd_sc_hd__a21oi_1
+Used module:     \sky130_fd_sc_hd__o21ai_1
+Used module:     \sky130_fd_sc_hd__and3_1
+Used module:     \sky130_fd_sc_hd__nand3b_1
+Used module:     \sky130_fd_sc_hd__o21bai_1
+Used module:     \sky130_fd_sc_hd__inv_1
+Used module:     \sky130_fd_sc_hd__xnor2_1
+Used module:     \sky130_fd_sc_hd__and2_1
+Used module:     \sky130_fd_sc_hd__nand3_2
+Used module:     \sky130_fd_sc_hd__nor2_1
+Used module:     \sky130_fd_sc_hd__nor3_1
+Used module:     \sky130_fd_sc_hd__o211a_1
+Used module:     \sky130_fd_sc_hd__clkbuf_1
+Used module:     \sky130_fd_sc_hd__o21ai_0
+Used module:     \sky130_fd_sc_hd__o211a_2
+Used module:     \sky130_fd_sc_hd__a21oi_2
+Used module:     \sky130_fd_sc_hd__xnor2_2
+Used module:     \sky130_fd_sc_hd__or2_2
+Used module:     \sky130_fd_sc_hd__xor2_1
+Used module:     \sky130_fd_sc_hd__o21a_1
+Used module:     \sky130_fd_sc_hd__nand2b_1
+Used module:     \sky130_fd_sc_hd__buf_4
+Used module:     \sky130_fd_sc_hd__buf_6
+Used module:     \sky130_fd_sc_hd__buf_2
+Used module:     \sky130_fd_sc_hd__nor2b_1
+Used module:     \sky130_fd_sc_hd__nand2_2
+Used module:     \sky130_fd_sc_hd__nand2b_4
+Used module:     \sky130_fd_sc_hd__inv_2
+Used module:     \sky130_fd_sc_hd__or2_1
+Used module:     \sky130_fd_sc_hd__xor2_4
+Used module:     \sky130_fd_sc_hd__clkinv_1
+Used module:     \sky130_fd_sc_hd__clkbuf_2
+Used module:     \sky130_fd_sc_hd__buf_1
+Used module:     \sky130_fd_sc_hd__a21o_1
+
+11.2. Analyzing design hierarchy..
+Top module:  \axis_eth_fcs_reset
+Used module:     \sky130_fd_sc_hd__dfxtp_1
+Used module:     \sky130_fd_sc_hd__nand3_1
+Used module:     \sky130_fd_sc_hd__o211ai_1
+Used module:     \sky130_fd_sc_hd__nand2_1
+Used module:     \sky130_fd_sc_hd__a21oi_1
+Used module:     \sky130_fd_sc_hd__o21ai_1
+Used module:     \sky130_fd_sc_hd__and3_1
+Used module:     \sky130_fd_sc_hd__nand3b_1
+Used module:     \sky130_fd_sc_hd__o21bai_1
+Used module:     \sky130_fd_sc_hd__inv_1
+Used module:     \sky130_fd_sc_hd__xnor2_1
+Used module:     \sky130_fd_sc_hd__and2_1
+Used module:     \sky130_fd_sc_hd__nand3_2
+Used module:     \sky130_fd_sc_hd__nor2_1
+Used module:     \sky130_fd_sc_hd__nor3_1
+Used module:     \sky130_fd_sc_hd__o211a_1
+Used module:     \sky130_fd_sc_hd__clkbuf_1
+Used module:     \sky130_fd_sc_hd__o21ai_0
+Used module:     \sky130_fd_sc_hd__o211a_2
+Used module:     \sky130_fd_sc_hd__a21oi_2
+Used module:     \sky130_fd_sc_hd__xnor2_2
+Used module:     \sky130_fd_sc_hd__or2_2
+Used module:     \sky130_fd_sc_hd__xor2_1
+Used module:     \sky130_fd_sc_hd__o21a_1
+Used module:     \sky130_fd_sc_hd__nand2b_1
+Used module:     \sky130_fd_sc_hd__buf_4
+Used module:     \sky130_fd_sc_hd__buf_6
+Used module:     \sky130_fd_sc_hd__buf_2
+Used module:     \sky130_fd_sc_hd__nor2b_1
+Used module:     \sky130_fd_sc_hd__nand2_2
+Used module:     \sky130_fd_sc_hd__nand2b_4
+Used module:     \sky130_fd_sc_hd__inv_2
+Used module:     \sky130_fd_sc_hd__or2_1
+Used module:     \sky130_fd_sc_hd__xor2_4
+Used module:     \sky130_fd_sc_hd__clkinv_1
+Used module:     \sky130_fd_sc_hd__clkbuf_2
+Used module:     \sky130_fd_sc_hd__buf_1
+Used module:     \sky130_fd_sc_hd__a21o_1
+Removing unused module `\sky130_fd_sc_hd__xor3_4'.
+Removing unused module `\sky130_fd_sc_hd__xor3_2'.
+Removing unused module `\sky130_fd_sc_hd__xor3_1'.
+Removing unused module `\sky130_fd_sc_hd__xor2_2'.
+Removing unused module `\sky130_fd_sc_hd__xnor3_4'.
+Removing unused module `\sky130_fd_sc_hd__xnor3_2'.
+Removing unused module `\sky130_fd_sc_hd__xnor3_1'.
+Removing unused module `\sky130_fd_sc_hd__xnor2_4'.
+Removing unused module `\sky130_fd_sc_hd__sedfxtp_4'.
+Removing unused module `\sky130_fd_sc_hd__sedfxtp_2'.
+Removing unused module `\sky130_fd_sc_hd__sedfxtp_1'.
+Removing unused module `\sky130_fd_sc_hd__sedfxbp_2'.
+Removing unused module `\sky130_fd_sc_hd__sedfxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfxtp_4'.
+Removing unused module `\sky130_fd_sc_hd__sdfxtp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfxtp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfxbp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfstp_4'.
+Removing unused module `\sky130_fd_sc_hd__sdfstp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfstp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfsbp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfsbp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfrtp_4'.
+Removing unused module `\sky130_fd_sc_hd__sdfrtp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfrtp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfrtn_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfrbp_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfrbp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfbbp_1'.
+Removing unused module `\sky130_fd_sc_hd__sdfbbn_2'.
+Removing unused module `\sky130_fd_sc_hd__sdfbbn_1'.
+Removing unused module `\sky130_fd_sc_hd__probec_p_8'.
+Removing unused module `\sky130_fd_sc_hd__probe_p_8'.
+Removing unused module `\sky130_fd_sc_hd__or4bb_4'.
+Removing unused module `\sky130_fd_sc_hd__or4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__or4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__or4b_4'.
+Removing unused module `\sky130_fd_sc_hd__or4b_2'.
+Removing unused module `\sky130_fd_sc_hd__or4b_1'.
+Removing unused module `\sky130_fd_sc_hd__or4_4'.
+Removing unused module `\sky130_fd_sc_hd__or4_2'.
+Removing unused module `\sky130_fd_sc_hd__or4_1'.
+Removing unused module `\sky130_fd_sc_hd__or3b_4'.
+Removing unused module `\sky130_fd_sc_hd__or3b_2'.
+Removing unused module `\sky130_fd_sc_hd__or3b_1'.
+Removing unused module `\sky130_fd_sc_hd__or3_4'.
+Removing unused module `\sky130_fd_sc_hd__or3_2'.
+Removing unused module `\sky130_fd_sc_hd__or3_1'.
+Removing unused module `\sky130_fd_sc_hd__or2b_4'.
+Removing unused module `\sky130_fd_sc_hd__or2b_2'.
+Removing unused module `\sky130_fd_sc_hd__or2b_1'.
+Removing unused module `\sky130_fd_sc_hd__or2_4'.
+Removing unused module `\sky130_fd_sc_hd__or2_0'.
+Removing unused module `\sky130_fd_sc_hd__o41ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o41ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o41ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o41a_4'.
+Removing unused module `\sky130_fd_sc_hd__o41a_2'.
+Removing unused module `\sky130_fd_sc_hd__o41a_1'.
+Removing unused module `\sky130_fd_sc_hd__o32ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o32ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o32ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o32a_4'.
+Removing unused module `\sky130_fd_sc_hd__o32a_2'.
+Removing unused module `\sky130_fd_sc_hd__o32a_1'.
+Removing unused module `\sky130_fd_sc_hd__o31ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o31ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o31ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o31a_4'.
+Removing unused module `\sky130_fd_sc_hd__o31a_2'.
+Removing unused module `\sky130_fd_sc_hd__o31a_1'.
+Removing unused module `\sky130_fd_sc_hd__o311ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o311ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o311ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o311ai_0'.
+Removing unused module `\sky130_fd_sc_hd__o311a_4'.
+Removing unused module `\sky130_fd_sc_hd__o311a_2'.
+Removing unused module `\sky130_fd_sc_hd__o311a_1'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2a_4'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2a_2'.
+Removing unused module `\sky130_fd_sc_hd__o2bb2a_1'.
+Removing unused module `\sky130_fd_sc_hd__o22ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o22ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o22ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o22a_4'.
+Removing unused module `\sky130_fd_sc_hd__o22a_2'.
+Removing unused module `\sky130_fd_sc_hd__o22a_1'.
+Removing unused module `\sky130_fd_sc_hd__o221ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o221ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o221ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o221a_4'.
+Removing unused module `\sky130_fd_sc_hd__o221a_2'.
+Removing unused module `\sky130_fd_sc_hd__o221a_1'.
+Removing unused module `\sky130_fd_sc_hd__o21bai_4'.
+Removing unused module `\sky130_fd_sc_hd__o21bai_2'.
+Removing unused module `\sky130_fd_sc_hd__o21ba_4'.
+Removing unused module `\sky130_fd_sc_hd__o21ba_2'.
+Removing unused module `\sky130_fd_sc_hd__o21ba_1'.
+Removing unused module `\sky130_fd_sc_hd__o21ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o21ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o21a_4'.
+Removing unused module `\sky130_fd_sc_hd__o21a_2'.
+Removing unused module `\sky130_fd_sc_hd__o211ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o211ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o211a_4'.
+Removing unused module `\sky130_fd_sc_hd__o2111ai_4'.
+Removing unused module `\sky130_fd_sc_hd__o2111ai_2'.
+Removing unused module `\sky130_fd_sc_hd__o2111ai_1'.
+Removing unused module `\sky130_fd_sc_hd__o2111a_4'.
+Removing unused module `\sky130_fd_sc_hd__o2111a_2'.
+Removing unused module `\sky130_fd_sc_hd__o2111a_1'.
+Removing unused module `\sky130_fd_sc_hd__nor4bb_4'.
+Removing unused module `\sky130_fd_sc_hd__nor4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__nor4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__nor4b_4'.
+Removing unused module `\sky130_fd_sc_hd__nor4b_2'.
+Removing unused module `\sky130_fd_sc_hd__nor4b_1'.
+Removing unused module `\sky130_fd_sc_hd__nor4_4'.
+Removing unused module `\sky130_fd_sc_hd__nor4_2'.
+Removing unused module `\sky130_fd_sc_hd__nor4_1'.
+Removing unused module `\sky130_fd_sc_hd__nor3b_4'.
+Removing unused module `\sky130_fd_sc_hd__nor3b_2'.
+Removing unused module `\sky130_fd_sc_hd__nor3b_1'.
+Removing unused module `\sky130_fd_sc_hd__nor3_4'.
+Removing unused module `\sky130_fd_sc_hd__nor3_2'.
+Removing unused module `\sky130_fd_sc_hd__nor2b_4'.
+Removing unused module `\sky130_fd_sc_hd__nor2b_2'.
+Removing unused module `\sky130_fd_sc_hd__nor2_8'.
+Removing unused module `\sky130_fd_sc_hd__nor2_4'.
+Removing unused module `\sky130_fd_sc_hd__nor2_2'.
+Removing unused module `\sky130_fd_sc_hd__nand4bb_4'.
+Removing unused module `\sky130_fd_sc_hd__nand4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__nand4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__nand4b_4'.
+Removing unused module `\sky130_fd_sc_hd__nand4b_2'.
+Removing unused module `\sky130_fd_sc_hd__nand4b_1'.
+Removing unused module `\sky130_fd_sc_hd__nand4_4'.
+Removing unused module `\sky130_fd_sc_hd__nand4_2'.
+Removing unused module `\sky130_fd_sc_hd__nand4_1'.
+Removing unused module `\sky130_fd_sc_hd__nand3b_4'.
+Removing unused module `\sky130_fd_sc_hd__nand3b_2'.
+Removing unused module `\sky130_fd_sc_hd__nand3_4'.
+Removing unused module `\sky130_fd_sc_hd__nand2b_2'.
+Removing unused module `\sky130_fd_sc_hd__nand2_8'.
+Removing unused module `\sky130_fd_sc_hd__nand2_4'.
+Removing unused module `\sky130_fd_sc_hd__mux4_4'.
+Removing unused module `\sky130_fd_sc_hd__mux4_2'.
+Removing unused module `\sky130_fd_sc_hd__mux4_1'.
+Removing unused module `\sky130_fd_sc_hd__mux2i_4'.
+Removing unused module `\sky130_fd_sc_hd__mux2i_2'.
+Removing unused module `\sky130_fd_sc_hd__mux2i_1'.
+Removing unused module `\sky130_fd_sc_hd__mux2_8'.
+Removing unused module `\sky130_fd_sc_hd__mux2_4'.
+Removing unused module `\sky130_fd_sc_hd__mux2_2'.
+Removing unused module `\sky130_fd_sc_hd__mux2_1'.
+Removing unused module `\sky130_fd_sc_hd__maj3_4'.
+Removing unused module `\sky130_fd_sc_hd__maj3_2'.
+Removing unused module `\sky130_fd_sc_hd__maj3_1'.
+Removing unused module `\sky130_fd_sc_hd__macro_sparecell'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrckapwr_16'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrc_8'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrc_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrc_2'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrc_16'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_isobufsrc_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_inputisolatch_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_inputiso1p_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_inputiso1n_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_inputiso0p_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_inputiso0n_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_decapkapwr_8'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_decapkapwr_6'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_decapkapwr_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_decapkapwr_3'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_decapkapwr_12'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkinvkapwr_8'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkinvkapwr_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkinvkapwr_2'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkinvkapwr_16'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkinvkapwr_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkbufkapwr_8'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkbufkapwr_4'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkbufkapwr_2'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkbufkapwr_16'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_clkbufkapwr_1'.
+Removing unused module `\sky130_fd_sc_hd__lpflow_bleeder_1'.
+Removing unused module `\sky130_fd_sc_hd__inv_8'.
+Removing unused module `\sky130_fd_sc_hd__inv_6'.
+Removing unused module `\sky130_fd_sc_hd__inv_4'.
+Removing unused module `\sky130_fd_sc_hd__inv_16'.
+Removing unused module `\sky130_fd_sc_hd__inv_12'.
+Removing unused module `\sky130_fd_sc_hd__ha_4'.
+Removing unused module `\sky130_fd_sc_hd__ha_2'.
+Removing unused module `\sky130_fd_sc_hd__ha_1'.
+Removing unused module `\sky130_fd_sc_hd__fahcon_1'.
+Removing unused module `\sky130_fd_sc_hd__fahcin_1'.
+Removing unused module `\sky130_fd_sc_hd__fah_1'.
+Removing unused module `\sky130_fd_sc_hd__fa_4'.
+Removing unused module `\sky130_fd_sc_hd__fa_2'.
+Removing unused module `\sky130_fd_sc_hd__fa_1'.
+Removing unused module `\sky130_fd_sc_hd__einvp_8'.
+Removing unused module `\sky130_fd_sc_hd__einvp_4'.
+Removing unused module `\sky130_fd_sc_hd__einvp_2'.
+Removing unused module `\sky130_fd_sc_hd__einvp_1'.
+Removing unused module `\sky130_fd_sc_hd__einvn_8'.
+Removing unused module `\sky130_fd_sc_hd__einvn_4'.
+Removing unused module `\sky130_fd_sc_hd__einvn_2'.
+Removing unused module `\sky130_fd_sc_hd__einvn_1'.
+Removing unused module `\sky130_fd_sc_hd__einvn_0'.
+Removing unused module `\sky130_fd_sc_hd__edfxtp_1'.
+Removing unused module `\sky130_fd_sc_hd__edfxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__ebufn_8'.
+Removing unused module `\sky130_fd_sc_hd__ebufn_4'.
+Removing unused module `\sky130_fd_sc_hd__ebufn_2'.
+Removing unused module `\sky130_fd_sc_hd__ebufn_1'.
+Removing unused module `\sky130_fd_sc_hd__dlymetal6s6s_1'.
+Removing unused module `\sky130_fd_sc_hd__dlymetal6s4s_1'.
+Removing unused module `\sky130_fd_sc_hd__dlymetal6s2s_1'.
+Removing unused module `\sky130_fd_sc_hd__dlygate4sd3_1'.
+Removing unused module `\sky130_fd_sc_hd__dlygate4sd2_1'.
+Removing unused module `\sky130_fd_sc_hd__dlygate4sd1_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxtp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxtn_4'.
+Removing unused module `\sky130_fd_sc_hd__dlxtn_2'.
+Removing unused module `\sky130_fd_sc_hd__dlxtn_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlxbn_2'.
+Removing unused module `\sky130_fd_sc_hd__dlxbn_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrtp_4'.
+Removing unused module `\sky130_fd_sc_hd__dlrtp_2'.
+Removing unused module `\sky130_fd_sc_hd__dlrtp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrtn_4'.
+Removing unused module `\sky130_fd_sc_hd__dlrtn_2'.
+Removing unused module `\sky130_fd_sc_hd__dlrtn_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrbp_2'.
+Removing unused module `\sky130_fd_sc_hd__dlrbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dlrbn_2'.
+Removing unused module `\sky130_fd_sc_hd__dlrbn_1'.
+Removing unused module `\sky130_fd_sc_hd__diode_2'.
+Removing unused module `\sky130_fd_sc_hd__dfxtp_4'.
+Removing unused module `\sky130_fd_sc_hd__dfxtp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfxbp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfxbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfstp_4'.
+Removing unused module `\sky130_fd_sc_hd__dfstp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfstp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfsbp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfsbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfrtp_4'.
+Removing unused module `\sky130_fd_sc_hd__dfrtp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfrtp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfrtn_1'.
+Removing unused module `\sky130_fd_sc_hd__dfrbp_2'.
+Removing unused module `\sky130_fd_sc_hd__dfrbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfbbp_1'.
+Removing unused module `\sky130_fd_sc_hd__dfbbn_2'.
+Removing unused module `\sky130_fd_sc_hd__dfbbn_1'.
+Removing unused module `\sky130_fd_sc_hd__decap_8'.
+Removing unused module `\sky130_fd_sc_hd__decap_6'.
+Removing unused module `\sky130_fd_sc_hd__decap_4'.
+Removing unused module `\sky130_fd_sc_hd__decap_3'.
+Removing unused module `\sky130_fd_sc_hd__decap_12'.
+Removing unused module `\sky130_fd_sc_hd__conb_1'.
+Removing unused module `\sky130_fd_sc_hd__clkinvlp_4'.
+Removing unused module `\sky130_fd_sc_hd__clkinvlp_2'.
+Removing unused module `\sky130_fd_sc_hd__clkinv_8'.
+Removing unused module `\sky130_fd_sc_hd__clkinv_4'.
+Removing unused module `\sky130_fd_sc_hd__clkinv_2'.
+Removing unused module `\sky130_fd_sc_hd__clkinv_16'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s50_2'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s50_1'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s25_2'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s25_1'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s18_2'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s18_1'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s15_2'.
+Removing unused module `\sky130_fd_sc_hd__clkdlybuf4s15_1'.
+Removing unused module `\sky130_fd_sc_hd__clkbuf_8'.
+Removing unused module `\sky130_fd_sc_hd__clkbuf_4'.
+Removing unused module `\sky130_fd_sc_hd__clkbuf_16'.
+Removing unused module `\sky130_fd_sc_hd__bufinv_8'.
+Removing unused module `\sky130_fd_sc_hd__bufinv_16'.
+Removing unused module `\sky130_fd_sc_hd__bufbuf_8'.
+Removing unused module `\sky130_fd_sc_hd__bufbuf_16'.
+Removing unused module `\sky130_fd_sc_hd__buf_8'.
+Removing unused module `\sky130_fd_sc_hd__buf_16'.
+Removing unused module `\sky130_fd_sc_hd__buf_12'.
+Removing unused module `\sky130_fd_sc_hd__and4bb_4'.
+Removing unused module `\sky130_fd_sc_hd__and4bb_2'.
+Removing unused module `\sky130_fd_sc_hd__and4bb_1'.
+Removing unused module `\sky130_fd_sc_hd__and4b_4'.
+Removing unused module `\sky130_fd_sc_hd__and4b_2'.
+Removing unused module `\sky130_fd_sc_hd__and4b_1'.
+Removing unused module `\sky130_fd_sc_hd__and4_4'.
+Removing unused module `\sky130_fd_sc_hd__and4_2'.
+Removing unused module `\sky130_fd_sc_hd__and4_1'.
+Removing unused module `\sky130_fd_sc_hd__and3b_4'.
+Removing unused module `\sky130_fd_sc_hd__and3b_2'.
+Removing unused module `\sky130_fd_sc_hd__and3b_1'.
+Removing unused module `\sky130_fd_sc_hd__and3_4'.
+Removing unused module `\sky130_fd_sc_hd__and3_2'.
+Removing unused module `\sky130_fd_sc_hd__and2b_4'.
+Removing unused module `\sky130_fd_sc_hd__and2b_2'.
+Removing unused module `\sky130_fd_sc_hd__and2b_1'.
+Removing unused module `\sky130_fd_sc_hd__and2_4'.
+Removing unused module `\sky130_fd_sc_hd__and2_2'.
+Removing unused module `\sky130_fd_sc_hd__and2_0'.
+Removing unused module `\sky130_fd_sc_hd__a41oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a41oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a41oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a41o_4'.
+Removing unused module `\sky130_fd_sc_hd__a41o_2'.
+Removing unused module `\sky130_fd_sc_hd__a41o_1'.
+Removing unused module `\sky130_fd_sc_hd__a32oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a32oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a32oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a32o_4'.
+Removing unused module `\sky130_fd_sc_hd__a32o_2'.
+Removing unused module `\sky130_fd_sc_hd__a32o_1'.
+Removing unused module `\sky130_fd_sc_hd__a31oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a31oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a31oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a31o_4'.
+Removing unused module `\sky130_fd_sc_hd__a31o_2'.
+Removing unused module `\sky130_fd_sc_hd__a31o_1'.
+Removing unused module `\sky130_fd_sc_hd__a311oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a311oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a311oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a311o_4'.
+Removing unused module `\sky130_fd_sc_hd__a311o_2'.
+Removing unused module `\sky130_fd_sc_hd__a311o_1'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2o_4'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2o_2'.
+Removing unused module `\sky130_fd_sc_hd__a2bb2o_1'.
+Removing unused module `\sky130_fd_sc_hd__a22oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a22oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a22oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a22o_4'.
+Removing unused module `\sky130_fd_sc_hd__a22o_2'.
+Removing unused module `\sky130_fd_sc_hd__a22o_1'.
+Removing unused module `\sky130_fd_sc_hd__a222oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a221oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a221oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a221oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a221o_4'.
+Removing unused module `\sky130_fd_sc_hd__a221o_2'.
+Removing unused module `\sky130_fd_sc_hd__a221o_1'.
+Removing unused module `\sky130_fd_sc_hd__a21oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a21o_4'.
+Removing unused module `\sky130_fd_sc_hd__a21o_2'.
+Removing unused module `\sky130_fd_sc_hd__a21boi_4'.
+Removing unused module `\sky130_fd_sc_hd__a21boi_2'.
+Removing unused module `\sky130_fd_sc_hd__a21boi_1'.
+Removing unused module `\sky130_fd_sc_hd__a21boi_0'.
+Removing unused module `\sky130_fd_sc_hd__a21bo_4'.
+Removing unused module `\sky130_fd_sc_hd__a21bo_2'.
+Removing unused module `\sky130_fd_sc_hd__a21bo_1'.
+Removing unused module `\sky130_fd_sc_hd__a211oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a211oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a211oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a211o_4'.
+Removing unused module `\sky130_fd_sc_hd__a211o_2'.
+Removing unused module `\sky130_fd_sc_hd__a211o_1'.
+Removing unused module `\sky130_fd_sc_hd__a2111oi_4'.
+Removing unused module `\sky130_fd_sc_hd__a2111oi_2'.
+Removing unused module `\sky130_fd_sc_hd__a2111oi_1'.
+Removing unused module `\sky130_fd_sc_hd__a2111oi_0'.
+Removing unused module `\sky130_fd_sc_hd__a2111o_4'.
+Removing unused module `\sky130_fd_sc_hd__a2111o_2'.
+Removing unused module `\sky130_fd_sc_hd__a2111o_1'.
+Removed 384 unused modules.
+
+12. Executing PROC pass (convert processes to netlists).
+
+12.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+12.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+12.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+12.4. Executing PROC_INIT pass (extract init attributes).
+
+12.5. Executing PROC_ARST pass (detect async resets in processes).
+
+12.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+12.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+12.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+12.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+12.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+12.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+12.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sky130_fd_sc_hd__o21ai_0.
+Optimizing module sky130_fd_sc_hd__xor2_4.
+Optimizing module sky130_fd_sc_hd__nor3_1.
+Optimizing module sky130_fd_sc_hd__xnor2_2.
+Optimizing module sky130_fd_sc_hd__and2_1.
+Optimizing module sky130_fd_sc_hd__nand3b_1.
+Optimizing module sky130_fd_sc_hd__clkbuf_2.
+Optimizing module sky130_fd_sc_hd__o21a_1.
+Optimizing module sky130_fd_sc_hd__clkbuf_1.
+Optimizing module sky130_fd_sc_hd__nand3_2.
+Optimizing module sky130_fd_sc_hd__nand3_1.
+Optimizing module sky130_fd_sc_hd__nand2b_4.
+Optimizing module sky130_fd_sc_hd__nor2b_1.
+Optimizing module sky130_fd_sc_hd__nand2b_1.
+Optimizing module sky130_fd_sc_hd__a21oi_2.
+Optimizing module sky130_fd_sc_hd__a21oi_1.
+Optimizing module sky130_fd_sc_hd__buf_6.
+Optimizing module sky130_fd_sc_hd__buf_4.
+Optimizing module sky130_fd_sc_hd__a21o_1.
+Optimizing module sky130_fd_sc_hd__buf_2.
+Optimizing module sky130_fd_sc_hd__o21bai_1.
+Optimizing module sky130_fd_sc_hd__xnor2_1.
+Optimizing module sky130_fd_sc_hd__buf_1.
+Optimizing module sky130_fd_sc_hd__nand2_2.
+Optimizing module sky130_fd_sc_hd__nand2_1.
+Optimizing module sky130_fd_sc_hd__o211ai_1.
+Optimizing module sky130_fd_sc_hd__nor2_1.
+Optimizing module sky130_fd_sc_hd__or2_2.
+Optimizing module sky130_fd_sc_hd__inv_2.
+Optimizing module sky130_fd_sc_hd__o211a_2.
+Optimizing module sky130_fd_sc_hd__dfxtp_1.
+Optimizing module sky130_fd_sc_hd__o211a_1.
+Optimizing module sky130_fd_sc_hd__clkinv_1.
+Optimizing module sky130_fd_sc_hd__inv_1.
+Optimizing module sky130_fd_sc_hd__or2_1.
+Optimizing module axis_eth_fcs_reset.
+Optimizing module sky130_fd_sc_hd__xor2_1.
+Optimizing module sky130_fd_sc_hd__and3_1.
+Optimizing module sky130_fd_sc_hd__o21ai_1.
+
+13. Executing FLATTEN pass (flatten design).
+Deleting now unused module sky130_fd_sc_hd__o21ai_0.
+Deleting now unused module sky130_fd_sc_hd__xor2_4.
+Deleting now unused module sky130_fd_sc_hd__nor3_1.
+Deleting now unused module sky130_fd_sc_hd__xnor2_2.
+Deleting now unused module sky130_fd_sc_hd__and2_1.
+Deleting now unused module sky130_fd_sc_hd__nand3b_1.
+Deleting now unused module sky130_fd_sc_hd__clkbuf_2.
+Deleting now unused module sky130_fd_sc_hd__o21a_1.
+Deleting now unused module sky130_fd_sc_hd__clkbuf_1.
+Deleting now unused module sky130_fd_sc_hd__nand3_2.
+Deleting now unused module sky130_fd_sc_hd__nand3_1.
+Deleting now unused module sky130_fd_sc_hd__nand2b_4.
+Deleting now unused module sky130_fd_sc_hd__nor2b_1.
+Deleting now unused module sky130_fd_sc_hd__nand2b_1.
+Deleting now unused module sky130_fd_sc_hd__a21oi_2.
+Deleting now unused module sky130_fd_sc_hd__a21oi_1.
+Deleting now unused module sky130_fd_sc_hd__buf_6.
+Deleting now unused module sky130_fd_sc_hd__buf_4.
+Deleting now unused module sky130_fd_sc_hd__a21o_1.
+Deleting now unused module sky130_fd_sc_hd__buf_2.
+Deleting now unused module sky130_fd_sc_hd__o21bai_1.
+Deleting now unused module sky130_fd_sc_hd__xnor2_1.
+Deleting now unused module sky130_fd_sc_hd__buf_1.
+Deleting now unused module sky130_fd_sc_hd__nand2_2.
+Deleting now unused module sky130_fd_sc_hd__nand2_1.
+Deleting now unused module sky130_fd_sc_hd__o211ai_1.
+Deleting now unused module sky130_fd_sc_hd__nor2_1.
+Deleting now unused module sky130_fd_sc_hd__or2_2.
+Deleting now unused module sky130_fd_sc_hd__inv_2.
+Deleting now unused module sky130_fd_sc_hd__o211a_2.
+Deleting now unused module sky130_fd_sc_hd__dfxtp_1.
+Deleting now unused module sky130_fd_sc_hd__o211a_1.
+Deleting now unused module sky130_fd_sc_hd__clkinv_1.
+Deleting now unused module sky130_fd_sc_hd__inv_1.
+Deleting now unused module sky130_fd_sc_hd__or2_1.
+Deleting now unused module sky130_fd_sc_hd__xor2_1.
+Deleting now unused module sky130_fd_sc_hd__and3_1.
+Deleting now unused module sky130_fd_sc_hd__o21ai_1.
+<suppressed ~544 debug messages>
+
+14. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/crc_0__eth_crc_inst_state_in
+
+15. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/crc_state
+
+16. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/fcs_reg
+
+17. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: axis_eth_fcs_reset/fcs_valid_reg
+Renaming module \axis_eth_fcs_reset to \pw_cand.
+
+18. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/optimized/evaluation/mapped_formal_miter.v
+Parsing formal Verilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/fcs_reset_complete_20261107_induction_fixed/optimized/evaluation/mapped_formal_miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+19. Executing PREP pass.
+
+19.1. Executing HIERARCHY pass (managing design hierarchy).
+
+19.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+
+19.1.2. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+Removed 0 unused modules.
+
+19.2. Executing PROC pass (convert processes to netlists).
+
+19.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+19.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+19.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+19.2.4. Executing PROC_INIT pass (extract init attributes).
+
+19.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+19.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+19.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+19.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+19.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+19.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+19.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+19.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+Optimizing module pw_cand.
+<suppressed ~155 debug messages>
+Optimizing module pw_gold.
+
+19.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module pw_cand.
+Deleting now unused module pw_gold.
+<suppressed ~2 debug messages>
+
+19.4. Executing FUTURE pass.
+
+19.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+<suppressed ~3 debug messages>
+
+19.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 154 unused cells and 1126 unused wires.
+<suppressed ~393 debug messages>
+
+19.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+19.8. Executing OPT pass (performing simple optimizations).
+
+19.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+19.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 2476 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 2016 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1977 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~1497 debug messages>
+Removed a total of 499 cells.
+
+19.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~10 debug messages>
+
+19.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+19.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1977 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+19.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 499 unused wires.
+<suppressed ~1 debug messages>
+
+19.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+19.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+19.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~10 debug messages>
+
+19.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+19.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1977 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+19.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+19.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+19.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+19.9. Executing WREDUCE pass (reducing word size of cells).
+
+19.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+19.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+19.12. Executing OPT pass (performing simple optimizations).
+
+19.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+19.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1977 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+19.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+19.12.4. Finished fast OPT passes.
+
+19.13. Executing SORT pass.
+
+19.14. Printing statistics.
+
+=== pw_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     3531 wires
+    11083 wire bits
+     2802 public wires
+    10230 public wire bits
+        8 ports
+       15 port bits
+     1977 cells
+      260   $_AND_
+       65   $_DFF_P_
+      423   $_NOT_
+      464   $_OR_
+        3   $dff
+        7   $mux
+        3   $ne
+        2   $not
+        5   $or
+        1   $reduce_and
+        1   $reduce_or
+      546   $scopeinfo
+      197   $xor
+
+19.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+20. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+21. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Import set-constraint for this timestep: \in_1 = 1'1
+Final constraint equation: \in_1 = 1'1
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_2
+Imported 1977 cells to SAT database.
+No constraints for initial state found.
+
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_2
+Imported 1977 cells to SAT database.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_2
+Imported 1977 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+
+** Trying induction with length 1 **
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_2
+Imported 1977 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \in_4
+Import show expression: \in_6
+Import show expression: \in_7
+Import show expression: \mismatch
+
+[base case 1] Solving problem with 81318 variables and 214368 clauses..
+Base case for induction length 1 proven.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_2
+Imported 1977 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \in_4
+Import show expression: \in_6
+Import show expression: \in_7
+Import show expression: \mismatch
+
+[induction step 1] Solving problem with 53759 variables and 141467 clauses..
+Induction step proven: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 6ba7a38fb4
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 2% 8x opt_expr (0 sec), 2% 8x expose (0 sec), ...

@@ -1,0 +1,8 @@
+read_verilog -sv "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/exports/addr128/baseline.v"
+chparam -set base 128 addr_calcu
+hierarchy -check -top addr_calcu
+proc
+flatten
+opt
+check -assert
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/independent_reproduction/addr128_c94bc6679aa04c048bf3660d0eeb42177cb11d2782472113c490bb12d08150b7/candidate_schema.json"

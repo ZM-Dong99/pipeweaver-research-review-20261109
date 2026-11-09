@@ -1,0 +1,196 @@
+{
+  "creator": "Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+  "modules": {
+    "seq_control": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:1.1-8.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "en": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "q": {
+          "direction": "output",
+          "bits": [ 5, 6, 7, 8 ]
+        }
+      },
+      "cells": {
+        "$add$D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:6$2": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:6.24-6.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5, 6, 7, 8 ],
+            "B": [ "1" ],
+            "Y": [ 9, 10, 11, 12 ]
+          }
+        },
+        "$procdff$8": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:4.1-7.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 13, 14, 15, 16 ],
+            "Q": [ 5, 6, 7, 8 ]
+          }
+        },
+        "$procmux$3": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:6.11-6.13|D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:6.7-6.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5, 6, 7, 8 ],
+            "B": [ 9, 10, 11, 12 ],
+            "S": [ 4 ],
+            "Y": [ 17, 18, 19, 20 ]
+          }
+        },
+        "$procmux$6": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:5.6-5.9|D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:5.2-6.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 17, 18, 19, 20 ],
+            "B": [ "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 13, 14, 15, 16 ]
+          }
+        }
+      },
+      "netnames": {
+        "$0\\state[3:0]": {
+          "hide_name": 1,
+          "bits": [ 13, 14, 15, 16 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:4.1-7.4"
+          }
+        },
+        "$add$D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:6$2_Y": {
+          "hide_name": 1,
+          "bits": [ 9, 10, 11, 12 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:6.24-6.36"
+          }
+        },
+        "$procmux$3_Y": {
+          "hide_name": 1,
+          "bits": [ 17, 18, 19, 20 ],
+          "attributes": {
+          }
+        },
+        "$procmux$4_CMP": {
+          "hide_name": 1,
+          "bits": [ 4 ],
+          "attributes": {
+          }
+        },
+        "$procmux$6_Y": {
+          "hide_name": 1,
+          "bits": [ 13, 14, 15, 16 ],
+          "attributes": {
+          }
+        },
+        "$procmux$7_CMP": {
+          "hide_name": 1,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:1.26-1.29"
+          }
+        },
+        "en": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:1.48-1.50"
+          }
+        },
+        "q": {
+          "hide_name": 0,
+          "bits": [ 5, 6, 7, 8 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:1.65-1.66"
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:1.37-1.40"
+          }
+        },
+        "state": {
+          "hide_name": 0,
+          "bits": [ 5, 6, 7, 8 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/sequential_backend_controls_20261031_final/fixtures/counter.v:2.11-2.16"
+          }
+        }
+      }
+    }
+  }
+}

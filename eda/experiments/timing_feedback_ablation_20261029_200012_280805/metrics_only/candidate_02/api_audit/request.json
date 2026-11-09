@@ -1,0 +1,21 @@
+{
+  "endpoint": "https://api.deepseek.com/chat/completions",
+  "body": {
+    "model": "deepseek-v4-pro",
+    "temperature": 0.2,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Optimize synthesizable RTL conservatively. Preserve sequential behavior."
+      },
+      {
+        "role": "user",
+        "content": "Optimize this native unsigned combinational 8x8 multiplier for shorter mapped-cell maximum data arrival while respecting the mapped-area cap. Preserve its exact module name, input/output ports, widths, unsigned full-product behavior, and every input value. No clocks, state, input restrictions, assumptions, or don't-cares may be introduced.\n\nAll conditions use Yosys plus OpenSTA, SKY130HD TT 25C 1.80V, no physical wire parasitics, input transition 0.10 ns, output load 0.010 pF, and zero external I/O delays. ABC uses a fixed strash/dretime/map script. Baseline area is 2965.344 um^2; the area cap is 3261.878400 um^2. A 100 ns virtual clock is a reporting reference only; optimize maximum data arrival rather than the virtual-clock slack. These area and tool conditions are supplied identically in every arm.\n\nYosys can restructure arithmetic. Source-level adder counts do not establish serial adder counts in the final mapped netlist. Propose one candidate and state what available evidence supports the suspected bottleneck. Timing estimates are hypotheses to be checked by EDA, not measurements.\n\nReturn one JSON object with candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, and functional_boundaries. candidate_rtl must be synthesizable Verilog; helper modules are allowed.\n\nOriginal RTL:\nmodule mul_subexpression(\n    input [7:0] multiplicand,  // 8-bit multiplicand\n    input [7:0] multiplier,    // 8-bit multiplier\n    output [15:0] product      // 16-bit product output\n);\n\n// Two-dimensional array to hold all partial products\nwire [7:0] partial_products[7:0];\n\ngenvar i, j;\ngenerate\n    for (i = 0; i < 8; i = i + 1) begin: gen_rows\n        for (j = 0; j < 8; j = j + 1) begin: gen_cols\n            // Generate each partial product separately\n            assign partial_products[i][j] = multiplicand[i] & multiplier[j];\n        end\n    end\nendgenerate\n\n// Summing all partial products into the final product\nwire [15:0] sum[7:0]; // Intermediate sums\n\n// Initialize the first sum with the least significant partial product row\nassign sum[0] = {8'b0, partial_products[0]};\n\n// Accumulate each row of partial products into the sum\ngenerate\n    for (i = 1; i < 8; i = i + 1) begin: gen_sum\n        wire [15:0] shifted_partial = {8'b0, partial_products[i]} << i;\n        assign sum[i] = sum[i-1] + shifted_partial;\n    end\nendgenerate\n\n// The final product is the sum of the last accumulation\nassign product = sum[7];\n\nendmodule\n\nMeasured baseline timing metrics (ns):\n{\n  \"max_data_arrival_ns\": 2.78,\n  \"wns_ns\": 97.22,\n  \"tns_ns\": 0.0\n}\n"
+      }
+    ]
+  },
+  "credentials": "Authorization header omitted"
+}

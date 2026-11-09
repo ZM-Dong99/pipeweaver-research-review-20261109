@@ -1,0 +1,29 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v"
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/original.v"
+chparam -set ARB_BLOCK 1 arbiter
+chparam -set ARB_BLOCK_ACK 1 arbiter
+chparam -set ARB_TYPE_ROUND_ROBIN 1 arbiter
+chparam -set PORTS 32 arbiter
+hierarchy -check -top arbiter
+proc
+flatten
+rename arbiter pw_gold
+design -stash pw_gold_design
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/inputs/priority_encoder.v"
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/actual_paths/candidate_03/candidate.v"
+chparam -set ARB_BLOCK 1 arbiter
+chparam -set ARB_BLOCK_ACK 1 arbiter
+chparam -set ARB_TYPE_ROUND_ROBIN 1 arbiter
+chparam -set PORTS 32 arbiter
+hierarchy -check -top arbiter
+proc
+flatten
+rename arbiter pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal "D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/excluded_candidate_replay/actual_paths/miter.v"
+prep -top pw_miter -flatten
+opt_clean
+sat -verify -seq 2 -tempinduct -maxsteps 32 -set-init-def -set-def-inputs -prove mismatch 0 -set-at 1 in_1 1 -show-ports -dump_vcd "D:/verilog_lab/PipeWeaver/eda/experiments/seq_feedback_arbiter32_20261102_212936_005046/excluded_candidate_replay/actual_paths/formal_counterexample.vcd" -timeout 120

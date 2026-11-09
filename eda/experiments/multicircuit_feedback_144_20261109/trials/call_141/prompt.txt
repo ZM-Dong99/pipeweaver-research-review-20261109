@@ -1,0 +1,74 @@
+Optimize module comparator_16bit, fixed parameter overrides {}. Minimize mapped maximum data arrival. Preserve module name, ports, widths, signedness, truncations, priority, default outputs and parameter declarations/defaults. All input bits are arbitrary binary values. Every output bit must match for all inputs. Do not rely on presumed typical operation or comments. No clocks, storage, latency, latches, memories, assumptions, assertions, external includes, file access, dependencies or undefined outputs. Return a complete synthesizable design including helper modules. Only this fixed parameter instance is assessed.
+Evaluation uses SKY130HD TT25C1.80V, Yosys source and mapped all-input equivalence, flatten/synth-noabc and ABC buffer_size with cleanup-before-buffer, OpenSTA, 0ns external IO delays, input transition0.10ns, output load0.010pF, 100ns virtual reporting clock and no physical wire parasitics. Zero reported max-slew and max-capacitance violations required. Original mapped area 497.977600um2; area cap 547.775360um2. CRC candidates use the same Slang frontend as their baseline. CRC state_in is arbitrary and data_out must also match exactly.
+Return exactly one JSON object with six string fields candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.
+Original RTL:
+module comparator_16bit (
+    input [15:0] A,        // First 2-bit input operand
+    input [15:0] B,        // Second 2-bit input operand
+    output gt,     // Output indicating A > B
+    output eq,       // Output indicating A == B
+    output lt         // Output indicating A < B
+);
+
+    // Combinational logic for comparison
+    assign eq = (A == B);           // A equals B
+    assign gt = (A > B);          // A greater than B
+    assign lt = (A < B);             // A less than B
+
+endmodule
+Second round. Improve your previous candidate, keeping the original contract and area cap.
+
+Your previous candidate RTL:
+module comparator_node (
+    input hi_gt,
+    input hi_eq,
+    input lo_gt,
+    input lo_eq,
+    output gt,
+    output eq
+);
+    assign eq = hi_eq & lo_eq;
+    assign gt = hi_gt | (hi_eq & lo_gt);
+endmodule
+
+module comparator_16bit (
+    input [15:0] A,
+    input [15:0] B,
+    output gt,
+    output eq,
+    output lt
+);
+    wire [15:0] bit_gt;
+    wire [15:0] bit_eq;
+
+    assign bit_gt = A & ~B;
+    assign bit_eq = ~(A ^ B);
+
+    wire [7:0] gt_1;
+    wire [7:0] eq_1;
+    wire [3:0] gt_2;
+    wire [3:0] eq_2;
+    wire [1:0] gt_3;
+    wire [1:0] eq_3;
+
+    comparator_node n10 (bit_gt[1],  bit_eq[1],  bit_gt[0],  bit_eq[0],  gt_1[0], eq_1[0]);
+    comparator_node n11 (bit_gt[3],  bit_eq[3],  bit_gt[2],  bit_eq[2],  gt_1[1], eq_1[1]);
+    comparator_node n12 (bit_gt[5],  bit_eq[5],  bit_gt[4],  bit_eq[4],  gt_1[2], eq_1[2]);
+    comparator_node n13 (bit_gt[7],  bit_eq[7],  bit_gt[6],  bit_eq[6],  gt_1[3], eq_1[3]);
+    comparator_node n14 (bit_gt[9],  bit_eq[9],  bit_gt[8],  bit_eq[8],  gt_1[4], eq_1[4]);
+    comparator_node n15 (bit_gt[11], bit_eq[11], bit_gt[10], bit_eq[10], gt_1[5], eq_1[5]);
+    comparator_node n16 (bit_gt[13], bit_eq[13], bit_gt[12], bit_eq[12], gt_1[6], eq_1[6]);
+    comparator_node n17 (bit_gt[15], bit_eq[15], bit_gt[14], bit_eq[14], gt_1[7], eq_1[7]);
+
+    comparator_node n20 (gt_1[1], eq_1[1], gt_1[0], eq_1[0], gt_2[0], eq_2[0]);
+    comparator_node n21 (gt_1[3], eq_1[3], gt_1[2], eq_1[2], gt_2[1], eq_2[1]);
+    comparator_node n22 (gt_1[5], eq_1[5], gt_1[4], eq_1[4], gt_2[2], eq_2[2]);
+    comparator_node n23 (gt_1[7], eq_1[7], gt_1[6], eq_1[6], gt_2[3], eq_2[3]);
+
+    comparator_node n30 (gt_2[1], eq_2[1], gt_2[0], eq_2[0], gt_3[0], eq_3[0]);
+    comparator_node n31 (gt_2[3], eq_2[3], gt_2[2], eq_2[2], gt_3[1], eq_3[1]);
+
+    comparator_node n40 (gt_3[1], eq_3[1], gt_3[0], eq_3[0], gt, eq);
+
+    assign lt = ~(gt | eq);
+endmodule

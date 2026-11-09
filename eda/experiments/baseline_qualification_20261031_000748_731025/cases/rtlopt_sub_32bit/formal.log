@@ -1,0 +1,415 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\baseline_qualification_20261031_000748_731025\cases\rtlopt_sub_32bit\formal.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v' to AST representation.
+Generating RTLIL representation for module `\sub_32bit'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \sub_32bit
+
+2.2. Analyzing design hierarchy..
+Top module:  \sub_32bit
+Removed 0 unused modules.
+
+3. Executing FLATTEN pass (flatten design).
+Renaming module \sub_32bit to \pw_gold.
+
+4. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v' to AST representation.
+Generating RTLIL representation for module `\sub_32bit'.
+Successfully finished Verilog frontend.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1. Analyzing design hierarchy..
+Top module:  \sub_32bit
+
+5.2. Analyzing design hierarchy..
+Top module:  \sub_32bit
+Removed 0 unused modules.
+
+6. Executing FLATTEN pass (flatten design).
+Renaming module \sub_32bit to \pw_cand.
+
+7. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/baseline_qualification_20261031_000748_731025/cases/rtlopt_sub_32bit/miter.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/baseline_qualification_20261031_000748_731025/cases/rtlopt_sub_32bit/miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+8. Executing PREP pass.
+
+8.1. Executing HIERARCHY pass (managing design hierarchy).
+
+8.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+
+8.1.2. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+Removed 0 unused modules.
+
+8.2. Executing PROC pass (convert processes to netlists).
+
+8.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+8.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+8.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 70 assignments to connections.
+
+8.2.4. Executing PROC_INIT pass (extract init attributes).
+
+8.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+8.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+8.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v:12$263'.
+Creating decoders for process `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v:12$2'.
+
+8.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\pw_cand.\i' from process `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v:12$263'.
+No latch inferred for signal `\pw_cand.\difference' from process `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v:12$263'.
+No latch inferred for signal `\pw_cand.\ovf' from process `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v:12$263'.
+No latch inferred for signal `\pw_cand.\borrow' from process `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v:12$263'.
+No latch inferred for signal `\pw_gold.\i' from process `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v:12$2'.
+No latch inferred for signal `\pw_gold.\difference' from process `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v:12$2'.
+No latch inferred for signal `\pw_gold.\ovf' from process `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v:12$2'.
+No latch inferred for signal `\pw_gold.\borrow' from process `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v:12$2'.
+
+8.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+8.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+8.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `pw_cand.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v:12$263'.
+Removing empty process `pw_gold.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/sub_32bit/sub_32bit.v:12$2'.
+Cleaned up 0 empty switches.
+
+8.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+Optimizing module pw_cand.
+<suppressed ~3 debug messages>
+Optimizing module pw_gold.
+<suppressed ~3 debug messages>
+
+8.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module pw_cand.
+Deleting now unused module pw_gold.
+<suppressed ~2 debug messages>
+
+8.4. Executing FUTURE pass.
+
+8.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 16 unused cells and 99 unused wires.
+<suppressed ~19 debug messages>
+
+8.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+8.8. Executing OPT pass (performing simple optimizations).
+
+8.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 501 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 376 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 315 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 313 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 312 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 310 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 309 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 307 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 306 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 304 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 303 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 301 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 300 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 298 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 297 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 295 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 294 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 292 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 291 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 289 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 288 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 286 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 285 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 283 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 282 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 280 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 279 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 277 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 276 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 274 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 273 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 271 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 270 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 268 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 267 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 265 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 264 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 262 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 261 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 259 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 258 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 256 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 255 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 253 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 252 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 250 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 249 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 247 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 246 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 244 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 243 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 241 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 240 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 238 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 237 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 235 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 234 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 232 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 231 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 229 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 228 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 226 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 225 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 224 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 223 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 222 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~837 debug messages>
+Removed a total of 279 cells.
+
+8.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+8.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+8.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 222 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+8.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 246 unused wires.
+<suppressed ~1 debug messages>
+
+8.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+<suppressed ~3 debug messages>
+
+8.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+8.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+8.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+8.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 219 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+8.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 217 unused cells and 198 unused wires.
+<suppressed ~230 debug messages>
+
+8.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.8.14. Rerunning OPT passes. (Maybe there is more to do..)
+
+8.8.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+8.8.16. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+8.8.17. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 2 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+8.8.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+8.8.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.8.20. Finished fast OPT passes. (There is nothing left to do.)
+
+8.9. Executing WREDUCE pass (reducing word size of cells).
+
+8.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+8.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+8.12. Executing OPT pass (performing simple optimizations).
+
+8.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+8.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 2 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+8.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+8.12.4. Finished fast OPT passes.
+
+8.13. Executing SORT pass.
+
+8.14. Printing statistics.
+
+=== pw_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        9 wires
+      257 wire bits
+        9 public wires
+      257 public wire bits
+        3 ports
+       65 port bits
+        2 cells
+        2   $scopeinfo
+
+8.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+9. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 2 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+
+Solving problem with 66 variables and 4 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 7492952b0c
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 7x opt_expr (0 sec), 3% 6x read_verilog (0 sec), ...

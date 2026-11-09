@@ -1,0 +1,34 @@
+{
+  "call_index": 1,
+  "arm": "no_timing_feedback",
+  "candidate_id": "candidate_01",
+  "candidate_sha256": "692bd883460adc52310f08045b53c8ed63b9c0fcfa8944f559840a57c559c080",
+  "status": "GENERATED",
+  "explanation": {
+    "bottleneck": "The source expresses transitions and outputs through full-state case decoding and priority conditionals. Depending on FSM extraction and mapping, state decoding, priority selection, and synchronous reset selection can contribute to the critical setup path. The actual bottleneck requires baseline timing reports.",
+    "rewrite": "Express the reachable one-hot transition relation directly as shallow Boolean equations. Share the idle and twenty-without-ten input terms, remove full-vector state comparisons, and decode outputs directly from state bits. Retain six state registers and the original synchronous active-high reset.",
+    "functional_boundaries": "Preserves the module name, port declarations, parameter declarations and defaults, positive-edge clock, synchronous clear, and Moore output latency. ten retains priority when both payment inputs are asserted. Every clear edge restores the ready state, including later clear assertions. From the specified startup reset, the equations preserve exactly one active state bit and reproduce all six source transitions for every input combination. Illegal-state behavior before the required startup reset is not preserved or relied upon. No startup assumptions, helper modules, assertions, initialization, generated clocks, or asynchronous resets are added. Formal equivalence is required against the frozen original under the specified startup contract and default ON/OFF values.",
+    "expected_timing_gain": "The rewrite targets shorter state-to-state and input-to-state logic paths, with direct state-bit output paths for ready, dispense, and return_sig. A strict WNS improvement and non-regressing TNS are not established without equivalence checking and fixed-setting EDA; synthesis may already perform similar optimizations on the baseline.",
+    "area_or_other_cost": "Uses six state flip-flops plus transition gates and a three-input bill reduction. No additional pipeline stages or storage are introduced. Shared input terms may increase fanout. Mapped area must be measured against the fixed 278.01664000000005 um2 cap.",
+    "output_format_normalization": [
+      "Removed complete leading think wrapper before JSON parsing"
+    ]
+  },
+  "parameters": {
+    "requested_model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "http_transport": "curl",
+    "response_format": "json_object",
+    "candidate_index": 1,
+    "response_id": "chatcmpl-e34226bd-e7d8-4e57-8c28-9903d6ea1f7a",
+    "response_created": 1793636528,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 1491,
+      "completion_tokens": 1082,
+      "total_tokens": 2828
+    }
+  },
+  "response_model": "gpt-6.1-sol",
+  "seconds": 29.683945299999323
+}

@@ -1,0 +1,22 @@
+{
+  "endpoint": "https://apinebula.ai/v1/chat/completions",
+  "body": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Optimize synthesizable RTL conservatively. Preserve sequential behavior."
+      },
+      {
+        "role": "user",
+        "content": "Optimize this native combinational circuit (8-bit address/pointer arithmetic with a control-selected 16-bit output) for shorter mapped-cell maximum data arrival while respecting the mapped-area cap. Preserve its exact module name, input/output ports, widths, and behavior for every input value. No clocks, state, input restrictions, assumptions, or don't-cares may be introduced.\nFunctional contract: Optimize the default base=8'h80 parameter instance, keeping the parameter declaration/default. All 33 ordinary input bits remain unconstrained. control=1 selects ptr1, otherwise ptr2; offset=(base-selected_pointer) modulo 256, then count=(zero_extended_address-zero_extended_offset+zero_extended_b) modulo 65536. The 8-bit intermediate truncation is mandatory; do not replace it with an untruncated integer expression. Only the default parameter instance is formally assessed. The source comment about late control is not a timing constraint: the actual SDC uses equal zero external delays on every input, including control.\n\nAll conditions use Yosys plus OpenSTA, SKY130HD TT 25C 1.80V, no physical wire parasitics, input transition 0.10 ns, output load 0.010 pF, and zero external I/O delays. Fixed mapping policy: hierarchy; flatten; synth -noabc; ABC script: strash; dretime; map; buffer; upsize; dnsize; stime -p with fixed driver/output load. Baseline area is 1192.3936 um^2; the area cap is 1311.632960 um^2. A 100 ns virtual clock is a reporting reference only; optimize maximum data arrival rather than the virtual-clock slack. Every candidate must pass full functional equivalence and max-slew/max-capacitance checks with zero violations under the fixed library and constraints. These area, eligibility and tool conditions are supplied identically in every arm.\n\nYosys can restructure arithmetic. Source-level adder counts do not establish serial adder counts in the final mapped netlist. Propose one candidate and state what available evidence supports the suspected bottleneck. Timing estimates are hypotheses to be checked by EDA, not measurements.\n\nReturn one JSON object with candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, and functional_boundaries. candidate_rtl must be synthesizable Verilog; helper modules are allowed.\n\nOriginal RTL:\nmodule addr_calcu(\n    input [7:0] address,\n    input [7:0] ptr1, ptr2,\n    input [7:0] b,\n    input control, // control is late arriving\n    output [15:0] count\n);\n\n    parameter [7:0] base = 8'b10000000;\n\n    wire [7:0] offset1, offset2;\n    wire [15:0] addr1, addr2;\n    wire [15:0] count1, count2;\n\n    assign offset1 = base - ptr1;\n    assign offset2 = base - ptr2;\n    assign addr1 = address - {8'h00, offset1};\n    assign addr2 = address - {8'h00, offset2};\n    assign count1 = addr1 + b;\n    assign count2 = addr2 + b;\n    assign count = (control == 1'b1) ? count1 : count2;\n\nendmodule\n"
+      }
+    ]
+  },
+  "http_transport": "curl",
+  "credentials": "Authorization header omitted"
+}

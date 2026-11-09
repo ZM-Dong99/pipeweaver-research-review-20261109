@@ -1,0 +1,10 @@
+read_liberty {/mnt/d/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib}
+read_verilog {/mnt/d/verilog_lab/PipeWeaver/eda/experiments/crc_feedback_20_20261107_ready/independent_reproduction/029181c2eb1c65387dedbec8f862e208d68450cb47afa25a9fc95001c36343c0/eda/mapped_sta.v}
+link_design crc32_d8
+read_sdc {/mnt/d/verilog_lab/PipeWeaver/eda/experiments/crc_feedback_20_20261107_ready/independent_reproduction/029181c2eb1c65387dedbec8f862e208d68450cb47afa25a9fc95001c36343c0/eda/timing.sdc}
+report_checks -path_delay max -format full_clock_expanded -group_path_count 10
+report_worst_slack -max
+report_tns -max
+puts {PW_ELECTRICAL_BEGIN}
+report_check_types -max_slew -max_capacitance -violators -digits 6
+puts {PW_ELECTRICAL_END}

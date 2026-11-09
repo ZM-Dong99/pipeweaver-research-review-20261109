@@ -1,0 +1,8 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/stream_feedback_ready_20261106/inputs/axis_register.v"
+chparam -set DATA_WIDTH 32 axis_register
+chparam -set REG_TYPE 2 axis_register
+hierarchy -check -top axis_register
+proc
+flatten
+check -assert
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/stream_feedback_ready_20261106/independent_choice_reproduction/skid/evaluation/reference_schema.json"

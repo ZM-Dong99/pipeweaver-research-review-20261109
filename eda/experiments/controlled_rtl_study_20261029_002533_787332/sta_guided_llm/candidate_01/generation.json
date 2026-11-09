@@ -1,0 +1,33 @@
+{
+  "arm": "sta_guided_llm",
+  "candidate_id": "candidate_01",
+  "prompt_sha256": "2e919e1941aa99c46373e91e5d1d2a9e004d3c2e52aa2fee02a8e0832b5ad64e",
+  "prompt": "sta_guided_llm/candidate_01/prompt.txt",
+  "requested_model": "deepseek-v4-pro",
+  "temperature": 0.2,
+  "status": "GENERATED",
+  "candidate_sha256": "725c0e6cdf583dcb8b961f0853fbd28529acd08bd01afd3a49cc11f7e213ee34",
+  "formal_status": "NOT_RUN",
+  "ppa_status": "NOT_RUN",
+  "failure_reason": null,
+  "response_model_id": "deepseek-v4-pro",
+  "generation_parameters": {
+    "requested_model": "deepseek-v4-pro",
+    "temperature": 0.2,
+    "response_format": "json_object",
+    "candidate_index": 1,
+    "usage": {
+      "prompt_tokens": 10203,
+      "completion_tokens": 13233,
+      "total_tokens": 23436
+    }
+  },
+  "explanation": {
+    "area_or_other_cost": "Kogge-Stone increases area compared to a ripple-carry adder due to the extra propagate/generate prefix nodes. Each 32-bit adder roughly doubles or triples in gate count (from ~100 gates for ripple to ~300-400 gates for Kogge-Stone). Since two adders are instantiated, total adder area grows from ~200 to ~600-800 gate equivalents, while register area remains unchanged. This is a moderate area penalty for a significant timing improvement.",
+    "functional_boundaries": "Arithmetic is modulo 2^32 (unsigned 32-bit addition). The cycle-by-cycle behavior is preserved: sum1 <= a+b, sum2 <= sum1+c, y <= sum2 with the same nonblocking scheduling. Active-low asynchronous reset initializes all three registers to zero identically. No pipeline stages are added or removed; the input-to-output latency (a,b two cycles, c one cycle to affect y) is unchanged. Clock constraints are not modified.",
+    "bottleneck": "The critical path is the 32-bit ripple-carry adder inferred by the synthesis tool for the combinational additions inside the always block. This creates a carry chain of up to 32 full-adder delays from primary inputs (a, b, c) to the sum1 and sum2 registers, as visible in the OpenSTA report's chain of majority gates.",
+    "rewrite": "Replace the inferred ripple-carry adders with explicit Kogge-Stone parallel-prefix (carry-lookahead) adders. The sequential pipeline registers (sum1, sum2, y) and their nonblocking assignments remain identical; only the combinational addition logic is restructured from a linear carry chain to a logarithmic-depth prefix network.",
+    "expected_timing_gain": "The carry-chain depth is reduced from O(32) full-adder delays to O(log 32) = 5 prefix stages plus initial/final logic. This typically cuts adder propagation delay by 30-40% (roughly from ~8.4 ns to ~5-6 ns in the same process), yielding a corresponding slack improvement of approximately 1.5-2.0 ns."
+  },
+  "generation_runtime_seconds": 160.614
+}

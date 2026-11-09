@@ -1,0 +1,31 @@
+{
+  "top": "axis_eth_fcs_reset",
+  "parameters": {
+    "DATA_WIDTH": 8,
+    "KEEP_ENABLE": 0,
+    "KEEP_WIDTH": 1
+  },
+  "driver_sha256": "3332d2307eed7a8ad9563b55c0144ba8c4b92521ca2e99542a423c35f43b4c64",
+  "runner_sha256": "b781493615dbe916f4c1597025218613798d53aa18c3873602d2377a2b48f825",
+  "runner_derived_from": "run_native_seq_initialized.py, copied without modifying original",
+  "upstream_sha256": "9aba0ff55de115dcab4a2f3ed46bf967bf5fb1eb8011bffcbd5842bf2e37a731",
+  "old_study_protocol_sha256": "8f51d01c26fcea38246304a1fb76dee71eef525c15f04355b52487d6216f5ec2",
+  "crc_origin_sha256": "07d08adc10f1a5f0ce8abb1bbc0f71c95d742a079d99846373f755a67b9187cf",
+  "sources": {
+    "baseline": "e059a32710158302bc51fa84768704b29145464a124b1643d12fa9a080a8e7b7",
+    "optimized": "c73a403e74426714020b7ba8dfca529cf42d28c1d4418367a87bf09927ac267f",
+    "missing_reset": "087142aee44c0351624034499dfccea9bfed71366442ac3d2d4d67ea5590c682",
+    "wrong_output": "afd400e2d9f2d8ecde7c1394d64f9cddd2f2ec7b0731b47868e7811186b0c429"
+  },
+  "reset_contract": "Active-high synchronous rst=1 at first sampled rising edge; compare all pins and proven auxiliary state relations from sample 2 forever; rst arbitrary afterwards",
+  "initial_state": "Independent arbitrary defined DUT states, no init attributes in proof or synthesis; no equality assumption between initial states",
+  "behavior_change": "New variant explicitly clears output_fcs register on every reset edge, overriding any simultaneous frame-end update; three declared register initializers removed in both arms",
+  "compatibility": "Not full-output equivalence to unmodified upstream during reset/invalid FCS. Same CRC and control rules when not reset; established against independent recurrence separately",
+  "outputs": "All 34 output bits, including invalid output_fcs; no valid/data masks or packet legality assumptions",
+  "decision": "Both source and gate full proofs, STA/electrical PASS; <=110% new baseline area, strict WNS gain and no TNS regression",
+  "negatives": {
+    "missing_reset": "Actual post-reset source SAT failure expected",
+    "wrong_output": "Actual source SAT failure expected"
+  },
+  "new_model_calls": 0
+}

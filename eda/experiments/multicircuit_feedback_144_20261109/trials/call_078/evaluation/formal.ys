@@ -1,0 +1,18 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/inputs/decoder8.v"
+chparam -set N 8 decoder_8bit
+hierarchy -check -top decoder_8bit
+flatten
+rename decoder_8bit pw_gold
+design -stash pw_gold_design
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/candidate.v"
+chparam -set N 8 decoder_8bit
+hierarchy -check -top decoder_8bit
+flatten
+rename decoder_8bit pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/multicircuit_feedback_144_20261109/trials/call_078/evaluation/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 120

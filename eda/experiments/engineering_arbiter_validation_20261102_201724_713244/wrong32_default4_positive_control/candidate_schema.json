@@ -1,0 +1,2050 @@
+{
+  "creator": "Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+  "modules": {
+    "arbiter": {
+      "attributes": {
+        "dynports": "00000000000000000000000000000001",
+        "top": "00000000000000000000000000000001",
+        "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:36.1-159.10"
+      },
+      "parameter_default_values": {
+        "ARB_BLOCK": "00000000000000000000000000000000",
+        "ARB_BLOCK_ACK": "00000000000000000000000000000001",
+        "ARB_LSB_HIGH_PRIORITY": "00000000000000000000000000000000",
+        "ARB_TYPE_ROUND_ROBIN": "00000000000000000000000000000000",
+        "PORTS": "00000000000000000000000000000100"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "rst": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "request": {
+          "direction": "input",
+          "bits": [ 4, 5, 6, 7 ]
+        },
+        "acknowledge": {
+          "direction": "input",
+          "bits": [ 8, 9, 10, 11 ]
+        },
+        "grant": {
+          "direction": "output",
+          "bits": [ 12, 13, 14, 15 ]
+        },
+        "grant_valid": {
+          "direction": "output",
+          "bits": [ 16 ]
+        },
+        "grant_encoded": {
+          "direction": "output",
+          "bits": [ 17, 18 ]
+        }
+      },
+      "cells": {
+        "$and$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106$15": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.40-106.59"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 12, 13, 14, 15 ],
+            "B": [ 4, 5, 6, 7 ],
+            "Y": [ 19, 20, 21, 22 ]
+          }
+        },
+        "$and$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:111$18": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:111.65-111.88"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 12, 13, 14, 15 ],
+            "B": [ 8, 9, 10, 11 ],
+            "Y": [ 23, 24, 25, 26 ]
+          }
+        },
+        "$and$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:94$13": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:94.22-94.40"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4, 5, 6, 7 ],
+            "B": [ 27, 28, 29, 30 ],
+            "Y": [ 31, 32, 33, 34 ]
+          }
+        },
+        "$flatten\\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$28": {
+          "hide_name": 1,
+          "type": "$reduce_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63.36-63.60"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4, 5 ],
+            "Y": [ 35 ]
+          }
+        },
+        "$flatten\\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$31": {
+          "hide_name": 1,
+          "type": "$reduce_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63.36-63.60"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 6, 7 ],
+            "Y": [ 36 ]
+          }
+        },
+        "$flatten\\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$34": {
+          "hide_name": 1,
+          "type": "$reduce_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76.40-76.68"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 35, 36 ],
+            "Y": [ 37 ]
+          }
+        },
+        "$flatten\\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:90$26": {
+          "hide_name": 1,
+          "type": "$shl",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000001",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:90.27-90.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "B": [ 38, 39 ],
+            "Y": [ 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71 ]
+          }
+        },
+        "$flatten\\priority_encoder_inst.$ternary$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$36": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82.62-82.181"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5, "0" ],
+            "B": [ 7, "1" ],
+            "S": [ 36 ],
+            "Y": [ 38, 39 ]
+          }
+        },
+        "$flatten\\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$28": {
+          "hide_name": 1,
+          "type": "$reduce_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63.36-63.60"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 31, 32 ],
+            "Y": [ 72 ]
+          }
+        },
+        "$flatten\\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$31": {
+          "hide_name": 1,
+          "type": "$reduce_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63.36-63.60"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 33, 34 ],
+            "Y": [ 73 ]
+          }
+        },
+        "$flatten\\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$34": {
+          "hide_name": 1,
+          "type": "$reduce_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76.40-76.68"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 72, 73 ],
+            "Y": [ 74 ]
+          }
+        },
+        "$flatten\\priority_encoder_masked.$shl$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:90$26": {
+          "hide_name": 1,
+          "type": "$shl",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000001",
+            "A_WIDTH": "00000000000000000000000000100000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:90.27-90.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "B": [ 75, 76 ],
+            "Y": [ 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108 ]
+          }
+        },
+        "$flatten\\priority_encoder_masked.$ternary$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$36": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82.62-82.181"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 32, "0" ],
+            "B": [ 34, "1" ],
+            "S": [ 73 ],
+            "Y": [ 75, 76 ]
+          }
+        },
+        "$logic_and$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106$16": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.9-106.59"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 19, 20, 21, 22 ],
+            "Y": [ 109 ]
+          }
+        },
+        "$logic_not$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:111$19": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:111.63-111.89"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 23, 24, 25, 26 ],
+            "Y": [ 110 ]
+          }
+        },
+        "$procdff$126": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145.1-157.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 111, 112, 113, 114 ],
+            "Q": [ 12, 13, 14, 15 ]
+          }
+        },
+        "$procdff$127": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145.1-157.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 115 ],
+            "Q": [ 16 ]
+          }
+        },
+        "$procdff$128": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145.1-157.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 116, 117 ],
+            "Q": [ 17, 18 ]
+          }
+        },
+        "$procdff$129": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145.1-157.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 118, 119, 120, 121 ],
+            "Q": [ 27, 28, 29, 30 ]
+          }
+        },
+        "$procmux$103": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.9-106.59|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.5-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 122, 123 ],
+            "B": [ "x", "x" ],
+            "S": [ 109 ],
+            "Y": [ 124, 125 ]
+          }
+        },
+        "$procmux$109": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.9-106.59|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.5-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 126, 127, 128, 129 ],
+            "B": [ "x", "x", "x", "x" ],
+            "S": [ 109 ],
+            "Y": [ 130, 131, 132, 133 ]
+          }
+        },
+        "$procmux$115": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.9-106.59|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.5-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 134 ],
+            "B": [ "x" ],
+            "S": [ 109 ],
+            "Y": [ 135 ]
+          }
+        },
+        "$procmux$118": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.9-106.59|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.5-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 124, 125 ],
+            "B": [ 17, 18 ],
+            "S": [ 109 ],
+            "Y": [ 136, 137 ]
+          }
+        },
+        "$procmux$121": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.9-106.59|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.5-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 130, 131, 132, 133 ],
+            "B": [ 12, 13, 14, 15 ],
+            "S": [ 109 ],
+            "Y": [ 138, 139, 140, 141 ]
+          }
+        },
+        "$procmux$124": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.9-106.59|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.5-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 135 ],
+            "B": [ 16 ],
+            "S": [ 109 ],
+            "Y": [ 142 ]
+          }
+        },
+        "$procmux$37": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:151.9-151.12|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:151.5-156.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 27, 28, 29, 30 ],
+            "B": [ "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 118, 119, 120, 121 ]
+          }
+        },
+        "$procmux$39": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:151.9-151.12|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:151.5-156.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 136, 137 ],
+            "B": [ "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 116, 117 ]
+          }
+        },
+        "$procmux$41": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:151.9-151.12|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:151.5-156.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 142 ],
+            "B": [ "0" ],
+            "S": [ 3 ],
+            "Y": [ 115 ]
+          }
+        },
+        "$procmux$43": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:151.9-151.12|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:151.5-156.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 138, 139, 140, 141 ],
+            "B": [ "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 111, 112, 113, 114 ]
+          }
+        },
+        "$procmux$46": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:116.18-116.31|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:116.14-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x" ],
+            "B": [ 38, 39 ],
+            "S": [ 37 ],
+            "Y": [ 143, 144 ]
+          }
+        },
+        "$procmux$52": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.9-106.59|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.5-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 143, 144 ],
+            "B": [ "x", "x" ],
+            "S": [ 109 ],
+            "Y": [ 145, 146 ]
+          }
+        },
+        "$procmux$55": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:116.18-116.31|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:116.14-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x" ],
+            "B": [ 40, 41, 42, 43 ],
+            "S": [ 37 ],
+            "Y": [ 147, 148, 149, 150 ]
+          }
+        },
+        "$procmux$61": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.9-106.59|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.5-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 147, 148, 149, 150 ],
+            "B": [ "x", "x", "x", "x" ],
+            "S": [ 109 ],
+            "Y": [ 151, 152, 153, 154 ]
+          }
+        },
+        "$procmux$64": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:116.18-116.31|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:116.14-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x" ],
+            "B": [ "1" ],
+            "S": [ 37 ],
+            "Y": [ 155 ]
+          }
+        },
+        "$procmux$70": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.9-106.59|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.5-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 155 ],
+            "B": [ "x" ],
+            "S": [ 109 ],
+            "Y": [ 156 ]
+          }
+        },
+        "$procmux$73": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:116.18-116.31|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:116.14-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0" ],
+            "B": [ 145, 146 ],
+            "S": [ 37 ],
+            "Y": [ 157, 158 ]
+          }
+        },
+        "$procmux$79": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.9-106.59|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.5-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 157, 158 ],
+            "B": [ "x", "x" ],
+            "S": [ 109 ],
+            "Y": [ 122, 123 ]
+          }
+        },
+        "$procmux$82": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:116.18-116.31|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:116.14-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 156 ],
+            "S": [ 37 ],
+            "Y": [ 159 ]
+          }
+        },
+        "$procmux$88": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.9-106.59|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.5-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 159 ],
+            "B": [ "x" ],
+            "S": [ 109 ],
+            "Y": [ 134 ]
+          }
+        },
+        "$procmux$91": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:116.18-116.31|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:116.14-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0" ],
+            "B": [ 151, 152, 153, 154 ],
+            "S": [ 37 ],
+            "Y": [ 160, 161, 162, 163 ]
+          }
+        },
+        "$procmux$97": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.9-106.59|D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.5-142.8"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 160, 161, 162, 163 ],
+            "B": [ "x", "x", "x", "x" ],
+            "S": [ 109 ],
+            "Y": [ 126, 127, 128, 129 ]
+          }
+        },
+        "priority_encoder_inst": {
+          "hide_name": 0,
+          "type": "$scopeinfo",
+          "parameters": {
+            "TYPE": "module"
+          },
+          "attributes": {
+            "cell_src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:76.1-81.2",
+            "module": "$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\\priority_encoder",
+            "module_dynports": "00000000000000000000000000000001",
+            "module_hdlname": "priority_encoder",
+            "module_src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:36.1-92.10"
+          },
+          "port_directions": {
+          },
+          "connections": {
+          }
+        },
+        "priority_encoder_masked": {
+          "hide_name": 0,
+          "type": "$scopeinfo",
+          "parameters": {
+            "TYPE": "module"
+          },
+          "attributes": {
+            "cell_src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:93.1-98.2",
+            "module": "$paramod$95efb9f064d3fdb304fabfd1cd672278f012a843\\priority_encoder",
+            "module_dynports": "00000000000000000000000000000001",
+            "module_hdlname": "priority_encoder",
+            "module_src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:36.1-92.10"
+          },
+          "port_directions": {
+          },
+          "connections": {
+          }
+        }
+      },
+      "netnames": {
+        "$0\\grant_encoded_next[1:0]": {
+          "hide_name": 1,
+          "bits": [ 136, 137 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$0\\grant_encoded_reg[1:0]": {
+          "hide_name": 1,
+          "bits": [ 116, 117 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145.1-157.4"
+          }
+        },
+        "$0\\grant_next[3:0]": {
+          "hide_name": 1,
+          "bits": [ 138, 139, 140, 141 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$0\\grant_reg[3:0]": {
+          "hide_name": 1,
+          "bits": [ 111, 112, 113, 114 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145.1-157.4"
+          }
+        },
+        "$0\\grant_valid_next[0:0]": {
+          "hide_name": 1,
+          "bits": [ 142 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$0\\grant_valid_reg[0:0]": {
+          "hide_name": 1,
+          "bits": [ 115 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145.1-157.4"
+          }
+        },
+        "$0\\mask_next[3:0]": {
+          "hide_name": 1,
+          "bits": [ 27, 28, 29, 30 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$0\\mask_reg[3:0]": {
+          "hide_name": 1,
+          "bits": [ 118, 119, 120, 121 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:145.1-157.4"
+          }
+        },
+        "$1\\grant_encoded_next[1:0]": {
+          "hide_name": 1,
+          "bits": [ 136, 137 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$1\\grant_encoded_reg[1:0]": {
+          "hide_name": 1,
+          "bits": [ "0", "0" ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:62.25-62.46"
+          }
+        },
+        "$1\\grant_next[3:0]": {
+          "hide_name": 1,
+          "bits": [ 138, 139, 140, 141 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$1\\grant_reg[3:0]": {
+          "hide_name": 1,
+          "bits": [ "0", "0", "0", "0" ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:60.17-60.30"
+          }
+        },
+        "$1\\grant_valid_next[0:0]": {
+          "hide_name": 1,
+          "bits": [ 142 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$1\\grant_valid_reg[0:0]": {
+          "hide_name": 1,
+          "bits": [ "0" ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:61.5-61.24"
+          }
+        },
+        "$1\\mask_reg[3:0]": {
+          "hide_name": 1,
+          "bits": [ "0", "0", "0", "0" ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:83.17-83.29"
+          }
+        },
+        "$2\\grant_encoded_next[1:0]": {
+          "hide_name": 1,
+          "bits": [ 124, 125 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$2\\grant_next[3:0]": {
+          "hide_name": 1,
+          "bits": [ 130, 131, 132, 133 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$2\\grant_valid_next[0:0]": {
+          "hide_name": 1,
+          "bits": [ 135 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$3\\grant_encoded_next[1:0]": {
+          "hide_name": 1,
+          "bits": [ 122, 123 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$3\\grant_next[3:0]": {
+          "hide_name": 1,
+          "bits": [ 126, 127, 128, 129 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$3\\grant_valid_next[0:0]": {
+          "hide_name": 1,
+          "bits": [ 134 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$4\\grant_encoded_next[1:0]": {
+          "hide_name": 1,
+          "bits": [ 145, 146 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$4\\grant_next[3:0]": {
+          "hide_name": 1,
+          "bits": [ 151, 152, 153, 154 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$4\\grant_valid_next[0:0]": {
+          "hide_name": 1,
+          "bits": [ 156 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:100.1-143.4"
+          }
+        },
+        "$and$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106$15_Y": {
+          "hide_name": 1,
+          "bits": [ 19, 20, 21, 22 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.40-106.59"
+          }
+        },
+        "$and$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:111$18_Y": {
+          "hide_name": 1,
+          "bits": [ 23, 24, 25, 26 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:111.65-111.88"
+          }
+        },
+        "$and$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:94$13_Y": {
+          "hide_name": 1,
+          "bits": [ 31, 32, 33, 34 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:94.22-94.40"
+          }
+        },
+        "$flatten\\priority_encoder_inst.$0\\stage_enc[0][0:0]": {
+          "hide_name": 1,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69.20-69.57"
+          }
+        },
+        "$flatten\\priority_encoder_inst.$0\\stage_enc[0][1:1]": {
+          "hide_name": 1,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69.20-69.57"
+          }
+        },
+        "$flatten\\priority_encoder_inst.$0\\stage_enc[1][1:0]": {
+          "hide_name": 1,
+          "bits": [ 38, 39 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82.24-82.181"
+          }
+        },
+        "$flatten\\priority_encoder_inst.$0\\stage_valid[0][0:0]": {
+          "hide_name": 1,
+          "bits": [ 35 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63.16-63.60"
+          }
+        },
+        "$flatten\\priority_encoder_inst.$0\\stage_valid[0][1:1]": {
+          "hide_name": 1,
+          "bits": [ 36 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63.16-63.60"
+          }
+        },
+        "$flatten\\priority_encoder_inst.$0\\stage_valid[1][0:0]": {
+          "hide_name": 1,
+          "bits": [ 37 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76.20-76.68"
+          }
+        },
+        "$flatten\\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$28_Y": {
+          "hide_name": 1,
+          "bits": [ 35 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63.36-63.60"
+          }
+        },
+        "$flatten\\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$31_Y": {
+          "hide_name": 1,
+          "bits": [ 36 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63.36-63.60"
+          }
+        },
+        "$flatten\\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$34_Y": {
+          "hide_name": 1,
+          "bits": [ 37 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76.40-76.68"
+          }
+        },
+        "$flatten\\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:90$26_Y": {
+          "hide_name": 1,
+          "bits": [ 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71 ],
+          "signed": 1,
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:90.27-90.46"
+          }
+        },
+        "$flatten\\priority_encoder_inst.$ternary$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$36_Y": {
+          "hide_name": 1,
+          "bits": [ 38, 39 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82.62-82.181"
+          }
+        },
+        "$flatten\\priority_encoder_masked.$0\\stage_enc[0][0:0]": {
+          "hide_name": 1,
+          "bits": [ 32 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69.20-69.57"
+          }
+        },
+        "$flatten\\priority_encoder_masked.$0\\stage_enc[0][1:1]": {
+          "hide_name": 1,
+          "bits": [ 34 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:69.20-69.57"
+          }
+        },
+        "$flatten\\priority_encoder_masked.$0\\stage_enc[1][1:0]": {
+          "hide_name": 1,
+          "bits": [ 75, 76 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82.24-82.181"
+          }
+        },
+        "$flatten\\priority_encoder_masked.$0\\stage_valid[0][0:0]": {
+          "hide_name": 1,
+          "bits": [ 72 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63.16-63.60"
+          }
+        },
+        "$flatten\\priority_encoder_masked.$0\\stage_valid[0][1:1]": {
+          "hide_name": 1,
+          "bits": [ 73 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63.16-63.60"
+          }
+        },
+        "$flatten\\priority_encoder_masked.$0\\stage_valid[1][0:0]": {
+          "hide_name": 1,
+          "bits": [ 74 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76.20-76.68"
+          }
+        },
+        "$flatten\\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$28_Y": {
+          "hide_name": 1,
+          "bits": [ 72 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63.36-63.60"
+          }
+        },
+        "$flatten\\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63$31_Y": {
+          "hide_name": 1,
+          "bits": [ 73 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:63.36-63.60"
+          }
+        },
+        "$flatten\\priority_encoder_masked.$reduce_or$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76$34_Y": {
+          "hide_name": 1,
+          "bits": [ 74 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:76.40-76.68"
+          }
+        },
+        "$flatten\\priority_encoder_masked.$shl$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:90$26_Y": {
+          "hide_name": 1,
+          "bits": [ 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108 ],
+          "signed": 1,
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:90.27-90.46"
+          }
+        },
+        "$flatten\\priority_encoder_masked.$ternary$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82$36_Y": {
+          "hide_name": 1,
+          "bits": [ 75, 76 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:82.62-82.181"
+          }
+        },
+        "$logic_and$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106$16_Y": {
+          "hide_name": 1,
+          "bits": [ 109 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:106.9-106.59"
+          }
+        },
+        "$logic_and$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:111$17_Y": {
+          "hide_name": 1,
+          "bits": [ "0" ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:111.18-111.59"
+          }
+        },
+        "$logic_and$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:111$20_Y": {
+          "hide_name": 1,
+          "bits": [ "0" ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:111.18-111.89"
+          }
+        },
+        "$logic_not$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:111$19_Y": {
+          "hide_name": 1,
+          "bits": [ 110 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:111.63-111.89"
+          }
+        },
+        "$procmux$100_Y": {
+          "hide_name": 1,
+          "bits": [ 122, 123 ],
+          "attributes": {
+          }
+        },
+        "$procmux$101_CMP": {
+          "hide_name": 1,
+          "bits": [ "0" ],
+          "attributes": {
+          }
+        },
+        "$procmux$103_Y": {
+          "hide_name": 1,
+          "bits": [ 124, 125 ],
+          "attributes": {
+          }
+        },
+        "$procmux$104_CMP": {
+          "hide_name": 1,
+          "bits": [ 109 ],
+          "attributes": {
+          }
+        },
+        "$procmux$106_Y": {
+          "hide_name": 1,
+          "bits": [ 126, 127, 128, 129 ],
+          "attributes": {
+          }
+        },
+        "$procmux$107_CMP": {
+          "hide_name": 1,
+          "bits": [ "0" ],
+          "attributes": {
+          }
+        },
+        "$procmux$109_Y": {
+          "hide_name": 1,
+          "bits": [ 130, 131, 132, 133 ],
+          "attributes": {
+          }
+        },
+        "$procmux$110_CMP": {
+          "hide_name": 1,
+          "bits": [ 109 ],
+          "attributes": {
+          }
+        },
+        "$procmux$112_Y": {
+          "hide_name": 1,
+          "bits": [ 134 ],
+          "attributes": {
+          }
+        },
+        "$procmux$113_CMP": {
+          "hide_name": 1,
+          "bits": [ "0" ],
+          "attributes": {
+          }
+        },
+        "$procmux$115_Y": {
+          "hide_name": 1,
+          "bits": [ 135 ],
+          "attributes": {
+          }
+        },
+        "$procmux$116_CMP": {
+          "hide_name": 1,
+          "bits": [ 109 ],
+          "attributes": {
+          }
+        },
+        "$procmux$118_Y": {
+          "hide_name": 1,
+          "bits": [ 136, 137 ],
+          "attributes": {
+          }
+        },
+        "$procmux$119_CMP": {
+          "hide_name": 1,
+          "bits": [ 109 ],
+          "attributes": {
+          }
+        },
+        "$procmux$121_Y": {
+          "hide_name": 1,
+          "bits": [ 138, 139, 140, 141 ],
+          "attributes": {
+          }
+        },
+        "$procmux$122_CMP": {
+          "hide_name": 1,
+          "bits": [ 109 ],
+          "attributes": {
+          }
+        },
+        "$procmux$124_Y": {
+          "hide_name": 1,
+          "bits": [ 142 ],
+          "attributes": {
+          }
+        },
+        "$procmux$125_CMP": {
+          "hide_name": 1,
+          "bits": [ 109 ],
+          "attributes": {
+          }
+        },
+        "$procmux$37_Y": {
+          "hide_name": 1,
+          "bits": [ 118, 119, 120, 121 ],
+          "attributes": {
+          }
+        },
+        "$procmux$38_CMP": {
+          "hide_name": 1,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "$procmux$39_Y": {
+          "hide_name": 1,
+          "bits": [ 116, 117 ],
+          "attributes": {
+          }
+        },
+        "$procmux$40_CMP": {
+          "hide_name": 1,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "$procmux$41_Y": {
+          "hide_name": 1,
+          "bits": [ 115 ],
+          "attributes": {
+          }
+        },
+        "$procmux$42_CMP": {
+          "hide_name": 1,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "$procmux$43_Y": {
+          "hide_name": 1,
+          "bits": [ 111, 112, 113, 114 ],
+          "attributes": {
+          }
+        },
+        "$procmux$44_CMP": {
+          "hide_name": 1,
+          "bits": [ 3 ],
+          "attributes": {
+          }
+        },
+        "$procmux$46_Y": {
+          "hide_name": 1,
+          "bits": [ 143, 144 ],
+          "attributes": {
+          }
+        },
+        "$procmux$47_CMP": {
+          "hide_name": 1,
+          "bits": [ 37 ],
+          "attributes": {
+          }
+        },
+        "$procmux$49_Y": {
+          "hide_name": 1,
+          "bits": [ 143, 144 ],
+          "attributes": {
+          }
+        },
+        "$procmux$50_CMP": {
+          "hide_name": 1,
+          "bits": [ "0" ],
+          "attributes": {
+          }
+        },
+        "$procmux$52_Y": {
+          "hide_name": 1,
+          "bits": [ 145, 146 ],
+          "attributes": {
+          }
+        },
+        "$procmux$53_CMP": {
+          "hide_name": 1,
+          "bits": [ 109 ],
+          "attributes": {
+          }
+        },
+        "$procmux$55_Y": {
+          "hide_name": 1,
+          "bits": [ 147, 148, 149, 150 ],
+          "attributes": {
+          }
+        },
+        "$procmux$56_CMP": {
+          "hide_name": 1,
+          "bits": [ 37 ],
+          "attributes": {
+          }
+        },
+        "$procmux$58_Y": {
+          "hide_name": 1,
+          "bits": [ 147, 148, 149, 150 ],
+          "attributes": {
+          }
+        },
+        "$procmux$59_CMP": {
+          "hide_name": 1,
+          "bits": [ "0" ],
+          "attributes": {
+          }
+        },
+        "$procmux$61_Y": {
+          "hide_name": 1,
+          "bits": [ 151, 152, 153, 154 ],
+          "attributes": {
+          }
+        },
+        "$procmux$62_CMP": {
+          "hide_name": 1,
+          "bits": [ 109 ],
+          "attributes": {
+          }
+        },
+        "$procmux$64_Y": {
+          "hide_name": 1,
+          "bits": [ 155 ],
+          "attributes": {
+          }
+        },
+        "$procmux$65_CMP": {
+          "hide_name": 1,
+          "bits": [ 37 ],
+          "attributes": {
+          }
+        },
+        "$procmux$67_Y": {
+          "hide_name": 1,
+          "bits": [ 155 ],
+          "attributes": {
+          }
+        },
+        "$procmux$68_CMP": {
+          "hide_name": 1,
+          "bits": [ "0" ],
+          "attributes": {
+          }
+        },
+        "$procmux$70_Y": {
+          "hide_name": 1,
+          "bits": [ 156 ],
+          "attributes": {
+          }
+        },
+        "$procmux$71_CMP": {
+          "hide_name": 1,
+          "bits": [ 109 ],
+          "attributes": {
+          }
+        },
+        "$procmux$73_Y": {
+          "hide_name": 1,
+          "bits": [ 157, 158 ],
+          "attributes": {
+          }
+        },
+        "$procmux$74_CMP": {
+          "hide_name": 1,
+          "bits": [ 37 ],
+          "attributes": {
+          }
+        },
+        "$procmux$76_Y": {
+          "hide_name": 1,
+          "bits": [ 157, 158 ],
+          "attributes": {
+          }
+        },
+        "$procmux$77_CMP": {
+          "hide_name": 1,
+          "bits": [ "0" ],
+          "attributes": {
+          }
+        },
+        "$procmux$79_Y": {
+          "hide_name": 1,
+          "bits": [ 122, 123 ],
+          "attributes": {
+          }
+        },
+        "$procmux$80_CMP": {
+          "hide_name": 1,
+          "bits": [ 109 ],
+          "attributes": {
+          }
+        },
+        "$procmux$82_Y": {
+          "hide_name": 1,
+          "bits": [ 159 ],
+          "attributes": {
+          }
+        },
+        "$procmux$83_CMP": {
+          "hide_name": 1,
+          "bits": [ 37 ],
+          "attributes": {
+          }
+        },
+        "$procmux$85_Y": {
+          "hide_name": 1,
+          "bits": [ 159 ],
+          "attributes": {
+          }
+        },
+        "$procmux$86_CMP": {
+          "hide_name": 1,
+          "bits": [ "0" ],
+          "attributes": {
+          }
+        },
+        "$procmux$88_Y": {
+          "hide_name": 1,
+          "bits": [ 134 ],
+          "attributes": {
+          }
+        },
+        "$procmux$89_CMP": {
+          "hide_name": 1,
+          "bits": [ 109 ],
+          "attributes": {
+          }
+        },
+        "$procmux$91_Y": {
+          "hide_name": 1,
+          "bits": [ 160, 161, 162, 163 ],
+          "attributes": {
+          }
+        },
+        "$procmux$92_CMP": {
+          "hide_name": 1,
+          "bits": [ 37 ],
+          "attributes": {
+          }
+        },
+        "$procmux$94_Y": {
+          "hide_name": 1,
+          "bits": [ 160, 161, 162, 163 ],
+          "attributes": {
+          }
+        },
+        "$procmux$95_CMP": {
+          "hide_name": 1,
+          "bits": [ "0" ],
+          "attributes": {
+          }
+        },
+        "$procmux$97_Y": {
+          "hide_name": 1,
+          "bits": [ 126, 127, 128, 129 ],
+          "attributes": {
+          }
+        },
+        "$procmux$98_CMP": {
+          "hide_name": 1,
+          "bits": [ 109 ],
+          "attributes": {
+          }
+        },
+        "$xor$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:65$12_Y": {
+          "hide_name": 1,
+          "bits": [ 12, 13, 14, 15, "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:65.16-65.51"
+          }
+        },
+        "acknowledge": {
+          "hide_name": 0,
+          "bits": [ 8, 9, 10, 11 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:53.37-53.48"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:49.37-49.40"
+          }
+        },
+        "grant": {
+          "hide_name": 0,
+          "bits": [ 12, 13, 14, 15 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:55.37-55.42"
+          }
+        },
+        "grant_encoded": {
+          "hide_name": 0,
+          "bits": [ 17, 18 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:57.37-57.50"
+          }
+        },
+        "grant_encoded_next": {
+          "hide_name": 0,
+          "bits": [ 136, 137 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:62.48-62.66"
+          }
+        },
+        "grant_encoded_reg": {
+          "hide_name": 0,
+          "bits": [ 17, 18 ],
+          "attributes": {
+            "init": "00",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:62.25-62.42"
+          }
+        },
+        "grant_next": {
+          "hide_name": 0,
+          "bits": [ 138, 139, 140, 141 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:60.32-60.42"
+          }
+        },
+        "grant_reg": {
+          "hide_name": 0,
+          "bits": [ 12, 13, 14, 15 ],
+          "attributes": {
+            "init": "0000",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:60.17-60.26"
+          }
+        },
+        "grant_valid": {
+          "hide_name": 0,
+          "bits": [ 16 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:56.37-56.48"
+          }
+        },
+        "grant_valid_next": {
+          "hide_name": 0,
+          "bits": [ 142 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:61.26-61.42"
+          }
+        },
+        "grant_valid_reg": {
+          "hide_name": 0,
+          "bits": [ 16 ],
+          "attributes": {
+            "init": "0",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:61.5-61.20"
+          }
+        },
+        "mask_next": {
+          "hide_name": 0,
+          "bits": [ 27, 28, 29, 30 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:83.31-83.40"
+          }
+        },
+        "mask_reg": {
+          "hide_name": 0,
+          "bits": [ 27, 28, 29, 30 ],
+          "attributes": {
+            "init": "0000",
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:83.17-83.25"
+          }
+        },
+        "masked_request_index": {
+          "hide_name": 0,
+          "bits": [ 75, 76 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:86.26-86.46"
+          }
+        },
+        "masked_request_mask": {
+          "hide_name": 0,
+          "bits": [ 77, 78, 79, 80 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:87.18-87.37"
+          }
+        },
+        "masked_request_valid": {
+          "hide_name": 0,
+          "bits": [ 74 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:85.6-85.26"
+          }
+        },
+        "priority_encoder_inst.input_padded": {
+          "hide_name": 0,
+          "bits": [ 4, 5, 6, 7 ],
+          "attributes": {
+            "hdlname": "priority_encoder_inst input_padded",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:53.14-53.26"
+          }
+        },
+        "priority_encoder_inst.input_unencoded": {
+          "hide_name": 0,
+          "bits": [ 4, 5, 6, 7 ],
+          "attributes": {
+            "hdlname": "priority_encoder_inst input_unencoded",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:43.37-43.52"
+          }
+        },
+        "priority_encoder_inst.output_encoded": {
+          "hide_name": 0,
+          "bits": [ 38, 39 ],
+          "attributes": {
+            "hdlname": "priority_encoder_inst output_encoded",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:45.37-45.51"
+          }
+        },
+        "priority_encoder_inst.output_unencoded": {
+          "hide_name": 0,
+          "bits": [ 40, 41, 42, 43 ],
+          "attributes": {
+            "hdlname": "priority_encoder_inst output_unencoded",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:46.37-46.53"
+          }
+        },
+        "priority_encoder_inst.output_valid": {
+          "hide_name": 0,
+          "bits": [ 37 ],
+          "attributes": {
+            "hdlname": "priority_encoder_inst output_valid",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:44.37-44.49"
+          }
+        },
+        "priority_encoder_inst.stage_enc[0]": {
+          "hide_name": 0,
+          "bits": [ 5, 7 ],
+          "attributes": {
+            "hdlname": "priority_encoder_inst stage_enc[0]",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:56.16-56.25"
+          }
+        },
+        "priority_encoder_inst.stage_enc[1]": {
+          "hide_name": 0,
+          "bits": [ 38, 39 ],
+          "attributes": {
+            "hdlname": "priority_encoder_inst stage_enc[1]",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:56.16-56.25"
+          }
+        },
+        "priority_encoder_inst.stage_valid[0]": {
+          "hide_name": 0,
+          "bits": [ 35, 36 ],
+          "attributes": {
+            "hdlname": "priority_encoder_inst stage_valid[0]",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:55.16-55.27"
+          }
+        },
+        "priority_encoder_inst.stage_valid[1]": {
+          "hide_name": 0,
+          "bits": [ 37, 164 ],
+          "attributes": {
+            "hdlname": "priority_encoder_inst stage_valid[1]",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:55.16-55.27"
+          }
+        },
+        "priority_encoder_masked.input_padded": {
+          "hide_name": 0,
+          "bits": [ 31, 32, 33, 34 ],
+          "attributes": {
+            "hdlname": "priority_encoder_masked input_padded",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:53.14-53.26"
+          }
+        },
+        "priority_encoder_masked.input_unencoded": {
+          "hide_name": 0,
+          "bits": [ 31, 32, 33, 34 ],
+          "attributes": {
+            "hdlname": "priority_encoder_masked input_unencoded",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:43.37-43.52"
+          }
+        },
+        "priority_encoder_masked.output_encoded": {
+          "hide_name": 0,
+          "bits": [ 75, 76 ],
+          "attributes": {
+            "hdlname": "priority_encoder_masked output_encoded",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:45.37-45.51"
+          }
+        },
+        "priority_encoder_masked.output_unencoded": {
+          "hide_name": 0,
+          "bits": [ 77, 78, 79, 80 ],
+          "attributes": {
+            "hdlname": "priority_encoder_masked output_unencoded",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:46.37-46.53"
+          }
+        },
+        "priority_encoder_masked.output_valid": {
+          "hide_name": 0,
+          "bits": [ 74 ],
+          "attributes": {
+            "hdlname": "priority_encoder_masked output_valid",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:44.37-44.49"
+          }
+        },
+        "priority_encoder_masked.stage_enc[0]": {
+          "hide_name": 0,
+          "bits": [ 32, 34 ],
+          "attributes": {
+            "hdlname": "priority_encoder_masked stage_enc[0]",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:56.16-56.25"
+          }
+        },
+        "priority_encoder_masked.stage_enc[1]": {
+          "hide_name": 0,
+          "bits": [ 75, 76 ],
+          "attributes": {
+            "hdlname": "priority_encoder_masked stage_enc[1]",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:56.16-56.25"
+          }
+        },
+        "priority_encoder_masked.stage_valid[0]": {
+          "hide_name": 0,
+          "bits": [ 72, 73 ],
+          "attributes": {
+            "hdlname": "priority_encoder_masked stage_valid[0]",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:55.16-55.27"
+          }
+        },
+        "priority_encoder_masked.stage_valid[1]": {
+          "hide_name": 0,
+          "bits": [ 74, 165 ],
+          "attributes": {
+            "hdlname": "priority_encoder_masked stage_valid[1]",
+            "src": "D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v:55.16-55.27"
+          }
+        },
+        "request": {
+          "hide_name": 0,
+          "bits": [ 4, 5, 6, 7 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:52.37-52.44"
+          }
+        },
+        "request_index": {
+          "hide_name": 0,
+          "bits": [ 38, 39 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:69.26-69.39"
+          }
+        },
+        "request_mask": {
+          "hide_name": 0,
+          "bits": [ 40, 41, 42, 43 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:70.18-70.30"
+          }
+        },
+        "request_valid": {
+          "hide_name": 0,
+          "bits": [ 37 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:68.6-68.19"
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/fixtures/wrong_only_at_ports32.v:50.37-50.40"
+          }
+        }
+      }
+    }
+  }
+}

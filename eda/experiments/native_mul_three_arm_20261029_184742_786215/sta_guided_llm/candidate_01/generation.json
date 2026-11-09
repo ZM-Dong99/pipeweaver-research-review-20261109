@@ -1,0 +1,31 @@
+{
+  "arm": "sta_guided_llm",
+  "candidate_id": "candidate_01",
+  "prompt_sha256": "037f0a96a261829f9baf6ae88828ecb79922e73edf19a95ec25e1e89f20c5f26",
+  "requested_model": "deepseek-v4-pro",
+  "temperature": 0.2,
+  "status": "GENERATED",
+  "candidate_sha256": "c8c52214a64712dcac7a0d5334665d619e73a2d95283aa4cd008b2ff5f46e21c",
+  "formal_status": "NOT_RUN",
+  "ppa_status": "NOT_RUN",
+  "response_model_id": "deepseek-v4-pro",
+  "generation_parameters": {
+    "requested_model": "deepseek-v4-pro",
+    "temperature": 0.2,
+    "response_format": "json_object",
+    "candidate_index": 1,
+    "usage": {
+      "prompt_tokens": 10825,
+      "completion_tokens": 5843,
+      "total_tokens": 16668
+    }
+  },
+  "explanation": {
+    "expected_timing_gain": "Estimated 35–50% reduction in critical path delay; from 2.78 ns to approximately 1.4–1.8 ns, depending on synthesis settings and standard-cell library.",
+    "bottleneck": "The baseline's serial generate-loop accumulation creates a chain of seven 16-bit carry-propagate additions, forcing the critical path through each adder's carry chain. The provided STA shows a longest path of approximately 2.78 ns.",
+    "functional_boundaries": "Module name, port list, port widths, unsigned arithmetic, and all 2^16 input-to-product mappings are preserved. No clocks, state, don't-cares, or input restrictions are introduced.",
+    "rewrite": "Replace the explicit partial-product generation and serial row accumulation with a single unsigned multiplication operator. The synthesis tool will infer a balanced carry-save/Wallace/Dadda tree multiplier, reducing the adder depth from O(N) to O(log N) and breaking the long carry-propagate chain.",
+    "area_or_other_cost": "Area is roughly neutral or slightly lower. The baseline uses seven 16-bit carry-propagate adders (≈112 full adders) plus 64 AND gates, while a synthesized balanced multiplier typically uses 60–80 full/half adders with a final carry-propagate adder; no additional registers or control logic are introduced."
+  },
+  "generation_runtime_seconds": 87.933
+}

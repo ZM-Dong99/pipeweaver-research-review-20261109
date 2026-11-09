@@ -1,0 +1,620 @@
+{
+  "groups": {
+    "mux_delay050": {
+      "no_sta": {
+        "attempted": 3,
+        "valid_selections": 0,
+        "improved": 0,
+        "median_retained_delay_ns": 1.73,
+        "median_gain_percent": 0.0,
+        "optimal_hits": 0,
+        "mean_regret_ns": 0.19,
+        "successful_selection_median_ns": null
+      },
+      "sta": {
+        "attempted": 3,
+        "valid_selections": 3,
+        "improved": 3,
+        "median_retained_delay_ns": 1.54,
+        "median_gain_percent": 10.982658959537572,
+        "optimal_hits": 3,
+        "mean_regret_ns": 0.0,
+        "successful_selection_median_ns": 1.54
+      }
+    },
+    "mux_delay090": {
+      "no_sta": {
+        "attempted": 3,
+        "valid_selections": 0,
+        "improved": 0,
+        "median_retained_delay_ns": 1.94,
+        "median_gain_percent": 0.0,
+        "optimal_hits": 0,
+        "mean_regret_ns": 0.21,
+        "successful_selection_median_ns": null
+      },
+      "sta": {
+        "attempted": 3,
+        "valid_selections": 3,
+        "improved": 3,
+        "median_retained_delay_ns": 1.73,
+        "median_gain_percent": 10.824742268041232,
+        "optimal_hits": 3,
+        "mean_regret_ns": 0.0,
+        "successful_selection_median_ns": 1.73
+      }
+    }
+  },
+  "rows": [
+    {
+      "slot": {
+        "call_index": 1,
+        "profile": "mux_delay050",
+        "arm": "no_sta",
+        "trial": 1,
+        "prompt": "prompts/mux_delay050_no_sta.txt"
+      },
+      "status": "FAILED_SELECTION",
+      "action_id": null,
+      "prompt_sha256": "cdb5b124b7a6e3b0a6e12cbdf46121b2145ac4dcc27572e6148f3a4d80c5d4b8",
+      "error": "Expected exactly one JSON object",
+      "elapsed_seconds": 15.83369,
+      "score": {
+        "retained_delay_ns": 1.73,
+        "selected": "baseline",
+        "eligible": false,
+        "improved": false,
+        "gain_percent": 0.0,
+        "regret_ns": 0.19,
+        "optimal_retained": false
+      }
+    },
+    {
+      "slot": {
+        "call_index": 2,
+        "profile": "mux_delay050",
+        "arm": "sta",
+        "trial": 1,
+        "prompt": "prompts/mux_delay050_sta.txt"
+      },
+      "status": "SELECTED",
+      "action_id": "rewrite_priority",
+      "prompt_sha256": "6e9c6343f4cc42cddd7f3d84659556aeab8105d50069068efab6ecada41df34c",
+      "selection": {
+        "action_id": "rewrite_priority",
+        "rationale": "The reported whole-design maximum arrival is 1.73 ns on the request-to-onehot path. With independently mapped fixed blocks, rewrite_mux leaves that critical path unchanged and therefore cannot improve the objective. rewrite_priority directly computes grouped winners, avoiding the baseline encode-then-decode path and offering a plausible timing and area improvement. It preserves highest-bit priority and the zero-request outputs (valid=0, index=0, onehot=1), while leaving mux behavior, including sel 10–15, unchanged. Exact timing improvement and compliance with the 2719.608320 um^2 area cap require candidate mapping results; they are not established by the supplied baseline reports.",
+        "normalized_json_fence": false,
+        "provider_metadata": {
+          "id": "chatcmpl-60947739-698c-42fe-848b-d9b81ab24e96",
+          "model": "gpt-6.1-sol",
+          "created": 1793933610,
+          "usage": {
+            "prompt_tokens": 7449,
+            "completion_tokens": 160,
+            "total_tokens": 7609,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            }
+          },
+          "choices": [
+            {
+              "index": 0,
+              "finish_reason": "stop",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"action_id\": \"rewrite_priority\",\n  \"rationale\": \"The reported whole-design maximum arrival is 1.73 ns on the request-to-onehot path. With independently mapped fixed blocks, rewrite_mux leaves that critical path unchanged and therefore cannot improve the objective. rewrite_priority directly computes grouped winners, avoiding the baseline encode-then-decode path and offering a plausible timing and area improvement. It preserves highest-bit priority and the zero-request outputs (valid=0, index=0, onehot=1), while leaving mux behavior, including sel 10–15, unchanged. Exact timing improvement and compliance with the 2719.608320 um^2 area cap require candidate mapping results; they are not established by the supplied baseline reports.\"\n}"
+              }
+            }
+          ]
+        }
+      },
+      "elapsed_seconds": 10.088171,
+      "score": {
+        "retained_delay_ns": 1.54,
+        "selected": "rewrite_priority",
+        "eligible": true,
+        "improved": true,
+        "gain_percent": 10.982658959537572,
+        "regret_ns": 0.0,
+        "optimal_retained": true
+      }
+    },
+    {
+      "slot": {
+        "call_index": 3,
+        "profile": "mux_delay090",
+        "arm": "sta",
+        "trial": 1,
+        "prompt": "prompts/mux_delay090_sta.txt"
+      },
+      "status": "SELECTED",
+      "action_id": "rewrite_mux",
+      "prompt_sha256": "c6f1b965b755dfc3f7b7424ef2bd731d69859079b091d2f262da8a1615e9a486",
+      "selection": {
+        "action_id": "rewrite_mux",
+        "rationale": "The reported baseline maximum arrival is 1.94 ns in the mux region, including its authoritative 0.90 ns external input delay. With independently mapped fixed blocks, rewrite_priority leaves that limiting mux netlist unchanged and therefore cannot reduce the whole-design maximum. rewrite_mux targets this bottleneck with explicit parallel selection while preserving block_a for sel 10–15 and leaving all encoder behavior, including invalid-input outputs, unchanged. It is the structurally justified choice, although candidate timing and compliance with the 2719.608320 um^2 area cap are not established by the supplied baseline reports.",
+        "normalized_json_fence": false,
+        "provider_metadata": {
+          "id": "chatcmpl-354bbbf4-325f-4a22-b7f5-c650c46b8f95",
+          "model": "gpt-6.1-sol",
+          "created": 1793933620,
+          "usage": {
+            "prompt_tokens": 7284,
+            "completion_tokens": 144,
+            "total_tokens": 7428,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            }
+          },
+          "choices": [
+            {
+              "index": 0,
+              "finish_reason": "stop",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"action_id\": \"rewrite_mux\",\n  \"rationale\": \"The reported baseline maximum arrival is 1.94 ns in the mux region, including its authoritative 0.90 ns external input delay. With independently mapped fixed blocks, rewrite_priority leaves that limiting mux netlist unchanged and therefore cannot reduce the whole-design maximum. rewrite_mux targets this bottleneck with explicit parallel selection while preserving block_a for sel 10–15 and leaving all encoder behavior, including invalid-input outputs, unchanged. It is the structurally justified choice, although candidate timing and compliance with the 2719.608320 um^2 area cap are not established by the supplied baseline reports.\"\n}"
+              }
+            }
+          ]
+        }
+      },
+      "elapsed_seconds": 8.189011,
+      "score": {
+        "retained_delay_ns": 1.73,
+        "selected": "rewrite_mux",
+        "eligible": true,
+        "improved": true,
+        "gain_percent": 10.824742268041232,
+        "regret_ns": 0.0,
+        "optimal_retained": true
+      }
+    },
+    {
+      "slot": {
+        "call_index": 4,
+        "profile": "mux_delay090",
+        "arm": "no_sta",
+        "trial": 1,
+        "prompt": "prompts/mux_delay090_no_sta.txt"
+      },
+      "status": "FAILED_SELECTION",
+      "action_id": null,
+      "prompt_sha256": "72cf2c84a173a5e236b89192f3dc476ff99a29f0a8f81407b39ab84d3fdd3664",
+      "error": "Expected exactly one JSON object",
+      "elapsed_seconds": 17.179971,
+      "score": {
+        "retained_delay_ns": 1.94,
+        "selected": "baseline",
+        "eligible": false,
+        "improved": false,
+        "gain_percent": 0.0,
+        "regret_ns": 0.21,
+        "optimal_retained": false
+      }
+    },
+    {
+      "slot": {
+        "call_index": 5,
+        "profile": "mux_delay050",
+        "arm": "sta",
+        "trial": 2,
+        "prompt": "prompts/mux_delay050_sta.txt"
+      },
+      "status": "SELECTED",
+      "action_id": "rewrite_priority",
+      "prompt_sha256": "6e9c6343f4cc42cddd7f3d84659556aeab8105d50069068efab6ecada41df34c",
+      "selection": {
+        "action_id": "rewrite_priority",
+        "rationale": "The reported baseline maximum arrival is 1.73 ns in request_path. With independently mapped fixed blocks, rewrite_mux leaves those critical paths unchanged and therefore cannot improve the whole-design maximum. rewrite_priority directly targets them, replacing encode-then-decode onehot generation with grouped winner logic. It preserves highest-index priority and the zero-request outputs (valid=0, index=0, onehot=1), while leaving all mux behavior unchanged. This is the only action with a structural opportunity to improve the objective; its mapped timing and compliance with the 2719.608320 um^2 area cap cannot be confirmed from the supplied baseline reports alone.",
+        "normalized_json_fence": false,
+        "provider_metadata": {
+          "id": "chatcmpl-172a590f-e96b-4302-9fa9-014ca8362811",
+          "model": "gpt-6.1-sol",
+          "created": 1793933646,
+          "usage": {
+            "prompt_tokens": 7449,
+            "completion_tokens": 154,
+            "total_tokens": 7603,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            }
+          },
+          "choices": [
+            {
+              "index": 0,
+              "finish_reason": "stop",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"action_id\": \"rewrite_priority\",\n  \"rationale\": \"The reported baseline maximum arrival is 1.73 ns in request_path. With independently mapped fixed blocks, rewrite_mux leaves those critical paths unchanged and therefore cannot improve the whole-design maximum. rewrite_priority directly targets them, replacing encode-then-decode onehot generation with grouped winner logic. It preserves highest-index priority and the zero-request outputs (valid=0, index=0, onehot=1), while leaving all mux behavior unchanged. This is the only action with a structural opportunity to improve the objective; its mapped timing and compliance with the 2719.608320 um^2 area cap cannot be confirmed from the supplied baseline reports alone.\"\n}"
+              }
+            }
+          ]
+        }
+      },
+      "elapsed_seconds": 8.747288,
+      "score": {
+        "retained_delay_ns": 1.54,
+        "selected": "rewrite_priority",
+        "eligible": true,
+        "improved": true,
+        "gain_percent": 10.982658959537572,
+        "regret_ns": 0.0,
+        "optimal_retained": true
+      }
+    },
+    {
+      "slot": {
+        "call_index": 6,
+        "profile": "mux_delay050",
+        "arm": "no_sta",
+        "trial": 2,
+        "prompt": "prompts/mux_delay050_no_sta.txt"
+      },
+      "status": "FAILED_SELECTION",
+      "action_id": null,
+      "prompt_sha256": "cdb5b124b7a6e3b0a6e12cbdf46121b2145ac4dcc27572e6148f3a4d80c5d4b8",
+      "error": "Expected exactly one JSON object",
+      "elapsed_seconds": 17.71264,
+      "score": {
+        "retained_delay_ns": 1.73,
+        "selected": "baseline",
+        "eligible": false,
+        "improved": false,
+        "gain_percent": 0.0,
+        "regret_ns": 0.19,
+        "optimal_retained": false
+      }
+    },
+    {
+      "slot": {
+        "call_index": 7,
+        "profile": "mux_delay090",
+        "arm": "no_sta",
+        "trial": 2,
+        "prompt": "prompts/mux_delay090_no_sta.txt"
+      },
+      "status": "FAILED_SELECTION",
+      "action_id": null,
+      "prompt_sha256": "72cf2c84a173a5e236b89192f3dc476ff99a29f0a8f81407b39ab84d3fdd3664",
+      "error": "Expected exactly one JSON object",
+      "elapsed_seconds": 11.624803,
+      "score": {
+        "retained_delay_ns": 1.94,
+        "selected": "baseline",
+        "eligible": false,
+        "improved": false,
+        "gain_percent": 0.0,
+        "regret_ns": 0.21,
+        "optimal_retained": false
+      }
+    },
+    {
+      "slot": {
+        "call_index": 8,
+        "profile": "mux_delay090",
+        "arm": "sta",
+        "trial": 2,
+        "prompt": "prompts/mux_delay090_sta.txt"
+      },
+      "status": "SELECTED",
+      "action_id": "rewrite_mux",
+      "prompt_sha256": "c6f1b965b755dfc3f7b7424ef2bd731d69859079b091d2f262da8a1615e9a486",
+      "selection": {
+        "action_id": "rewrite_mux",
+        "rationale": "The reported whole-design critical path is in the mux, with 1.94 ns arrival including its 0.90 ns external input delay. Under fixed independent block mapping, rewrite_priority leaves this path unchanged and therefore cannot improve the baseline maximum. rewrite_mux directly targets it with explicit parallel selection and preserves block_a for sel 10–15; the unchanged encoder preserves its invalid-input outputs. This is the only action with a prospect of improving the objective, although its mapped timing and compliance with the 2719.608320 um^2 area limit cannot be confirmed from the supplied baseline reports.",
+        "normalized_json_fence": false,
+        "provider_metadata": {
+          "id": "chatcmpl-6f8b266f-ba7c-4bed-abdf-d946cc367bc5",
+          "model": "gpt-6.1-sol",
+          "created": 1793933683,
+          "usage": {
+            "prompt_tokens": 7284,
+            "completion_tokens": 143,
+            "total_tokens": 7427,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            }
+          },
+          "choices": [
+            {
+              "index": 0,
+              "finish_reason": "stop",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"action_id\": \"rewrite_mux\",\n  \"rationale\": \"The reported whole-design critical path is in the mux, with 1.94 ns arrival including its 0.90 ns external input delay. Under fixed independent block mapping, rewrite_priority leaves this path unchanged and therefore cannot improve the baseline maximum. rewrite_mux directly targets it with explicit parallel selection and preserves block_a for sel 10–15; the unchanged encoder preserves its invalid-input outputs. This is the only action with a prospect of improving the objective, although its mapped timing and compliance with the 2719.608320 um^2 area limit cannot be confirmed from the supplied baseline reports.\"\n}"
+              }
+            }
+          ]
+        }
+      },
+      "elapsed_seconds": 8.10512,
+      "score": {
+        "retained_delay_ns": 1.73,
+        "selected": "rewrite_mux",
+        "eligible": true,
+        "improved": true,
+        "gain_percent": 10.824742268041232,
+        "regret_ns": 0.0,
+        "optimal_retained": true
+      }
+    },
+    {
+      "slot": {
+        "call_index": 9,
+        "profile": "mux_delay050",
+        "arm": "no_sta",
+        "trial": 3,
+        "prompt": "prompts/mux_delay050_no_sta.txt"
+      },
+      "status": "FAILED_SELECTION",
+      "action_id": null,
+      "prompt_sha256": "cdb5b124b7a6e3b0a6e12cbdf46121b2145ac4dcc27572e6148f3a4d80c5d4b8",
+      "error": "Expected exactly one JSON object",
+      "elapsed_seconds": 13.974149,
+      "score": {
+        "retained_delay_ns": 1.73,
+        "selected": "baseline",
+        "eligible": false,
+        "improved": false,
+        "gain_percent": 0.0,
+        "regret_ns": 0.19,
+        "optimal_retained": false
+      }
+    },
+    {
+      "slot": {
+        "call_index": 10,
+        "profile": "mux_delay050",
+        "arm": "sta",
+        "trial": 3,
+        "prompt": "prompts/mux_delay050_sta.txt"
+      },
+      "status": "SELECTED",
+      "action_id": "rewrite_priority",
+      "prompt_sha256": "6e9c6343f4cc42cddd7f3d84659556aeab8105d50069068efab6ecada41df34c",
+      "selection": {
+        "action_id": "rewrite_priority",
+        "rationale": "The reported baseline maximum arrival is 1.73 ns on request-to-onehot paths. With independently mapped fixed blocks, rewrite_mux leaves those paths unchanged and cannot reduce that maximum. rewrite_priority targets them directly, replacing encode-then-decode logic with grouped winner generation. It preserves highest-bit priority and the zero-request outputs (valid=0, index=0, onehot=1), while leaving mux behavior unchanged. This is the structurally justified choice for improving whole-design arrival, although compliance with the 2719.608320 um^2 area cap and the final timing cannot be confirmed without candidate mapping results.",
+        "normalized_json_fence": false,
+        "provider_metadata": {
+          "id": "chatcmpl-52a9964a-70ea-4aec-8470-a0346d1c4cf6",
+          "model": "gpt-6.1-sol",
+          "created": 1793933705,
+          "usage": {
+            "prompt_tokens": 7449,
+            "completion_tokens": 148,
+            "total_tokens": 7597,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            }
+          },
+          "choices": [
+            {
+              "index": 0,
+              "finish_reason": "stop",
+              "message": {
+                "role": "assistant",
+                "content": "{\n  \"action_id\": \"rewrite_priority\",\n  \"rationale\": \"The reported baseline maximum arrival is 1.73 ns on request-to-onehot paths. With independently mapped fixed blocks, rewrite_mux leaves those paths unchanged and cannot reduce that maximum. rewrite_priority targets them directly, replacing encode-then-decode logic with grouped winner generation. It preserves highest-bit priority and the zero-request outputs (valid=0, index=0, onehot=1), while leaving mux behavior unchanged. This is the structurally justified choice for improving whole-design arrival, although compliance with the 2719.608320 um^2 area cap and the final timing cannot be confirmed without candidate mapping results.\"\n}"
+              }
+            }
+          ]
+        }
+      },
+      "elapsed_seconds": 13.120247,
+      "score": {
+        "retained_delay_ns": 1.54,
+        "selected": "rewrite_priority",
+        "eligible": true,
+        "improved": true,
+        "gain_percent": 10.982658959537572,
+        "regret_ns": 0.0,
+        "optimal_retained": true
+      }
+    },
+    {
+      "slot": {
+        "call_index": 11,
+        "profile": "mux_delay090",
+        "arm": "sta",
+        "trial": 3,
+        "prompt": "prompts/mux_delay090_sta.txt"
+      },
+      "status": "SELECTED",
+      "action_id": "rewrite_mux",
+      "prompt_sha256": "c6f1b965b755dfc3f7b7424ef2bd731d69859079b091d2f262da8a1615e9a486",
+      "selection": {
+        "action_id": "rewrite_mux",
+        "rationale": "The reported baseline maximum arrival is 1.94 ns in the mux region, including its authoritative 0.90 ns external input delay. With independently mapped fixed blocks, rewrite_priority leaves that mux path unchanged and therefore cannot improve the whole-design maximum. rewrite_mux targets this bottleneck with explicit decoded selection while preserving block_a for sel 10–15 and leaving all encoder outputs, including invalid-input behavior, unchanged. It is the only action with a plausible whole-design timing improvement; mapped timing and compliance with the 2719.608320 um^2 area limit remain unverified without candidate PPA.",
+        "normalized_json_fence": false,
+        "provider_metadata": {
+          "id": "chatcmpl-f53cea13-c268-431e-968a-aeefa0c387da",
+          "model": "gpt-6.1-sol",
+          "created": 1793933719,
+          "usage": {
+            "prompt_tokens": 7284,
+            "completion_tokens": 139,
+            "total_tokens": 7423,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "cache_write_tokens": 0
+            }
+          },
+          "choices": [
+            {
+              "index": 0,
+              "finish_reason": "stop",
+              "message": {
+                "role": "assistant",
+                "content": "{\"action_id\":\"rewrite_mux\",\"rationale\":\"The reported baseline maximum arrival is 1.94 ns in the mux region, including its authoritative 0.90 ns external input delay. With independently mapped fixed blocks, rewrite_priority leaves that mux path unchanged and therefore cannot improve the whole-design maximum. rewrite_mux targets this bottleneck with explicit decoded selection while preserving block_a for sel 10–15 and leaving all encoder outputs, including invalid-input behavior, unchanged. It is the only action with a plausible whole-design timing improvement; mapped timing and compliance with the 2719.608320 um^2 area limit remain unverified without candidate PPA.\"}"
+              }
+            }
+          ]
+        }
+      },
+      "elapsed_seconds": 10.953128,
+      "score": {
+        "retained_delay_ns": 1.73,
+        "selected": "rewrite_mux",
+        "eligible": true,
+        "improved": true,
+        "gain_percent": 10.824742268041232,
+        "regret_ns": 0.0,
+        "optimal_retained": true
+      }
+    },
+    {
+      "slot": {
+        "call_index": 12,
+        "profile": "mux_delay090",
+        "arm": "no_sta",
+        "trial": 3,
+        "prompt": "prompts/mux_delay090_no_sta.txt"
+      },
+      "status": "FAILED_SELECTION",
+      "action_id": null,
+      "prompt_sha256": "72cf2c84a173a5e236b89192f3dc476ff99a29f0a8f81407b39ab84d3fdd3664",
+      "error": "Expected exactly one JSON object",
+      "elapsed_seconds": 13.471999,
+      "score": {
+        "retained_delay_ns": 1.94,
+        "selected": "baseline",
+        "eligible": false,
+        "improved": false,
+        "gain_percent": 0.0,
+        "regret_ns": 0.21,
+        "optimal_retained": false
+      }
+    }
+  ],
+  "deterministic_controls": [
+    {
+      "profile": "mux_delay050",
+      "policy": "fixed_mux",
+      "action": "rewrite_mux",
+      "baseline_endpoint": "request_onehot[10] (output port clocked by virtual_clk)",
+      "score": {
+        "retained_delay_ns": 1.73,
+        "selected": "baseline",
+        "eligible": true,
+        "improved": false,
+        "gain_percent": 0.0,
+        "regret_ns": 0.19,
+        "optimal_retained": false
+      }
+    },
+    {
+      "profile": "mux_delay050",
+      "policy": "fixed_priority",
+      "action": "rewrite_priority",
+      "baseline_endpoint": "request_onehot[10] (output port clocked by virtual_clk)",
+      "score": {
+        "retained_delay_ns": 1.54,
+        "selected": "rewrite_priority",
+        "eligible": true,
+        "improved": true,
+        "gain_percent": 10.982658959537572,
+        "regret_ns": 0.0,
+        "optimal_retained": true
+      }
+    },
+    {
+      "profile": "mux_delay050",
+      "policy": "largest_input_delay",
+      "action": "rewrite_mux",
+      "baseline_endpoint": "request_onehot[10] (output port clocked by virtual_clk)",
+      "score": {
+        "retained_delay_ns": 1.73,
+        "selected": "baseline",
+        "eligible": true,
+        "improved": false,
+        "gain_percent": 0.0,
+        "regret_ns": 0.19,
+        "optimal_retained": false
+      }
+    },
+    {
+      "profile": "mux_delay050",
+      "policy": "baseline_sta_endpoint",
+      "action": "rewrite_priority",
+      "baseline_endpoint": "request_onehot[10] (output port clocked by virtual_clk)",
+      "score": {
+        "retained_delay_ns": 1.54,
+        "selected": "rewrite_priority",
+        "eligible": true,
+        "improved": true,
+        "gain_percent": 10.982658959537572,
+        "regret_ns": 0.0,
+        "optimal_retained": true
+      }
+    },
+    {
+      "profile": "mux_delay090",
+      "policy": "fixed_mux",
+      "action": "rewrite_mux",
+      "baseline_endpoint": "selected_data[2] (output port clocked by virtual_clk)",
+      "score": {
+        "retained_delay_ns": 1.73,
+        "selected": "rewrite_mux",
+        "eligible": true,
+        "improved": true,
+        "gain_percent": 10.824742268041232,
+        "regret_ns": 0.0,
+        "optimal_retained": true
+      }
+    },
+    {
+      "profile": "mux_delay090",
+      "policy": "fixed_priority",
+      "action": "rewrite_priority",
+      "baseline_endpoint": "selected_data[2] (output port clocked by virtual_clk)",
+      "score": {
+        "retained_delay_ns": 1.94,
+        "selected": "baseline",
+        "eligible": true,
+        "improved": false,
+        "gain_percent": 0.0,
+        "regret_ns": 0.21,
+        "optimal_retained": false
+      }
+    },
+    {
+      "profile": "mux_delay090",
+      "policy": "largest_input_delay",
+      "action": "rewrite_mux",
+      "baseline_endpoint": "selected_data[2] (output port clocked by virtual_clk)",
+      "score": {
+        "retained_delay_ns": 1.73,
+        "selected": "rewrite_mux",
+        "eligible": true,
+        "improved": true,
+        "gain_percent": 10.824742268041232,
+        "regret_ns": 0.0,
+        "optimal_retained": true
+      }
+    },
+    {
+      "profile": "mux_delay090",
+      "policy": "baseline_sta_endpoint",
+      "action": "rewrite_mux",
+      "baseline_endpoint": "selected_data[2] (output port clocked by virtual_clk)",
+      "score": {
+        "retained_delay_ns": 1.73,
+        "selected": "rewrite_mux",
+        "eligible": true,
+        "improved": true,
+        "gain_percent": 10.824742268041232,
+        "regret_ns": 0.0,
+        "optimal_retained": true
+      }
+    }
+  ],
+  "primary_mean_median_gain_difference_percentage_points": 10.903700613789402,
+  "reported_tokens": 45087,
+  "usage_records": 6,
+  "limits": "Two correlated exposed development configurations; reused known PPA, no fresh EDA. Network/format failures remain in primary metrics. No generality or significance claim."
+}

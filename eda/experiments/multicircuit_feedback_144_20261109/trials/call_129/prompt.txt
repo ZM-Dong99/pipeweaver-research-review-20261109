@@ -1,0 +1,221 @@
+Optimize module priority_encoder, fixed parameter overrides {"LSB_HIGH_PRIORITY": 0, "WIDTH": 256}. Minimize mapped maximum data arrival. Preserve module name, ports, widths, signedness, truncations, priority, default outputs and parameter declarations/defaults. All input bits are arbitrary binary values. Every output bit must match for all inputs. Do not rely on presumed typical operation or comments. No clocks, storage, latency, latches, memories, assumptions, assertions, external includes, file access, dependencies or undefined outputs. Return a complete synthesizable design including helper modules. Only this fixed parameter instance is assessed.
+Evaluation uses SKY130HD TT25C1.80V, Yosys source and mapped all-input equivalence, flatten/synth-noabc and ABC buffer_size with cleanup-before-buffer, OpenSTA, 0ns external IO delays, input transition0.10ns, output load0.010pF, 100ns virtual reporting clock and no physical wire parasitics. Zero reported max-slew and max-capacitance violations required. Original mapped area 8056.476800um2; area cap 8862.124480um2. CRC candidates use the same Slang frontend as their baseline. CRC state_in is arbitrary and data_out must also match exactly.
+Return exactly one JSON object with six string fields candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.
+Original RTL:
+/*
+
+Copyright (c) 2014-2021 Alex Forencich
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+*/
+
+// Language: Verilog 2001
+
+`resetall
+`timescale 1ns / 1ps
+`default_nettype none
+
+/*
+ * Priority encoder module
+ */
+module priority_encoder #
+(
+    parameter WIDTH = 4,
+    // LSB priority selection
+    parameter LSB_HIGH_PRIORITY = 0
+)
+(
+    input  wire [WIDTH-1:0]         input_unencoded,
+    output wire                     output_valid,
+    output wire [$clog2(WIDTH)-1:0] output_encoded,
+    output wire [WIDTH-1:0]         output_unencoded
+);
+
+parameter LEVELS = WIDTH > 2 ? $clog2(WIDTH) : 1;
+parameter W = 2**LEVELS;
+
+// pad input to even power of two
+wire [W-1:0] input_padded = {{W-WIDTH{1'b0}}, input_unencoded};
+
+wire [W/2-1:0] stage_valid[LEVELS-1:0];
+wire [W/2-1:0] stage_enc[LEVELS-1:0];
+
+generate
+    genvar l, n;
+
+    // process input bits; generate valid bit and encoded bit for each pair
+    for (n = 0; n < W/2; n = n + 1) begin : loop_in
+        assign stage_valid[0][n] = |input_padded[n*2+1:n*2];
+        if (LSB_HIGH_PRIORITY) begin
+            // bit 0 is highest priority
+            assign stage_enc[0][n] = !input_padded[n*2+0];
+        end else begin
+            // bit 0 is lowest priority
+            assign stage_enc[0][n] = input_padded[n*2+1];
+        end
+    end
+
+    // compress down to single valid bit and encoded bus
+    for (l = 1; l < LEVELS; l = l + 1) begin : loop_levels
+        for (n = 0; n < W/(2*2**l); n = n + 1) begin : loop_compress
+            assign stage_valid[l][n] = |stage_valid[l-1][n*2+1:n*2];
+            if (LSB_HIGH_PRIORITY) begin
+                // bit 0 is highest priority
+                assign stage_enc[l][(n+1)*(l+1)-1:n*(l+1)] = stage_valid[l-1][n*2+0] ? {1'b0, stage_enc[l-1][(n*2+1)*l-1:(n*2+0)*l]} : {1'b1, stage_enc[l-1][(n*2+2)*l-1:(n*2+1)*l]};
+            end else begin
+                // bit 0 is lowest priority
+                assign stage_enc[l][(n+1)*(l+1)-1:n*(l+1)] = stage_valid[l-1][n*2+1] ? {1'b1, stage_enc[l-1][(n*2+2)*l-1:(n*2+1)*l]} : {1'b0, stage_enc[l-1][(n*2+1)*l-1:(n*2+0)*l]};
+            end
+        end
+    end
+endgenerate
+
+assign output_valid = stage_valid[LEVELS-1];
+assign output_encoded = stage_enc[LEVELS-1];
+assign output_unencoded = 1 << output_encoded;
+
+endmodule
+
+`resetall
+
+Second round. Improve your previous candidate, keeping the original contract and area cap.
+
+Your previous candidate RTL:
+`resetall
+`timescale 1ns / 1ps
+`default_nettype none
+
+module priority_encoder_16
+(
+    input  wire [15:0] input_unencoded,
+    output wire        output_valid,
+    output wire [3:0]  output_encoded,
+    output wire [15:0] output_unencoded
+);
+
+wire [7:0] stage_valid0;
+wire [3:0] stage_valid1;
+wire [1:0] stage_valid2;
+wire       stage_valid3;
+wire [7:0] stage_enc0;
+wire [7:0] stage_enc1;
+wire [7:0] stage_enc2;
+wire [7:0] stage_enc3;
+
+assign stage_valid0[0] = |input_unencoded[1:0];
+assign stage_valid0[1] = |input_unencoded[3:2];
+assign stage_valid0[2] = |input_unencoded[5:4];
+assign stage_valid0[3] = |input_unencoded[7:6];
+assign stage_valid0[4] = |input_unencoded[9:8];
+assign stage_valid0[5] = |input_unencoded[11:10];
+assign stage_valid0[6] = |input_unencoded[13:12];
+assign stage_valid0[7] = |input_unencoded[15:14];
+
+assign stage_enc0[0] = input_unencoded[1];
+assign stage_enc0[1] = input_unencoded[3];
+assign stage_enc0[2] = input_unencoded[5];
+assign stage_enc0[3] = input_unencoded[7];
+assign stage_enc0[4] = input_unencoded[9];
+assign stage_enc0[5] = input_unencoded[11];
+assign stage_enc0[6] = input_unencoded[13];
+assign stage_enc0[7] = input_unencoded[15];
+
+assign stage_valid1[0] = stage_valid0[1] | stage_valid0[0];
+assign stage_valid1[1] = stage_valid0[3] | stage_valid0[2];
+assign stage_valid1[2] = stage_valid0[5] | stage_valid0[4];
+assign stage_valid1[3] = stage_valid0[7] | stage_valid0[6];
+
+assign stage_enc1[1:0] = stage_valid0[1] ? {1'b1,stage_enc0[1]} : {1'b0,stage_enc0[0]};
+assign stage_enc1[3:2] = stage_valid0[3] ? {1'b1,stage_enc0[3]} : {1'b0,stage_enc0[2]};
+assign stage_enc1[5:4] = stage_valid0[5] ? {1'b1,stage_enc0[5]} : {1'b0,stage_enc0[4]};
+assign stage_enc1[7:6] = stage_valid0[7] ? {1'b1,stage_enc0[7]} : {1'b0,stage_enc0[6]};
+
+assign stage_valid2[0] = stage_valid1[1] | stage_valid1[0];
+assign stage_valid2[1] = stage_valid1[3] | stage_valid1[2];
+
+assign stage_enc2[2:0] = stage_valid1[1] ? {1'b1,stage_enc1[3:2]} : {1'b0,stage_enc1[1:0]};
+assign stage_enc2[5:3] = stage_valid1[3] ? {1'b1,stage_enc1[7:6]} : {1'b0,stage_enc1[5:4]};
+
+assign stage_valid3 = stage_valid2[1] | stage_valid2[0];
+assign stage_enc3[3:0] = stage_valid2[1] ? {1'b1,stage_enc2[5:3]} : {1'b0,stage_enc2[2:0]};
+
+assign output_valid = stage_valid3;
+assign output_encoded = stage_enc3[3:0];
+assign output_unencoded = output_valid ? (16'b1 << output_encoded) : 16'b0;
+
+endmodule
+
+module priority_encoder #
+(
+    parameter WIDTH = 4,
+    parameter LSB_HIGH_PRIORITY = 0
+)
+(
+    input  wire [WIDTH-1:0]         input_unencoded,
+    output wire                     output_valid,
+    output wire [$clog2(WIDTH)-1:0] output_encoded,
+    output wire [WIDTH-1:0]         output_unencoded
+);
+
+parameter LEVELS = WIDTH > 2 ? $clog2(WIDTH) : 1;
+parameter W = 2**LEVELS;
+
+wire [15:0] group_valid;
+wire [15:0] group_encoded_onehot;
+wire       group_output_valid;
+wire [3:0] group_encoded;
+wire [3:0] local_encoded [0:15];
+wire [15:0] local_valid;
+wire [15:0] local_unencoded [0:15];
+wire [255:0] selected_unencoded;
+
+genvar g;
+generate
+    for (g = 0; g < 16; g = g + 1) begin : gen_local
+        priority_encoder_16 local_encoder (
+            .input_unencoded(input_unencoded[g*16 +: 16]),
+            .output_valid(local_valid[g]),
+            .output_encoded(local_encoded[g]),
+            .output_unencoded(local_unencoded[g])
+        );
+        assign group_valid[g] = local_valid[g];
+    end
+endgenerate
+
+priority_encoder_16 group_encoder (
+    .input_unencoded(group_valid),
+    .output_valid(group_output_valid),
+    .output_encoded(group_encoded),
+    .output_unencoded(group_encoded_onehot)
+);
+
+generate
+    for (g = 0; g < 16; g = g + 1) begin : gen_selected
+        assign selected_unencoded[g*16 +: 16] = local_unencoded[g] & {16{group_encoded_onehot[g]}};
+    end
+endgenerate
+
+assign output_valid = group_output_valid;
+assign output_encoded = {group_encoded, local_encoded[group_encoded]};
+assign output_unencoded = selected_unencoded | {{255{1'b0}}, ~group_output_valid};
+
+endmodule
+
+`resetall

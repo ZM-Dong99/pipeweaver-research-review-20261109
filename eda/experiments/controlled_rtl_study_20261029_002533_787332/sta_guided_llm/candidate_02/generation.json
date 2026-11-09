@@ -1,0 +1,33 @@
+{
+  "arm": "sta_guided_llm",
+  "candidate_id": "candidate_02",
+  "prompt_sha256": "2e919e1941aa99c46373e91e5d1d2a9e004d3c2e52aa2fee02a8e0832b5ad64e",
+  "prompt": "sta_guided_llm/candidate_02/prompt.txt",
+  "requested_model": "deepseek-v4-pro",
+  "temperature": 0.2,
+  "status": "GENERATED",
+  "candidate_sha256": "d2a4b579256b7401426f6107080a06c747706e2763f19dce80035f6333de24e3",
+  "formal_status": "NOT_RUN",
+  "ppa_status": "NOT_RUN",
+  "failure_reason": null,
+  "response_model_id": "deepseek-v4-pro",
+  "generation_parameters": {
+    "requested_model": "deepseek-v4-pro",
+    "temperature": 0.2,
+    "response_format": "json_object",
+    "candidate_index": 2,
+    "usage": {
+      "prompt_tokens": 10203,
+      "completion_tokens": 8146,
+      "total_tokens": 18349
+    }
+  },
+  "explanation": {
+    "area_or_other_cost": "Area overhead from two extra 16-bit adders per 32-bit adder (four extra 16-bit adders total) and 2:1 muxes; roughly 25-35% increase in adder-related area.",
+    "functional_boundaries": "Preserves module name timing_adder, all ports, active-low asynchronous reset, modulo 2^32 arithmetic, exact cycle-by-cycle output behavior (sum1, sum2, y register sequence), and pipeline latency. No pipeline stages are added or removed.",
+    "bottleneck": "The 32-bit ripple-carry adders (a+b for sum1 and sum1+c for sum2) create long carry chains from LSB inputs to MSB flip-flop inputs, limiting maximum frequency.",
+    "rewrite": "Replace inferred ripple-carry adders with explicit carry-select adders: lower 16-bit addition generates carry, two parallel upper 16-bit additions (carry=0 and carry=1) are computed, and a 2:1 mux selects the correct upper half. This halves the worst-case carry propagation length.",
+    "expected_timing_gain": "Approximately 25-40% reduction in critical path delay (from ~8.39 ns to ~5.0-6.3 ns) by replacing 32-bit carry chain with 16-bit carry chain plus mux delay."
+  },
+  "generation_runtime_seconds": 97.731
+}

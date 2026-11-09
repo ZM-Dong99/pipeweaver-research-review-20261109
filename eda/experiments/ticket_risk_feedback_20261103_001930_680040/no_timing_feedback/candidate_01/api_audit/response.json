@@ -1,0 +1,29 @@
+{
+  "id": "chatcmpl-e34226bd-e7d8-4e57-8c28-9903d6ea1f7a",
+  "object": "chat.completion",
+  "created": 1793636528,
+  "model": "gpt-6.1-sol",
+  "usage": {
+    "prompt_tokens": 1491,
+    "completion_tokens": 1082,
+    "total_tokens": 2828,
+    "completion_tokens_details": {
+      "reasoning_tokens": 255
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  },
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Writing explicit state logic**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module ticket_machine #(\\n    parameter ON  = 1'b1,\\n    parameter OFF = 1'b0\\n) (\\n    input  clk, clear, ten, twenty,\\n    output reg ready, dispense, return_sig, bill\\n);\\n\\n    reg s_ready, s_disp, s_return;\\n    reg s_bill10, s_bill20, s_bill30;\\n\\n    wire take_twenty;\\n    wire idle;\\n    assign take_twenty = twenty & ~ten;\\n    assign idle = ~(ten | twenty);\\n\\n    always @(posedge clk) begin\\n        if (clear) begin\\n            s_ready  <= 1'b1;\\n            s_disp   <= 1'b0;\\n            s_return <= 1'b0;\\n            s_bill10 <= 1'b0;\\n            s_bill20 <= 1'b0;\\n            s_bill30 <= 1'b0;\\n        end else begin\\n            s_ready  <= s_disp | s_return | (s_ready & idle);\\n            s_disp   <= (s_bill20 & take_twenty) | (s_bill30 & ten);\\n            s_return <= s_bill30 & take_twenty;\\n            s_bill10 <= (s_ready & ten) | (s_bill10 & idle);\\n            s_bill20 <= (s_ready & take_twenty) |\\n                        (s_bill10 & ten) |\\n                        (s_bill20 & idle);\\n            s_bill30 <= (s_bill10 & take_twenty) |\\n                        (s_bill20 & ten) |\\n                        (s_bill30 & idle);\\n        end\\n    end\\n\\n    always @* begin\\n        ready      = s_ready ? ON : OFF;\\n        dispense   = s_disp ? ON : OFF;\\n        return_sig = s_return ? ON : OFF;\\n        bill       = (s_bill10 | s_bill20 | s_bill30) ? ON : OFF;\\n    end\\n\\nendmodule\",\n  \"bottleneck\": \"The source expresses transitions and outputs through full-state case decoding and priority conditionals. Depending on FSM extraction and mapping, state decoding, priority selection, and synchronous reset selection can contribute to the critical setup path. The actual bottleneck requires baseline timing reports.\",\n  \"rewrite\": \"Express the reachable one-hot transition relation directly as shallow Boolean equations. Share the idle and twenty-without-ten input terms, remove full-vector state comparisons, and decode outputs directly from state bits. Retain six state registers and the original synchronous active-high reset.\",\n  \"expected_timing_gain\": \"The rewrite targets shorter state-to-state and input-to-state logic paths, with direct state-bit output paths for ready, dispense, and return_sig. A strict WNS improvement and non-regressing TNS are not established without equivalence checking and fixed-setting EDA; synthesis may already perform similar optimizations on the baseline.\",\n  \"area_or_other_cost\": \"Uses six state flip-flops plus transition gates and a three-input bill reduction. No additional pipeline stages or storage are introduced. Shared input terms may increase fanout. Mapped area must be measured against the fixed 278.01664000000005 um2 cap.\",\n  \"functional_boundaries\": \"Preserves the module name, port declarations, parameter declarations and defaults, positive-edge clock, synchronous clear, and Moore output latency. ten retains priority when both payment inputs are asserted. Every clear edge restores the ready state, including later clear assertions. From the specified startup reset, the equations preserve exactly one active state bit and reproduce all six source transitions for every input combination. Illegal-state behavior before the required startup reset is not preserved or relied upon. No startup assumptions, helper modules, assertions, initialization, generated clocks, or asynchronous resets are added. Formal equivalence is required against the frozen original under the specified startup contract and default ON/OFF values.\"\n}"
+      }
+    }
+  ],
+  "audit_scope": "Provider envelope and visible message content; reasoning fields omitted."
+}

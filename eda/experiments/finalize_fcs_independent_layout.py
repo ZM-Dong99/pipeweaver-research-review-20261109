@@ -1,0 +1,134 @@
+"""Report DRC success separately from conditional substrate-model LVS success."""
+import json
+from pathlib import Path
+import xml.etree.ElementTree as ET
+
+from run_fcs_independent_layout import ROOT, PLATFORM, TOOLS, OUT as FIRST, sha, save
+
+FILLED=ROOT/'eda/experiments/fcs_filled_layout_20261108'
+OUT=ROOT/'eda/experiments/fcs_filled_independent_layout_20261108'
+
+
+def load(p):
+    return json.loads(p.read_text(encoding='utf-8-sig'))
+
+
+def main():
+    results=load(OUT/'RESULT.json')
+    protocol=load(OUT/'protocol.json')
+    model=load(OUT/'substrate_continuity_diagnostic/RESULT.json')
+    preservation=load(FILLED/'PRESERVATION.json')
+    timing=load(FILLED/'REEXTRACTION.json')
+    controls=load(FIRST/'controls/RESULT.json')
+    checks=dict(driver_unchanged=sha(Path(__file__).with_name('run_fcs_filled_independent_layout.py'))==protocol['driver_sha256'],
+        runtime_unchanged=sha(TOOLS/'RUNTIME.json')==protocol['runtime_sha256'],
+        filler_preservation=preservation['passed'],fresh_filled_extraction=timing['passed'],
+        drc_real_negative_detected=controls['drc_negative_detected'] and controls['drc_violation_items']>0,
+        model_positive_negative_expected=model['all_as_expected'],
+        actual_tap_geometry_removal_rejected=model['cases']['baseline_no_taps']['status']=='FAIL',
+        actual_missing_gate_rejected=model['cases']['baseline_wrong_gate']['status']=='FAIL',
+        isolated_original_leaf_matches=load(FIRST/'isolated_a31oi/RESULT.json')['status']=='PASS',
+        new_model_calls_zero=results['new_model_calls']==model['new_model_calls']==timing['new_model_calls']==0)
+    for entry in protocol['platform']['files']:
+        checks['platform:'+entry['path']]=sha(Path(entry['path']))==entry['sha256']
+    cases={}
+    for case in ('baseline','optimized'):
+        folder=OUT/case
+        r=results['cases'][case]
+        merge=load(folder/'GDS_MERGE.json')
+        checks[case+':full_gds_without_empty_cells']=merge['passed'] and not merge['empty_cells']
+        checks[case+':gds_checksum']=sha(folder/'design.gds')==merge['gds_sha256']==model['cases'][case]['original_gds_sha256']
+        checks[case+':def_provenance']=sha(FILLED/case/'detailed.def')==protocol['inputs'][case]['def_sha256']==merge['source_def_sha256']
+        tree=ET.parse(folder/'drc.lyrdb').getroot()
+        count=len(tree.findall('.//categories/category'))
+        items=len(tree.findall('.//items/item'))
+        checks[case+':drc_executed_categories']=count==145
+        checks[case+':drc_no_items']=items==0 and r['drc']['status']=='PASS'
+        checks[case+':original_lvs_failure_retained']=r['lvs']['status']=='FAIL' and "ERROR : Netlists don't match" in (folder/'lvs.log').read_text()
+        checks[case+':conditional_model_pass']=model['cases'][case]['status']=='PASS'
+        checks[case+':model_mask_polygons_unchanged']=load(OUT/'substrate_continuity_diagnostic'/case/'MASK_CHECK.json')['passed']
+        xref=load(folder/'XREF.json')['circuits']
+        leaves=[c for c in xref if c['layout']!='axis_eth_fcs_reset']
+        checks[case+':all_original_leaf_circuits_match']=all(c['status']=='Match' for c in leaves)
+        unmatched=[c for c in xref if c['status']!='Match']
+        checks[case+':remaining_issue_at_top']=len(unmatched)==1 and unmatched[0]['layout']=='axis_eth_fcs_reset' and unmatched[0]['status']=='NoMatch'
+        p,t=preservation['cases'][case],timing['cases'][case]
+        cases[case]=dict(gds_sha256=merge['gds_sha256'],drc_status='PASS',drc_categories=count,drc_items=items,
+            original_rule_lvs_status='FAIL',original_matched_leaf_circuits=len(leaves),conditional_bulk_model_lvs_status='PASS',
+            fillers=p['added_fillers'],nonfiller_cell_area_um2=p['nonfiller_cell_area_um2'],
+            total_occupied_cell_area_um2=p['total_occupied_cell_area_um2'],
+            setup_wns_ns=t['setup']['wns_ns'],hold_wns_ns=t['hold']['wns_ns'])
+    for prior in ('fcs_reset_complete_20261107_induction_fixed','fcs_reset_cts_pdn_20261107'):
+        folder=ROOT/'eda/experiments'/prior
+        checks[prior+':all_artifacts_unchanged']=all(sha(folder/name)==digest for name,digest in load(folder/'ARTIFACTS.json').items())
+    audit=dict(evidence_integrity_passed=all(checks.values()),check_count=len(checks),checks=checks,
+         design_signoff_passed=False,meaning='Checks consistency of reported successes AND retained failures; not a certificate of unmodified LVS success')
+    save(OUT/'AUDIT.json',audit)
+    if not audit['evidence_integrity_passed']:
+        raise RuntimeError('Failed evidence checks: '+str([k for k,v in checks.items() if not v]))
+    summary=dict(status='DRC_PASS_LVS_CONDITIONAL_ON_EXPLICIT_BULK_MODEL',cases=cases,
+        unmodified_public_rule_lvs_passed=False,conditional_model_lvs_passed=True,
+        original_manufacturing_gds_has_no_geometry_edits_for_model=True,
+        full_foundry_signoff=False,new_model_calls=0,
+        next_step='Validate the regular-bulk continuity model with an independently documented process extraction setup; then antenna and power-integrity checks')
+    save(OUT/'SUMMARY.json',summary)
+    b,c=cases['baseline'],cases['optimized']
+    report=f'''# 独立GDS检查与衬底模型诊断
+
+两版复位完整FCS已生成合入真实标准单元几何的完整GDS，公开独立KLayout DRC均通过。LVS结果必须分开描述：未修改规则直接运行仍FAIL；在明确普通连续体硅衬底模型的独立诊断副本中，两版LVS通过，删除实际tap接触和删除逻辑门均被拒绝。不是工艺签核，新增模型调用0次。
+
+| 当前结果 | 原始版 | 优化版 |
+|---|---:|---:|
+| 独立DRC规则类别 / 违规条目 | 145 / 0 | 145 / 0 |
+| 未适配衬底覆盖的公开LVS | FAIL | FAIL |
+| 明确普通体硅衬底模型的诊断LVS | PASS | PASS |
+| 补充filler数量 | {b['fillers']} | {c['fillers']} |
+| 非filler单元面积 / µm² | {b['nonfiller_cell_area_um2']:.4f} | {c['nonfiller_cell_area_um2']:.4f} |
+| 含filler总占用面积 / µm² | {b['total_occupied_cell_area_um2']:.4f} | {c['total_occupied_cell_area_um2']:.4f} |
+| filler后重新提取建立WNS / ns | {b['setup_wns_ns']:.2f} | {c['setup_wns_ns']:.2f} |
+| filler后重新提取保持WNS / ns | {b['hold_wns_ns']:.2f} | {c['hold_wns_ns']:.2f} |
+
+面积口径：两版相同核心最终用filler填满，因此含填充的总占用面积相同。15.71%的节省只适用于非filler单元面积；不能把它称作含全部填充后的总面积减少，也未缩小die。新的实际RC提取和传播时钟STA仍为WNS7.13→8.02ns，保持裕量均0.49ns，建立/保持TNS与电气违规均0。
+
+## 独立验证链
+
+KLayout0.30.0及依赖从官方Ubuntu包隔离解包，未安装系统包。标准单元GDS、CDL、技术映射及DRC/LVS来自固定ORFS提交aef47dd6ed123b0ed7cedac372b00456722be327，保留哈希和原始文件。
+
+从既有最终DEF导入，再用原始标准单元GDS替换全部LEF抽象，没有空单元、缺失master或黑盒替代。公开DRC每版145类别、0条结果；单独负例增加一个过窄met1矩形，原规则检出3条违规（m1.1与m1.6），确认规则实际生效。该公开规则覆盖不是完整制造商签核。
+
+首次LVS参考只含OpenROAD导出的顶层实例；补齐所有实际master的原始晶体管定义后，仍存在失配。基线最初a31oi_1叶单元体端VPB缺少层次出口；原库该单元单独LVS能通过。优化版叶单元均匹配，但顶层存在地/体端网络失配。
+
+在单独新副本插入标准filler（填补井区和电源轨间隙），原始单元位置、所有信号连接/布线几何及顶层引脚逐项完全不变，只增加允许的供电填充单元。两版独立DRC仍0。此时基线{b['original_matched_leaf_circuits']}个、优化版{c['original_matched_leaf_circuits']}个叶级电路均匹配；剩余唯一顶层问题均为提取VNB和VSS分开，参考VSS与闲置常量端合并。不能把叶匹配或供电抽象连通当作整体LVS通过。
+
+## 衬底连续性诊断的明确假设
+
+固定公开LVS规则以辅助层236/0作为NMOS体端提供层，并把它命名VNB；它通过真实PTAP几何连到地，而不是直接命名为VSS。现有GDS含该辅助层，但其覆盖未形成完整普通体硅衬底接触模型。
+
+另立诊断副本：检查没有深N阱与高压隔离图层后，保留原236/0形状，并补充“芯片范围减N阱”的连续普通衬底辅助模型。该层不作为制造掩模；未直接声明VNB等于VSS、未改比较器、未放宽器件容差、未屏蔽器件或网络。逐层布尔差核实，除明确辅助层236/0以外，原GDS所有多边形层完全相同。
+
+在这个**明示假设**下，两版使用同一原始LVS规则和完整晶体管参考均匹配。删除所有实际TAP有源接触几何会LVS失败，删除一个参考逻辑门也会失败，故通过并非靠无条件短接体端与地获得。
+
+这支持“提取结果依赖衬底连续性模型”的诊断，不能据此给未适配模型的原始GDS颁发无条件LVS通过，更不能扩展到深阱隔离、模拟或高压设计。应使用具备独立工艺依据的完整提取设置再次确认该假设。本轮原始LVS失败、首次保护性诊断中止、原始和诊断GDS、所有参考及报告均保留。
+
+## 证据与后续
+
+{len(checks)}项证据一致性检查通过；该审计包含对FAIL记录是否如实保存的检查，不表示设计签核通过。之前复位形式证明和CTS/PDN全部产物校验一致，未修改历史代码与实验。
+
+制造GDS为baseline/design.gds、optimized/design.gds；诊断副本在substrate_continuity_diagnostic目录。SUMMARY.json始终把unmodified_public_rule_lvs_passed设为false。没有新增模型样本或费用调用。
+
+下一步优先验证衬底/体端提取约定的独立工艺依据，再推进天线、完整工艺DRC/LVS、IR压降与电迁移检查。当前没有完整流片签核结论。
+'''
+    (OUT/'INTERPRETATION.md').write_text(report,encoding='utf-8')
+    save(OUT/'IMPLEMENTATION_SHA256.json',{str(p.relative_to(ROOT)):sha(p) for p in (
+        Path(__file__),Path(__file__).with_name('run_fcs_independent_layout.py'),Path(__file__).with_name('run_fcs_filled_independent_layout.py'),
+        Path(__file__).with_name('merge_fcs_gds.py'),Path(__file__).with_name('fill_fcs_layout.py'),Path(__file__).with_name('verify_fcs_filler_preservation.py'),
+        Path(__file__).with_name('check_fcs_lvs_complete.py'),Path(__file__).with_name('check_fcs_substrate_diagnostic.py'),
+        Path(__file__).with_name('fcs_substrate_model.py'),Path(__file__).with_name('check_fcs_layout_controls.py'),
+        TOOLS/'activate_check.py',TOOLS/'RUNTIME.json')})
+    for folder in (FIRST,FILLED,OUT):
+        save(folder/'ARTIFACTS.json',{str(p.relative_to(folder)):sha(p) for p in folder.rglob('*') if p.is_file() and p.name!='ARTIFACTS.json'})
+    print(json.dumps(dict(evidence_integrity_passed=True,checks=len(checks),drc='PASS',original_lvs='FAIL',explicit_bulk_model_lvs='PASS',new_model_calls=0)))
+
+
+if __name__=='__main__':
+    main()

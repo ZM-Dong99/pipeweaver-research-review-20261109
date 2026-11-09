@@ -1,0 +1,1232 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\baseline_qualification_20261031_000748_731025\cases\rtlopt_divider_16bit\mapping.ys' --
+
+1. Executing Liberty frontend: D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v
+Parsing SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v' to AST representation.
+Generating RTLIL representation for module `\divider_16bit'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \divider_16bit
+
+3.2. Analyzing design hierarchy..
+Top module:  \divider_16bit
+Removed 0 unused modules.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing SYNTH pass.
+
+5.1. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1.1. Analyzing design hierarchy..
+Top module:  \divider_16bit
+
+5.1.2. Analyzing design hierarchy..
+Top module:  \divider_16bit
+Removed 0 unused modules.
+
+5.2. Executing PROC pass (convert processes to netlists).
+
+5.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 17 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:11$2 in module divider_16bit.
+Removed a total of 0 dead cases.
+
+5.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 4 assignments to connections.
+
+5.2.4. Executing PROC_INIT pass (extract init attributes).
+
+5.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~17 debug messages>
+
+5.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\divider_16bit.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:11$2'.
+     1/17: $17\temp[31:16]
+     2/17: $16\temp[31:16]
+     3/17: $15\temp[31:16]
+     4/17: $14\temp[31:16]
+     5/17: $13\temp[31:16]
+     6/17: $12\temp[31:16]
+     7/17: $11\temp[31:16]
+     8/17: $10\temp[31:16]
+     9/17: $9\temp[31:16]
+    10/17: $8\temp[31:16]
+    11/17: $7\temp[31:16]
+    12/17: $6\temp[31:16]
+    13/17: $5\temp[31:16]
+    14/17: $4\temp[31:16]
+    15/17: $3\temp[31:16]
+    16/17: $2\temp[31:16]
+    17/17: $1\temp[31:16]
+
+5.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\divider_16bit.\i' from process `\divider_16bit.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:11$2'.
+No latch inferred for signal `\divider_16bit.\temp' from process `\divider_16bit.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:11$2'.
+
+5.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+5.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 17 empty switches in `\divider_16bit.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:11$2'.
+Removing empty process `divider_16bit.$proc$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:11$2'.
+Cleaned up 17 empty switches.
+
+5.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module divider_16bit.
+<suppressed ~50 debug messages>
+
+5.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module divider_16bit.
+
+5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \divider_16bit..
+Removed 16 unused cells and 88 unused wires.
+<suppressed ~17 debug messages>
+
+5.5. Executing CHECK pass (checking for obvious problems).
+Checking module divider_16bit...
+Found and reported 0 problems.
+
+5.6. Executing OPT pass (performing simple optimizations).
+
+5.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module divider_16bit.
+
+5.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\divider_16bit'.
+Computing hashes of 64 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Removed a total of 0 cells.
+
+5.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \divider_16bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$86: $16\temp[31:16] -> { 1'0 $16\temp[31:16] [14:0] }
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+5.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \divider_16bit.
+Performed a total of 0 changes.
+
+5.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\divider_16bit'.
+Computing hashes of 64 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Removed a total of 0 cells.
+
+5.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \divider_16bit..
+
+5.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module divider_16bit.
+
+5.6.9. Finished fast OPT passes. (There is nothing left to do.)
+
+5.7. Executing FSM pass (extract and optimize FSM).
+
+5.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+5.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+5.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+5.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \divider_16bit..
+
+5.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+5.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+5.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+5.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+5.8. Executing OPT pass (performing simple optimizations).
+
+5.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module divider_16bit.
+
+5.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\divider_16bit'.
+Computing hashes of 64 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Removed a total of 0 cells.
+
+5.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \divider_16bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+5.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \divider_16bit.
+Performed a total of 0 changes.
+
+5.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\divider_16bit'.
+Computing hashes of 64 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Removed a total of 0 cells.
+
+5.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \divider_16bit..
+
+5.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module divider_16bit.
+
+5.8.9. Finished fast OPT passes. (There is nothing left to do.)
+
+5.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 15 bits (of 16) from port A of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$5 ($sub).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$5 ($sub).
+Removed top 7 bits (of 16) from port Y of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$5 ($sub).
+Converting cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$10 ($sub) from unsigned to signed.
+Removed top 6 bits (of 16) from port A of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$10 ($sub).
+Removed top 7 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$10 ($sub).
+Removed top 5 bits (of 16) from port Y of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$10 ($sub).
+Converting cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$11 ($add) from unsigned to signed.
+Removed top 6 bits (of 16) from port A of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$11 ($add).
+Removed top 7 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$11 ($add).
+Removed top 5 bits (of 16) from port Y of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$11 ($add).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$15 ($sub).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$16 ($add).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$20 ($sub).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$21 ($add).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$25 ($sub).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$26 ($add).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$30 ($sub).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$31 ($add).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$35 ($sub).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$36 ($add).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$40 ($sub).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$41 ($add).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$45 ($sub).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$46 ($add).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$50 ($sub).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$51 ($add).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$55 ($sub).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$56 ($add).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$60 ($sub).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$61 ($add).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$65 ($sub).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$66 ($add).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$70 ($sub).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$71 ($add).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$75 ($sub).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$76 ($add).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$80 ($sub).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$81 ($add).
+Removed top 8 bits (of 16) from port B of cell divider_16bit.$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:30$84 ($add).
+
+5.10. Executing PEEPOPT pass (run peephole optimizers).
+
+5.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \divider_16bit..
+
+5.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module divider_16bit:
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$66 ($add).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$65 ($sub).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$70 ($sub).
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$61 ($add).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$60 ($sub).
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$71 ($add).
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$56 ($add).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$55 ($sub).
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$51 ($add).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$50 ($sub).
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$46 ($add).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$45 ($sub).
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$41 ($add).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$40 ($sub).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$75 ($sub).
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$36 ($add).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$35 ($sub).
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$76 ($add).
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$31 ($add).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$30 ($sub).
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$26 ($add).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$25 ($sub).
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$21 ($add).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$20 ($sub).
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$16 ($add).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$15 ($sub).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$80 ($sub).
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$11 ($add).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$10 ($sub).
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$81 ($add).
+  creating $macc model for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$5 ($sub).
+  creating $macc model for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:30$84 ($add).
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:30$84.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$5.
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$81.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$10.
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$11.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$80.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$15.
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$16.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$20.
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$21.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$25.
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$26.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$30.
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$31.
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$76.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$35.
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$36.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$75.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$40.
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$41.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$45.
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$46.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$50.
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$51.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$55.
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$56.
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$71.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$60.
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$61.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$70.
+  creating $alu model for $macc $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$65.
+  creating $alu model for $macc $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$66.
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$66: $auto$alumacc.cc:548:replace_alu$136
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$65: $auto$alumacc.cc:548:replace_alu$139
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$70: $auto$alumacc.cc:548:replace_alu$142
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$61: $auto$alumacc.cc:548:replace_alu$145
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$60: $auto$alumacc.cc:548:replace_alu$148
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$71: $auto$alumacc.cc:548:replace_alu$151
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$56: $auto$alumacc.cc:548:replace_alu$154
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$55: $auto$alumacc.cc:548:replace_alu$157
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$51: $auto$alumacc.cc:548:replace_alu$160
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$50: $auto$alumacc.cc:548:replace_alu$163
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$46: $auto$alumacc.cc:548:replace_alu$166
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$45: $auto$alumacc.cc:548:replace_alu$169
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$41: $auto$alumacc.cc:548:replace_alu$172
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$40: $auto$alumacc.cc:548:replace_alu$175
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$75: $auto$alumacc.cc:548:replace_alu$178
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$36: $auto$alumacc.cc:548:replace_alu$181
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$35: $auto$alumacc.cc:548:replace_alu$184
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$76: $auto$alumacc.cc:548:replace_alu$187
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$31: $auto$alumacc.cc:548:replace_alu$190
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$30: $auto$alumacc.cc:548:replace_alu$193
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$26: $auto$alumacc.cc:548:replace_alu$196
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$25: $auto$alumacc.cc:548:replace_alu$199
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$21: $auto$alumacc.cc:548:replace_alu$202
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$20: $auto$alumacc.cc:548:replace_alu$205
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$16: $auto$alumacc.cc:548:replace_alu$208
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$15: $auto$alumacc.cc:548:replace_alu$211
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$80: $auto$alumacc.cc:548:replace_alu$214
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$11: $auto$alumacc.cc:548:replace_alu$217
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$10: $auto$alumacc.cc:548:replace_alu$220
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$81: $auto$alumacc.cc:548:replace_alu$223
+  creating $alu cell for $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$5: $auto$alumacc.cc:548:replace_alu$226
+  creating $alu cell for $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:30$84: $auto$alumacc.cc:548:replace_alu$229
+  created 32 $alu and 0 $macc cells.
+
+5.13. Executing SHARE pass (SAT-based resource sharing).
+
+5.14. Executing OPT pass (performing simple optimizations).
+
+5.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module divider_16bit.
+
+5.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\divider_16bit'.
+Computing hashes of 64 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Removed a total of 0 cells.
+
+5.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \divider_16bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+5.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \divider_16bit.
+Performed a total of 0 changes.
+
+5.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\divider_16bit'.
+Computing hashes of 64 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Removed a total of 0 cells.
+
+5.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \divider_16bit..
+
+5.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module divider_16bit.
+
+5.14.9. Finished fast OPT passes. (There is nothing left to do.)
+
+5.15. Executing MEMORY pass.
+
+5.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+5.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+5.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+5.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+5.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+5.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \divider_16bit..
+
+5.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+5.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+5.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \divider_16bit..
+
+5.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+5.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \divider_16bit..
+
+5.17. Executing OPT pass (performing simple optimizations).
+
+5.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module divider_16bit.
+
+5.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\divider_16bit'.
+Computing hashes of 64 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Removed a total of 0 cells.
+
+5.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \divider_16bit..
+
+5.17.5. Finished fast OPT passes.
+
+5.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+5.19. Executing OPT pass (performing simple optimizations).
+
+5.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module divider_16bit.
+
+5.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\divider_16bit'.
+Computing hashes of 64 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Removed a total of 0 cells.
+
+5.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \divider_16bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+5.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \divider_16bit.
+    Consolidated identical input bits for $mux cell $procmux$131:
+      Old ports: A={ $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$10_Y [10] $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$10_Y [10] $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$10_Y [10] $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$10_Y [10] $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$10_Y [10] $sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$10_Y [10:0] }, B={ $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$11_Y [10] $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$11_Y [10] $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$11_Y [10] $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$11_Y [10] $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$11_Y [10] $add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$11_Y [10:0] }, Y=$2\temp[31:16]
+      New ports: A=$sub$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:19$10_Y [10:0], B=$add$D:/verilog_lab/PipeWeaver/benchmark/rtl_opt_upstream_hkust/benchmark/divider_16bit/divider_16bit.v:22$11_Y [10:0], Y=$2\temp[31:16] [10:0]
+      New connections: $2\temp[31:16] [15:11] = { $2\temp[31:16] [10] $2\temp[31:16] [10] $2\temp[31:16] [10] $2\temp[31:16] [10] $2\temp[31:16] [10] }
+  Optimizing cells in module \divider_16bit.
+Performed a total of 1 changes.
+
+5.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\divider_16bit'.
+Computing hashes of 64 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Removed a total of 0 cells.
+
+5.19.6. Executing OPT_SHARE pass.
+    Found cells that share an operand and can be merged by moving the $mux $procmux$98 in front of them:
+        $auto$alumacc.cc:548:replace_alu$136
+        $auto$alumacc.cc:548:replace_alu$139
+
+    Found cells that share an operand and can be merged by moving the $mux $procmux$101 in front of them:
+        $auto$alumacc.cc:548:replace_alu$145
+        $auto$alumacc.cc:548:replace_alu$148
+
+    Found cells that share an operand and can be merged by moving the $mux $procmux$104 in front of them:
+        $auto$alumacc.cc:548:replace_alu$154
+        $auto$alumacc.cc:548:replace_alu$157
+
+    Found cells that share an operand and can be merged by moving the $mux $procmux$92 in front of them:
+        $auto$alumacc.cc:548:replace_alu$187
+        $auto$alumacc.cc:548:replace_alu$178
+
+    Found cells that share an operand and can be merged by moving the $mux $procmux$107 in front of them:
+        $auto$alumacc.cc:548:replace_alu$160
+        $auto$alumacc.cc:548:replace_alu$163
+
+    Found cells that share an operand and can be merged by moving the $mux $procmux$95 in front of them:
+        $auto$alumacc.cc:548:replace_alu$151
+        $auto$alumacc.cc:548:replace_alu$142
+
+    Found cells that share an operand and can be merged by moving the $mux $procmux$110 in front of them:
+        $auto$alumacc.cc:548:replace_alu$166
+        $auto$alumacc.cc:548:replace_alu$169
+
+    Found cells that share an operand and can be merged by moving the $mux $procmux$113 in front of them:
+        $auto$alumacc.cc:548:replace_alu$172
+        $auto$alumacc.cc:548:replace_alu$175
+
+    Found cells that share an operand and can be merged by moving the $mux $procmux$116 in front of them:
+        $auto$alumacc.cc:548:replace_alu$181
+        $auto$alumacc.cc:548:replace_alu$184
+
+    Found cells that share an operand and can be merged by moving the $mux $procmux$119 in front of them:
+        $auto$alumacc.cc:548:replace_alu$190
+        $auto$alumacc.cc:548:replace_alu$193
+
+    Found cells that share an operand and can be merged by moving the $mux $procmux$89 in front of them:
+        $auto$alumacc.cc:548:replace_alu$223
+        $auto$alumacc.cc:548:replace_alu$214
+
+    Found cells that share an operand and can be merged by moving the $mux $procmux$122 in front of them:
+        $auto$alumacc.cc:548:replace_alu$196
+        $auto$alumacc.cc:548:replace_alu$199
+
+    Found cells that share an operand and can be merged by moving the $mux $procmux$125 in front of them:
+        $auto$alumacc.cc:548:replace_alu$202
+        $auto$alumacc.cc:548:replace_alu$205
+
+    Found cells that share an operand and can be merged by moving the $mux $procmux$128 in front of them:
+        $auto$alumacc.cc:548:replace_alu$208
+        $auto$alumacc.cc:548:replace_alu$211
+
+    Found cells that share an operand and can be merged by moving the $mux $procmux$131 in front of them:
+        $auto$alumacc.cc:548:replace_alu$217
+        $auto$alumacc.cc:548:replace_alu$220
+
+5.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \divider_16bit..
+Removed 0 unused cells and 90 unused wires.
+<suppressed ~1 debug messages>
+
+5.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module divider_16bit.
+<suppressed ~15 debug messages>
+
+5.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \divider_16bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+5.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \divider_16bit.
+Performed a total of 0 changes.
+
+5.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\divider_16bit'.
+Computing hashes of 64 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Computing hashes of 51 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+<suppressed ~39 debug messages>
+Removed a total of 13 cells.
+
+5.19.14. Executing OPT_SHARE pass.
+
+5.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \divider_16bit..
+Removed 0 unused cells and 28 unused wires.
+<suppressed ~1 debug messages>
+
+5.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module divider_16bit.
+
+5.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \divider_16bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~32 debug messages>
+
+5.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \divider_16bit.
+Performed a total of 0 changes.
+
+5.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\divider_16bit'.
+Computing hashes of 51 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Removed a total of 0 cells.
+
+5.19.22. Executing OPT_SHARE pass.
+
+5.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \divider_16bit..
+
+5.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module divider_16bit.
+
+5.19.26. Finished fast OPT passes. (There is nothing left to do.)
+
+5.20. Executing TECHMAP pass (map to technology primitives).
+
+5.20.1. Executing Verilog-2005 frontend: D:\oss-cad-suite\bin\../share/yosys/techmap.v
+Parsing Verilog input from `D:\oss-cad-suite\bin\../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+5.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $mux.
+Running "alumacc" on wrapper $extern:wrap:$neg:Y_WIDTH=11:A_WIDTH=11:A_SIGNED=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$neg:Y_WIDTH=11:A_WIDTH=11:A_SIGNED=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$neg:Y_WIDTH=11:A_WIDTH=11:A_SIGNED=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$neg:Y_WIDTH=16:A_WIDTH=16:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$neg:Y_WIDTH=16:A_WIDTH=16:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$neg:Y_WIDTH=16:A_WIDTH=16:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $paramod$a2af9b43308e3114c3b5dd3f4dc3329b2387395d\_90_alu for cells of type $alu.
+Using template $paramod$caf8c66b30ab3bffac74d294b4384be3df05b828\_90_alu for cells of type $alu.
+Using template $paramod$6df0329addda9228fcc2546de2aaf14ad26c98e1\_90_alu for cells of type $alu.
+Using template $paramod$1f812f0514ea3255703342654e053e2c502325cc\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $not.
+Using template $paramod$b88c814db3182f0c444e9827cc183ec51bbd865d\_90_alu for cells of type $alu.
+Using template $paramod$02488ff6fa51b28bbfa470bdd9b0e548b3357746\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001001 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001001 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001011 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001011 for cells of type $lcu.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010000 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $and.
+No more expansions possible.
+<suppressed ~2036 debug messages>
+
+5.21. Executing OPT pass (performing simple optimizations).
+
+5.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module divider_16bit.
+<suppressed ~1491 debug messages>
+
+5.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\divider_16bit'.
+Computing hashes of 2272 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Computing hashes of 2241 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Computing hashes of 2133 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Computing hashes of 2118 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Computing hashes of 2111 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Computing hashes of 2106 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+Computing hashes of 2105 cells of `\divider_16bit'.
+Finding duplicate cells in `\divider_16bit'.
+<suppressed ~501 debug messages>
+Removed a total of 167 cells.
+
+5.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \divider_16bit..
+Removed 412 unused cells and 1022 unused wires.
+<suppressed ~413 debug messages>
+
+5.21.5. Finished fast OPT passes.
+
+5.22. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `divider_16bit'. Setting top module to divider_16bit.
+
+5.22.1. Analyzing design hierarchy..
+Top module:  \divider_16bit
+
+5.22.2. Analyzing design hierarchy..
+Top module:  \divider_16bit
+Removed 0 unused modules.
+
+5.23. Printing statistics.
+
+=== divider_16bit ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      685 wires
+     2185 wire bits
+        6 public wires
+      120 public wire bits
+        4 ports
+       56 port bits
+     1693 cells
+      709   $_AND_
+      136   $_MUX_
+       26   $_NOT_
+      334   $_OR_
+      488   $_XOR_
+
+5.24. Executing CHECK pass (checking for obvious problems).
+Checking module divider_16bit...
+Found and reported 0 problems.
+
+6. Executing ABC pass (technology mapping using ABC).
+
+6.1. Extracting gate netlist of module `\divider_16bit' to `<abc-temp-dir>/input.blif'..
+Warning: ABC: merged SCL conversion failed, falling back to liberty format
+ABC: conversion output:
+'D:\oss-cad-suite\bin\yosys-abc" -c "read_lib' is not recognized as an internal or external command,
+
+operable program or batch file.
+
+Warning: ABC: Merged scl conversion failed, using liberty format
+
+6.1.1. Executed ABC.
+Extracted 1693 gates and 1718 wires to a netlist network with 24 inputs and 32 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -X sky130_fd_sc_hd__lpflow_* -w D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.05 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_0".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_8".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_bleeder_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_12" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_3" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_6" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__lpflow_inputisolatch_1".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrckapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_4".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" has 307 cells (121 skipped: 63 seq; 13 tri-state; 12 no func; 33 dont_use; 0 with 2 outputs; 0 with 3+ outputs).  Time =     0.16 sec
+ABC: Memory =   16.01 MB. Time =     0.16 sec
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + read_constr -v D:/verilog_lab/PipeWeaver/eda/experiments/baseline_qualification_20261031_000748_731025/cases/rtlopt_divider_16bit/abc.constr 
+ABC: Setting driving cell to be "sky130_fd_sc_hd__buf_2".
+ABC: Setting output load to be 10.000000.
+ABC: + source D:/verilog_lab/PipeWeaver/eda/experiments/baseline_qualification_20261031_000748_731025/cases/rtlopt_divider_16bit/abc.script 
+ABC: Cleanup removed 0 dangling nodes.
+ABC: WireLoad = "none"  Gates =   2337 ( 13.5 %)   Cap =  6.5 ff (  7.7 %)   Area =    13937.12 ( 79.0 %)   Delay = 19629.59 ps  ( 31.4 %)               
+ABC: Path  0 --      23 : 0    4 pi                        A =   0.00  Df =  62.0  -19.2 ps  S =  89.6 ps  Cin =  0.0 ff  Cout =  16.5 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --      63 : 4    7 sky130_fd_sc_hd__nor4_4   A =  21.27  Df = 455.4 -215.4 ps  S = 388.0 ps  Cin =  8.5 ff  Cout =  21.0 ff  Cmax = 112.6 ff  G =  237  
+ABC: Path  2 --     102 : 5    2 sky130_fd_sc_hd__a41oi_1  A =   8.76  Df = 636.3 -112.1 ps  S = 181.4 ps  Cin =  2.3 ff  Cout =   4.2 ff  Cmax =  65.9 ff  G =  174  
+ABC: Path  3 --     103 : 3    2 sky130_fd_sc_hd__o21ai_0  A =   5.00  Df = 768.2 -111.9 ps  S = 195.7 ps  Cin =  1.7 ff  Cout =   4.9 ff  Cmax =  50.4 ff  G =  275  
+ABC: Path  4 --     113 : 2    2 sky130_fd_sc_hd__nand2_1  A =   3.75  Df = 887.4  -70.9 ps  S = 101.9 ps  Cin =  2.3 ff  Cout =   9.3 ff  Cmax = 166.6 ff  G =  385  
+ABC: Path  5 --     116 : 3    2 sky130_fd_sc_hd__a21oi_2  A =   8.76  Df =1047.9 -150.0 ps  S = 130.4 ps  Cin =  4.6 ff  Cout =   7.5 ff  Cmax = 128.2 ff  G =  156  
+ABC: Path  6 --     156 : 3    2 sky130_fd_sc_hd__a21oi_2  A =   8.76  Df =1183.6  -56.1 ps  S = 125.8 ps  Cin =  4.6 ff  Cout =   7.0 ff  Cmax = 128.2 ff  G =  147  
+ABC: Path  7 --     164 : 2    3 sky130_fd_sc_hd__nor2_2   A =   6.26  Df =1287.5  -30.8 ps  S = 152.1 ps  Cin =  4.4 ff  Cout =  11.6 ff  Cmax = 141.9 ff  G =  250  
+ABC: Path  8 --     167 : 5    3 sky130_fd_sc_hd__o221ai_2 A =  15.01  Df =1417.8   -9.8 ps  S = 189.9 ps  Cin =  4.5 ff  Cout =   7.7 ff  Cmax = 128.2 ff  G =  161  
+ABC: Path  9 --     177 : 1   10 sky130_fd_sc_hd__buf_4    A =   7.51  Df =1600.3  -11.6 ps  S =  78.3 ps  Cin =  2.4 ff  Cout =  23.6 ff  Cmax = 561.2 ff  G =  936  
+ABC: Path 10 --     193 : 3    2 sky130_fd_sc_hd__o21ai_0  A =   5.00  Df =1782.7  -39.0 ps  S = 190.7 ps  Cin =  1.7 ff  Cout =   4.8 ff  Cmax =  50.4 ff  G =  271  
+ABC: Path 11 --     194 : 2    1 sky130_fd_sc_hd__nand2_1  A =   3.75  Df =1868.3  -44.0 ps  S =  67.0 ps  Cin =  2.3 ff  Cout =   4.6 ff  Cmax = 166.6 ff  G =  190  
+ABC: Path 12 --     195 : 2    5 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =1976.2  -73.9 ps  S =  93.8 ps  Cin =  4.4 ff  Cout =  14.5 ff  Cmax = 295.7 ff  G =  316  
+ABC: Path 13 --     244 : 3    1 sky130_fd_sc_hd__a21boi_1 A =   7.51  Df =2038.9  -15.8 ps  S =  92.5 ps  Cin =  2.1 ff  Cout =   2.0 ff  Cmax =  76.0 ff  G =   95  
+ABC: Path 14 --     245 : 3    2 sky130_fd_sc_hd__o21ai_1  A =   5.00  Df =2193.6  -82.4 ps  S = 159.7 ps  Cin =  2.3 ff  Cout =   6.1 ff  Cmax =  80.6 ff  G =  258  
+ABC: Path 15 --     310 : 3    5 sky130_fd_sc_hd__o21bai_2 A =  11.26  Df =2346.6  -21.6 ps  S = 201.8 ps  Cin =  3.4 ff  Cout =  13.9 ff  Cmax = 140.1 ff  G =  403  
+ABC: Path 16 --     311 : 4    2 sky130_fd_sc_hd__o211ai_2 A =  12.51  Df =2448.7  -14.4 ps  S = 160.1 ps  Cin =  4.4 ff  Cout =   7.4 ff  Cmax = 133.7 ff  G =  160  
+ABC: Path 17 --     312 : 1   10 sky130_fd_sc_hd__buf_6    A =  11.26  Df =2616.4  -28.4 ps  S =  71.8 ps  Cin =  4.6 ff  Cout =  29.9 ff  Cmax = 785.5 ff  G =  626  
+ABC: Path 18 --     331 : 3    2 sky130_fd_sc_hd__o21ai_1  A =   5.00  Df =2764.0  -15.4 ps  S = 135.1 ps  Cin =  2.3 ff  Cout =   4.8 ff  Cmax =  80.6 ff  G =  204  
+ABC: Path 19 --     335 : 2    2 sky130_fd_sc_hd__nand2_1  A =   3.75  Df =2842.0  -22.2 ps  S =  62.0 ps  Cin =  2.3 ff  Cout =   4.8 ff  Cmax = 166.6 ff  G =  200  
+ABC: Path 20 --     337 : 2    3 sky130_fd_sc_hd__nand2_1  A =   3.75  Df =2956.8  -31.7 ps  S = 122.3 ps  Cin =  2.3 ff  Cout =  11.7 ff  Cmax = 166.6 ff  G =  485  
+ABC: Path 21 --     347 : 2    1 sky130_fd_sc_hd__nand2_1  A =   3.75  Df =3033.3  -17.8 ps  S =  66.0 ps  Cin =  2.3 ff  Cout =   5.1 ff  Cmax = 166.6 ff  G =  208  
+ABC: Path 22 --     356 : 3    3 sky130_fd_sc_hd__o21ai_2  A =   8.76  Df =3223.4  -45.4 ps  S = 174.1 ps  Cin =  4.5 ff  Cout =  11.5 ff  Cmax = 139.2 ff  G =  243  
+ABC: Path 23 --     403 : 3    3 sky130_fd_sc_hd__a21oi_2  A =   8.76  Df =3365.9  -44.3 ps  S = 174.0 ps  Cin =  4.6 ff  Cout =  11.6 ff  Cmax = 128.2 ff  G =  242  
+ABC: Path 24 --     408 : 3    3 sky130_fd_sc_hd__o21ai_2  A =   8.76  Df =3499.0  -37.7 ps  S = 176.4 ps  Cin =  4.5 ff  Cout =  11.7 ff  Cmax = 139.2 ff  G =  248  
+ABC: Path 25 --     436 : 2    2 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =3593.0  -45.6 ps  S =  77.4 ps  Cin =  4.4 ff  Cout =  11.2 ff  Cmax = 295.7 ff  G =  248  
+ABC: Path 26 --     437 : 3   10 sky130_fd_sc_hd__nand3_4  A =  17.52  Df =3705.3  -47.2 ps  S = 134.2 ps  Cin =  8.7 ff  Cout =  29.5 ff  Cmax = 469.7 ff  G =  327  
+ABC: Path 27 --     438 : 2    4 sky130_fd_sc_hd__nand2_4  A =  11.26  Df =3779.5   -0.2 ps  S =  72.5 ps  Cin =  8.7 ff  Cout =  14.3 ff  Cmax = 530.1 ff  G =  157  
+ABC: Path 28 --     449 : 1   10 sky130_fd_sc_hd__buf_6    A =  11.26  Df =3922.6  -16.5 ps  S =  68.4 ps  Cin =  4.6 ff  Cout =  28.6 ff  Cmax = 785.5 ff  G =  593  
+ABC: Path 29 --     456 : 3    2 sky130_fd_sc_hd__o21ai_1  A =   5.00  Df =4070.0  -84.9 ps  S = 135.5 ps  Cin =  2.3 ff  Cout =   4.8 ff  Cmax =  80.6 ff  G =  203  
+ABC: Path 30 --     460 : 2    2 sky130_fd_sc_hd__nand2_1  A =   3.75  Df =4161.3  -82.7 ps  S =  83.6 ps  Cin =  2.3 ff  Cout =   7.0 ff  Cmax = 166.6 ff  G =  292  
+ABC: Path 31 --     463 : 2    5 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =4265.3  -84.0 ps  S =  93.8 ps  Cin =  4.4 ff  Cout =  14.3 ff  Cmax = 295.7 ff  G =  311  
+ABC: Path 32 --     519 : 4    2 sky130_fd_sc_hd__nand4_1  A =   6.26  Df =4373.2  -52.9 ps  S =  85.9 ps  Cin =  2.3 ff  Cout =   4.2 ff  Cmax = 124.5 ff  G =  171  
+ABC: Path 33 --     557 : 3    2 sky130_fd_sc_hd__o21bai_1 A =   7.51  Df =4548.2 -104.2 ps  S = 144.4 ps  Cin =  2.1 ff  Cout =   4.8 ff  Cmax =  77.8 ff  G =  219  
+ABC: Path 34 --     563 : 3    2 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =4725.3 -138.9 ps  S = 178.6 ps  Cin =  2.3 ff  Cout =   6.5 ff  Cmax =  74.2 ff  G =  262  
+ABC: Path 35 --     564 : 3    2 sky130_fd_sc_hd__o21bai_2 A =  11.26  Df =4811.7  -87.1 ps  S = 131.8 ps  Cin =  3.4 ff  Cout =   6.8 ff  Cmax = 140.1 ff  G =  197  
+ABC: Path 36 --     565 : 3    2 sky130_fd_sc_hd__nand3_2  A =  10.01  Df =4888.8  -76.9 ps  S =  94.3 ps  Cin =  4.4 ff  Cout =   7.1 ff  Cmax = 260.0 ff  G =  153  
+ABC: Path 37 --     566 : 1   10 sky130_fd_sc_hd__buf_4    A =   7.51  Df =5036.4  -46.5 ps  S =  80.3 ps  Cin =  2.4 ff  Cout =  24.8 ff  Cmax = 561.2 ff  G =  996  
+ABC: Path 38 --     567 : 2    4 sky130_fd_sc_hd__and2_4   A =   8.76  Df =5223.3  -50.6 ps  S =  88.6 ps  Cin =  2.4 ff  Cout =  24.6 ff  Cmax = 539.3 ff  G = 1006  
+ABC: Path 39 --     655 : 2    2 sky130_fd_sc_hd__nand2_1  A =   3.75  Df =5289.6  -47.1 ps  S =  61.9 ps  Cin =  2.3 ff  Cout =   4.8 ff  Cmax = 166.6 ff  G =  201  
+ABC: Path 40 --     672 : 3    2 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =5438.5 -127.4 ps  S = 147.1 ps  Cin =  2.3 ff  Cout =   4.9 ff  Cmax =  74.2 ff  G =  201  
+ABC: Path 41 --     675 : 3    3 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =5580.6  -35.3 ps  S = 184.4 ps  Cin =  2.3 ff  Cout =   6.8 ff  Cmax =  74.2 ff  G =  278  
+ABC: Path 42 --     681 : 3    2 sky130_fd_sc_hd__o21a_1   A =   7.51  Df =5751.9  -25.5 ps  S =  60.7 ps  Cin =  2.4 ff  Cout =   4.9 ff  Cmax = 163.0 ff  G =  195  
+ABC: Path 43 --     685 : 3    3 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =5949.7 -107.3 ps  S = 226.9 ps  Cin =  2.3 ff  Cout =   9.0 ff  Cmax =  74.2 ff  G =  363  
+ABC: Path 44 --     717 : 3    2 sky130_fd_sc_hd__o21bai_2 A =  11.26  Df =6042.5  -56.9 ps  S = 129.7 ps  Cin =  3.4 ff  Cout =   6.8 ff  Cmax = 140.1 ff  G =  197  
+ABC: Path 45 --     718 : 3    2 sky130_fd_sc_hd__nand3_2  A =  10.01  Df =6126.9  -44.8 ps  S =  80.8 ps  Cin =  4.4 ff  Cout =   9.5 ff  Cmax = 260.0 ff  G =  203  
+ABC: Path 46 --     719 : 2    8 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =6274.0  -29.3 ps  S = 162.1 ps  Cin =  4.4 ff  Cout =  28.5 ff  Cmax = 295.7 ff  G =  615  
+ABC: Path 47 --     734 : 1   10 sky130_fd_sc_hd__buf_6    A =  11.26  Df =6426.9  -17.1 ps  S =  70.2 ps  Cin =  4.6 ff  Cout =  29.1 ff  Cmax = 785.5 ff  G =  597  
+ABC: Path 48 --     757 : 4    1 sky130_fd_sc_hd__o211ai_2 A =  12.51  Df =6546.0  -41.7 ps  S = 131.0 ps  Cin =  4.4 ff  Cout =   4.6 ff  Cmax = 133.7 ff  G =  101  
+ABC: Path 49 --     758 : 2    4 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =6635.8  -29.5 ps  S =  81.1 ps  Cin =  4.4 ff  Cout =  11.8 ff  Cmax = 295.7 ff  G =  256  
+ABC: Path 50 --     767 : 3    3 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =6818.9 -111.6 ps  S = 184.4 ps  Cin =  2.3 ff  Cout =   6.8 ff  Cmax =  74.2 ff  G =  278  
+ABC: Path 51 --     772 : 3    1 sky130_fd_sc_hd__o21ai_0  A =   5.00  Df =6918.3   -4.8 ps  S = 126.2 ps  Cin =  1.7 ff  Cout =   2.5 ff  Cmax =  50.4 ff  G =  137  
+ABC: Path 52 --     831 : 3    1 sky130_fd_sc_hd__o21bai_1 A =   7.51  Df =7069.8  -25.0 ps  S = 101.4 ps  Cin =  2.1 ff  Cout =   2.4 ff  Cmax =  77.8 ff  G =  110  
+ABC: Path 53 --     841 : 3    1 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =7182.6  -70.1 ps  S = 100.8 ps  Cin =  2.3 ff  Cout =   2.5 ff  Cmax =  74.2 ff  G =  100  
+ABC: Path 54 --     847 : 3    2 sky130_fd_sc_hd__o21bai_1 A =   7.51  Df =7344.3  -48.8 ps  S = 263.5 ps  Cin =  2.1 ff  Cout =  11.3 ff  Cmax =  77.8 ff  G =  514  
+ABC: Path 55 --     862 : 2    8 sky130_fd_sc_hd__nand2_4  A =  11.26  Df =7460.8  -19.4 ps  S =  99.4 ps  Cin =  8.7 ff  Cout =  26.2 ff  Cmax = 530.1 ff  G =  288  
+ABC: Path 56 --     900 : 1   10 sky130_fd_sc_hd__buf_4    A =   7.51  Df =7641.5  -39.2 ps  S =  84.1 ps  Cin =  2.4 ff  Cout =  26.3 ff  Cmax = 561.2 ff  G = 1041  
+ABC: Path 57 --     970 : 4    1 sky130_fd_sc_hd__o211ai_1 A =   7.51  Df =7819.8 -123.1 ps  S = 179.4 ps  Cin =  2.3 ff  Cout =   4.6 ff  Cmax =  74.2 ff  G =  188  
+ABC: Path 58 --     971 : 2    4 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =7918.7 -114.7 ps  S =  81.6 ps  Cin =  4.4 ff  Cout =  11.8 ff  Cmax = 295.7 ff  G =  256  
+ABC: Path 59 --     978 : 3    3 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =8102.2  -76.5 ps  S = 184.4 ps  Cin =  2.3 ff  Cout =   6.8 ff  Cmax =  74.2 ff  G =  278  
+ABC: Path 60 --    1002 : 3    1 sky130_fd_sc_hd__o21ai_0  A =   5.00  Df =8196.8  -30.4 ps  S = 126.3 ps  Cin =  1.7 ff  Cout =   2.5 ff  Cmax =  50.4 ff  G =  137  
+ABC: Path 61 --    1009 : 3    1 sky130_fd_sc_hd__o21bai_1 A =   7.51  Df =8335.1   -7.1 ps  S = 101.4 ps  Cin =  2.1 ff  Cout =   2.4 ff  Cmax =  77.8 ff  G =  110  
+ABC: Path 62 --    1013 : 3    1 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =8479.8  -72.4 ps  S = 143.7 ps  Cin =  2.3 ff  Cout =   4.7 ff  Cmax =  74.2 ff  G =  189  
+ABC: Path 63 --    1019 : 3    2 sky130_fd_sc_hd__o21bai_2 A =  11.26  Df =8574.2   -5.6 ps  S = 167.9 ps  Cin =  3.4 ff  Cout =  10.6 ff  Cmax = 140.1 ff  G =  303  
+ABC: Path 64 --    1031 : 1   10 sky130_fd_sc_hd__buf_2    A =   5.00  Df =8786.7  -33.7 ps  S = 143.3 ps  Cin =  1.7 ff  Cout =  27.8 ff  Cmax = 315.9 ff  G = 1565  
+ABC: Path 65 --    1033 : 2    3 sky130_fd_sc_hd__and2_1   A =   6.26  Df =8958.0  -40.8 ps  S =  86.6 ps  Cin =  1.5 ff  Cout =   7.1 ff  Cmax = 158.4 ff  G =  469  
+ABC: Path 66 --    1034 : 2    2 sky130_fd_sc_hd__nand2_1  A =   3.75  Df =9023.8  -36.7 ps  S =  61.9 ps  Cin =  2.3 ff  Cout =   4.8 ff  Cmax = 166.6 ff  G =  201  
+ABC: Path 67 --    1036 : 3    1 sky130_fd_sc_hd__nand3b_1 A =   7.51  Df =9096.5  -41.8 ps  S =  60.3 ps  Cin =  2.0 ff  Cout =   2.4 ff  Cmax = 143.7 ff  G =  115  
+ABC: Path 68 --    1040 : 2    5 sky130_fd_sc_hd__nand2_1  A =   3.75  Df =9185.8  -20.8 ps  S = 118.2 ps  Cin =  2.3 ff  Cout =  11.3 ff  Cmax = 166.6 ff  G =  470  
+ABC: Path 69 --    1072 : 3    2 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =9337.2  -88.5 ps  S = 132.6 ps  Cin =  2.3 ff  Cout =   4.1 ff  Cmax =  74.2 ff  G =  172  
+ABC: Path 70 --    1073 : 3    1 sky130_fd_sc_hd__o21ai_0  A =   5.00  Df =9432.2  -12.3 ps  S = 126.2 ps  Cin =  1.7 ff  Cout =   2.5 ff  Cmax =  50.4 ff  G =  137  
+ABC: Path 71 --    1129 : 3    1 sky130_fd_sc_hd__o21bai_1 A =   7.51  Df =9563.5   -8.3 ps  S = 101.4 ps  Cin =  2.1 ff  Cout =   2.4 ff  Cmax =  77.8 ff  G =  110  
+ABC: Path 72 --    1139 : 3    1 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =9699.9  -57.0 ps  S = 143.7 ps  Cin =  2.3 ff  Cout =   4.7 ff  Cmax =  74.2 ff  G =  189  
+ABC: Path 73 --    1145 : 3    2 sky130_fd_sc_hd__o21bai_2 A =  11.26  Df =9804.1   -9.8 ps  S = 167.9 ps  Cin =  3.4 ff  Cout =  10.6 ff  Cmax = 140.1 ff  G =  303  
+ABC: Path 74 --    1191 : 1   10 sky130_fd_sc_hd__buf_2    A =   5.00  Df =10014.9  -45.6 ps  S = 133.1 ps  Cin =  1.7 ff  Cout =  25.7 ff  Cmax = 315.9 ff  G = 1444  
+ABC: Path 75 --    1232 : 2    3 sky130_fd_sc_hd__and2_1   A =   6.26  Df =10183.9  -31.5 ps  S =  86.5 ps  Cin =  1.5 ff  Cout =   7.1 ff  Cmax = 158.4 ff  G =  469  
+ABC: Path 76 --    1248 : 2    2 sky130_fd_sc_hd__nand2_1  A =   3.75  Df =10249.6  -27.3 ps  S =  61.9 ps  Cin =  2.3 ff  Cout =   4.8 ff  Cmax = 166.6 ff  G =  201  
+ABC: Path 77 --    1266 : 3    2 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =10398.3 -107.4 ps  S = 147.1 ps  Cin =  2.3 ff  Cout =   4.9 ff  Cmax =  74.2 ff  G =  201  
+ABC: Path 78 --    1269 : 3    3 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =10565.6  -60.5 ps  S = 184.4 ps  Cin =  2.3 ff  Cout =   6.8 ff  Cmax =  74.2 ff  G =  278  
+ABC: Path 79 --    1274 : 3    2 sky130_fd_sc_hd__o21a_1   A =   7.51  Df =10711.5  -25.2 ps  S =  60.7 ps  Cin =  2.4 ff  Cout =   4.9 ff  Cmax = 163.0 ff  G =  195  
+ABC: Path 80 --    1279 : 3    2 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =10883.9  -72.2 ps  S = 192.0 ps  Cin =  2.3 ff  Cout =   7.2 ff  Cmax =  74.2 ff  G =  290  
+ABC: Path 81 --    1311 : 3    2 sky130_fd_sc_hd__o21bai_2 A =  11.26  Df =10972.1  -23.2 ps  S = 129.7 ps  Cin =  3.4 ff  Cout =   6.8 ff  Cmax = 140.1 ff  G =  197  
+ABC: Path 82 --    1312 : 3    2 sky130_fd_sc_hd__nand3_2  A =  10.01  Df =11055.0   -9.6 ps  S = 104.8 ps  Cin =  4.4 ff  Cout =   9.5 ff  Cmax = 260.0 ff  G =  203  
+ABC: Path 83 --    1313 : 2    8 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =11218.6  -44.9 ps  S = 162.3 ps  Cin =  4.4 ff  Cout =  28.5 ff  Cmax = 295.7 ff  G =  615  
+ABC: Path 84 --    1328 : 1   10 sky130_fd_sc_hd__buf_6    A =  11.26  Df =11371.6  -34.5 ps  S =  70.2 ps  Cin =  4.6 ff  Cout =  29.1 ff  Cmax = 785.5 ff  G =  599  
+ABC: Path 85 --    1350 : 4    1 sky130_fd_sc_hd__o211ai_1 A =   7.51  Df =11511.7  -49.1 ps  S = 179.4 ps  Cin =  2.3 ff  Cout =   4.6 ff  Cmax =  74.2 ff  G =  188  
+ABC: Path 86 --    1351 : 2    4 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =11610.6  -40.7 ps  S =  81.6 ps  Cin =  4.4 ff  Cout =  11.8 ff  Cmax = 295.7 ff  G =  256  
+ABC: Path 87 --    1360 : 3    3 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =11794.1 -139.6 ps  S = 184.4 ps  Cin =  2.3 ff  Cout =   6.8 ff  Cmax =  74.2 ff  G =  278  
+ABC: Path 88 --    1365 : 3    1 sky130_fd_sc_hd__o21ai_0  A =   5.00  Df =11888.6  -43.1 ps  S = 126.2 ps  Cin =  1.7 ff  Cout =   2.5 ff  Cmax =  50.4 ff  G =  137  
+ABC: Path 89 --    1419 : 3    1 sky130_fd_sc_hd__o21bai_1 A =   7.51  Df =12054.8  -34.9 ps  S = 101.4 ps  Cin =  2.1 ff  Cout =   2.4 ff  Cmax =  77.8 ff  G =  110  
+ABC: Path 90 --    1429 : 3    1 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =12167.6  -80.0 ps  S = 100.8 ps  Cin =  2.3 ff  Cout =   2.5 ff  Cmax =  74.2 ff  G =  100  
+ABC: Path 91 --    1435 : 3    2 sky130_fd_sc_hd__o21bai_1 A =   7.51  Df =12319.4  -38.9 ps  S = 263.5 ps  Cin =  2.1 ff  Cout =  11.3 ff  Cmax =  77.8 ff  G =  514  
+ABC: Path 92 --    1481 : 1   10 sky130_fd_sc_hd__buf_4    A =   7.51  Df =12525.8  -61.5 ps  S =  84.6 ps  Cin =  2.4 ff  Cout =  25.6 ff  Cmax = 561.2 ff  G = 1037  
+ABC: Path 93 --    1524 : 2    3 sky130_fd_sc_hd__and2_1   A =   6.26  Df =12679.4  -62.9 ps  S =  86.2 ps  Cin =  1.5 ff  Cout =   7.1 ff  Cmax = 158.4 ff  G =  469  
+ABC: Path 94 --    1532 : 2    2 sky130_fd_sc_hd__nand2_1  A =   3.75  Df =12745.0  -58.6 ps  S =  61.9 ps  Cin =  2.3 ff  Cout =   4.8 ff  Cmax = 166.6 ff  G =  201  
+ABC: Path 95 --    1534 : 3    1 sky130_fd_sc_hd__nand3b_1 A =   7.51  Df =12817.8  -63.8 ps  S =  60.4 ps  Cin =  2.0 ff  Cout =   2.4 ff  Cmax = 143.7 ff  G =  115  
+ABC: Path 96 --    1537 : 2    5 sky130_fd_sc_hd__nand2_1  A =   3.75  Df =12907.0  -28.9 ps  S = 118.2 ps  Cin =  2.3 ff  Cout =  11.3 ff  Cmax = 166.6 ff  G =  470  
+ABC: Path 97 --    1565 : 3    2 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =13058.5  -96.6 ps  S = 132.6 ps  Cin =  2.3 ff  Cout =   4.1 ff  Cmax =  74.2 ff  G =  172  
+ABC: Path 98 --    1566 : 3    2 sky130_fd_sc_hd__o21a_1   A =   7.51  Df =13207.0  -25.4 ps  S =  60.7 ps  Cin =  2.4 ff  Cout =   4.9 ff  Cmax = 163.0 ff  G =  195  
+ABC: Path 99 --    1571 : 3    2 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =13381.5  -92.2 ps  S = 192.0 ps  Cin =  2.3 ff  Cout =   7.2 ff  Cmax =  74.2 ff  G =  290  
+ABC: Path100 --    1604 : 3    2 sky130_fd_sc_hd__o21bai_2 A =  11.26  Df =13469.7  -43.2 ps  S = 129.7 ps  Cin =  3.4 ff  Cout =   6.8 ff  Cmax = 140.1 ff  G =  197  
+ABC: Path101 --    1605 : 3    2 sky130_fd_sc_hd__nand3_2  A =  10.01  Df =13560.8  -28.5 ps  S = 115.0 ps  Cin =  4.4 ff  Cout =  11.8 ff  Cmax = 260.0 ff  G =  253  
+ABC: Path102 --    1616 : 1   10 sky130_fd_sc_hd__buf_4    A =   7.51  Df =13723.9   -0.2 ps  S =  91.4 ps  Cin =  2.4 ff  Cout =  29.1 ff  Cmax = 561.2 ff  G = 1167  
+ABC: Path103 --    1676 : 3    2 sky130_fd_sc_hd__and3_1   A =   6.26  Df =13895.5   -1.1 ps  S =  72.7 ps  Cin =  1.5 ff  Cout =   5.1 ff  Cmax = 157.5 ff  G =  317  
+ABC: Path104 --    1678 : 3    2 sky130_fd_sc_hd__o21ai_1  A =   5.00  Df =14061.3  -56.4 ps  S = 175.3 ps  Cin =  2.3 ff  Cout =   7.0 ff  Cmax =  80.6 ff  G =  299  
+ABC: Path105 --    1684 : 2    4 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =14156.2  -46.3 ps  S =  82.1 ps  Cin =  4.4 ff  Cout =  11.7 ff  Cmax = 295.7 ff  G =  256  
+ABC: Path106 --    1729 : 2    1 sky130_fd_sc_hd__nand2_1  A =   3.75  Df =14216.9  -58.6 ps  S =  44.8 ps  Cin =  2.3 ff  Cout =   2.0 ff  Cmax = 166.6 ff  G =   86  
+ABC: Path107 --    1730 : 3    2 sky130_fd_sc_hd__o21ai_1  A =   5.00  Df =14291.9  -26.4 ps  S = 176.1 ps  Cin =  2.3 ff  Cout =   7.1 ff  Cmax =  80.6 ff  G =  298  
+ABC: Path108 --    1738 : 3    2 sky130_fd_sc_hd__o21bai_2 A =  11.26  Df =14446.9   -2.2 ps  S = 109.8 ps  Cin =  3.4 ff  Cout =   4.8 ff  Cmax = 140.1 ff  G =  138  
+ABC: Path109 --    1740 : 3    2 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =14630.7  -90.9 ps  S = 192.0 ps  Cin =  2.3 ff  Cout =   7.2 ff  Cmax =  74.2 ff  G =  290  
+ABC: Path110 --    1741 : 3    2 sky130_fd_sc_hd__o21bai_2 A =  11.26  Df =14718.9  -41.8 ps  S = 129.7 ps  Cin =  3.4 ff  Cout =   6.8 ff  Cmax = 140.1 ff  G =  197  
+ABC: Path111 --    1742 : 3    2 sky130_fd_sc_hd__nand3_2  A =  10.01  Df =14809.9  -27.1 ps  S = 115.0 ps  Cin =  4.4 ff  Cout =  11.8 ff  Cmax = 260.0 ff  G =  253  
+ABC: Path112 --    1743 : 1   10 sky130_fd_sc_hd__buf_4    A =   7.51  Df =14970.1   -5.4 ps  S =  80.3 ps  Cin =  2.4 ff  Cout =  24.8 ff  Cmax = 561.2 ff  G =  996  
+ABC: Path113 --    1770 : 3    2 sky130_fd_sc_hd__and3_1   A =   6.26  Df =15139.0   -5.6 ps  S =  72.7 ps  Cin =  1.5 ff  Cout =   5.1 ff  Cmax = 157.5 ff  G =  317  
+ABC: Path114 --    1772 : 3    2 sky130_fd_sc_hd__o21ai_1  A =   5.00  Df =15305.8  -56.4 ps  S = 175.3 ps  Cin =  2.3 ff  Cout =   7.0 ff  Cmax =  80.6 ff  G =  299  
+ABC: Path115 --    1776 : 2    4 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =15400.7  -46.3 ps  S =  82.1 ps  Cin =  4.4 ff  Cout =  11.7 ff  Cmax = 295.7 ff  G =  256  
+ABC: Path116 --    1781 : 2    1 sky130_fd_sc_hd__nand2_1  A =   3.75  Df =15461.3  -58.6 ps  S =  44.8 ps  Cin =  2.3 ff  Cout =   2.0 ff  Cmax = 166.6 ff  G =   86  
+ABC: Path117 --    1782 : 3    2 sky130_fd_sc_hd__o21ai_1  A =   5.00  Df =15536.4  -26.3 ps  S = 176.1 ps  Cin =  2.3 ff  Cout =   7.1 ff  Cmax =  80.6 ff  G =  298  
+ABC: Path118 --    1887 : 3    2 sky130_fd_sc_hd__o21bai_2 A =  11.26  Df =15689.1  -17.5 ps  S = 109.8 ps  Cin =  3.4 ff  Cout =   4.8 ff  Cmax = 140.1 ff  G =  138  
+ABC: Path119 --    1889 : 3    2 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =15855.4  -71.1 ps  S = 192.0 ps  Cin =  2.3 ff  Cout =   7.2 ff  Cmax =  74.2 ff  G =  290  
+ABC: Path120 --    1890 : 3    2 sky130_fd_sc_hd__o21bai_2 A =  11.26  Df =15943.6  -22.1 ps  S = 129.7 ps  Cin =  3.4 ff  Cout =   6.8 ff  Cmax = 140.1 ff  G =  197  
+ABC: Path121 --    1891 : 3    2 sky130_fd_sc_hd__nand3_2  A =  10.01  Df =16034.7   -7.4 ps  S = 115.0 ps  Cin =  4.4 ff  Cout =  11.8 ff  Cmax = 260.0 ff  G =  253  
+ABC: Path122 --    1892 : 1   10 sky130_fd_sc_hd__buf_4    A =   7.51  Df =16211.4  -27.8 ps  S =  72.2 ps  Cin =  2.4 ff  Cout =  21.7 ff  Cmax = 561.2 ff  G =  871  
+ABC: Path123 --    1923 : 3    2 sky130_fd_sc_hd__and3_1   A =   6.26  Df =16379.0  -29.1 ps  S =  72.7 ps  Cin =  1.5 ff  Cout =   5.1 ff  Cmax = 157.5 ff  G =  317  
+ABC: Path124 --    1925 : 3    2 sky130_fd_sc_hd__o21ai_1  A =   5.00  Df =16545.8  -56.4 ps  S = 175.3 ps  Cin =  2.3 ff  Cout =   7.0 ff  Cmax =  80.6 ff  G =  299  
+ABC: Path125 --    1929 : 2    4 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =16640.7  -46.3 ps  S =  82.1 ps  Cin =  4.4 ff  Cout =  11.7 ff  Cmax = 295.7 ff  G =  256  
+ABC: Path126 --    1934 : 2    1 sky130_fd_sc_hd__nand2_1  A =   3.75  Df =16701.4  -58.6 ps  S =  44.8 ps  Cin =  2.3 ff  Cout =   2.0 ff  Cmax = 166.6 ff  G =   86  
+ABC: Path127 --    1935 : 3    2 sky130_fd_sc_hd__o21ai_1  A =   5.00  Df =16776.4  -26.3 ps  S = 176.1 ps  Cin =  2.3 ff  Cout =   7.1 ff  Cmax =  80.6 ff  G =  298  
+ABC: Path128 --    2030 : 3    2 sky130_fd_sc_hd__o21bai_2 A =  11.26  Df =16929.2  -16.6 ps  S = 109.8 ps  Cin =  3.4 ff  Cout =   4.8 ff  Cmax = 140.1 ff  G =  138  
+ABC: Path129 --    2032 : 3    2 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =17096.3  -72.0 ps  S = 192.0 ps  Cin =  2.3 ff  Cout =   7.2 ff  Cmax =  74.2 ff  G =  290  
+ABC: Path130 --    2033 : 3    2 sky130_fd_sc_hd__o21bai_2 A =  11.26  Df =17184.5  -23.0 ps  S = 129.7 ps  Cin =  3.4 ff  Cout =   6.8 ff  Cmax = 140.1 ff  G =  197  
+ABC: Path131 --    2034 : 3    8 sky130_fd_sc_hd__nand3_2  A =  10.01  Df =17306.7   -3.8 ps  S = 155.4 ps  Cin =  4.4 ff  Cout =  20.8 ff  Cmax = 260.0 ff  G =  450  
+ABC: Path132 --    2035 : 2    6 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =17468.0  -50.0 ps  S = 124.6 ps  Cin =  4.4 ff  Cout =  19.6 ff  Cmax = 295.7 ff  G =  423  
+ABC: Path133 --    2045 : 3    4 sky130_fd_sc_hd__o21ai_2  A =   8.76  Df =17756.0  -40.0 ps  S = 176.9 ps  Cin =  4.5 ff  Cout =  11.8 ff  Cmax = 139.2 ff  G =  248  
+ABC: Path134 --    2117 : 2    4 sky130_fd_sc_hd__xor2_1   A =   8.76  Df =18022.6 -137.6 ps  S = 241.1 ps  Cin =  4.4 ff  Cout =   9.7 ff  Cmax =  76.9 ff  G =  214  
+ABC: Path135 --    2176 : 4    2 sky130_fd_sc_hd__nand4_1  A =   6.26  Df =18186.5  -77.4 ps  S = 148.7 ps  Cin =  2.3 ff  Cout =   7.5 ff  Cmax = 124.5 ff  G =  310  
+ABC: Path136 --    2179 : 5    6 sky130_fd_sc_hd__o221ai_2 A =  15.01  Df =18528.8 -114.6 ps  S = 355.2 ps  Cin =  4.5 ff  Cout =  22.6 ff  Cmax = 128.2 ff  G =  488  
+ABC: Path137 --    2199 : 4    3 sky130_fd_sc_hd__nand4_2  A =  12.51  Df =18690.7 -143.8 ps  S = 146.1 ps  Cin =  4.4 ff  Cout =   9.4 ff  Cmax = 200.5 ff  G =  209  
+ABC: Path138 --    2202 : 2    4 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =18805.9 -188.6 ps  S =  74.8 ps  Cin =  4.4 ff  Cout =   9.8 ff  Cmax = 295.7 ff  G =  212  
+ABC: Path139 --    2211 : 3    2 sky130_fd_sc_hd__a21oi_1  A =   5.00  Df =18878.8 -107.3 ps  S = 151.5 ps  Cin =  2.3 ff  Cout =   5.1 ff  Cmax =  74.2 ff  G =  206  
+ABC: Path140 --    2257 : 3    2 sky130_fd_sc_hd__o21ai_1  A =   5.00  Df =19020.4 -162.6 ps  S = 136.5 ps  Cin =  2.3 ff  Cout =   4.8 ff  Cmax =  80.6 ff  G =  204  
+ABC: Path141 --    2258 : 3    2 sky130_fd_sc_hd__nand3_1  A =   5.00  Df =19123.1 -172.9 ps  S =  87.7 ps  Cin =  2.4 ff  Cout =   5.7 ff  Cmax = 146.5 ff  G =  229  
+ABC: Path142 --    2259 : 1    2 sky130_fd_sc_hd__clkinv_1 A =   3.75  Df =19197.9 -161.1 ps  S =  63.0 ps  Cin =  3.1 ff  Cout =   7.2 ff  Cmax = 190.4 ff  G =  219  
+ABC: Path143 --    2262 : 2    3 sky130_fd_sc_hd__nor2_2   A =   6.26  Df =19265.3  -23.1 ps  S = 133.7 ps  Cin =  4.4 ff  Cout =   9.8 ff  Cmax = 141.9 ff  G =  211  
+ABC: Path144 --    2302 : 1   10 sky130_fd_sc_hd__buf_4    A =   7.51  Df =19438.6  -28.9 ps  S =  85.6 ps  Cin =  2.4 ff  Cout =  26.8 ff  Cmax = 561.2 ff  G = 1073  
+ABC: Path145 --    2305 : 3    1 sky130_fd_sc_hd__o21ai_1  A =   5.00  Df =19629.6  -75.1 ps  S = 228.0 ps  Cin =  2.3 ff  Cout =  10.0 ff  Cmax =  80.6 ff  G =  441  
+ABC: Start-point = pi22 (\B [6]).  End-point = po8 (\odd [8]).
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+6.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_0 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21o_1 cells:       14
+ABC RESULTS:   sky130_fd_sc_hd__a21o_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:      238
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_2 cells:       16
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:       17
+ABC RESULTS:   sky130_fd_sc_hd__a31o_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__a41o_1 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__a41oi_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__and2_1 cells:       16
+ABC RESULTS:   sky130_fd_sc_hd__and2_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and2_4 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:       34
+ABC RESULTS:   sky130_fd_sc_hd__buf_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__buf_2 cells:       12
+ABC RESULTS:   sky130_fd_sc_hd__buf_4 cells:       40
+ABC RESULTS:   sky130_fd_sc_hd__buf_6 cells:       33
+ABC RESULTS:   sky130_fd_sc_hd__bufbuf_8 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__clkbuf_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__clkbuf_4 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__dlygate4sd1_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__inv_1 cells:      209
+ABC RESULTS:   sky130_fd_sc_hd__inv_2 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__maj3_1 cells:       33
+ABC RESULTS:   sky130_fd_sc_hd__maj3_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:      486
+ABC RESULTS:   sky130_fd_sc_hd__nand2_2 cells:       41
+ABC RESULTS:   sky130_fd_sc_hd__nand2_4 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__nand2_8 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:       54
+ABC RESULTS:   sky130_fd_sc_hd__nand3_2 cells:       15
+ABC RESULTS:   sky130_fd_sc_hd__nand3_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand3b_1 cells:       57
+ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:       32
+ABC RESULTS:   sky130_fd_sc_hd__nand4_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:      194
+ABC RESULTS:   sky130_fd_sc_hd__nor2_2 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__nor2_4 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__nor2_8 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__nor4_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o2111a_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o2111ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o211a_1 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:       31
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_2 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:       30
+ABC RESULTS:   sky130_fd_sc_hd__o21a_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:       76
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_1 cells:      133
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_1 cells:       22
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_2 cells:       29
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o221ai_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o2bb2ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o31a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o31ai_1 cells:       18
+ABC RESULTS:   sky130_fd_sc_hd__o41ai_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or2_0 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or2_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or2_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:      119
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xnor3_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__xnor3_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:      184
+ABC RESULTS:   sky130_fd_sc_hd__xor2_2 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__xor3_1 cells:        1
+ABC RESULTS:        internal signals:     1662
+ABC RESULTS:           input signals:       24
+ABC RESULTS:          output signals:       32
+Removing temp directory.
+Removing global temp directory.
+Removed 0 unused cells and 735 unused wires.
+
+7. Executing CHECK pass (checking for obvious problems).
+Checking module divider_16bit...
+Found and reported 0 problems.
+
+8. Printing statistics.
+
+=== divider_16bit ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     2311        - wires
+     2425        - wire bits
+        6        - public wires
+      120        - public wire bits
+        4        - ports
+       56        - port bits
+     2337 1.39E+04 cells
+        3   22.522   sky130_fd_sc_hd__a211oi_1
+        1   20.019   sky130_fd_sc_hd__a211oi_4
+        2   15.014   sky130_fd_sc_hd__a21boi_0
+        6   45.043   sky130_fd_sc_hd__a21boi_1
+        1   11.261   sky130_fd_sc_hd__a21boi_2
+       14  105.101   sky130_fd_sc_hd__a21o_1
+        2   17.517   sky130_fd_sc_hd__a21o_2
+      238 1.19E+03   sky130_fd_sc_hd__a21oi_1
+       16  140.134   sky130_fd_sc_hd__a21oi_2
+       17  127.622   sky130_fd_sc_hd__a22oi_1
+        2   17.517   sky130_fd_sc_hd__a31o_2
+        4   25.024   sky130_fd_sc_hd__a31oi_1
+        9   90.086   sky130_fd_sc_hd__a41o_1
+        7   61.309   sky130_fd_sc_hd__a41oi_1
+       16  100.096   sky130_fd_sc_hd__and2_1
+        1    7.507   sky130_fd_sc_hd__and2_2
+        2   17.517   sky130_fd_sc_hd__and2_4
+       34  212.704   sky130_fd_sc_hd__and3_1
+        1    3.754   sky130_fd_sc_hd__buf_1
+       12   60.058   sky130_fd_sc_hd__buf_2
+       40  300.288   sky130_fd_sc_hd__buf_4
+       33  371.606   sky130_fd_sc_hd__buf_6
+        1   18.768   sky130_fd_sc_hd__bufbuf_8
+        5   18.768   sky130_fd_sc_hd__clkbuf_1
+        3   22.522   sky130_fd_sc_hd__clkbuf_4
+        2    7.507   sky130_fd_sc_hd__clkinv_1
+        1    5.005   sky130_fd_sc_hd__clkinv_2
+        2   17.517   sky130_fd_sc_hd__dlygate4sd1_1
+      209  784.502   sky130_fd_sc_hd__inv_1
+        7   26.275   sky130_fd_sc_hd__inv_2
+       33  330.317   sky130_fd_sc_hd__maj3_1
+        1   11.261   sky130_fd_sc_hd__maj3_2
+      486  1824.25   sky130_fd_sc_hd__nand2_1
+       41  256.496   sky130_fd_sc_hd__nand2_2
+        9  101.347   sky130_fd_sc_hd__nand2_4
+        1   20.019   sky130_fd_sc_hd__nand2_8
+       54  270.259   sky130_fd_sc_hd__nand3_1
+       15  150.144   sky130_fd_sc_hd__nand3_2
+        1   17.517   sky130_fd_sc_hd__nand3_4
+       57   427.91   sky130_fd_sc_hd__nand3b_1
+       32  200.192   sky130_fd_sc_hd__nand4_1
+        1   12.512   sky130_fd_sc_hd__nand4_2
+      194  728.198   sky130_fd_sc_hd__nor2_1
+        6   37.536   sky130_fd_sc_hd__nor2_2
+       10  112.608   sky130_fd_sc_hd__nor2_4
+        1   20.019   sky130_fd_sc_hd__nor2_8
+        6   30.029   sky130_fd_sc_hd__nor3_1
+        1    21.27   sky130_fd_sc_hd__nor4_4
+        2   22.522   sky130_fd_sc_hd__o2111a_1
+        2   17.517   sky130_fd_sc_hd__o2111ai_1
+       13  130.125   sky130_fd_sc_hd__o211a_1
+       31  232.723   sky130_fd_sc_hd__o211ai_1
+        8  100.096   sky130_fd_sc_hd__o211ai_2
+       30  225.216   sky130_fd_sc_hd__o21a_1
+        1    8.758   sky130_fd_sc_hd__o21a_2
+       76  380.365   sky130_fd_sc_hd__o21ai_0
+      133  665.638   sky130_fd_sc_hd__o21ai_1
+        5   43.792   sky130_fd_sc_hd__o21ai_2
+       22  165.158   sky130_fd_sc_hd__o21bai_1
+       29  326.563   sky130_fd_sc_hd__o21bai_2
+        1   18.768   sky130_fd_sc_hd__o21bai_4
+        2   30.029   sky130_fd_sc_hd__o221ai_2
+        1    6.256   sky130_fd_sc_hd__o22ai_1
+        1    8.758   sky130_fd_sc_hd__o2bb2ai_1
+        1    8.758   sky130_fd_sc_hd__o31a_1
+       18   135.13   sky130_fd_sc_hd__o31ai_1
+        1   16.266   sky130_fd_sc_hd__o41ai_2
+        1    6.256   sky130_fd_sc_hd__or2_0
+        1    6.256   sky130_fd_sc_hd__or2_1
+        1    6.256   sky130_fd_sc_hd__or2_2
+      119  1042.25   sky130_fd_sc_hd__xnor2_1
+        2   32.531   sky130_fd_sc_hd__xnor2_2
+        1   27.526   sky130_fd_sc_hd__xnor2_4
+        4   90.086   sky130_fd_sc_hd__xnor3_1
+        2   47.546   sky130_fd_sc_hd__xnor3_2
+      184 1.61E+03   sky130_fd_sc_hd__xor2_1
+        4   65.062   sky130_fd_sc_hd__xor2_2
+        1   23.773   sky130_fd_sc_hd__xor3_1
+
+   Chip area for module '\divider_16bit': 13937.116800
+     of which used for sequential elements: 0.000000 (0.00%)
+
+9. Executing JSON backend.
+
+10. Executing Verilog backend.
+
+10.1. Executing BMUXMAP pass.
+
+10.2. Executing DEMUXMAP pass.
+Dumping module `\divider_16bit'.
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: b523207079
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 1% 20x opt_expr (0 sec), 1% 17x opt_clean (0 sec), ...

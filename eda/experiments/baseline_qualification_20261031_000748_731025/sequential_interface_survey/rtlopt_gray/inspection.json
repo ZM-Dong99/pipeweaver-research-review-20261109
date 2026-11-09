@@ -1,0 +1,86 @@
+{
+  "id": "rtlopt_gray",
+  "status": "STRUCTURE_INSPECTED",
+  "sequential_equivalence": "NOT_RUN",
+  "sta": "NOT_RUN",
+  "source_sha256": "53728d40b48c4f2f6f8daac5475a2c5d6700ecdb2c925f05697bb17a6927c337",
+  "ports": {
+    "clk": {
+      "direction": "input",
+      "width": 1
+    },
+    "rst_n": {
+      "direction": "input",
+      "width": 1
+    },
+    "cmd": {
+      "direction": "input",
+      "width": 4
+    },
+    "out": {
+      "direction": "output",
+      "width": 8
+    }
+  },
+  "state_cell_types": {
+    "$memrd_v2": 1,
+    "$meminit": 1,
+    "$adff": 1
+  },
+  "controls": [
+    {
+      "state_cell": "$auto$mem.cc:305:emit$19",
+      "type": "$memrd_v2",
+      "pin": "CLK",
+      "bits": [
+        "x"
+      ],
+      "top_port_aliases": [],
+      "polarity_parameter": "00000000000000000000000000000001"
+    },
+    {
+      "state_cell": "$auto$mem.cc:305:emit$19",
+      "type": "$memrd_v2",
+      "pin": "ARST",
+      "bits": [
+        "0"
+      ],
+      "top_port_aliases": [],
+      "polarity_parameter": null
+    },
+    {
+      "state_cell": "$auto$mem.cc:305:emit$19",
+      "type": "$memrd_v2",
+      "pin": "SRST",
+      "bits": [
+        "0"
+      ],
+      "top_port_aliases": [],
+      "polarity_parameter": null
+    },
+    {
+      "state_cell": "$procdff$43",
+      "type": "$adff",
+      "pin": "CLK",
+      "bits": [
+        2
+      ],
+      "top_port_aliases": [
+        "clk"
+      ],
+      "polarity_parameter": "1"
+    },
+    {
+      "state_cell": "$procdff$43",
+      "type": "$adff",
+      "pin": "ARST",
+      "bits": [
+        3
+      ],
+      "top_port_aliases": [
+        "rst_n"
+      ],
+      "polarity_parameter": "00000000000000000000000000000000"
+    }
+  ]
+}

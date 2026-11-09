@@ -1,0 +1,1403 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\engineering_arbiter_validation_20261102_201724_713244\loop_integration\candidate_001\eda\mapping.ys' --
+
+1. Executing Liberty frontend: D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v' to AST representation.
+Generating RTLIL representation for module `\priority_encoder'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v' to AST representation.
+Generating RTLIL representation for module `\arbiter'.
+Successfully finished Verilog frontend.
+Parameter \ARB_TYPE_ROUND_ROBIN = 0
+
+4. Executing AST frontend in derive mode using pre-parsed AST for module `\arbiter'.
+Parameter \ARB_TYPE_ROUND_ROBIN = 0
+Generating RTLIL representation for module `$paramod\arbiter\ARB_TYPE_ROUND_ROBIN=s32'00000000000000000000000000000000'.
+Parameter \PORTS = 32
+
+5. Executing AST frontend in derive mode using pre-parsed AST for module `\arbiter'.
+Parameter \PORTS = 32
+Generating RTLIL representation for module `$paramod\arbiter\PORTS=s32'00000000000000000000000000100000'.
+
+6. Executing HIERARCHY pass (managing design hierarchy).
+
+6.1. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     \priority_encoder
+Parameter \WIDTH = 32
+Parameter \LSB_HIGH_PRIORITY = 0
+
+6.2. Executing AST frontend in derive mode using pre-parsed AST for module `\priority_encoder'.
+Parameter \WIDTH = 32
+Parameter \LSB_HIGH_PRIORITY = 0
+Generating RTLIL representation for module `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder'.
+Parameter \WIDTH = 32
+Parameter \LSB_HIGH_PRIORITY = 0
+Found cached RTLIL representation for module `$paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder'.
+
+6.3. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder
+
+6.4. Analyzing design hierarchy..
+Top module:  \arbiter
+Used module:     $paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder
+Removing unused module `\priority_encoder'.
+Removed 1 unused modules.
+
+7. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$4b1902b0db647e61fb04f3e67e780601a6f3cf22\priority_encoder.
+<suppressed ~2 debug messages>
+
+8. Executing SYNTH pass.
+
+8.1. Executing HIERARCHY pass (managing design hierarchy).
+
+8.1.1. Analyzing design hierarchy..
+Top module:  \arbiter
+
+8.1.2. Analyzing design hierarchy..
+Top module:  \arbiter
+Removed 0 unused modules.
+
+8.2. Executing PROC pass (convert processes to netlists).
+
+8.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:100$55'.
+Cleaned up 1 empty switch.
+
+8.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:100$55 in module arbiter.
+Removed a total of 0 dead cases.
+
+8.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 136 assignments to connections.
+
+8.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:60$69'.
+  Set init value: \grant_reg = 0
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:61$70'.
+  Set init value: \grant_valid_reg = 1'0
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:62$71'.
+  Set init value: \grant_encoded_reg = 5'00000
+Found init rule in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:83$72'.
+  Set init value: \mask_reg = 0
+
+8.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+8.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~3 debug messages>
+
+8.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$74'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$76'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$77'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$79'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$80'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$82'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$83'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$85'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$86'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$88'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$89'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$91'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$92'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$94'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$95'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$97'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$98'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$100'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$101'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$103'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$104'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$106'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$107'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$109'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$110'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$112'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$113'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$115'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$116'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$118'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$119'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$121'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$122'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$124'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$126'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$128'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$130'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$132'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$134'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$136'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$138'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$140'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$142'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$144'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$146'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$148'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$150'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$152'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$154'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$156'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$158'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$160'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$162'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$164'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$166'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$168'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$170'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$172'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$174'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$176'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$178'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$180'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$74'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$76'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$77'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$79'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$80'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$82'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$83'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$85'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$86'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$88'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$89'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$91'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$92'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$94'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$95'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$97'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$98'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$100'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$101'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$103'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$104'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$106'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$107'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$109'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$110'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$112'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$113'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$115'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$116'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$118'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$119'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$121'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$122'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$124'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$126'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$128'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$130'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$132'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$134'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$136'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$138'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$140'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$142'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$144'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$146'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$148'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$150'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$152'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$154'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$156'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$158'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$160'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$162'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$164'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$166'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$168'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$170'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$172'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$174'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$176'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$178'.
+Creating decoders for process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$180'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:100$55'.
+     1/12: $4\grant_encoded_next[4:0]
+     2/12: $4\grant_next[31:0]
+     3/12: $4\grant_valid_next[0:0]
+     4/12: $3\grant_encoded_next[4:0]
+     5/12: $3\grant_valid_next[0:0]
+     6/12: $3\grant_next[31:0]
+     7/12: $2\grant_encoded_next[4:0]
+     8/12: $2\grant_next[31:0]
+     9/12: $2\grant_valid_next[0:0]
+    10/12: $1\grant_encoded_next[4:0]
+    11/12: $1\grant_next[31:0]
+    12/12: $1\grant_valid_next[0:0]
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:145$62'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:60$69'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:61$70'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:62$71'.
+Creating decoders for process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:83$72'.
+
+8.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [0]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$74'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [0]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$76'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [1]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$77'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [1]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$79'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [2]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$80'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [2]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$82'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [3]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$83'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [3]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$85'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [4]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$86'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [4]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$88'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [5]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$89'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [5]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$91'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [6]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$92'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [6]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$94'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [7]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$95'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [7]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$97'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [8]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$98'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [8]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$100'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [9]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$101'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [9]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$103'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [10]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$104'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [10]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$106'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [11]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$107'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [11]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$109'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [12]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$110'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [12]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$112'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [13]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$113'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [13]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$115'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [14]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$116'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [14]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$118'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[0] [15]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$119'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[0] [15]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$121'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[1] [0]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$122'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[1] [1:0]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$124'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[1] [1]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$126'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[1] [3:2]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$128'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[1] [2]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$130'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[1] [5:4]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$132'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[1] [3]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$134'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[1] [7:6]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$136'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[1] [4]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$138'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[1] [9:8]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$140'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[1] [5]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$142'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[1] [11:10]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$144'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[1] [6]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$146'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[1] [13:12]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$148'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[1] [7]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$150'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[1] [15:14]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$152'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[2] [0]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$154'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[2] [2:0]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$156'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[2] [1]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$158'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[2] [5:3]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$160'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[2] [2]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$162'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[2] [8:6]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$164'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[2] [3]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$166'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[2] [11:9]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$168'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[3] [0]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$170'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[3] [3:0]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$172'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[3] [1]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$174'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[3] [7:4]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$176'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_valid[4] [0]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$178'.
+No latch inferred for signal `\arbiter.\priority_encoder_inst.stage_enc[4] [4:0]' from process `\arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$180'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [0]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$74'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [0]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$76'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [1]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$77'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [1]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$79'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [2]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$80'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [2]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$82'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [3]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$83'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [3]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$85'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [4]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$86'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [4]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$88'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [5]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$89'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [5]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$91'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [6]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$92'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [6]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$94'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [7]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$95'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [7]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$97'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [8]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$98'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [8]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$100'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [9]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$101'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [9]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$103'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [10]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$104'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [10]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$106'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [11]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$107'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [11]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$109'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [12]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$110'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [12]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$112'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [13]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$113'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [13]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$115'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [14]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$116'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [14]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$118'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[0] [15]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$119'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[0] [15]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$121'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[1] [0]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$122'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[1] [1:0]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$124'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[1] [1]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$126'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[1] [3:2]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$128'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[1] [2]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$130'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[1] [5:4]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$132'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[1] [3]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$134'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[1] [7:6]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$136'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[1] [4]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$138'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[1] [9:8]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$140'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[1] [5]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$142'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[1] [11:10]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$144'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[1] [6]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$146'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[1] [13:12]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$148'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[1] [7]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$150'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[1] [15:14]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$152'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[2] [0]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$154'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[2] [2:0]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$156'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[2] [1]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$158'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[2] [5:3]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$160'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[2] [2]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$162'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[2] [8:6]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$164'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[2] [3]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$166'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[2] [11:9]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$168'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[3] [0]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$170'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[3] [3:0]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$172'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[3] [1]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$174'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[3] [7:4]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$176'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_valid[4] [0]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$178'.
+No latch inferred for signal `\arbiter.\priority_encoder_masked.stage_enc[4] [4:0]' from process `\arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$180'.
+No latch inferred for signal `\arbiter.\grant_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:100$55'.
+No latch inferred for signal `\arbiter.\grant_valid_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:100$55'.
+No latch inferred for signal `\arbiter.\grant_encoded_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:100$55'.
+No latch inferred for signal `\arbiter.\mask_next' from process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:100$55'.
+
+8.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\arbiter.\grant_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:145$62'.
+  created $dff cell `$procdff$265' with positive edge clock.
+Creating register for signal `\arbiter.\grant_valid_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:145$62'.
+  created $dff cell `$procdff$266' with positive edge clock.
+Creating register for signal `\arbiter.\grant_encoded_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:145$62'.
+  created $dff cell `$procdff$267' with positive edge clock.
+Creating register for signal `\arbiter.\mask_reg' using process `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:145$62'.
+  created $dff cell `$procdff$268' with positive edge clock.
+
+8.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+8.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$74'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$76'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$77'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$79'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$80'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$82'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$83'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$85'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$86'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$88'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$89'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$91'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$92'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$94'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$95'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$97'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$98'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$100'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$101'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$103'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$104'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$106'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$107'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$109'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$110'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$112'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$113'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$115'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$116'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$118'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$119'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$121'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$122'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$124'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$126'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$128'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$130'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$132'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$134'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$136'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$138'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$140'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$142'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$144'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$146'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$148'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$150'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$152'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$154'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$156'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$158'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$160'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$162'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$164'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$166'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$168'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$170'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$172'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$174'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$176'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$178'.
+Removing empty process `arbiter.$flatten\priority_encoder_inst.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$180'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$74'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$76'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$77'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$79'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$80'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$82'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$83'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$85'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$86'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$88'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$89'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$91'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$92'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$94'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$95'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$97'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$98'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$100'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$101'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$103'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$104'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$106'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$107'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$109'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$110'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$112'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$113'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$115'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$116'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$118'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:63$119'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:69$121'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$122'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$124'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$126'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$128'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$130'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$132'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$134'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$136'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$138'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$140'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$142'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$144'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$146'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$148'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$150'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$152'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$154'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$156'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$158'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$160'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$162'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$164'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$166'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$168'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$170'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$172'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$174'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$176'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$178'.
+Removing empty process `arbiter.$flatten\priority_encoder_masked.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:82$180'.
+Found and cleaned up 3 empty switches in `\arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:100$55'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:100$55'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:145$62'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:60$69'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:61$70'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:62$71'.
+Removing empty process `arbiter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/candidate.v:83$72'.
+Cleaned up 3 empty switches.
+
+8.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+<suppressed ~11 debug messages>
+
+8.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+Removed 52 unused cells and 307 unused wires.
+<suppressed ~75 debug messages>
+
+8.5. Executing CHECK pass (checking for obvious problems).
+Checking module arbiter...
+Found and reported 0 problems.
+
+8.6. Executing OPT pass (performing simple optimizations).
+
+8.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+8.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 73 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+8.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$185.
+    dead port 1/2 on $mux $procmux$254.
+    dead port 1/2 on $mux $procmux$191.
+    dead port 2/2 on $mux $procmux$194.
+    dead port 1/2 on $mux $procmux$200.
+    dead port 2/2 on $mux $procmux$203.
+    dead port 1/2 on $mux $procmux$209.
+    dead port 1/2 on $mux $procmux$248.
+    dead port 1/2 on $mux $procmux$218.
+    dead port 1/2 on $mux $procmux$236.
+    dead port 1/2 on $mux $procmux$242.
+    dead port 1/2 on $mux $procmux$227.
+Removed 12 multiplexer ports.
+<suppressed ~40 debug messages>
+
+8.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbiter.
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$131: \request [11:8]
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$135: \request [15:12]
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$159: \request [15:8]
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$139: \request [19:16]
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$143: \request [23:20]
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$163: \request [23:16]
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$147: \request [27:24]
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$151: \request [31:28]
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$167: \request [31:24]
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$175: \request [31:16]
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$127: \request [7:4]
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$123: \request [3:0]
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$155: \request [7:0]
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$171: \request [15:0]
+    New input vector for $reduce_or cell $flatten\priority_encoder_inst.$reduce_or$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:76$179: \request
+  Optimizing cells in module \arbiter.
+Performed a total of 15 changes.
+
+8.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 61 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+8.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+8.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+Removed 15 unused cells and 12 unused wires.
+<suppressed ~16 debug messages>
+
+8.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+8.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+8.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~28 debug messages>
+
+8.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbiter.
+Performed a total of 0 changes.
+
+8.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 46 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+8.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+8.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+8.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+8.6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+8.7. Executing FSM pass (extract and optimize FSM).
+
+8.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+8.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+8.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+8.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+8.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+8.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+8.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+8.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+8.8. Executing OPT pass (performing simple optimizations).
+
+8.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+8.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 46 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+8.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~28 debug messages>
+
+8.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbiter.
+Performed a total of 0 changes.
+
+8.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 46 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+8.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$267 ($dff) from module arbiter (D = \grant_encoded_next, Q = \grant_encoded_reg, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:337:slice$269 ($sdff) from module arbiter (D = $2\grant_encoded_next[4:0], Q = \grant_encoded_reg).
+Adding SRST signal on $procdff$265 ($dff) from module arbiter (D = \grant_next, Q = \grant_reg, rval = 0).
+Adding EN signal on $auto$ff.cc:337:slice$271 ($sdff) from module arbiter (D = $2\grant_next[31:0], Q = \grant_reg).
+Adding SRST signal on $procdff$266 ($dff) from module arbiter (D = \grant_valid_next, Q = \grant_valid_reg, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$273 ($sdff) from module arbiter (D = $2\grant_valid_next[0:0], Q = \grant_valid_reg).
+
+8.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+Removed 6 unused cells and 8 unused wires.
+<suppressed ~10 debug messages>
+
+8.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+8.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+8.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~22 debug messages>
+
+8.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbiter.
+Performed a total of 0 changes.
+
+8.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 40 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+8.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+8.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+8.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+8.8.16. Finished fast OPT passes. (There is nothing left to do.)
+
+8.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 30 bits (of 32) from port A of cell arbiter.$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73 ($shl).
+
+8.10. Executing PEEPOPT pass (run peephole optimizers).
+
+8.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+8.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module arbiter:
+  created 0 $alu and 0 $macc cells.
+
+8.13. Executing SHARE pass (SAT-based resource sharing).
+
+8.14. Executing OPT pass (performing simple optimizations).
+
+8.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+8.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 40 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+8.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~22 debug messages>
+
+8.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbiter.
+Performed a total of 0 changes.
+
+8.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 40 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+8.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+8.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+8.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+8.14.9. Finished fast OPT passes. (There is nothing left to do.)
+
+8.15. Executing MEMORY pass.
+
+8.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+8.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+8.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+8.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+8.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+8.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+8.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+8.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+8.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+8.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+8.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+8.17. Executing OPT pass (performing simple optimizations).
+
+8.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+<suppressed ~47 debug messages>
+
+8.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 39 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+8.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+8.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+8.17.5. Finished fast OPT passes.
+
+8.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8.19. Executing OPT pass (performing simple optimizations).
+
+8.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+8.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 39 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+8.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbiter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~20 debug messages>
+
+8.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbiter.
+Performed a total of 0 changes.
+
+8.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 39 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Removed a total of 0 cells.
+
+8.19.6. Executing OPT_SHARE pass.
+
+8.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+8.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+
+8.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+8.19.10. Finished fast OPT passes. (There is nothing left to do.)
+
+8.20. Executing TECHMAP pass (map to technology primitives).
+
+8.20.1. Executing Verilog-2005 frontend: D:\oss-cad-suite\bin\../share/yosys/techmap.v
+Parsing Verilog input from `D:\oss-cad-suite\bin\../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+8.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $reduce_or.
+Using template $paramod$constmap:d4227c75c5f439681e0ac390a49726d6a5360981$paramod$25ad174eeb48b1eec52d493637886324a7b46089\_90_shift_ops_shr_shl_sshl_sshr for cells of type $shl.
+No more expansions possible.
+<suppressed ~507 debug messages>
+
+8.21. Executing OPT pass (performing simple optimizations).
+
+8.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+<suppressed ~16 debug messages>
+
+8.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 305 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Computing hashes of 273 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Computing hashes of 261 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Computing hashes of 257 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Computing hashes of 256 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+<suppressed ~147 debug messages>
+Removed a total of 49 cells.
+
+8.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+Removing always-active EN on $auto$ff.cc:337:slice$383 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$383 ($_SDFFE_PP0N_) from module arbiter (D = \priority_encoder_inst.output_encoded [4], Q = \grant_encoded_reg [4], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$378 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$378 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [31], Q = \grant_reg [31], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$346 ($_SDFFE_PP0N_) from module arbiter.
+Removing always-active EN on $auto$ff.cc:337:slice$347 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$347 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [16], Q = \grant_reg [0], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$348 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$348 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [17], Q = \grant_reg [1], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$349 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$349 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [18], Q = \grant_reg [2], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$350 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$350 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [19], Q = \grant_reg [3], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$351 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$351 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [20], Q = \grant_reg [4], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$352 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$352 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [21], Q = \grant_reg [5], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$353 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$353 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [22], Q = \grant_reg [6], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$354 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$354 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [23], Q = \grant_reg [7], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$355 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$355 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [24], Q = \grant_reg [8], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$356 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$356 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [25], Q = \grant_reg [9], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$357 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$357 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [26], Q = \grant_reg [10], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$358 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$358 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [27], Q = \grant_reg [11], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$359 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$359 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [28], Q = \grant_reg [12], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$360 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$360 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [29], Q = \grant_reg [13], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$361 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$361 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [30], Q = \grant_reg [14], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$362 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$362 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [31], Q = \grant_reg [15], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$363 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$363 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [16], Q = \grant_reg [16], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$364 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$364 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [17], Q = \grant_reg [17], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$365 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$365 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [18], Q = \grant_reg [18], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$366 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$366 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [19], Q = \grant_reg [19], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$367 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$367 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [20], Q = \grant_reg [20], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$368 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$368 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [21], Q = \grant_reg [21], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$369 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$369 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [22], Q = \grant_reg [22], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$370 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$370 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [23], Q = \grant_reg [23], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$371 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$371 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [24], Q = \grant_reg [24], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$372 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$372 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [25], Q = \grant_reg [25], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$373 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$373 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [26], Q = \grant_reg [26], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$374 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$374 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [27], Q = \grant_reg [27], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$375 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$375 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [28], Q = \grant_reg [28], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$376 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$376 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [29], Q = \grant_reg [29], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$377 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$377 ($_SDFFE_PP0N_) from module arbiter (D = $techmap$flatten\priority_encoder_inst.$shl$D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/inputs/dependency_001.v:90$73.$10\buffer[31:0] [30], Q = \grant_reg [30], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$379 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$379 ($_SDFFE_PP0N_) from module arbiter (D = \priority_encoder_inst.output_encoded [0], Q = \grant_encoded_reg [0], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$380 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$380 ($_SDFFE_PP0N_) from module arbiter (D = \priority_encoder_inst.output_encoded [1], Q = \grant_encoded_reg [1], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$381 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$381 ($_SDFFE_PP0N_) from module arbiter (D = \priority_encoder_inst.output_encoded [2], Q = \grant_encoded_reg [2], rval = 1'0).
+Removing always-active EN on $auto$ff.cc:337:slice$382 ($_SDFFE_PP0N_) from module arbiter.
+Adding SRST signal on $auto$ff.cc:337:slice$382 ($_SDFFE_PP0N_) from module arbiter (D = \priority_encoder_inst.output_encoded [3], Q = \grant_encoded_reg [3], rval = 1'0).
+
+8.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+Removed 132 unused cells and 80 unused wires.
+<suppressed ~135 debug messages>
+
+8.21.5. Rerunning OPT passes. (Removed registers in this run.)
+
+8.21.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbiter.
+
+8.21.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbiter'.
+Computing hashes of 246 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Computing hashes of 180 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Computing hashes of 146 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+Computing hashes of 131 cells of `\arbiter'.
+Finding duplicate cells in `\arbiter'.
+<suppressed ~345 debug messages>
+Removed a total of 115 cells.
+
+8.21.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+8.21.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbiter..
+Removed 0 unused cells and 115 unused wires.
+<suppressed ~1 debug messages>
+
+8.21.10. Finished fast OPT passes.
+
+8.22. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `arbiter'. Setting top module to arbiter.
+
+8.22.1. Analyzing design hierarchy..
+Top module:  \arbiter
+
+8.22.2. Analyzing design hierarchy..
+Top module:  \arbiter
+Removed 0 unused modules.
+
+8.23. Printing statistics.
+
+=== arbiter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       41 wires
+      543 wire bits
+       26 public wires
+      378 public wire bits
+        7 ports
+      104 port bits
+      131 cells
+       54   $_MUX_
+        3   $_NOT_
+       36   $_OR_
+       38   $_SDFF_PP0_
+
+8.24. Executing CHECK pass (checking for obvious problems).
+Checking module arbiter...
+Found and reported 0 problems.
+
+9. Executing DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__lpflow_inputisolatch_1 (noninv, pins=3, area=13.76) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__lpflow_inputisolatch_1 _DLATCH_P_ (.D( D), .Q( Q), .SLEEP_B( E));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+9.1. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+<suppressed ~24 debug messages>
+Mapping DFF/DLATCH cells in module `\arbiter':
+  mapped 38 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_1 cells.
+
+10. Executing ABC pass (technology mapping using ABC).
+
+10.1. Extracting gate netlist of module `\arbiter' to `<abc-temp-dir>/input.blif'..
+Warning: ABC: merged SCL conversion failed, falling back to liberty format
+ABC: conversion output:
+'D:\oss-cad-suite\bin\yosys-abc" -c "read_lib' is not recognized as an internal or external command,
+
+operable program or batch file.
+
+Warning: ABC: Merged scl conversion failed, using liberty format
+
+10.1.1. Executed ABC.
+Extracted 131 gates and 165 wires to a netlist network with 33 inputs and 38 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -X sky130_fd_sc_hd__lpflow_* -w D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.05 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_0".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_8".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_bleeder_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_12" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_3" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_6" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__lpflow_inputisolatch_1".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrckapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_4".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" has 307 cells (121 skipped: 63 seq; 13 tri-state; 12 no func; 33 dont_use; 0 with 2 outputs; 0 with 3+ outputs).  Time =     0.15 sec
+ABC: Memory =   16.01 MB. Time =     0.15 sec
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + read_constr -v D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/eda/abc.constr 
+ABC: Setting driving cell to be "sky130_fd_sc_hd__buf_2".
+ABC: Setting output load to be 10.000000.
+ABC: + source D:/verilog_lab/PipeWeaver/eda/experiments/engineering_arbiter_validation_20261102_201724_713244/loop_integration/candidate_001/eda/abc.script 
+ABC: Cleanup removed 0 dangling nodes.
+ABC: WireLoad = "none"  Gates =    144 ( 13.9 %)   Cap =  9.4 ff ( 15.1 %)   Area =     1010.97 ( 62.5 %)   Delay =  1257.48 ps  ( 47.2 %)               
+ABC: Path  0 --      30 : 0    2 pi                       A =   0.00  Df =  45.7  -12.4 ps  S =  67.1 ps  Cin =  0.0 ff  Cout =  11.6 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --      84 : 2    4 sky130_fd_sc_hd__nor2_4  A =  11.26  Df = 185.2  -86.9 ps  S = 142.9 ps  Cin =  8.7 ff  Cout =  18.4 ff  Cmax = 251.8 ff  G =  203  
+ABC: Path  2 --      87 : 4    7 sky130_fd_sc_hd__nand4_4 A =  21.27  Df = 354.2 -122.5 ps  S = 155.6 ps  Cin =  8.6 ff  Cout =  30.5 ff  Cmax = 358.0 ff  G =  337  
+ABC: Path  3 --     107 : 2    5 sky130_fd_sc_hd__or2_4   A =   8.76  Df = 662.5 -241.3 ps  S =  98.0 ps  Cin =  2.4 ff  Cout =  28.2 ff  Cmax = 514.5 ff  G = 1120  
+ABC: Path  4 --     159 : 3    6 sky130_fd_sc_hd__o21ai_4 A =  16.27  Df = 894.9 -174.0 ps  S = 246.1 ps  Cin =  8.8 ff  Cout =  28.1 ff  Cmax = 224.3 ff  G =  306  
+ABC: Path  5 --     160 : 4    4 sky130_fd_sc_hd__nand4_4 A =  21.27  Df =1049.9  -91.5 ps  S = 141.3 ps  Cin =  8.6 ff  Cout =  18.8 ff  Cmax = 358.0 ff  G =  203  
+ABC: Path  6 --     161 : 3    1 sky130_fd_sc_hd__nor3_2  A =  10.01  Df =1257.5 -233.2 ps  S = 224.0 ps  Cin =  4.4 ff  Cout =  10.0 ff  Cmax =  92.5 ff  G =  228  
+ABC: Start-point = pi29 (\request [26]).  End-point = po4 ($auto$rtlil.cc:3497:MuxGate$1359).
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+10.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a21o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__a2bb2oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a41oi_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__buf_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__buf_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__inv_1 cells:       15
+ABC RESULTS:   sky130_fd_sc_hd__mux2i_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__mux2i_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:       15
+ABC RESULTS:   sky130_fd_sc_hd__nand2_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__nand3_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__nand4_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nand4_4 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:       23
+ABC RESULTS:   sky130_fd_sc_hd__nor2_2 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__nor2_4 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor3_2 cells:       16
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21a_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_4 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o31a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o31ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__or2_4 cells:        1
+ABC RESULTS:        internal signals:       94
+ABC RESULTS:           input signals:       33
+ABC RESULTS:          output signals:       38
+Removing temp directory.
+Removing global temp directory.
+Removed 0 unused cells and 91 unused wires.
+
+11. Executing CHECK pass (checking for obvious problems).
+Checking module arbiter...
+Found and reported 0 problems.
+
+12. Printing statistics.
+
+=== arbiter ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      165        - wires
+      494        - wire bits
+       21        - public wires
+      350        - public wire bits
+        7        - ports
+      104        - port bits
+      182 1.77E+03 cells
+        1    7.507   sky130_fd_sc_hd__a21o_1
+        6   30.029   sky130_fd_sc_hd__a21oi_1
+        1    8.758   sky130_fd_sc_hd__a2bb2oi_1
+        2   12.512   sky130_fd_sc_hd__a31oi_1
+        1   16.266   sky130_fd_sc_hd__a41oi_2
+        3   15.014   sky130_fd_sc_hd__buf_2
+        1    7.507   sky130_fd_sc_hd__buf_4
+        1    3.754   sky130_fd_sc_hd__clkinv_1
+       38   760.73   sky130_fd_sc_hd__dfxtp_1
+       15   56.304   sky130_fd_sc_hd__inv_1
+        1    10.01   sky130_fd_sc_hd__mux2i_1
+        1   22.522   sky130_fd_sc_hd__mux2i_4
+       15   56.304   sky130_fd_sc_hd__nand2_1
+        2   12.512   sky130_fd_sc_hd__nand2_2
+        4   20.019   sky130_fd_sc_hd__nand3_1
+        1    10.01   sky130_fd_sc_hd__nand3_2
+        9   56.304   sky130_fd_sc_hd__nand4_1
+        3   37.536   sky130_fd_sc_hd__nand4_2
+        4   85.082   sky130_fd_sc_hd__nand4_4
+       23   86.333   sky130_fd_sc_hd__nor2_1
+        4   25.024   sky130_fd_sc_hd__nor2_2
+        7   78.826   sky130_fd_sc_hd__nor2_4
+        1    5.005   sky130_fd_sc_hd__nor3_1
+       16  160.154   sky130_fd_sc_hd__nor3_2
+        1    7.507   sky130_fd_sc_hd__nor3b_1
+        1    8.758   sky130_fd_sc_hd__o21a_2
+        3   15.014   sky130_fd_sc_hd__o21ai_0
+        2    10.01   sky130_fd_sc_hd__o21ai_1
+        1    8.758   sky130_fd_sc_hd__o21ai_2
+        2   32.531   sky130_fd_sc_hd__o21ai_4
+        7    52.55   sky130_fd_sc_hd__o21bai_1
+        1   20.019   sky130_fd_sc_hd__o22ai_4
+        1    8.758   sky130_fd_sc_hd__o31a_1
+        2   15.014   sky130_fd_sc_hd__o31ai_1
+        1    8.758   sky130_fd_sc_hd__or2_4
+
+   Chip area for module '\arbiter': 1771.699200
+     of which used for sequential elements: 760.729600 (42.94%)
+
+13. Executing JSON backend.
+
+14. Executing Verilog backend.
+
+14.1. Executing BMUXMAP pass.
+
+14.2. Executing DEMUXMAP pass.
+Dumping module `\arbiter'.
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: cde28ac2b4
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 1% 17x opt_expr (0 sec), 1% 15x opt_clean (0 sec), ...

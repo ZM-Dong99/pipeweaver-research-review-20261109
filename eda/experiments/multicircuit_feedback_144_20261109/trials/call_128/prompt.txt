@@ -1,0 +1,59 @@
+Optimize module comparator_16bit, fixed parameter overrides {}. Minimize mapped maximum data arrival. Preserve module name, ports, widths, signedness, truncations, priority, default outputs and parameter declarations/defaults. All input bits are arbitrary binary values. Every output bit must match for all inputs. Do not rely on presumed typical operation or comments. No clocks, storage, latency, latches, memories, assumptions, assertions, external includes, file access, dependencies or undefined outputs. Return a complete synthesizable design including helper modules. Only this fixed parameter instance is assessed.
+Evaluation uses SKY130HD TT25C1.80V, Yosys source and mapped all-input equivalence, flatten/synth-noabc and ABC buffer_size with cleanup-before-buffer, OpenSTA, 0ns external IO delays, input transition0.10ns, output load0.010pF, 100ns virtual reporting clock and no physical wire parasitics. Zero reported max-slew and max-capacitance violations required. Original mapped area 497.977600um2; area cap 547.775360um2. CRC candidates use the same Slang frontend as their baseline. CRC state_in is arbitrary and data_out must also match exactly.
+Return exactly one JSON object with six string fields candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.
+Original RTL:
+module comparator_16bit (
+    input [15:0] A,        // First 2-bit input operand
+    input [15:0] B,        // Second 2-bit input operand
+    output gt,     // Output indicating A > B
+    output eq,       // Output indicating A == B
+    output lt         // Output indicating A < B
+);
+
+    // Combinational logic for comparison
+    assign eq = (A == B);           // A equals B
+    assign gt = (A > B);          // A greater than B
+    assign lt = (A < B);             // A less than B
+
+endmodule
+Second round. Improve your previous candidate, keeping the original contract and area cap.
+
+Your previous candidate RTL:
+module comparator_16bit (
+    input [15:0] A,
+    input [15:0] B,
+    output gt,
+    output eq,
+    output lt
+);
+    wire [7:0] e0, g0, l0;
+    wire [3:0] e1, g1, l1;
+    wire [1:0] e2, g2, l2;
+    wire e3, g3, l3;
+    genvar i;
+    generate
+        for (i = 0; i < 8; i = i + 1) begin : bit_pairs
+            assign e0[i] = (A[2*i+1] ~^ B[2*i+1]) & (A[2*i] ~^ B[2*i]);
+            assign g0[i] = (A[2*i+1] & ~B[2*i+1]) |
+                          ((A[2*i+1] ~^ B[2*i+1]) & A[2*i] & ~B[2*i]);
+            assign l0[i] = (~A[2*i+1] & B[2*i+1]) |
+                          ((A[2*i+1] ~^ B[2*i+1]) & ~A[2*i] & B[2*i]);
+        end
+        for (i = 0; i < 4; i = i + 1) begin : pair_groups
+            assign e1[i] = e0[2*i+1] & e0[2*i];
+            assign g1[i] = g0[2*i+1] | (e0[2*i+1] & g0[2*i]);
+            assign l1[i] = l0[2*i+1] | (e0[2*i+1] & l0[2*i]);
+        end
+        for (i = 0; i < 2; i = i + 1) begin : group_pairs
+            assign e2[i] = e1[2*i+1] & e1[2*i];
+            assign g2[i] = g1[2*i+1] | (e1[2*i+1] & g1[2*i]);
+            assign l2[i] = l1[2*i+1] | (e1[2*i+1] & l1[2*i]);
+        end
+    endgenerate
+    assign e3 = e2[1] & e2[0];
+    assign g3 = g2[1] | (e2[1] & g2[0]);
+    assign l3 = l2[1] | (e2[1] & l2[0]);
+    assign gt = g3;
+    assign eq = e3;
+    assign lt = l3;
+endmodule

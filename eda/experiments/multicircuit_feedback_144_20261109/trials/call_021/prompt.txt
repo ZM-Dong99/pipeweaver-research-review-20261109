@@ -1,0 +1,18 @@
+Optimize module comparator_16bit, fixed parameter overrides {}. Minimize mapped maximum data arrival. Preserve module name, ports, widths, signedness, truncations, priority, default outputs and parameter declarations/defaults. All input bits are arbitrary binary values. Every output bit must match for all inputs. Do not rely on presumed typical operation or comments. No clocks, storage, latency, latches, memories, assumptions, assertions, external includes, file access, dependencies or undefined outputs. Return a complete synthesizable design including helper modules. Only this fixed parameter instance is assessed.
+Evaluation uses SKY130HD TT25C1.80V, Yosys source and mapped all-input equivalence, flatten/synth-noabc and ABC buffer_size with cleanup-before-buffer, OpenSTA, 0ns external IO delays, input transition0.10ns, output load0.010pF, 100ns virtual reporting clock and no physical wire parasitics. Zero reported max-slew and max-capacitance violations required. Original mapped area 497.977600um2; area cap 547.775360um2. CRC candidates use the same Slang frontend as their baseline. CRC state_in is arbitrary and data_out must also match exactly.
+Return exactly one JSON object with six string fields candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.
+Original RTL:
+module comparator_16bit (
+    input [15:0] A,        // First 2-bit input operand
+    input [15:0] B,        // Second 2-bit input operand
+    output gt,     // Output indicating A > B
+    output eq,       // Output indicating A == B
+    output lt         // Output indicating A < B
+);
+
+    // Combinational logic for comparison
+    assign eq = (A == B);           // A equals B
+    assign gt = (A > B);          // A greater than B
+    assign lt = (A < B);             // A less than B
+
+endmodule

@@ -1,0 +1,252 @@
+{
+  "arm": "generic_llm",
+  "candidate_id": "candidate_03",
+  "prompt_sha256": "399fa300e0a7ec546b0563cb0fb146b31e3a7a4b0d2dd23265147b4471a30dff",
+  "prompt": "generic_llm/candidate_03/prompt.txt",
+  "requested_model": "deepseek-v4-pro",
+  "temperature": 0.2,
+  "status": "PASS",
+  "candidate_sha256": "47027a65d6f740bf72e76761fdc1d876ef59f212a869a0d682768c0634b543c9",
+  "formal_status": "PASS",
+  "ppa_status": "PASS",
+  "failure_reason": null,
+  "response_model_id": "deepseek-v4-pro",
+  "generation_parameters": {
+    "requested_model": "deepseek-v4-pro",
+    "temperature": 0.2,
+    "response_format": "json_object",
+    "candidate_index": 3,
+    "usage": {
+      "prompt_tokens": 405,
+      "completion_tokens": 11436,
+      "total_tokens": 11841
+    }
+  },
+  "explanation": {
+    "area_or_other_cost": "Adds one 32-bit register (32 flops) compared to the baseline (four registers instead of three). The two 32-bit adders remain. Slight increase in routing/muxes may occur but overall area overhead is small.",
+    "functional_boundaries": "Preserves module name, ports, and active-low asynchronous reset. Cycle-by-cycle output sequence is identical: y[n] = a[n-2] + b[n-2] + c[n-1] modulo 2^32. Latency from a/b to y remains two cycles, from c to y remains one cycle. No pipeline stage count change.",
+    "bottleneck": "The baseline second adder (sum2 <= sum1 + c) has one registered operand (sum1) and one primary input (c). The combinational path from input c through the 32-bit adder to register sum2 can become critical if c arrives late. The output register y is only a delayed copy of sum2.",
+    "rewrite": "Retime c and the a+b path so that the second addition (ab_d2 + c_d1) is between two registers. A dedicated register c_d1 captures c without any preceding logic, and the a+b result is delayed by two registers (ab_d1, ab_d2) to preserve the original two-cycle latency from a/b to y. This removes input c from any combinational path before its first register and moves the second adder to a full register-to-register path.",
+    "expected_timing_gain": "Moderate. If the input c arrival was limiting, this eliminates the input-to-register adder path, replacing it with a simple register setup. The critical internal path becomes the register-to-register adder (c_d1/ab_d2 to y), which is better balanced and can support a higher clock frequency under late input conditions."
+  },
+  "generation_runtime_seconds": 132.086,
+  "structure": {
+    "ports": {
+      "clk": [
+        "input",
+        1
+      ],
+      "rst_n": [
+        "input",
+        1
+      ],
+      "a": [
+        "input",
+        32
+      ],
+      "b": [
+        "input",
+        32
+      ],
+      "c": [
+        "input",
+        32
+      ],
+      "y": [
+        "output",
+        32
+      ]
+    },
+    "modules": [
+      "timing_adder"
+    ]
+  },
+  "validation": {
+    "status": "PASS",
+    "script": "syntax.ys",
+    "log": "syntax.log"
+  },
+  "validation_status": "PASS",
+  "pipeline_runtime_seconds": 1.58,
+  "total_runtime_seconds": 133.722,
+  "metrics": {
+    "run_id": "run_20261029_004321_695879",
+    "candidate": "eda/experiments/controlled_rtl_study_20261029_002533_787332/generic_llm/candidate_03/candidate.v",
+    "candidate_sha256": "47027a65d6f740bf72e76761fdc1d876ef59f212a869a0d682768c0634b543c9",
+    "formal": "PASS",
+    "formal_depth": null,
+    "formal_assumption": "rst_n asserted in initial formal state",
+    "wns_ns": 1.38,
+    "tns_ns": 0.0,
+    "mapped_area_um2": 5084.8768,
+    "mapped_cells": 397,
+    "mapped_reset_flops": 128,
+    "critical_startpoint": "b[0] (input port clocked by core_clk)",
+    "critical_endpoint": "_541_ (rising edge-triggered flip-flop clocked by core_clk)",
+    "critical_data_arrival_ns": 8.39,
+    "sdc": "eda/experiments/sky130_sta_20261027/timing_adder.sdc",
+    "sdc_sha256": "9d4a5287e5c8133525cf4480c2fa984b698485eb31511d39fe81f2187a5c5b0d",
+    "liberty": "eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib",
+    "liberty_sha256": "92eb4e93a3d4c2563018ac81cdec2f02fdeaced9b39337ed5c141fa63e0ad8f8",
+    "reference_rtl": "benchmark/timing_adder.v",
+    "reference_sha256": "0aea0e97355b0f3086009b30bc81445ee1a56d3a5bd0dee6c687d1f9370fcb26",
+    "artifact_dir": "eda/experiments/controlled_rtl_study_20261029_002533_787332/generic_llm/candidate_03/evaluation/eda",
+    "sta_netlist": "eda/experiments/controlled_rtl_study_20261029_002533_787332/generic_llm/candidate_03/evaluation/eda/mapped_sta.v",
+    "sta_netlist_sha256": "679275467facb8b04f0cb181573cdc90850d01b57873d6689fa9cf8822f09d9a",
+    "sta_netlist_signed_wire_declarations_normalized": 0,
+    "status": "PASS"
+  },
+  "sta_context": {
+    "startpoint": "b[0] (input port clocked by core_clk)",
+    "endpoint": "_541_ (rising edge-triggered flip-flop clocked by core_clk)",
+    "wns_ns": 1.38,
+    "tns_ns": 0.0,
+    "data_arrival_ns": 8.39,
+    "cell_count_on_reported_paths": 27,
+    "cell_types_on_reported_paths": [
+      "sky130_fd_sc_hd__nand2_1",
+      "sky130_fd_sc_hd__o21ai_0",
+      "sky130_fd_sc_hd__maj3_1",
+      "sky130_fd_sc_hd__a211oi_1",
+      "sky130_fd_sc_hd__o311ai_0",
+      "sky130_fd_sc_hd__a311oi_1",
+      "sky130_fd_sc_hd__o31ai_1",
+      "sky130_fd_sc_hd__xnor2_1",
+      "sky130_fd_sc_hd__dfrtp_1"
+    ],
+    "path_cell_contributions": [
+      {
+        "incremental_delay_ns": 0.11,
+        "arrival_ns": 1.11,
+        "cell": "sky130_fd_sc_hd__nand2_1"
+      },
+      {
+        "incremental_delay_ns": 0.13,
+        "arrival_ns": 1.24,
+        "cell": "sky130_fd_sc_hd__o21ai_0"
+      },
+      {
+        "incremental_delay_ns": 0.4,
+        "arrival_ns": 1.64,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.39,
+        "arrival_ns": 2.03,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.39,
+        "arrival_ns": 2.42,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.39,
+        "arrival_ns": 2.82,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.39,
+        "arrival_ns": 3.21,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.39,
+        "arrival_ns": 3.6,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.39,
+        "arrival_ns": 3.99,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.4,
+        "arrival_ns": 4.39,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.33,
+        "arrival_ns": 4.73,
+        "cell": "sky130_fd_sc_hd__a211oi_1"
+      },
+      {
+        "incremental_delay_ns": 0.17,
+        "arrival_ns": 4.9,
+        "cell": "sky130_fd_sc_hd__o311ai_0"
+      },
+      {
+        "incremental_delay_ns": 0.34,
+        "arrival_ns": 5.23,
+        "cell": "sky130_fd_sc_hd__a311oi_1"
+      },
+      {
+        "incremental_delay_ns": 0.14,
+        "arrival_ns": 5.37,
+        "cell": "sky130_fd_sc_hd__o31ai_1"
+      },
+      {
+        "incremental_delay_ns": 0.4,
+        "arrival_ns": 5.77,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.26,
+        "arrival_ns": 6.03,
+        "cell": "sky130_fd_sc_hd__a211oi_1"
+      },
+      {
+        "incremental_delay_ns": 0.15,
+        "arrival_ns": 6.18,
+        "cell": "sky130_fd_sc_hd__o311ai_0"
+      },
+      {
+        "incremental_delay_ns": 0.36,
+        "arrival_ns": 6.54,
+        "cell": "sky130_fd_sc_hd__a311oi_1"
+      },
+      {
+        "incremental_delay_ns": 0.14,
+        "arrival_ns": 6.68,
+        "cell": "sky130_fd_sc_hd__o31ai_1"
+      },
+      {
+        "incremental_delay_ns": 0.4,
+        "arrival_ns": 7.08,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.29,
+        "arrival_ns": 7.37,
+        "cell": "sky130_fd_sc_hd__a211oi_1"
+      },
+      {
+        "incremental_delay_ns": 0.13,
+        "arrival_ns": 7.5,
+        "cell": "sky130_fd_sc_hd__o31ai_1"
+      },
+      {
+        "incremental_delay_ns": 0.39,
+        "arrival_ns": 7.89,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.37,
+        "arrival_ns": 8.27,
+        "cell": "sky130_fd_sc_hd__maj3_1"
+      },
+      {
+        "incremental_delay_ns": 0.13,
+        "arrival_ns": 8.39,
+        "cell": "sky130_fd_sc_hd__xnor2_1"
+      },
+      {
+        "incremental_delay_ns": 0.0,
+        "arrival_ns": 8.39,
+        "cell": "sky130_fd_sc_hd__dfrtp_1"
+      }
+    ]
+  },
+  "area_within_limit": false,
+  "area_delta_percent": 18.691588785046733
+}

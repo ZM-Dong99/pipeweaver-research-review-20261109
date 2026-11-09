@@ -1,0 +1,187 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\expanded_feedback_80_20261107\evaluations\alu64_223231f9ba10c2b5ee84bb3f80f0e0fe8e586800ca68e00d95827a3a18866e55\candidate_schema.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v
+Parsing SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v' to AST representation.
+Generating RTLIL representation for module `\alu_64bit'.
+Generating RTLIL representation for module `\alu64_cla_core'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \alu_64bit
+Used module:     \alu64_cla_core
+Parameter \CIN = 1'1
+
+2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\alu64_cla_core'.
+Parameter \CIN = 1'1
+Generating RTLIL representation for module `$paramod\alu64_cla_core\CIN=1'1'.
+Parameter \CIN = 1'1
+Found cached RTLIL representation for module `$paramod\alu64_cla_core\CIN=1'1'.
+Parameter \CIN = 1'0
+
+2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\alu64_cla_core'.
+Parameter \CIN = 1'0
+Generating RTLIL representation for module `$paramod\alu64_cla_core\CIN=1'0'.
+
+2.4. Analyzing design hierarchy..
+Top module:  \alu_64bit
+Used module:     $paramod\alu64_cla_core\CIN=1'1
+Used module:     $paramod\alu64_cla_core\CIN=1'0
+
+2.5. Analyzing design hierarchy..
+Top module:  \alu_64bit
+Used module:     $paramod\alu64_cla_core\CIN=1'1
+Used module:     $paramod\alu64_cla_core\CIN=1'0
+Removing unused module `\alu64_cla_core'.
+Removed 1 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:25$9 in module alu_64bit.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\alu_64bit.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:25$9'.
+     1/1: $1\sum[63:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\alu_64bit.\sum' from process `\alu_64bit.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:25$9'.
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\alu_64bit.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:25$9'.
+Removing empty process `alu_64bit.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:25$9'.
+Cleaned up 1 empty switch.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\alu64_cla_core\CIN=1'1.
+<suppressed ~9 debug messages>
+Optimizing module $paramod\alu64_cla_core\CIN=1'0.
+<suppressed ~18 debug messages>
+Optimizing module alu_64bit.
+<suppressed ~1 debug messages>
+
+4. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\alu64_cla_core\CIN=1'1.
+Deleting now unused module $paramod\alu64_cla_core\CIN=1'0.
+<suppressed ~3 debug messages>
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_64bit.
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_64bit'.
+Computing hashes of 1597 cells of `\alu_64bit'.
+Finding duplicate cells in `\alu_64bit'.
+Computing hashes of 1471 cells of `\alu_64bit'.
+Finding duplicate cells in `\alu_64bit'.
+Computing hashes of 1407 cells of `\alu_64bit'.
+Finding duplicate cells in `\alu_64bit'.
+Computing hashes of 1359 cells of `\alu_64bit'.
+Finding duplicate cells in `\alu_64bit'.
+Computing hashes of 1349 cells of `\alu_64bit'.
+Finding duplicate cells in `\alu_64bit'.
+Computing hashes of 1348 cells of `\alu_64bit'.
+Finding duplicate cells in `\alu_64bit'.
+<suppressed ~747 debug messages>
+Removed a total of 249 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \alu_64bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \alu_64bit.
+    New input vector for $reduce_and cell $flatten\add_core.$reduce_and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:74$1598: $xor$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:10$1_Y [63:48]
+    New input vector for $reduce_and cell $flatten\add_core.$reduce_and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:74$1546: $xor$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:10$1_Y [31:16]
+    New input vector for $reduce_and cell $flatten\add_core.$reduce_and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:74$1520: $xor$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:10$1_Y [15:0]
+    New input vector for $reduce_and cell $flatten\add_core.$reduce_and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:74$1572: $xor$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:10$1_Y [47:32]
+    New input vector for $reduce_and cell $flatten\ba_core.$reduce_and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:74$1061: $not$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:33$12_Y [63:48]
+    New input vector for $reduce_and cell $flatten\ba_core.$reduce_and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:74$1009: $not$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:33$12_Y [31:16]
+    New input vector for $reduce_and cell $flatten\ba_core.$reduce_and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:74$983: $not$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:33$12_Y [15:0]
+    New input vector for $reduce_and cell $flatten\ba_core.$reduce_and$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:74$1035: $not$D:/verilog_lab/PipeWeaver/eda/experiments/expanded_feedback_80_20261107/trials/call_013/candidate.v:33$12_Y [47:32]
+  Optimizing cells in module \alu_64bit.
+Performed a total of 8 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_64bit'.
+Computing hashes of 1348 cells of `\alu_64bit'.
+Finding duplicate cells in `\alu_64bit'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_64bit..
+Removed 56 unused cells and 626 unused wires.
+<suppressed ~57 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_64bit.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \alu_64bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \alu_64bit.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\alu_64bit'.
+Computing hashes of 1292 cells of `\alu_64bit'.
+Finding duplicate cells in `\alu_64bit'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \alu_64bit..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module alu_64bit.
+
+5.16. Finished fast OPT passes. (There is nothing left to do.)
+
+6. Executing CHECK pass (checking for obvious problems).
+Checking module alu_64bit...
+Found and reported 0 problems.
+
+7. Executing JSON backend.
+
+End of script. Logfile hash: e1163e1fca
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 4% 4x opt_expr (0 sec), 4% 3x opt_merge (0 sec), ...

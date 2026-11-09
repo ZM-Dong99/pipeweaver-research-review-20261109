@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-88f97555-263e-45cc-9553-ca824f86b0dc",
+  "model": "gpt-6.1-sol",
+  "created": 1794022264,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Generating balanced masks**\n\n**Building balanced parity tree**\n\n**Generating constant masks**\n\n**Implementing mask function**\n\n**Defining parity reduction**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module crc32_d8 (\\n    input  wire [7:0]  data_in,\\n    input  wire [31:0] state_in,\\n    output wire [7:0]  data_out,\\n    output wire [31:0] state_out\\n);\\n\\n    // Combine the equivalent data and low-state contributions first.\\n    wire [7:0] q;\\n    assign q = data_in ^ state_in[7:0];\\n\\n    // Elaboration-only construction of the fixed reflected CRC matrix.\\n    // Indices 0..31 select next-state bits; 32..39 select feedback bits\\n    // in their original, LSB-first data_out ordering.\\n    function [7:0] crc_mask;\\n        input integer index;\\n        reg [31:0] v;\\n        integer k;\\n        integer t;\\n        begin\\n            crc_mask = 8'b0;\\n            for (k = 0; k < 8; k = k + 1) begin\\n                v = 32'h00000001 << k;\\n                for (t = 0; t < 8; t = t + 1) begin\\n                    if (index == 32 + t)\\n                        crc_mask[k] = v[0];\\n                    if (v[0])\\n                        v = (v >> 1) ^ 32'hedb88320;\\n                    else\\n                        v = v >> 1;\\n                end\\n                if (index < 32)\\n                    crc_mask[k] = v[index];\\n            end\\n        end\\n    endfunction\\n\\n    function parity8;\\n        input [7:0] x;\\n        begin\\n            parity8 = ((x[0] ^ x[1]) ^ (x[2] ^ x[3]))\\n                    ^ ((x[4] ^ x[5]) ^ (x[6] ^ x[7]));\\n        end\\n    endfunction\\n\\n    genvar n;\\n    generate\\n        for (n = 0; n < 32; n = n + 1) begin : g_state\\n            localparam [7:0] MASK = crc_mask(n);\\n            wire contribution;\\n            assign contribution = parity8(q & MASK);\\n            if (n < 24) begin : g_shift\\n                assign state_out[n] = state_in[n+8] ^ contribution;\\n            end else begin : g_no_shift\\n                assign state_out[n] = contribution;\\n            end\\n        end\\n        for (n = 0; n < 8; n = n + 1) begin : g_data\\n            localparam [7:0] MASK = crc_mask(32+n);\\n            assign data_out[n] = parity8(q & MASK);\\n        end\\n    endgenerate\\nendmodule\\n\",\n  \"bottleneck\": \"The original matrix computes parity over separate data and state inputs. Critical cones can therefore contain redundant paired contributions and mapping-dependent XOR depth. Sharing those pairs reduces parity width, although fanout on the shared signals can become the new timing bottleneck.\",\n  \"rewrite\": \"Specialize to the fixed reflected CRC32 byte update. Form q = data_in XOR state_in[7:0], apply the constant eight-input CRC matrix with explicitly balanced parity trees, and XOR in state_in[31:8] at the corresponding next-state outputs. Independently preserve all eight feedback-history data_out bits using their exact matrix rows. The mask function executes only during elaboration; it creates no sequential hardware or memories.\",\n  \"expected_timing_gain\": \"Expected improvement from narrower parity cones and explicit balancing. Before technology mapping, the structure has at most one input-pair XOR level, three parity levels, and one final shifted-state XOR level. No numerical mapped timing improvement is claimed: the specified mapping, timing analysis, native/mapped SAT proofs, and electrical checks were not available here.\",\n  \"area_or_other_cost\": \"Eight shared input-pair XORs replace duplicated data/state contributions across outputs. Area is expected to decrease, but buffering of shared q signals may offset part of that saving. Compliance with the 2752.640000 um^2 cap and zero electrical violations requires measurement in the supplied flow; neither is established here.\",\n  \"functional_boundaries\": \"Preserves the crc32_d8 port names, widths, and directions. Implements eight LSB-first Galois feedback steps with reflected polynomial 0xEDB88320, equivalent to the supplied 0x04C11DB7 configuration with REVERSE=1 and feed-forward disabled. All 40 binary inputs remain unconstrained, including arbitrary state_in, and all 40 outputs are retained. No initialization, reset, framing, final inversion, gating, clocks, storage, assumptions, or external dependencies are introduced. Other parameter settings are intentionally unsupported. Full native and mapped equivalence proofs remain mandatory before acceptance.\"\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5203,
+    "completion_tokens": 1806,
+    "total_tokens": 7753
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 1063,
+    "usage_reported": true
+  }
+}

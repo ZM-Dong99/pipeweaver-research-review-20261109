@@ -1,0 +1,796 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\stream_reset_contract_20261106_run2\adapter_all_pins\prove.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v' to AST representation.
+Generating RTLIL representation for module `\axis_adapter'.
+Successfully finished Verilog frontend.
+Parameter \S_DATA_WIDTH = 8
+
+2. Executing AST frontend in derive mode using pre-parsed AST for module `\axis_adapter'.
+Parameter \S_DATA_WIDTH = 8
+Generating RTLIL representation for module `$paramod\axis_adapter\S_DATA_WIDTH=s32'00000000000000000000000000001000'.
+Parameter \M_DATA_WIDTH = 32
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\axis_adapter'.
+Parameter \M_DATA_WIDTH = 32
+Generating RTLIL representation for module `$paramod\axis_adapter\M_DATA_WIDTH=s32'00000000000000000000000000100000'.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \axis_adapter
+
+4.2. Analyzing design hierarchy..
+Top module:  \axis_adapter
+Removed 0 unused modules.
+
+5. Executing PROC pass (convert processes to netlists).
+
+5.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:103$70'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:103$70'.
+Cleaned up 3 empty switches.
+
+5.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 5 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9 in module axis_adapter.
+Removed a total of 0 dead cases.
+
+5.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 22 assignments to connections.
+
+5.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:146$71'.
+  Set init value: \genblk1.upsize.seg_reg = 2'00
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:148$72'.
+  Set init value: \genblk1.upsize.s_axis_tdata_reg = 8'00000000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:149$73'.
+  Set init value: \genblk1.upsize.s_axis_tkeep_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:150$74'.
+  Set init value: \genblk1.upsize.s_axis_tvalid_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:151$75'.
+  Set init value: \genblk1.upsize.s_axis_tlast_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:152$76'.
+  Set init value: \genblk1.upsize.s_axis_tid_reg = 8'00000000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:153$77'.
+  Set init value: \genblk1.upsize.s_axis_tdest_reg = 8'00000000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:154$78'.
+  Set init value: \genblk1.upsize.s_axis_tuser_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:156$79'.
+  Set init value: \genblk1.upsize.m_axis_tdata_reg = 0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:157$80'.
+  Set init value: \genblk1.upsize.m_axis_tkeep_reg = 4'0000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:158$81'.
+  Set init value: \genblk1.upsize.m_axis_tvalid_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:159$82'.
+  Set init value: \genblk1.upsize.m_axis_tlast_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:160$83'.
+  Set init value: \genblk1.upsize.m_axis_tid_reg = 8'00000000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:161$84'.
+  Set init value: \genblk1.upsize.m_axis_tdest_reg = 8'00000000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:162$85'.
+  Set init value: \genblk1.upsize.m_axis_tuser_reg = 1'0
+
+5.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~8 debug messages>
+
+5.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+     1/23: $2$lookahead\genblk1.upsize.m_axis_tkeep_reg$8[3:0]$29
+     2/23: $2$lookahead\genblk1.upsize.m_axis_tdata_reg$7[31:0]$28
+     3/23: $2$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:181$3[31:0]$25
+     4/23: $2$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$5[31:0]$27
+     5/23: $2$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$4[31:0]$26
+     6/23: $1$lookahead\genblk1.upsize.m_axis_tkeep_reg$8[3:0]$23
+     7/23: $1$lookahead\genblk1.upsize.m_axis_tdata_reg$7[31:0]$22
+     8/23: $1$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$5[31:0]$21
+     9/23: $1$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$4[31:0]$20
+    10/23: $1$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:181$3[31:0]$19
+    11/23: $0\genblk1.upsize.m_axis_tvalid_reg[0:0]
+    12/23: $0\genblk1.upsize.m_axis_tuser_reg[0:0]
+    13/23: $0\genblk1.upsize.m_axis_tdest_reg[7:0]
+    14/23: $0\genblk1.upsize.m_axis_tid_reg[7:0]
+    15/23: $0\genblk1.upsize.m_axis_tlast_reg[0:0]
+    16/23: $0\genblk1.upsize.s_axis_tuser_reg[0:0]
+    17/23: $0\genblk1.upsize.s_axis_tdest_reg[7:0]
+    18/23: $0\genblk1.upsize.s_axis_tid_reg[7:0]
+    19/23: $0\genblk1.upsize.s_axis_tlast_reg[0:0]
+    20/23: $0\genblk1.upsize.s_axis_tvalid_reg[0:0]
+    21/23: $0\genblk1.upsize.s_axis_tkeep_reg[0:0]
+    22/23: $0\genblk1.upsize.s_axis_tdata_reg[7:0]
+    23/23: $0\genblk1.upsize.seg_reg[1:0]
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:146$71'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:148$72'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:149$73'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:150$74'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:151$75'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:152$76'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:153$77'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:154$78'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:156$79'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:157$80'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:158$81'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:159$82'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:160$83'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:161$84'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:162$85'.
+
+5.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+5.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\axis_adapter.\genblk1.upsize.seg_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$215' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tdata_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$216' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tkeep_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$217' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tvalid_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$218' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tlast_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$219' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tid_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$220' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tdest_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$221' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tuser_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$222' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tdata_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$223' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tkeep_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$224' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tvalid_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$225' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tlast_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$226' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tid_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$227' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tdest_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$228' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tuser_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$229' with positive edge clock.
+Creating register for signal `\axis_adapter.$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:181$3' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$230' with positive edge clock.
+Creating register for signal `\axis_adapter.$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$4' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$231' with positive edge clock.
+Creating register for signal `\axis_adapter.$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$5' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$232' with positive edge clock.
+Creating register for signal `\axis_adapter.$lookahead\genblk1.upsize.m_axis_tdata_reg$7' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$233' with positive edge clock.
+Creating register for signal `\axis_adapter.$lookahead\genblk1.upsize.m_axis_tkeep_reg$8' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+  created $dff cell `$procdff$234' with positive edge clock.
+
+5.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 8 empty switches in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$9'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:146$71'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:148$72'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:149$73'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:150$74'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:151$75'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:152$76'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:153$77'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:154$78'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:156$79'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:157$80'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:158$81'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:159$82'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:160$83'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:161$84'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:162$85'.
+Cleaned up 8 empty switches.
+
+5.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module axis_adapter.
+<suppressed ~1 debug messages>
+
+6. Executing FLATTEN pass (flatten design).
+Renaming module \axis_adapter to \pw_gold.
+
+7. Executing JSON backend.
+
+8. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v' to AST representation.
+Generating RTLIL representation for module `\axis_adapter'.
+Successfully finished Verilog frontend.
+Parameter \S_DATA_WIDTH = 8
+
+9. Executing AST frontend in derive mode using pre-parsed AST for module `\axis_adapter'.
+Parameter \S_DATA_WIDTH = 8
+Generating RTLIL representation for module `$paramod\axis_adapter\S_DATA_WIDTH=s32'00000000000000000000000000001000'.
+Parameter \M_DATA_WIDTH = 32
+
+10. Executing AST frontend in derive mode using pre-parsed AST for module `\axis_adapter'.
+Parameter \M_DATA_WIDTH = 32
+Generating RTLIL representation for module `$paramod\axis_adapter\M_DATA_WIDTH=s32'00000000000000000000000000100000'.
+
+11. Executing HIERARCHY pass (managing design hierarchy).
+
+11.1. Analyzing design hierarchy..
+Top module:  \axis_adapter
+
+11.2. Analyzing design hierarchy..
+Top module:  \axis_adapter
+Removed 0 unused modules.
+
+12. Executing PROC pass (convert processes to netlists).
+
+12.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:103$304'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:103$304'.
+Cleaned up 3 empty switches.
+
+12.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 5 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243 in module axis_adapter.
+Removed a total of 0 dead cases.
+
+12.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 22 assignments to connections.
+
+12.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:146$305'.
+  Set init value: \genblk1.upsize.seg_reg = 2'00
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:148$306'.
+  Set init value: \genblk1.upsize.s_axis_tdata_reg = 8'00000000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:149$307'.
+  Set init value: \genblk1.upsize.s_axis_tkeep_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:150$308'.
+  Set init value: \genblk1.upsize.s_axis_tvalid_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:151$309'.
+  Set init value: \genblk1.upsize.s_axis_tlast_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:152$310'.
+  Set init value: \genblk1.upsize.s_axis_tid_reg = 8'00000000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:153$311'.
+  Set init value: \genblk1.upsize.s_axis_tdest_reg = 8'00000000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:154$312'.
+  Set init value: \genblk1.upsize.s_axis_tuser_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:156$313'.
+  Set init value: \genblk1.upsize.m_axis_tdata_reg = 0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:157$314'.
+  Set init value: \genblk1.upsize.m_axis_tkeep_reg = 4'0000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:158$315'.
+  Set init value: \genblk1.upsize.m_axis_tvalid_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:159$316'.
+  Set init value: \genblk1.upsize.m_axis_tlast_reg = 1'0
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:160$317'.
+  Set init value: \genblk1.upsize.m_axis_tid_reg = 8'00000000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:161$318'.
+  Set init value: \genblk1.upsize.m_axis_tdest_reg = 8'00000000
+Found init rule in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:162$319'.
+  Set init value: \genblk1.upsize.m_axis_tuser_reg = 1'0
+
+12.5. Executing PROC_ARST pass (detect async resets in processes).
+
+12.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~8 debug messages>
+
+12.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+     1/23: $2$lookahead\genblk1.upsize.m_axis_tkeep_reg$242[3:0]$263
+     2/23: $2$lookahead\genblk1.upsize.m_axis_tdata_reg$241[31:0]$262
+     3/23: $2$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:181$237[31:0]$259
+     4/23: $2$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$239[31:0]$261
+     5/23: $2$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$238[31:0]$260
+     6/23: $1$lookahead\genblk1.upsize.m_axis_tkeep_reg$242[3:0]$257
+     7/23: $1$lookahead\genblk1.upsize.m_axis_tdata_reg$241[31:0]$256
+     8/23: $1$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$239[31:0]$255
+     9/23: $1$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$238[31:0]$254
+    10/23: $1$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:181$237[31:0]$253
+    11/23: $0\genblk1.upsize.m_axis_tvalid_reg[0:0]
+    12/23: $0\genblk1.upsize.m_axis_tuser_reg[0:0]
+    13/23: $0\genblk1.upsize.m_axis_tdest_reg[7:0]
+    14/23: $0\genblk1.upsize.m_axis_tid_reg[7:0]
+    15/23: $0\genblk1.upsize.m_axis_tlast_reg[0:0]
+    16/23: $0\genblk1.upsize.s_axis_tuser_reg[0:0]
+    17/23: $0\genblk1.upsize.s_axis_tdest_reg[7:0]
+    18/23: $0\genblk1.upsize.s_axis_tid_reg[7:0]
+    19/23: $0\genblk1.upsize.s_axis_tlast_reg[0:0]
+    20/23: $0\genblk1.upsize.s_axis_tvalid_reg[0:0]
+    21/23: $0\genblk1.upsize.s_axis_tkeep_reg[0:0]
+    22/23: $0\genblk1.upsize.s_axis_tdata_reg[7:0]
+    23/23: $0\genblk1.upsize.seg_reg[1:0]
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:146$305'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:148$306'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:149$307'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:150$308'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:151$309'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:152$310'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:153$311'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:154$312'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:156$313'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:157$314'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:158$315'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:159$316'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:160$317'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:161$318'.
+Creating decoders for process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:162$319'.
+
+12.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+12.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\axis_adapter.\genblk1.upsize.seg_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$449' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tdata_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$450' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tkeep_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$451' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tvalid_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$452' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tlast_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$453' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tid_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$454' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tdest_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$455' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.s_axis_tuser_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$456' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tdata_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$457' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tkeep_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$458' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tvalid_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$459' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tlast_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$460' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tid_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$461' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tdest_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$462' with positive edge clock.
+Creating register for signal `\axis_adapter.\genblk1.upsize.m_axis_tuser_reg' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$463' with positive edge clock.
+Creating register for signal `\axis_adapter.$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:181$237' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$464' with positive edge clock.
+Creating register for signal `\axis_adapter.$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$238' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$465' with positive edge clock.
+Creating register for signal `\axis_adapter.$bitselwrite$pos$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$239' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$466' with positive edge clock.
+Creating register for signal `\axis_adapter.$lookahead\genblk1.upsize.m_axis_tdata_reg$241' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$467' with positive edge clock.
+Creating register for signal `\axis_adapter.$lookahead\genblk1.upsize.m_axis_tkeep_reg$242' using process `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+  created $dff cell `$procdff$468' with positive edge clock.
+
+12.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+12.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 8 empty switches in `\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:174$243'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:146$305'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:148$306'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:149$307'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:150$308'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:151$309'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:152$310'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:153$311'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:154$312'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:156$313'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:157$314'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:158$315'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:159$316'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:160$317'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:161$318'.
+Removing empty process `axis_adapter.$proc$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:162$319'.
+Cleaned up 8 empty switches.
+
+12.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module axis_adapter.
+<suppressed ~1 debug messages>
+
+13. Executing FLATTEN pass (flatten design).
+Renaming module \axis_adapter to \pw_cand.
+
+14. Executing JSON backend.
+
+15. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/adapter_all_pins/miter.v
+Parsing formal Verilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/adapter_all_pins/miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+16. Executing PREP pass.
+
+16.1. Executing HIERARCHY pass (managing design hierarchy).
+
+16.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+
+16.1.2. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+Removed 0 unused modules.
+
+16.2. Executing PROC pass (convert processes to netlists).
+
+16.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+16.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+16.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+16.2.4. Executing PROC_INIT pass (extract init attributes).
+
+16.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+16.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+16.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+16.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+16.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+16.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+16.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+16.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+<suppressed ~8 debug messages>
+Optimizing module pw_cand.
+Optimizing module pw_gold.
+
+16.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module pw_cand.
+Deleting now unused module pw_gold.
+<suppressed ~2 debug messages>
+
+16.4. Executing FUTURE pass.
+
+16.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+<suppressed ~6 debug messages>
+
+16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 52 unused cells and 251 unused wires.
+<suppressed ~61 debug messages>
+
+16.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+16.8. Executing OPT pass (performing simple optimizations).
+
+16.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+16.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 187 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 174 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 170 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 168 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 166 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 164 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 162 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~75 debug messages>
+Removed a total of 25 cells.
+
+16.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $flatten\gold.$procmux$183: \gold.genblk1.upsize.s_axis_tvalid_reg -> 1'0
+      Replacing known input bits on port A of cell $flatten\cand.$procmux$417: \cand.genblk1.upsize.s_axis_tvalid_reg -> 1'0
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $flatten\cand.$procmux$324.
+    dead port 2/2 on $mux $flatten\gold.$procmux$96.
+    dead port 2/2 on $mux $flatten\gold.$procmux$90.
+    dead port 2/2 on $mux $flatten\cand.$procmux$330.
+Removed 4 multiplexer ports.
+<suppressed ~96 debug messages>
+
+16.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+  Optimizing cells in module \pw_miter.
+Performed a total of 2 changes.
+
+16.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 156 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+16.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 31 unused wires.
+<suppressed ~1 debug messages>
+
+16.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+16.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+16.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~90 debug messages>
+
+16.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+16.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 156 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+16.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+16.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+16.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+16.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from port B of cell pw_miter.$flatten\gold.$add$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$42 ($add).
+Removed top 31 bits (of 32) from port B of cell pw_miter.$flatten\gold.$add$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$51 ($add).
+Removed top 31 bits (of 32) from port B of cell pw_miter.$flatten\gold.$add$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:208$68 ($add).
+Removed top 30 bits (of 32) from port Y of cell pw_miter.$flatten\gold.$add$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:208$68 ($add).
+Removed top 28 bits (of 32) from port B of cell pw_miter.$flatten\gold.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$41 ($mul).
+Removed top 26 bits (of 32) from port Y of cell pw_miter.$flatten\gold.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$41 ($mul).
+Removed top 31 bits (of 32) from port B of cell pw_miter.$flatten\gold.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$50 ($mul).
+Removed top 29 bits (of 32) from port Y of cell pw_miter.$flatten\gold.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$50 ($mul).
+Converting cell pw_miter.$flatten\gold.$neg$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$47 ($neg) from signed to unsigned.
+Removed top 1 bits (of 33) from port A of cell pw_miter.$flatten\gold.$neg$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$47 ($neg).
+Converting cell pw_miter.$flatten\gold.$neg$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$56 ($neg) from signed to unsigned.
+Removed top 1 bits (of 33) from port A of cell pw_miter.$flatten\gold.$neg$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$56 ($neg).
+Removed top 31 bits (of 32) from port B of cell pw_miter.$flatten\cand.$add$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$276 ($add).
+Removed top 31 bits (of 32) from port B of cell pw_miter.$flatten\cand.$add$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$285 ($add).
+Removed top 31 bits (of 32) from port B of cell pw_miter.$flatten\cand.$add$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:208$302 ($add).
+Removed top 30 bits (of 32) from port Y of cell pw_miter.$flatten\cand.$add$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:208$302 ($add).
+Removed top 28 bits (of 32) from port B of cell pw_miter.$flatten\cand.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$275 ($mul).
+Removed top 26 bits (of 32) from port Y of cell pw_miter.$flatten\cand.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$275 ($mul).
+Removed top 31 bits (of 32) from port B of cell pw_miter.$flatten\cand.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$284 ($mul).
+Removed top 29 bits (of 32) from port Y of cell pw_miter.$flatten\cand.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$284 ($mul).
+Converting cell pw_miter.$flatten\cand.$neg$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$281 ($neg) from signed to unsigned.
+Removed top 1 bits (of 33) from port A of cell pw_miter.$flatten\cand.$neg$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:184$281 ($neg).
+Converting cell pw_miter.$flatten\cand.$neg$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$290 ($neg) from signed to unsigned.
+Removed top 1 bits (of 33) from port A of cell pw_miter.$flatten\cand.$neg$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$290 ($neg).
+Removed top 29 bits (of 32) from wire pw_miter.$flatten\cand.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$284_Y.
+Removed top 26 bits (of 32) from wire pw_miter.$flatten\cand.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:181$264_Y.
+Removed top 30 bits (of 32) from wire pw_miter.$flatten\cand.$add$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:200$299_Y.
+Removed top 29 bits (of 32) from wire pw_miter.$flatten\gold.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:185$50_Y.
+Removed top 26 bits (of 32) from wire pw_miter.$flatten\gold.$mul$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:181$30_Y.
+Removed top 30 bits (of 32) from wire pw_miter.$flatten\gold.$add$D:/verilog_lab/PipeWeaver/benchmark/engineering_sources_20261106/axis_adapter.v:200$65_Y.
+
+16.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+16.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+16.12. Executing OPT pass (performing simple optimizations).
+
+16.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+16.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 156 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+16.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+16.12.4. Finished fast OPT passes.
+
+16.13. Executing SORT pass.
+
+16.14. Printing statistics.
+
+=== pw_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      216 wires
+     1641 wire bits
+       87 public wires
+      426 public wire bits
+       11 ports
+       32 port bits
+      156 cells
+        6   $add
+        4   $and
+       22   $dff
+        2   $eq
+        4   $logic_and
+        7   $logic_not
+        6   $logic_or
+        4   $mul
+       66   $mux
+        6   $ne
+        4   $neg
+        4   $not
+       11   $or
+        2   $scopeinfo
+        8   $shift
+
+16.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+18. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Import set-constraint for this timestep: \in_1 = 1'1
+Final constraint equation: \in_1 = 1'1
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_9
+Import def constraint for this timestep: \in_13
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_8
+Imported 156 cells to SAT database.
+No constraints for initial state found.
+
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_9
+Import def constraint for this timestep: \in_13
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_8
+Imported 156 cells to SAT database.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_9
+Import def constraint for this timestep: \in_13
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_8
+Imported 156 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+
+** Trying induction with length 1 **
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_3
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_6
+Import def constraint for this timestep: \in_9
+Import def constraint for this timestep: \in_13
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_7
+Import def constraint for this timestep: \in_8
+Imported 156 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_13
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \in_4
+Import show expression: \in_6
+Import show expression: \in_7
+Import show expression: \in_8
+Import show expression: \in_9
+Import show expression: \mismatch
+
+[base case 1] Solving problem with 77627 variables and 212946 clauses..
+SAT temporal induction proof finished - model found for base case: FAIL!
+
+   ______                   ___       ___       _ _            _ _ 
+  (_____ \                 / __)     / __)     (_) |          | | |
+   _____) )___ ___   ___ _| |__    _| |__ _____ _| | _____  __| | |
+  |  ____/ ___) _ \ / _ (_   __)  (_   __|____ | | || ___ |/ _  |_|
+  | |   | |  | |_| | |_| || |       | |  / ___ | | || ____( (_| |_ 
+  |_|   |_|   \___/ \___/ |_|       |_|  \_____|_|\_)_____)\____|_|
+
+
+  Time Signal Name                                         Dec       Hex                                 Bin
+  ---- ------------------------------------------- ----------- --------- -----------------------------------
+  init \cand.genblk1.upsize.m_axis_tdata_reg               511       1ff    00000000000000000000000111111111
+  init \cand.genblk1.upsize.m_axis_tkeep_reg                 9         9                                1001
+  init \cand.genblk1.upsize.m_axis_tlast_reg                 0         0                                   0
+  init \cand.genblk1.upsize.m_axis_tuser_reg                 0         0                                   0
+  init \cand.genblk1.upsize.m_axis_tvalid_reg                1         1                                   1
+  init \cand.genblk1.upsize.s_axis_tdata_reg                 0         0                            00000000
+  init \cand.genblk1.upsize.s_axis_tkeep_reg                 0         0                                   0
+  init \cand.genblk1.upsize.s_axis_tlast_reg                 1         1                                   1
+  init \cand.genblk1.upsize.s_axis_tuser_reg                 0         0                                   0
+  init \cand.genblk1.upsize.s_axis_tvalid_reg                0         0                                   0
+  init \cand.genblk1.upsize.seg_reg                          0         0                                  00
+  init \gold.genblk1.upsize.m_axis_tdata_reg                 0         0    00000000000000000000000000000000
+  init \gold.genblk1.upsize.m_axis_tkeep_reg                 0         0                                0000
+  init \gold.genblk1.upsize.m_axis_tlast_reg                 0         0                                   0
+  init \gold.genblk1.upsize.m_axis_tuser_reg                 0         0                                   0
+  init \gold.genblk1.upsize.m_axis_tvalid_reg                1         1                                   1
+  init \gold.genblk1.upsize.s_axis_tdata_reg                 0         0                            00000000
+  init \gold.genblk1.upsize.s_axis_tkeep_reg                 0         0                                   0
+  init \gold.genblk1.upsize.s_axis_tlast_reg                 1         1                                   1
+  init \gold.genblk1.upsize.s_axis_tuser_reg                 0         0                                   0
+  init \gold.genblk1.upsize.s_axis_tvalid_reg                0         0                                   0
+  init \gold.genblk1.upsize.seg_reg                          0         0                                  00
+  ---- ------------------------------------------- ----------- --------- -----------------------------------
+     1 \in_0                                                 0         0                                   0
+     1 \in_1                                                 1         1                                   1
+     1 \in_13                                                0         0                                   0
+     1 \in_2                                                 0         0                            00000000
+     1 \in_3                                                 0         0                                   0
+     1 \in_4                                                 0         0                                   0
+     1 \in_6                                                 1         1                                   1
+     1 \in_7                                                 0         0                            00000000
+     1 \in_8                                                 0         0                            00000000
+     1 \in_9                                                 0         0                                   0
+     1 \mismatch                                             1         1                                   1
+  ---- ------------------------------------------- ----------- --------- -----------------------------------
+     2 \in_0                                                 0         0                                   0
+     2 \in_1                                                 0         0                                   0
+     2 \in_13                                                0         0                                   0
+     2 \in_2                                                 0         0                            00000000
+     2 \in_3                                                 0         0                                   0
+     2 \in_4                                                 1         1                                   1
+     2 \in_6                                                 1         1                                   1
+     2 \in_7                                                 0         0                            00000000
+     2 \in_8                                                 0         0                            00000000
+     2 \in_9                                                 0         0                                   0
+     2 \mismatch                                             1         1                                   1
+  ---- ------------------------------------------- ----------- --------- -----------------------------------
+     3 \in_0                                                 0         0                                   0
+     3 \in_1                                                 1         1                                   1
+     3 \in_13                                                0         0                                   0
+     3 \in_2                                                 0         0                            00000000
+     3 \in_3                                                 0         0                                   0
+     3 \in_4                                                 0         0                                   0
+     3 \in_6                                                 1         1                                   1
+     3 \in_7                                                 0         0                            00000000
+     3 \in_8                                                 0         0                            00000000
+     3 \in_9                                                 0         0                                   0
+     3 \mismatch                                             1         1                                   1
+Dumping SAT model to VCD file D:/verilog_lab/PipeWeaver/eda/experiments/stream_reset_contract_20261106_run2/adapter_all_pins/counterexample.vcd
+
+ERROR: Called with -verify and proof did fail!
