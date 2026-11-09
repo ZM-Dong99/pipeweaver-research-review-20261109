@@ -2,9 +2,9 @@
 
 # 原生时序候选评估入口
 
-2026-11-02后续：新入口两次真实模型请求已完成，含第二轮实际EDA反馈及最佳独立复现。[真实闭环结果](eda/experiments/native_seq_loop_20261102_192804_400321/SUMMARY.md)。下面原有“尚未验证”描述是本次实际调用前的历史准备状态。
+2026-11-02后续：新入口两次真实模型请求已完成，含第二轮实际EDA反馈及最佳独立复现。[真实闭环结果](../../eda/experiments/native_seq_loop_20261102_192804_400321/SUMMARY.md)。下面原有“尚未验证”描述是本次实际调用前的历史准备状态。
 
-查看已完成结果：[真实接入验证报告](eda/experiments/SEQUENTIAL_LOOP_INTEGRATION_20261102.md)。本次只有手动回放，新入口真实模型生成尚未验证。
+查看已完成结果：[真实接入验证报告](../../eda/experiments/SEQUENTIAL_LOOP_INTEGRATION_20261102.md)。本次只有手动回放，新入口真实模型生成尚未验证。
 
 所有命令先在PowerShell进入项目根目录：
 

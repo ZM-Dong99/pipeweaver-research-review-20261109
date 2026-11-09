@@ -1,6 +1,6 @@
 # 比较器受限结构动作入口
 
-实现：rewrite/comparator_rewrites.py。真实实验与全部日志：[结果解释](eda/experiments/comparator_action_study_20261103_004742_635275/INTERPRETATION.md)。
+实现：rewrite/comparator_rewrites.py。真实实验与全部日志：[结果解释](../../eda/experiments/comparator_action_study_20261103_004742_635275/INTERPRETATION.md)。
 
 本入口只支持已核查的公开RTL-OPT无符号comparator模板。动作包含operator=unsigned_chunk_compare、chunk_bits=2/4/8和topology=balanced/linear。未知源码、signed修改、额外candidate_rtl字段及其他动作均拒绝。它不是通用RTL解析器，也尚未接入真实模型的动作选择。
 

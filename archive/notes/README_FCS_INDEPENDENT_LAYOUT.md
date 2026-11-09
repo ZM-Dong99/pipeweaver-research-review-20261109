@@ -18,12 +18,12 @@
 
 填充后重新提取的建立WNS仍为7.13→8.02ns，保持WNS均0.49ns。非filler单元面积降低15.71%；两版核心相同并被filler填满，含填充后的总占用面积均为11911.424µm²，不能再称含填充总面积下降15.71%。
 
-- [完整结果、假设与失败记录](eda/experiments/fcs_filled_independent_layout_20261108/INTERPRETATION.md)
-- [机器汇总](eda/experiments/fcs_filled_independent_layout_20261108/SUMMARY.json)
-- [原始版GDS](eda/experiments/fcs_filled_independent_layout_20261108/baseline/design.gds)
-- [优化版GDS](eda/experiments/fcs_filled_independent_layout_20261108/optimized/design.gds)
-- [独立DRC报告](eda/experiments/fcs_filled_independent_layout_20261108/optimized/drc.lyrdb)
-- [有明确衬底模型的LVS及负例](eda/experiments/fcs_filled_independent_layout_20261108/substrate_continuity_diagnostic/RESULT.json)
+- [完整结果、假设与失败记录](../../eda/experiments/fcs_filled_independent_layout_20261108/INTERPRETATION.md)
+- [机器汇总](../../eda/experiments/fcs_filled_independent_layout_20261108/SUMMARY.json)
+- [原始版GDS](../../eda/experiments/fcs_filled_independent_layout_20261108/baseline/design.gds)
+- [优化版GDS](../../eda/experiments/fcs_filled_independent_layout_20261108/optimized/design.gds)
+- [独立DRC报告](../../eda/experiments/fcs_filled_independent_layout_20261108/optimized/drc.lyrdb)
+- [有明确衬底模型的LVS及负例](../../eda/experiments/fcs_filled_independent_layout_20261108/substrate_continuity_diagnostic/RESULT.json)
 - [复位完整RTL与接口契约](README_FCS_RESET_COMPLETE.md)
 
 下一步应以独立工艺依据确认衬底/体端提取约定，再继续完整工艺DRC/LVS、天线与电源完整性验证。40项证据一致性检查通过，包含对失败记录的保留核对，不表示设计签核完成。

@@ -23,12 +23,12 @@
 
 新物理实现通过数据/状态连接图核对、独立传播时钟STA、有负载寄生覆盖、全部PG引脚和最终PDN连通检查；73项最终审计通过。
 
-- [已验证的优化RTL](eda/experiments/fcs_reset_complete_20261107_induction_fixed/exports/best.v)
-- [同契约原始RTL](eda/experiments/fcs_reset_complete_20261107_induction_fixed/exports/baseline.v)
-- [接口与复位契约](eda/experiments/fcs_reset_complete_20261107_induction_fixed/exports/CONTRACT.json)
-- [完整报告](eda/experiments/fcs_reset_complete_20261107_induction_fixed/INTERPRETATION.md)
-- [审计](eda/experiments/fcs_reset_complete_20261107_induction_fixed/AUDIT.json)
-- [新物理实现证据](eda/experiments/fcs_reset_cts_pdn_20261107/VERIFICATION.json)
+- [已验证的优化RTL](../../eda/experiments/fcs_reset_complete_20261107_induction_fixed/exports/best.v)
+- [同契约原始RTL](../../eda/experiments/fcs_reset_complete_20261107_induction_fixed/exports/baseline.v)
+- [接口与复位契约](../../eda/experiments/fcs_reset_complete_20261107_induction_fixed/exports/CONTRACT.json)
+- [完整报告](../../eda/experiments/fcs_reset_complete_20261107_induction_fixed/INTERPRETATION.md)
+- [审计](../../eda/experiments/fcs_reset_complete_20261107_induction_fixed/AUDIT.json)
+- [新物理实现证据](../../eda/experiments/fcs_reset_cts_pdn_20261107/VERIFICATION.json)
 
 导出RTL固定为8位输入，已展开参数，顶层为 `axis_eth_fcs_reset`；必须在使用前提供至少一个有效同步复位边沿。没有复位时不承诺上电输出。
 

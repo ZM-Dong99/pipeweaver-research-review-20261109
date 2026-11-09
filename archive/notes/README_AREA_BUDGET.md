@@ -6,8 +6,8 @@
 
 ## 当前已经完成的本地分析
 
-1. [现有候选在0/5/10/15/20/25/30%预算下的选择](eda/experiments/arbiter32_budget_sensitivity_20261102/INTERPRETATION.md)。不新增模型或EDA，仅重排已核实数据。并导出4个帕累托候选及原固定helper和契约。
-2. [21次真实时钟目标STA复测](eda/experiments/arbiter_clock_budget_followup_20261102/INTERPRETATION.md)。2.0ns/15%时STA池有达标版本；1.9ns/25%时无反馈池有达标版本。均是事后示例，不改写原主结果。
+1. [现有候选在0/5/10/15/20/25/30%预算下的选择](../../eda/experiments/arbiter32_budget_sensitivity_20261102/INTERPRETATION.md)。不新增模型或EDA，仅重排已核实数据。并导出4个帕累托候选及原固定helper和契约。
+2. [21次真实时钟目标STA复测](../../eda/experiments/arbiter_clock_budget_followup_20261102/INTERPRETATION.md)。2.0ns/15%时STA池有达标版本；1.9ns/25%时无反馈池有达标版本。均是事后示例，不改写原主结果。
 
 “超10%”应读作“未满足本轮预设面积预算”，不等于功能不正确或工程上永远不可用。六份仲裁器候选全部功能证明通过，选择取决于具体目标。
 

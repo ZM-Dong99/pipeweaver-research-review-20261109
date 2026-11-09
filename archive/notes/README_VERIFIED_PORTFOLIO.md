@@ -49,7 +49,7 @@ python -B -m agents.portfolio_loop run --design mux10x8 --candidate-rtl path/to/
 
 ## 验收范围与限制
 
-本地集成验收入口为eda/experiments/accept_portfolio_loop.py。覆盖三种默认实例、零面积增长时改选方案、相同候选回退，以及错误默认分支被真实SAT反例拒绝。具体结果见[本地验收记录](eda/experiments/portfolio_acceptance_20261107/RESULT.json)。
+本地集成验收入口为eda/experiments/accept_portfolio_loop.py。覆盖三种默认实例、零面积增长时改选方案、相同候选回退，以及错误默认分支被真实SAT反例拒绝。具体结果见[本地验收记录](../../eda/experiments/portfolio_acceptance_20261107/RESULT.json)。
 
 这是**固定实例上的已知候选重评与选择**，尚未实现任意新RTL的识别、结构改写或参数泛化。改变位宽、优先级、接口、工艺或时序约束须另做适配与验证；不能拿已知候选的历史成绩代替新测量。地址计算因本轮仅3/20合格，暂不进入核心候选库。
 

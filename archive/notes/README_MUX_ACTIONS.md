@@ -34,6 +34,6 @@ python -B agents/optimization_loop.py actions --template mux_large --width 8 --s
 
 这些是软件集成与回归，不是9个新模型样本，也不证明STA优于无反馈模型。接口是手工JSON回放；真实模型选择新mux动作的请求仍未运行。原10槽模型对照的混合结果不变。
 
-证据：[集成报告](eda/experiments/mux_action_integration_20261105_133748_262400/INTERPRETATION.md)、[审计](eda/experiments/mux_action_integration_20261105_133748_262400/AUDIT.json)、[代码差异](eda/experiments/mux_action_integration_20261105_133748_262400/CODE_DIFF.patch)。原文件备份在code_before/，新代码快照在code_after/；历史实验及代码快照保留，没有提交或推送。
+证据：[集成报告](../../eda/experiments/mux_action_integration_20261105_133748_262400/INTERPRETATION.md)、[审计](../../eda/experiments/mux_action_integration_20261105_133748_262400/AUDIT.json)、[代码差异](../../eda/experiments/mux_action_integration_20261105_133748_262400/CODE_DIFF.patch)。原文件备份在code_before/，新代码快照在code_after/；历史实验及代码快照保留，没有提交或推送。
 
-来源：[真实模型返回与对照](eda/experiments/mux_feedback_study_20261104_155643_522144/INTERPRETATION.md)、[局部消融](eda/experiments/mux_default_ablation_20261104_173835_690775/INTERPRETATION.md)、[成对隔离说明](eda/experiments/mux_default_ablation_20261104_173835_690775/MECHANISM_NOTE.md)。这些是标准Boolean结构重写，不宣称新逻辑算法。原公开源码的MIT许可证保留在benchmark/rtl_opt_upstream_hkust/LICENSE。
+来源：[真实模型返回与对照](../../eda/experiments/mux_feedback_study_20261104_155643_522144/INTERPRETATION.md)、[局部消融](../../eda/experiments/mux_default_ablation_20261104_173835_690775/INTERPRETATION.md)、[成对隔离说明](../../eda/experiments/mux_default_ablation_20261104_173835_690775/MECHANISM_NOTE.md)。这些是标准Boolean结构重写，不宣称新逻辑算法。原公开源码的MIT许可证保留在benchmark/rtl_opt_upstream_hkust/LICENSE。

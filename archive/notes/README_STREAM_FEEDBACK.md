@@ -1,6 +1,6 @@
 # 自然流模块模型对照：执行入口已验收
 
-**2026-11-06已执行完成。** [本批实际结果](eda/experiments/stream_feedback_ready_20261106/RESULT_SUMMARY.md)：12次尝试中3份RTL返回、9次通信失败，无重试；三个返回均验证通过但映射为原始网表，没有时序改善。124项核对、两个最终基线独立复跑一致。额度已用完，不能把返回不足造成的持平解释为两方法等效。下文保留执行前准备说明；AUTHORIZATION已由用户明确批准，当前实际请求不再是0。
+**2026-11-06已执行完成。** [本批实际结果](../../eda/experiments/stream_feedback_ready_20261106/RESULT_SUMMARY.md)：12次尝试中3份RTL返回、9次通信失败，无重试；三个返回均验证通过但映射为原始网表，没有时序改善。124项核对、两个最终基线独立复跑一致。额度已用完，不能把返回不足造成的持平解释为两方法等效。下文保留执行前准备说明；AUTHORIZATION已由用户明确批准，当前实际请求不再是0。
 
 当前可执行批次：`eda/experiments/stream_feedback_ready_20261106/`。模型请求0次，AUTHORIZATION.json为PENDING；以前定位实验的12次额度已经用完。当前批次拟两模块×有无STA×3次，共12次，默认请求ID及具体外部目的地以protocol.json为准。
 
@@ -27,7 +27,7 @@
 - 一个仅改变不可观察内部状态的候选触发辅助关系失败，接口证明未完成，正确标为INCOMPLETE；未伪称已证明功能错误或已证明等价。这也保留了当前证明能力的限制。
 - 63项批次和候选证据核对通过。测试项数不是模型样本数；验收中没有API请求。
 
-原始验收：[六项手工候选结果](eda/experiments/stream_candidate_acceptance_20261106_final/SUMMARY.json)、[执行准备核对](eda/experiments/stream_feedback_ready_20261106/READINESS_AUDIT.json)、[10项离线验收](eda/experiments/stream_feedback_ready_20261106/OFFLINE_VALIDATION.json)。早期探针和开发批次分别保留，当前批次冻结了最终代码快照。
+原始验收：[六项手工候选结果](../../eda/experiments/stream_candidate_acceptance_20261106_final/SUMMARY.json)、[执行准备核对](../../eda/experiments/stream_feedback_ready_20261106/READINESS_AUDIT.json)、[10项离线验收](../../eda/experiments/stream_feedback_ready_20261106/OFFLINE_VALIDATION.json)。早期探针和开发批次分别保留，当前批次冻结了最终代码快照。
 
 ## 运行方式
 

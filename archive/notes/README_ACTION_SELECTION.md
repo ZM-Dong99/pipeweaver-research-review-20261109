@@ -2,7 +2,7 @@
 
 主入口新增actions子命令，手动JSON回放不调用API。模型适配器只接受两个动作ID与rationale，经规范化后仍严格校验字段、重复键、动作白名单与规范源码；不会执行模型返回代码。
 
-真实六次请求、原始格式失败、修复后的存档响应重放与全部EDA证据，见[24位结果](eda/experiments/action_selection_N24_20261103_010227_993541/INTERPRETATION.md)。原严格实验与事后修复重放分别保存。本轮六动作空间无严格时序收益，不能据此评价STA是否改善选择。当前修复代码尚未用新的独立请求重新验证，未追加费用。
+真实六次请求、原始格式失败、修复后的存档响应重放与全部EDA证据，见[24位结果](../../eda/experiments/action_selection_N24_20261103_010227_993541/INTERPRETATION.md)。原严格实验与事后修复重放分别保存。本轮六动作空间无严格时序收益，不能据此评价STA是否改善选择。当前修复代码尚未用新的独立请求重新验证，未追加费用。
 
 ## 不收费的本机回放
 
@@ -26,4 +26,4 @@ python -B D:/verilog_lab/PipeWeaver/eda/experiments/audit_action_selection_study
 
 历史审计从code_snapshot加载原严格解析器。live_code_changed_since_freeze会列出已修复的action_selector.py；这是预期的版本差异。旧execute会因代码哈希变化拒绝重跑，不能改旧哈希绕过检查，真实新模型实验需要新协议与新的限定调用授权。
 
-新增输出选择因式分解动作属于单独的事后本地开发，原模型目录不含该动作；其24位主实例面积更小但时序更慢，详见[开发结果](eda/experiments/selector_factoring_development_20261103_170211_609482/INTERPRETATION.md)。
+新增输出选择因式分解动作属于单独的事后本地开发，原模型目录不含该动作；其24位主实例面积更小但时序更慢，详见[开发结果](../../eda/experiments/selector_factoring_development_20261103_170211_609482/INTERPRETATION.md)。

@@ -17,11 +17,11 @@
 
 仍有明确边界：原功能证明依赖RTL逻辑初值，尚未保证任意物理上电后的行为；没有完整独立工艺DRC/LVS、GDS、天线签核、IR压降或电迁移结论。路由器不支持部分LEF58规则，因此0路由器违规不能当完整工艺签核。
 
-- [完整报告与条件](eda/experiments/fcs_cts_pdn_20261107_initial/INTERPRETATION.md)
-- [机器汇总](eda/experiments/fcs_cts_pdn_20261107_initial/SUMMARY.json)
-- [96项审计](eda/experiments/fcs_cts_pdn_20261107_initial/AUDIT.json)
-- [独立STA、连接及供电引脚核对](eda/experiments/fcs_cts_pdn_20261107_initial/VERIFICATION.json)
-- [原始版物理DEF](eda/experiments/fcs_cts_pdn_20261107_initial/baseline/detailed.def) / [优化版物理DEF](eda/experiments/fcs_cts_pdn_20261107_initial/optimized/detailed.def)
-- [原始版SPEF](eda/experiments/fcs_cts_pdn_20261107_initial/baseline/extracted.spef) / [优化版SPEF](eda/experiments/fcs_cts_pdn_20261107_initial/optimized/extracted.spef)
+- [完整报告与条件](../../eda/experiments/fcs_cts_pdn_20261107_initial/INTERPRETATION.md)
+- [机器汇总](../../eda/experiments/fcs_cts_pdn_20261107_initial/SUMMARY.json)
+- [96项审计](../../eda/experiments/fcs_cts_pdn_20261107_initial/AUDIT.json)
+- [独立STA、连接及供电引脚核对](../../eda/experiments/fcs_cts_pdn_20261107_initial/VERIFICATION.json)
+- [原始版物理DEF](../../eda/experiments/fcs_cts_pdn_20261107_initial/baseline/detailed.def) / [优化版物理DEF](../../eda/experiments/fcs_cts_pdn_20261107_initial/optimized/detailed.def)
+- [原始版SPEF](../../eda/experiments/fcs_cts_pdn_20261107_initial/baseline/extracted.spef) / [优化版SPEF](../../eda/experiments/fcs_cts_pdn_20261107_initial/optimized/extracted.spef)
 
 下一步优先处理不依赖物理初值的复位验证，再评估独立DRC/LVS和电源完整性。本轮是已有模型候选的实现迁移验证，不新增模型实验样本。

@@ -18,10 +18,10 @@
 
 此前独立公开DRC仍为两版145类别0违规；填充后重新提取WNS7.13→8.02ns、保持均0.49ns。非filler单元面积降低15.71%，含filler的总占用面积两版相同。原测量和RTL不改。
 
-- [完整解读与独立源码链接](eda/experiments/fcs_bulk_profile_20261108/INTERPRETATION.md)
-- [五项正反例结果](eda/experiments/fcs_bulk_profile_20261108/RESULT.json)
-- [资格审计](eda/experiments/fcs_bulk_profile_20261108/AUDIT.json)
-- [提取配置与适用范围](eda/experiments/fcs_bulk_profile_20261108/protocol.json)
+- [完整解读与独立源码链接](../../eda/experiments/fcs_bulk_profile_20261108/INTERPRETATION.md)
+- [五项正反例结果](../../eda/experiments/fcs_bulk_profile_20261108/RESULT.json)
+- [资格审计](../../eda/experiments/fcs_bulk_profile_20261108/AUDIT.json)
+- [提取配置与适用范围](../../eda/experiments/fcs_bulk_profile_20261108/protocol.json)
 - [复位完整RTL](README_FCS_RESET_COMPLETE.md)
 - [完整GDS与原始独立检查](README_FCS_INDEPENDENT_LAYOUT.md)
 

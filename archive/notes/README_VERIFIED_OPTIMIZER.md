@@ -55,7 +55,7 @@ CRC新处理链基线0.98ns/2502.40µm²，不能换成旧直接展开链0.97ns�
 
 新候选库在benchmark/verified_portfolio_v2_20261107，4个实例、13份候选/参考，记录来源和SHA256。旧三实例库及agents.portfolio_loop不改，旧80次与CRC20次冻结实验依赖保持原样。
 
-[8项真实端到端验收](eda/experiments/verified_optimizer_acceptance_20261107/ACCEPTANCE.md)通过。本次模型调用0次；这些是已有成果的系统集成，不是新增模型样本或泛化实验。
+[8项真实端到端验收](../../eda/experiments/verified_optimizer_acceptance_20261107/ACCEPTANCE.md)通过。本次模型调用0次；这些是已有成果的系统集成，不是新增模型样本或泛化实验。
 
 第一轮验收有一个测试本身用单复数不同的描述字符串判断CRC输出范围而误报；原RESULT.json保留。测试修正为直接检查实际接口位宽和SAT比较电路后，独立REAUDIT.json确认8项通过，没有修改RTL、生产代码或重跑PPA来追数值。
 

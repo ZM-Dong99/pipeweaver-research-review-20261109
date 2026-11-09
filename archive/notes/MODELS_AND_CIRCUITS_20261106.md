@@ -1,16 +1,16 @@
-2026-11-07CRC32新功能真实模型对照完成：新授权20次全部返回、无重试，16份源级/门级/STA/电气及面积资格通过并严格改善，4份实际源级反例被拒绝并由独立Icarus+Python复现。无STA9/10改善、中位0.870ns；STA7/10、中位0.955ns，无STA本轮更好。两组最好均0.84ns/1580.2656µm²，较统一新基线0.98ns/2502.4µm²延迟-14.29%、面积-36.85%，3角色独立复跑一致。322项核对通过，报告180631tokens，20额度耗尽。真实公开CRC组合核有收益，尚非大型系统泛化或STA普遍优势。 [完整CRC结果](eda/experiments/crc_feedback_20_20261107_ready/INTERPRETATION.md)。
+2026-11-07CRC32新功能真实模型对照完成：新授权20次全部返回、无重试，16份源级/门级/STA/电气及面积资格通过并严格改善，4份实际源级反例被拒绝并由独立Icarus+Python复现。无STA9/10改善、中位0.870ns；STA7/10、中位0.955ns，无STA本轮更好。两组最好均0.84ns/1580.2656µm²，较统一新基线0.98ns/2502.4µm²延迟-14.29%、面积-36.85%，3角色独立复跑一致。322项核对通过，报告180631tokens，20额度耗尽。真实公开CRC组合核有收益，尚非大型系统泛化或STA普遍优势。 [完整CRC结果](../../eda/experiments/crc_feedback_20_20261107_ready/INTERPRETATION.md)。
 
 2026-11-07新CRC工程功能资格跟进完成：447行固定公开LFSR源码，CRC32/8位与32位并行输入共两个实例，同属一个新功能家族；传统前端60秒均超时，Slang分别0.134/0.272秒展开。两个源级图与独立逐位CRC精确GF2全输入等价；8位实例完成源级/门级SAT、STA、电气及从原始源码独立重建复现，基线0.97ns/2472.3712µm²/371单元，状态和移出数据翻转均被真实SAT拒绝。32位门级SAT120秒未完成，保留INCOMPLETE，不算合格PPA。传统逐位参考面积-43.98%但延迟+32.99%，不是时序改善。新增模型请求0次，尚无新家族LLM优化结果。 [CRC资格与复现入口](README_CRC_QUALIFICATION.md)。
 
-2026-11-07四种开发电路80次扩样已完成：72份完整RTL、8通信失败（7TLS握手/1接收中断），无重试。72源级/门级等价与STA完成，6电气违规、11面积超限，55份合格严格改善。STA在编码器/选择器/ALU的全槽位中位数较低，地址计算持平；四类单次最好均来自无STA。新最好延迟1.43/0.73/1.83/1.63ns，12个角色独立复跑一致。报告360323tokens，失败计费未知，80额度耗尽。前三类合格改进16/20、19/20、17/20；地址仅3/20，不把开发正例当工程泛化。 [完整结果与新RTL](eda/experiments/expanded_feedback_80_20261107/INTERPRETATION.md)。
+2026-11-07四种开发电路80次扩样已完成：72份完整RTL、8通信失败（7TLS握手/1接收中断），无重试。72源级/门级等价与STA完成，6电气违规、11面积超限，55份合格严格改善。STA在编码器/选择器/ALU的全槽位中位数较低，地址计算持平；四类单次最好均来自无STA。新最好延迟1.43/0.73/1.83/1.63ns，12个角色独立复跑一致。报告360323tokens，失败计费未知，80额度耗尽。前三类合格改进16/20、19/20、17/20；地址仅3/20，不把开发正例当工程泛化。 [完整结果与新RTL](../../eda/experiments/expanded_feedback_80_20261107/INTERPRETATION.md)。
 
 # 已测模型与电路覆盖（2026-11-06）
 
-最新模型实验已扩展到两个自然工程流模块：[12次实际对照结果](eda/experiments/stream_feedback_ready_20261106/RESULT_SUMMARY.md)。gpt-6.1-sol请求别名下仅3份返回、9次通信失败；3份均通过验证但与各自基线门级网表相同，无时序改善。两个组的返回不足，不能评价STA因果优势；本批额度已用完。
+最新模型实验已扩展到两个自然工程流模块：[12次实际对照结果](../../eda/experiments/stream_feedback_ready_20261106/RESULT_SUMMARY.md)。gpt-6.1-sol请求别名下仅3份返回、9次通信失败；3份均通过验证但与各自基线门级网表相同，无时序改善。两个组的返回不足，不能评价STA因果优势；本批额度已用完。
 
 最新契约跟进：[无上电初值假设的有效接口验证](README_STREAM_RESET_CONTRACT.md)已完成。两个工程模块源级/门级证明和12项正反例通过，仅ready/valid与有效keep字节等接口观察一致；不替代旧全引脚契约。下一轮两模块、两反馈条件、拟12次的提示与顺序已准备，尚无新模型请求。
 
-最新跟进：两个自然工程模块已在显式逻辑初态和统一使能展开映射下取得条件基线资格：axis_adapter WNS8.83ns、axis_register WNS8.71ns，均完整源级/门级证明与电气通过。8项正反例验收、69项证据核对通过，零模型请求。FIFO仍不支持，物理上电初值仍未验证；原0/3严格失败记录保持。见[新后端及复现](README_INITIALIZED_STREAMS.md)和[最终条件结果](eda/experiments/stream_initialized_controls_20261106/INTERPRETATION.md)。
+最新跟进：两个自然工程模块已在显式逻辑初态和统一使能展开映射下取得条件基线资格：axis_adapter WNS8.83ns、axis_register WNS8.71ns，均完整源级/门级证明与电气通过。8项正反例验收、69项证据核对通过，零模型请求。FIFO仍不支持，物理上电初值仍未验证；原0/3严格失败记录保持。见[新后端及复现](README_INITIALIZED_STREAMS.md)和[最终条件结果](../../eda/experiments/stream_initialized_controls_20261106/INTERPRETATION.md)。
 
 已从保存的请求与生成记录中核对到两个实际使用的请求模型ID，没有证据支持更多种模型已完成测试。
 
@@ -21,7 +21,7 @@
 
 这不是两模型在相同电路、提示、映射、预算和网络条件下的统一比较，不能据历史最好结果排名。固定模板、约束搜索、STA端点规则、Yosys和Z3不是额外LLM模型。
 
-机器可读[记录清单](eda/experiments/MODEL_COVERAGE_20261106.json)区分请求和生成记录，并列出实际文件来源。记录条数可能重叠或包含离线重放副本；请求记录不保证服务器成功收到。故不把这些条数加成全项目独立调用数或账单。
+机器可读[记录清单](../../eda/experiments/MODEL_COVERAGE_20261106.json)区分请求和生成记录，并列出实际文件来源。记录条数可能重叠或包含离线重放副本；请求记录不保证服务器成功收到。故不把这些条数加成全项目独立调用数或账单。
 
 ## 电路需要扩展，而且应按功能扩展
 
@@ -45,9 +45,9 @@
 
 特别是FIFO错误文本“Clock used as data or derived clock”来自当前检查器只允许$dff的CLK针脚；实际schema含$memwr_v2/$memrd。它表示后端不支持该存储结构，并非已经证明源码使用错误派生时钟。缓冲自比较的归纳深度不足也不是功能反例。
 
-位宽转换的独立诊断已定位到初始化传递问题：mapped.json有11处、53位初始化属性，导出的结构mapped.v没有initial块或带初始化的reg。只在独立诊断脚本中恢复这些原有属性后，映射后完整归纳证明通过。原始源码、网表和失败成绩均未替换。它说明保持逻辑初态能消除本次反例，不证明标准单元具有物理上电初值，也不是新的合格PPA。见[诊断协议和证明](eda/experiments/stream_baseline_qualification_20261106/stream_pack8to32/initialization_diagnostic/RESULT.json)。
+位宽转换的独立诊断已定位到初始化传递问题：mapped.json有11处、53位初始化属性，导出的结构mapped.v没有initial块或带初始化的reg。只在独立诊断脚本中恢复这些原有属性后，映射后完整归纳证明通过。原始源码、网表和失败成绩均未替换。它说明保持逻辑初态能消除本次反例，不证明标准单元具有物理上电初值，也不是新的合格PPA。见[诊断协议和证明](../../eda/experiments/stream_baseline_qualification_20261106/stream_pack8to32/initialization_diagnostic/RESULT.json)。
 
-原始结果：[三模块基线报告](eda/experiments/stream_baseline_qualification_20261106/SUMMARY.md)、[协议](eda/experiments/stream_baseline_qualification_20261106/protocol.json)、[源码来源](benchmark/engineering_sources_20261106/PROVENANCE.json)。所有旧基准和模型成绩保持原记录。
+原始结果：[三模块基线报告](../../eda/experiments/stream_baseline_qualification_20261106/SUMMARY.md)、[协议](../../eda/experiments/stream_baseline_qualification_20261106/protocol.json)、[源码来源](../../benchmark/engineering_sources_20261106/PROVENANCE.json)。所有旧基准和模型成绩保持原记录。
 
 ## 接下来收敛的顺序
 

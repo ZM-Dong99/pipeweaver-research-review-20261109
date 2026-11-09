@@ -2,7 +2,7 @@
 
 后续已完成[候选与模型执行入口验收](README_STREAM_FEEDBACK.md)：新基线adapter WNS8.87ns、skid8.71ns，10项离线检查、6项真实手工候选分类及63项核对完成。新批次已冻结，等待新的明确授权；本轮API0次。
 
-最新结果：[12项正反例与全部限制](eda/experiments/stream_reset_contract_20261106_reachable/INTERPRETATION.md)。这是一份新的接口观察契约，保留所有此前全引脚严格比较和声明初值模型的成绩。
+最新结果：[12项正反例与全部限制](../../eda/experiments/stream_reset_contract_20261106_reachable/INTERPRETATION.md)。这是一份新的接口观察契约，保留所有此前全引脚严格比较和声明初值模型的成绩。
 
 已验证的固定实例为axis_register（32位、REG_TYPE=2）和axis_adapter（8→32位）。两份源RTL、两份实际映射网表均删除所有init属性，初始状态独立任意，仅首个时钟采样点复位。从第二个采样点起，ready/valid始终相等；有效输出的keep、last、id、dest、user相等；data只比较valid=1且tkeep=1的字节。没有假设输入遵守背压，也允许之后任意重新复位。
 
@@ -26,6 +26,6 @@ python -B eda/experiments/validate_stream_reset_contract.py --out eda/experiment
 
 ## 下一轮工程模块对照准备
 
-[设计协议和四份提示](eda/experiments/stream_feedback_preparation_20261106/protocol.json)已经生成：两模块×有无STA×3次，拟12次独立请求。同一原始源码、固定参数、复位/valid/keep契约、统一使能展开映射及110%基线面积上限，STA组只增加实际基线路径。
+[设计协议和四份提示](../../eda/experiments/stream_feedback_preparation_20261106/protocol.json)已经生成：两模块×有无STA×3次，拟12次独立请求。同一原始源码、固定参数、复位/valid/keep契约、统一使能展开映射及110%基线面积上限，STA组只增加实际基线路径。
 
 准备阶段调用0次；上一轮定位的12次授权额度已用完，不能复用。新任务尚需任意候选验证接入、请求中断保护与统一格式处理的执行验收，再在新的明确预算与外发授权下调用。第二模型复核尚未执行，必须使用相同电路与协议，不能根据首轮好坏再挑配置。

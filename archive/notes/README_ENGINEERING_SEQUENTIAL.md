@@ -1,6 +1,6 @@
 # 多模块、参数化时序设计入口
 
-已完成结果：[工程仲裁器验证](eda/experiments/engineering_arbiter_validation_20261102_201724_713244/SUMMARY.md)。本轮没有模型请求。
+已完成结果：[工程仲裁器验证](../../eda/experiments/engineering_arbiter_validation_20261102_201724_713244/SUMMARY.md)。本轮没有模型请求。
 
 先在PowerShell进入项目：
 

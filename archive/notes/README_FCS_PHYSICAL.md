@@ -17,12 +17,12 @@ WNS改善0.77ns，单元面积降低19.04%。两版核心尺寸相同，不能�
 
 **范围：理想时钟下的详细信号布线验证。** 尚无CTS、PDN或物理上电保证。路由器警告部分LEF58规则不受支持，0条路由器违规不代表完整工艺DRC/LVS签核。原功能证明仍保留RTL逻辑初值条件。一次固定布局和种子也不代表跨布局或跨工艺泛化。
 
-- [完整解读、实现条件和失败记录](eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/INTERPRETATION.md)
-- [机器结果](eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/SUMMARY.json)
-- [审计](eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/AUDIT.json)
-- [独立OpenSTA](eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/INDEPENDENT_STA.json)
-- [基线布线DEF](eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/baseline/detailed.def) / [优化版DEF](eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/optimized/detailed.def)
-- [基线SPEF](eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/baseline/extracted.spef) / [优化版SPEF](eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/optimized/extracted.spef)
+- [完整解读、实现条件和失败记录](../../eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/INTERPRETATION.md)
+- [机器结果](../../eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/SUMMARY.json)
+- [审计](../../eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/AUDIT.json)
+- [独立OpenSTA](../../eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/INDEPENDENT_STA.json)
+- [基线布线DEF](../../eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/baseline/detailed.def) / [优化版DEF](../../eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/optimized/detailed.def)
+- [基线SPEF](../../eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/baseline/extracted.spef) / [优化版SPEF](../../eda/experiments/fcs_physical_20261107_detailed_empty_supply_fix/optimized/extracted.spef)
 
 本轮补齐项目隔离OpenROAD安装及固定公开SKY130HD物理平台，未安装或升级系统软件包。既有模型实验和验证后端不改。
 

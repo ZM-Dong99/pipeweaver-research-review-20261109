@@ -44,4 +44,4 @@ python -B eda/experiments/validate_sequential_backend.py --out eda/experiments/m
 
 `--reset-cycles 3 --reset reset --warmup 4` 表示前三个采样点复位有效，从第5个采样点开始比较输出；复位在前三点以后任意。默认reset-cycles仍为1，无reset时没有复位假设。reset-cycles必须为正且不大于warmup；多次复位必须指定reset。此条件必须在生成候选之前固定，不能按候选修改。
 
-[新增真实运行与限制](eda/experiments/SEQUENTIAL_PROGRESS_20261102.md)。MAC仅一次复位的失败保留，三次复位通过是独立新契约的结论，不替代原始结果。
+[新增真实运行与限制](../../eda/experiments/SEQUENTIAL_PROGRESS_20261102.md)。MAC仅一次复位的失败保留，三次复位通过是独立新契约的结论，不替代原始结果。

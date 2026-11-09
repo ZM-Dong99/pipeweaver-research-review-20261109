@@ -18,10 +18,10 @@
 
 证明保留原始RTL的逻辑初值，比较所有34位输出，包括无效期间的校验值；原始校验值寄存器没有复位赋值，因此本结果不等于任意上电状态下的复位后全输出保证。使用SKY130HD TT和前布局单元时序，没有寄生或物理签核。
 
-- [完整结果、来源和适用条件](eda/experiments/ethernet_fcs_integration_20261107_safe_names/INTERPRETATION.md)
-- [已验证固定参数RTL](eda/experiments/ethernet_fcs_integration_20261107_safe_names/exports/best.v)
-- [原始基线RTL](eda/experiments/ethernet_fcs_integration_20261107_safe_names/exports/baseline.v)
-- [机器审计](eda/experiments/ethernet_fcs_integration_20261107_safe_names/AUDIT.json)
-- [独立复跑和仿真](eda/experiments/ethernet_fcs_integration_20261107_safe_names/independent_verification/RESULT.json)
+- [完整结果、来源和适用条件](../../eda/experiments/ethernet_fcs_integration_20261107_safe_names/INTERPRETATION.md)
+- [已验证固定参数RTL](../../eda/experiments/ethernet_fcs_integration_20261107_safe_names/exports/best.v)
+- [原始基线RTL](../../eda/experiments/ethernet_fcs_integration_20261107_safe_names/exports/baseline.v)
+- [机器审计](../../eda/experiments/ethernet_fcs_integration_20261107_safe_names/AUDIT.json)
+- [独立复跑和仿真](../../eda/experiments/ethernet_fcs_integration_20261107_safe_names/independent_verification/RESULT.json)
 
 这是已有候选的工程迁移验证，不是新模型样本；不增加CRC20次实验分母。下一步应比较布局布线后的物理收益，并明确实际产品的复位契约。
