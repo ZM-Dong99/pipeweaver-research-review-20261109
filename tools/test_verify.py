@@ -1,6 +1,6 @@
 """Focused negative controls for the reviewer verifier."""
 import importlib.util
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import tempfile
 import unittest
 
@@ -22,6 +22,8 @@ class ReviewerControls(unittest.TestCase):
             self.assertTrue(verify.manifest_errors(root, [entry]))
 
     def test_path_escape_rejected(self):
+        self.assertEqual(verify.archived_path(PurePosixPath('/review'), 'dir\\file.json'),
+                         PurePosixPath('/review/dir/file.json'))
         with tempfile.TemporaryDirectory() as temporary:
             errors = verify.manifest_errors(Path(temporary), [dict(path='../outside.txt', bytes=0, sha256='unused')])
             self.assertTrue(errors)

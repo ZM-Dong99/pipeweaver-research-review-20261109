@@ -17,6 +17,10 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def archived_path(root, value):
+    return root / value.replace('\\', '/')
+
+
 def accepted(metrics, baseline):
     fields = ('max_data_arrival_ns', 'mapped_area_um2', 'tns_ns')
     valid = (metrics.get('status') == 'PASS'
@@ -88,7 +92,7 @@ def verify(root):
                 calculated[(case, row['arm'])] += int(verdict)
                 retained.setdefault((case, row['arm']), []).append(delay)
             if verdict:
-                evaluation = folder / row['evaluation'] if 'evaluation' in row else folder / 'trials' / f'call_{row["index"]:03d}' / 'evaluation'
+                evaluation = archived_path(folder, row['evaluation']) if 'evaluation' in row else folder / 'trials' / f'call_{row["index"]:03d}' / 'evaluation'
                 measured_folder = evaluation / 'eda' if case == 'crc32_d8' else evaluation
                 for label in ('formal', 'mapped_formal'):
                     log = measured_folder / (label + '.log')
@@ -132,7 +136,7 @@ def verify(root):
     ledger = read(root / 'output/hnu_midterm_form_20261109/ALL_VERIFIED_RESPONSE_LEDGER.json')
     ids = set()
     for item in ledger['responses']:
-        path = root / item['paths'][0]
+        path = archived_path(root, item['paths'][0])
         response = read(path)
         check('Response ID source ' + item['paths'][0], (response['model'], response['id']) == (item['model'], item['id']))
         ids.add((response['model'], response['id']))
