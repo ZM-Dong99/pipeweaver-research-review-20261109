@@ -1,13 +1,15 @@
-# PipeWeaver 研究核查仓库
+# PipeWeaver STA指导RTL优化研究
 
-资料截至2026年11月9日。本仓库是面向老师核查的整理快照，Git初始提交对应审阅材料整理时间。各实验的协议、调用记录、代码快照和工具日志提供研究过程记录。
+实验资料截止2026年11月9日，STA主线整理更新于11月10日。本仓库是面向老师核查的整理快照，Git初始提交对应审阅材料整理时间。各实验的协议、调用记录、代码快照和工具日志提供研究过程记录。
 
 ## 建议阅读顺序
 
-1. [结论总汇](CONCLUSIONS.md)包含已成立的正向结果、反例、适用范围与口径修正。
-2. [37项结论索引](CLAIMS.json)把每项结论关联到原始证据及SHA-256。
+1. [STA主线汇报](STA_REPORT.md)重点展示STA组相对原始RTL的合格优化。优先编码器和ALU的代表性延迟分别降低42.69%与39.34%，选择器、译码器和CRC还同时降低面积。
+2. [STA案例与代码索引](STA_CASES.json)逐项绑定STA候选、模型调用名称、原始基线和测量结果。完整研究材料通过[37项结论索引](CLAIMS.json)关联。
 3. [最新144次结果](eda/experiments/multicircuit_feedback_144_20261109/INTERPRETATION.md)区分120次对照和24次依赖续轮。
 4. [FCS最终物理指标](eda/experiments/fcs_filled_layout_20261108/PRESERVATION.json)及[具名LVS结果](eda/experiments/fcs_bulk_profile_20261108/RESULT.json)提供工程证据。
+
+[完整研究记录](CONCLUSIONS.md)按批次保存全部分组结果及口径说明。
 
 ## 第一层检查
 
@@ -21,7 +23,7 @@ python tools/verify.py
 
 ## 第二层检查
 
-[EDA复跑说明](REPRODUCE.md)提供8个固定组合实例的原始与最佳候选重测入口。新运行写入独立runs目录，实际调用本地Yosys、Slang和WSL OpenSTA，使用者提供相同哈希的Liberty及已安装工具。
+[EDA复跑说明](REPRODUCE.md)提供STA汇报案例及完整研究代表性实例的原始与候选重测入口。新运行写入独立runs目录，实际调用本地Yosys、Slang和WSL OpenSTA，使用者提供相同哈希的Liberty及已安装工具。
 
 ## 归档范围
 
@@ -38,3 +40,7 @@ python tools/verify.py
 ## 整理环境实际验收
 
 审阅包已完成37项结论核对。3个核查器负例测试通过。由本仓库复测的8组原始/候选共16次本地EDA均通过，面积、延迟及TNS与冻结值一致，模型调用数为0，见[实际复测记录](ACCEPTANCE_REPRODUCTION.json)。`.gitattributes`固定保留原始文件字节和换行。历史说明按各自日期阅读，当前结论入口为本仓库总汇与结论索引。
+
+## STA主线独立复测
+
+2026年11月10日新增7组STA案例的14次本地EDA复测，全部证明、时序及电气检查通过，冻结指标一致。模型调用数为0，见[STA复测记录](STA_REPRODUCTION.json)。

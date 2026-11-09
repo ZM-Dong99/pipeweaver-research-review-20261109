@@ -24,10 +24,11 @@ def sha(path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--case', default='comparator16')
+    parser.add_argument('--registry', type=Path, default=Path('REVIEW_CASES.json'))
     parser.add_argument('--liberty', type=Path, required=True)
     parser.add_argument('--out', type=Path)
     args = parser.parse_args()
-    registry = load(ROOT / 'REVIEW_CASES.json')
+    registry = load(ROOT / args.registry)
     cases = registry['cases'] if args.case == 'all' else [c for c in registry['cases'] if c['id'] == args.case]
     if not cases:
         parser.error('Unknown case. Choose all or ' + ', '.join(c['id'] for c in registry['cases']))
@@ -77,7 +78,8 @@ def main():
         rows.append(dict(case=case['id'], proofs_and_ppa_passed=passed, exact_metrics_match=exact, measured=measured))
         print(case['id'], 'proofs_and_ppa=' + str(passed), 'exact_metrics=' + str(exact), flush=True)
     result = dict(passed=all(r['proofs_and_ppa_passed'] and r['exact_metrics_match'] for r in rows),
-                  model_calls=0, scope='Eight fixed combinational instances, freshly measured in a new directory', checks=rows)
+                  model_calls=0, scope='Selected fixed combinational instances, freshly measured in a new directory',
+                  registry=str(args.registry), checks=rows)
     (output / 'REPRODUCTION.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
     print('Saved ' + str(output / 'REPRODUCTION.json'))
     return 0 if result['passed'] else 1

@@ -8,7 +8,16 @@ python tools/verify.py
 
 无需密钥。当前整理环境会实际运行该命令并归档其输出。
 
-## 八个代表性组合实例
+## STA汇报案例复跑
+
+STA_CASES.json绑定7组真实STA候选，包括优先编码器、ALU、选择器、译码器、CRC、乘法器和补充地址计算实例。
+
+```powershell
+python tools/reproduce.py --registry STA_CASES.json --case alu64 --liberty D:/path/to/sky130_fd_sc_hd__tt_025C_1v80.lib
+python tools/reproduce.py --registry STA_CASES.json --case all --liberty D:/path/to/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+
+## 完整研究的八个代表性组合实例
 
 实例和原始/候选SHA-256记录在REVIEW_CASES.json，包含priority256、mux10x8、alu64、addr128、crc32_d8、comparator16、decoder8和multiply8。
 

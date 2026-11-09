@@ -67,6 +67,7 @@ def verify(root):
              ('crc_feedback_20_20261107_ready', 20, 16, True),
              ('multicircuit_feedback_144_20261109', 144, 76, False)]
     totals = Counter()
+    sta_totals = Counter()
     latest = None
     latest_rows = None
     for name, expected_n, expected_improved, crc in specs:
@@ -85,6 +86,11 @@ def verify(root):
             baseline = cases[case]['baseline']
             measured = row.get('metrics', {})
             verdict = accepted(measured, baseline)
+            if row['arm'] == 'sta':
+                if row.get('round', 1) == 1:
+                    sta_totals.update(primary_attempts=1, primary_qualified=int(verdict))
+                else:
+                    sta_totals.update(dependent_followups=1, followup_qualified=int(verdict))
             check(name + f' call{row["index"]} accepted', verdict == row['improved'])
             delay = measured['max_data_arrival_ns'] if verdict else baseline['max_data_arrival_ns']
             check(name + f' call{row["index"]} retained', abs(delay - row['retained_delay_ns']) < 1e-9)
@@ -120,6 +126,29 @@ def verify(root):
         further[row['arm']] += int(row['retained_delay_ns'] < parent['retained_delay_ns'])
     check('Twenty-four dependent followups', len(followups) == 24)
     check('Further improvements5 per arm', further == Counter(no_sta=5, sta=5))
+    sta_registry_path = root / 'STA_CASES.json'
+    if sta_registry_path.exists():
+        sta_registry = read(sta_registry_path)
+        check('Seven bound STA report cases', len(sta_registry['cases']) == 7)
+        for case in sta_registry['cases']:
+            source_record = read(archived_path(root, case['result_path']))
+            row = (next(r for r in source_record['trials'] if r['index'] == case['call'])
+                   if 'trials' in source_record else source_record)
+            label = 'STA report ' + case['id']
+            check(label + ' actual arm and identity', row['arm'] == case['arm'] == 'sta'
+                  and row['index'] == case['call'] and row.get('case', 'crc32_d8') == case['id'])
+            check(label + ' original qualified selection', row['improved'] is True)
+            check(label + ' bound candidate hash', row['rtl_sha256'] == case['candidate']['sha256'])
+            for role in ('baseline', 'candidate'):
+                path = archived_path(root, case[role]['path'])
+                check(label + ' ' + role + ' source', path.is_file() and digest(path) == case[role]['sha256'])
+            check(label + ' exact reported metrics', all(
+                abs(case['candidate']['expected'][k] - row['metrics'][k]) < 1e-9
+                for k in ('max_data_arrival_ns', 'mapped_area_um2', 'tns_ns')))
+            check(label + ' qualified against stated baseline', accepted(row['metrics'], case['baseline']['expected']))
+        for key, value in sta_totals.items():
+            check('STA total ' + key, sta_registry['recent_sta_slots'][key] == value)
+        check('STA further retained gains', sta_registry['recent_sta_slots']['further_retained_improvements'] == further['sta'])
     recorded = read(latest / 'ANALYSIS.json')
     check('Latest exhaustive outcome classification', sum(recorded['categories'].values()) == 144)
     for rel in ('AUDIT.json', 'definedness_checks/AUDIT.json', 'independent_reproduction_final/AUDIT.json'):
