@@ -1,0 +1,1225 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\systematic_engineering_20261116_v3\calls\request_037\evaluation\mapping.ys' --
+
+1. Executing Liberty frontend: D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v' to AST representation.
+Generating RTLIL representation for module `\pw_block_prefix_add'.
+Generating RTLIL representation for module `\pw_alu'.
+Generating RTLIL representation for module `\pw_pipeline_alu'.
+Successfully finished Verilog frontend.
+Parameter \STAGES = 3
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_pipeline_alu'.
+Parameter \STAGES = 3
+Generating RTLIL representation for module `$paramod\pw_pipeline_alu\STAGES=s32'00000000000000000000000000000011'.
+Parameter \WIDTH = 32
+
+4. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_pipeline_alu'.
+Parameter \WIDTH = 32
+Generating RTLIL representation for module `$paramod\pw_pipeline_alu\WIDTH=s32'00000000000000000000000000100000'.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     \pw_alu
+Used module:         \pw_block_prefix_add
+Parameter \WIDTH = 64
+
+5.2. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_block_prefix_add'.
+Parameter \WIDTH = 64
+Generating RTLIL representation for module `$paramod\pw_block_prefix_add\WIDTH=s32'00000000000000000000000001000000'.
+Parameter \WIDTH = 32
+
+5.3. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_alu'.
+Parameter \WIDTH = 32
+Generating RTLIL representation for module `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000'.
+
+5.4. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000
+Used module:         \pw_block_prefix_add
+Parameter \WIDTH = 32
+
+5.5. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_block_prefix_add'.
+Parameter \WIDTH = 32
+Generating RTLIL representation for module `$paramod\pw_block_prefix_add\WIDTH=s32'00000000000000000000000000100000'.
+
+5.6. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000
+Used module:         $paramod\pw_block_prefix_add\WIDTH=s32'00000000000000000000000000100000
+
+5.7. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000
+Used module:         $paramod\pw_block_prefix_add\WIDTH=s32'00000000000000000000000000100000
+Removing unused module `$paramod\pw_block_prefix_add\WIDTH=s32'00000000000000000000000001000000'.
+Removing unused module `\pw_alu'.
+Removing unused module `\pw_block_prefix_add'.
+Removed 3 unused modules.
+
+6. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.
+Deleting now unused module $paramod\pw_block_prefix_add\WIDTH=s32'00000000000000000000000000100000.
+<suppressed ~2 debug messages>
+
+7. Executing SYNTH pass.
+
+7.1. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1.1. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+
+7.1.2. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Removed 0 unused modules.
+
+7.2. Executing PROC pass (convert processes to netlists).
+
+7.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+7.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $flatten\alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:80$1464 in module pw_pipeline_alu.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:109$473 in module pw_pipeline_alu.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:139$474 in module pw_pipeline_alu.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:139$475 in module pw_pipeline_alu.
+Removed a total of 0 dead cases.
+
+7.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 8 redundant assignments.
+Promoted 69 assignments to connections.
+
+7.2.4. Executing PROC_INIT pass (extract init attributes).
+
+7.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+7.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~4 debug messages>
+
+7.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:80$1464'.
+     1/1: $flatten\alu.$1\sum[31:0]
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1918'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1915'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1913'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1910'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1908'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1905'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1903'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1900'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1899'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1898'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1897'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1896'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1895'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1894'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1893'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1892'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1890'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1887'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1885'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1882'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1880'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1877'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1875'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1872'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1870'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1867'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1865'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1862'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1861'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1860'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1859'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1858'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1856'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1853'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1851'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1848'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1846'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1843'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1841'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1838'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1836'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1833'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1831'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1828'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1826'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1823'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1822'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1821'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1811'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1807'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1797'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1793'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1783'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1779'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1769'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1765'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1755'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1751'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1741'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1737'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1727'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1723'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1713'.
+Creating decoders for process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1709'.
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:109$473'.
+     1/4: $0\input_valid[0:0]
+     2/4: $0\opcode[2:0]
+     3/4: $0\operand_b[31:0]
+     4/4: $0\operand_a[31:0]
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:139$474'.
+     1/2: $0\output_pipeline[0].valid_reg[0:0]
+     2/2: $0\output_pipeline[0].data_reg[31:0]
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:139$475'.
+     1/2: $0\output_pipeline[1].valid_reg[0:0]
+     2/2: $0\output_pipeline[1].data_reg[31:0]
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:148$476'.
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:149$477'.
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:148$478'.
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:149$479'.
+
+7.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\pw_pipeline_alu.\alu.sum' from process `\pw_pipeline_alu.$flatten\alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:80$1464'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[3] [7]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1918'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[3] [7]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1915'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[3] [6]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1913'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[3] [6]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1910'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[3] [5]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1908'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[3] [5]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1905'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[3] [4]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1903'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[3] [4]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1900'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[3] [3]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1899'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[3] [3]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1898'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[3] [2]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1897'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[3] [2]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1896'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[3] [1]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1895'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[3] [1]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1894'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[3] [0]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1893'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[3] [0]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1892'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[2] [7]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1890'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[2] [7]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1887'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[2] [6]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1885'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[2] [6]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1882'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[2] [5]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1880'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[2] [5]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1877'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[2] [4]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1875'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[2] [4]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1872'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[2] [3]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1870'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[2] [3]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1867'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[2] [2]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1865'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[2] [2]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1862'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[2] [1]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1861'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[2] [1]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1860'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[2] [0]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1859'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[2] [0]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1858'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[1] [7]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1856'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[1] [7]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1853'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[1] [6]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1851'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[1] [6]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1848'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[1] [5]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1846'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[1] [5]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1843'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[1] [4]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1841'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[1] [4]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1838'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[1] [3]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1836'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[1] [3]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1833'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[1] [2]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1831'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[1] [2]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1828'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[1] [1]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1826'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[1] [1]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1823'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[1] [0]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1822'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[1] [0]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1821'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[0] [7]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1811'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[0] [7]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1807'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[0] [6]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1797'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[0] [6]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1793'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[0] [5]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1783'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[0] [5]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1779'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[0] [4]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1769'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[0] [4]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1765'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[0] [3]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1755'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[0] [3]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1751'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[0] [2]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1741'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[0] [2]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1737'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[0] [1]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1727'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[0] [1]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1723'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bg[0] [0]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1713'.
+No latch inferred for signal `\pw_pipeline_alu.\alu.arithmetic.bp[0] [0]' from process `\pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1709'.
+No latch inferred for signal `\pw_pipeline_alu.\stage_data[0]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:148$476'.
+No latch inferred for signal `\pw_pipeline_alu.\stage_valid[0]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:149$477'.
+No latch inferred for signal `\pw_pipeline_alu.\stage_data[1]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:148$478'.
+No latch inferred for signal `\pw_pipeline_alu.\stage_valid[1]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:149$479'.
+
+7.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\pw_pipeline_alu.\operand_a' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:109$473'.
+  created $dff cell `$procdff$1953' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\operand_b' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:109$473'.
+  created $dff cell `$procdff$1954' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\opcode' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:109$473'.
+  created $dff cell `$procdff$1955' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\input_valid' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:109$473'.
+  created $dff cell `$procdff$1956' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[0].data_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:139$474'.
+  created $dff cell `$procdff$1957' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[0].valid_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:139$474'.
+  created $dff cell `$procdff$1958' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[1].data_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:139$475'.
+  created $dff cell `$procdff$1959' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[1].valid_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:139$475'.
+  created $dff cell `$procdff$1960' with positive edge clock.
+
+7.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+7.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\pw_pipeline_alu.$flatten\alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:80$1464'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:80$1464'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1918'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1915'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1913'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1910'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1908'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1905'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1903'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1900'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1899'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1898'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1897'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1896'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1895'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1894'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1893'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1892'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1890'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1887'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1885'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1882'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1880'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1877'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1875'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1872'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1870'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1867'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1865'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1862'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1861'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1860'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1859'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1858'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1856'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1853'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1851'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1848'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1846'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1843'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1841'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1838'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1836'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1833'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1831'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1828'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:39$1826'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:38$1823'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:42$1822'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:41$1821'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1811'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1807'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1797'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1793'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1783'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1779'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1769'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1765'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1755'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1751'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1741'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1737'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1727'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1723'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:30$1713'.
+Removing empty process `pw_pipeline_alu.$flatten\alu.\arithmetic.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:29$1709'.
+Found and cleaned up 1 empty switch in `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:109$473'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:109$473'.
+Found and cleaned up 1 empty switch in `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:139$474'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:139$474'.
+Found and cleaned up 1 empty switch in `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:139$475'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:139$475'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:148$476'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:149$477'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:148$478'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/candidate.v:149$479'.
+Cleaned up 4 empty switches.
+
+7.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+<suppressed ~1 debug messages>
+
+7.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+
+7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_pipeline_alu..
+Removed 24 unused cells and 284 unused wires.
+<suppressed ~25 debug messages>
+
+7.5. Executing CHECK pass (checking for obvious problems).
+Checking module pw_pipeline_alu...
+Found and reported 0 problems.
+
+7.6. Executing OPT pass (performing simple optimizations).
+
+7.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+
+7.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_pipeline_alu'.
+Computing hashes of 397 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Computing hashes of 373 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Computing hashes of 366 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+<suppressed ~93 debug messages>
+Removed a total of 31 cells.
+
+7.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_pipeline_alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+7.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_pipeline_alu.
+Performed a total of 0 changes.
+
+7.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_pipeline_alu'.
+Computing hashes of 366 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Removed a total of 0 cells.
+
+7.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_pipeline_alu..
+Removed 0 unused cells and 29 unused wires.
+<suppressed ~1 debug messages>
+
+7.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+
+7.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_pipeline_alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+7.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_pipeline_alu.
+Performed a total of 0 changes.
+
+7.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_pipeline_alu'.
+Computing hashes of 366 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Removed a total of 0 cells.
+
+7.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_pipeline_alu..
+
+7.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+
+7.6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+7.7. Executing FSM pass (extract and optimize FSM).
+
+7.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+7.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+7.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+7.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_pipeline_alu..
+
+7.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+7.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+7.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+7.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+7.8. Executing OPT pass (performing simple optimizations).
+
+7.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+
+7.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_pipeline_alu'.
+Computing hashes of 366 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Removed a total of 0 cells.
+
+7.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_pipeline_alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+7.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_pipeline_alu.
+Performed a total of 0 changes.
+
+7.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_pipeline_alu'.
+Computing hashes of 366 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Removed a total of 0 cells.
+
+7.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$1960 ($dff) from module pw_pipeline_alu (D = \output_pipeline[0].valid_reg, Q = \output_pipeline[1].valid_reg, rval = 1'0).
+Adding SRST signal on $procdff$1959 ($dff) from module pw_pipeline_alu (D = \output_pipeline[0].data_reg, Q = \output_pipeline[1].data_reg, rval = 0).
+Adding SRST signal on $procdff$1958 ($dff) from module pw_pipeline_alu (D = \input_valid, Q = \output_pipeline[0].valid_reg, rval = 1'0).
+Adding SRST signal on $procdff$1957 ($dff) from module pw_pipeline_alu (D = \alu.sum, Q = \output_pipeline[0].data_reg, rval = 0).
+Adding SRST signal on $procdff$1956 ($dff) from module pw_pipeline_alu (D = \in_valid, Q = \input_valid, rval = 1'0).
+Adding SRST signal on $procdff$1955 ($dff) from module pw_pipeline_alu (D = \Oper, Q = \opcode, rval = 3'000).
+Adding SRST signal on $procdff$1954 ($dff) from module pw_pipeline_alu (D = \b, Q = \operand_b, rval = 0).
+Adding SRST signal on $procdff$1953 ($dff) from module pw_pipeline_alu (D = \a, Q = \operand_a, rval = 0).
+
+7.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_pipeline_alu..
+Removed 8 unused cells and 8 unused wires.
+<suppressed ~9 debug messages>
+
+7.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+
+7.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_pipeline_alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+7.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_pipeline_alu.
+Performed a total of 0 changes.
+
+7.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_pipeline_alu'.
+Computing hashes of 358 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Removed a total of 0 cells.
+
+7.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_pipeline_alu..
+
+7.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+
+7.8.16. Finished fast OPT passes. (There is nothing left to do.)
+
+7.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 3) from port B of cell pw_pipeline_alu.$procmux$1927_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell pw_pipeline_alu.$procmux$1928_CMP1 ($eq).
+Removed top 1 bits (of 3) from port B of cell pw_pipeline_alu.$procmux$1928_CMP2 ($eq).
+
+7.10. Executing PEEPOPT pass (run peephole optimizers).
+
+7.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_pipeline_alu..
+
+7.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module pw_pipeline_alu:
+  created 0 $alu and 0 $macc cells.
+
+7.13. Executing SHARE pass (SAT-based resource sharing).
+
+7.14. Executing OPT pass (performing simple optimizations).
+
+7.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+
+7.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_pipeline_alu'.
+Computing hashes of 358 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Removed a total of 0 cells.
+
+7.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_pipeline_alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+7.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_pipeline_alu.
+Performed a total of 0 changes.
+
+7.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_pipeline_alu'.
+Computing hashes of 358 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Removed a total of 0 cells.
+
+7.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_pipeline_alu..
+
+7.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+
+7.14.9. Finished fast OPT passes. (There is nothing left to do.)
+
+7.15. Executing MEMORY pass.
+
+7.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+7.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+7.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+7.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+7.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+7.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_pipeline_alu..
+
+7.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+7.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+7.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_pipeline_alu..
+
+7.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+7.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_pipeline_alu..
+
+7.17. Executing OPT pass (performing simple optimizations).
+
+7.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+<suppressed ~10 debug messages>
+
+7.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_pipeline_alu'.
+Computing hashes of 358 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Removed a total of 0 cells.
+
+7.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_pipeline_alu..
+
+7.17.5. Finished fast OPT passes.
+
+7.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+7.19. Executing OPT pass (performing simple optimizations).
+
+7.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+
+7.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_pipeline_alu'.
+Computing hashes of 358 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Removed a total of 0 cells.
+
+7.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_pipeline_alu..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+7.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_pipeline_alu.
+Performed a total of 0 changes.
+
+7.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_pipeline_alu'.
+Computing hashes of 358 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Removed a total of 0 cells.
+
+7.19.6. Executing OPT_SHARE pass.
+
+7.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_pipeline_alu..
+
+7.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+
+7.19.10. Finished fast OPT passes. (There is nothing left to do.)
+
+7.20. Executing TECHMAP pass (map to technology primitives).
+
+7.20.1. Executing Verilog-2005 frontend: D:\oss-cad-suite\bin\../share/yosys/techmap.v
+Parsing Verilog input from `D:\oss-cad-suite\bin\../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+7.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $xnor.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $pmux.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $reduce_or.
+No more expansions possible.
+<suppressed ~435 debug messages>
+
+7.21. Executing OPT pass (performing simple optimizations).
+
+7.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+<suppressed ~18 debug messages>
+
+7.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_pipeline_alu'.
+Computing hashes of 1017 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Computing hashes of 1009 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Computing hashes of 1007 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+<suppressed ~30 debug messages>
+Removed a total of 10 cells.
+
+7.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $auto$ff.cc:337:slice$2139 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3294, Q = \output_pipeline[0].data_reg [31], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2108 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$2736, Q = \output_pipeline[0].data_reg [0], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2109 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$2754, Q = \output_pipeline[0].data_reg [1], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2110 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$2772, Q = \output_pipeline[0].data_reg [2], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2111 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$2790, Q = \output_pipeline[0].data_reg [3], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2112 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$2808, Q = \output_pipeline[0].data_reg [4], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2113 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$2826, Q = \output_pipeline[0].data_reg [5], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2114 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$2844, Q = \output_pipeline[0].data_reg [6], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2115 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$2862, Q = \output_pipeline[0].data_reg [7], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2116 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$2880, Q = \output_pipeline[0].data_reg [8], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2117 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$2898, Q = \output_pipeline[0].data_reg [9], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2118 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$2916, Q = \output_pipeline[0].data_reg [10], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2119 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$2934, Q = \output_pipeline[0].data_reg [11], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2120 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$2952, Q = \output_pipeline[0].data_reg [12], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2121 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$2970, Q = \output_pipeline[0].data_reg [13], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2122 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$2988, Q = \output_pipeline[0].data_reg [14], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2123 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3006, Q = \output_pipeline[0].data_reg [15], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2124 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3024, Q = \output_pipeline[0].data_reg [16], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2125 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3042, Q = \output_pipeline[0].data_reg [17], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2126 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3060, Q = \output_pipeline[0].data_reg [18], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2127 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3078, Q = \output_pipeline[0].data_reg [19], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2128 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3096, Q = \output_pipeline[0].data_reg [20], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2129 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3114, Q = \output_pipeline[0].data_reg [21], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2130 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3132, Q = \output_pipeline[0].data_reg [22], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2131 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3150, Q = \output_pipeline[0].data_reg [23], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2132 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3168, Q = \output_pipeline[0].data_reg [24], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2133 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3186, Q = \output_pipeline[0].data_reg [25], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2134 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3204, Q = \output_pipeline[0].data_reg [26], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2135 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3222, Q = \output_pipeline[0].data_reg [27], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2136 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3240, Q = \output_pipeline[0].data_reg [28], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2137 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3258, Q = \output_pipeline[0].data_reg [29], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$2138 ($_SDFF_PP0_) from module pw_pipeline_alu (D = $auto$simplemap.cc:189:logic_reduce$3276, Q = \output_pipeline[0].data_reg [30], rval = 1'0).
+
+7.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_pipeline_alu..
+Removed 32 unused cells and 58 unused wires.
+<suppressed ~36 debug messages>
+
+7.21.5. Rerunning OPT passes. (Removed registers in this run.)
+
+7.21.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+
+7.21.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_pipeline_alu'.
+Computing hashes of 1039 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Computing hashes of 1008 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+Computing hashes of 977 cells of `\pw_pipeline_alu'.
+Finding duplicate cells in `\pw_pipeline_alu'.
+<suppressed ~186 debug messages>
+Removed a total of 62 cells.
+
+7.21.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.21.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_pipeline_alu..
+Removed 0 unused cells and 62 unused wires.
+<suppressed ~1 debug messages>
+
+7.21.10. Finished fast OPT passes.
+
+7.22. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `pw_pipeline_alu'. Setting top module to pw_pipeline_alu.
+
+7.22.1. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+
+7.22.2. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Removed 0 unused modules.
+
+7.23. Printing statistics.
+
+=== pw_pipeline_alu ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      522 wires
+     1402 wire bits
+       71 public wires
+      792 public wire bits
+        8 ports
+      103 port bits
+      977 cells
+      372   $_AND_
+       11   $_NOT_
+      268   $_OR_
+      134   $_SDFF_PP0_
+       32   $_XNOR_
+      160   $_XOR_
+
+7.24. Executing CHECK pass (checking for obvious problems).
+Checking module pw_pipeline_alu...
+Found and reported 0 problems.
+
+8. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+9. Executing DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__lpflow_inputisolatch_1 (noninv, pins=3, area=13.76) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__lpflow_inputisolatch_1 _DLATCH_P_ (.D( D), .Q( Q), .SLEEP_B( E));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+9.1. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+<suppressed ~24 debug messages>
+Mapping DFF/DLATCH cells in module `\pw_pipeline_alu':
+  mapped 134 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_1 cells.
+
+10. Executing ABC pass (technology mapping using ABC).
+
+10.1. Extracting gate netlist of module `\pw_pipeline_alu' to `<abc-temp-dir>/input.blif'..
+Warning: ABC: merged SCL conversion failed, falling back to liberty format
+ABC: conversion output:
+'D:\oss-cad-suite\bin\yosys-abc" -c "read_lib' is not recognized as an internal or external command,
+
+operable program or batch file.
+
+Warning: ABC: Merged scl conversion failed, using liberty format
+
+10.1.1. Executed ABC.
+Extracted 977 gates and 1148 wires to a netlist network with 170 inputs and 134 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -X sky130_fd_sc_hd__lpflow_* -w D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.05 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_0".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_8".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_bleeder_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_12" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_3" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_6" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__lpflow_inputisolatch_1".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrckapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_4".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" has 307 cells (121 skipped: 63 seq; 13 tri-state; 12 no func; 33 dont_use; 0 with 2 outputs; 0 with 3+ outputs).  Time =     0.14 sec
+ABC: Memory =   16.01 MB. Time =     0.14 sec
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + read_constr -v D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/evaluation/abc.constr 
+ABC: Setting driving cell to be "sky130_fd_sc_hd__buf_2".
+ABC: Setting output load to be 10.000000.
+ABC: + source D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_037/evaluation/abc.script 
+ABC: Cleanup removed 0 dangling nodes.
+ABC: WireLoad = "none"  Gates =   1194 ( 21.9 %)   Cap =  5.8 ff (  2.9 %)   Area =     5859.37 ( 90.9 %)   Delay =  2064.62 ps  ( 20.8 %)               
+ABC: Path  0 --       3 : 0    2 pi                       A =   0.00  Df =  30.2   -7.0 ps  S =  47.5 ps  Cin =  0.0 ff  Cout =   7.2 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --     372 : 1   10 sky130_fd_sc_hd__buf_6   A =  11.26  Df = 177.6  -16.1 ps  S = 107.4 ps  Cin =  4.6 ff  Cout =  49.6 ff  Cmax = 785.5 ff  G = 1003  
+ABC: Path  2 --     378 : 3    9 sky130_fd_sc_hd__nor3_4  A =  16.27  Df = 465.8 -157.6 ps  S = 323.8 ps  Cin =  8.7 ff  Cout =  26.5 ff  Cmax = 153.8 ff  G =  293  
+ABC: Path  3 --     477 : 1   10 sky130_fd_sc_hd__buf_6   A =  11.26  Df = 647.7 -204.1 ps  S =  71.3 ps  Cin =  4.6 ff  Cout =  28.3 ff  Cmax = 785.5 ff  G =  592  
+ABC: Path  4 --     707 : 2    2 sky130_fd_sc_hd__nand2_1 A =   3.75  Df = 708.8 -201.2 ps  S =  62.0 ps  Cin =  2.3 ff  Cout =   4.8 ff  Cmax = 166.6 ff  G =  201  
+ABC: Path  5 --     709 : 2    2 sky130_fd_sc_hd__nand2_1 A =   3.75  Df = 775.1 -194.6 ps  S =  61.3 ps  Cin =  2.3 ff  Cout =   4.7 ff  Cmax = 166.6 ff  G =  199  
+ABC: Path  6 --     710 : 3    2 sky130_fd_sc_hd__nand3_1 A =   5.00  Df = 864.8 -155.1 ps  S = 100.9 ps  Cin =  2.4 ff  Cout =   7.0 ff  Cmax = 146.5 ff  G =  286  
+ABC: Path  7 --     711 : 2    5 sky130_fd_sc_hd__nand2_2 A =   6.26  Df = 972.6  -81.6 ps  S =  82.6 ps  Cin =  4.4 ff  Cout =  12.0 ff  Cmax = 295.7 ff  G =  262  
+ABC: Path  8 --     712 : 4    4 sky130_fd_sc_hd__nand4_1 A =   6.26  Df =1121.4  -58.1 ps  S = 144.1 ps  Cin =  2.3 ff  Cout =  10.1 ff  Cmax = 124.5 ff  G =  404  
+ABC: Path  9 --     787 : 2    4 sky130_fd_sc_hd__nor2_1  A =   3.75  Df =1321.6 -170.8 ps  S = 192.9 ps  Cin =  2.4 ff  Cout =   9.5 ff  Cmax =  86.1 ff  G =  390  
+ABC: Path 10 --     788 : 4    1 sky130_fd_sc_hd__nand4_1 A =   6.26  Df =1450.9 -197.7 ps  S =  91.6 ps  Cin =  2.3 ff  Cout =   4.5 ff  Cmax = 124.5 ff  G =  184  
+ABC: Path 11 --     806 : 4    7 sky130_fd_sc_hd__nand4_2 A =  12.51  Df =1617.6 -105.2 ps  S = 169.0 ps  Cin =  4.4 ff  Cout =  19.1 ff  Cmax = 200.5 ff  G =  425  
+ABC: Path 12 --     826 : 2    1 sky130_fd_sc_hd__nand2_1 A =   3.75  Df =1680.5  -73.1 ps  S =  58.9 ps  Cin =  2.3 ff  Cout =   2.4 ff  Cmax = 166.6 ff  G =  101  
+ABC: Path 13 --     829 : 3    1 sky130_fd_sc_hd__a21oi_1 A =   5.00  Df =1794.0 -131.4 ps  S = 100.5 ps  Cin =  2.3 ff  Cout =   2.5 ff  Cmax =  74.2 ff  G =  101  
+ABC: Path 14 --     830 : 4    1 sky130_fd_sc_hd__o22ai_1 A =   6.26  Df =1876.6  -19.4 ps  S = 161.2 ps  Cin =  2.4 ff  Cout =   4.6 ff  Cmax =  73.3 ff  G =  187  
+ABC: Path 15 --     848 : 3    1 sky130_fd_sc_hd__a21oi_2 A =   8.76  Df =2064.6 -113.3 ps  S = 165.5 ps  Cin =  4.6 ff  Cout =  10.0 ff  Cmax = 128.2 ff  G =  219  
+ABC: Start-point = pi2 (\opcode [2]).  End-point = po31 ($auto$rtlil.cc:3497:MuxGate$3676).
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+10.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_1 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_0 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21o_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:       48
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_2 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__a221oi_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a221oi_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__a31o_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:       23
+ABC RESULTS:   sky130_fd_sc_hd__a41oi_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__and2_0 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and2_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__buf_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__buf_2 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__buf_4 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__buf_6 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__clkbuf_1 cells:       31
+ABC RESULTS:   sky130_fd_sc_hd__inv_1 cells:      209
+ABC RESULTS:   sky130_fd_sc_hd__inv_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__maj3_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:      239
+ABC RESULTS:   sky130_fd_sc_hd__nand2_2 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:       46
+ABC RESULTS:   sky130_fd_sc_hd__nand3_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand3b_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:       19
+ABC RESULTS:   sky130_fd_sc_hd__nand4_2 cells:        6
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:      276
+ABC RESULTS:   sky130_fd_sc_hd__nor2_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__nor3_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor3_4 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__nor4_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor4b_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor4b_2 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__o2111a_1 cells:       33
+ABC RESULTS:   sky130_fd_sc_hd__o2111ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o211a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:       17
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:       80
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_1 cells:       13
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o221ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__o31ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__or2_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:       21
+ABC RESULTS:        internal signals:      844
+ABC RESULTS:           input signals:      170
+ABC RESULTS:          output signals:      134
+Removing temp directory.
+Removing global temp directory.
+Removed 0 unused cells and 789 unused wires.
+
+11. Executing CHECK pass (checking for obvious problems).
+Checking module pw_pipeline_alu...
+Found and reported 0 problems.
+
+12. Printing statistics.
+
+=== pw_pipeline_alu ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     1231        - wires
+     1704        - wire bits
+       37        - public wires
+      510        - public wire bits
+        8        - ports
+      103        - port bits
+     1328 8.54E+03 cells
+        9   67.565   sky130_fd_sc_hd__a211oi_1
+        1    7.507   sky130_fd_sc_hd__a21boi_0
+        1    8.758   sky130_fd_sc_hd__a21o_2
+       48   240.23   sky130_fd_sc_hd__a21oi_1
+       11   96.342   sky130_fd_sc_hd__a21oi_2
+        3   26.275   sky130_fd_sc_hd__a221oi_1
+        2   30.029   sky130_fd_sc_hd__a221oi_2
+        9   67.565   sky130_fd_sc_hd__a22oi_1
+        1    8.758   sky130_fd_sc_hd__a31o_2
+       23  143.888   sky130_fd_sc_hd__a31oi_1
+        3   26.275   sky130_fd_sc_hd__a41oi_1
+        1    6.256   sky130_fd_sc_hd__and2_0
+        1    6.256   sky130_fd_sc_hd__and2_1
+        1    3.754   sky130_fd_sc_hd__buf_1
+       11   55.053   sky130_fd_sc_hd__buf_2
+        2   15.014   sky130_fd_sc_hd__buf_4
+        6   67.565   sky130_fd_sc_hd__buf_6
+       31  116.362   sky130_fd_sc_hd__clkbuf_1
+      134 2.68E+03   sky130_fd_sc_hd__dfxtp_1
+      209  784.502   sky130_fd_sc_hd__inv_1
+        1    6.256   sky130_fd_sc_hd__inv_4
+        1    10.01   sky130_fd_sc_hd__maj3_1
+      239   897.11   sky130_fd_sc_hd__nand2_1
+        9   56.304   sky130_fd_sc_hd__nand2_2
+       46  230.221   sky130_fd_sc_hd__nand3_1
+        2   20.019   sky130_fd_sc_hd__nand3_2
+        2   15.014   sky130_fd_sc_hd__nand3b_1
+       19  118.864   sky130_fd_sc_hd__nand4_1
+        6   75.072   sky130_fd_sc_hd__nand4_2
+      276 1.04E+03   sky130_fd_sc_hd__nor2_1
+        1    6.256   sky130_fd_sc_hd__nor2_2
+        7   35.034   sky130_fd_sc_hd__nor3_1
+        1    10.01   sky130_fd_sc_hd__nor3_2
+        2   32.531   sky130_fd_sc_hd__nor3_4
+        8   50.048   sky130_fd_sc_hd__nor4_1
+        2   25.024   sky130_fd_sc_hd__nor4_2
+        2   17.517   sky130_fd_sc_hd__nor4b_1
+        4   60.058   sky130_fd_sc_hd__nor4b_2
+       33  371.606   sky130_fd_sc_hd__o2111a_1
+        2   17.517   sky130_fd_sc_hd__o2111ai_1
+        1    10.01   sky130_fd_sc_hd__o211a_1
+       17  127.622   sky130_fd_sc_hd__o211ai_1
+        2   25.024   sky130_fd_sc_hd__o211ai_2
+        2   15.014   sky130_fd_sc_hd__o21a_1
+       80  400.384   sky130_fd_sc_hd__o21ai_0
+       13   65.062   sky130_fd_sc_hd__o21ai_1
+        1    7.507   sky130_fd_sc_hd__o21bai_1
+        2   17.517   sky130_fd_sc_hd__o221ai_1
+        9   56.304   sky130_fd_sc_hd__o22ai_1
+        2   15.014   sky130_fd_sc_hd__o31ai_1
+        1    6.256   sky130_fd_sc_hd__or2_2
+        7   61.309   sky130_fd_sc_hd__xnor2_1
+       21  183.926   sky130_fd_sc_hd__xor2_1
+
+   Chip area for module '\pw_pipeline_alu': 8541.942400
+     of which used for sequential elements: 2682.572800 (31.40%)
+
+13. Executing JSON backend.
+
+14. Executing Verilog backend.
+
+14.1. Executing BMUXMAP pass.
+
+14.2. Executing DEMUXMAP pass.
+Dumping module `\pw_pipeline_alu'.
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 23586e54ac
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 1% 15x opt_expr (0 sec), 1% 15x opt_clean (0 sec), ...

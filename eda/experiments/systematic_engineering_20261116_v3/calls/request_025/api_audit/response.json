@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-7e9cd181-1159-4ff8-9227-2250d3f7d2f5",
+  "model": "gpt-6.1-sol",
+  "created": 1794841796,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Checking one-hot state decoding**\n\n**Optimizing output increment**\n\n**Factoring increment output logic**\n\n**Preparing next-state logic**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module pw_fsm_sync (\\n    input clk,\\n    input rst,\\n    input start,\\n    input [7:0] data_in,\\n    output reg [7:0] data_out,\\n    output reg done\\n);\\n\\nlocalparam [8:0] S_IDLE  = 9'b000000001;\\nlocalparam [8:0] S_START = 9'b000000010;\\nlocalparam [8:0] S_READ  = 9'b000000100;\\nlocalparam [8:0] S_PROC1 = 9'b000001000;\\nlocalparam [8:0] S_PROC2 = 9'b000010000;\\nlocalparam [8:0] S_PROC3 = 9'b000100000;\\nlocalparam [8:0] S_WAIT  = 9'b001000000;\\nlocalparam [8:0] S_DONE  = 9'b010000000;\\nlocalparam [8:0] S_ERROR = 9'b100000000;\\n\\nreg [8:0] state, next_state;\\n\\nalways @(*) begin\\n    next_state = S_IDLE;\\n    case (state)\\n        S_IDLE:  next_state = start ? S_START : S_IDLE;\\n        S_START: next_state = data_in[0] ? S_READ : S_ERROR;\\n        S_READ:  next_state = (data_in[3:1] == 3'b101) ? S_PROC1 : S_WAIT;\\n        S_PROC1: next_state = S_PROC2;\\n        S_PROC2: next_state = data_in[7] ? S_PROC3 : S_WAIT;\\n        S_PROC3: next_state = S_DONE;\\n        S_WAIT:  next_state = data_in[4] ? S_READ : S_WAIT;\\n        S_DONE:  next_state = S_IDLE;\\n        S_ERROR: next_state = (data_in[2:0] == 3'b111) ? S_IDLE : S_ERROR;\\n        default: next_state = S_IDLE;\\n    endcase\\nend\\n\\nwire read_sel;\\nwire proc1_sel;\\nwire proc2_sel;\\nwire proc3_sel;\\nwire done_sel;\\nwire error_sel;\\nwire pass_sel;\\nwire [7:0] incremented;\\n\\nassign read_sel  = (state == S_READ);\\nassign proc1_sel = (state == S_PROC1);\\nassign proc2_sel = (state == S_PROC2);\\nassign proc3_sel = (state == S_PROC3);\\nassign done_sel  = (state == S_DONE);\\nassign error_sel = (state == S_ERROR);\\nassign pass_sel  = read_sel | done_sel;\\n\\n// Explicit parallel carry predicates for the modulo-256 increment.\\nassign incremented[0] = ~data_in[0];\\nassign incremented[1] = data_in[1] ^ data_in[0];\\nassign incremented[2] = data_in[2] ^ (&data_in[1:0]);\\nassign incremented[3] = data_in[3] ^ (&data_in[2:0]);\\nassign incremented[4] = data_in[4] ^ (&data_in[3:0]);\\nassign incremented[5] = data_in[5] ^ (&data_in[4:0]);\\nassign incremented[6] = data_in[6] ^ (&data_in[5:0]);\\nassign incremented[7] = data_in[7] ^ (&data_in[6:0]);\\n\\nalways @(*) begin\\n    data_out = ({8{pass_sel}} & data_in)\\n             | ({8{proc1_sel}} & incremented)\\n             | ({8{proc2_sel}} & {data_in[6:0], 1'b0})\\n             | ({8{proc3_sel}} & ~data_in)\\n             | ({8{error_sel}} & 8'hEE);\\n    done = done_sel;\\nend\\n\\nalways @(posedge clk) begin\\n    if (rst)\\n        state <= S_IDLE;\\n    else\\n        state <= next_state;\\nend\\n\\nendmodule\\n\",\n  \"bottleneck\": \"The targeted path is the data-input increment followed by output selection in S_PROC1. A serial carry implementation can dominate the combinational output delay. State decoding and next-state logic remain potential limiting paths.\",\n  \"rewrite\": \"Express the eight-bit increment using parallel prefix-AND carry predicates and XORs. Use an explicitly parallel masked-OR output network, sharing the unchanged-data selection between S_READ and S_DONE. Retain the original state and next_state names, encodings, transition case, and synchronous reset.\",\n  \"expected_timing_gain\": \"The explicit carry predicates expose balanced reduction mapping rather than relying on arithmetic carry-chain lowering, potentially improving setup WNS on increment-to-output paths. No numerical gain is claimed without synthesis and STA; the benefit depends on the fixed mapper and which path is critical.\",\n  \"area_or_other_cost\": \"The rewrite adds no registers or latency. Carry reductions may share logic or be replicated by mapping, while the shared pass-through selection can reduce output-selection logic. Compliance with the 1102.432320 um2 cap and electrical limits requires mapped evaluation.\",\n  \"functional_boundaries\": \"The increment remains modulo 256, and the shift remains truncated to eight bits. Outputs remain combinational functions of current state and inputs. Exact full-state comparisons preserve zero/default outputs for illegal encodings, and the original transition default is unchanged. Clocking, repeated synchronous reset, priorities, and cycle-by-cycle behavior are preserved without initialization or input assumptions.\"\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 911,
+    "completion_tokens": 1864,
+    "total_tokens": 3410
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 1229,
+    "usage_reported": true
+  }
+}

@@ -1,0 +1,1137 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\systematic_engineering_20261116_v3\calls\request_006\evaluation\formal.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v' to AST representation.
+Generating RTLIL representation for module `\pw_alu'.
+Generating RTLIL representation for module `\pw_pipeline_alu'.
+Successfully finished Verilog frontend.
+Parameter \STAGES = 3
+
+2. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_pipeline_alu'.
+Parameter \STAGES = 3
+Generating RTLIL representation for module `$paramod\pw_pipeline_alu\STAGES=s32'00000000000000000000000000000011'.
+Parameter \WIDTH = 32
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_pipeline_alu'.
+Parameter \WIDTH = 32
+Generating RTLIL representation for module `$paramod\pw_pipeline_alu\WIDTH=s32'00000000000000000000000000100000'.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     \pw_alu
+Parameter \WIDTH = 32
+
+4.2. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_alu'.
+Parameter \WIDTH = 32
+Generating RTLIL representation for module `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000'.
+
+4.3. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000
+
+4.4. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000
+Removing unused module `\pw_alu'.
+Removed 1 unused modules.
+
+5. Executing PROC pass (convert processes to netlists).
+
+5.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:46$20 in module pw_pipeline_alu.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:78$21 in module pw_pipeline_alu.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:78$22 in module pw_pipeline_alu.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:10$27 in module $paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.
+Removed a total of 0 dead cases.
+
+5.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 8 redundant assignments.
+Promoted 5 assignments to connections.
+
+5.4. Executing PROC_INIT pass (extract init attributes).
+
+5.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~4 debug messages>
+
+5.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:46$20'.
+     1/4: $0\input_valid[0:0]
+     2/4: $0\opcode[2:0]
+     3/4: $0\operand_b[31:0]
+     4/4: $0\operand_a[31:0]
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:78$21'.
+     1/2: $0\output_pipeline[0].valid_reg[0:0]
+     2/2: $0\output_pipeline[0].data_reg[31:0]
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:78$22'.
+     1/2: $0\output_pipeline[1].valid_reg[0:0]
+     2/2: $0\output_pipeline[1].data_reg[31:0]
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:87$23'.
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:88$24'.
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:87$25'.
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:88$26'.
+Creating decoders for process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:10$27'.
+     1/1: $1\sum[31:0]
+
+5.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\pw_pipeline_alu.\stage_data[0]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:87$23'.
+No latch inferred for signal `\pw_pipeline_alu.\stage_valid[0]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:88$24'.
+No latch inferred for signal `\pw_pipeline_alu.\stage_data[1]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:87$25'.
+No latch inferred for signal `\pw_pipeline_alu.\stage_valid[1]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:88$26'.
+No latch inferred for signal `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.\sum' from process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:10$27'.
+
+5.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\pw_pipeline_alu.\operand_a' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:46$20'.
+  created $dff cell `$procdff$68' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\operand_b' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:46$20'.
+  created $dff cell `$procdff$69' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\opcode' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:46$20'.
+  created $dff cell `$procdff$70' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\input_valid' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:46$20'.
+  created $dff cell `$procdff$71' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[0].data_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:78$21'.
+  created $dff cell `$procdff$72' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[0].valid_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:78$21'.
+  created $dff cell `$procdff$73' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[1].data_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:78$22'.
+  created $dff cell `$procdff$74' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[1].valid_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:78$22'.
+  created $dff cell `$procdff$75' with positive edge clock.
+
+5.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:46$20'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:46$20'.
+Found and cleaned up 1 empty switch in `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:78$21'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:78$21'.
+Found and cleaned up 1 empty switch in `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:78$22'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:78$22'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:87$23'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:88$24'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:87$25'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:88$26'.
+Found and cleaned up 1 empty switch in `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:10$27'.
+Removing empty process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v:10$27'.
+Cleaned up 4 empty switches.
+
+5.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+Optimizing module $paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.
+<suppressed ~1 debug messages>
+
+6. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.
+<suppressed ~1 debug messages>
+
+7. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/alu.Oper
+
+8. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/alu.a
+
+9. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/alu.b
+
+10. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/input_valid
+
+11. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/opcode
+
+12. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/operand_a
+
+13. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/operand_b
+Renaming module \pw_pipeline_alu to \pw_gold.
+
+14. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v' to AST representation.
+Generating RTLIL representation for module `\pw_fast_add'.
+Generating RTLIL representation for module `\pw_alu'.
+Generating RTLIL representation for module `\pw_pipeline_alu'.
+Successfully finished Verilog frontend.
+Parameter \STAGES = 3
+
+15. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_pipeline_alu'.
+Parameter \STAGES = 3
+Generating RTLIL representation for module `$paramod\pw_pipeline_alu\STAGES=s32'00000000000000000000000000000011'.
+Parameter \WIDTH = 32
+
+16. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_pipeline_alu'.
+Parameter \WIDTH = 32
+Generating RTLIL representation for module `$paramod\pw_pipeline_alu\WIDTH=s32'00000000000000000000000000100000'.
+
+17. Executing HIERARCHY pass (managing design hierarchy).
+
+17.1. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     \pw_alu
+Used module:         \pw_fast_add
+Parameter \WIDTH = 64
+Parameter \SUBTRACT = 1
+
+17.2. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_fast_add'.
+Parameter \WIDTH = 64
+Parameter \SUBTRACT = 1
+Generating RTLIL representation for module `$paramod$80cf0b6d9cfe4590eaec71f36207ca15a5d7c3ae\pw_fast_add'.
+Parameter \WIDTH = 64
+Parameter \SUBTRACT = 1
+Found cached RTLIL representation for module `$paramod$80cf0b6d9cfe4590eaec71f36207ca15a5d7c3ae\pw_fast_add'.
+Parameter \WIDTH = 64
+Parameter \SUBTRACT = 0
+
+17.3. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_fast_add'.
+Parameter \WIDTH = 64
+Parameter \SUBTRACT = 0
+Generating RTLIL representation for module `$paramod$50483f73d0a7ed389731a03800769f2383dbcca6\pw_fast_add'.
+Parameter \WIDTH = 32
+
+17.4. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_alu'.
+Parameter \WIDTH = 32
+Generating RTLIL representation for module `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000'.
+
+17.5. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000
+Used module:         \pw_fast_add
+Parameter \WIDTH = 32
+Parameter \SUBTRACT = 1
+
+17.6. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_fast_add'.
+Parameter \WIDTH = 32
+Parameter \SUBTRACT = 1
+Generating RTLIL representation for module `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add'.
+Parameter \WIDTH = 32
+Parameter \SUBTRACT = 1
+Found cached RTLIL representation for module `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add'.
+Parameter \WIDTH = 32
+Parameter \SUBTRACT = 0
+
+17.7. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_fast_add'.
+Parameter \WIDTH = 32
+Parameter \SUBTRACT = 0
+Generating RTLIL representation for module `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add'.
+
+17.8. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000
+Used module:         $paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add
+Used module:         $paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add
+
+17.9. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000
+Used module:         $paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add
+Used module:         $paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add
+Removing unused module `$paramod$50483f73d0a7ed389731a03800769f2383dbcca6\pw_fast_add'.
+Removing unused module `$paramod$80cf0b6d9cfe4590eaec71f36207ca15a5d7c3ae\pw_fast_add'.
+Removing unused module `\pw_alu'.
+Removing unused module `\pw_fast_add'.
+Removed 4 unused modules.
+
+18. Executing PROC pass (convert processes to netlists).
+
+18.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+18.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:116$560 in module pw_pipeline_alu.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:146$561 in module pw_pipeline_alu.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:146$562 in module pw_pipeline_alu.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:85$2589 in module $paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.
+Removed a total of 0 dead cases.
+
+18.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 8 redundant assignments.
+Promoted 133 assignments to connections.
+
+18.4. Executing PROC_INIT pass (extract init attributes).
+
+18.5. Executing PROC_ARST pass (detect async resets in processes).
+
+18.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~4 debug messages>
+
+18.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3059'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3056'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3054'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3051'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3049'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3046'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3044'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3041'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3040'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3039'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3038'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3037'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3036'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3035'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3034'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3033'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3031'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3028'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3026'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3023'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3021'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3018'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3016'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3013'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3011'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3008'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3006'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3003'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3002'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3001'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3000'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$2999'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2997'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2994'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2992'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2989'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2987'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2984'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2982'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2979'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2977'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2974'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2972'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2969'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2967'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2964'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$2963'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$2962'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2952'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2950'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2940'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2938'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2928'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2926'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2916'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2914'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2904'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2902'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2892'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2890'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2880'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2878'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2868'.
+Creating decoders for process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2866'.
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:116$560'.
+     1/4: $0\input_valid[0:0]
+     2/4: $0\opcode[2:0]
+     3/4: $0\operand_b[31:0]
+     4/4: $0\operand_a[31:0]
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:146$561'.
+     1/2: $0\output_pipeline[0].valid_reg[0:0]
+     2/2: $0\output_pipeline[0].data_reg[31:0]
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:146$562'.
+     1/2: $0\output_pipeline[1].valid_reg[0:0]
+     2/2: $0\output_pipeline[1].data_reg[31:0]
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:155$563'.
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:156$564'.
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:155$565'.
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:156$566'.
+Creating decoders for process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:85$2589'.
+     1/1: $1\sum[31:0]
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3526'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3523'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3521'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3518'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3516'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3513'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3511'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3508'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3507'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3506'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3505'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3504'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3503'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3502'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3501'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3500'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3498'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3495'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3493'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3490'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3488'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3485'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3483'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3480'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3478'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3475'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3473'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3470'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3469'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3468'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3467'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3466'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3464'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3461'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3459'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3456'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3454'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3451'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3449'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3446'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3444'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3441'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3439'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3436'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3434'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3431'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3430'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3429'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3419'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3417'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3407'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3405'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3395'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3393'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3383'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3381'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3371'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3369'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3359'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3357'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3347'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3345'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3335'.
+Creating decoders for process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3333'.
+
+18.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[3] [7]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3059'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[3] [7]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3056'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[3] [6]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3054'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[3] [6]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3051'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[3] [5]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3049'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[3] [5]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3046'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[3] [4]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3044'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[3] [4]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3041'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[3] [3]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3040'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[3] [3]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3039'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[3] [2]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3038'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[3] [2]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3037'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[3] [1]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3036'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[3] [1]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3035'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[3] [0]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3034'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[3] [0]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3033'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[2] [7]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3031'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[2] [7]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3028'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[2] [6]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3026'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[2] [6]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3023'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[2] [5]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3021'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[2] [5]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3018'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[2] [4]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3016'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[2] [4]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3013'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[2] [3]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3011'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[2] [3]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3008'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[2] [2]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3006'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[2] [2]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3003'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[2] [1]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3002'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[2] [1]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3001'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[2] [0]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3000'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[2] [0]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$2999'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[1] [7]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2997'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[1] [7]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2994'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[1] [6]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2992'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[1] [6]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2989'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[1] [5]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2987'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[1] [5]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2984'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[1] [4]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2982'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[1] [4]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2979'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[1] [3]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2977'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[1] [3]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2974'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[1] [2]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2972'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[1] [2]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2969'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[1] [1]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2967'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[1] [1]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2964'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[1] [0]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$2963'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[1] [0]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$2962'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[0] [7]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2952'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[0] [7]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2950'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[0] [6]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2940'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[0] [6]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2938'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[0] [5]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2928'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[0] [5]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2926'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[0] [4]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2916'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[0] [4]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2914'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[0] [3]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2904'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[0] [3]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2902'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[0] [2]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2892'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[0] [2]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2890'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[0] [1]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2880'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[0] [1]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2878'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bg[0] [0]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2868'.
+No latch inferred for signal `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.\bp[0] [0]' from process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2866'.
+No latch inferred for signal `\pw_pipeline_alu.\stage_data[0]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:155$563'.
+No latch inferred for signal `\pw_pipeline_alu.\stage_valid[0]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:156$564'.
+No latch inferred for signal `\pw_pipeline_alu.\stage_data[1]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:155$565'.
+No latch inferred for signal `\pw_pipeline_alu.\stage_valid[1]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:156$566'.
+No latch inferred for signal `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.\sum' from process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:85$2589'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[3] [7]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3526'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[3] [7]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3523'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[3] [6]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3521'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[3] [6]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3518'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[3] [5]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3516'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[3] [5]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3513'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[3] [4]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3511'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[3] [4]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3508'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[3] [3]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3507'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[3] [3]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3506'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[3] [2]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3505'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[3] [2]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3504'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[3] [1]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3503'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[3] [1]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3502'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[3] [0]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3501'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[3] [0]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3500'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[2] [7]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3498'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[2] [7]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3495'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[2] [6]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3493'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[2] [6]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3490'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[2] [5]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3488'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[2] [5]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3485'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[2] [4]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3483'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[2] [4]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3480'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[2] [3]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3478'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[2] [3]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3475'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[2] [2]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3473'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[2] [2]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3470'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[2] [1]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3469'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[2] [1]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3468'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[2] [0]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3467'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[2] [0]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3466'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[1] [7]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3464'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[1] [7]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3461'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[1] [6]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3459'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[1] [6]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3456'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[1] [5]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3454'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[1] [5]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3451'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[1] [4]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3449'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[1] [4]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3446'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[1] [3]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3444'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[1] [3]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3441'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[1] [2]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3439'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[1] [2]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3436'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[1] [1]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3434'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[1] [1]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3431'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[1] [0]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3430'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[1] [0]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3429'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[0] [7]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3419'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[0] [7]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3417'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[0] [6]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3407'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[0] [6]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3405'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[0] [5]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3395'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[0] [5]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3393'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[0] [4]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3383'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[0] [4]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3381'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[0] [3]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3371'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[0] [3]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3369'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[0] [2]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3359'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[0] [2]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3357'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[0] [1]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3347'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[0] [1]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3345'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bg[0] [0]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3335'.
+No latch inferred for signal `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.\bp[0] [0]' from process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3333'.
+
+18.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\pw_pipeline_alu.\operand_a' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:116$560'.
+  created $dff cell `$procdff$3561' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\operand_b' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:116$560'.
+  created $dff cell `$procdff$3562' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\opcode' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:116$560'.
+  created $dff cell `$procdff$3563' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\input_valid' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:116$560'.
+  created $dff cell `$procdff$3564' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[0].data_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:146$561'.
+  created $dff cell `$procdff$3565' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[0].valid_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:146$561'.
+  created $dff cell `$procdff$3566' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[1].data_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:146$562'.
+  created $dff cell `$procdff$3567' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[1].valid_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:146$562'.
+  created $dff cell `$procdff$3568' with positive edge clock.
+
+18.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+18.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3059'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3056'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3054'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3051'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3049'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3046'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3044'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3041'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3040'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3039'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3038'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3037'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3036'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3035'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3034'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3033'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3031'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3028'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3026'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3023'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3021'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3018'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3016'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3013'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3011'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3008'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3006'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3003'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3002'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3001'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3000'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$2999'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2997'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2994'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2992'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2989'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2987'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2984'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2982'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2979'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2977'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2974'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2972'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2969'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$2967'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$2964'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$2963'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$2962'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2952'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2950'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2940'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2938'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2928'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2926'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2916'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2914'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2904'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2902'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2892'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2890'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2880'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2878'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$2868'.
+Removing empty process `$paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$2866'.
+Found and cleaned up 1 empty switch in `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:116$560'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:116$560'.
+Found and cleaned up 1 empty switch in `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:146$561'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:146$561'.
+Found and cleaned up 1 empty switch in `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:146$562'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:146$562'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:155$563'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:156$564'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:155$565'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:156$566'.
+Found and cleaned up 1 empty switch in `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:85$2589'.
+Removing empty process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:85$2589'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3526'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3523'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3521'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3518'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3516'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3513'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3511'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3508'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3507'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3506'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3505'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3504'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3503'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3502'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3501'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3500'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3498'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3495'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3493'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3490'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3488'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3485'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3483'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3480'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3478'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3475'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3473'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3470'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3469'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3468'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3467'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3466'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3464'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3461'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3459'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3456'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3454'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3451'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3449'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3446'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3444'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3441'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3439'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3436'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:61$3434'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:59$3431'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:64$3430'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:63$3429'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3419'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3417'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3407'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3405'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3395'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3393'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3383'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3381'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3371'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3369'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3359'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3357'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3347'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3345'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:31$3335'.
+Removing empty process `$paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/candidate.v:30$3333'.
+Cleaned up 4 empty switches.
+
+18.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.
+<suppressed ~44 debug messages>
+Optimizing module pw_pipeline_alu.
+Optimizing module $paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.
+<suppressed ~1 debug messages>
+Optimizing module $paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.
+<suppressed ~55 debug messages>
+
+19. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$152d2efb246ce5be38a48982ae4490cd5b91fa54\pw_fast_add.
+Deleting now unused module $paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000.
+Deleting now unused module $paramod$9e6c601ff9ebff73c35d292c7b8dfe1ac5ba37ad\pw_fast_add.
+<suppressed ~4 debug messages>
+
+20. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/alu.Oper
+
+21. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/alu.a
+
+22. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/alu.b
+
+23. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/input_valid
+
+24. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/opcode
+
+25. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/operand_a
+
+26. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/operand_b
+Renaming module \pw_pipeline_alu to \pw_cand.
+
+27. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/evaluation/formal_miter.v
+Parsing formal Verilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_006/evaluation/formal_miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+28. Executing PREP pass.
+
+28.1. Executing HIERARCHY pass (managing design hierarchy).
+
+28.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+
+28.1.2. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+Removed 0 unused modules.
+
+28.2. Executing PROC pass (convert processes to netlists).
+
+28.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+28.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+28.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+28.2.4. Executing PROC_INIT pass (extract init attributes).
+
+28.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+28.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+28.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+28.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+28.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+28.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+28.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+28.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+Optimizing module pw_cand.
+Optimizing module pw_gold.
+
+28.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module pw_cand.
+Deleting now unused module pw_gold.
+<suppressed ~2 debug messages>
+
+28.4. Executing FUTURE pass.
+
+28.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+28.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 72 unused cells and 1006 unused wires.
+<suppressed ~73 debug messages>
+
+28.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+28.8. Executing OPT pass (performing simple optimizations).
+
+28.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+28.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1143 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1096 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~141 debug messages>
+Removed a total of 47 cells.
+
+28.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~34 debug messages>
+
+28.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+28.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1096 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 1092 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+28.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 51 unused wires.
+<suppressed ~1 debug messages>
+
+28.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+28.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+28.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~26 debug messages>
+
+28.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+28.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1092 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+28.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+28.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+28.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+28.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\gold.\alu.$procmux$64_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\gold.\alu.$procmux$65_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell pw_miter.$flatten\gold.\alu.$procmux$66_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\cand.\alu.$procmux$3557_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\cand.\alu.$procmux$3558_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell pw_miter.$flatten\cand.\alu.$procmux$3559_CMP0 ($eq).
+
+28.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+28.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+28.12. Executing OPT pass (performing simple optimizations).
+
+28.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+28.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 1092 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+28.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+28.12.4. Finished fast OPT passes.
+
+28.13. Executing SORT pass.
+
+28.14. Printing statistics.
+
+=== pw_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      834 wires
+     3437 wire bits
+      320 public wires
+     2394 public wire bits
+        7 ports
+       71 port bits
+     1092 cells
+        1   $add
+      483   $and
+       16   $dff
+       12   $eq
+        2   $logic_not
+       12   $mux
+        6   $ne
+       66   $not
+      270   $or
+        2   $pmux
+       20   $reduce_and
+        7   $scopeinfo
+        2   $sub
+        2   $xnor
+      191   $xor
+
+28.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+29. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+30. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Import set-constraint for this timestep: \in_1 = 1'1
+Final constraint equation: \in_1 = 1'1
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_5
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 1092 cells to SAT database.
+No constraints for initial state found.
+
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_5
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 1092 cells to SAT database.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_5
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 1092 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+
+** Trying induction with length 1 **
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_5
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 1092 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \in_4
+Import show expression: \in_5
+Import show expression: \mismatch
+
+[base case 1] Solving problem with 104655 variables and 280005 clauses..
+Base case for induction length 1 proven.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_5
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 1092 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \in_4
+Import show expression: \in_5
+Import show expression: \mismatch
+
+[induction step 1] Solving problem with 68791 variables and 183555 clauses..
+Induction step failed. Incrementing induction length.
+
+  Time Signal Name                                     Dec       Hex                                 Bin
+  ---- --------------------------------------- ----------- --------- -----------------------------------
+  init \cand.input_valid                                 0         0                                   0
+  init \cand.opcode                                      2         2                                 010
+  init \cand.operand_a                          -560823551  de928301    11011110100100101000001100000001
+  init \cand.operand_b                         -2140634112  80688400    10000000011010001000010000000000
+  init \cand.output_pipeline[0].data_reg            -65538  fffefffe    11111111111111101111111111111110
+  init \cand.output_pipeline[0].valid_reg                1         1                                   1
+  init \cand.output_pipeline[1].data_reg                -2  fffffffe    11111111111111111111111111111110
+  init \cand.output_pipeline[1].valid_reg                0         0                                   0
+  init \gold.input_valid                                 0         0                                   0
+  init \gold.opcode                                      2         2                                 010
+  init \gold.operand_a                          -560823551  de928301    11011110100100101000001100000001
+  init \gold.operand_b                         -2140634112  80688400    10000000011010001000010000000000
+  init \gold.output_pipeline[0].data_reg                --        --    11111111111111111x11111111111x10
+  init \gold.output_pipeline[0].valid_reg                0         0                                   0
+  init \gold.output_pipeline[1].data_reg                -2  fffffffe    11111111111111111111111111111110
+  init \gold.output_pipeline[1].valid_reg                0         0                                   0
+  ---- --------------------------------------- ----------- --------- -----------------------------------
+     1 \in_0                                             0         0                                   0
+     1 \in_1                                             0         0                                   0
+     1 \in_2                                           -65  ffffffbf    11111111111111111111111110111111
+     1 \in_3                                   -1431650438  aaaabf7a    10101010101010101011111101111010
+     1 \in_4                                             4         4                                 100
+     1 \in_5                                             0         0                                   0
+     1 \mismatch                                         0         0                                   0
+  ---- --------------------------------------- ----------- --------- -----------------------------------
+     2 \in_0                                             0         0                                   0
+     2 \in_1                                             1         1                                   1
+     2 \in_2                                             0         0    00000000000000000000000000000000
+     2 \in_3                                             0         0    00000000000000000000000000000000
+     2 \in_4                                             0         0                                 000
+     2 \in_5                                             0         0                                   0
+     2 \mismatch                                         1         1                                   1
+
+** Trying induction with length 2 **
+
+Setting up time step 4:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_5
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 1092 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \in_4
+Import show expression: \in_5
+Import show expression: \mismatch
+
+[base case 2] Solving problem with 142931 variables and 383693 clauses..
+Base case for induction length 2 proven.
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_5
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 1092 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \in_4
+Import show expression: \in_5
+Import show expression: \mismatch
+
+[induction step 2] Solving problem with 109212 variables and 293945 clauses..
+Induction step proven: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: dbe9cc6bc5
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 2% 14x expose (0 sec), 2% 8x opt_expr (0 sec), ...

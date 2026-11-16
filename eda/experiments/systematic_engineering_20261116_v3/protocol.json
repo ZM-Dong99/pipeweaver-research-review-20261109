@@ -1,0 +1,484 @@
+{
+  "schema_version": 1,
+  "purpose": "Sequential coverage and engineering composition with parameter boundaries",
+  "cases": [
+    {
+      "id": "pipeline_alu16_s2",
+      "top": "pw_pipeline_alu",
+      "parameters": {
+        "WIDTH": 16,
+        "STAGES": 2
+      },
+      "backend": "sequential",
+      "category": "pipeline",
+      "description": "Project-authored registered-operand ALU and registered-output pipeline, fixed cycle latency",
+      "input": "inputs/pipeline_alu16_s2.v",
+      "source_sha256": "993d6e1c7a595773c6819a3480041830d442708eb8f9ce4fabab06e0983397a5",
+      "source_lines": 93,
+      "provenance": [
+        {
+          "path": "benchmark/systematic_20261116/rtl/alu_param.v",
+          "sha256": "8e592a280d0345183dfc3609b9c7f8ae78bc9ab2317201c1554c86a31c8591fb"
+        },
+        {
+          "path": "benchmark/systematic_20261116/rtl/pipeline_alu.v",
+          "sha256": "48898a6342b78423696247fa074bda5d62dca11e7373751b78aa9031267e8ec4"
+        }
+      ],
+      "clock": "clk",
+      "reset": "rst",
+      "period_ns": 10.0
+    },
+    {
+      "id": "pipeline_alu32_s3",
+      "top": "pw_pipeline_alu",
+      "parameters": {
+        "WIDTH": 32,
+        "STAGES": 3
+      },
+      "backend": "sequential",
+      "category": "pipeline",
+      "description": "Project-authored registered-operand ALU and registered-output pipeline, fixed cycle latency",
+      "input": "inputs/pipeline_alu32_s3.v",
+      "source_sha256": "993d6e1c7a595773c6819a3480041830d442708eb8f9ce4fabab06e0983397a5",
+      "source_lines": 93,
+      "provenance": [
+        {
+          "path": "benchmark/systematic_20261116/rtl/alu_param.v",
+          "sha256": "8e592a280d0345183dfc3609b9c7f8ae78bc9ab2317201c1554c86a31c8591fb"
+        },
+        {
+          "path": "benchmark/systematic_20261116/rtl/pipeline_alu.v",
+          "sha256": "48898a6342b78423696247fa074bda5d62dca11e7373751b78aa9031267e8ec4"
+        }
+      ],
+      "clock": "clk",
+      "reset": "rst",
+      "period_ns": 10.0
+    },
+    {
+      "id": "fsm9_sync",
+      "top": "pw_fsm_sync",
+      "parameters": {},
+      "backend": "sequential",
+      "category": "fsm",
+      "description": "Explicit new synchronous-reset variant of the public nine-state FSM; sampled-reset contract",
+      "input": "inputs/fsm9_sync.v",
+      "source_sha256": "b535ac4f651230f38c5fc5af918d05f323d3ccaa6b21bb1f37ce0af9af1fe09b",
+      "source_lines": 60,
+      "provenance": [
+        {
+          "path": "benchmark/rtl_opt_upstream_hkust/benchmark/fsm/fsm.v",
+          "sha256": "073c85687f6a48b93a95af0fbcc878ab2ea9d8ef93cf99718644836fa3ee5e3d"
+        }
+      ],
+      "clock": "clk",
+      "reset": "rst",
+      "period_ns": 10.0,
+      "keep_fsm_encoding": true
+    },
+    {
+      "id": "arbiter32",
+      "top": "arbiter",
+      "parameters": {
+        "PORTS": 32,
+        "ARB_TYPE_ROUND_ROBIN": 1,
+        "ARB_BLOCK": 1,
+        "ARB_BLOCK_ACK": 1
+      },
+      "backend": "sequential",
+      "category": "composite",
+      "description": "Public round-robin arbiter with priority encoder, grant and acknowledge state",
+      "input": "inputs/arbiter32.v",
+      "source_sha256": "4a1885abfe7ac307b58f68e78d717739cf6636cf16e10f64186683c990879037",
+      "source_lines": 253,
+      "provenance": [
+        {
+          "path": "benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v",
+          "sha256": "df28220d95b47df349a72803a9751aad331eb8e1435416e8686d00572a974dd5"
+        },
+        {
+          "path": "benchmark/engineering_sources_20261030/verilog-axis/rtl/arbiter.v",
+          "sha256": "d54d337db4812f927b2e9b5788dfa39f9bd578ad01b7846c5fa7f2610b0923fa"
+        }
+      ],
+      "clock": "clk",
+      "reset": "rst",
+      "period_ns": 10.0
+    },
+    {
+      "id": "fcs_reset8",
+      "top": "axis_eth_fcs_reset",
+      "parameters": {},
+      "backend": "sequential",
+      "category": "composite",
+      "description": "Previously qualified reset-complete full FCS block specialized to eight-bit input",
+      "input": "inputs/fcs_reset8.v",
+      "source_sha256": "b1a6c775798ebc7c9db916c4d791619cfcefdfdd0ee7f22a9d6043a67d19cd95",
+      "source_lines": 653,
+      "provenance": [
+        {
+          "path": "eda/experiments/fcs_reset_complete_20261107_induction_fixed/exports/baseline.v",
+          "sha256": "b1a6c775798ebc7c9db916c4d791619cfcefdfdd0ee7f22a9d6043a67d19cd95"
+        }
+      ],
+      "clock": "clk",
+      "reset": "rst",
+      "period_ns": 10.0
+    },
+    {
+      "id": "axis_chain8_32",
+      "top": "pw_axis_chain",
+      "parameters": {
+        "M_DATA_WIDTH": 32,
+        "M_KEEP_WIDTH": 4
+      },
+      "backend": "sequential",
+      "category": "composite",
+      "description": "Project-authored byte packer plus skid register; explicit zero invalid cycles and invalid bytes; all pins compared",
+      "input": "inputs/axis_chain8_32.v",
+      "source_sha256": "e3730fe79b42c8a94d83ace20bcd4b0cf80d3bb83fb8b67036947ad0fc962b4a",
+      "source_lines": 676,
+      "provenance": [
+        {
+          "path": "benchmark/engineering_sources_20261106/axis_adapter.v",
+          "sha256": "42e8a1289d4aa2dfd90785c983d3f5790c9c4a2cb957cfd42ea1d39435032c67"
+        },
+        {
+          "path": "benchmark/engineering_sources_20261106/axis_register.v",
+          "sha256": "599fde2d6c2d806643bbffb7c444297e69a71871f962d4b741ec1914342e0d39"
+        },
+        {
+          "path": "benchmark/systematic_20261116/rtl/axis_chain.v",
+          "sha256": "5046ed9bc799564aa0a1f5836fde2c16dcd4cf651357c395f2c36eca118c4a42"
+        }
+      ],
+      "clock": "clk",
+      "reset": "rst",
+      "period_ns": 10.0,
+      "prove_state_invariants": false
+    },
+    {
+      "id": "alu8",
+      "top": "pw_alu",
+      "parameters": {
+        "WIDTH": 8
+      },
+      "backend": "native_comb",
+      "category": "parameter_scan",
+      "description": "Parameterized adaptation of public ALU; seven operations and zero default",
+      "input": "inputs/alu8.v",
+      "source_sha256": "9ec494962354f8945d55d092ef681eb36c5cb451e74a49d5e569bc7bc72f71f7",
+      "source_lines": 22,
+      "provenance": [
+        {
+          "path": "benchmark/systematic_20261116/rtl/alu_param.v",
+          "sha256": "8e592a280d0345183dfc3609b9c7f8ae78bc9ab2317201c1554c86a31c8591fb"
+        }
+      ],
+      "clock": null,
+      "reset": null,
+      "period_ns": 10.0
+    },
+    {
+      "id": "alu16",
+      "top": "pw_alu",
+      "parameters": {
+        "WIDTH": 16
+      },
+      "backend": "native_comb",
+      "category": "parameter_scan",
+      "description": "Parameterized adaptation of public ALU; seven operations and zero default",
+      "input": "inputs/alu16.v",
+      "source_sha256": "9ec494962354f8945d55d092ef681eb36c5cb451e74a49d5e569bc7bc72f71f7",
+      "source_lines": 22,
+      "provenance": [
+        {
+          "path": "benchmark/systematic_20261116/rtl/alu_param.v",
+          "sha256": "8e592a280d0345183dfc3609b9c7f8ae78bc9ab2317201c1554c86a31c8591fb"
+        }
+      ],
+      "clock": null,
+      "reset": null,
+      "period_ns": 10.0
+    },
+    {
+      "id": "alu32",
+      "top": "pw_alu",
+      "parameters": {
+        "WIDTH": 32
+      },
+      "backend": "native_comb",
+      "category": "parameter_scan",
+      "description": "Parameterized adaptation of public ALU; seven operations and zero default",
+      "input": "inputs/alu32.v",
+      "source_sha256": "9ec494962354f8945d55d092ef681eb36c5cb451e74a49d5e569bc7bc72f71f7",
+      "source_lines": 22,
+      "provenance": [
+        {
+          "path": "benchmark/systematic_20261116/rtl/alu_param.v",
+          "sha256": "8e592a280d0345183dfc3609b9c7f8ae78bc9ab2317201c1554c86a31c8591fb"
+        }
+      ],
+      "clock": null,
+      "reset": null,
+      "period_ns": 10.0
+    },
+    {
+      "id": "alu64",
+      "top": "pw_alu",
+      "parameters": {
+        "WIDTH": 64
+      },
+      "backend": "native_comb",
+      "category": "parameter_scan",
+      "description": "Parameterized adaptation of public ALU; seven operations and zero default",
+      "input": "inputs/alu64.v",
+      "source_sha256": "9ec494962354f8945d55d092ef681eb36c5cb451e74a49d5e569bc7bc72f71f7",
+      "source_lines": 22,
+      "provenance": [
+        {
+          "path": "benchmark/systematic_20261116/rtl/alu_param.v",
+          "sha256": "8e592a280d0345183dfc3609b9c7f8ae78bc9ab2317201c1554c86a31c8591fb"
+        }
+      ],
+      "clock": null,
+      "reset": null,
+      "period_ns": 10.0
+    },
+    {
+      "id": "priority32",
+      "top": "priority_encoder",
+      "parameters": {
+        "WIDTH": 32,
+        "LSB_HIGH_PRIORITY": 0
+      },
+      "backend": "native_comb",
+      "category": "parameter_scan",
+      "description": "Same public encoder and fixed priority direction across widths",
+      "input": "inputs/priority32.v",
+      "source_sha256": "07c610b8dda24daf67dec36c743f79fca30f9d01d5469e1e7f795a16f4c7aa97",
+      "source_lines": 92,
+      "provenance": [
+        {
+          "path": "benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v",
+          "sha256": "df28220d95b47df349a72803a9751aad331eb8e1435416e8686d00572a974dd5"
+        }
+      ],
+      "clock": null,
+      "reset": null,
+      "period_ns": 10.0
+    },
+    {
+      "id": "priority64",
+      "top": "priority_encoder",
+      "parameters": {
+        "WIDTH": 64,
+        "LSB_HIGH_PRIORITY": 0
+      },
+      "backend": "native_comb",
+      "category": "parameter_scan",
+      "description": "Same public encoder and fixed priority direction across widths",
+      "input": "inputs/priority64.v",
+      "source_sha256": "07c610b8dda24daf67dec36c743f79fca30f9d01d5469e1e7f795a16f4c7aa97",
+      "source_lines": 92,
+      "provenance": [
+        {
+          "path": "benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v",
+          "sha256": "df28220d95b47df349a72803a9751aad331eb8e1435416e8686d00572a974dd5"
+        }
+      ],
+      "clock": null,
+      "reset": null,
+      "period_ns": 10.0
+    },
+    {
+      "id": "priority128",
+      "top": "priority_encoder",
+      "parameters": {
+        "WIDTH": 128,
+        "LSB_HIGH_PRIORITY": 0
+      },
+      "backend": "native_comb",
+      "category": "parameter_scan",
+      "description": "Same public encoder and fixed priority direction across widths",
+      "input": "inputs/priority128.v",
+      "source_sha256": "07c610b8dda24daf67dec36c743f79fca30f9d01d5469e1e7f795a16f4c7aa97",
+      "source_lines": 92,
+      "provenance": [
+        {
+          "path": "benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v",
+          "sha256": "df28220d95b47df349a72803a9751aad331eb8e1435416e8686d00572a974dd5"
+        }
+      ],
+      "clock": null,
+      "reset": null,
+      "period_ns": 10.0
+    },
+    {
+      "id": "priority256",
+      "top": "priority_encoder",
+      "parameters": {
+        "WIDTH": 256,
+        "LSB_HIGH_PRIORITY": 0
+      },
+      "backend": "native_comb",
+      "category": "parameter_scan",
+      "description": "Same public encoder and fixed priority direction across widths",
+      "input": "inputs/priority256.v",
+      "source_sha256": "07c610b8dda24daf67dec36c743f79fca30f9d01d5469e1e7f795a16f4c7aa97",
+      "source_lines": 92,
+      "provenance": [
+        {
+          "path": "benchmark/engineering_sources_20261030/verilog-axis/rtl/priority_encoder.v",
+          "sha256": "df28220d95b47df349a72803a9751aad331eb8e1435416e8686d00572a974dd5"
+        }
+      ],
+      "clock": null,
+      "reset": null,
+      "period_ns": 10.0
+    },
+    {
+      "id": "crc32_d4",
+      "top": "pw_crc32_d4",
+      "parameters": {},
+      "backend": "crc_slang",
+      "category": "parameter_scan",
+      "description": "Public reflected CRC32 LFSR and fixed wrapper; arbitrary state and data, every output bit",
+      "input": "inputs/crc32_d4.v",
+      "source_sha256": "46a4e6dc93bc0547a0bcb350fe925cf2b2aba926dadb41fc795eaa011987d0c8",
+      "source_lines": 454,
+      "provenance": [
+        {
+          "path": "benchmark/engineering_sources_20261030/verilog-lfsr/rtl/lfsr.v",
+          "sha256": "5502c8203b0dfc7246c1a2de93e60c199ded3c1d7840b106350d714f72a9a079"
+        }
+      ],
+      "clock": null,
+      "reset": null,
+      "period_ns": 10.0,
+      "data_width": 4
+    },
+    {
+      "id": "crc32_d8",
+      "top": "pw_crc32_d8",
+      "parameters": {},
+      "backend": "crc_slang",
+      "category": "parameter_scan",
+      "description": "Public reflected CRC32 LFSR and fixed wrapper; arbitrary state and data, every output bit",
+      "input": "inputs/crc32_d8.v",
+      "source_sha256": "210f0cc90779185cd08d90c925511cf8f4fc8aaa62be42954f4ba3309b6d597b",
+      "source_lines": 454,
+      "provenance": [
+        {
+          "path": "benchmark/engineering_sources_20261030/verilog-lfsr/rtl/lfsr.v",
+          "sha256": "5502c8203b0dfc7246c1a2de93e60c199ded3c1d7840b106350d714f72a9a079"
+        }
+      ],
+      "clock": null,
+      "reset": null,
+      "period_ns": 10.0,
+      "data_width": 8
+    },
+    {
+      "id": "crc32_d16",
+      "top": "pw_crc32_d16",
+      "parameters": {},
+      "backend": "crc_slang",
+      "category": "parameter_scan",
+      "description": "Public reflected CRC32 LFSR and fixed wrapper; arbitrary state and data, every output bit",
+      "input": "inputs/crc32_d16.v",
+      "source_sha256": "8551fd142c83b589578dc283f4bff0e3bbd0aa24269d53eaf888fd18297cb21d",
+      "source_lines": 454,
+      "provenance": [
+        {
+          "path": "benchmark/engineering_sources_20261030/verilog-lfsr/rtl/lfsr.v",
+          "sha256": "5502c8203b0dfc7246c1a2de93e60c199ded3c1d7840b106350d714f72a9a079"
+        }
+      ],
+      "clock": null,
+      "reset": null,
+      "period_ns": 10.0,
+      "data_width": 16
+    },
+    {
+      "id": "crc32_d32",
+      "top": "pw_crc32_d32",
+      "parameters": {},
+      "backend": "crc_slang",
+      "category": "parameter_scan",
+      "description": "Public reflected CRC32 LFSR and fixed wrapper; arbitrary state and data, every output bit",
+      "input": "inputs/crc32_d32.v",
+      "source_sha256": "453fe48f29b9fa4b2a6ecc0a60f1687847a1400d6ff9988ef17a912c4ec65767",
+      "source_lines": 454,
+      "provenance": [
+        {
+          "path": "benchmark/engineering_sources_20261030/verilog-lfsr/rtl/lfsr.v",
+          "sha256": "5502c8203b0dfc7246c1a2de93e60c199ded3c1d7840b106350d714f72a9a079"
+        }
+      ],
+      "clock": null,
+      "reset": null,
+      "period_ns": 10.0,
+      "data_width": 32
+    }
+  ],
+  "model_requests": 0,
+  "model_collection": "Pending explicit new call limit",
+  "sequential_contract": "Independent arbitrary defined initial states; strip init; first sample reset; compare every output from sample2; repeated reset and all other inputs unconstrained; fixed cycle latency",
+  "sequential_proof": "Native outputs and optional common state relations are jointly proven with base cases and induction",
+  "acceptance": "Source and mapped proof, PPA and electrical PASS; area <= original 110%; nondegrading TNS; strictly better WNS for sequential or arrival for combinational",
+  "planned_engineering": {
+    "cases": 6,
+    "strategies": [
+      "direct",
+      "sta",
+      "adaptive"
+    ],
+    "repeats": 3,
+    "max_calls_per_run": 3,
+    "maximum_calls": 162,
+    "sequential_target_wns_gain_ns": 0.1
+  },
+  "planned_parameter_scan": {
+    "cases": [
+      "alu16",
+      "alu32",
+      "alu64",
+      "priority64",
+      "priority128",
+      "priority256",
+      "crc32_d4",
+      "crc32_d8",
+      "crc32_d16"
+    ],
+    "strategies": [
+      "direct",
+      "sta"
+    ],
+    "repeats": 3,
+    "max_calls_per_run": 1,
+    "maximum_calls": 54
+  },
+  "budget_variants": {
+    "54": "One replicate of six engineering cases and three strategies, at most three calls each",
+    "162": "Three engineering replicates",
+    "216": "Engineering replicates plus parameter scan"
+  },
+  "generation": {
+    "model": "gpt-6.1-sol",
+    "max_completion_tokens": 16000,
+    "timeout_seconds": 600,
+    "concurrency": 2,
+    "automatic_retries": 0,
+    "stop_after_consecutive_transport_failures": 3
+  },
+  "source_dependencies": {
+    "eda\\experiments\\run_systematic_study.py": "6d17b0fa5f2071f7469663bcb8e2f7724d3377ceff5ee4aadb8deefa5f2046e8",
+    "eda\\experiments\\run_native_seq_reset_allpins.py": "61728d952d7e0a576f6c5a8829f020c5889d664348c4aaf4c286b72930574b1f",
+    "eda\\experiments\\run_native_comb.py": "6d5533a0fabdaf0e97d16d6d3b35ca424387bb4ff07968a10aa27df34ed385f2",
+    "eda\\experiments\\trace_sta_rtl_cone.py": "047c3b739a00bcba19d470ea3d043ef5a872dd0ded0f0ee41dc22ea3e41b920d",
+    "eda\\experiments\\prove_crc_affine.py": "04dc24f7a7505f15574f10c6d0385a5aebe9fd294edb3870ed6a77c6ff880f9b"
+  },
+  "liberty_sha256": "92eb4e93a3d4c2563018ac81cdec2f02fdeaced9b39337ed5c141fa63e0ad8f8"
+}

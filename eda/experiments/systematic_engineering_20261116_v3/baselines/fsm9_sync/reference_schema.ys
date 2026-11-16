@@ -1,0 +1,7 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/fsm9_sync.v"
+hierarchy -check -top pw_fsm_sync
+proc
+flatten
+setattr -unset init w:*
+check -assert
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/baselines/fsm9_sync/reference_schema.json"

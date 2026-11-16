@@ -1,0 +1,223 @@
+Increase setup WNS for module pw_pipeline_alu, fixed parameter overrides {"STAGES": 2, "WIDTH": 16}. Preserve exact cycle-by-cycle behavior, clock, synchronous reset, registered latency, valid/ready and all outputs. All initial DUT states are independent arbitrary defined values. All initialization attributes are stripped. Reset is asserted at the first sample, and all outputs are compared from sample2 forever. All later inputs and repeated reset are unconstrained. No extra startup or input assumptions. Keep existing named register/state encodings where possible for the declared auxiliary proof targets. Preserve module name, ports, signedness, priority and default behavior, truncation and parameters. No latches, memories, generated clocks, asynchronous reset, includes, file access, formal assumptions, assertions or undefined outputs. Supply a complete design including required helper modules. Evaluation uses SKY130HD TT25C1.80V, fixed library/mapping and interface constraints. Clock period for sequential cases is 10.0ns. Original-relative area cap is 4573.511360um2. Source and mapped equivalence, STA and electrical checks must pass. Return exactly one JSON object with six string fields candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.
+Original reference RTL:
+// Parameterized adaptation of rtl_opt_upstream_hkust/benchmark/alu_64bit.
+// The sum output retains the original seven operations and zero default.
+module pw_alu #(
+    parameter WIDTH = 64
+)(
+    input wire [WIDTH-1:0] a, b,
+    input wire [2:0] Oper,
+    output reg [WIDTH-1:0] sum
+);
+    always @* begin
+        case (Oper)
+            3'b000: sum = a + b;
+            3'b001: sum = a - b;
+            3'b010: sum = b - a;
+            3'b011: sum = a | b;
+            3'b100: sum = a & b;
+            3'b101: sum = a ^ b;
+            3'b110: sum = a ~^ b;
+            default: sum = {WIDTH{1'b0}};
+        endcase
+    end
+endmodule
+
+
+// Project-authored integration benchmark. STAGES is exactly 2 or 3 in this study.
+// Sampled operands and opcode feed a combinational ALU and registered outputs.
+// All data and valid registers synchronously reset. Inputs are unconstrained.
+module pw_pipeline_alu #(
+    parameter WIDTH = 32,
+    parameter STAGES = 2
+)(
+    input wire clk, rst,
+    input wire [WIDTH-1:0] a, b,
+    input wire [2:0] Oper,
+    input wire in_valid,
+    output wire [WIDTH-1:0] result,
+    output wire out_valid
+);
+    reg [WIDTH-1:0] operand_a, operand_b;
+    reg [2:0] opcode;
+    reg input_valid;
+    wire [WIDTH-1:0] alu_result;
+    wire [WIDTH-1:0] stage_data [0:STAGES-2];
+    wire stage_valid [0:STAGES-2];
+
+    always @(posedge clk) begin
+        if (rst) begin
+            operand_a <= 0;
+            operand_b <= 0;
+            opcode <= 0;
+            input_valid <= 0;
+        end else begin
+            operand_a <= a;
+            operand_b <= b;
+            opcode <= Oper;
+            input_valid <= in_valid;
+        end
+    end
+
+    pw_alu #(.WIDTH(WIDTH)) alu (
+        .a(operand_a), .b(operand_b), .Oper(opcode), .sum(alu_result)
+    );
+
+    genvar index;
+    generate
+        for (index = 0; index < STAGES-1; index = index+1) begin: output_pipeline
+            reg [WIDTH-1:0] data_reg;
+            reg valid_reg;
+            wire [WIDTH-1:0] next_data;
+            wire next_valid;
+            if (index == 0) begin: first_stage
+                assign next_data = alu_result;
+                assign next_valid = input_valid;
+            end else begin: following_stage
+                assign next_data = stage_data[index-1];
+                assign next_valid = stage_valid[index-1];
+            end
+            always @(posedge clk) begin
+                if (rst) begin
+                    data_reg <= 0;
+                    valid_reg <= 0;
+                end else begin
+                    data_reg <= next_data;
+                    valid_reg <= next_valid;
+                end
+            end
+            assign stage_data[index] = data_reg;
+            assign stage_valid[index] = valid_reg;
+        end
+    endgenerate
+    assign result = stage_data[STAGES-2];
+    assign out_valid = stage_valid[STAGES-2];
+endmodule
+
+Actual baseline measurements:
+{"status": "PASS", "formal": "PASS", "mapped_formal": "PASS", "ppa": "PASS", "electrical": {"status": "PASS", "violation_rows": 0, "checks": ["max_slew", "max_capacitance"], "scope": "Library limits under recorded SDC; not physical signoff"}, "wns_ns": 7.71, "tns_ns": 0.0, "mapped_area_um2": 4157.7376, "stage": "sta"}
+Actual baseline STA paths, mapped names do not establish exact source attribution:
+Startpoint: _1236_ (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: _1210_ (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ _1236_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.28    0.28 v _1236_/Q (sky130_fd_sc_hd__dfxtp_1)
+   0.13    0.41 v _0673_/X (sky130_fd_sc_hd__buf_6)
+   0.35    0.76 ^ _0686_/Y (sky130_fd_sc_hd__nor4_4)
+   0.15    0.90 v _0720_/Y (sky130_fd_sc_hd__nand4_1)
+   0.20    1.10 ^ _0721_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.10    1.20 v _0722_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.14    1.34 ^ _0837_/Y (sky130_fd_sc_hd__a22oi_2)
+   0.10    1.44 v _0838_/Y (sky130_fd_sc_hd__o211ai_1)
+   0.16    1.60 ^ _0839_/Y (sky130_fd_sc_hd__a31oi_1)
+   0.15    1.75 ^ _0986_/X (sky130_fd_sc_hd__or2_1)
+   0.06    1.81 v _0989_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13    1.94 v _0991_/X (sky130_fd_sc_hd__and3_1)
+   0.12    2.06 ^ _0992_/Y (sky130_fd_sc_hd__o22ai_1)
+   0.10    2.16 v _0999_/Y (sky130_fd_sc_hd__a41oi_2)
+   0.00    2.16 v _1210_/D (sky130_fd_sc_hd__dfxtp_1)
+           2.16   data arrival time
+
+  10.00   10.00   clock core_clk (rise edge)
+   0.00   10.00   clock network delay (ideal)
+   0.00   10.00   clock reconvergence pessimism
+          10.00 ^ _1210_/CLK (sky130_fd_sc_hd__dfxtp_1)
+  -0.13    9.87   library setup time
+           9.87   data required time
+---------------------------------------------------------
+           9.87   data required time
+          -2.16   data arrival time
+---------------------------------------------------------
+           7.71   slack (MET)
+
+
+Startpoint: _1236_ (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: _1196_ (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ _1236_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.28    0.28 v _1236_/Q (sky130_fd_sc_hd__dfxtp_1)
+   0.13    0.41 v _0673_/X (sky130_fd_sc_hd__buf_6)
+   0.35    0.76 ^ _0686_/Y (sky130_fd_sc_hd__nor4_4)
+   0.15    0.90 v _0720_/Y (sky130_fd_sc_hd__nand4_1)
+   0.09    1.00 ^ _0724_/Y (sky130_fd_sc_hd__nand2_1)
+   0.04    1.04 v _0725_/Y (sky130_fd_sc_hd__nand2_1)
+   0.11    1.15 ^ _0726_/Y (sky130_fd_sc_hd__o211ai_1)
+   0.13    1.27 v _0727_/Y (sky130_fd_sc_hd__nand2_1)
+   0.14    1.41 ^ _0735_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.07    1.49 v _0739_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.19    1.68 ^ _0863_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.08    1.77 v _1177_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.12    1.88 ^ _1178_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.13    2.01 ^ _1179_/Y (sky130_fd_sc_hd__o2bb2ai_1)
+   0.09    2.11 v _1193_/Y (sky130_fd_sc_hd__a41oi_2)
+   0.00    2.11 v _1196_/D (sky130_fd_sc_hd__dfxtp_1)
+           2.11   data arrival time
+
+  10.00   10.00   clock core_clk (rise edge)
+   0.00   10.00   clock network delay (ideal)
+   0.00   10.00   clock reconvergence pessimism
+          10.00 ^ _1196_/CLK (sky130_fd_sc_hd__dfxtp_1)
+  -0.13    9.87   library setup time
+           9.87   data required time
+---------------------------------------------------------
+           9.87   data required time
+          -2.11   data arrival time
+---------------------------------------------------------
+           7.76   slack (MET)
+
+
+Startpoint: _1233_ (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: _1208_ (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ _1233_/CLK (sky130_fd_sc_hd__dfxtp_1)
+   0.30    0.30 ^ _1233_/Q (sky130_fd_sc_hd__dfxtp_1)
+   0.14    0.44 ^ _0680_/X (sky130_fd_sc_hd__buf_6)
+   0.08    0.52 v _0761_/Y (sky130_fd_sc_hd__inv_1)
+   0.06    0.58 ^ _0762_/Y (sky130_fd_sc_hd__nand2_1)
+   0.10    0.68 ^ _0766_/Y (sky130_fd_sc_hd__o2bb2ai_1)
+   0.08    0.76 v _0768_/Y (sky130_fd_sc_hd__nand2_1)
+   0.38    1.14 v _0770_/X (sky130_fd_sc_hd__maj3_1)
+   0.19    1.33 ^ _0776_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.11    1.44 v _0823_/Y (sky130_fd_sc_hd__nand3_1)
+   0.12    1.56 ^ _1013_/Y (sky130_fd_sc_hd__nand3_1)
+   0.06    1.62 v _1014_/Y (sky130_fd_sc_hd__nand2_1)
+   0.08    1.70 ^ _1015_/Y (sky130_fd_sc_hd__nand2_1)
+   0.06    1.77 v _1016_/Y (sky130_fd_sc_hd__nand2_1)
+   0.05    1.82 ^ _1019_/Y (sky130_fd_sc_hd__nand2_1)
+   0.04    1.85 v _1020_/Y (sky130_fd_sc_hd__nor2_1)
+   0.13    1.98 ^ _1021_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.09    2.07 v _1035_/Y (sky130_fd_sc_hd__a41oi_2)
+   0.00    2.07 v _1208_/D (sky130_fd_sc_hd__dfxtp_1)
+           2.07   data arrival time
+
+  10.00   10.00   clock core_clk (rise edge)
+   0.00   10.00   clock network delay (ideal)
+   0.00   10.00   clock reconvergence pessimism
+          10.00 ^ _1208_/CLK (sky130_fd_sc_hd__dfxtp_1)
+  -0.14    9.86   library setup time
+           9.86   data required time
+---------------------------------------------------------
+           9.86   data required time
+          -2.07   data arrival time
+---------------------------------------------------------
+           7.79   slack (MET)
+
+

@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-30878a5b-a603-4447-94db-1f6b3acb1fef",
+  "model": "gpt-6.1-sol",
+  "created": 1794841939,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Preserving invalid-state defaults**\n\n**Evaluating one-hot state encoding**\n\n**Weighing direct one-hot logic**\n\n**Refining next-state logic**\n\n**Choosing explicit state decode**\n\n**Selecting full equality decode**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module pw_fsm_sync (\\n    input clk,\\n    input rst,\\n    input start,\\n    input [7:0] data_in,\\n    output reg [7:0] data_out,\\n    output reg done\\n);\\n\\nlocalparam [8:0] S_IDLE  = 9'b000000001;\\nlocalparam [8:0] S_START = 9'b000000010;\\nlocalparam [8:0] S_READ  = 9'b000000100;\\nlocalparam [8:0] S_PROC1 = 9'b000001000;\\nlocalparam [8:0] S_PROC2 = 9'b000010000;\\nlocalparam [8:0] S_PROC3 = 9'b000100000;\\nlocalparam [8:0] S_WAIT  = 9'b001000000;\\nlocalparam [8:0] S_DONE  = 9'b010000000;\\nlocalparam [8:0] S_ERROR = 9'b100000000;\\n\\n(* fsm_encoding = \\\"none\\\" *) reg [8:0] state;\\nreg [8:0] next_state;\\n\\nwire idle_sel  = (state == S_IDLE);\\nwire start_sel = (state == S_START);\\nwire read_sel  = (state == S_READ);\\nwire proc1_sel = (state == S_PROC1);\\nwire proc2_sel = (state == S_PROC2);\\nwire proc3_sel = (state == S_PROC3);\\nwire wait_sel  = (state == S_WAIT);\\nwire done_sel  = (state == S_DONE);\\nwire error_sel = (state == S_ERROR);\\n\\nwire read_match = (data_in[3:1] == 3'b101);\\nwire error_exit = &data_in[2:0];\\nwire [7:0] incremented = data_in + 8'h01;\\nwire pass_sel = read_sel | done_sel;\\n\\nalways @(*) begin\\n    next_state = 9'b0;\\n    next_state[1] = idle_sel & start;\\n    next_state[2] = (start_sel & data_in[0]) |\\n                    (wait_sel & data_in[4]);\\n    next_state[3] = read_sel & read_match;\\n    next_state[4] = proc1_sel;\\n    next_state[5] = proc2_sel & data_in[7];\\n    next_state[6] = (read_sel & ~read_match) |\\n                    (proc2_sel & ~data_in[7]) |\\n                    (wait_sel & ~data_in[4]);\\n    next_state[7] = proc3_sel;\\n    next_state[8] = (start_sel & ~data_in[0]) |\\n                    (error_sel & ~error_exit);\\n    next_state[0] = ~(|next_state[8:1]);\\nend\\n\\nalways @(*) begin\\n    data_out = ({8{pass_sel}} & data_in) |\\n               ({8{proc1_sel}} & incremented) |\\n               ({8{proc2_sel}} & {data_in[6:0], 1'b0}) |\\n               ({8{proc3_sel}} & ~data_in) |\\n               ({8{error_sel}} & 8'hEE);\\n    done = done_sel;\\nend\\n\\nalways @(posedge clk) begin\\n    if (rst)\\n        state <= S_IDLE;\\n    else\\n        state <= next_state;\\nend\\n\\nendmodule\",\n  \"bottleneck\": \"The baseline has substantial state-decode and selection depth on both state-feedback and state-to-output paths. Its worst reported feedback path includes four combinational cells after clock-to-Q; output paths also traverse several decode and selection levels.\",\n  \"rewrite\": \"Retain the original nine-bit state encodings and explicitly disable FSM recoding. Construct each non-idle next-state bit as a parallel sum of transition terms, with the idle bit as the complement of all non-idle successors. Replace output selection with parallel masked data terms and combine the identical READ and DONE data paths. Exact full-width state comparisons retain illegal-state handling.\",\n  \"expected_timing_gain\": \"The intended gain comes from avoiding a recoded state decoder and exposing parallel transition and output logic to mapping. A modest setup-WNS improvement is plausible, but its magnitude and even its sign require the specified synthesis and STA run; no candidate timing measurement is available.\",\n  \"area_or_other_cost\": \"Keeping the explicit encoding can require nine state flip-flops rather than a compact recoded implementation. Parallel logic and shared READ/DONE output selection may offset that cost. Compliance with the 1102.432320 um2 area cap and electrical limits requires measurement.\",\n  \"functional_boundaries\": \"Ports, synchronous active-high reset, state names and encodings, cycle timing, combinational outputs, and eight-bit arithmetic truncation are preserved. Every invalid nine-bit state produces zero outputs and transitions to IDLE, exactly as in the reference. No initialization, startup assumptions, additional latency, helper modules, or undefined outputs are introduced.\"\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2332,
+    "completion_tokens": 2143,
+    "total_tokens": 5509
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 1111,
+    "usage_reported": true
+  }
+}

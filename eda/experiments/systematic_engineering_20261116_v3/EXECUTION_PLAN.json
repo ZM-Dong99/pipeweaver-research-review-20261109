@@ -1,0 +1,150 @@
+{
+  "maximum_requests": 54,
+  "jobs": [
+    {
+      "case": "pipeline_alu16_s2",
+      "strategy": "sta",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_001"
+    },
+    {
+      "case": "axis_chain8_32",
+      "strategy": "sta",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_002"
+    },
+    {
+      "case": "fsm9_sync",
+      "strategy": "sta",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_003"
+    },
+    {
+      "case": "pipeline_alu16_s2",
+      "strategy": "adaptive",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_004"
+    },
+    {
+      "case": "pipeline_alu32_s3",
+      "strategy": "sta",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_005"
+    },
+    {
+      "case": "axis_chain8_32",
+      "strategy": "direct",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_006"
+    },
+    {
+      "case": "arbiter32",
+      "strategy": "adaptive",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_007"
+    },
+    {
+      "case": "pipeline_alu32_s3",
+      "strategy": "direct",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_008"
+    },
+    {
+      "case": "pipeline_alu16_s2",
+      "strategy": "direct",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_009"
+    },
+    {
+      "case": "arbiter32",
+      "strategy": "direct",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_010"
+    },
+    {
+      "case": "fcs_reset8",
+      "strategy": "adaptive",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_011"
+    },
+    {
+      "case": "arbiter32",
+      "strategy": "sta",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_012"
+    },
+    {
+      "case": "fsm9_sync",
+      "strategy": "adaptive",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_013"
+    },
+    {
+      "case": "pipeline_alu32_s3",
+      "strategy": "adaptive",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_014"
+    },
+    {
+      "case": "fcs_reset8",
+      "strategy": "sta",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_015"
+    },
+    {
+      "case": "fcs_reset8",
+      "strategy": "direct",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_016"
+    },
+    {
+      "case": "axis_chain8_32",
+      "strategy": "adaptive",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_017"
+    },
+    {
+      "case": "fsm9_sync",
+      "strategy": "direct",
+      "repeat": 1,
+      "max_rounds": 3,
+      "id": "job_018"
+    }
+  ],
+  "model": "gpt-6.1-sol",
+  "endpoint": "https://apinebula.ai/v1",
+  "generation": {
+    "model": "gpt-6.1-sol",
+    "max_completion_tokens": 16000,
+    "timeout_seconds": 600,
+    "concurrency": 2,
+    "automatic_retries": 0,
+    "stop_after_consecutive_transport_failures": 3
+  },
+  "collector_sha256": "0c8c54c273908f79c813aec345ce9d8dca7c0bcc6d49c71b9174d16d6de20c4e",
+  "protocol_sha256": "aefbc80e922162b36442983a714f4ce416514ea33f7b9af467bd35f95514ad76",
+  "runtime_dependencies": {
+    "agents/adaptive_optimizer.py": "4c6481f9fd69350cf9e02e97a7850ea3bc7a4b40d845d19e59dca307c931afaf",
+    "agents/rtl_optimizer.py": "576a055c1f5e8498a014833cb7f8bb01de08a56e6f3fcd53c568dcaaf4a3e12e",
+    "agents/sse_transport.py": "85f106720815042c9edfdf1242212a6f524b6563d143524b02af03b42692ba28",
+    "eda/experiments/run_stream_feedback.py": "b2c841e6b34618f6814aa32d6306aa9b6ee001bc12bdebed284ea908d3d55292"
+  },
+  "policies": "Direct and STA sample original-reference prompts. Adaptive starts direct and uses actual failures/metrics. All strategies share targets and stop rules."
+}

@@ -1,0 +1,5 @@
+read_json "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/audits/definedness/request_001/audit_schema.json"
+setattr -unset init w:*
+read_verilog -formal "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/audits/definedness/request_001/definedness.v"
+prep -top pw_definedness -flatten
+sat -enable_undef -set-init-def -set-def-inputs -verify -seq 2 -tempinduct -maxsteps 32 -prove defined 1 -set-at 1 signal_1 1 -timeout 120

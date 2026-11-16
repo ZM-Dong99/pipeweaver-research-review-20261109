@@ -1,0 +1,39 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v"
+chparam -set STAGES 3 pw_pipeline_alu
+chparam -set WIDTH 32 pw_pipeline_alu
+hierarchy -check -top pw_pipeline_alu
+proc
+flatten
+setattr -unset init w:*
+expose pw_pipeline_alu/w:alu.Oper
+expose pw_pipeline_alu/w:alu.a
+expose pw_pipeline_alu/w:alu.b
+expose pw_pipeline_alu/w:input_valid
+expose pw_pipeline_alu/w:opcode
+expose pw_pipeline_alu/w:operand_a
+expose pw_pipeline_alu/w:operand_b
+rename pw_pipeline_alu pw_gold
+design -stash pw_gold_design
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu32_s3.v"
+chparam -set STAGES 3 pw_pipeline_alu
+chparam -set WIDTH 32 pw_pipeline_alu
+hierarchy -check -top pw_pipeline_alu
+proc
+flatten
+setattr -unset init w:*
+expose pw_pipeline_alu/w:alu.Oper
+expose pw_pipeline_alu/w:alu.a
+expose pw_pipeline_alu/w:alu.b
+expose pw_pipeline_alu/w:input_valid
+expose pw_pipeline_alu/w:opcode
+expose pw_pipeline_alu/w:operand_a
+expose pw_pipeline_alu/w:operand_b
+rename pw_pipeline_alu pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/baselines/pipeline_alu32_s3/formal_miter.v"
+prep -top pw_miter -flatten
+opt_clean
+sat -verify -seq 2 -tempinduct -maxsteps 32 -set-init-def -set-def-inputs -prove mismatch 0 -set-at 1 in_1 1 -show-ports -dump_vcd "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/baselines/pipeline_alu32_s3/formal_counterexample.vcd" -timeout 120

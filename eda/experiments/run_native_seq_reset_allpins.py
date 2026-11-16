@@ -96,6 +96,8 @@ def main():
                     help='Strengthen equality with common named register Q nets; prove these relations, never assume them')
     ap.add_argument('--unmap-clock-enables', action='store_true',
                     help='Uniform mapping alternative: expand clock enables into input muxes before liberty mapping')
+    ap.add_argument('--keep-fsm-encoding', action='store_true',
+                    help='Preserve source FSM encoding during synthesis for explicit state-relation proofs')
     args = ap.parse_args()
     if args.warmup != 1 or args.reset_cycles != 1:
         ap.error('This reset-only adapter supports exactly one reset sample and one excluded pre-reset sample')
@@ -243,7 +245,8 @@ def main():
         constr.write_text('set_driving_cell sky130_fd_sc_hd__buf_2\nset_load 10.0\n', encoding='ascii')
         mapped, jp = out / 'mapped.v', out / 'mapped.json'
         log = run('mapping', [f'read_liberty -lib {q(LIB)}'] + reads(candidate) + param_commands + [
-            f'hierarchy -check -top {args.top}', 'flatten', 'setattr -unset init w:*', 'delete t:$scopeinfo', f'synth -top {args.top} -noabc',
+            f'hierarchy -check -top {args.top}', 'flatten', 'setattr -unset init w:*', 'delete t:$scopeinfo',
+            f'synth -top {args.top} -noabc' + (' -nofsm' if args.keep_fsm_encoding else ''),
             *(['dffunmap -ce-only'] if args.unmap_clock_enables else []),
             f'dfflibmap -liberty {q(LIB)}',
             f'abc -script {q(abc)} -constr {q(constr)} -liberty {q(LIB)} -dont_use sky130_fd_sc_hd__lpflow_*',

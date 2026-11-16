@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-b61b6bd7-f946-45fe-997b-35ab92f845c7",
+  "model": "gpt-6.1-sol",
+  "created": 1794840674,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Comparing state decode options**\n\n**Weighing onehot state logic**\n\n**Choosing direct onehot transitions**\n\n**Formulating direct bit equations**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module pw_fsm_sync (\\n    input clk,\\n    input rst,\\n    input start,\\n    input [7:0] data_in,\\n    output reg [7:0] data_out,\\n    output reg done\\n);\\n\\nlocalparam [8:0] S_IDLE  = 9'b000000001;\\nlocalparam [8:0] S_START = 9'b000000010;\\nlocalparam [8:0] S_READ  = 9'b000000100;\\nlocalparam [8:0] S_PROC1 = 9'b000001000;\\nlocalparam [8:0] S_PROC2 = 9'b000010000;\\nlocalparam [8:0] S_PROC3 = 9'b000100000;\\nlocalparam [8:0] S_WAIT  = 9'b001000000;\\nlocalparam [8:0] S_DONE  = 9'b010000000;\\nlocalparam [8:0] S_ERROR = 9'b100000000;\\n\\nreg [8:0] state, next_state;\\nwire read_match;\\nwire error_clear;\\nwire [7:0] incremented;\\nwire [7:0] shifted;\\n\\nassign read_match = data_in[3] & ~data_in[2] & data_in[1];\\nassign error_clear = &data_in[2:0];\\nassign incremented = data_in + 8'h01;\\nassign shifted = data_in << 1;\\n\\nalways @(*) begin\\n    next_state[0] = (state[0] & ~start) | state[7] |\\n                    (state[8] & error_clear);\\n    next_state[1] = state[0] & start;\\n    next_state[2] = (state[1] & data_in[0]) |\\n                    (state[6] & data_in[4]);\\n    next_state[3] = state[2] & read_match;\\n    next_state[4] = state[3];\\n    next_state[5] = state[4] & data_in[7];\\n    next_state[6] = (state[2] & ~read_match) |\\n                    (state[4] & ~data_in[7]) |\\n                    (state[6] & ~data_in[4]);\\n    next_state[7] = state[5];\\n    next_state[8] = (state[1] & ~data_in[0]) |\\n                    (state[8] & ~error_clear);\\nend\\n\\nalways @(*) begin\\n    data_out = ({8{state[2] | state[7]}} & data_in) |\\n               ({8{state[3]}} & incremented) |\\n               ({8{state[4]}} & shifted) |\\n               ({8{state[5]}} & ~data_in) |\\n               ({8{state[8]}} & 8'hEE);\\n    done = state[7];\\nend\\n\\nalways @(posedge clk) begin\\n    if (rst)\\n        state <= S_IDLE;\\n    else\\n        state <= next_state;\\nend\\n\\nendmodule\",\n  \"bottleneck\": \"The baseline has state-dependent paths containing multi-level state decoding and selection logic, both between state registers and from state registers to data_out. Its reported limiting delays are approximately 1.23 ns including clock-to-Q for the register path and 1.36 ns for the output path.\",\n  \"rewrite\": \"Retain the nine named one-hot state encodings and the state/next_state signals, but express transitions directly as parallel one-hot equations. Replace output case selection with masked parallel terms, sharing the READ/DONE pass-through enable. This removes full-vector state comparisons from the reachable-state datapath without adding registers or changing the interface.\",\n  \"expected_timing_gain\": \"Expected to improve setup WNS by reducing state-decode depth and output-selection depth. A gain of a few tenths of a nanosecond is plausible, but no mapped STA results are available for this candidate; improvement and electrical compliance require evaluation with the specified flow.\",\n  \"area_or_other_cost\": \"Retains nine state bits and adds no storage or latency. Direct state-bit enables should reduce decode logic, although buffering and mapping determine the final area. Compliance with the 1102.432320 um2 cap is not measured.\",\n  \"functional_boundaries\": \"Uses precisely the supplied first-sample synchronous reset contract: independent arbitrary initial states are overwritten with S_IDLE before compared behavior. Thereafter the transition equations preserve one-hotness for every input and every repeated reset, and all reachable-state outputs, default-zero output cases, transition priorities, arithmetic truncation and cycle timing match the reference. Illegal pre-reset state behavior is not preserved and is outside the specified comparison window. Outputs remain combinational functions of the registered state and current data_in; no output registers, startup assumptions, initialization attributes or additional reset requirements are introduced.\"\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2332,
+    "completion_tokens": 1703,
+    "total_tokens": 4654
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 1084,
+    "usage_reported": true
+  }
+}

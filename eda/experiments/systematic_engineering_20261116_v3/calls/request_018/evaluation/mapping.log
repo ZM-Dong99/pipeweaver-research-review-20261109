@@ -1,0 +1,913 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\systematic_engineering_20261116_v3\calls\request_018\evaluation\mapping.ys' --
+
+1. Executing Liberty frontend: D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v' to AST representation.
+Generating RTLIL representation for module `\pw_fsm_sync'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \pw_fsm_sync
+
+3.2. Analyzing design hierarchy..
+Top module:  \pw_fsm_sync
+Removed 0 unused modules.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing SYNTH pass.
+
+5.1. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1.1. Analyzing design hierarchy..
+Top module:  \pw_fsm_sync
+
+5.1.2. Analyzing design hierarchy..
+Top module:  \pw_fsm_sync
+Removed 0 unused modules.
+
+5.2. Executing PROC pass (convert processes to netlists).
+
+5.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:66$42 in module pw_fsm_sync.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:22$1 in module pw_fsm_sync.
+Removed a total of 0 dead cases.
+
+5.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 3 assignments to connections.
+
+5.2.4. Executing PROC_INIT pass (extract init attributes).
+
+5.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~2 debug messages>
+
+5.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\pw_fsm_sync.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:66$42'.
+     1/1: $0\state[8:0]
+Creating decoders for process `\pw_fsm_sync.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:57$31'.
+Creating decoders for process `\pw_fsm_sync.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:22$1'.
+     1/1: $1\next_state[8:0]
+
+5.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\pw_fsm_sync.\data_out' from process `\pw_fsm_sync.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:57$31'.
+No latch inferred for signal `\pw_fsm_sync.\done' from process `\pw_fsm_sync.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:57$31'.
+No latch inferred for signal `\pw_fsm_sync.\next_state' from process `\pw_fsm_sync.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:22$1'.
+
+5.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\pw_fsm_sync.\state' using process `\pw_fsm_sync.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:66$42'.
+  created $dff cell `$procdff$56' with positive edge clock.
+
+5.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\pw_fsm_sync.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:66$42'.
+Removing empty process `pw_fsm_sync.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:66$42'.
+Removing empty process `pw_fsm_sync.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:57$31'.
+Found and cleaned up 1 empty switch in `\pw_fsm_sync.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:22$1'.
+Removing empty process `pw_fsm_sync.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:22$1'.
+Cleaned up 2 empty switches.
+
+5.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+<suppressed ~1 debug messages>
+
+5.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+
+5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_fsm_sync..
+Removed 0 unused cells and 24 unused wires.
+<suppressed ~1 debug messages>
+
+5.5. Executing CHECK pass (checking for obvious problems).
+Checking module pw_fsm_sync...
+Found and reported 0 problems.
+
+5.6. Executing OPT pass (performing simple optimizations).
+
+5.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+
+5.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_fsm_sync'.
+Computing hashes of 49 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Computing hashes of 44 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+<suppressed ~15 debug messages>
+Removed a total of 5 cells.
+
+5.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_fsm_sync..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+5.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_fsm_sync.
+Performed a total of 0 changes.
+
+5.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_fsm_sync'.
+Computing hashes of 44 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Removed a total of 0 cells.
+
+5.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_fsm_sync..
+Removed 0 unused cells and 5 unused wires.
+<suppressed ~1 debug messages>
+
+5.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+
+5.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_fsm_sync..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+5.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_fsm_sync.
+Performed a total of 0 changes.
+
+5.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_fsm_sync'.
+Computing hashes of 44 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Removed a total of 0 cells.
+
+5.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_fsm_sync..
+
+5.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+
+5.6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+5.7. Executing OPT pass (performing simple optimizations).
+
+5.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+
+5.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_fsm_sync'.
+Computing hashes of 44 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Removed a total of 0 cells.
+
+5.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_fsm_sync..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+5.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_fsm_sync.
+Performed a total of 0 changes.
+
+5.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_fsm_sync'.
+Computing hashes of 44 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Removed a total of 0 cells.
+
+5.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$56 ($dff) from module pw_fsm_sync (D = \next_state, Q = \state, rval = 9'000000001).
+
+5.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_fsm_sync..
+Removed 1 unused cells and 1 unused wires.
+<suppressed ~2 debug messages>
+
+5.7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+
+5.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_fsm_sync..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+5.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_fsm_sync.
+Performed a total of 0 changes.
+
+5.7.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_fsm_sync'.
+Computing hashes of 43 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Removed a total of 0 cells.
+
+5.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_fsm_sync..
+
+5.7.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+
+5.7.16. Finished fast OPT passes. (There is nothing left to do.)
+
+5.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 7 bits (of 9) from mux cell pw_fsm_sync.$ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:25$2 ($mux).
+Removed top 2 bits (of 9) from mux cell pw_fsm_sync.$ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:27$5 ($mux).
+Removed top 2 bits (of 9) from mux cell pw_fsm_sync.$ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:29$6 ($mux).
+Removed top 2 bits (of 9) from mux cell pw_fsm_sync.$ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:31$7 ($mux).
+Removed top 1 bits (of 9) from port B of cell pw_fsm_sync.$eq$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:42$14 ($eq).
+Removed top 2 bits (of 9) from port B of cell pw_fsm_sync.$procmux$49_CMP0 ($eq).
+Removed top 3 bits (of 9) from port B of cell pw_fsm_sync.$procmux$50_CMP0 ($eq).
+Removed top 4 bits (of 9) from port B of cell pw_fsm_sync.$procmux$51_CMP0 ($eq).
+Removed top 5 bits (of 9) from port B of cell pw_fsm_sync.$procmux$52_CMP0 ($eq).
+Removed top 6 bits (of 9) from port B of cell pw_fsm_sync.$procmux$53_CMP0 ($eq).
+Removed top 7 bits (of 9) from port B of cell pw_fsm_sync.$procmux$54_CMP0 ($eq).
+Removed top 8 bits (of 9) from port B of cell pw_fsm_sync.$procmux$55_CMP0 ($eq).
+Removed top 2 bits (of 9) from wire pw_fsm_sync.$ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:31$7_Y.
+Removed top 2 bits (of 9) from wire pw_fsm_sync.$ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:29$6_Y.
+Removed top 2 bits (of 9) from wire pw_fsm_sync.$ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:27$5_Y.
+Removed top 7 bits (of 9) from wire pw_fsm_sync.$ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:25$2_Y.
+
+5.9. Executing PEEPOPT pass (run peephole optimizers).
+
+5.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_fsm_sync..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+5.11. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module pw_fsm_sync:
+  created 0 $alu and 0 $macc cells.
+
+5.12. Executing SHARE pass (SAT-based resource sharing).
+
+5.13. Executing OPT pass (performing simple optimizations).
+
+5.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+
+5.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_fsm_sync'.
+Computing hashes of 43 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Removed a total of 0 cells.
+
+5.13.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_fsm_sync..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+5.13.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_fsm_sync.
+Performed a total of 0 changes.
+
+5.13.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_fsm_sync'.
+Computing hashes of 43 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Removed a total of 0 cells.
+
+5.13.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.13.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_fsm_sync..
+
+5.13.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+
+5.13.9. Finished fast OPT passes. (There is nothing left to do.)
+
+5.14. Executing MEMORY pass.
+
+5.14.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+5.14.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+5.14.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+5.14.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+5.14.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+5.14.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_fsm_sync..
+
+5.14.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+5.14.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+5.14.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_fsm_sync..
+
+5.14.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+5.15. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_fsm_sync..
+
+5.16. Executing OPT pass (performing simple optimizations).
+
+5.16.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+<suppressed ~18 debug messages>
+
+5.16.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_fsm_sync'.
+Computing hashes of 43 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Removed a total of 0 cells.
+
+5.16.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.16.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_fsm_sync..
+Removed 0 unused cells and 5 unused wires.
+<suppressed ~1 debug messages>
+
+5.16.5. Finished fast OPT passes.
+
+5.17. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+5.18. Executing OPT pass (performing simple optimizations).
+
+5.18.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+
+5.18.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_fsm_sync'.
+Computing hashes of 43 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Removed a total of 0 cells.
+
+5.18.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_fsm_sync..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+5.18.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_fsm_sync.
+    Consolidated identical input bits for $mux cell $ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:33$9:
+      Old ports: A=9'100000000, B=9'000000001, Y=$ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:33$9_Y
+      New ports: A=2'10, B=2'01, Y={ $ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:33$9_Y [8] $ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:33$9_Y [0] }
+      New connections: $ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:33$9_Y [7:1] = 7'0000000
+    Consolidated identical input bits for $mux cell $ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:31$7:
+      Old ports: A=7'1000000, B=7'0000100, Y=$auto$wreduce.cc:513:run$58 [6:0]
+      New ports: A=2'10, B=2'01, Y={ $auto$wreduce.cc:513:run$58 [6] $auto$wreduce.cc:513:run$58 [2] }
+      New connections: { $auto$wreduce.cc:513:run$58 [5:3] $auto$wreduce.cc:513:run$58 [1:0] } = 5'00000
+    Consolidated identical input bits for $mux cell $ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:29$6:
+      Old ports: A=7'1000000, B=7'0100000, Y=$auto$wreduce.cc:513:run$59 [6:0]
+      New ports: A=2'10, B=2'01, Y=$auto$wreduce.cc:513:run$59 [6:5]
+      New connections: $auto$wreduce.cc:513:run$59 [4:0] = 5'00000
+    Consolidated identical input bits for $mux cell $ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:27$5:
+      Old ports: A=7'1000000, B=7'0001000, Y=$auto$wreduce.cc:513:run$60 [6:0]
+      New ports: A=2'10, B=2'01, Y={ $auto$wreduce.cc:513:run$60 [6] $auto$wreduce.cc:513:run$60 [3] }
+      New connections: { $auto$wreduce.cc:513:run$60 [5:4] $auto$wreduce.cc:513:run$60 [2:0] } = 5'00000
+    Consolidated identical input bits for $mux cell $ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:26$3:
+      Old ports: A=9'100000000, B=9'000000100, Y=$ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:26$3_Y
+      New ports: A=2'10, B=2'01, Y={ $ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:26$3_Y [8] $ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:26$3_Y [2] }
+      New connections: { $ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:26$3_Y [7:3] $ternary$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/candidate.v:26$3_Y [1:0] } = 7'0000000
+  Optimizing cells in module \pw_fsm_sync.
+Performed a total of 5 changes.
+
+5.18.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_fsm_sync'.
+Computing hashes of 43 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Removed a total of 0 cells.
+
+5.18.6. Executing OPT_SHARE pass.
+
+5.18.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.18.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_fsm_sync..
+
+5.18.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+
+5.18.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.18.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_fsm_sync..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+5.18.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_fsm_sync.
+Performed a total of 0 changes.
+
+5.18.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_fsm_sync'.
+Computing hashes of 43 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Removed a total of 0 cells.
+
+5.18.14. Executing OPT_SHARE pass.
+
+5.18.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.18.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_fsm_sync..
+
+5.18.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+
+5.18.18. Finished fast OPT passes. (There is nothing left to do.)
+
+5.19. Executing TECHMAP pass (map to technology primitives).
+
+5.19.1. Executing Verilog-2005 frontend: D:\oss-cad-suite\bin\../share/yosys/techmap.v
+Parsing Verilog input from `D:\oss-cad-suite\bin\../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+5.19.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $pmux.
+No more expansions possible.
+<suppressed ~120 debug messages>
+
+5.20. Executing OPT pass (performing simple optimizations).
+
+5.20.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+<suppressed ~215 debug messages>
+
+5.20.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_fsm_sync'.
+Computing hashes of 247 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Computing hashes of 203 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Computing hashes of 192 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+<suppressed ~165 debug messages>
+Removed a total of 55 cells.
+
+5.20.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $auto$ff.cc:337:slice$171 ($_SDFF_PP0_) from module pw_fsm_sync (D = $auto$simplemap.cc:189:logic_reduce$606, Q = \state [8], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$163 ($_SDFF_PP1_) from module pw_fsm_sync (D = $auto$simplemap.cc:189:logic_reduce$390, Q = \state [0], rval = 1'1).
+Adding SRST signal on $auto$ff.cc:337:slice$164 ($_SDFF_PP0_) from module pw_fsm_sync (D = $auto$simplemap.cc:189:logic_reduce$417, Q = \state [1], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$165 ($_SDFF_PP0_) from module pw_fsm_sync (D = $auto$simplemap.cc:189:logic_reduce$444, Q = \state [2], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$166 ($_SDFF_PP0_) from module pw_fsm_sync (D = $auto$simplemap.cc:189:logic_reduce$471, Q = \state [3], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$167 ($_SDFF_PP0_) from module pw_fsm_sync (D = $auto$simplemap.cc:189:logic_reduce$498, Q = \state [4], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$168 ($_SDFF_PP0_) from module pw_fsm_sync (D = $auto$simplemap.cc:189:logic_reduce$525, Q = \state [5], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$169 ($_SDFF_PP0_) from module pw_fsm_sync (D = $auto$simplemap.cc:189:logic_reduce$552, Q = \state [6], rval = 1'0).
+Adding SRST signal on $auto$ff.cc:337:slice$170 ($_SDFF_PP0_) from module pw_fsm_sync (D = $auto$simplemap.cc:189:logic_reduce$579, Q = \state [7], rval = 1'0).
+
+5.20.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_fsm_sync..
+Removed 9 unused cells and 135 unused wires.
+<suppressed ~11 debug messages>
+
+5.20.5. Rerunning OPT passes. (Removed registers in this run.)
+
+5.20.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_fsm_sync.
+
+5.20.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_fsm_sync'.
+Computing hashes of 201 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Computing hashes of 193 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+Computing hashes of 185 cells of `\pw_fsm_sync'.
+Finding duplicate cells in `\pw_fsm_sync'.
+<suppressed ~48 debug messages>
+Removed a total of 16 cells.
+
+5.20.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.20.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_fsm_sync..
+Removed 0 unused cells and 16 unused wires.
+<suppressed ~1 debug messages>
+
+5.20.10. Finished fast OPT passes.
+
+5.21. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `pw_fsm_sync'. Setting top module to pw_fsm_sync.
+
+5.21.1. Analyzing design hierarchy..
+Top module:  \pw_fsm_sync
+
+5.21.2. Analyzing design hierarchy..
+Top module:  \pw_fsm_sync
+Removed 0 unused modules.
+
+5.22. Printing statistics.
+
+=== pw_fsm_sync ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      110 wires
+      292 wire bits
+       15 public wires
+       44 public wire bits
+        6 ports
+       20 port bits
+      185 cells
+       52   $_AND_
+       30   $_NOT_
+       87   $_OR_
+        8   $_SDFF_PP0_
+        1   $_SDFF_PP1_
+        7   $_XOR_
+
+5.23. Executing CHECK pass (checking for obvious problems).
+Checking module pw_fsm_sync...
+Found and reported 0 problems.
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing DFFLIBMAP pass (mapping DFF/DLATCH cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_1 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  cell sky130_fd_sc_hd__dlxtn_1 (noninv, pins=3, area=15.01) is a direct match for cell type $_DLATCH_N_.
+  cell sky130_fd_sc_hd__lpflow_inputisolatch_1 (noninv, pins=3, area=13.76) is a direct match for cell type $_DLATCH_P_.
+  cell sky130_fd_sc_hd__dlrtn_1 (noninv, pins=4, area=17.52) is a direct match for cell type $_DLATCH_NN0_.
+  cell sky130_fd_sc_hd__dlrtp_1 (noninv, pins=4, area=16.27) is a direct match for cell type $_DLATCH_PN0_.
+  final dff/dlatch cell mappings:
+    unmapped dff/dlatch cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DFF_NN1_
+    unmapped dff/dlatch cell: $_DFF_NP0_
+    unmapped dff/dlatch cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff/dlatch cell: $_DFF_PP0_
+    unmapped dff/dlatch cell: $_DFF_PP1_
+    unmapped dff/dlatch cell: $_DFFE_NN_
+    unmapped dff/dlatch cell: $_DFFE_NP_
+    unmapped dff/dlatch cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_NNP_
+    unmapped dff/dlatch cell: $_DFFSR_NPN_
+    unmapped dff/dlatch cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff/dlatch cell: $_DFFSR_PNP_
+    unmapped dff/dlatch cell: $_DFFSR_PPN_
+    unmapped dff/dlatch cell: $_DFFSR_PPP_
+    \sky130_fd_sc_hd__dlxtn_1 _DLATCH_N_ (.D( D), .GATE_N( E), .Q( Q));
+    \sky130_fd_sc_hd__lpflow_inputisolatch_1 _DLATCH_P_ (.D( D), .Q( Q), .SLEEP_B( E));
+    \sky130_fd_sc_hd__dlrtn_1 _DLATCH_NN0_ (.D( D), .GATE_N( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_NN1_
+    unmapped dff/dlatch cell: $_DLATCH_NP0_
+    unmapped dff/dlatch cell: $_DLATCH_NP1_
+    \sky130_fd_sc_hd__dlrtp_1 _DLATCH_PN0_ (.D( D), .GATE( E), .Q( Q), .RESET_B( R));
+    unmapped dff/dlatch cell: $_DLATCH_PN1_
+    unmapped dff/dlatch cell: $_DLATCH_PP0_
+    unmapped dff/dlatch cell: $_DLATCH_PP1_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_NPP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PNP_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPN_
+    unmapped dff/dlatch cell: $_DLATCHSR_PPP_
+
+7.1. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+<suppressed ~24 debug messages>
+Mapping DFF/DLATCH cells in module `\pw_fsm_sync':
+  mapped 9 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_1 cells.
+
+8. Executing ABC pass (technology mapping using ABC).
+
+8.1. Extracting gate netlist of module `\pw_fsm_sync' to `<abc-temp-dir>/input.blif'..
+Warning: ABC: merged SCL conversion failed, falling back to liberty format
+ABC: conversion output:
+'D:\oss-cad-suite\bin\yosys-abc" -c "read_lib' is not recognized as an internal or external command,
+
+operable program or batch file.
+
+Warning: ABC: Merged scl conversion failed, using liberty format
+
+8.1.1. Executed ABC.
+Extracted 185 gates and 206 wires to a netlist network with 19 inputs and 18 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -X sky130_fd_sc_hd__lpflow_* -w D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.05 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_0".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_8".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_bleeder_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkbufkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_clkinvkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_12" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_3" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_6" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso0p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1n_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_inputiso1p_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__lpflow_inputisolatch_1".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrc_8" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_isobufsrckapwr_16" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_hl_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_1" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_2" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_tap_4" due to dont_use attribute.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_4".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "D:/verilog_lab/PipeWeaver/eda/experiments/sky130_sta_20261027/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" has 307 cells (121 skipped: 63 seq; 13 tri-state; 12 no func; 33 dont_use; 0 with 2 outputs; 0 with 3+ outputs).  Time =     0.15 sec
+ABC: Memory =   16.01 MB. Time =     0.15 sec
+ABC: Warning: Detected 9 multi-output cells (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + read_constr -v D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/evaluation/abc.constr 
+ABC: Setting driving cell to be "sky130_fd_sc_hd__buf_2".
+ABC: Setting output load to be 10.000000.
+ABC: + source D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_018/evaluation/abc.script 
+ABC: Cleanup removed 0 dangling nodes.
+ABC: WireLoad = "none"  Gates =    120 ( 17.5 %)   Cap =  7.5 ff (  5.5 %)   Area =      733.20 ( 85.0 %)   Delay =  1074.38 ps  ( 53.3 %)               
+ABC: Path  0 --      17 : 0    5 pi                       A =   0.00  Df =  69.9  -22.9 ps  S = 100.6 ps  Cin =  0.0 ff  Cout =  18.9 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --      66 : 4    7 sky130_fd_sc_hd__nor4_4  A =  21.27  Df = 443.1 -298.5 ps  S = 364.3 ps  Cin =  8.5 ff  Cout =  19.0 ff  Cmax = 112.6 ff  G =  217  
+ABC: Path  2 --      88 : 3    9 sky130_fd_sc_hd__nand3_2 A =  10.01  Df = 682.8 -365.2 ps  S = 205.1 ps  Cin =  4.4 ff  Cout =  28.3 ff  Cmax = 260.0 ff  G =  612  
+ABC: Path  3 --      89 : 4    9 sky130_fd_sc_hd__nand4_4 A =  21.27  Df = 881.9 -111.2 ps  S = 130.9 ps  Cin =  8.6 ff  Cout =  22.5 ff  Cmax = 358.0 ff  G =  246  
+ABC: Path  4 --      91 : 4    1 sky130_fd_sc_hd__o211a_1 A =  10.01  Df =1074.4  -32.1 ps  S =  98.9 ps  Cin =  2.3 ff  Cout =  10.0 ff  Cmax = 183.1 ff  G =  427  
+ABC: Start-point = pi16 (\state [7]).  End-point = po2 ($auto$rtlil.cc:3497:MuxGate$890).
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+8.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__clkbuf_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__clkbuf_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__inv_1 cells:       14
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:       18
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__nand3_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand3b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__nand4_4 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__nor2b_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nor4_4 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor4b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o2111ai_1 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__o211a_1 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o31ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o32a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or2_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:        1
+ABC RESULTS:        internal signals:      169
+ABC RESULTS:           input signals:       19
+ABC RESULTS:          output signals:       18
+Removing temp directory.
+Removing global temp directory.
+Removed 0 unused cells and 139 unused wires.
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module pw_fsm_sync...
+Found and reported 0 problems.
+
+10. Printing statistics.
+
+=== pw_fsm_sync ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      119        - wires
+      141        - wire bits
+        8        - public wires
+       30        - public wire bits
+        6        - ports
+       20        - port bits
+      129  913.376 cells
+        8   40.038   sky130_fd_sc_hd__a21oi_1
+        2   15.014   sky130_fd_sc_hd__a22oi_1
+        1    6.256   sky130_fd_sc_hd__a31oi_1
+        4   15.014   sky130_fd_sc_hd__clkbuf_1
+        1    5.005   sky130_fd_sc_hd__clkbuf_2
+        2    7.507   sky130_fd_sc_hd__clkinv_1
+        9  180.173   sky130_fd_sc_hd__dfxtp_1
+       14    52.55   sky130_fd_sc_hd__inv_1
+       18   67.565   sky130_fd_sc_hd__nand2_1
+        5   25.024   sky130_fd_sc_hd__nand3_1
+        2   20.019   sky130_fd_sc_hd__nand3_2
+        1    7.507   sky130_fd_sc_hd__nand3b_1
+        8   50.048   sky130_fd_sc_hd__nand4_1
+        1    21.27   sky130_fd_sc_hd__nand4_4
+       10   37.536   sky130_fd_sc_hd__nor2_1
+        4   25.024   sky130_fd_sc_hd__nor2b_1
+        2    10.01   sky130_fd_sc_hd__nor3_1
+        1    7.507   sky130_fd_sc_hd__nor3b_1
+        3   18.768   sky130_fd_sc_hd__nor4_1
+        2   42.541   sky130_fd_sc_hd__nor4_4
+        1    8.758   sky130_fd_sc_hd__nor4b_1
+        8   70.067   sky130_fd_sc_hd__o2111ai_1
+        8   80.077   sky130_fd_sc_hd__o211a_1
+        3   22.522   sky130_fd_sc_hd__o211ai_1
+        3   15.014   sky130_fd_sc_hd__o21ai_0
+        1    8.758   sky130_fd_sc_hd__o21ai_2
+        2   12.512   sky130_fd_sc_hd__o22ai_1
+        1    7.507   sky130_fd_sc_hd__o31ai_1
+        1    10.01   sky130_fd_sc_hd__o32a_1
+        1    6.256   sky130_fd_sc_hd__or2_2
+        1    8.758   sky130_fd_sc_hd__xnor2_1
+        1    8.758   sky130_fd_sc_hd__xor2_1
+
+   Chip area for module '\pw_fsm_sync': 913.376000
+     of which used for sequential elements: 180.172800 (19.73%)
+
+11. Executing JSON backend.
+
+12. Executing Verilog backend.
+
+12.1. Executing BMUXMAP pass.
+
+12.2. Executing DEMUXMAP pass.
+Dumping module `\pw_fsm_sync'.
+
+Warnings: 2 unique messages, 2 total
+End of script. Logfile hash: 90e48fb631
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 1% 16x opt_expr (0 sec), 1% 15x opt_clean (0 sec), ...

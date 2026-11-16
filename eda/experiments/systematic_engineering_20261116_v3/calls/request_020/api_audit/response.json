@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-d751b8dc-d922-4273-ac84-a2fd8a85aa2d",
+  "model": "gpt-6.1-sol",
+  "created": 1794841547,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Evaluating one-hot state decoding**\n\n**Selecting one-hot state logic**\n\n**Implementing direct one-hot state**\n\n**Crafting one-hot state logic**\n\n**Selecting optimized state equations**\n\n**Implementing one-hot state logic**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module pw_fsm_sync (\\n    input clk,\\n    input rst,\\n    input start,\\n    input [7:0] data_in,\\n    output reg [7:0] data_out,\\n    output reg done\\n);\\n\\nlocalparam [8:0] S_IDLE  = 9'b000000001;\\nlocalparam [8:0] S_START = 9'b000000010;\\nlocalparam [8:0] S_READ  = 9'b000000100;\\nlocalparam [8:0] S_PROC1 = 9'b000001000;\\nlocalparam [8:0] S_PROC2 = 9'b000010000;\\nlocalparam [8:0] S_PROC3 = 9'b000100000;\\nlocalparam [8:0] S_WAIT  = 9'b001000000;\\nlocalparam [8:0] S_DONE  = 9'b010000000;\\nlocalparam [8:0] S_ERROR = 9'b100000000;\\n\\nreg [8:0] state, next_state;\\nwire read_match = (data_in[3:1] == 3'b101);\\nwire error_clear = &data_in[2:0];\\nwire [7:0] incremented;\\nwire [7:0] shifted;\\nwire pass_enable;\\n\\nassign incremented[0] = ~data_in[0];\\nassign incremented[1] = data_in[1] ^ data_in[0];\\nassign incremented[2] = data_in[2] ^ (&data_in[1:0]);\\nassign incremented[3] = data_in[3] ^ (&data_in[2:0]);\\nassign incremented[4] = data_in[4] ^ (&data_in[3:0]);\\nassign incremented[5] = data_in[5] ^ (&data_in[4:0]);\\nassign incremented[6] = data_in[6] ^ (&data_in[5:0]);\\nassign incremented[7] = data_in[7] ^ (&data_in[6:0]);\\nassign shifted = {data_in[6:0], 1'b0};\\nassign pass_enable = state[2] | state[7];\\n\\nalways @* begin\\n    next_state = 9'b0;\\n    next_state[0] = (state[0] & ~start) |\\n                    state[7] |\\n                    (state[8] & error_clear);\\n    next_state[1] = state[0] & start;\\n    next_state[2] = (state[1] & data_in[0]) |\\n                    (state[6] & data_in[4]);\\n    next_state[3] = state[2] & read_match;\\n    next_state[4] = state[3];\\n    next_state[5] = state[4] & data_in[7];\\n    next_state[6] = (state[2] & ~read_match) |\\n                    (state[4] & ~data_in[7]) |\\n                    (state[6] & ~data_in[4]);\\n    next_state[7] = state[5];\\n    next_state[8] = (state[1] & ~data_in[0]) |\\n                    (state[8] & ~error_clear);\\nend\\n\\nalways @* begin\\n    data_out = ({8{pass_enable}} & data_in) |\\n               ({8{state[3]}} & incremented) |\\n               ({8{state[4]}} & shifted) |\\n               ({8{state[5]}} & ~data_in) |\\n               ({8{state[8]}} & 8'hEE);\\n    done = state[7];\\nend\\n\\nalways @(posedge clk) begin\\n    if (rst)\\n        state <= S_IDLE;\\n    else\\n        state <= next_state;\\nend\\n\\nendmodule\",\n  \"bottleneck\": \"The baseline paths include wide state decoding followed by transition selection or output selection. The state-to-output path is almost as limiting as the state-to-state path, so optimizing only the transition logic would provide little overall benefit.\",\n  \"rewrite\": \"Keep the original nine one-hot state encodings and state/next_state names, but express transitions directly as one-hot Boolean equations. Replace decoded output selection with parallel masked terms. Express the modulo-256 increment using prefix reductions to avoid requiring a serial carry chain.\",\n  \"expected_timing_gain\": \"Expected improvement comes from removing full-vector state equality decoders from both transition and output paths. No mapped timing result is available for this candidate; the WNS gain must be established by the specified synthesis and STA flow.\",\n  \"area_or_other_cost\": \"Retains nine state flip-flops and adds no pipeline stages or helper modules. Decoder removal should reduce combinational area, although prefix-increment mapping and buffering remain tool-dependent. Compliance with the 1102.432320um2 cap and electrical limits requires measurement.\",\n  \"functional_boundaries\": \"The first asserted synchronous reset establishes S_IDLE independently of all initial state bits. Every subsequent transition preserves the one-hot invariant, including repeated resets, so the equations preserve all compared cycle-by-cycle outputs, combinational data dependence, and latency under the stated sampling contract. Idle, start, and wait still output zero; arithmetic truncates to eight bits. Unreachable zero-hot or multi-hot internal states do not retain the reference case-default recovery behavior; this candidate relies only on the explicitly guaranteed first-sample reset, not on any additional input or startup assumption.\"\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2332,
+    "completion_tokens": 2149,
+    "total_tokens": 5401
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 1231,
+    "usage_reported": true
+  }
+}

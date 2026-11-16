@@ -1,0 +1,688 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\systematic_engineering_20261116_v3\calls\request_001\evaluation\formal.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v' to AST representation.
+Generating RTLIL representation for module `\pw_alu'.
+Generating RTLIL representation for module `\pw_pipeline_alu'.
+Successfully finished Verilog frontend.
+Parameter \STAGES = 2
+
+2. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_pipeline_alu'.
+Parameter \STAGES = 2
+Generating RTLIL representation for module `$paramod\pw_pipeline_alu\STAGES=s32'00000000000000000000000000000010'.
+Parameter \WIDTH = 16
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_pipeline_alu'.
+Parameter \WIDTH = 16
+Generating RTLIL representation for module `$paramod\pw_pipeline_alu\WIDTH=s32'00000000000000000000000000010000'.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     \pw_alu
+Parameter \WIDTH = 16
+
+4.2. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_alu'.
+Parameter \WIDTH = 16
+Generating RTLIL representation for module `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000'.
+
+4.3. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000
+
+4.4. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000
+Removing unused module `\pw_alu'.
+Removed 1 unused modules.
+
+5. Executing PROC pass (convert processes to netlists).
+
+5.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:46$17 in module pw_pipeline_alu.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:78$18 in module pw_pipeline_alu.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:10$21 in module $paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.
+Removed a total of 0 dead cases.
+
+5.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 6 redundant assignments.
+Promoted 3 assignments to connections.
+
+5.4. Executing PROC_INIT pass (extract init attributes).
+
+5.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~3 debug messages>
+
+5.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:46$17'.
+     1/4: $0\input_valid[0:0]
+     2/4: $0\opcode[2:0]
+     3/4: $0\operand_b[15:0]
+     4/4: $0\operand_a[15:0]
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:78$18'.
+     1/2: $0\output_pipeline[0].valid_reg[0:0]
+     2/2: $0\output_pipeline[0].data_reg[15:0]
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:87$19'.
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:88$20'.
+Creating decoders for process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:10$21'.
+     1/1: $1\sum[15:0]
+
+5.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\pw_pipeline_alu.\stage_data[0]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:87$19'.
+No latch inferred for signal `\pw_pipeline_alu.\stage_valid[0]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:88$20'.
+No latch inferred for signal `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.\sum' from process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:10$21'.
+
+5.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\pw_pipeline_alu.\operand_a' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:46$17'.
+  created $dff cell `$procdff$56' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\operand_b' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:46$17'.
+  created $dff cell `$procdff$57' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\opcode' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:46$17'.
+  created $dff cell `$procdff$58' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\input_valid' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:46$17'.
+  created $dff cell `$procdff$59' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[0].data_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:78$18'.
+  created $dff cell `$procdff$60' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[0].valid_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:78$18'.
+  created $dff cell `$procdff$61' with positive edge clock.
+
+5.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:46$17'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:46$17'.
+Found and cleaned up 1 empty switch in `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:78$18'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:78$18'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:87$19'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:88$20'.
+Found and cleaned up 1 empty switch in `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:10$21'.
+Removing empty process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v:10$21'.
+Cleaned up 3 empty switches.
+
+5.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+Optimizing module $paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.
+<suppressed ~1 debug messages>
+
+6. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.
+<suppressed ~1 debug messages>
+
+7. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/alu.Oper
+
+8. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/alu.a
+
+9. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/alu.b
+
+10. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/input_valid
+
+11. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/opcode
+
+12. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/operand_a
+
+13. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/operand_b
+Renaming module \pw_pipeline_alu to \pw_gold.
+
+14. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v' to AST representation.
+Generating RTLIL representation for module `\pw_alu_cla'.
+Generating RTLIL representation for module `\pw_alu'.
+Generating RTLIL representation for module `\pw_pipeline_alu'.
+Successfully finished Verilog frontend.
+Parameter \STAGES = 2
+
+15. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_pipeline_alu'.
+Parameter \STAGES = 2
+Generating RTLIL representation for module `$paramod\pw_pipeline_alu\STAGES=s32'00000000000000000000000000000010'.
+Parameter \WIDTH = 16
+
+16. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_pipeline_alu'.
+Parameter \WIDTH = 16
+Generating RTLIL representation for module `$paramod\pw_pipeline_alu\WIDTH=s32'00000000000000000000000000010000'.
+
+17. Executing HIERARCHY pass (managing design hierarchy).
+
+17.1. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     \pw_alu
+Used module:         \pw_alu_cla
+Parameter \WIDTH = 64
+
+17.2. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_alu_cla'.
+Parameter \WIDTH = 64
+Generating RTLIL representation for module `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000001000000'.
+Parameter \WIDTH = 64
+Found cached RTLIL representation for module `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000001000000'.
+Parameter \WIDTH = 64
+Found cached RTLIL representation for module `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000001000000'.
+Parameter \WIDTH = 16
+
+17.3. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_alu'.
+Parameter \WIDTH = 16
+Generating RTLIL representation for module `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000'.
+
+17.4. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000
+Used module:         \pw_alu_cla
+Parameter \WIDTH = 16
+
+17.5. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_alu_cla'.
+Parameter \WIDTH = 16
+Generating RTLIL representation for module `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000'.
+Parameter \WIDTH = 16
+Found cached RTLIL representation for module `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000'.
+Parameter \WIDTH = 16
+Found cached RTLIL representation for module `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000'.
+
+17.6. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000
+Used module:         $paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000
+
+17.7. Analyzing design hierarchy..
+Top module:  \pw_pipeline_alu
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000
+Used module:         $paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000
+Removing unused module `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000001000000'.
+Removing unused module `\pw_alu'.
+Removing unused module `\pw_alu_cla'.
+Removed 3 unused modules.
+
+18. Executing PROC pass (convert processes to netlists).
+
+18.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+18.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:123$1061 in module pw_pipeline_alu.
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:155$1062 in module pw_pipeline_alu.
+Removed a total of 0 dead cases.
+
+18.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 6 redundant assignments.
+Promoted 27 assignments to connections.
+
+18.4. Executing PROC_INIT pass (extract init attributes).
+
+18.5. Executing PROC_ARST pass (detect async resets in processes).
+
+18.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~2 debug messages>
+
+18.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:123$1061'.
+     1/4: $0\input_valid[0:0]
+     2/4: $0\opcode[2:0]
+     3/4: $0\operand_b[15:0]
+     4/4: $0\operand_a[15:0]
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:155$1062'.
+     1/2: $0\output_pipeline[0].valid_reg[0:0]
+     2/2: $0\output_pipeline[0].data_reg[15:0]
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:164$1063'.
+Creating decoders for process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:165$1064'.
+Creating decoders for process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:94$2041'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:48$2255'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:47$2253'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:48$2250'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:47$2248'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:52$2247'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:51$2246'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:52$2245'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:51$2244'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:48$2241'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:47$2239'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:48$2236'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:47$2234'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:48$2231'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:47$2229'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:52$2228'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:51$2227'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:30$2217'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:29$2213'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:30$2203'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:29$2199'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:30$2189'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:29$2185'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:30$2175'.
+Creating decoders for process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:29$2171'.
+
+18.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\pw_pipeline_alu.\stage_data[0]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:164$1063'.
+No latch inferred for signal `\pw_pipeline_alu.\stage_valid[0]' from process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:165$1064'.
+No latch inferred for signal `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.\sum' from process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:94$2041'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gg[2] [3]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:48$2255'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gp[2] [3]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:47$2253'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gg[2] [2]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:48$2250'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gp[2] [2]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:47$2248'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gg[2] [1]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:52$2247'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gp[2] [1]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:51$2246'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gg[2] [0]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:52$2245'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gp[2] [0]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:51$2244'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gg[1] [3]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:48$2241'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gp[1] [3]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:47$2239'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gg[1] [2]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:48$2236'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gp[1] [2]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:47$2234'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gg[1] [1]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:48$2231'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gp[1] [1]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:47$2229'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gg[1] [0]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:52$2228'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gp[1] [0]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:51$2227'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gg[0] [3]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:30$2217'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gp[0] [3]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:29$2213'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gg[0] [2]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:30$2203'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gp[0] [2]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:29$2199'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gg[0] [1]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:30$2189'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gp[0] [1]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:29$2185'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gg[0] [0]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:30$2175'.
+No latch inferred for signal `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.\gp[0] [0]' from process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:29$2171'.
+
+18.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\pw_pipeline_alu.\operand_a' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:123$1061'.
+  created $dff cell `$procdff$2276' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\operand_b' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:123$1061'.
+  created $dff cell `$procdff$2277' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\opcode' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:123$1061'.
+  created $dff cell `$procdff$2278' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\input_valid' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:123$1061'.
+  created $dff cell `$procdff$2279' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[0].data_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:155$1062'.
+  created $dff cell `$procdff$2280' with positive edge clock.
+Creating register for signal `\pw_pipeline_alu.\output_pipeline[0].valid_reg' using process `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:155$1062'.
+  created $dff cell `$procdff$2281' with positive edge clock.
+
+18.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+18.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:123$1061'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:123$1061'.
+Found and cleaned up 1 empty switch in `\pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:155$1062'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:155$1062'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:164$1063'.
+Removing empty process `pw_pipeline_alu.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:165$1064'.
+Removing empty process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:94$2041'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:48$2255'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:47$2253'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:48$2250'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:47$2248'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:52$2247'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:51$2246'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:52$2245'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:51$2244'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:48$2241'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:47$2239'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:48$2236'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:47$2234'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:48$2231'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:47$2229'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:52$2228'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:51$2227'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:30$2217'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:29$2213'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:30$2203'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:29$2199'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:30$2189'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:29$2185'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:30$2175'.
+Removing empty process `$paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:29$2171'.
+Cleaned up 2 empty switches.
+
+18.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_pipeline_alu.
+Optimizing module $paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.
+<suppressed ~1 debug messages>
+Optimizing module $paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.
+
+19. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.
+Deleting now unused module $paramod\pw_alu_cla\WIDTH=s32'00000000000000000000000000010000.
+<suppressed ~4 debug messages>
+
+20. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/alu.Oper
+
+21. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/alu.a
+
+22. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/alu.b
+
+23. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/input_valid
+
+24. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/opcode
+
+25. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/operand_a
+
+26. Executing EXPOSE pass (exposing internal signals as outputs).
+New module port: pw_pipeline_alu/operand_b
+Renaming module \pw_pipeline_alu to \pw_cand.
+
+27. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/evaluation/formal_miter.v
+Parsing formal Verilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/evaluation/formal_miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+28. Executing PREP pass.
+
+28.1. Executing HIERARCHY pass (managing design hierarchy).
+
+28.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+
+28.1.2. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+Removed 0 unused modules.
+
+28.2. Executing PROC pass (convert processes to netlists).
+
+28.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+28.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+28.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+28.2.4. Executing PROC_INIT pass (extract init attributes).
+
+28.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+28.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+28.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+28.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+28.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+28.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+28.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+28.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+Optimizing module pw_cand.
+<suppressed ~32 debug messages>
+Optimizing module pw_gold.
+
+28.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module pw_cand.
+Deleting now unused module pw_gold.
+<suppressed ~2 debug messages>
+
+28.4. Executing FUTURE pass.
+
+28.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+28.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 87 unused cells and 417 unused wires.
+<suppressed ~88 debug messages>
+
+28.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+28.8. Executing OPT pass (performing simple optimizations).
+
+28.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+28.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 507 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 476 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 468 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~117 debug messages>
+Removed a total of 39 cells.
+
+28.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~25 debug messages>
+
+28.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+28.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 468 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 464 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+28.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 43 unused wires.
+<suppressed ~1 debug messages>
+
+28.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+28.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+28.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+28.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+28.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 464 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+28.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+28.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+28.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+28.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\gold.\alu.$procmux$52_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\gold.\alu.$procmux$53_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell pw_miter.$flatten\gold.\alu.$procmux$54_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\cand.\alu.$eq$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:90$2037 ($eq).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\cand.\alu.$eq$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:89$2036 ($eq).
+Removed top 2 bits (of 3) from port B of cell pw_miter.$flatten\cand.\alu.$eq$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_001/candidate.v:88$2035 ($eq).
+
+28.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+28.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+28.12. Executing OPT pass (performing simple optimizations).
+
+28.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+28.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 464 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+28.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+28.12.4. Finished fast OPT passes.
+
+28.13. Executing SORT pass.
+
+28.14. Printing statistics.
+
+=== pw_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      383 wires
+     1787 wire bits
+      133 public wires
+     1190 public wire bits
+        7 ports
+       39 port bits
+      464 cells
+        1   $add
+      220   $and
+       12   $dff
+       12   $eq
+        2   $logic_not
+        8   $mux
+        6   $ne
+        2   $not
+      127   $or
+        1   $pmux
+        7   $scopeinfo
+        2   $sub
+        2   $xnor
+       62   $xor
+
+28.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+29. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+30. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up time step 1:
+Import set-constraint for this timestep: \in_1 = 1'1
+Final constraint equation: \in_1 = 1'1
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_5
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 464 cells to SAT database.
+No constraints for initial state found.
+
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_5
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 464 cells to SAT database.
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_5
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 464 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+
+** Trying induction with length 1 **
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_5
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 464 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \in_4
+Import show expression: \in_5
+Import show expression: \mismatch
+
+[base case 1] Solving problem with 56506 variables and 150672 clauses..
+Base case for induction length 1 proven.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \in_0
+Import def constraint for this timestep: \in_1
+Import def constraint for this timestep: \in_5
+Import def constraint for this timestep: \in_4
+Import def constraint for this timestep: \in_2
+Import def constraint for this timestep: \in_3
+Imported 464 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+Import show expression: \in_3
+Import show expression: \in_4
+Import show expression: \in_5
+Import show expression: \mismatch
+
+[induction step 1] Solving problem with 37285 variables and 99221 clauses..
+Induction step proven: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 475d120888
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 2% 14x expose (0 sec), 2% 8x opt_expr (0 sec), ...

@@ -1,0 +1,9 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v"
+chparam -set M_DATA_WIDTH 32 pw_axis_chain
+chparam -set M_KEEP_WIDTH 4 pw_axis_chain
+hierarchy -check -top pw_axis_chain
+proc
+flatten
+setattr -unset init w:*
+check -assert
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/baselines/axis_chain8_32/reference_schema.json"

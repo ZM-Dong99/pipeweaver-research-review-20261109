@@ -1,0 +1,402 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\systematic_engineering_20261116_v3\baselines\axis_chain8_32\candidate_schema.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v' to AST representation.
+Generating RTLIL representation for module `\axis_adapter'.
+Generating RTLIL representation for module `\axis_register'.
+Generating RTLIL representation for module `\pw_axis_chain'.
+Successfully finished Verilog frontend.
+Parameter \M_DATA_WIDTH = 32
+
+2. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_axis_chain'.
+Parameter \M_DATA_WIDTH = 32
+Generating RTLIL representation for module `$paramod\pw_axis_chain\M_DATA_WIDTH=s32'00000000000000000000000000100000'.
+Parameter \M_KEEP_WIDTH = 4
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_axis_chain'.
+Parameter \M_KEEP_WIDTH = 4
+Generating RTLIL representation for module `$paramod\pw_axis_chain\M_KEEP_WIDTH=s32'00000000000000000000000000000100'.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \pw_axis_chain
+Used module:     \axis_adapter
+Used module:     \axis_register
+Parameter \S_DATA_WIDTH = 8
+Parameter \S_KEEP_ENABLE = 0
+Parameter \S_KEEP_WIDTH = 1
+Parameter \M_DATA_WIDTH = 32
+Parameter \M_KEEP_ENABLE = 1
+Parameter \M_KEEP_WIDTH = 4
+Parameter \ID_ENABLE = 0
+Parameter \ID_WIDTH = 1
+Parameter \DEST_ENABLE = 0
+Parameter \DEST_WIDTH = 1
+Parameter \USER_ENABLE = 1
+Parameter \USER_WIDTH = 1
+
+4.2. Executing AST frontend in derive mode using pre-parsed AST for module `\axis_adapter'.
+Parameter \S_DATA_WIDTH = 8
+Parameter \S_KEEP_ENABLE = 0
+Parameter \S_KEEP_WIDTH = 1
+Parameter \M_DATA_WIDTH = 32
+Parameter \M_KEEP_ENABLE = 1
+Parameter \M_KEEP_WIDTH = 4
+Parameter \ID_ENABLE = 0
+Parameter \ID_WIDTH = 1
+Parameter \DEST_ENABLE = 0
+Parameter \DEST_WIDTH = 1
+Parameter \USER_ENABLE = 1
+Parameter \USER_WIDTH = 1
+Generating RTLIL representation for module `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter'.
+Parameter \DATA_WIDTH = 32
+Parameter \KEEP_ENABLE = 1
+Parameter \KEEP_WIDTH = 4
+Parameter \LAST_ENABLE = 1
+Parameter \ID_ENABLE = 0
+Parameter \ID_WIDTH = 1
+Parameter \DEST_ENABLE = 0
+Parameter \DEST_WIDTH = 1
+Parameter \USER_ENABLE = 1
+Parameter \USER_WIDTH = 1
+Parameter \REG_TYPE = 2
+
+4.3. Executing AST frontend in derive mode using pre-parsed AST for module `\axis_register'.
+Parameter \DATA_WIDTH = 32
+Parameter \KEEP_ENABLE = 1
+Parameter \KEEP_WIDTH = 4
+Parameter \LAST_ENABLE = 1
+Parameter \ID_ENABLE = 0
+Parameter \ID_WIDTH = 1
+Parameter \DEST_ENABLE = 0
+Parameter \DEST_WIDTH = 1
+Parameter \USER_ENABLE = 1
+Parameter \USER_WIDTH = 1
+Parameter \REG_TYPE = 2
+Generating RTLIL representation for module `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register'.
+
+4.4. Analyzing design hierarchy..
+Top module:  \pw_axis_chain
+Used module:     $paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter
+Used module:     $paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register
+
+4.5. Analyzing design hierarchy..
+Top module:  \pw_axis_chain
+Used module:     $paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter
+Used module:     $paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register
+Removing unused module `\axis_register'.
+Removing unused module `\axis_adapter'.
+Removed 2 unused modules.
+
+5. Executing PROC pass (convert processes to netlists).
+
+5.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:103$142'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:103$142'.
+Cleaned up 3 empty switches.
+
+5.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167 in module $paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.
+Marked 3 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:466$164 in module $paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.
+Marked 5 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81 in module $paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.
+Removed a total of 0 dead cases.
+
+5.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 42 assignments to connections.
+
+5.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:446$182'.
+  Set init value: \genblk1.temp_m_axis_tuser_reg = 1'0
+Found init rule in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:445$181'.
+  Set init value: \genblk1.temp_m_axis_tdest_reg = 1'0
+Found init rule in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:444$180'.
+  Set init value: \genblk1.temp_m_axis_tid_reg = 1'0
+Found init rule in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:443$179'.
+  Set init value: \genblk1.temp_m_axis_tlast_reg = 1'0
+Found init rule in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:442$178'.
+  Set init value: \genblk1.temp_m_axis_tvalid_reg = 1'0
+Found init rule in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:441$177'.
+  Set init value: \genblk1.temp_m_axis_tkeep_reg = 4'0000
+Found init rule in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:440$176'.
+  Set init value: \genblk1.temp_m_axis_tdata_reg = 0
+Found init rule in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:438$175'.
+  Set init value: \genblk1.m_axis_tuser_reg = 1'0
+Found init rule in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:437$174'.
+  Set init value: \genblk1.m_axis_tdest_reg = 1'0
+Found init rule in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:436$173'.
+  Set init value: \genblk1.m_axis_tid_reg = 1'0
+Found init rule in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:435$172'.
+  Set init value: \genblk1.m_axis_tlast_reg = 1'0
+Found init rule in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:434$171'.
+  Set init value: \genblk1.m_axis_tvalid_reg = 1'0
+Found init rule in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:433$170'.
+  Set init value: \genblk1.m_axis_tkeep_reg = 4'0000
+Found init rule in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:432$169'.
+  Set init value: \genblk1.m_axis_tdata_reg = 0
+Found init rule in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:430$168'.
+  Set init value: \genblk1.s_axis_tready_reg = 1'0
+Found init rule in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:161$156'.
+  Set init value: \genblk1.upsize.m_axis_tdest_reg = 1'0
+Found init rule in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:160$155'.
+  Set init value: \genblk1.upsize.m_axis_tid_reg = 1'0
+Found init rule in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:159$154'.
+  Set init value: \genblk1.upsize.m_axis_tlast_reg = 1'0
+Found init rule in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:158$153'.
+  Set init value: \genblk1.upsize.m_axis_tvalid_reg = 1'0
+Found init rule in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:157$152'.
+  Set init value: \genblk1.upsize.m_axis_tkeep_reg = 4'0000
+Found init rule in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:156$151'.
+  Set init value: \genblk1.upsize.m_axis_tdata_reg = 0
+Found init rule in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:154$150'.
+  Set init value: \genblk1.upsize.s_axis_tuser_reg = 1'0
+Found init rule in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:153$149'.
+  Set init value: \genblk1.upsize.s_axis_tdest_reg = 1'0
+Found init rule in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:152$148'.
+  Set init value: \genblk1.upsize.s_axis_tid_reg = 1'0
+Found init rule in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:151$147'.
+  Set init value: \genblk1.upsize.s_axis_tlast_reg = 1'0
+Found init rule in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:150$146'.
+  Set init value: \genblk1.upsize.s_axis_tvalid_reg = 1'0
+Found init rule in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:149$145'.
+  Set init value: \genblk1.upsize.s_axis_tkeep_reg = 1'0
+Found init rule in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:148$144'.
+  Set init value: \genblk1.upsize.s_axis_tdata_reg = 8'00000000
+Found init rule in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:146$143'.
+  Set init value: \genblk1.upsize.seg_reg = 2'00
+Found init rule in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:162$157'.
+  Set init value: \genblk1.upsize.m_axis_tuser_reg = 1'0
+
+5.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~15 debug messages>
+
+5.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:446$182'.
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:445$181'.
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:444$180'.
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:443$179'.
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:442$178'.
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:441$177'.
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:440$176'.
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:438$175'.
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:437$174'.
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:436$173'.
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:435$172'.
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:434$171'.
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:433$170'.
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:432$169'.
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:430$168'.
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+     1/15: $0\genblk1.temp_m_axis_tvalid_reg[0:0]
+     2/15: $0\genblk1.m_axis_tvalid_reg[0:0]
+     3/15: $0\genblk1.s_axis_tready_reg[0:0]
+     4/15: $0\genblk1.temp_m_axis_tuser_reg[0:0]
+     5/15: $0\genblk1.temp_m_axis_tdest_reg[0:0]
+     6/15: $0\genblk1.temp_m_axis_tid_reg[0:0]
+     7/15: $0\genblk1.temp_m_axis_tlast_reg[0:0]
+     8/15: $0\genblk1.temp_m_axis_tkeep_reg[3:0]
+     9/15: $0\genblk1.temp_m_axis_tdata_reg[31:0]
+    10/15: $0\genblk1.m_axis_tuser_reg[0:0]
+    11/15: $0\genblk1.m_axis_tdest_reg[0:0]
+    12/15: $0\genblk1.m_axis_tid_reg[0:0]
+    13/15: $0\genblk1.m_axis_tlast_reg[0:0]
+    14/15: $0\genblk1.m_axis_tkeep_reg[3:0]
+    15/15: $0\genblk1.m_axis_tdata_reg[31:0]
+Creating decoders for process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:466$164'.
+     1/12: $2\genblk1.store_axis_temp_to_output[0:0]
+     2/12: $3\genblk1.temp_m_axis_tvalid_next[0:0]
+     3/12: $3\genblk1.m_axis_tvalid_next[0:0]
+     4/12: $2\genblk1.store_axis_input_to_output[0:0]
+     5/12: $2\genblk1.m_axis_tvalid_next[0:0]
+     6/12: $2\genblk1.store_axis_input_to_temp[0:0]
+     7/12: $2\genblk1.temp_m_axis_tvalid_next[0:0]
+     8/12: $1\genblk1.store_axis_input_to_temp[0:0]
+     9/12: $1\genblk1.store_axis_input_to_output[0:0]
+    10/12: $1\genblk1.temp_m_axis_tvalid_next[0:0]
+    11/12: $1\genblk1.m_axis_tvalid_next[0:0]
+    12/12: $1\genblk1.store_axis_temp_to_output[0:0]
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:161$156'.
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:160$155'.
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:159$154'.
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:158$153'.
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:157$152'.
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:156$151'.
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:154$150'.
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:153$149'.
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:152$148'.
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:151$147'.
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:150$146'.
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:149$145'.
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:148$144'.
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:146$143'.
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:162$157'.
+Creating decoders for process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+     1/23: $2$lookahead\genblk1.upsize.m_axis_tkeep_reg$80[3:0]$101
+     2/23: $2$lookahead\genblk1.upsize.m_axis_tdata_reg$79[31:0]$100
+     3/23: $2$bitselwrite$pos$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:181$75[31:0]$97
+     4/23: $2$bitselwrite$pos$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:185$77[31:0]$99
+     5/23: $2$bitselwrite$pos$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:184$76[31:0]$98
+     6/23: $1$lookahead\genblk1.upsize.m_axis_tkeep_reg$80[3:0]$95
+     7/23: $1$lookahead\genblk1.upsize.m_axis_tdata_reg$79[31:0]$94
+     8/23: $1$bitselwrite$pos$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:185$77[31:0]$93
+     9/23: $1$bitselwrite$pos$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:184$76[31:0]$92
+    10/23: $1$bitselwrite$pos$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:181$75[31:0]$91
+    11/23: $0\genblk1.upsize.m_axis_tvalid_reg[0:0]
+    12/23: $0\genblk1.upsize.m_axis_tuser_reg[0:0]
+    13/23: $0\genblk1.upsize.m_axis_tdest_reg[0:0]
+    14/23: $0\genblk1.upsize.m_axis_tid_reg[0:0]
+    15/23: $0\genblk1.upsize.m_axis_tlast_reg[0:0]
+    16/23: $0\genblk1.upsize.s_axis_tuser_reg[0:0]
+    17/23: $0\genblk1.upsize.s_axis_tdest_reg[0:0]
+    18/23: $0\genblk1.upsize.s_axis_tid_reg[0:0]
+    19/23: $0\genblk1.upsize.s_axis_tlast_reg[0:0]
+    20/23: $0\genblk1.upsize.s_axis_tvalid_reg[0:0]
+    21/23: $0\genblk1.upsize.s_axis_tkeep_reg[0:0]
+    22/23: $0\genblk1.upsize.s_axis_tdata_reg[7:0]
+    23/23: $0\genblk1.upsize.seg_reg[1:0]
+
+5.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.m_axis_tvalid_next' from process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:466$164'.
+No latch inferred for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.temp_m_axis_tvalid_next' from process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:466$164'.
+No latch inferred for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.store_axis_input_to_output' from process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:466$164'.
+No latch inferred for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.store_axis_input_to_temp' from process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:466$164'.
+No latch inferred for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.store_axis_temp_to_output' from process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:466$164'.
+
+5.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.s_axis_tready_reg' using process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+  created $dff cell `$procdff$417' with positive edge clock.
+Creating register for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.m_axis_tdata_reg' using process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+  created $dff cell `$procdff$418' with positive edge clock.
+Creating register for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.m_axis_tkeep_reg' using process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+  created $dff cell `$procdff$419' with positive edge clock.
+Creating register for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.m_axis_tvalid_reg' using process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+  created $dff cell `$procdff$420' with positive edge clock.
+Creating register for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.m_axis_tlast_reg' using process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+  created $dff cell `$procdff$421' with positive edge clock.
+Creating register for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.m_axis_tid_reg' using process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+  created $dff cell `$procdff$422' with positive edge clock.
+Creating register for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.m_axis_tdest_reg' using process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+  created $dff cell `$procdff$423' with positive edge clock.
+Creating register for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.m_axis_tuser_reg' using process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+  created $dff cell `$procdff$424' with positive edge clock.
+Creating register for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.temp_m_axis_tdata_reg' using process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+  created $dff cell `$procdff$425' with positive edge clock.
+Creating register for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.temp_m_axis_tkeep_reg' using process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+  created $dff cell `$procdff$426' with positive edge clock.
+Creating register for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.temp_m_axis_tvalid_reg' using process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+  created $dff cell `$procdff$427' with positive edge clock.
+Creating register for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.temp_m_axis_tlast_reg' using process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+  created $dff cell `$procdff$428' with positive edge clock.
+Creating register for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.temp_m_axis_tid_reg' using process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+  created $dff cell `$procdff$429' with positive edge clock.
+Creating register for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.temp_m_axis_tdest_reg' using process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+  created $dff cell `$procdff$430' with positive edge clock.
+Creating register for signal `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.\genblk1.temp_m_axis_tuser_reg' using process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+  created $dff cell `$procdff$431' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.\genblk1.upsize.seg_reg' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$432' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.\genblk1.upsize.s_axis_tdata_reg' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$433' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.\genblk1.upsize.s_axis_tkeep_reg' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$434' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.\genblk1.upsize.s_axis_tvalid_reg' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$435' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.\genblk1.upsize.s_axis_tlast_reg' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$436' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.\genblk1.upsize.s_axis_tid_reg' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$437' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.\genblk1.upsize.s_axis_tdest_reg' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$438' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.\genblk1.upsize.s_axis_tuser_reg' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$439' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.\genblk1.upsize.m_axis_tdata_reg' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$440' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.\genblk1.upsize.m_axis_tkeep_reg' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$441' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.\genblk1.upsize.m_axis_tvalid_reg' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$442' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.\genblk1.upsize.m_axis_tlast_reg' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$443' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.\genblk1.upsize.m_axis_tid_reg' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$444' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.\genblk1.upsize.m_axis_tdest_reg' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$445' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.\genblk1.upsize.m_axis_tuser_reg' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$446' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$bitselwrite$pos$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:181$75' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$447' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$bitselwrite$pos$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:184$76' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$448' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$bitselwrite$pos$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:185$77' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$449' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$lookahead\genblk1.upsize.m_axis_tdata_reg$79' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$450' with positive edge clock.
+Creating register for signal `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$lookahead\genblk1.upsize.m_axis_tkeep_reg$80' using process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+  created $dff cell `$procdff$451' with positive edge clock.
+
+5.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:446$182'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:445$181'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:444$180'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:443$179'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:442$178'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:441$177'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:440$176'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:438$175'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:437$174'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:436$173'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:435$172'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:434$171'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:433$170'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:432$169'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:430$168'.
+Found and cleaned up 4 empty switches in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:494$167'.
+Found and cleaned up 3 empty switches in `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:466$164'.
+Removing empty process `$paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:466$164'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:161$156'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:160$155'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:159$154'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:158$153'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:157$152'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:156$151'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:154$150'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:153$149'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:152$148'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:151$147'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:150$146'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:149$145'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:148$144'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:146$143'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:162$157'.
+Found and cleaned up 8 empty switches in `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+Removing empty process `$paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/axis_chain8_32.v:174$81'.
+Cleaned up 15 empty switches.
+
+5.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_axis_chain.
+Optimizing module $paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.
+Optimizing module $paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.
+<suppressed ~1 debug messages>
+
+6. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$84d68956f79e14a60a8d164301f4acfb4028d864\axis_register.
+Deleting now unused module $paramod$ce0240bc8f17e5a4706001e4fb0440e3b259e1f6\axis_adapter.
+<suppressed ~2 debug messages>
+
+7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_axis_chain...
+Found and reported 0 problems.
+
+8. Executing JSON backend.
+
+End of script. Logfile hash: be231a0ed5
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 5% 2x write_json (0 sec), 5% 2x read_verilog (0 sec), ...

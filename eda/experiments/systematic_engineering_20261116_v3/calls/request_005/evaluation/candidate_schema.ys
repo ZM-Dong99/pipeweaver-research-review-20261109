@@ -1,0 +1,11 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_005/candidate.v"
+chparam -set ARB_BLOCK 1 arbiter
+chparam -set ARB_BLOCK_ACK 1 arbiter
+chparam -set ARB_TYPE_ROUND_ROBIN 1 arbiter
+chparam -set PORTS 32 arbiter
+hierarchy -check -top arbiter
+proc
+flatten
+setattr -unset init w:*
+check -assert
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_005/evaluation/candidate_schema.json"

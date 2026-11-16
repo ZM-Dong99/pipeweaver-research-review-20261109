@@ -1,0 +1,9 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/inputs/pipeline_alu16_s2.v"
+chparam -set STAGES 2 pw_pipeline_alu
+chparam -set WIDTH 16 pw_pipeline_alu
+hierarchy -check -top pw_pipeline_alu
+proc
+flatten
+setattr -unset init w:*
+check -assert
+write_json "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_engineering_20261116_v3/calls/request_038/evaluation/reference_schema.json"

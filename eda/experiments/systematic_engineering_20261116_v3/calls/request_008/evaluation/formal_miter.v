@@ -1,0 +1,21 @@
+module pw_miter(in_0,in_1,in_2,in_3,in_4,in_5,mismatch);
+input [0:0] in_0;
+input [0:0] in_1;
+input [15:0] in_2;
+input [15:0] in_3;
+input [2:0] in_4;
+input [0:0] in_5;
+wire [15:0] g_6, c_6;
+wire [0:0] g_7, c_7;
+wire [2:0] g_8, c_8;
+wire [15:0] g_9, c_9;
+wire [15:0] g_10, c_10;
+wire [0:0] g_11, c_11;
+wire [2:0] g_12, c_12;
+wire [15:0] g_13, c_13;
+wire [15:0] g_14, c_14;
+output mismatch;
+pw_gold gold(.clk(in_0),.rst(in_1),.a(in_2),.b(in_3),.Oper(in_4),.in_valid(in_5),.result(g_6),.out_valid(g_7),.\alu.Oper (g_8),.\alu.a (g_9),.\alu.b (g_10),.input_valid(g_11),.opcode(g_12),.operand_a(g_13),.operand_b(g_14));
+pw_cand cand(.clk(in_0),.rst(in_1),.a(in_2),.b(in_3),.Oper(in_4),.in_valid(in_5),.result(c_6),.out_valid(c_7),.\alu.Oper (c_8),.\alu.a (c_9),.\alu.b (c_10),.input_valid(c_11),.opcode(c_12),.operand_a(c_13),.operand_b(c_14));
+assign mismatch = (g_6 != c_6) | (g_7 != c_7) | (g_8 != c_8) | (g_9 != c_9) | (g_10 != c_10) | (g_11 != c_11) | (g_12 != c_12) | (g_13 != c_13) | (g_14 != c_14);
+endmodule

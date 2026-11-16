@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-73cb5955-46d8-4636-abb1-8bc0a9d029c3",
+  "model": "gpt-6.1-sol",
+  "created": 1794841736,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Preparing shared state decode**\n\n**Deriving onehot transitions**\n\n**Retaining invalid-state behavior**\n\n**Implementing state reset**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module pw_fsm_sync (\\n    input clk,\\n    input rst,\\n    input start,\\n    input [7:0] data_in,\\n    output reg [7:0] data_out,\\n    output reg done\\n);\\n\\nlocalparam [8:0] S_IDLE  = 9'b000000001;\\nlocalparam [8:0] S_START = 9'b000000010;\\nlocalparam [8:0] S_READ  = 9'b000000100;\\nlocalparam [8:0] S_PROC1 = 9'b000001000;\\nlocalparam [8:0] S_PROC2 = 9'b000010000;\\nlocalparam [8:0] S_PROC3 = 9'b000100000;\\nlocalparam [8:0] S_WAIT  = 9'b001000000;\\nlocalparam [8:0] S_DONE  = 9'b010000000;\\nlocalparam [8:0] S_ERROR = 9'b100000000;\\n\\nreg [8:0] state, next_state;\\n\\nwire idle_s  = (state == S_IDLE);\\nwire start_s = (state == S_START);\\nwire read_s  = (state == S_READ);\\nwire proc1_s = (state == S_PROC1);\\nwire proc2_s = (state == S_PROC2);\\nwire proc3_s = (state == S_PROC3);\\nwire wait_s  = (state == S_WAIT);\\nwire done_s  = (state == S_DONE);\\nwire error_s = (state == S_ERROR);\\nwire valid_s = idle_s | start_s | read_s | proc1_s | proc2_s |\\n               proc3_s | wait_s | done_s | error_s;\\nwire read_match = data_in[3] & ~data_in[2] & data_in[1];\\nwire error_exit = &data_in[2:0];\\n\\nalways @(*) begin\\n    next_state = 9'b000000000;\\n    next_state[0] = ~valid_s | (idle_s & ~start) | done_s |\\n                    (error_s & error_exit);\\n    next_state[1] = idle_s & start;\\n    next_state[2] = (start_s & data_in[0]) | (wait_s & data_in[4]);\\n    next_state[3] = read_s & read_match;\\n    next_state[4] = proc1_s;\\n    next_state[5] = proc2_s & data_in[7];\\n    next_state[6] = (read_s & ~read_match) |\\n                    (proc2_s & ~data_in[7]) |\\n                    (wait_s & ~data_in[4]);\\n    next_state[7] = proc3_s;\\n    next_state[8] = (start_s & ~data_in[0]) |\\n                    (error_s & ~error_exit);\\nend\\n\\nwire [7:0] incremented;\\nassign incremented[0] = ~data_in[0];\\nassign incremented[1] = data_in[1] ^ data_in[0];\\nassign incremented[2] = data_in[2] ^ (&data_in[1:0]);\\nassign incremented[3] = data_in[3] ^ (&data_in[2:0]);\\nassign incremented[4] = data_in[4] ^ (&data_in[3:0]);\\nassign incremented[5] = data_in[5] ^ (&data_in[4:0]);\\nassign incremented[6] = data_in[6] ^ (&data_in[5:0]);\\nassign incremented[7] = data_in[7] ^ (&data_in[6:0]);\\n\\nwire pass_s = read_s | done_s;\\nalways @(*) begin\\n    data_out = ({8{pass_s}} & data_in) |\\n               ({8{proc1_s}} & incremented) |\\n               ({8{proc2_s}} & {data_in[6:0], 1'b0}) |\\n               ({8{proc3_s}} & ~data_in) |\\n               ({8{error_s}} & 8'hEE);\\n    done = done_s;\\nend\\n\\nalways @(posedge clk) begin\\n    if (rst)\\n        state <= S_IDLE;\\n    else\\n        state <= next_state;\\nend\\n\\nendmodule\\n\",\n  \"bottleneck\": \"Likely timing-sensitive cones are state decoding into next-state selection and the PROC1 increment followed by output selection. Actual critical-path attribution requires the specified mapped STA run.\",\n  \"rewrite\": \"Retain the original state and next_state names and all nine encodings. Express transitions as parallel Boolean equations with shared exact-state decodes. Implement the increment using explicit reduction-prefix carries, and combine mutually exclusive output terms in parallel while sharing the READ/DONE pass-through enable.\",\n  \"expected_timing_gain\": \"The explicit carry reductions expose balanced carry computation rather than requiring inference from an addition operator, while parallel transition equations remove procedural selection structure. These changes target improved setup WNS, but the gain is mapping-dependent and is not measured or guaranteed here.\",\n  \"area_or_other_cost\": \"Shared decodes and the shared pass-through output term may reduce duplicated selection logic. Prefix carry reductions can increase intermediate wiring or logic depending on mapping. Compliance with the 1102.432320um2 area cap, electrical constraints, and timing requirements requires synthesis and physical evaluation.\",\n  \"functional_boundaries\": \"Preserves ports, synchronous reset priority, clocking, state encodings, combinational output timing, and modulo-256 increment behavior. Exact equality decodes preserve the original invalid-state behavior: every unrecognized state produces zero outputs and transitions to S_IDLE. Thus correctness does not depend on assuming an initially valid one-hot state. No initialization, additional latency, helper modules, latches, assumptions, or undefined outputs are introduced.\"\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 911,
+    "completion_tokens": 1908,
+    "total_tokens": 3426
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 1301,
+    "usage_reported": true
+  }
+}
