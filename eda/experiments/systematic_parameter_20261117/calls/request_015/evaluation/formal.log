@@ -1,0 +1,903 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\systematic_parameter_20261117\calls\request_015\evaluation\formal.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/inputs/alu32.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/inputs/alu32.v' to AST representation.
+Generating RTLIL representation for module `\pw_alu'.
+Successfully finished Verilog frontend.
+Parameter \WIDTH = 32
+
+2. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_alu'.
+Parameter \WIDTH = 32
+Generating RTLIL representation for module `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000'.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \pw_alu
+
+3.2. Analyzing design hierarchy..
+Top module:  \pw_alu
+Removed 0 unused modules.
+
+4. Executing FLATTEN pass (flatten design).
+Renaming module \pw_alu to \pw_gold.
+
+5. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v' to AST representation.
+Generating RTLIL representation for module `\pw_alu'.
+Generating RTLIL representation for module `\pw_alu_carry_tree'.
+Successfully finished Verilog frontend.
+Parameter \WIDTH = 32
+
+6. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_alu'.
+Parameter \WIDTH = 32
+Generating RTLIL representation for module `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000100000'.
+
+7. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1. Analyzing design hierarchy..
+Top module:  \pw_alu
+Used module:     \pw_alu_carry_tree
+Parameter \W = 32
+
+7.2. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_alu_carry_tree'.
+Parameter \W = 32
+Generating RTLIL representation for module `$paramod\pw_alu_carry_tree\W=s32'00000000000000000000000000100000'.
+Parameter \W = 32
+Found cached RTLIL representation for module `$paramod\pw_alu_carry_tree\W=s32'00000000000000000000000000100000'.
+Parameter \W = 32
+Found cached RTLIL representation for module `$paramod\pw_alu_carry_tree\W=s32'00000000000000000000000000100000'.
+
+7.3. Analyzing design hierarchy..
+Top module:  \pw_alu
+Used module:     $paramod\pw_alu_carry_tree\W=s32'00000000000000000000000000100000
+
+7.4. Analyzing design hierarchy..
+Top module:  \pw_alu
+Used module:     $paramod\pw_alu_carry_tree\W=s32'00000000000000000000000000100000
+Removing unused module `\pw_alu_carry_tree'.
+Removed 1 unused modules.
+
+8. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\pw_alu_carry_tree\W=s32'00000000000000000000000000100000.
+<suppressed ~3 debug messages>
+Renaming module \pw_alu to \pw_cand.
+
+9. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/evaluation/miter.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/evaluation/miter.v' to AST representation.
+Generating RTLIL representation for module `\pw_miter'.
+Successfully finished Verilog frontend.
+
+10. Executing PREP pass.
+
+10.1. Executing HIERARCHY pass (managing design hierarchy).
+
+10.1.1. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+
+10.1.2. Analyzing design hierarchy..
+Top module:  \pw_miter
+Used module:     \pw_cand
+Used module:     \pw_gold
+Removed 0 unused modules.
+
+10.2. Executing PROC pass (convert processes to netlists).
+
+10.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+10.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/inputs/alu32.v:10$9 in module pw_gold.
+Removed a total of 0 dead cases.
+
+10.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 194 assignments to connections.
+
+10.2.4. Executing PROC_INIT pass (extract init attributes).
+
+10.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+10.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+10.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$938'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$940'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$950'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$952'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$962'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$964'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$974'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$976'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$986'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$988'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$998'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1000'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1010'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1012'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1022'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1024'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1034'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1035'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1036'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1038'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1041'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1043'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1046'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1048'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1051'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1053'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1056'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1058'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1061'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1063'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1066'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1068'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1071'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1072'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1073'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1074'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1075'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1077'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1080'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1082'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1085'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1087'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1090'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1092'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1095'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1097'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1100'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1102'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1105'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1106'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1107'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1108'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1109'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1110'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1111'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1112'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1113'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1115'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1118'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1120'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1123'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1125'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1128'.
+Creating decoders for process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1130'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$938'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$940'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$950'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$952'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$962'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$964'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$974'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$976'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$986'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$988'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$998'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1000'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1010'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1012'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1022'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1024'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1034'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1035'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1036'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1038'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1041'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1043'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1046'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1048'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1051'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1053'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1056'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1058'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1061'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1063'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1066'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1068'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1071'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1072'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1073'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1074'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1075'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1077'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1080'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1082'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1085'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1087'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1090'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1092'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1095'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1097'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1100'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1102'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1105'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1106'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1107'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1108'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1109'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1110'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1111'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1112'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1113'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1115'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1118'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1120'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1123'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1125'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1128'.
+Creating decoders for process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1130'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$938'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$940'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$950'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$952'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$962'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$964'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$974'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$976'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$986'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$988'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$998'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1000'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1010'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1012'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1022'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1024'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1034'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1035'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1036'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1038'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1041'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1043'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1046'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1048'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1051'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1053'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1056'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1058'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1061'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1063'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1066'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1068'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1071'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1072'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1073'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1074'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1075'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1077'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1080'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1082'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1085'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1087'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1090'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1092'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1095'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1097'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1100'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1102'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1105'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1106'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1107'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1108'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1109'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1110'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1111'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1112'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1113'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1115'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1118'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1120'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1123'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1125'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1128'.
+Creating decoders for process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1130'.
+Creating decoders for process `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:35$793'.
+Creating decoders for process `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/inputs/alu32.v:10$9'.
+     1/1: $1\sum[31:0]
+
+10.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\pw_cand.\add_tree.gp[0] [0]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$938'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[0] [0]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$940'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[0] [1]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$950'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[0] [1]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$952'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[0] [2]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$962'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[0] [2]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$964'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[0] [3]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$974'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[0] [3]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$976'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[0] [4]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$986'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[0] [4]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$988'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[0] [5]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$998'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[0] [5]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1000'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[0] [6]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1010'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[0] [6]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1012'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[0] [7]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1022'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[0] [7]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1024'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[1] [0]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1034'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[1] [0]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1035'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[1] [1]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1036'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[1] [1]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1038'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[1] [2]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1041'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[1] [2]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1043'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[1] [3]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1046'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[1] [3]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1048'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[1] [4]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1051'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[1] [4]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1053'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[1] [5]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1056'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[1] [5]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1058'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[1] [6]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1061'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[1] [6]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1063'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[1] [7]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1066'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[1] [7]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1068'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[2] [0]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1071'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[2] [0]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1072'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[2] [1]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1073'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[2] [1]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1074'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[2] [2]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1075'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[2] [2]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1077'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[2] [3]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1080'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[2] [3]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1082'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[2] [4]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1085'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[2] [4]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1087'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[2] [5]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1090'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[2] [5]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1092'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[2] [6]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1095'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[2] [6]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1097'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[2] [7]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1100'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[2] [7]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1102'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[3] [0]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1105'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[3] [0]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1106'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[3] [1]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1107'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[3] [1]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1108'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[3] [2]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1109'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[3] [2]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1110'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[3] [3]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1111'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[3] [3]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1112'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[3] [4]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1113'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[3] [4]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1115'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[3] [5]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1118'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[3] [5]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1120'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[3] [6]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1123'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[3] [6]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1125'.
+No latch inferred for signal `\pw_cand.\add_tree.gp[3] [7]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1128'.
+No latch inferred for signal `\pw_cand.\add_tree.ge[3] [7]' from process `\pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1130'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[0] [0]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$938'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[0] [0]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$940'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[0] [1]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$950'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[0] [1]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$952'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[0] [2]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$962'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[0] [2]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$964'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[0] [3]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$974'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[0] [3]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$976'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[0] [4]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$986'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[0] [4]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$988'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[0] [5]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$998'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[0] [5]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1000'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[0] [6]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1010'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[0] [6]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1012'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[0] [7]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1022'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[0] [7]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1024'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[1] [0]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1034'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[1] [0]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1035'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[1] [1]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1036'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[1] [1]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1038'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[1] [2]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1041'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[1] [2]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1043'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[1] [3]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1046'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[1] [3]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1048'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[1] [4]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1051'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[1] [4]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1053'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[1] [5]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1056'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[1] [5]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1058'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[1] [6]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1061'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[1] [6]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1063'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[1] [7]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1066'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[1] [7]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1068'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[2] [0]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1071'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[2] [0]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1072'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[2] [1]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1073'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[2] [1]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1074'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[2] [2]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1075'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[2] [2]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1077'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[2] [3]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1080'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[2] [3]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1082'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[2] [4]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1085'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[2] [4]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1087'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[2] [5]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1090'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[2] [5]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1092'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[2] [6]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1095'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[2] [6]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1097'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[2] [7]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1100'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[2] [7]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1102'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[3] [0]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1105'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[3] [0]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1106'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[3] [1]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1107'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[3] [1]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1108'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[3] [2]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1109'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[3] [2]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1110'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[3] [3]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1111'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[3] [3]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1112'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[3] [4]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1113'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[3] [4]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1115'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[3] [5]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1118'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[3] [5]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1120'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[3] [6]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1123'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[3] [6]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1125'.
+No latch inferred for signal `\pw_cand.\ab_tree.gp[3] [7]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1128'.
+No latch inferred for signal `\pw_cand.\ab_tree.ge[3] [7]' from process `\pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1130'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[0] [0]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$938'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[0] [0]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$940'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[0] [1]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$950'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[0] [1]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$952'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[0] [2]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$962'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[0] [2]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$964'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[0] [3]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$974'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[0] [3]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$976'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[0] [4]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$986'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[0] [4]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$988'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[0] [5]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$998'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[0] [5]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1000'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[0] [6]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1010'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[0] [6]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1012'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[0] [7]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1022'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[0] [7]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1024'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[1] [0]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1034'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[1] [0]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1035'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[1] [1]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1036'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[1] [1]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1038'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[1] [2]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1041'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[1] [2]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1043'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[1] [3]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1046'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[1] [3]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1048'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[1] [4]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1051'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[1] [4]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1053'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[1] [5]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1056'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[1] [5]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1058'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[1] [6]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1061'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[1] [6]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1063'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[1] [7]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1066'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[1] [7]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1068'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[2] [0]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1071'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[2] [0]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1072'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[2] [1]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1073'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[2] [1]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1074'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[2] [2]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1075'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[2] [2]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1077'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[2] [3]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1080'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[2] [3]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1082'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[2] [4]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1085'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[2] [4]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1087'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[2] [5]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1090'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[2] [5]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1092'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[2] [6]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1095'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[2] [6]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1097'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[2] [7]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1100'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[2] [7]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1102'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[3] [0]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1105'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[3] [0]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1106'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[3] [1]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1107'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[3] [1]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1108'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[3] [2]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1109'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[3] [2]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1110'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[3] [3]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1111'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[3] [3]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1112'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[3] [4]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1113'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[3] [4]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1115'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[3] [5]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1118'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[3] [5]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1120'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[3] [6]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1123'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[3] [6]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1125'.
+No latch inferred for signal `\pw_cand.\ba_tree.gp[3] [7]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1128'.
+No latch inferred for signal `\pw_cand.\ba_tree.ge[3] [7]' from process `\pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1130'.
+No latch inferred for signal `\pw_cand.\sum' from process `\pw_cand.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:35$793'.
+No latch inferred for signal `\pw_gold.\sum' from process `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/inputs/alu32.v:10$9'.
+
+10.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+10.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+10.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$938'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$940'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$950'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$952'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$962'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$964'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$974'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$976'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$986'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$988'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$998'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1000'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1010'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1012'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1022'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1024'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1034'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1035'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1036'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1038'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1041'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1043'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1046'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1048'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1051'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1053'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1056'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1058'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1061'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1063'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1066'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1068'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1071'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1072'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1073'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1074'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1075'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1077'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1080'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1082'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1085'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1087'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1090'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1092'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1095'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1097'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1100'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1102'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1105'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1106'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1107'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1108'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1109'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1110'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1111'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1112'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1113'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1115'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1118'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1120'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1123'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1125'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1128'.
+Removing empty process `pw_cand.$flatten\add_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1130'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$938'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$940'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$950'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$952'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$962'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$964'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$974'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$976'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$986'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$988'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$998'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1000'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1010'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1012'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1022'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1024'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1034'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1035'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1036'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1038'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1041'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1043'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1046'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1048'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1051'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1053'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1056'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1058'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1061'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1063'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1066'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1068'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1071'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1072'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1073'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1074'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1075'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1077'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1080'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1082'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1085'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1087'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1090'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1092'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1095'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1097'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1100'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1102'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1105'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1106'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1107'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1108'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1109'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1110'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1111'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1112'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1113'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1115'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1118'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1120'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1123'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1125'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1128'.
+Removing empty process `pw_cand.$flatten\ab_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1130'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$938'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$940'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$950'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$952'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$962'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$964'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$974'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$976'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$986'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$988'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$998'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1000'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1010'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1012'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:72$1022'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:73$1024'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1034'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1035'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1036'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1038'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1041'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1043'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1046'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1048'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1051'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1053'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1056'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1058'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1061'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1063'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1066'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1068'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1071'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1072'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1073'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1074'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1075'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1077'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1080'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1082'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1085'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1087'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1090'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1092'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1095'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1097'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1100'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1102'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1105'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1106'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1107'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1108'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1109'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1110'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:90$1111'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:91$1112'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1113'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1115'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1118'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1120'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1123'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1125'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:86$1128'.
+Removing empty process `pw_cand.$flatten\ba_tree.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:87$1130'.
+Removing empty process `pw_cand.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:35$793'.
+Found and cleaned up 1 empty switch in `\pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/inputs/alu32.v:10$9'.
+Removing empty process `pw_gold.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/inputs/alu32.v:10$9'.
+Cleaned up 1 empty switch.
+
+10.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+Optimizing module pw_cand.
+<suppressed ~19 debug messages>
+Optimizing module pw_gold.
+<suppressed ~1 debug messages>
+
+10.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module pw_cand.
+Deleting now unused module pw_gold.
+<suppressed ~2 debug messages>
+
+10.4. Executing FUTURE pass.
+
+10.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+10.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 87 unused cells and 493 unused wires.
+<suppressed ~88 debug messages>
+
+10.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+10.8. Executing OPT pass (performing simple optimizations).
+
+10.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+10.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 727 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 672 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 644 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 625 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Computing hashes of 622 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+<suppressed ~315 debug messages>
+Removed a total of 105 cells.
+
+10.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+10.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+10.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 622 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+10.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 90 unused wires.
+<suppressed ~1 debug messages>
+
+10.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+10.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_miter..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+10.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_miter.
+Performed a total of 0 changes.
+
+10.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 622 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+10.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+10.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+10.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+10.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 32) from port Y of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:18$779 ($and).
+Removed top 1 bits (of 32) from port A of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:18$779 ($and).
+Removed top 1 bits (of 32) from port B of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:18$779 ($and).
+Removed top 1 bits (of 32) from port Y of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:21$782 ($and).
+Removed top 1 bits (of 32) from port A of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:21$782 ($and).
+Removed top 1 bits (of 32) from port B of cell pw_miter.$flatten\cand.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:21$782 ($and).
+Removed top 2 bits (of 3) from port B of cell pw_miter.$flatten\cand.$eq$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:28$787 ($eq).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\cand.$eq$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:29$788 ($eq).
+Removed top 1 bits (of 3) from port B of cell pw_miter.$flatten\cand.$eq$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:30$789 ($eq).
+Removed top 1 bits (of 32) from port Y of cell pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:18$778 ($not).
+Removed top 1 bits (of 32) from port A of cell pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:18$778 ($not).
+Removed top 1 bits (of 32) from port Y of cell pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:21$781 ($not).
+Removed top 1 bits (of 32) from port A of cell pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:21$781 ($not).
+Removed top 1 bits (of 32) from wire pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:18$778_Y.
+Removed top 1 bits (of 32) from wire pw_miter.$flatten\cand.$not$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_015/candidate.v:21$781_Y.
+
+10.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+10.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+10.12. Executing OPT pass (performing simple optimizations).
+
+10.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_miter.
+
+10.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_miter'.
+Computing hashes of 622 cells of `\pw_miter'.
+Finding duplicate cells in `\pw_miter'.
+Removed a total of 0 cells.
+
+10.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_miter..
+
+10.12.4. Finished fast OPT passes.
+
+10.13. Executing SORT pass.
+
+10.14. Printing statistics.
+
+=== pw_miter ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      509 wires
+     2285 wire bits
+       70 public wires
+     1257 public wire bits
+        4 ports
+       68 port bits
+      622 cells
+        1   $add
+      338   $and
+        6   $eq
+        1   $logic_not
+        1   $ne
+        3   $not
+      247   $or
+        1   $pmux
+       12   $reduce_and
+        5   $scopeinfo
+        2   $sub
+        1   $xnor
+        4   $xor
+
+10.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_miter...
+Found and reported 0 problems.
+
+11. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Imported 622 cells to SAT database.
+Import proof-constraint: \mismatch = 1'0
+Final proof equation: \mismatch = 1'0
+Import show expression: \in_0
+Import show expression: \in_1
+Import show expression: \in_2
+
+Solving problem with 8900 variables and 23534 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: c977d80553
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 6x read_verilog (0 sec), 3% 6x opt_expr (0 sec), ...

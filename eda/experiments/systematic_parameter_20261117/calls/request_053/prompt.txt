@@ -1,0 +1,158 @@
+Reduce maximum data arrival for module pw_alu, fixed parameter overrides {"WIDTH": 32}. Every input bit is arbitrary binary data and every output bit must match for every input. No state or added latency. CRC state_in is arbitrary; data_out and state_out must both match exactly. Preserve module name, ports, signedness, priority and default behavior, truncation and parameters. No latches, memories, generated clocks, asynchronous reset, includes, file access, formal assumptions, assertions or undefined outputs. Supply a complete design including required helper modules. Evaluation uses SKY130HD TT25C1.80V, fixed library/mapping and interface constraints. Clock period for sequential cases is 10.0ns. Original-relative area cap is 6534.767360um2. Source and mapped equivalence, STA and electrical checks must pass. Return exactly one JSON object with six string fields candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.
+Original reference RTL:
+// Parameterized adaptation of rtl_opt_upstream_hkust/benchmark/alu_64bit.
+// The sum output retains the original seven operations and zero default.
+module pw_alu #(
+    parameter WIDTH = 64
+)(
+    input wire [WIDTH-1:0] a, b,
+    input wire [2:0] Oper,
+    output reg [WIDTH-1:0] sum
+);
+    always @* begin
+        case (Oper)
+            3'b000: sum = a + b;
+            3'b001: sum = a - b;
+            3'b010: sum = b - a;
+            3'b011: sum = a | b;
+            3'b100: sum = a & b;
+            3'b101: sum = a ^ b;
+            3'b110: sum = a ~^ b;
+            default: sum = {WIDTH{1'b0}};
+        endcase
+    end
+endmodule
+
+Actual baseline measurements:
+{"status": "PASS", "formal": "PASS", "mapped_formal": "PASS", "ppa": "PASS", "electrical": {"status": "PASS", "violation_rows": 0, "checks": ["max_slew", "max_capacitance"], "scope": "Library limits under recorded SDC; not physical signoff"}, "wns_ns": 97.51, "tns_ns": 0.0, "max_data_arrival_ns": 2.49, "mapped_area_um2": 5940.6976, "stage": "electrical_checks"}
+Actual baseline STA paths, mapped names do not establish exact source attribution:
+Startpoint: a[7] (input port clocked by virtual_clk)
+Endpoint: sum[31] (output port clocked by virtual_clk)
+Path Group: virtual_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock virtual_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 v input external delay
+   0.00    0.00 v a[7] (in)
+   0.18    0.18 v _1111_/X (sky130_fd_sc_hd__buf_2)
+   0.12    0.30 ^ _1312_/Y (sky130_fd_sc_hd__nor2_2)
+   0.19    0.49 v _1313_/Y (sky130_fd_sc_hd__nand4_4)
+   0.20    0.69 v _1365_/X (sky130_fd_sc_hd__buf_6)
+   0.23    0.91 ^ _1377_/Y (sky130_fd_sc_hd__o31ai_2)
+   0.07    0.98 v _1381_/Y (sky130_fd_sc_hd__nand2_1)
+   0.06    1.04 ^ _1382_/Y (sky130_fd_sc_hd__nand2_1)
+   0.09    1.12 v _1383_/Y (sky130_fd_sc_hd__o211ai_1)
+   0.18    1.31 v _1636_/X (sky130_fd_sc_hd__and2_4)
+   0.16    1.46 ^ _1637_/Y (sky130_fd_sc_hd__a21oi_4)
+   0.10    1.57 v _1641_/Y (sky130_fd_sc_hd__nand4_1)
+   0.18    1.74 ^ _1642_/Y (sky130_fd_sc_hd__a31oi_1)
+   0.09    1.83 v _1675_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.14    1.98 ^ _1692_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.11    2.08 v _2088_/Y (sky130_fd_sc_hd__o22ai_1)
+   0.14    2.22 ^ _2098_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.08    2.31 v _2100_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.18    2.49 ^ _2115_/Y (sky130_fd_sc_hd__a41oi_2)
+   0.00    2.49 ^ sum[31] (out)
+           2.49   data arrival time
+
+ 100.00  100.00   clock virtual_clk (rise edge)
+   0.00  100.00   clock network delay (ideal)
+   0.00  100.00   clock reconvergence pessimism
+   0.00  100.00   output external delay
+         100.00   data required time
+---------------------------------------------------------
+         100.00   data required time
+          -2.49   data arrival time
+---------------------------------------------------------
+          97.51   slack (MET)
+
+
+Startpoint: a[11] (input port clocked by virtual_clk)
+Endpoint: sum[29] (output port clocked by virtual_clk)
+Path Group: virtual_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock virtual_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 v input external delay
+   0.00    0.00 v a[11] (in)
+   0.17    0.17 v _1211_/X (sky130_fd_sc_hd__buf_2)
+   0.16    0.33 ^ _1314_/Y (sky130_fd_sc_hd__nor2_2)
+   0.20    0.53 v _1318_/Y (sky130_fd_sc_hd__nand4_4)
+   0.21    0.74 ^ _1319_/Y (sky130_fd_sc_hd__nor2_4)
+   0.12    0.85 v _1419_/Y (sky130_fd_sc_hd__nand4_1)
+   0.19    1.04 ^ _1420_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.08    1.13 v _1444_/Y (sky130_fd_sc_hd__nor3_1)
+   0.34    1.47 v _1445_/X (sky130_fd_sc_hd__maj3_1)
+   0.12    1.58 ^ _1446_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.07    1.65 v _1447_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15    1.80 ^ _1675_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.10    1.91 v _1686_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17    2.08 v _1715_/X (sky130_fd_sc_hd__a21o_1)
+   0.13    2.20 v _1717_/X (sky130_fd_sc_hd__and2_1)
+   0.13    2.33 ^ _1719_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.14    2.47 v _1733_/Y (sky130_fd_sc_hd__a41oi_2)
+   0.00    2.47 v sum[29] (out)
+           2.47   data arrival time
+
+ 100.00  100.00   clock virtual_clk (rise edge)
+   0.00  100.00   clock network delay (ideal)
+   0.00  100.00   clock reconvergence pessimism
+   0.00  100.00   output external delay
+         100.00   data required time
+---------------------------------------------------------
+         100.00   data required time
+          -2.47   data arrival time
+---------------------------------------------------------
+          97.53   slack (MET)
+
+
+Startpoint: a[7] (input port clocked by virtual_clk)
+Endpoint: sum[27] (output port clocked by virtual_clk)
+Path Group: virtual_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock virtual_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 v input external delay
+   0.00    0.00 v a[7] (in)
+   0.18    0.18 v _1111_/X (sky130_fd_sc_hd__buf_2)
+   0.12    0.30 ^ _1312_/Y (sky130_fd_sc_hd__nor2_2)
+   0.19    0.49 v _1313_/Y (sky130_fd_sc_hd__nand4_4)
+   0.20    0.69 v _1365_/X (sky130_fd_sc_hd__buf_6)
+   0.23    0.91 ^ _1377_/Y (sky130_fd_sc_hd__o31ai_2)
+   0.07    0.98 v _1381_/Y (sky130_fd_sc_hd__nand2_1)
+   0.06    1.04 ^ _1382_/Y (sky130_fd_sc_hd__nand2_1)
+   0.09    1.12 v _1383_/Y (sky130_fd_sc_hd__o211ai_1)
+   0.18    1.31 v _1636_/X (sky130_fd_sc_hd__and2_4)
+   0.16    1.46 ^ _1637_/Y (sky130_fd_sc_hd__a21oi_4)
+   0.10    1.57 v _1641_/Y (sky130_fd_sc_hd__nand4_1)
+   0.18    1.74 ^ _1642_/Y (sky130_fd_sc_hd__a31oi_1)
+   0.09    1.84 v _1744_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14    1.97 ^ _1745_/Y (sky130_fd_sc_hd__o21bai_2)
+   0.09    2.06 v _1746_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.13    2.19 v _1748_/X (sky130_fd_sc_hd__and2_1)
+   0.13    2.32 ^ _1749_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.14    2.46 v _1762_/Y (sky130_fd_sc_hd__a41oi_2)
+   0.00    2.46 v sum[27] (out)
+           2.46   data arrival time
+
+ 100.00  100.00   clock virtual_clk (rise edge)
+   0.00  100.00   clock network delay (ideal)
+   0.00  100.00   clock reconvergence pessimism
+   0.00  100.00   output external delay
+         100.00   data required time
+---------------------------------------------------------
+         100.00   data required time
+          -2.46   data arrival time
+---------------------------------------------------------
+          97.54   slack (MET)
+
+

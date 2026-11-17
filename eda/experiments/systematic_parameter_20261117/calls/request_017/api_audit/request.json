@@ -1,0 +1,26 @@
+{
+  "endpoint": "https://apinebula.ai/v1/chat/completions",
+  "body": {
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "response_format": {
+      "type": "json_object"
+    },
+    "max_completion_tokens": 16000,
+    "messages": [
+      {
+        "role": "system",
+        "content": "Optimize synthesizable combinational RTL under the exact contract."
+      },
+      {
+        "role": "user",
+        "content": "Reduce maximum data arrival for module pw_alu, fixed parameter overrides {\"WIDTH\": 16}. Every input bit is arbitrary binary data and every output bit must match for every input. No state or added latency. CRC state_in is arbitrary; data_out and state_out must both match exactly. Preserve module name, ports, signedness, priority and default behavior, truncation and parameters. No latches, memories, generated clocks, asynchronous reset, includes, file access, formal assumptions, assertions or undefined outputs. Supply a complete design including required helper modules. Evaluation uses SKY130HD TT25C1.80V, fixed library/mapping and interface constraints. Clock period for sequential cases is 10.0ns. Original-relative area cap is 3074.698880um2. Source and mapped equivalence, STA and electrical checks must pass. Return exactly one JSON object with six string fields candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.\nOriginal reference RTL:\n// Parameterized adaptation of rtl_opt_upstream_hkust/benchmark/alu_64bit.\n// The sum output retains the original seven operations and zero default.\nmodule pw_alu #(\n    parameter WIDTH = 64\n)(\n    input wire [WIDTH-1:0] a, b,\n    input wire [2:0] Oper,\n    output reg [WIDTH-1:0] sum\n);\n    always @* begin\n        case (Oper)\n            3'b000: sum = a + b;\n            3'b001: sum = a - b;\n            3'b010: sum = b - a;\n            3'b011: sum = a | b;\n            3'b100: sum = a & b;\n            3'b101: sum = a ^ b;\n            3'b110: sum = a ~^ b;\n            default: sum = {WIDTH{1'b0}};\n        endcase\n    end\nendmodule\n"
+      }
+    ]
+  },
+  "credentials": "omitted"
+}

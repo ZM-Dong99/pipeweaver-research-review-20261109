@@ -1,0 +1,16 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_026/evaluation/reference/elaborated.v"
+hierarchy -check -top pw_crc32_d8
+flatten
+rename pw_crc32_d8 pw_gold
+design -stash pw_gold_design
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_026/evaluation/candidate/elaborated.v"
+hierarchy -check -top pw_crc32_d8
+flatten
+rename pw_crc32_d8 pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_026/evaluation/eda/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 120

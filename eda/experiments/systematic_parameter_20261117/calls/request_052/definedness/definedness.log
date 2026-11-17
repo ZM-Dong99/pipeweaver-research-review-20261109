@@ -1,0 +1,767 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\systematic_parameter_20261117\calls\request_052\definedness\definedness.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v' to AST representation.
+Generating RTLIL representation for module `\pw_alu'.
+Generating RTLIL representation for module `\pw_alu_sparse_add'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/definedness/definedness.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/definedness/definedness.v' to AST representation.
+Generating RTLIL representation for module `\pw_definedness'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \pw_definedness
+Used module:     \pw_alu
+Used module:         \pw_alu_sparse_add
+Parameter \WIDTH = 64
+
+3.1.2. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_alu_sparse_add'.
+Parameter \WIDTH = 64
+Generating RTLIL representation for module `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000'.
+Parameter \WIDTH = 64
+Found cached RTLIL representation for module `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000'.
+Parameter \WIDTH = 64
+Found cached RTLIL representation for module `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000'.
+Parameter \WIDTH = 64
+
+3.1.3. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_alu'.
+Parameter \WIDTH = 64
+Generating RTLIL representation for module `$paramod\pw_alu\WIDTH=s32'00000000000000000000000001000000'.
+
+3.1.4. Analyzing design hierarchy..
+Top module:  \pw_definedness
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000001000000
+Used module:         \pw_alu_sparse_add
+Parameter \WIDTH = 64
+Found cached RTLIL representation for module `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000'.
+Parameter \WIDTH = 64
+Found cached RTLIL representation for module `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000'.
+Parameter \WIDTH = 64
+Found cached RTLIL representation for module `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000'.
+
+3.1.5. Analyzing design hierarchy..
+Top module:  \pw_definedness
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000001000000
+Used module:         $paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000
+
+3.1.6. Analyzing design hierarchy..
+Top module:  \pw_definedness
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000001000000
+Used module:         $paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000
+Removing unused module `\pw_alu_sparse_add'.
+Removing unused module `\pw_alu'.
+Removed 2 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:22$1554 in module $paramod\pw_alu\WIDTH=s32'00000000000000000000000001000000.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 161 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:22$1554'.
+     1/1: $1\sum[63:0]
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1549'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1547'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1544'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1542'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1539'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1537'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1534'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1532'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1529'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1527'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1524'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1522'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1519'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1517'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1514'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1512'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1511'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1510'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1509'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1508'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1507'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1506'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1505'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1504'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1503'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1502'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1501'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1500'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1499'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1498'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1497'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1496'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1493'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1491'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1488'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1486'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1483'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1481'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1478'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1476'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1473'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1471'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1468'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1466'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1463'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1461'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1458'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1456'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1453'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1451'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1448'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1446'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1443'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1441'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1438'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1436'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1435'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1434'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1433'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1432'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1431'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1430'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1429'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1428'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1425'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1423'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1420'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1418'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1415'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1413'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1410'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1408'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1405'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1403'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1400'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1398'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1395'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1393'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1390'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1388'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1385'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1383'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1380'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1378'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1375'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1373'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1370'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1368'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1365'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1363'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1360'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1358'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1357'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1356'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1355'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1354'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1351'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1349'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1346'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1344'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1341'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1339'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1336'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1334'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1331'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1329'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1326'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1324'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1321'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1319'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1316'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1314'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1311'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1309'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1306'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1304'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1301'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1299'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1296'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1294'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1291'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1289'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1286'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1284'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1281'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1279'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1278'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1277'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1267'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1265'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1255'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1253'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1243'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1241'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1231'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1229'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1219'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1217'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1207'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1205'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1195'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1193'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1183'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1181'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1171'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1169'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1159'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1157'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1147'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1145'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1135'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1133'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1123'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1121'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1111'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1109'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1099'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1097'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1087'.
+Creating decoders for process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1085'.
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\pw_alu\WIDTH=s32'00000000000000000000000001000000.\sum' from process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:22$1554'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [15]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1549'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [15]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1547'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [14]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1544'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [14]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1542'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [13]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1539'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [13]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1537'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [12]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1534'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [12]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1532'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [11]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1529'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [11]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1527'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [10]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1524'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [10]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1522'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [9]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1519'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [9]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1517'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [8]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1514'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [8]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1512'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [7]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1511'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [7]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1510'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [6]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1509'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [6]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1508'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [5]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1507'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [5]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1506'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [4]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1505'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [4]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1504'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [3]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1503'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [3]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1502'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [2]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1501'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [2]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1500'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [1]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1499'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [1]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1498'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[4] [0]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1497'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[4] [0]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1496'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [15]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1493'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [15]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1491'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [14]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1488'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [14]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1486'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [13]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1483'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [13]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1481'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [12]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1478'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [12]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1476'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [11]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1473'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [11]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1471'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [10]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1468'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [10]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1466'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [9]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1463'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [9]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1461'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [8]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1458'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [8]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1456'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [7]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1453'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [7]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1451'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [6]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1448'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [6]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1446'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [5]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1443'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [5]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1441'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [4]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1438'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [4]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1436'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [3]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1435'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [3]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1434'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [2]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1433'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [2]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1432'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [1]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1431'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [1]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1430'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[3] [0]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1429'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[3] [0]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1428'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [15]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1425'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [15]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1423'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [14]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1420'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [14]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1418'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [13]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1415'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [13]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1413'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [12]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1410'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [12]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1408'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [11]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1405'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [11]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1403'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [10]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1400'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [10]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1398'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [9]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1395'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [9]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1393'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [8]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1390'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [8]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1388'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [7]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1385'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [7]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1383'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [6]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1380'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [6]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1378'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [5]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1375'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [5]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1373'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [4]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1370'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [4]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1368'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [3]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1365'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [3]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1363'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [2]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1360'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [2]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1358'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [1]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1357'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [1]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1356'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[2] [0]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1355'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[2] [0]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1354'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [15]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1351'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [15]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1349'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [14]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1346'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [14]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1344'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [13]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1341'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [13]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1339'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [12]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1336'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [12]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1334'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [11]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1331'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [11]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1329'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [10]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1326'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [10]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1324'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [9]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1321'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [9]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1319'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [8]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1316'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [8]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1314'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [7]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1311'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [7]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1309'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [6]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1306'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [6]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1304'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [5]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1301'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [5]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1299'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [4]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1296'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [4]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1294'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [3]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1291'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [3]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1289'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [2]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1286'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [2]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1284'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [1]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1281'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [1]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1279'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[1] [0]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1278'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[1] [0]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1277'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [15]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1267'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [15]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1265'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [14]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1255'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [14]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1253'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [13]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1243'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [13]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1241'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [12]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1231'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [12]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1229'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [11]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1219'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [11]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1217'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [10]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1207'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [10]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1205'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [9]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1195'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [9]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1193'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [8]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1183'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [8]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1181'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [7]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1171'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [7]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1169'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [6]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1159'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [6]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1157'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [5]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1147'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [5]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1145'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [4]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1135'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [4]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1133'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [3]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1123'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [3]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1121'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [2]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1111'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [2]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1109'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [1]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1099'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [1]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1097'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gg[0] [0]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1087'.
+No latch inferred for signal `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.\gp[0] [0]' from process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1085'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `$paramod\pw_alu\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:22$1554'.
+Removing empty process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:22$1554'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1549'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1547'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1544'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1542'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1539'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1537'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1534'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1532'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1529'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1527'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1524'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1522'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1519'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1517'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1514'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1512'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1511'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1510'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1509'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1508'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1507'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1506'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1505'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1504'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1503'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1502'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1501'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1500'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1499'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1498'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1497'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1496'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1493'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1491'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1488'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1486'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1483'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1481'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1478'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1476'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1473'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1471'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1468'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1466'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1463'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1461'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1458'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1456'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1453'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1451'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1448'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1446'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1443'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1441'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1438'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1436'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1435'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1434'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1433'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1432'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1431'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1430'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1429'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1428'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1425'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1423'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1420'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1418'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1415'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1413'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1410'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1408'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1405'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1403'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1400'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1398'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1395'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1393'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1390'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1388'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1385'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1383'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1380'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1378'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1375'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1373'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1370'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1368'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1365'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1363'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1360'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1358'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1357'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1356'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1355'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1354'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1351'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1349'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1346'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1344'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1341'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1339'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1336'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1334'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1331'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1329'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1326'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1324'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1321'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1319'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1316'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1314'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1311'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1309'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1306'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1304'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1301'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1299'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1296'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1294'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1291'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1289'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1286'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1284'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:94$1281'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:92$1279'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:98$1278'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:97$1277'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1267'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1265'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1255'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1253'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1243'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1241'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1231'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1229'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1219'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1217'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1207'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1205'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1195'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1193'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1183'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1181'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1171'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1169'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1159'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1157'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1147'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1145'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1135'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1133'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1123'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1121'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1111'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1109'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1099'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1097'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:68$1087'.
+Removing empty process `$paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:67$1085'.
+Cleaned up 1 empty switch.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+Optimizing module $paramod\pw_alu\WIDTH=s32'00000000000000000000000001000000.
+<suppressed ~1 debug messages>
+Optimizing module $paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.
+
+3.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\pw_alu\WIDTH=s32'00000000000000000000000001000000.
+Deleting now unused module $paramod\pw_alu_sparse_add\WIDTH=s32'00000000000000000000000001000000.
+<suppressed ~4 debug messages>
+
+3.4. Executing FUTURE pass.
+
+3.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+<suppressed ~72 debug messages>
+
+3.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+Removed 84 unused cells and 1214 unused wires.
+<suppressed ~85 debug messages>
+
+3.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_definedness...
+Found and reported 0 problems.
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 1697 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Computing hashes of 1603 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+<suppressed ~282 debug messages>
+Removed a total of 94 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_definedness..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_definedness.
+Performed a total of 0 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 1603 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Removed a total of 0 cells.
+
+3.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+Removed 0 unused cells and 94 unused wires.
+<suppressed ~1 debug messages>
+
+3.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_definedness..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+3.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_definedness.
+Performed a total of 0 changes.
+
+3.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 1603 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Removed a total of 0 cells.
+
+3.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+
+3.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 64) from port Y of cell pw_definedness.$flatten\dut.\u_ba.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:57$782 ($and).
+Removed top 1 bits (of 64) from port A of cell pw_definedness.$flatten\dut.\u_ba.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:57$782 ($and).
+Removed top 1 bits (of 64) from port B of cell pw_definedness.$flatten\dut.\u_ba.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:57$782 ($and).
+Removed top 1 bits (of 64) from port Y of cell pw_definedness.$flatten\dut.\u_ab.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:57$782 ($and).
+Removed top 1 bits (of 64) from port A of cell pw_definedness.$flatten\dut.\u_ab.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:57$782 ($and).
+Removed top 1 bits (of 64) from port B of cell pw_definedness.$flatten\dut.\u_ab.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_052/candidate.v:57$782 ($and).
+Removed top 2 bits (of 3) from port B of cell pw_definedness.$flatten\dut.$procmux$1566_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell pw_definedness.$flatten\dut.$procmux$1565_CMP0 ($eq).
+Removed top 1 bits (of 3) from port B of cell pw_definedness.$flatten\dut.$procmux$1564_CMP0 ($eq).
+
+3.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+
+3.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.12. Executing OPT pass (performing simple optimizations).
+
+3.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 1603 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Removed a total of 0 cells.
+
+3.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+
+3.12.4. Finished fast OPT passes.
+
+3.13. Executing SORT pass.
+
+3.14. Printing statistics.
+
+=== pw_definedness ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1335 wires
+     4327 wire bits
+      312 public wires
+     3178 public wire bits
+        4 ports
+      132 port bits
+     1603 cells
+      905   $and
+        6   $eq
+        1   $logic_not
+        1   $nex
+        2   $not
+      586   $or
+        1   $pmux
+       44   $reduce_and
+        1   $reduce_xor
+        4   $scopeinfo
+        1   $xnor
+       51   $xor
+
+3.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_definedness...
+Found and reported 0 problems.
+
+4. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \pw_signal_2
+Import def constraint for this timestep: \pw_signal_0
+Import def constraint for this timestep: \pw_signal_1
+Imported 1603 cells to SAT database.
+Import proof-constraint: \defined = 1'1
+Final proof equation: \defined = 1'1
+Import show expression: \pw_signal_0
+Import show expression: \pw_signal_1
+Import show expression: \pw_signal_2
+
+Solving problem with 44055 variables and 117238 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 916136e885
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 6x opt_expr (0 sec), 3% 5x opt_clean (0 sec), ...

@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-3937acc6-6492-4e42-bbe0-f4f5e31e2b36",
+  "model": "gpt-6.1-sol",
+  "created": 1794902169,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Deriving nibble CRC masks**\n\n**Generating balanced CRC masks**\n\n**Implementing parity cases**\n\n</think>\n\n{\n  \"candidate_rtl\": \"`timescale 1ns / 1ps\\n`default_nettype none\\n\\nmodule pw_crc32_d4 (\\n    input  wire [3:0]  data_in,\\n    input  wire [31:0] state_in,\\n    output wire [3:0]  data_out,\\n    output wire [31:0] state_out\\n);\\n    localparam [31:0] POLY = 32'hedb88320;\\n    localparam [31:0] C0 = POLY >> 3;\\n    localparam [31:0] C1 = POLY >> 2;\\n    localparam [31:0] C2 = POLY >> 1;\\n    localparam [31:0] C3 = POLY;\\n\\n    wire [3:0] feedback;\\n    wire [31:0] shifted_state;\\n\\n    assign feedback = state_in[3:0] ^ data_in;\\n    assign data_out = feedback;\\n    assign shifted_state = {4'b0000, state_in[31:4]};\\n\\n    genvar n;\\n    generate\\n        for (n = 0; n < 32; n = n + 1) begin : output_bit\\n            localparam [3:0] MASK = {C3[n], C2[n], C1[n], C0[n]};\\n\\n            // Balance three feedback terms against the independently\\n            // arriving shifted-state term rather than appending it.\\n            if (MASK == 4'b0111) begin : triple_012\\n                assign state_out[n] = (feedback[0] ^ feedback[1]) ^\\n                                      (feedback[2] ^ shifted_state[n]);\\n            end else if (MASK == 4'b1011) begin : triple_013\\n                assign state_out[n] = (feedback[0] ^ feedback[1]) ^\\n                                      (feedback[3] ^ shifted_state[n]);\\n            end else if (MASK == 4'b1101) begin : triple_023\\n                assign state_out[n] = (feedback[0] ^ feedback[2]) ^\\n                                      (feedback[3] ^ shifted_state[n]);\\n            end else if (MASK == 4'b1110) begin : triple_123\\n                assign state_out[n] = (feedback[1] ^ feedback[2]) ^\\n                                      (feedback[3] ^ shifted_state[n]);\\n            end else begin : other_terms\\n                assign state_out[n] = shifted_state[n] ^\\n                                      (^(feedback & MASK));\\n            end\\n        end\\n    endgenerate\\nendmodule\\n\\n`default_nettype wire\\n\",\n  \"bottleneck\": \"The original independently reduces state and data masks for every output. This can duplicate state/data XOR work and create unnecessarily deep parity paths. The four low state bits and four data bits also participate in many outputs.\",\n  \"rewrite\": \"Factor the four shared feedback terms as state_in[3:0] XOR data_in. For this reflected polynomial, its lowest four coefficients are zero, so these are exactly the four successive feedback values and exactly data_out. Compute state_out as the state shifted right by four XOR the four appropriately shifted reflected-polynomial contributions. Explicitly balance outputs containing three feedback terms with their shifted-state term.\",\n  \"expected_timing_gain\": \"The proposed network has at most three two-input XOR levels from an input to an output before mapping and buffering. Factoring feedback removes duplicated parity work, and balancing the three-feedback cases avoids an additional serial XOR level. Actual maximum-arrival improvement requires the specified SKY130HD mapping and STA; no measured timing result is claimed.\",\n  \"area_or_other_cost\": \"Uses four shared feedback XORs and a compact constant-selected XOR network, with no storage or runtime selection logic. Sharing may require fanout buffering. The area cap and electrical checks require implementation-tool verification; no measured area result is claimed.\",\n  \"functional_boundaries\": \"Complete combinational implementation of the fixed, parameterless pw_crc32_d4 interface. Preserves unsigned port widths, arbitrary binary state_in and data_in behavior, and both output buses. No initialization, final CRC inversion, state restrictions, added latency, latches, memories, or helper modules are introduced.\"\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5021,
+    "completion_tokens": 1661,
+    "total_tokens": 7417
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 925,
+    "usage_reported": true
+  }
+}

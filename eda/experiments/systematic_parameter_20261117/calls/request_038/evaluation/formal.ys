@@ -1,0 +1,18 @@
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/inputs/alu64.v"
+chparam -set WIDTH 64 pw_alu
+hierarchy -check -top pw_alu
+flatten
+rename pw_alu pw_gold
+design -stash pw_gold_design
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_038/candidate.v"
+chparam -set WIDTH 64 pw_alu
+hierarchy -check -top pw_alu
+flatten
+rename pw_alu pw_cand
+design -stash pw_cand_design
+design -reset
+design -copy-from pw_gold_design pw_gold
+design -copy-from pw_cand_design pw_cand
+read_verilog -formal -sv "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_038/evaluation/miter.v"
+prep -top pw_miter -flatten
+sat -verify -prove mismatch 0 -show-inputs -timeout 120

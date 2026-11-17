@@ -1,0 +1,24 @@
+Reduce maximum data arrival for module pw_alu, fixed parameter overrides {"WIDTH": 64}. Every input bit is arbitrary binary data and every output bit must match for every input. No state or added latency. CRC state_in is arbitrary; data_out and state_out must both match exactly. Preserve module name, ports, signedness, priority and default behavior, truncation and parameters. No latches, memories, generated clocks, asynchronous reset, includes, file access, formal assumptions, assertions or undefined outputs. Supply a complete design including required helper modules. Evaluation uses SKY130HD TT25C1.80V, fixed library/mapping and interface constraints. Clock period for sequential cases is 10.0ns. Original-relative area cap is 13121.834880um2. Source and mapped equivalence, STA and electrical checks must pass. Return exactly one JSON object with six string fields candidate_rtl, bottleneck, rewrite, expected_timing_gain, area_or_other_cost, functional_boundaries.
+Original reference RTL:
+// Parameterized adaptation of rtl_opt_upstream_hkust/benchmark/alu_64bit.
+// The sum output retains the original seven operations and zero default.
+module pw_alu #(
+    parameter WIDTH = 64
+)(
+    input wire [WIDTH-1:0] a, b,
+    input wire [2:0] Oper,
+    output reg [WIDTH-1:0] sum
+);
+    always @* begin
+        case (Oper)
+            3'b000: sum = a + b;
+            3'b001: sum = a - b;
+            3'b010: sum = b - a;
+            3'b011: sum = a | b;
+            3'b100: sum = a & b;
+            3'b101: sum = a ^ b;
+            3'b110: sum = a ~^ b;
+            default: sum = {WIDTH{1'b0}};
+        endcase
+    end
+endmodule

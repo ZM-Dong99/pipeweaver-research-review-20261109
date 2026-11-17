@@ -1,0 +1,106 @@
+{
+  "status": "CONSERVATIVE_RTL_OPERATOR_CONE_FOUND",
+  "meaning": "These RTLIL operator cells have structural bit dependencies from the STA start bit to the STA end bit. This is a conservative cone, not proof that every listed cell is on the exact mapped timing path.",
+  "top": "pw_crc32_d4",
+  "sta_startpoint": "data_in[0] (input port clocked by virtual_clk)",
+  "sta_endpoint": "state_out[5] (output port clocked by virtual_clk)",
+  "start_net_aliases": [
+    "data_in[0]"
+  ],
+  "end_net_aliases": [
+    "state_out[5]"
+  ],
+  "rtl_operator_cells_on_possible_cone_paths": 3,
+  "source_attributed_selected_cells": 3,
+  "source_attribution_coverage": 1.0,
+  "coverage_scope": "Source attributes among the selected pre-ABC supported RTLIL cells only; this is not mapped-gate localization accuracy.",
+  "rtl_source_locations": [
+    "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_034/evaluation/candidate/elaborated.v:26.14-26.37",
+    "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_034/evaluation/candidate/elaborated.v:28.17-28.28",
+    "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_034/evaluation/candidate/elaborated.v:29.25-29.43"
+  ],
+  "candidate_cells": [
+    {
+      "cell": "$xor$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_034/evaluation/candidate/elaborated.v:26$1",
+      "type": "$xor",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_034/evaluation/candidate/elaborated.v:26.14-26.37",
+      "line": 26
+    },
+    {
+      "cell": "$xor$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_034/evaluation/candidate/elaborated.v:28$3",
+      "type": "$xor",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_034/evaluation/candidate/elaborated.v:28.17-28.28",
+      "line": 28
+    },
+    {
+      "cell": "$xor$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_034/evaluation/candidate/elaborated.v:29$4",
+      "type": "$xor",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_034/evaluation/candidate/elaborated.v:29.25-29.43",
+      "line": 29
+    }
+  ],
+  "shortest_structural_dependency_path": [
+    {
+      "from_bit": 2,
+      "to_bit": 38,
+      "cell": "$xor$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_034/evaluation/candidate/elaborated.v:26$1",
+      "type": "$xor",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_034/evaluation/candidate/elaborated.v:26.14-26.37",
+      "line": 26,
+      "input_port": "B",
+      "input_bit": 0,
+      "output_port": "Y",
+      "output_bit": 0,
+      "from_net_aliases": [
+        "data_in[0]"
+      ],
+      "to_net_aliases": [
+        "f[0]",
+        "data_out[0]"
+      ]
+    },
+    {
+      "from_bit": 38,
+      "to_bit": 69,
+      "cell": "$xor$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_034/evaluation/candidate/elaborated.v:28$3",
+      "type": "$xor",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_034/evaluation/candidate/elaborated.v:28.17-28.28",
+      "line": 28,
+      "input_port": "A",
+      "input_bit": 0,
+      "output_port": "Y",
+      "output_bit": 0,
+      "from_net_aliases": [
+        "f[0]",
+        "data_out[0]"
+      ],
+      "to_net_aliases": [
+        "_00_"
+      ]
+    },
+    {
+      "from_bit": 69,
+      "to_bit": 45,
+      "cell": "$xor$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_034/evaluation/candidate/elaborated.v:29$4",
+      "type": "$xor",
+      "src": "D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_034/evaluation/candidate/elaborated.v:29.25-29.43",
+      "line": 29,
+      "input_port": "B",
+      "input_bit": 0,
+      "output_port": "Y",
+      "output_bit": 0,
+      "from_net_aliases": [
+        "_00_"
+      ],
+      "to_net_aliases": [
+        "state_out[5]"
+      ]
+    }
+  ],
+  "structural_path_edge_count": 3,
+  "all_possible_cone_edge_count": 3,
+  "chain_warning": "One shortest structural dependency chain, not the longest mapped timing path. Synthesis may restructure the source arithmetic; do not infer mapped serial adder depth from RTL adder count.",
+  "supported_cells_modeled": 40,
+  "unsupported_cell_types": {},
+  "precision": "BIT_LEVEL_CONSERVATIVE; unknown cell types are omitted. Add/sub carry or borrow may depend on lower operand bits. Mux/decoder dependencies are potential dependencies, not proof of path sensitization or mapped timing depth."
+}

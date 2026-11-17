@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-d84580e4-3942-4791-87a3-9d1e43f072c7",
+  "model": "gpt-6.1-sol",
+  "created": 1794902238,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Building reflection masks**\n\n**Balancing correction masks**\n\n**Implementing mask function**\n\n</think>\n\n{\n  \"candidate_rtl\": \"module pw_crc32_d8 (\\n    input  wire [7:0]  data_in,\\n    input  wire [31:0] state_in,\\n    output wire [7:0]  data_out,\\n    output wire [31:0] state_out\\n);\\n\\n    // Factor the matching data and low-state columns of the CRC matrix.\\n    wire [7:0] byte_mix;\\n    assign byte_mix = data_in ^ state_in[7:0];\\n\\n    // Constant elaboration-time calculation of the reflected CRC matrix.\\n    // Each register holds a symbolic mask over byte_mix, not runtime state.\\n    function [7:0] crc_mask;\\n        input integer index;\\n        reg [7:0] s [0:31];\\n        reg [7:0] d [0:7];\\n        reg [7:0] feedback;\\n        integer i;\\n        integer j;\\n        begin\\n            for (j = 0; j < 32; j = j + 1)\\n                s[j] = 8'b0;\\n            for (i = 0; i < 8; i = i + 1) begin\\n                feedback = s[0] ^ (8'b00000001 << i);\\n                d[i] = feedback;\\n                for (j = 0; j < 31; j = j + 1)\\n                    s[j] = s[j+1];\\n                s[31] = 8'b0;\\n                for (j = 0; j < 32; j = j + 1)\\n                    if ((32'hedb88320 >> j) & 32'b1)\\n                        s[j] = s[j] ^ feedback;\\n            end\\n            if (index < 32)\\n                crc_mask = s[index];\\n            else\\n                crc_mask = d[index-32];\\n        end\\n    endfunction\\n\\n    genvar n;\\n    generate\\n        for (n = 0; n < 32; n = n + 1) begin : state_bits\\n            localparam [7:0] MASK = crc_mask(n);\\n            wire correction;\\n            assign correction = ^(byte_mix & MASK);\\n            if (n < 24) begin : shifted_state\\n                assign state_out[n] = state_in[n+8] ^ correction;\\n            end else begin : correction_only\\n                assign state_out[n] = correction;\\n            end\\n        end\\n        for (n = 0; n < 8; n = n + 1) begin : data_bits\\n            localparam [7:0] MASK = crc_mask(32+n);\\n            assign data_out[n] = ^(byte_mix & MASK);\\n        end\\n    endgenerate\\nendmodule\\n\",\n  \"bottleneck\": \"The original implementation independently reduces selected data and state bits for each output. Those expanded parity cones can incur excessive XOR depth and duplicate work, particularly when matching low-state and data contributions are not factored before mapping.\",\n  \"rewrite\": \"Precompute byte_mix = data_in XOR state_in[7:0], then express both outputs as constant parity matrices over these eight signals. State outputs additionally include the untouched state_in >> 8 contribution. The masks are calculated at elaboration using reflected polynomial 0xedb88320; no runtime serial CRC chain or helper module is required.\",\n  \"expected_timing_gain\": \"The factored structure permits one initial XOR level, at most three balanced parity levels, and at most one final shifted-state XOR level. This should reduce maximum arrival if the reference mapping retains deeper expanded parity cones. Actual SKY130HD timing improvement requires mapping and STA; no measured gain is claimed.\",\n  \"area_or_other_cost\": \"Shares eight input XORs across all output cones and limits each correction parity to eight possible operands. This is expected to reduce duplicated XOR logic, although byte_mix fanout may require buffering. Compliance with the 2719.608320 um2 area cap and electrical constraints remains subject to implementation checks.\",\n  \"functional_boundaries\": \"Preserves the fixed, parameterless pw_crc32_d8 interface and unsigned port widths. Implements eight LSB-first Galois CRC steps for arbitrary binary data_in and arbitrary state_in, without initialization assumptions, inversion, state, or latency. data_out contains the actual per-step feedback bits, including earlier-feedback contributions, rather than merely byte_mix. The symbolic arrays exist only inside a constant elaboration function and infer no memories. No latches, clocks, resets, assertions, or undefined outputs are introduced.\"\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 5021,
+    "completion_tokens": 1515,
+    "total_tokens": 7052
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 998,
+    "usage_reported": true
+  }
+}

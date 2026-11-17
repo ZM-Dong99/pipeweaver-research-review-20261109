@@ -1,0 +1,26 @@
+{
+  "id": "chatcmpl-a7fbf1d2-98b2-4c6d-b519-c0a79f4486c1",
+  "model": "gpt-6.1-sol",
+  "created": 1794900607,
+  "object": "chat.completion",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "<think>**Constructing fixed CRC masks**\n\n**Generating CRC mask table**\n\n</think>\n\n{\n  \"candidate_rtl\": \"`timescale 1ns / 1ps\\n`default_nettype none\\n\\nmodule pw_crc32_d8 (\\n    input  wire [7:0]  data_in,\\n    input  wire [31:0] state_in,\\n    output wire [7:0]  data_out,\\n    output wire [31:0] state_out\\n);\\n\\n    // Combine the byte with the corresponding current-state bits before\\n    // distributing it through the parallel CRC transformation.\\n    wire [7:0] q;\\n    assign q = data_in ^ state_in[7:0];\\n\\n    // Constant coefficient row for eight reflected CRC32 shifts.\\n    // This function runs at elaboration; it does not infer a serial datapath.\\n    function [7:0] crc_row;\\n        input integer row;\\n        reg [31:0] c;\\n        integer k;\\n        integer j;\\n        begin\\n            crc_row = 8'b0;\\n            for (k = 0; k < 8; k = k + 1) begin\\n                c = 32'h00000001 << k;\\n                for (j = 0; j < 8; j = j + 1) begin\\n                    c = (c >> 1) ^ (32'hedb88320 & {32{c[0]}});\\n                end\\n                crc_row[k] = c[row];\\n            end\\n        end\\n    endfunction\\n\\n    wire [31:0] shifted_state;\\n    assign shifted_state = {8'b0, state_in[31:8]};\\n\\n    genvar n;\\n    generate\\n        for (n = 0; n < 32; n = n + 1) begin : output_rows\\n            localparam [7:0] MASK = crc_row(n);\\n            wire [7:0] terms;\\n            wire [3:0] level1;\\n            wire [1:0] level2;\\n            assign terms = q & MASK;\\n            assign level1[0] = terms[0] ^ terms[1];\\n            assign level1[1] = terms[2] ^ terms[3];\\n            assign level1[2] = terms[4] ^ terms[5];\\n            assign level1[3] = terms[6] ^ terms[7];\\n            assign level2[0] = level1[0] ^ level1[1];\\n            assign level2[1] = level1[2] ^ level1[3];\\n            assign state_out[n] = (level2[0] ^ level2[1]) ^ shifted_state[n];\\n        end\\n    endgenerate\\n\\n    // Actual feedback bits shifted out during the eight iterations.\\n    // The reflected polynomial's lowest set bit is bit five, so the\\n    // first two feedback bits reappear in feedback positions six and seven.\\n    assign data_out[5:0] = q[5:0];\\n    assign data_out[6] = q[6] ^ q[0];\\n    assign data_out[7] = q[7] ^ q[1];\\n\\nendmodule\\n\\n`default_nettype wire\\n\",\n  \"bottleneck\": \"The reference distributes individual data and state bits into wide parity expressions. Its measured critical paths contain input buffering followed by several mapped parity-related logic stages, with maximum arrival of 0.97 ns.\",\n  \"rewrite\": \"Factor the eight common data_in[i] XOR state_in[i] terms before the CRC matrix. Apply constant eight-bit coefficient rows using balanced parity trees, then XOR the unaffected shifted state contribution. Preserve data_out as the exact sequence of feedback bits rather than passing through the input byte.\",\n  \"expected_timing_gain\": \"The factoring reduces parity input count and raw-input fanout, targeting a shorter mapped critical path than 0.97 ns. No synthesis or STA run was available here, so an actual timing improvement is not verified.\",\n  \"area_or_other_cost\": \"Eight shared input XORs replace repeated data/state contributions throughout the output equations. Area should benefit from this sharing, although buffering and mapper restructuring can change the result. Compliance with the 2719.608320 um2 cap and electrical limits requires evaluation.\",\n  \"functional_boundaries\": \"Complete combinational implementation of the fixed, parameterless pw_crc32_d8 interface. All ports remain unsigned with unchanged widths. Both outputs are defined for every binary input, including arbitrary state_in. Implements reflected polynomial 32'hedb88320, equivalent to the reference's reversed 32'h04c11db7 Galois configuration, without initialization or final inversion. No state, latency, memories, clocks, assumptions, or runtime file access are introduced.\"\n}"
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 6648,
+    "completion_tokens": 1558,
+    "total_tokens": 8722
+  },
+  "stream_audit": {
+    "complete": true,
+    "json_events": 1040,
+    "usage_reported": true
+  }
+}

@@ -14,7 +14,7 @@ DEFAULT_STUDY=ROOT/'eda/experiments/systematic_engineering_20261116_v3'
 
 
 def compare(actual,expected):
-    keys=('status','formal','mapped_formal','ppa','mapped_area_um2','max_data_arrival_ns','wns_ns','tns_ns')
+    keys=('status','formal','mapped_formal','ppa','eligible','mapped_area_um2','max_data_arrival_ns','wns_ns','tns_ns')
     return {key:actual.get(key)==expected.get(key) for key in keys if key in expected}
 
 
@@ -70,6 +70,15 @@ def verify(study):
                 or not all(row['expected']==row['actual'] for row in result['controls'])):
             errors.append('Accepted-candidate definedness audit incomplete')
     archive=ROOT if (ROOT/'MANIFEST.json').is_file() else ROOT/'output/teacher_review_20261109'
+    parameter=ROOT/'eda/experiments/systematic_parameter_20261117'
+    parameter_result=None
+    if (parameter/'ANALYSIS.json').is_file():
+        from eda.experiments.analyze_parameter_study import summarize as summarize_parameters
+        recomputed=summarize_parameters(parameter)
+        parameter_result=dict(attempted=recomputed['attempted'],improvements=recomputed['improvements'],
+                              combined_saved_response_ids=recomputed['combined_saved_response_ids'])
+        if recomputed!=load(parameter/'ANALYSIS.json'):
+            errors.append('Parameter analysis differs from raw-record recomputation')
     archive_result=None
     if (archive/'tools/verify.py').is_file():
         result=subprocess.run([sys.executable,'-B',str(archive/'tools/verify.py')],
@@ -78,10 +87,10 @@ def verify(study):
         if result.returncode or not archive_result.get('passed'):
             errors.append('Historical archive verification failed')
     return dict(passed=not errors,systematic_cases=len(protocol['cases']),candidate_hashes_checked=checks,
-                historical_archive=archive_result,failures=errors,model_requests=0)
+                historical_archive=archive_result,parameter_study=parameter_result,failures=errors,model_requests=0)
 
 
-def systematic_replay(study,out,include_candidates,limit,selected_cases=None):
+def systematic_replay(study,out,include_candidates,limit,selected_cases=None,check_definedness=False):
     protocol=verify_protocol(study)
     out.mkdir(parents=True,exist_ok=False)
     results=[]
@@ -109,7 +118,28 @@ def systematic_replay(study,out,include_candidates,limit,selected_cases=None):
             source=path.parent/'candidate.v'
             key=(case['id'],sha(source))
             if key not in cache:
-                cache[key]=evaluate(source,study/case['input'],case,out/'candidates'/path.parent.name)
+                evaluation=out/'candidates'/path.parent.name
+                metrics=evaluate(source,study/case['input'],case,evaluation)
+                if check_definedness:
+                    from eda.experiments.run_systematic_study import eligible
+                    from eda.experiments.check_multicircuit_definedness import prove as prove_defined
+                    if eligible(case,metrics):
+                        try:
+                            proof_source=source
+                            schema=evaluation/'candidate_schema.json'
+                            parameters=case['parameters']
+                            if case['backend']=='crc_slang':
+                                proof_source=evaluation/'candidate/elaborated.v'
+                                schema=evaluation/'candidate/source.json'
+                                parameters={}
+                            ports=load(schema)['modules'][case['top']]['ports']
+                            defined=prove_defined(proof_source,case['top'],parameters,ports,
+                                                  out/'definedness'/path.parent.name)
+                            if not defined['passed']:
+                                metrics=dict(metrics,eligible=False,stage='definedness')
+                        except Exception as error:
+                            metrics=dict(status='INCOMPLETE',stage='evaluator',error_type=type(error).__name__)
+                cache[key]=metrics
             metrics=cache[key]
             results.append(dict(case=case['id'],kind='candidate',request=path.parent.name,
                 comparisons=compare(metrics,row['metrics']),metrics=metrics))
@@ -158,15 +188,16 @@ def recent_replay(out,limit):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('mode',choices=('verify','baselines','systematic','recent','all'))
-    parser.add_argument('--study',type=Path,default=DEFAULT_STUDY)
+    parser.add_argument('mode',choices=('verify','baselines','systematic','parameter','recent','all'))
+    parser.add_argument('--study',type=Path)
     parser.add_argument('--out',type=Path)
     parser.add_argument('--limit',type=int,default=0,help='Optional candidate limit; zero replays all saved candidates')
     parser.add_argument('--case',action='append',default=[],help='Restrict systematic replay to a case ID; repeatable')
     args=parser.parse_args()
     if args.limit<0:
         parser.error('Limit must be nonnegative')
-    study=args.study.resolve()
+    default_study=ROOT/'eda/experiments/systematic_parameter_20261117' if args.mode=='parameter' else DEFAULT_STUDY
+    study=(args.study or default_study).resolve()
     if args.mode=='verify':
         result=verify(study)
     else:
@@ -176,8 +207,8 @@ def main():
         if args.mode=='baselines':
             prepare(out)
             result=qualify(out,[],2)
-        elif args.mode=='systematic':
-            result=systematic_replay(study,out,True,args.limit,args.case)
+        elif args.mode in ('systematic','parameter'):
+            result=systematic_replay(study,out,True,args.limit,args.case,args.mode=='parameter')
         elif args.mode=='recent':
             result=recent_replay(out,args.limit)
         else:

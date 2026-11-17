@@ -1,0 +1,365 @@
+
+-- Executing script file `D:\verilog_lab\PipeWeaver\eda\experiments\systematic_parameter_20261117\calls\request_020\definedness\definedness.ys' --
+
+1. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v' to AST representation.
+Generating RTLIL representation for module `\pw_alu'.
+Generating RTLIL representation for module `\pw_alu_carry'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/definedness/definedness.v
+Parsing formal SystemVerilog input from `D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/definedness/definedness.v' to AST representation.
+Generating RTLIL representation for module `\pw_definedness'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \pw_definedness
+Used module:     \pw_alu
+Used module:         \pw_alu_carry
+Parameter \WIDTH = 64
+
+3.1.2. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_alu_carry'.
+Parameter \WIDTH = 64
+Generating RTLIL representation for module `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000001000000'.
+Parameter \WIDTH = 64
+Found cached RTLIL representation for module `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000001000000'.
+Parameter \WIDTH = 64
+Found cached RTLIL representation for module `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000001000000'.
+Parameter \WIDTH = 16
+
+3.1.3. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_alu'.
+Parameter \WIDTH = 16
+Generating RTLIL representation for module `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000'.
+
+3.1.4. Analyzing design hierarchy..
+Top module:  \pw_definedness
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000
+Used module:         \pw_alu_carry
+Parameter \WIDTH = 16
+
+3.1.5. Executing AST frontend in derive mode using pre-parsed AST for module `\pw_alu_carry'.
+Parameter \WIDTH = 16
+Generating RTLIL representation for module `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000'.
+Parameter \WIDTH = 16
+Found cached RTLIL representation for module `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000'.
+Parameter \WIDTH = 16
+Found cached RTLIL representation for module `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000'.
+
+3.1.6. Analyzing design hierarchy..
+Top module:  \pw_definedness
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000
+Used module:         $paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000
+
+3.1.7. Analyzing design hierarchy..
+Top module:  \pw_definedness
+Used module:     $paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000
+Used module:         $paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000
+Removing unused module `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000001000000'.
+Removing unused module `\pw_alu_carry'.
+Removing unused module `\pw_alu'.
+Removed 3 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 25 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:36$1558'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:86$1719'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:85$1717'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:86$1714'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:85$1712'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:90$1711'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:89$1710'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:90$1709'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:89$1708'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:86$1705'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:85$1703'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:86$1700'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:85$1698'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:86$1695'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:85$1693'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:90$1692'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:89$1691'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:77$1681'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:76$1679'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:77$1669'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:76$1667'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:77$1657'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:76$1655'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:77$1645'.
+Creating decoders for process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:76$1643'.
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.\sum' from process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:36$1558'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bg[2] [3]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:86$1719'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bp[2] [3]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:85$1717'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bg[2] [2]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:86$1714'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bp[2] [2]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:85$1712'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bg[2] [1]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:90$1711'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bp[2] [1]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:89$1710'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bg[2] [0]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:90$1709'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bp[2] [0]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:89$1708'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bg[1] [3]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:86$1705'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bp[1] [3]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:85$1703'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bg[1] [2]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:86$1700'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bp[1] [2]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:85$1698'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bg[1] [1]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:86$1695'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bp[1] [1]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:85$1693'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bg[1] [0]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:90$1692'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bp[1] [0]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:89$1691'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bg[0] [3]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:77$1681'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bp[0] [3]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:76$1679'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bg[0] [2]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:77$1669'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bp[0] [2]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:76$1667'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bg[0] [1]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:77$1657'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bp[0] [1]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:76$1655'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bg[0] [0]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:77$1645'.
+No latch inferred for signal `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.\bp[0] [0]' from process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:76$1643'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:36$1558'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:86$1719'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:85$1717'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:86$1714'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:85$1712'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:90$1711'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:89$1710'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:90$1709'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:89$1708'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:86$1705'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:85$1703'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:86$1700'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:85$1698'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:86$1695'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:85$1693'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:90$1692'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:89$1691'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:77$1681'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:76$1679'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:77$1669'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:76$1667'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:77$1657'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:76$1655'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:77$1645'.
+Removing empty process `$paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.$proc$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:76$1643'.
+Cleaned up 0 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+Optimizing module $paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.
+<suppressed ~1 debug messages>
+Optimizing module $paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.
+
+3.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod\pw_alu\WIDTH=s32'00000000000000000000000000010000.
+Deleting now unused module $paramod\pw_alu_carry\WIDTH=s32'00000000000000000000000000010000.
+<suppressed ~4 debug messages>
+
+3.4. Executing FUTURE pass.
+
+3.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+<suppressed ~24 debug messages>
+
+3.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+Removed 54 unused cells and 242 unused wires.
+<suppressed ~55 debug messages>
+
+3.7. Executing CHECK pass (checking for obvious problems).
+Checking module pw_definedness...
+Found and reported 0 problems.
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 334 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Computing hashes of 300 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Computing hashes of 291 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Computing hashes of 290 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+<suppressed ~132 debug messages>
+Removed a total of 44 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_definedness..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_definedness.
+Performed a total of 0 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 290 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Removed a total of 0 cells.
+
+3.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+Removed 0 unused cells and 38 unused wires.
+<suppressed ~1 debug messages>
+
+3.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \pw_definedness..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \pw_definedness.
+Performed a total of 0 changes.
+
+3.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 290 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Removed a total of 0 cells.
+
+3.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+
+3.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.8.14. Finished fast OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 3) from port B of cell pw_definedness.$flatten\dut.$eq$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:31$1554 ($eq).
+Removed top 1 bits (of 3) from port B of cell pw_definedness.$flatten\dut.$eq$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:30$1553 ($eq).
+Removed top 2 bits (of 3) from port B of cell pw_definedness.$flatten\dut.$eq$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:29$1552 ($eq).
+Removed top 1 bits (of 16) from port Y of cell pw_definedness.$flatten\dut.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:12$1547 ($and).
+Removed top 1 bits (of 16) from port A of cell pw_definedness.$flatten\dut.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:12$1547 ($and).
+Removed top 1 bits (of 16) from port B of cell pw_definedness.$flatten\dut.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:12$1547 ($and).
+Removed top 1 bits (of 16) from port Y of cell pw_definedness.$flatten\dut.$not$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:12$1546 ($not).
+Removed top 1 bits (of 16) from port A of cell pw_definedness.$flatten\dut.$not$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:12$1546 ($not).
+Removed top 1 bits (of 16) from port Y of cell pw_definedness.$flatten\dut.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:11$1545 ($and).
+Removed top 1 bits (of 16) from port A of cell pw_definedness.$flatten\dut.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:11$1545 ($and).
+Removed top 1 bits (of 16) from port B of cell pw_definedness.$flatten\dut.$and$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:11$1545 ($and).
+Removed top 1 bits (of 16) from port Y of cell pw_definedness.$flatten\dut.$not$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:11$1544 ($not).
+Removed top 1 bits (of 16) from port A of cell pw_definedness.$flatten\dut.$not$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:11$1544 ($not).
+Removed top 1 bits (of 16) from wire pw_definedness.$flatten\dut.$not$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:12$1546_Y.
+Removed top 1 bits (of 16) from wire pw_definedness.$flatten\dut.$not$D:/verilog_lab/PipeWeaver/eda/experiments/systematic_parameter_20261117/calls/request_020/candidate.v:11$1544_Y.
+
+3.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+3.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.12. Executing OPT pass (performing simple optimizations).
+
+3.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module pw_definedness.
+
+3.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\pw_definedness'.
+Computing hashes of 290 cells of `\pw_definedness'.
+Finding duplicate cells in `\pw_definedness'.
+Removed a total of 0 cells.
+
+3.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \pw_definedness..
+
+3.12.4. Finished fast OPT passes.
+
+3.13. Executing SORT pass.
+
+3.14. Printing statistics.
+
+=== pw_definedness ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      270 wires
+     1087 wire bits
+       69 public wires
+      661 public wire bits
+        4 ports
+       36 port bits
+      290 cells
+      147   $and
+        6   $eq
+        1   $logic_not
+        1   $nex
+        3   $not
+      118   $or
+        5   $reduce_and
+        1   $reduce_xor
+        4   $scopeinfo
+        4   $xor
+
+3.15. Executing CHECK pass (checking for obvious problems).
+Checking module pw_definedness...
+Found and reported 0 problems.
+
+4. Executing SAT pass (solving SAT problems in the circuit).
+Using SAT solver `minisat`.
+
+Setting up SAT problem:
+Final constraint equation: { } = { }
+Import def constraint for this timestep: \pw_signal_2
+Import def constraint for this timestep: \pw_signal_0
+Import def constraint for this timestep: \pw_signal_1
+Imported 290 cells to SAT database.
+Import proof-constraint: \defined = 1'1
+Final proof equation: \defined = 1'1
+Import show expression: \pw_signal_0
+Import show expression: \pw_signal_1
+Import show expression: \pw_signal_2
+
+Solving problem with 11267 variables and 29824 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+
+End of script. Logfile hash: 851f43b374
+Yosys 0.68+136 (git sha1 c30457480-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 6x opt_expr (0 sec), 3% 5x opt_clean (0 sec), ...
